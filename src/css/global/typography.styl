@@ -1,0 +1,76 @@
+$base-font-size = 14px
+$base-line-height = 1.2
+
+$base-font-family = 'Lato'
+$small-font-size = 10px
+
+$h1-font-size = 24px
+$h1-font-weight = 700
+$h1-margin = 1.4em 0 .9em
+
+$h2-font-size = 24px
+$h2-font-weight = 400
+$h2-margin = 1.05em 0 .9em
+
+$h3-font-size = 18px
+$h3-font-weight = 700
+$h3-margin = 1.4em 0 1.133em
+
+$h4-font-size = 18px
+$h4-font-weight = 400
+$h4-margin = 1.4em 0 1.133em
+
+$h5-font-size = 16px
+$h5-font-weight = 400
+$h5-margin = 1.575em 0 1.425em
+
+$h6-font-size = 14px
+$h6-font-weight = 400
+$h6-margin = 1.2em 0
+
+
+body
+    font-family $base-font-family, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, sans-serif
+    font-size $base-font-size
+    line-height $base-line-height
+    -ms-text-size-adjust 100%
+    -webkit-text-size-adjust 100%
+
+p
+    margin: $base-font-size * $base-line-height 0
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6
+    &:first-child
+        margin-top 0
+
+
+h1, .h1
+    font-size $h1-font-size
+    font-weight $h1-font-weight
+    margin: $h1-margin
+
+h2, .h1
+    font-size $h2-font-size
+    font-weight $h2-font-weight
+    margin: $h2-margin
+
+h3, .h1
+    font-size $h3-font-size
+    font-weight $h3-font-weight
+    margin: $h3-margin
+
+h4, .h1
+    font-size $h4-font-size
+    font-weight $h4-font-weight
+    margin: $h4-margin
+
+h5, .h1
+    font-size $h5-font-size
+    font-weight $h5-font-weight
+    margin: $h5-margin
+
+h6, .h1
+    font-size $h6-font-size
+    font-weight $h6-font-weight
+    margin: $h6-margin

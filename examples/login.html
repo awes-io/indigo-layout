@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css">
+    <title>AWES CRM Layout</title>
+    <script>AWES_CONFIG = { modules: [ '/js/main.js' ] }</script>
+    <script type="module" src="/test-core/main.js" async defer></script>
+    <script nomodule src="/test-core/main.fallback.js" async defer></script>
+</head>
+
+<body>
+    <div class="awes-app" id="awes-app">
+        <p>Test login</p>
+        <notifications class="notifications_rb" group="bottom-right" position="bottom right"><template slot="body" slot-scope="props">
+                <div class="vue-notification" :class="props.item.type">
+                    <div class="vue-notification__wrap"><i class="icon icon-circle-check vue-notification__left-icon"></i><span class="vue-notification__title">{{ props.item.title }}</span><span class="vue-notification__text" v-html="props.item.text"></span><button class="vue-notification__close" @click.prevent="props.close"><i class="icon icon-cross"></i></button></div>
+                </div>
+            </template></notifications>
+        <notifications class="notifications_header" group="undo" width="360px" position="top center"><template slot="body" slot-scope="props">
+                <div class="vue-notification vue-notification_content" :class="props.item.type"><span class="vue-notification__animation" :style="{animationDuration: props.item.length + 'ms'}"></span>
+                    <div class="vue-notification__wrap"><span class="title">{{props.item.title}}</span></span><button class="vue-notification__btn vue-notification__btn_mleft" @click.prevent=""><strong>UNDO</strong></button><button class="vue-notification__close" @click.prevent="props.close"><i class="icon icon-cross"></i></button></div>
+                </div>
+            </template></notifications>
+    </div>
+</body>
+
+</html>

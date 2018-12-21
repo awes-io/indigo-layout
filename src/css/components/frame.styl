@@ -1,0 +1,142 @@
+$frame-aside-width ?= 260px
+$frame-aside-z-index ?= 100
+$frame-content-padding ?= 30px 40px
+$frame-header-height ?= 110px
+$frame-nav-item-height ?= 60px
+$frame-nav-item-padding ?= 10px 30px
+
+// Placeholder
+frame-wrapper
+    fl()
+    min-height 100vh
+
+frame-nav
+    background var(--nav-background)
+    color var(--nav-color)
+    width $frame-aside-width
+    min-height 100vh
+    padding-top $frame-header-height
+    position relative
+
+    &:before
+        fl(w,c,c)
+        width 100%
+        background-color rgba(0,0,0,0.3)
+        content attr(title)
+        absolute top 0 left 0
+        min-height $frame-header-height
+        font-size $h1-font-size
+        font-weight $h1-font-weight
+
+frame-nav-item
+    display flex
+    align-items: center
+    width 100%
+    height $frame-nav-item-height
+    padding: 0 10%
+
+    &:before
+        content: ''
+        display: block
+        height: 1.5em
+        width: 1.5em
+        background-color: currentColor
+        opacity: .2
+        border-radius: 50%
+        margin-right: 10%
+    
+    &:after
+        display: block
+        height: 1em
+        width: 80%
+        content: attr(title)
+    
+    ul
+        display: none
+
+// Style
+.frame
+    fl()
+    min-height 100vh
+
+    &__aside
+        background var(--nav-background)
+        width $frame-aside-width
+        min-height 100vh
+        color var(--nav-color)
+        flex-shrink 0
+        z-index $frame-aside-z-index
+        position relative
+
+    &__aside-nav,
+    &__aside-nav ul
+        margin: 0
+        padding: 0
+
+    &__nav-item
+        position: relative
+
+        a, 
+        button
+            fl(w,,c)
+            width: 100%
+            color inherit
+            opacity .4
+            transition opacity $base-transition
+            padding $frame-nav-item-padding
+
+            &:hover,
+            &:focus
+                text-decoration: none
+                color: inherit
+                opacity: 1
+
+        > a,
+        > button
+            min-height $frame-nav-item-height
+
+        ul > li > a
+            padding-left: $xlarge-gap
+
+        &.has-submenu
+            padding-right: $xlarge-gap
+
+            &:before
+                content: ''
+                display: block
+                border-bottom: 1px solid currentColor
+                border-left: 1px solid currentColor
+                width: .5em
+                height: .5em
+                absolute right 25px top 30px
+                transform: translate(50%, -50%) rotate(-45deg)
+                transition: transform $base-transition
+            
+            &.is-opened
+                &:before
+                    transform: translate(50%, -50%) rotate(-225deg)
+
+
+    &__aside-top
+        fl(w,c,c)
+        text-align: center
+        padding: $base-gap
+        background-color: rgba(0,0,0,0.3)
+        min-height: $frame-header-height
+        font-size: $h1-font-size
+        font-weight: $h1-font-weight
+
+    &__right
+        background: var(--ui-background-secondary)
+        width "calc(100% - %s)" % $frame-aside-width
+        position relative
+
+
+    &__header
+        background: var(--ui-background)
+        min-height $frame-header-height
+        position relative
+
+
+    &__content
+        padding: $frame-content-padding
