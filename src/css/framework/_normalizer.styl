@@ -1,0 +1,136 @@
+if(responsive == false)
+  *
+    max-height 99999px
+
+  html
+    -webkit-text-size-adjust none
+    touch-action: manipulation
+
+  .mainwrapper
+    min-width wrapper
+
+
+// Normalizer
+body
+  min-width 300px
+  padding 0
+
+b, strong
+  font-weight 700
+
+table
+  border-collapse collapse
+
+input
+  -webkit-appearance: none
+  border-radius 0px
+
+html,body,figure,hr
+  margin 0
+  padding 0
+
+.mainwrapper
+  max-width 2000px
+  width 100%
+  margin-left auto
+  margin-right auto
+  min-height 100vh
+  min-width 300px
+  overflow hidden
+  box-sizing border-box
+  *
+    box-sizing border-box
+    -webkit-tap-highlight-color transparent
+    outline none
+
+input,button,textarea,select,option
+  outline none !important
+  border-radius 0
+  margin 0
+  box-shadow none
+  -webkit-appearance: none
+  
+button
+  cursor: pointer
+  border: none
+  background: none
+  padding: 0
+  color: inherit
+
+input::-ms-clear
+  display none
+
+input::-webkit-contacts-auto-fill-button
+  opacity 0
+
+textarea::-webkit-contacts-auto-fill-button
+  opacity 0
+
+article,aside,footer,header,nav,section,audio,video,picture
+  display block
+
+img
+  border 0
+  max-width 100%
+  vertical-align top
+
+button,input
+  line-height normal
+
+.owl-item
+  backface-visibility hidden
+  transform: translateZ(0) scale(1.0, 1.0)
+
+button,select
+  text-transform none
+
+button,input[type="button"],input[type="reset"],input[type="submit"],input[type="clear"]
+  cursor pointer
+  -webkit-appearance button
+  cursor pointer
+
+button[disabled],html input[disabled]
+  cursor default
+
+textarea
+  resize none
+
+address
+  font-style normal
+
+button::-moz-focus-inner,input[type="reset"]::-moz-focus-inner,input[type="button"]::-moz-focus-inner,input[type="submit"]::-moz-focus-inner,input[type="file"] > input[type="button"]::-moz-focus-inner
+  padding 0
+  border 0
+
+a, button, input[type='button'], input[type='submit']
+  text-decoration: none
+  transition all 0.3s ease
+  &:active, &:hover, &:focus
+    outline 0
+
+p,h1,h2,h3,h4,h5
+  margin 0
+
+button
+  cursor pointer
+
+input, textarea, button
+  border 0
+
+main
+  display block
+
+ul, ol
+  list-style none
+  margin 0
+  padding 0
+
+ol
+  counter-reset: list
+  li
+    &:before
+      counter-increment: list
+      content: counter(list) ". "
+
+iframe
+  border 0px

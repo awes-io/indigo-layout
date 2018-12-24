@@ -1,0 +1,26 @@
+mixin linkaside(title, image)
+  li.frame__aside-li
+    a.frame__aside-link(href="")
+      i.icon
+      span= title
+
+.frame__aside#aside
+  .frame__aside-line
+    span.frame__aside-open( :class="{ active: togglenav }" @click="openNav")
+      span
+    h2.frame__aside-title TCA Engineering
+  nav.frame__aside-nav(v-bind:class="{ active: togglenav }")
+    ul.frame__aside-links
+      +linkaside('Allgemeine', 'imagelink')
+      +linkaside('Alle Projekte', 'imagelink')
+      +linkaside('Certification', 'imagelink')
+      li.frame__aside-li
+        a.frame__aside-link.frame__aside-link_active(href="")
+          i.icon
+          span Rechnungen
+      +linkaside('Angebote', 'imagelink')
+      +linkaside('Debitoren', 'imagelink')
+      +linkaside('Kreditoren', 'imagelink')
+      +linkaside('Benutzer', 'imagelink')
+      +linkaside('Einstellungen', 'imagelink')
+    .frame__aside-user

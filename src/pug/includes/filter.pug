@@ -1,0 +1,22 @@
+.filter
+  // left
+  .filter__left
+    .filter__checkbox
+      label.filter__checkbox-cell
+        input.filter__checkbox-hInput(type="radio" name="demo-name")
+        div.filter__checkbox-label Today
+      label.filter__checkbox-cell
+        input.filter__checkbox-hInput(type="radio" checked name="demo-name")
+        div.filter__checkbox-label Yesterday
+      label.filter__checkbox-cell
+        input.filter__checkbox-hInput(type="radio" name="demo-name")
+        div.filter__checkbox-label.filter__checkbox-label_np
+          input.filter__checkbox-datapicker(type="text" placeholder="19.02-24.11")
+  //right
+  .filter__right
+    span.filter__slink 
+      span Sort by
+    span.filter__slink 
+      .icon
+        .icn-dot
+      span Filtrs

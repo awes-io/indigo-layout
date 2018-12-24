@@ -1,0 +1,150 @@
+font-url(file)
+	return '../fonts/' + file
+
+webfont(family, file, weight = 'normal')
+	@font-face
+		font-family family
+		src url(font-url(file + '.eot'))
+		src url(font-url(file + '.eot?#iefix')) format('embedded-opentype'),
+				url(font-url(file + '.woff')) format('woff'), 
+				url(font-url(file + '.ttf')) format('truetype'), 
+				url(font-url(file + '.svg#'+ family)) format('svg')
+		font-weight weight
+		font-style normal
+
+if(responsive == true)
+	wrap(width = wrapper, paddingd = wrap_padding)
+		margin-left auto
+		margin-right auto
+		padding-left paddingd
+		padding-right paddingd
+		max-width width
+else
+	wrap(width = wrapper, paddingd = wrap_padding)
+		margin-left auto
+		margin-right auto
+		padding-left paddingd
+		padding-right paddingd
+		max-width width
+		width width
+
+placeholder(color)
+	&::-webkit-input-placeholder
+		color color
+	&::-moz-placeholder
+		color color
+	&:-ms-input-placeholder
+		color color
+	&:-moz-placeholder
+		color color
+
+fl(ww = 'nowrap', jj = 'flex-start', aa = 'stretch')
+	display flex
+	// wrap
+	if ww == 'n'
+		flex-wrap nowrap
+	else if ww == 'w'
+		flex-wrap wrap
+	else if ww != "nowrap"
+		flex-wrap ww
+
+	// justify content
+	if jj == "fs"
+		justify-content flex-start
+	else if jj == "fe"
+		justify-content flex-end
+	else if jj == "sb"
+		justify-content space-between
+	else if jj == "sa"
+		justify-content space-around
+	else if jj == "c"
+		justify-content center
+	else if jj != 'flex-start'
+		justify-content jj
+
+	// align items
+	if aa == "fs"
+		align-items flex-start
+	else if aa == "fe"
+		align-items flex-end
+	else if aa == "c"
+		align-items center
+	else if aa != "stretch"
+		align-items aa
+
+bg(urls, positionr = 'center center', psr = 'no-repeat')
+	background-image url(pathimg+urls) 
+	if positionr == 'c'
+		background-position center center
+	else if positionr == 'center center'
+		background-position center center	
+	else if positionr == 'lt'
+		background-position left top
+	else if positionr == 'ct'
+		background-position center top
+	else if positionr == 'rt'
+		background-position right top
+	else if positionr == 'lc'
+		background-position left center
+	else if positionr == 'rc'
+		background-position right center
+	else if positionr == 'cc'
+		background-position center center
+	else if positionr == 'lb'
+		background-position left bottom
+	else if positionr == 'rb'
+		background-position right bottom
+	else if positionr == 'cb'
+		background-position center bottom
+	else if positionr == 'cover'
+		background-size cover
+	else if positionr == 'ccc'
+		background-size cover
+		background-position center center
+	else if positionr == 'contain'
+		background-size contain
+	else if positionr != "center center" 
+		background-position positionr
+	if psr == "r"
+		background-repeat repeat
+	else if psr == 'x'
+		background-repeat repeat-x
+	else if psr == 'y'
+		background-repeat repeat-y
+	else if psr == 'no-repeat'
+		background-repeat no-repeat
+
+clear()
+	&:after
+		display table
+		clear both
+		content ""
+
+tr(t, tp = all)
+	transition tp (t)s ease
+
+text(fz = 14px, fw = 400, lh = normal, ls = normal)
+	font-size fz 
+	font-weight fw
+	line-height lh
+	letter-spacing ls
+
+angle()
+	border 3px solid transparent
+	border-top 4px solid #999
+	size 0px
+	display block
+	absolute right 0 top 50%
+	margin-top -2px
+	tr(0.3)
+	content ''
+
+
+for item in gridcolumns
+	@media (max-width (item[0])px)
+		.gc
+			&-{item}
+				for cols in item[1]
+					&__{cols}
+						display block
+						width (100 / cols)%

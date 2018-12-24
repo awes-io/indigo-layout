@@ -4,7 +4,7 @@ export default {
 
     data() {
         return {
-            
+            togglenav: false,
         }
     },
 
@@ -12,6 +12,16 @@ export default {
 
         toggleBodyFix(shouldFix) {
             document.documentElement.classList[shouldFix ? 'add' : 'remove'](BODY_NO_SCROLL_CLASS)
+        },
+
+        openNav() {
+            if(this.togglenav == true) {
+                this.togglenav = false;
+                this.toggleBodyFix(false)
+            } else {
+                this.togglenav = true;
+                this.toggleBodyFix(true)
+            }
         },
 
         notify(text, type = 'success', group = 'bottom-right') {

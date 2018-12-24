@@ -1,0 +1,76 @@
+extends ./includes/base.pug
+
+block body
+    //- awes-frame(title="Best Company Name Ever!")
+    //-     template(slot="menu")
+    //-         awes-menu-item(href="#") Test Item 1
+    //-         awes-menu-item(href="#") Test Item 2
+    //-         awes-menu-item(href="#") Test Item 3
+    //-         awes-menu-item Test Item Collapse
+    //-             template(slot="submenu")
+    //-                 awes-menu-item(href="#") Test Item 1
+    //-                 awes-menu-item(href="#") Test Item 2
+    //-                 awes-menu-item(href="#") Test Item 3
+    //-     h1 Lorem ipsum dolor sit amet.
+    //-     h2 Lorem ipsum dolor sit amet.
+    //-     h3 Lorem ipsum dolor sit amet.
+    //-     h4 Lorem ipsum dolor sit amet.
+    //-     h5 Lorem ipsum dolor sit amet.
+    //-     h6 Lorem ipsum dolor sit amet.
+    //-     button.btn(@click="$root.notify('TEST')") Test Notification
+    //-     a(href="#") Base link
+    #wes-app.mainwrapper
+
+        //- @if(!empty($errors->all()))
+        //-     <header-notification type="error">{{$errors->first()}}</header-notification>
+        //- @endif
+
+        .frame#frame__content
+            .frame__aside#aside
+
+                .frame__aside-line
+                    a(href="" class="frame__aside-open g-res--tablet-lg" :class="{ active: togglenav }" @click.prevent="openNav()")
+                       span
+                    h2.frame__aside-title
+                        span Best Company Name Ever!
+
+                    .frame__aside-usermenu
+                        include includes/user-menu.pug
+
+                .frame__mobile-shadow.g-res--tablet-lg(:class="{ active: togglenav }" @click.prevent="openNav()")
+
+                nav.frame__aside-nav(:class="{ active: togglenav }")
+
+        //-             <div class="frame__aside-mhead g-res--tablet-lg">
+        //-                 <a href="" class="frame__aside-close" @click.prevent="openNav()">
+        //-                     <i class="icon icon-cross"></i>
+        //-                 </a>
+        //-                 <h4 class="frame__aside-mtitle">
+        //-                     <span>{{ $current_instance->name ?? config('app.name') }}</span>
+        //-                 </h4>
+        //-             </div>
+        //- 
+        //-             @include('layouts.chunks.nav')
+        //-         </nav>
+        //-     </div>
+        //-     <div class="frame__right">
+        //-         <div class="frame__header">
+        //- 
+        //-             @include('layouts.chunks.header')
+        //- 
+        //-             <div class="frame__header-line">
+        //-                 <h1 class="frame__header-title">@yield('title')</h1>
+        //-             </div>
+        //- 
+        //-         </div>
+        //-         <div class="frame__content" :class="{'loading-block' : $store.state.table_state}" data-loading="Loading...">
+        //- 
+        //-             @yield('filters')
+        //- 
+        //-             @yield('content')
+        //- 
+        //-         </div>
+        //-     </div>
+        //- </div>
+
+        include includes/notification.pug
