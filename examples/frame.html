@@ -15,41 +15,23 @@
 
 <body>
     <div class="awes-app" id="awes-app">
-        <frame-wrapper>
-            <frame-nav title="Best Company Name Ever!">
-                <frame-nav-item href="#" title="Test Item 1"></frame-nav-item>
-                <frame-nav-item href="#" title="Test Item 2"></frame-nav-item>
-                <frame-nav-item href="#" title="Test Item 3"></frame-nav-item>
-                <frame-nav-item href="#" title="Test Item Collapse">
-                    <ul>
-                        <li> <a href="#">Test Item 1</a></li>
-                        <li> <a href="#">Test Item 2</a></li>
-                        <li> <a href="#">Test Item 3</a></li>
-                    </ul>
-                </frame-nav-item>
-            </frame-nav>
-            <main class="frame__right">
-                <div class="frame__header"></div>
-                <div class="frame__content">
-                    <h1>Lorem ipsum dolor sit amet.</h1>
-                    <h2>Lorem ipsum dolor sit amet.</h2>
-                    <h3>Lorem ipsum dolor sit amet.</h3>
-                    <h4>Lorem ipsum dolor sit amet.</h4>
-                    <h5>Lorem ipsum dolor sit amet.</h5>
-                    <h6>Lorem ipsum dolor sit amet.</h6><button class="btn" @click="$root.notify('TEST')">Test Notification</button><a href="#">Base link</a>
-                </div>
-            </main>
-        </frame-wrapper>
-        <notifications class="notifications_rb" group="bottom-right" position="bottom right"><template slot="body" slot-scope="props">
-                <div class="vue-notification" :class="props.item.type">
-                    <div class="vue-notification__wrap"><i class="icon icon-circle-check vue-notification__left-icon"></i><span class="vue-notification__title">{{ props.item.title }}</span><span class="vue-notification__text" v-html="props.item.text"></span><button class="vue-notification__close" @click.prevent="props.close"><i class="icon icon-cross"></i></button></div>
-                </div>
-            </template></notifications>
-        <notifications class="notifications_header" group="undo" width="360px" position="top center"><template slot="body" slot-scope="props">
-                <div class="vue-notification vue-notification_content" :class="props.item.type"><span class="vue-notification__animation" :style="{animationDuration: props.item.length + 'ms'}"></span>
-                    <div class="vue-notification__wrap"><span class="title">{{props.item.title}}</span></span><button class="vue-notification__btn vue-notification__btn_mleft" @click.prevent=""><strong>UNDO</strong></button><button class="vue-notification__close" @click.prevent="props.close"><i class="icon icon-cross"></i></button></div>
-                </div>
-            </template></notifications>
+        <awes-frame title="Best Company Name Ever!"><template slot="menu">
+                <awes-menu-item href="#">Test Item 1</awes-menu-item>
+                <awes-menu-item href="#">Test Item 2</awes-menu-item>
+                <awes-menu-item href="#">Test Item 3</awes-menu-item>
+                <awes-menu-item>Test Item Collapse<template slot="submenu">
+                        <awes-menu-item href="#">Test Item 1</awes-menu-item>
+                        <awes-menu-item href="#">Test Item 2</awes-menu-item>
+                        <awes-menu-item href="#">Test Item 3</awes-menu-item>
+                    </template></awes-menu-item>
+            </template>
+            <h1>Lorem ipsum dolor sit amet.</h1>
+            <h2>Lorem ipsum dolor sit amet.</h2>
+            <h3>Lorem ipsum dolor sit amet.</h3>
+            <h4>Lorem ipsum dolor sit amet.</h4>
+            <h5>Lorem ipsum dolor sit amet.</h5>
+            <h6>Lorem ipsum dolor sit amet.</h6><button class="btn" @click="$root.notify('TEST')">Test Notification</button><a href="#">Base link</a>
+        </awes-frame>
     </div>
 </body>
 

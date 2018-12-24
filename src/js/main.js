@@ -24,10 +24,8 @@ import Notifications from 'vue-notification'
     const requireComponent = require.context('@/vue', true, /\.vue$/);
 
     requireComponent.keys().forEach(fileName => {
-        console.log(fileName);
         const componentConfig = requireComponent(fileName);
         const componentName = fileName.replace(/^.\/(.+\/)*(.+)\.vue$/, '$2');
-        console.log(componentName);
         Vue.component(componentName, componentConfig.default || componentConfig)
     });
 })(AWES.Vue, AWES.App)

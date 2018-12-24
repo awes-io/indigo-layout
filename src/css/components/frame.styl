@@ -6,53 +6,61 @@ $frame-nav-item-height ?= 60px
 $frame-nav-item-padding ?= 10px 30px
 
 // Placeholder
-frame-wrapper
-    fl()
-    min-height 100vh
-
-frame-nav
-    background var(--nav-background)
-    color var(--nav-color)
-    width $frame-aside-width
-    min-height 100vh
-    padding-top $frame-header-height
+awes-frame
+    display block
     position relative
-
+    padding-left $frame-aside-width + $base-gap * 2
+    padding-top $frame-header-height
+    min-height 100vh
+    
     &:before
         fl(w,c,c)
-        width 100%
         background-color rgba(0,0,0,0.3)
         content attr(title)
-        absolute top 0 left 0
+        absolute top left
+        width $frame-aside-width
+        padding $base-gap
+        color var(--nav-color)
         min-height $frame-header-height
+        z-index 2
+        text-align center
         font-size $h1-font-size
         font-weight $h1-font-weight
 
-frame-nav-item
-    display flex
-    align-items: center
-    width 100%
-    height $frame-nav-item-height
-    padding: 0 10%
+    [slot="menu"]
+        display block
+        absolute left top
+        bottom 0
+        width $frame-aside-width
+        background var(--nav-background)
+        color var(--nav-color)
+        padding-top $frame-header-height
 
-    &:before
-        content: ''
-        display: block
-        height: 1.5em
-        width: 1.5em
-        background-color: currentColor
-        opacity: .2
-        border-radius: 50%
-        margin-right: 10%
-    
-    &:after
-        display: block
-        height: 1em
-        width: 80%
-        content: attr(title)
-    
-    ul
-        display: none
+    // awes-nav-item
+    //     display flex
+    //     align-items: center
+    //     width 100%
+    //     height $frame-nav-item-height
+    //     padding: 0 10%
+    // 
+    //     &:before
+    //         content: ''
+    //         display: block
+    //         height: 1.5em
+    //         width: 1.5em
+    //         background-color: currentColor
+    //         opacity: .2
+    //         border-radius: 50%
+    //         margin-right: 10%
+    // 
+    //     &:after
+    //         display: block
+    //         height: 1em
+    //         width: 80%
+    //         content: attr(title)
+    // 
+    //     ul
+    //         display: none
 
 // Style
 .frame
@@ -99,7 +107,9 @@ frame-nav-item
             padding-left: $xlarge-gap
 
         &.has-submenu
-            padding-right: $xlarge-gap
+            
+            button
+                padding-right: $xlarge-gap
 
             &:before
                 content: ''
@@ -128,7 +138,8 @@ frame-nav-item
 
     &__right
         background: var(--ui-background-secondary)
-        width "calc(100% - %s)" % $frame-aside-width
+        width: 100%
+        // width "calc(100% - %s)" % $frame-aside-width
         position relative
 
 
