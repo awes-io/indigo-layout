@@ -11,6 +11,8 @@ const webpackStream = require('webpack-stream')
 const browserSync = require('browser-sync').create()
 const pug = require('gulp-pug')
 const prettyHtml = require('gulp-pretty-html')
+const iconfont = require('gulp-iconfont')
+const consolidate = require('gulp-consolidate')
 
 const isDev = process.env.NODE_ENV === 'development'
 const isModern = process.env.BROWSERS_ENV === 'modern'
@@ -79,6 +81,35 @@ gulp.task('build:html', function(){
 
 
 /*
+ * Icon Font
+ */
+
+const runTimestamp = Math.round(Date.now()/1000)
+
+gulp.task('build:icons', function(){
+    return gulp.src('./src/svg/*.svg')
+      .pipe(iconfont({
+        fontName: 'icons',
+        prependUnicode: true,
+        formats: ['ttf', 'eot', 'woff'],
+        normalize: true,
+        timestamp: runTimestamp
+    }))
+    .on('glyphs', function(glyphs, options) {
+      gulp.src('./src/svg/template/icons.styl')
+        .pipe( consolidate('lodash', {
+          glyphs: glyphs,
+          fontName: options.fontName,
+          fontPath: '../fonts/', // TODO: need full path in production build !!!
+          className: 'icon'
+        }) )
+        .pipe( gulp.dest('./src/css/') )
+    })
+    .pipe(gulp.dest('./dist/fonts/'));
+})
+
+
+/*
  * Gloabl tasks
  */
  
@@ -87,7 +118,7 @@ gulp.task('clean', function(){
     .pipe( clean() )
 })
 
-gulp.task('build', gulp.series('build:js', 'build:styles', 'build:html') )
+gulp.task('build', gulp.series('build:js', 'build:icons', 'build:styles', 'build:html') )
 
 // start
 defaultTask = ['build']

@@ -1,5 +1,5 @@
 doctype html
-html(lang="ru")
+html(lang="en")
   head
     meta(charset="utf-8")
     title AwesCode CRM
@@ -7,8 +7,8 @@ html(lang="ru")
     link(href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700" rel="stylesheet")
     link(rel='stylesheet', href='css/main.css')
     script.
-        AWES_CONFIG = {key: 123, modules: ['./js/main.js']}
-    script(src="test-core/main.js")
+        AWES_CONFIG = {key: '4e5612aca7540ad54a71d9289ba7db3a', modules: ['./js/main.js']}
+    script(src="/test-core/core.js" async="true" defer="true")
   body
     div(class="mainwrapper" id="awes-app")
       div(class="frame")
@@ -17,4 +17,35 @@ html(lang="ru")
         div(class="frame__right")
           include includes/frame-header
           div(class="frame__content")
+            button.btn(@click="$root.$emit('modals:open', 'default')") Default modal
+            button.btn(@click="$root.$emit('modals:open', 'fullscreen')") Fullscreen modal
+
+            modal-window(name="default" title="Default modal")
+                p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab expedita, asperiores ipsum itaque amet iure deserunt minima dolorum, aut et assumenda quaerat odit quibusdam molestias saepe cumque veritatis rem doloremque.
+
+            modal-window(name="fullscreen" title="Fullscreen modal" fullscreen)
+                p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab expedita, asperiores ipsum itaque amet iure deserunt minima dolorum, aut et assumenda quaerat odit quibusdam molestias saepe cumque veritatis rem doloremque.
             
+            h1 Lorem ipsum dolor sit amet.
+            h2 Lorem ipsum dolor sit amet.
+            h3 Lorem ipsum dolor sit amet.
+            h4 Lorem ipsum dolor sit amet.
+            h5 Lorem ipsum dolor sit amet.
+            h6 Lorem ipsum dolor sit amet.
+
+            pre Some pre-fromatted text
+            
+            code The &lt;code&gt; tag
+
+            h1 Lorem ipsum dolor sit amet.
+            p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab expedita, asperiores ipsum itaque amet iure deserunt minima dolorum, aut et assumenda quaerat odit quibusdam molestias saepe cumque veritatis rem doloremque.
+            h2 Lorem ipsum dolor sit amet.
+            p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab expedita, asperiores ipsum itaque amet iure deserunt minima dolorum, aut et assumenda quaerat odit quibusdam molestias saepe cumque veritatis rem doloremque.
+            h3 Lorem ipsum dolor sit amet.
+            p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab expedita, asperiores ipsum itaque amet iure deserunt minima dolorum, aut et assumenda quaerat odit quibusdam molestias saepe cumque veritatis rem doloremque.
+            h4 Lorem ipsum dolor sit amet.
+            p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab expedita, asperiores ipsum itaque amet iure deserunt minima dolorum, aut et assumenda quaerat odit quibusdam molestias saepe cumque veritatis rem doloremque.
+            h5 Lorem ipsum dolor sit amet.
+            p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab expedita, asperiores ipsum itaque amet iure deserunt minima dolorum, aut et assumenda quaerat odit quibusdam molestias saepe cumque veritatis rem doloremque.
+            h6 Lorem ipsum dolor sit amet.
+            p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab expedita, asperiores ipsum itaque amet iure deserunt minima dolorum, aut et assumenda quaerat odit quibusdam molestias saepe cumque veritatis rem doloremque.
