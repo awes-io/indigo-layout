@@ -1,0 +1,41 @@
+@font-face
+  font-family: "<%= fontName %>"
+  src: url('<%= fontPath %><%= fontName %>.eot')
+  src: url('<%= fontPath %><%= fontName %>.eot?#iefix') format('eot'), url('<%= fontPath %><%= fontName %>.woff') format('woff'), url('<%= fontPath %><%= fontName %>.ttf') format('truetype')
+  font-weight: 400
+  font-style: normal
+
+.<%= className %>
+    display: inline-block;
+    transform: translate(0, 0);
+    text-rendering: auto;
+    font: normal normal 400 14px/1 icons;
+    font-size: inherit;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+
+.<%= className %>-lg
+    vertical-align: -15%
+    line-height: 0.75em
+    font-size: 1.33333333em
+
+.<%= className %>-2x
+    font-size: 2em
+
+.<%= className %>-3x
+    font-size: 3em
+
+.<%= className %>-4x
+    font-size: 4em
+
+.<%= className %>-5x
+    font-size: 5em
+
+.<%= className %>-fw
+    width: 1.28571429em
+    text-align: center
+
+<% _.each(glyphs, function(glyph) { %>
+.<%= className %>-<%= glyph.name %>::before
+    content: "\<%= glyph.unicode[0].charCodeAt(0).toString(16) %>"
+<% }); %>

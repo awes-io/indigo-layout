@@ -5,6 +5,8 @@ export default {
     data() {
         return {
             togglenav: false,
+            showSearch: false,
+            showUserMenu: false
         }
     },
 
@@ -31,6 +33,13 @@ export default {
                 title: type,
                 text: text
             });
+        }
+    },
+    
+    watch: {
+        
+        showUserMenu( isShown ) {
+            this.toggleBodyFix(isShown)
         }
     }
 }

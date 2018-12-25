@@ -1,0 +1,173 @@
+body, input, button, textarea
+  font-family: 'Lato', sans-serif
+  font-size 14px
+
+.icn-dot
+  box-shadow 1px 2px 5px rgba(0, 0, 0, 0.3)
+  size 6px
+  absolute right -3px top -3px
+  border-radius 50%
+  display block
+  &_static
+    display inline-block
+    position static
+    right auto
+    top auto
+    vertical-align middle
+
+.icon
+  line-height 1 !important
+
+.novatar
+  size 36px 
+  border-radius 50%
+  fl(,c,c)
+  display flex !important
+  text-align center
+  display flex !important
+  font-size 17px
+  &_box
+    border-radius 0
+
+.shadow-overflow
+  background-color rgba(0,0,0,0.2)
+  fixed top 0 left 0
+  size 100%
+  z-index 850
+  display none
+  opacity 0
+  
+.flex-list
+  fl(w,sb)
+  margin-left -10px
+  margin-right -10px
+  margin-bottom 5px
+  li
+    padding-left 10px
+    padding-right 10px
+    margin-bottom 20px
+    display block
+  & &__caption
+    font-size f_small 
+    display block
+  & &__title
+    display block
+    font-size f_medium 
+    font-weight 400
+
+.text-pt
+  line-height 1.57
+  font-size f_normal
+  margin-bottom 25px
+
+.blue-link
+  &:hover
+    text-decoration underline
+
+.upper-link
+  text-transform uppercase
+  font-size f_smart
+  font-weight 700
+
+vars = {
+  res_desktop--lg: desktop-lg,
+  res_desktop--md: desktop-md,
+  res_desktop--sm: desktop-sm,
+  res_tablet--lg: tablet-lg,
+  res_tablet--md: tablet-md,
+  res_tablet--sm: tablet-sm,
+  res_mobile--lg: mobile-lg,
+  res_mobile--md: mobile-md,
+  res_mobile--sm: mobile-sm
+}
+
+vars_i = {
+  res_desktop--lg-i: desktop-lg,
+  res_desktop--md-i: desktop-md,
+  res_desktop--sm-i: desktop-sm,
+  res_tablet--lg-i: tablet-lg,
+  res_tablet--md-i: tablet-md,
+  res_tablet--sm-i: tablet-sm,
+  res_mobile--lg-i: mobile-lg,
+  res_mobile--md-i: mobile-md,
+  res_mobile--sm-i: mobile-sm
+}
+
+for key, val in vars
+  .g
+    &-res
+      &--{val}
+        display none
+        @media key
+          display block
+        td&,th&
+          @media key
+            display table-cell
+        tr&
+          @media key
+            display table-row
+      &--{val}_n
+        @media key
+          display none
+
+for key, val in vars_i
+  .g
+    &-res
+      &--{val}-i
+        display none
+        @media key
+          display block
+        td&,th&
+          @media key
+            display table-cell
+        tr&
+          @media key
+            display table-row
+
+
+.infbl
+  text-align center
+  margin-left auto
+  margin-right auto
+  & &_icon
+    font-size 46px
+    display block
+    margin-bottom 25px
+  & &__caption
+    display block
+    font-size f_middle
+    margin-bottom 15px
+  & &__title  
+    font-size 100px
+    display block
+    font-weight 300
+    margin 0
+    line-height 1
+    margin-bottom 3px
+  & &__type
+    font-size 60px
+    font-weight 300
+    display block
+    margin 0
+    line-height 1
+
+
+@media res_mobile--md
+  .flex-list
+    li
+      width 50%
+
+  .infbl
+    text-align center
+    & &_icon
+      font-size 46px
+      margin-bottom 15px
+    & &__caption
+      margin-bottom 10px
+    & &__title  
+      font-size 70px
+    & &__type
+      font-size 40px
+
+.slide-up-down
+    overflow: hidden

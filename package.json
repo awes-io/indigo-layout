@@ -18,6 +18,14 @@
     "layout",
     "styles"
   ],
+  "files": [
+    "dist/css/main.css",
+    "dist/js/main.js",
+    "dist/js/main.fallback.js",
+    "dist/fonts/icons.eot",
+    "dist/fonts/icons.ttf",
+    "dist/fonts/icons.woff"
+  ],
   "author": "AwesCode",
   "license": "ISC",
   "dependencies": {
@@ -36,6 +44,8 @@
     "cssnano": "^4.1.7",
     "gulp": "^4.0.0",
     "gulp-clean": "^0.4.0",
+    "gulp-consolidate": "^0.2.0",
+    "gulp-iconfont": "^10.0.2",
     "gulp-noop": "^1.0.0",
     "gulp-plumber": "^1.2.1",
     "gulp-postcss": "^8.0.0",
