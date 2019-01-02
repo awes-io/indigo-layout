@@ -7,8 +7,8 @@
         div(class="frame__aside-mhead g-res--tablet-lg")
             a(href="" class="frame__aside-close" @click.prevent="openNav()")
                 i(class="icon icon-cross")
-                h4(class="frame__aside-mtitle")
-                    span AwesCRM
+            h4(class="frame__aside-mtitle")
+                span AwesCRM
         frame-nav(:links="[{title:'Dashboard',icon: 'speed', active:true, link: '#'}, {title:'Admin',icon:'report',sub:[{title:'Dashboard',icon:null,link:'#'},{title:'Plans',icon:null,link:'#'}]}]")
             div(class="ph")
                 div(class="ph__mnav")

@@ -3,7 +3,6 @@ const clean = require('gulp-clean')
 const plumber = require('gulp-plumber')
 const noop = require('gulp-noop')
 const stylus = require('gulp-stylus')
-const postcss = require('gulp-postcss')
 const nib = require('nib')
 const sourcemaps = require('gulp-sourcemaps')
 const webpack = require('webpack')
@@ -56,11 +55,10 @@ gulp.task('build:js', function(){
  */
 
 gulp.task('build:styles', function(){
-  return gulp.src('./src/css/main.styl')
+  return gulp.src('./src/css/framework/main.styl')
     .pipe( plumber() )
     .pipe( isDev ? sourcemaps.init() : noop() )
     .pipe( stylus({ use: nib(), 'include css': true, import: ['nib'], compress: false }) )
-    .pipe( isDev ? noop() : postcss() )
     .pipe( isDev ? sourcemaps.write() : noop() )
     .pipe( gulp.dest('./dist/css') )
     .pipe( isDev ? browserSync.stream() : noop() )
@@ -103,7 +101,7 @@ gulp.task('build:icons', function(){
           fontPath: '../fonts/', // TODO: need full path in production build !!!
           className: 'icon'
         }) )
-        .pipe( gulp.dest('./src/css/') )
+        .pipe( gulp.dest('./src/css/framework/') )
     })
     .pipe(gulp.dest('./dist/fonts/'));
 })

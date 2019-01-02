@@ -1,0 +1,186 @@
+.filter
+  fl(w,sb,c)
+  width 100%
+  margin-bottom 15px
+  position relative
+  & &__left
+    fl(w)
+  & &__right
+    margin-bottom 10px
+    padding-right 20px
+    fl(,fe,c)
+  & &__slink
+    margin-bottom 10px
+    fl(,,c)
+    text(f_small)
+    margin-left 40px
+    cursor pointer
+    tr(0.3)
+    position relative
+    padding-right 15px
+    .icon
+      size 18px 15px
+      display block
+      margin-right 10px
+      tr(0.3)
+      font-size 15px
+      position relative
+    &:after
+      angle()
+  & &__checkbox
+    margin-bottom 15px
+    margin-right 20px
+    padding-left 1px
+    fl()
+    text(f_small)
+    &:last-child
+      margin-right 0
+    &-hInput
+      display none
+    &-label
+      text-align center
+      min-height 32px
+      border 1px solid #e2e2e2
+      fl(,c,c)
+      width 100%
+      padding 5px 10px
+      cursor pointer
+      user-select none
+      tr(0.3)
+      &_np
+        padding 0
+        position relative
+        &:after
+          angle()
+          right 10px
+      
+    &-datapicker
+      size 100px 30px
+      font-size f_small
+      border-radius 2px
+      padding 0 25px 0 10px
+      text-align center
+      background-color transparent
+    &-cell
+      fl(,c,c)
+      margin-left -1px
+      &:first-child
+        .filter__checkbox-label
+          border-radius 2px 0px 0px 2px
+      &:last-child
+        .filter__checkbox-label
+          border-radius 0px 2px 2px 0px
+  &__slide-up-down
+    width: 100%
+  &__form-builder
+    padding: 20px 20px 10px
+    .line-btns
+      width: calc(100% + 10px)
+      margin-top: 10px
+      margin-right: -10px
+      @media res_tablet--sm
+        .btn
+          width: calc(50% - 12px)
+  &__reset
+    .icon-circle-cross
+      transform: translateY(2px)
+    @media res_tablet--sm
+      width: calc(100% - 10px) !important
+    @media res_tablet--sm-i
+      float: right
+      min-width: inherit !important
+      padding-left: 20px !important
+      padding-right: 20px !important
+
+.hfilter
+  absolute right 0 top 100%
+  z-index 900
+  width 100%
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1)
+  display none
+  overflow auto
+  & &__close
+    absolute right 30px top 30px
+    font-size 18px
+    cursor pointer
+  & &__wrap
+    fl(w)
+    position relative
+    padding 20px 15px 10px 15px
+  & &__title
+    display none
+  & &__buttons
+    fl(w,sb,c)
+    width 100%
+    padding-top 10px
+    &-left
+      fl(w)
+  .btn
+    margin-left 5px
+    margin-right 5px
+    margin-bottom 10px
+    .icon
+      font-size 12px
+      line-height 12px
+      margin-top 2px
+  .input
+    margin-left 5px
+    margin-right 5px
+  
+    
+
+
+@media res_desktop--sm
+  .filter
+    margin-bottom 10px
+    & &__right
+      padding-right 0
+
+
+@media res_tablet--sm
+  .hfilter
+    .input
+      width calc(100% - 10px)
+  
+  .filter
+    margin-bottom 0
+    & &__left, &__right
+      //display none !important
+
+@media res_mobile--lg
+
+  .js-window
+    fixed top 0 left 0 
+    z-index 1100
+    size 100%
+    padding 10px
+  
+  body 
+    .shadow-overflow
+      z-index 1050
+
+  .hfilter
+    margin-top 0
+    & &__wrap
+      display block
+
+    & &__title
+      display block
+      margin-bottom 25px
+      padding-left 5px
+      padding-right 5px
+      font-size f_big
+    & &__wrap
+      padding 25px 25px 15px 25px
+    & &__buttons
+      &-left
+        width 100%
+        fl(w,sb)
+        .btn
+          min-width calc(50% - 10px)
+          width calc(50% - 10px)
+      &-right
+        width 100%
+        text-align center
+        padding-top 10px
+        fl(,c,c) 

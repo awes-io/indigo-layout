@@ -1,0 +1,105 @@
+.price-table
+    wrap(930px, 0px)
+    fl()
+    & &__cell
+        width calc(33.333% + 1px)
+        padding 60px 30px
+        text-align center
+        position relative
+        margin-left -1px
+        z-index 1
+        &.active
+            z-index 2
+            position relative
+    &_btn-footer
+        & ^[0]__cell
+            padding-bottom 120px
+    & &__list
+        text-align left
+        margin-bottom 20px
+        li
+            padding 10px
+    .btn
+        width auto
+        display inline-block
+        min-width 160px
+    & &__title
+        font-size f_middle
+        display block
+        text-transform uppercase
+    & &__number
+        font-size 48px
+        font-weight 300
+        position relative
+        display inline-block
+        small
+            font-size 30px
+            absolute right -20px top 0px
+    & &__caption
+        display block
+        font-size f_normal
+    & &--cancel
+        margin-top 10px
+        display inline-block
+    & &__head
+        margin-bottom 37px
+    & &__spoiler
+        margin-bottom 20px
+        & ^[0]__list
+            margin-bottom 0
+    & &__moreinfo
+        padding 10px
+        width 100%
+        text-align left
+    & &__footer
+        absolute left 0 bottom 60px
+        width 100%
+
+
+.page-prices
+    max-width 830px
+    & &__check
+        text-align center
+        margin-bottom 20px
+
+
+@media res_tablet--md
+    .price-table
+        & &__cell
+            padding 40px 15px
+        .btn
+            min-width 1px
+        &_btn-footer
+            & ^[0]__cell
+                padding-bottom 100px
+        & &__footer
+            bottom 40px
+
+@media res_tablet--sm
+    .price-table
+        & &__title
+            font-size f_middle - 20%
+        & &__number
+            font-size 37px
+        & &__list
+            font-size f_normal - 15%
+
+@media res_mobile--lg
+    .price-table
+        flex-wrap wrap
+        & &__cell
+            width 100%
+            padding 30px 50px
+        &_btn-footer
+            & ^[0]__cell
+                padding-bottom 30px
+        & &__footer
+            bottom auto
+            left auto
+            position relative
+            margin-top 15px
+
+@media res_mobile--sm
+    .price-table
+        & &__cell
+            padding 30px

@@ -1,0 +1,105 @@
+.project-block
+  fl()
+  padding 30px
+  tr(0.3)
+  position relative
+  margin-bottom 5px
+  &:hover
+    .actions-overflow
+      opacity 0.7
+      pointer-events auto
+      &:hover
+        opacity 1
+  & &__left
+    width 120px
+    padding-right 30px
+    text-align center   
+  & &__time
+    text-align center
+    display block
+    font-size f_small
+  & &__title
+    display block
+    text(f_middle)
+    margin-bottom 5px
+    width 100%
+    overflow hidden
+    white-space nowrap
+    text-overflow ellipsis
+  & &__type
+    display block
+    font-size f_small
+  & &__info
+    width calc(100% - 120px)
+    margin-top -5px
+    &-top
+      margin-bottom 5px
+    &-bottom
+      fl(,sb,c)
+      width 100%
+  & &__caption
+    font-size f_small
+    display block
+    padding-right 10px
+    padding-right 30px
+  & &__ava
+    fl(,fe)
+    a
+      size 36px
+      display block
+      margin-left -19px
+      border-radius 50%
+      overflow hidden
+      background-size cover
+      background-repeat no-repeat
+      background-position 50%
+      tr(0.2)
+      z-index 100
+      position relative
+      &:hover
+        transform scale(1.1)
+        z-index 200
+  & &__percent
+    absolute left 0 bottom -1px
+    display block
+    font-size 10px
+    padding-bottom 7px
+    text-align right
+  & &__status
+    border-radius 12px
+    text-align center
+    width 90px
+    margin-bottom 27px
+    min-height 24px
+    fl(,c,c)
+    text-transform uppercase
+    text(8px,700,1)
+    .icon
+      display block
+      margin-right 5px
+      font-size 13px
+  
+
+      
+@media res_desktop--sm
+  .project-block
+    padding 20px 15px
+    & &__left
+      padding-right 15px
+      width 105px
+
+@media res_mobile--md
+  .project-block
+    flex-wrap wrap
+    & &__left
+      width 100%
+      margin-bottom 15px
+      fl(,,c)
+    & &__info
+      width 100%
+      &-top
+        margin-bottom 15x
+    & &__status
+      margin-bottom 0
+      margin-right 15px
+  

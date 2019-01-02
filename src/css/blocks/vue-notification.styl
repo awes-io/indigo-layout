@@ -1,0 +1,109 @@
+.notification-wrapper
+  overflow: visible !important
+
+.notifications
+  &_header
+    left: 260px !important
+    right: 0 !important
+    margin-left: auto !important
+    margin-right: auto !important
+    .vue-notification
+      margin-top: 15px !important
+      border-left: 0 !important
+      padding: 5px 50px 5px 20px !important
+      border-radius: 17px
+      overflow: hidden
+      position: relative
+      &__animation
+        absolute left 0 top 0
+        size 0px 100%
+        display: block
+        animation leftscroll 5s linear 1 forwards
+        z-index: 100
+        content: ''
+      &__btn
+        font-size 10px
+        text-transform: uppercase
+        line-height: 1
+        border-radius: 2px
+        display: inline-block
+        padding: 4px 10px
+        margin-left: 15px
+        &_mleft
+          margin-left: 40px
+      &__wrap
+        position: relative
+        z-index: 200
+      &__close
+        absolute right -30px top 50%
+        font-size: 14px
+        margin-top: 1px
+        line-height: 1
+        transform: translateY(-50%)
+        &:hover
+          opacity: 0.5
+  &_rb
+    right: 20px !important
+    bottom: 20px !important
+    .vue-notification
+      border-left: 0 !important
+      padding: 20px !important
+      color #ffffff
+      position: relative
+      &__title
+        font-size 16px
+        font-weight 700
+        margin-bottom: 10px
+        display: block
+        line-height: 1.1
+      &__text
+        font-size 12px
+      &__close
+        absolute right 10px top 10px
+        font-size: 16px
+        line-height: 1
+        &:hover
+          opacity: 0.5
+      &__left-icon
+        display: block
+        absolute left 20px top 20px
+        font-size: 20px
+        text-shadow 1px 2px 5px rgba(8, 70, 0, 0.2); 
+    .notification-wrapper
+      margin-bottom: 30px
+      &:last-child
+        margin-bottom: 0
+
+@keyframes leftscroll
+  from
+    width: 0px
+  to
+    width: 100%
+
+@media res_desktop--sm
+  .notifications
+    &_header
+      left: 210px !important
+
+@media res_tablet--lg
+  .notifications
+    &_header
+      left: 0px !important
+      
+@media res_mobile--md
+  .notifications
+    width: 100% !important
+    &_rb
+      right: 0 !important
+      bottom: 0 !important
+      .notification-wrapper
+        margin-bottom: 5px
+
+
+
+
+
+
+
+
+

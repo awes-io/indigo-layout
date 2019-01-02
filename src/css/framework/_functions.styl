@@ -139,12 +139,6 @@ angle()
 	tr(0.3)
 	content ''
 
-
-for item in gridcolumns
-	@media (max-width (item[0])px)
-		.gc
-			&-{item}
-				for cols in item[1]
-					&__{cols}
-						display block
-						width (100 / cols)%
+phAnimation(color_def, color_s)
+	background-image linear-gradient(to left, var(color_def) 0%, var(color_s) 50%, var(color_def) 100%)
+	background-size 500% 100%

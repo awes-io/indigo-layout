@@ -1,0 +1,83 @@
+.j-table
+    width 100%
+    margin-bottom 30px
+    font-size f_normal
+    min-height 360px
+    & &__table
+        width 100%
+    a
+        &:hover
+            text-decoration underline
+    td
+        border-bottom 1px solid
+        height 60px
+        padding 10px
+        vertical-align middle
+        &:first-child
+            padding-left 30px
+        &:last-child
+            padding-right 30px 
+    tr
+        &:last-child
+            td
+                border-bottom 0
+    & &__right
+        text-align right
+    & &__name
+        padding-left 0
+    & &__ava
+        width 76px
+        img
+            size 36px
+            border-radius 50%
+            overflow hidden
+    &_nd
+        fl(w,fe,fe)
+    & &__nd
+        margin auto
+        text-align center
+        &-caption
+            display block
+            font-size f_middle
+        &-icon
+            margin-bottom 17px
+            font-size 50px
+
+
+
+@media res_mobile--md
+    .j-table
+        & &__table
+            display block
+        td
+            display block
+            border-bottom 0
+            padding 0
+            height auto
+            min-height 1px
+        tr
+            fl(w,,c)
+            border-bottom 1px solid
+            padding 10px 20px 10px 65px
+            min-height 60px
+            position relative
+            & ^[0]__ava
+                size 36px
+                flex-shrink 0
+                absolute left 20px top 50%
+                margin-top -18px
+                flex-shrink 0
+                padding 0 !important
+            & ^[0]__name
+                padding-right 10px
+                display inline !important
+                &:after
+                    content ','
+            & ^[0]__right
+                width 100%
+                text-align left
+                padding-right 0
+            & ^[0]__rate
+                display inline
+
+    

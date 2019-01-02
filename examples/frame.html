@@ -19,8 +19,9 @@
                     <h2 class="frame__aside-title">AwesCRM</h2>
                 </div>
                 <nav class="frame__aside-nav" v-bind:class="{ active: togglenav }">
-                    <div class="frame__aside-mhead g-res--tablet-lg"><a class="frame__aside-close" href="" @click.prevent="openNav()"><i class="icon icon-cross"></i>
-                            <h4 class="frame__aside-mtitle"><span>AwesCRM</span></h4></a></div>
+                    <div class="frame__aside-mhead g-res--tablet-lg"><a class="frame__aside-close" href="" @click.prevent="openNav()"><i class="icon icon-cross"></i></a>
+                        <h4 class="frame__aside-mtitle"><span>AwesCRM</span></h4>
+                    </div>
                     <frame-nav :links="[{title:'Dashboard',icon: 'speed', active:true, link: '#'}, {title:'Admin',icon:'report',sub:[{title:'Dashboard',icon:null,link:'#'},{title:'Plans',icon:null,link:'#'}]}]">
                         <div class="ph">
                             <div class="ph__mnav"><span class="ph__mnav-link"></span><span class="ph__mnav-title"></span></div>
