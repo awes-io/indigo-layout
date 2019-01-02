@@ -4,11 +4,28 @@ body
   background-color var(--tc_theme_body)
 
 blockquote
-  background-color var(--tc_ui_bg_semi)
+  background-color var(--tc_ui_bg)
   box-shadow var(--tc_ui_shadow)
+  &:before
+    color var(--tc_text_caption)
+    opacity .5
   span
     color var(--tc_text_caption)
 
+mark
+  background-color transparent
+  color var(--tc_text_mark)
+
+
+
+s
+  color var(--tc_text_caption)
+
+.frame__content
+  ol
+    li
+      &:before
+        color var(--tc_text_caption)
 a
   color var(--tc_link)
   &:hover
@@ -767,6 +784,17 @@ body.v--modal-block-scroll
   &:hover
     color var(--tc_link)
 
+table
+  background-color var(--tc_ui_bg)
+  th
+    background-color var(--tc_ui_bg_darken)
+    color var(--tc_text_caption)
+  td
+    border-bottom 1px solid var(--tc_border_dark)
+  tr
+    &:hover
+      background-color var(--tc_ui_bg_semi)
+
 .int-table
   & &__footer
     background-color var(--tc_ui_bg_darken)
@@ -906,6 +934,9 @@ body.v--modal-block-scroll
 .tf
   &-caption
     color var(--tc_text_caption)
+  &-blcode
+    color cl_white
+    background-color cl_black
   ol
     li
       &:before

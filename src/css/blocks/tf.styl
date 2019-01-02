@@ -1,16 +1,21 @@
 tf_titles = (h1 h2 h3 h4 h5)
-tf_tags = (p blockquote table ul ol dl) 
+tf_tags = (p blockquote table ul ol dl core pre) 
+tf_margin = 30px
+tf_text_margin = 25px
 
 for tag in tf_tags
     for value in tf_titles
         {tag} + {value}
-            margin-top 50px
+            margin-top 35px
 
 body
     font-size f_normal
 
+code
+    margin-bottom tf_margin
+
 h1
-    margin-bottom 30px
+    margin-bottom tf_margin
     font-weight 700
     display block
     font-size f_big
@@ -18,26 +23,24 @@ h1
 h2
     font-weight 400
     font-size f_big
-    margin-bottom 30px
-    display block
 
 h3
     font-weight 700
     font-size f_middle
-    display block
-    margin-bottom 30px
 
 h4
     font-weight 400
     font-size f_middle
-    display block
-    margin-bottom 30px
 
 h5
     font-weight 400
     font-size f_medium
+
+h1,h2,h3,h4,h5
     display block
-    margin-bottom 30px
+    margin-bottom tf_margin
+    + p 
+        margin-bottom tf_text_margin
 
 p
     margin-bottom 20px
@@ -50,51 +53,112 @@ a
 blockquote
     display block
     padding 30px
-    margin-bottom 30px
+    margin-bottom tf_margin
     line-height 1.5
     margin-left 0
     margin-right 0
     margin-top 0
+    position relative
+    &:before
+        absolute right 5px top 5px
+        font-size 100px
+        line-height 1
+        content "\201C"
     span
         display block
         margin-top 7px
+    p
+        &:last-child
+            margin-bottom 0
+    
+table
+    width 100%
+    margin-bottom tf_margin
+    display block
+    overflow: auto
+    tbody
+        display table
+        width 100%
+        border-collapse collapse
+    th
+        padding 17px 15px
+        font-weight 400
+        text-align left
+        &:first-child
+            padding-left 30px
+        &:last-child
+            padding-right 30px
+    td
+        padding 12px 15px
+        &:first-child
+            padding-left 30px
+        &:last-child
+            padding-right 30px
 
-.content
+
+
+.frame__content
+    ol
+        line-height 1.5
+        margin-bottom tf_text_margin
+        padding-bottom 1px
+        margin-left 30px
+        li
+            margin-bottom 12px
+            position relative
+            &:before
+                padding-right 7px
+                absolute left -27px
+                width 20px
+                text-align right        
+                font-size 90%                                     
+                content: counter(list)
+            &:last-child
+                margin-bottom 0
+        ul, ol
+            margin-top 12px
+            margin-bottom 12px
+    
     ul
         list-style disc
         margin-left 15px    
         line-height 1.5
-        margin-bottom 27px
+        margin-bottom tf_text_margin
+        margin-left 30px
         padding-bottom 1px
         li
-            margin-bottom 15px
+            margin-bottom 12px
+            &:before 
+                display none
             &:last-child
                 margin-bottom 0
-
-    ol
-        line-height 1.5
-        margin-bottom 27px
-        padding-bottom 1px
-        li
-            margin-bottom 15px
-            &:before
-                padding-right 7px                                                                 
-                content: counter(list)
-            &:last-child
-                margin-bottom 0
+        ul, ol
+            margin-top 12px
+            margin-bottom 12px
 
     dl
         fl(w,sb)
         margin-top 0
-        margin-bottom 30px
+        margin-bottom tf_margin - tf_text_margin
         dt
             font-weight 700
             padding-right 10px
+            width 20%
+            margin-bottom tf_text_margin
         dd
             margin-left 0
             padding-left 0
+            width 80%
+            margin-bottom tf_text_margin
+
+
+// Help Classes
 
 .tf
+    &-blcode
+        padding 2px 5px 4px 5px
+        margin-left 5px
+        margin-right 5px
     &-dl
         margin-bottom 30px
         dl
@@ -200,6 +264,14 @@ blockquote
             margin-bottom 10px
 
 
+@media res_tablet--md
+    .frame__content
+        dl
+            dt
+                width 100%
+                margin-bottom 15px
+            dd
+                width 100%
 
 @media res_tablet--sm
     .tf
@@ -210,3 +282,5 @@ blockquote
         &-centerlink
             &_dashboard
                 margin-bottom 20px
+
+

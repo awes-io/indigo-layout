@@ -1,12 +1,19 @@
 import appMixin from './mixins/app'
 import Shortkey from 'vue-shortkey'
 import Notifications from 'vue-notification'
+import hljs from 'highlight.js';
+import 'highlight.js/styles/dark.css'
+
 
 !(function (Vue, App) {
+
 
     // vendor plugins
     Vue.use( Shortkey );
     Vue.use( Notifications );
+
+    hljs.initHighlightingOnLoad();
+
 
     // language strings
     let lang = Vue.prototype.$lang || {}
