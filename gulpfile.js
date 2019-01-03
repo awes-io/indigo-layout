@@ -21,7 +21,7 @@ const isModern = process.env.BROWSERS_ENV === 'modern'
  */
 
 if ( isDev ) {
-  gulp.task('serve', function(){
+  gulp.task('serve',  function() {
 
     browserSync.init({
       ui: false,
