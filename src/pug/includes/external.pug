@@ -1,0 +1,40 @@
+block pageVariables
+doctype html
+html(lang="en")
+    head
+        meta(charset="utf-8")
+        title= pageTitle
+        meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+        link(href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700" rel="stylesheet")
+        link(rel='stylesheet', href='css/main.css')
+        script.
+            AWES_CONFIG = {key: '9d1d891a3204aa749436fdbd3ab29c3f', modules: [#{pageModules}]}
+        script(src="/test-core/core.js" async="true" defer="true")
+        block pageHead
+    body
+        div(class="mainwrapper" id="awes-app")
+
+            .static-page
+                .static-page__head
+                    nav.static-page__wrap
+                        .static-page__wrap-left
+                            h2.static-page__title= pageTitle
+                            a.static-page__search-link(href='')
+                                i.icon.icon-search 
+                        .static-page__wrap-right
+                            block rightHead
+                .static-page__wrap
+                    .static-page__content
+                        .static-page__cell(class=pageContentClass)
+                            block pageContent
+                                p Content Block
+                    footer.static-page__footer
+                        .static-page__footer-logo
+                            i.icon.icon-logo
+                            span
+                                | Powered by 
+                                a(href='') AwesCRM
+                        
+
+
+                        

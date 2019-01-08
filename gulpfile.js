@@ -13,6 +13,7 @@ const prettyHtml = require('gulp-pretty-html')
 const iconfont = require('gulp-iconfont')
 const consolidate = require('gulp-consolidate')
 
+// Types
 const isDev = process.env.NODE_ENV === 'development'
 const isModern = process.env.BROWSERS_ENV === 'modern'
 
@@ -31,6 +32,7 @@ if ( isDev ) {
     })
 
     gulp.watch('./src/css/**/*.styl', gulp.series('build:styles'))
+    gulp.watch('./src/img/**/*', gulp.series('build:images'))
     gulp.watch(['./src/js/**/*.js', './src/vue/**/*.vue'], gulp.series('build:js', 'reload'))
     gulp.watch('./src/pug/**/*.pug', gulp.series('build:html', 'reload'))
   })
@@ -49,6 +51,10 @@ gulp.task('build:js', function(){
     .pipe( gulp.dest('./dist/js') )
 })
 
+gulp.task('build:images', function() {
+  return gulp.src('./src/img/**/*')
+    .pipe( gulp.dest('./dist/img') )
+})
 
 /*
  * Styles
@@ -116,7 +122,7 @@ gulp.task('clean', function(){
     .pipe( clean() )
 })
 
-gulp.task('build', gulp.series('build:js', 'build:icons', 'build:styles', 'build:html') )
+gulp.task('build', gulp.series('build:js', 'build:icons', 'build:styles', 'build:html', 'build:images') )
 
 // start
 defaultTask = ['build']

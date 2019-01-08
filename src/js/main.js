@@ -7,7 +7,7 @@ import 'highlight.js/styles/dark.css'
 
 !(function (Vue, App) {
 
-
+    
     // vendor plugins
     Vue.use( Shortkey );
     Vue.use( Notifications );

@@ -12,11 +12,10 @@ blockquote
   span
     color var(--tc_text_caption)
 
-mark
+em
   background-color transparent
   color var(--tc_text_mark)
-
-
+  font-style normal
 
 s
   color var(--tc_text_caption)
@@ -45,9 +44,11 @@ a
   & &__content
     background-color var(--tc_ui_bg)
   & &__search-link  
-    color var(--tc_invert)
+    color var(--tc_aside_text)
     &:hover
       color var(--tc_link)
+  & &__title
+    color var(--tc_aside_text)
   & &__footer
     &-logo
       color var(--tc_text_caption)
@@ -57,6 +58,38 @@ a
           color var(--tc_link)
       .icon
         color var(--tc_link)
+
+
+.history-list
+  li
+    color var(--tc_text_caption)
+    &:before
+      box-shadow 0px 0px 0px 2px var(--tc_text_caption) inset
+    &.active
+      color cl_grass
+      &:before
+        background-color cl_grass
+        box-shadow none
+      &:after
+        background-color  var(--tc_border)
+    &.current
+      color cl_grass
+      &:before
+        box-shadow 0px 0px 0px 2px cl_grass inset
+
+.project-page
+  & &__logo
+    box-shadow var(--tc_shadow_block)
+  & &__progress
+    background-color var(--tc_border)
+    span
+      background-color cl_grass
+      color cl_grass
+      &:after
+        background-color cl_grass
+        
+
+
 
 
 .action-menu
@@ -859,6 +892,12 @@ table
             background-color var(--tc_ui_bg_semi)
             border-bottom 1px solid var(--tc_border)
 
+
+.user-menu
+  & &__list
+    box-shadow var(--tc_ui_context_menu_shadow)
+    background-color var(--tc_ui_context_menu_bg)
+
 .context-menu
   &__overlay
     background-color var(--tc_ui_shadow-overflow)
@@ -930,6 +969,10 @@ table
     &_5
       &:before, &:after
         background-color cl_heartlife
+
+mark
+  color cl_white
+  background-color cl_black
 
 .tf
   &-caption
@@ -1197,7 +1240,7 @@ table
     &-title
       color var(--tc_text)
   & &__userinfo
-    @media res_tablet--lg
+    @media res_tablet--sm
       background-color var(--tc_header_bg)
       box-shadow 0px -5px 30px rgba(92,92,92,0.05)
     &-link
@@ -1302,25 +1345,23 @@ table
       color cl_warn
 
 
-.usermenu
+.user-menu
   .context-menu__dropdown
     color var(--tc_text)
     background-color var(--tc_header_bg)
-  &__desc
+  & &__desc
     color var(--tc_text_caption)
 
 .progress
   color var(--tc_text_caption)
   span
     color cl_grass
-
   progress
     &::-webkit-progress-value
       background-color cl_grass
 
     &::-moz-progress-bar
       background-color cl_grass
-
   &.is-danger
     span
       color cl_warn

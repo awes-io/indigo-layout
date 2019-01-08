@@ -11,7 +11,30 @@
     min-height 100vh
     flex-shrink 0
     z-index 990
-    position relative
+    &-ava
+      display block
+      size 50px
+      absolute right 0 top 0
+      overflow: hidden
+      z-index 900
+      &:after
+          content ''
+          background-image linear-gradient(to top, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.1) 50%, rgba(255,255,255,0) 100%)
+          absolute left 0 top 0
+          width: 100%
+          height: 200%
+          display block
+          z-index 100
+          transition: transform 150ms ease
+      img, .icon-user
+          size 100%
+          z-index 1
+          font-size 20px
+          absolute left 0 top 0
+          display block
+      &:hover, &:active
+        &:after
+          transform: translateY(-50%)
     &-mtitle
       display block
       overflow hidden
@@ -194,20 +217,15 @@
       font-size 19px
       z-index 750
       fl(,c,c)
-  & &__userinfo
-    fl(,fe,c)
-    // &-hidden
-    //   absolute right 0 top 50px
-    //   display none
   & &__usermenu
     min-width: 50px
     margin-left 15px
     z-index: 795
-
     @media res_tablet--lg
       display: none
-
   & &__userinfo
+    fl(,fe,c)
+    padding-right 55px
     &-link
       fl(,c,c)
       size 50px
@@ -219,6 +237,7 @@
         position relative
       &:hover
         text-decoration none
+    
   & &__search
     fl(,,c)
     &-link
@@ -253,10 +272,6 @@
       font-size 14px
   & &__content
     padding 30px 40px
-
-
-  .userinfo__context-menu
-    z-index: 755
 
 @media res_tablet--lg-i
   .frame
@@ -384,6 +399,12 @@
       box-shadow none
       position static
       z-index auto
+      &-ava
+        border-radius 50%
+        margin-top 11px
+        size 42px
+  
+        margin-right 10px
       &-close
         font-size 17px
         display block
@@ -441,6 +462,9 @@
           box-sahdow none
         &_fixed
           top 0
+    & &__userinfo
+      padding-right 0
+      
 
 
 

@@ -3,6 +3,8 @@
         span.frame__aside-open.g-res--tablet-lg( :class="{ active: togglenav }" @click="openNav")
             span
         h2.frame__aside-title AwesCRM
+        button.frame__aside-ava(@click="showUserMenu = ! showUserMenu")
+            i.icon.icon-user.novatar.novatar_box
     nav.frame__aside-nav(v-bind:class="{ active: togglenav }")
         .frame__aside-mhead.g-res--tablet-lg
             a.frame__aside-close(href="" @click.prevent="openNav()")
@@ -19,3 +21,4 @@
                         li
                             span.ph__nav-icon
                             span.ph__nav-text
+

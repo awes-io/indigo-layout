@@ -10,15 +10,13 @@
                 i.icon.icon-cross
         .frame__userinfo
             a.frame__userinfo-link(href="")
-                .icon.icon-ruppor
-                i.icn-dot
+                span.icon.icon-ruppor
+                    i.icn-dot
             span.frame__header-add
                 i.icon.icon-plus
             a.frame__userinfo-link(href="")
-                .icon.icon-hdd
-                i.icn-dot
-            button.frame__userinfo-ava(@click="showUserMenu = ! showUserMenu")
-                i.icon.icon-user.novatar.novatar_box
+                span.icon.icon-hdd
+                    i.icn-dot
             .user-menu(v-show="showUserMenu")
                 include user-menu.pug
     .frame__header-line

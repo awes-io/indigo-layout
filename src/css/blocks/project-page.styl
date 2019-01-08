@@ -1,0 +1,91 @@
+.project-page
+    width 100%
+    padding 5px
+    & &__head
+        fl(,sb,c)
+        width 100%
+        &-left
+            width calc(100% - 250px)
+            padding-left 25px
+            padding-top 15px
+            padding-bottom 15px
+            padding-right 40px
+        &-right
+            width 250px
+    & &__logo
+        width 100%
+        max-width 250px
+        min-height 160px
+        padding 15px
+        fl(,c,c)
+    & &__title
+        font-weight 700
+        display block
+        width 100%
+        overflow hidden
+        text-overflow ellipsis
+        white-space nowrap
+        margin-bottom 27px
+    & &__content
+        padding 15px 25px 25px 25px
+    & &__progress
+        size 100% 4px
+        margin-bottom 27px
+        span
+            display block
+            height 4px
+            width 0
+            position relative
+            tr 0.25
+            &:after
+                size 1px 10px
+                display block
+                absolute right 0 top -3px
+                content ''
+            i
+                font-size 10px
+                font-style normal
+                absolute right 0 top 100%
+                margin-top 7px
+                font-weight 400
+                transform translateX(50%)
+
+@media res_tablet--md
+    .project-page
+        & &__stitle
+            margin-bottom 15px
+
+@media res_tablet--sm
+    .project-page
+        & &__head
+            flex-wrap wrap
+            align-items flex-start
+            &-left
+                padding-bottom 0
+                padding-left 0
+                padding-right 15px
+                padding-top 0
+                padding-bottom 0
+                width calc(100% - 100px)
+            &-right
+                width 100px
+        & &__logo
+            min-height 1px
+            width 100px
+        & &__content
+            padding 0
+
+@media res_mobile--md
+    .project-page
+        & &__head
+            flex-wrap wrap
+            &-left
+                order 2
+                width 100%
+                padding-right 0
+            &-right
+                width 100%
+                order 1
+                margin-bottom 15px
+        & &__logo
+            width 200px

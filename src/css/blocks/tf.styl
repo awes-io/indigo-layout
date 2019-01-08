@@ -1,5 +1,5 @@
 tf_titles = (h1 h2 h3 h4 h5)
-tf_tags = (p blockquote table ul ol dl core pre) 
+tf_tags = (p blockquote table ul ol dl core pre 'div[id]') 
 tf_margin = 30px
 tf_text_margin = 25px
 
@@ -10,6 +10,9 @@ for tag in tf_tags
 
 body
     font-size f_normal
+
+.vue-example
+    margin-bottom tf_text_margin
 
 code
     margin-bottom tf_margin
@@ -150,6 +153,11 @@ table
             padding-left 0
             width 80%
             margin-bottom tf_text_margin
+
+mark
+    padding 2px 5px 4px 5px
+    margin-left 5px
+    margin-right 5px
 
 
 // Help Classes

@@ -45,6 +45,9 @@ context-menu
       &:focus
         > .icon-dots
           opacity: 1
+  
+  &.is-opened
+    z-index 201
 
   &.is-opened &__toggler-default
     .icon-dots
@@ -52,12 +55,10 @@ context-menu
 
   &__dropdown
     min-width: 150px
-
     position: absolute
     left: 0
     top: 100%
     z-index: 2
-
 
   &__overlay
     content: ''
