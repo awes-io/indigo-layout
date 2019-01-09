@@ -1,0 +1,37 @@
+.tooltip
+  cursor: pointer;
+  font-size f_small
+  border-radius: 2px;
+  z-index 800 !important
+  margin-bottom: -5px
+  max-width 90%
+  &_modal
+    z-index 1100 !important
+  .tooltip__text
+    padding: 8px 15px
+    display: inline-block
+  &:before
+    border: 4px solid transparent
+    size 0px
+    display: block
+    absolute left 50% bottom -8px
+    margin-left: -2px
+    content: ''
+  &[x-placement="right"]
+    margin-bottom 0
+    margin-top -3px
+    &:before
+      border-top 4px solid transparent
+      left -8px
+      bottom auto
+      margin-top -4px
+      top 50%
+      margin-left 0px
+      border-right 4px solid rgba(0,0,0,0.9)
+
+//Fix for vue plugin
+.v-popover.display-block
+  > span
+    display: block !important
+    position relative
+    outline none !important

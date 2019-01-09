@@ -1,0 +1,38 @@
+.header-notification, header-notification
+    display block
+    width 100%
+    text-align center
+    padding 15px 60px
+    position relative
+    z-index 900
+    & &__close
+        absolute right 30px top 50%
+        margin-top -7px
+        display block
+        font-size 14px
+        &:hover
+            opacity 0.7
+
+@media res_desktop--sm
+    .header-notification
+    header-notification
+        padding-left 45px
+        padding-right 45px
+        & &__close
+            right 20px
+
+@media res_tablet--lg
+    .header-notification
+    header-notification
+        margin-top 62px
+        margin-bottom -65px
+
+@media res_tablet--md
+    .header-notification
+    header-notification
+        padding-left 30px
+        padding-right 30px
+        & &__close
+            right 10px
+
+

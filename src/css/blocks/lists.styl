@@ -1,0 +1,28 @@
+.history-list
+    clearlist()
+    li
+        padding-bottom 25px
+        padding-left 20px
+        position relative
+        &:before
+            size 10px
+            border-radius 50%
+            display block
+            absolute left 0 top 4px
+            content ''
+        &.active
+            &:after
+                display block
+                size 1px calc(100% - 18px)
+                absolute left 5px top 18px
+                content ''
+        &:last-child
+            padding-bottom 0
+            &.active
+                &:after
+                    display none
+
+@media res_tablet--md
+    .history-list
+        li
+            padding-bottom 15px

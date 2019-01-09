@@ -1,16 +1,3 @@
-if(responsive == false)
-  *
-    max-height 99999px
-
-  html
-    -webkit-text-size-adjust none
-    touch-action: manipulation
-
-  .mainwrapper
-    min-width wrapper
-
-
-// Normalizer
 body
   min-width 300px
   padding 0
@@ -24,6 +11,10 @@ table
 input
   -webkit-appearance: none
   border-radius 0px
+
+progress
+  -webkit-appearance none
+  appearance none
 
 html,body,figure,hr
   margin 0
@@ -66,7 +57,7 @@ input::-webkit-contacts-auto-fill-button
 textarea::-webkit-contacts-auto-fill-button
   opacity 0
 
-article,aside,footer,header,nav,section,audio,video,picture
+article,aside,footer,header,nav,section,audio,video,picture,main, code
   display block
 
 img
@@ -76,10 +67,6 @@ img
 
 button,input
   line-height normal
-
-.owl-item
-  backface-visibility hidden
-  transform: translateZ(0) scale(1.0, 1.0)
 
 button,select
   text-transform none
@@ -108,6 +95,9 @@ a, button, input[type='button'], input[type='submit']
   &:active, &:hover, &:focus
     outline 0
 
+pre
+  margin 0
+
 p,h1,h2,h3,h4,h5
   margin 0
 
@@ -116,9 +106,6 @@ button
 
 input, textarea, button
   border 0
-
-main
-  display block
 
 ul, ol
   list-style none

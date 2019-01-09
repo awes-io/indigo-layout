@@ -6,7 +6,8 @@ export default {
         return {
             togglenav: false,
             showSearch: false,
-            showUserMenu: false
+            showUserMenu: false,
+            stActive: false
         }
     },
 
@@ -37,7 +38,6 @@ export default {
     },
     
     watch: {
-        
         showUserMenu( isShown ) {
             this.toggleBodyFix(isShown)
         }

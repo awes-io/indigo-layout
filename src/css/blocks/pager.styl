@@ -1,0 +1,123 @@
+.pager
+    padding-top 30px
+    fl(,sb,c)
+    margin-bottom -10px
+    & &__caption
+        font-size f_small
+        display block
+        width 20% 
+        margin-bottom 10px
+        padding-left 20px
+    & &__shows
+        width 20%
+        padding-right 20px
+        fl(w,fe,c)
+        margin-bottom 10px
+        &-link
+            position relative
+            font-size f_small
+            padding-right 15px
+            display block
+            &:after
+                angle()
+            &:hover
+                text-decoration none
+    & &__links
+        fl(,c,c)
+        margin-bottom 10px
+        &-wrap
+            fl(,c,c)
+            padding-left 1px
+        span
+            &:first-child
+                & ^[0]__link
+                    border-radius 3px 0px 0px 3px
+            &:last-child
+                & ^[0]__link
+                    border-radius 0 3px 3px 0
+    & &__link
+        margin-left -1px
+        display block
+        padding 10px
+        line-height 1
+        font-size f_small
+        height 34px
+        min-width 32px
+        text-align center  
+        &:hover
+            text-decoration none      
+    &_active
+        pointer-events none
+    & &__spacer 
+        margin-left -1px
+        display block
+        padding 10px
+        pointer-events none
+        height 34px
+        line-height 1
+        font-size 13px
+        letter-spacing 1px
+    & &__arr-left
+        size 30px
+        fl(,c,c)
+        margin-right 10px
+        border-radius 50%
+        line-height 4px
+        font-size 5px
+        &:hover
+            text-decoration none
+    & &__arr-right
+        size 30px
+        border-radius 50%
+        margin-left 10px
+        line-height 4px
+        fl(,c,c)
+        font-size 5px
+        &:hover
+            text-decoration none
+
+
+@media res_desktop--sm
+    .pager
+        padding-top 25px
+        & &__caption
+            width auto
+            padding-left 0
+        & &__shows
+            width auto
+            padding-right 0
+
+@media res_tablet--md
+    .pager
+        flex-wrap wrap
+        padding-top 15px
+        justify-content center
+        & &__caption
+            order 2
+            margin-right 15px
+            margin-left 15px
+        & &__shows
+            order 3
+            margin-right 15px
+            margin-left 15px
+        & &__middle
+            order 1
+            width 100%
+            padding-top 15px
+        & &__links
+            width 100%
+            margin-bottom 27px
+            &-wrap
+                flex-wrap wrap
+
+@media res_mobile--md
+    .pager
+        & &__links
+            flex-wrap wrap
+            &-wrap
+                width 100%
+                order 1
+        & &__arr-left
+            display none
+        & &__arr-right
+            display none

@@ -1,0 +1,30 @@
+.justify-list
+    font-size f_normal
+    margin-bottom 30px
+    min-height 360px
+    li
+        border-bottom 1px solid
+        padding 10px 30px
+        fl(w,sb,c)
+        min-height 60px
+        a
+            &:hover
+                text-decoration underline
+        &:last-child
+            border-bottom 0
+    &_oneline
+        li
+            flex-wrap nowrap 
+
+@media res_mobile--md
+    .justify-list
+        margin-bottom 20px
+
+@media res_mobile--sm
+    .justify-list
+        & &__cell
+            width 100%
+        &_oneline
+            & ^[0]__cell
+                width auto
+

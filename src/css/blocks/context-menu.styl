@@ -1,0 +1,172 @@
+overlay-transition = 250ms
+
+// prevent content blinking
+context-menu
+  > *
+    display: none
+
+.context-menu
+  display: inline-flex
+  min-height: 1em
+  z-index 200
+  position: relative
+
+  &__toggler
+    // reset
+    padding: 0
+    background: none
+    margin: 0
+    text-align: left
+    min-height: 1em
+    min-width: 1em
+    line-height: 1
+    color: inherit
+    transition none
+    
+    * 
+      pointer-events: inherit;
+
+    &-default
+    
+      border: 1px solid
+      border-radius: 2px
+      background: none
+      padding: .4em
+      color: inherit
+
+      > .icon-dots
+        margin-top: -1em
+        vertical-align: middle
+        font-size: 3px
+        opacity: .4
+        transition: opacity 90ms ease
+
+      &:hover,
+      &:focus
+        > .icon-dots
+          opacity: 1
+  
+  &.is-opened
+    z-index 201
+
+  &.is-opened &__toggler-default
+    .icon-dots
+      opacity: 1
+
+  &__dropdown
+    min-width: 150px
+    position: absolute
+    left: 0
+    top: 100%
+    z-index: 2
+
+  &__overlay
+    content: ''
+    display: block
+    position: fixed
+    top: -100px
+    left: 0
+    bottom: 0
+    width: 100%
+    opacity: 0
+    transform: scale(0)
+    will-change: transform, opacity
+    transition: transform 0ms overlay-transition, opacity overlay-transition
+
+  &.is-opened
+    .context-menu__overlay
+      opacity: 1
+      transform: scale(1)
+      transition: transform 0ms, opacity overlay-transition
+
+
+
+  // Animation classes
+  .toggle-context-menu
+
+    &-enter-active,
+    &-leave-active
+      will-change: transform, opacity
+      pointer-events: none
+      transform: translate3d(0,0,0)
+      transform-origin: top center
+
+    &-enter-active
+      transition: opacity 250ms ease-out, transform 180ms ease-out
+
+    &-leave-active
+      transition: opacity 120ms ease, transform 140ms ease
+
+    &-enter,
+    &-leave-to
+      opacity: 0
+      transform: translateY(-.5em) scaleY(.95)
+
+    &-enter-to,
+    &-leave
+      opacity: 1
+      transform: translateY(0) scaleY(1)
+
+
+
+  // Side modifiers
+  &.is-right-side
+
+    .context-menu__dropdown
+      left: auto
+      right: 0
+
+  &.is-top-side
+
+    .context-menu__dropdown
+      top: auto
+      bottom: 100%
+
+    .toggle-context-menu
+      &-enter-active,
+      &-leave-active
+        transform-origin: bottom center
+
+      &-enter,
+      &-leave-to
+        transform: translateY(.5em) scaleY(.95)
+
+
+
+/*
+ * Item
+ */
+
+.cm-item
+
+    &.is-separator
+        height: 1px
+        overflow: hidden
+        color: transparent
+
+    &__link,
+    &__button
+        // reset
+        display: block
+        margin: 0 !important
+        line-height: 1
+        width: 100%
+        border: none
+        background: none
+        text-align: left
+        color: inherit
+        text-decoration: none
+
+        padding: 15px
+
+    &__panel
+        padding: 16px 30px
+
+    &:first-of-type
+        .cm-item__panel
+            padding-top: 25px
+
+    &:last-of-type
+        .cm-item__panel
+            padding-bottom: 25px
+            border-bottom: none

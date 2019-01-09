@@ -1,235 +1,188 @@
 
-
 body
-  color tc_text
+  color var(--tc_text)
+  background-color var(--tc_theme_body)
 
 blockquote
-  background-color tc_ui_bg_semi
-  box-shadow tc_ui_shadow
+  background-color var(--tc_ui_bg)
+  box-shadow var(--tc_ui_shadow)
+  &:before
+    color var(--tc_text_caption)
+    opacity .5
   span
-    color tc_text_caption
+    color var(--tc_text_caption)
 
+em
+  background-color transparent
+  color var(--tc_text_mark)
+  font-style normal
+
+s
+  color var(--tc_text_caption)
+
+.frame__content
+  ol
+    li
+      &:before
+        color var(--tc_text_caption)
 a
-  color tc_link
+  color var(--tc_link)
   &:hover
     color cl_skydark
       
 .infbl
   & &_icon
-    color tc_text_caption
+    color var(--tc_text_caption)
   & &__caption
-    color tc_text_caption
+    color var(--tc_text_caption)
 
 .static-page
-  background-color tc_ui_bg_semi
+  background-color var(--tc_ui_bg_semi)
   & &__head
-    background-image tc_aside_gradient
-    color tc_invert
+    background-image var(--tc_aside_gradient)
+    color var(--tc_invert)
   & &__content
-    background-color tc_ui_bg
+    background-color var(--tc_ui_bg)
   & &__search-link  
-    color tc_invert
+    color var(--tc_aside_text)
     &:hover
-      color tc_link
+      color var(--tc_link)
+  & &__title
+    color var(--tc_aside_text)
   & &__footer
     &-logo
-      color tc_text_caption 
+      color var(--tc_text_caption)
       a
-        color tc_text_caption
+        color var(--tc_text_caption)
         &:hover
-          color tc_link
+          color var(--tc_link)
       .icon
-        color tc_link
+        color var(--tc_link)
 
 
-body 
-  background-color tc_theme_body
+.history-list
+  li
+    color var(--tc_text_caption)
+    &:before
+      box-shadow 0px 0px 0px 2px var(--tc_text_caption) inset
+    &.active
+      color cl_grass
+      &:before
+        background-color cl_grass
+        box-shadow none
+      &:after
+        background-color  var(--tc_border)
+    &.current
+      color cl_grass
+      &:before
+        box-shadow 0px 0px 0px 2px cl_grass inset
 
-// Placeholder start
-
-phAnimation(color_def, percent_def, type = darken)
-  if(type == darken)
-    background-image linear-gradient(to left, color_def 0%, darken(color_def, percent_def) 50%, color_def 100%)
-  else 
-    background-image linear-gradient(to left, color_def 0%, lighten(color_def, percent_def) 50%, color_def 100%)
-  background-size 500% 100%
-
-
-fb-input, fb-select, fb-textarea, fb-checkbox, fb-checkbox:after
-  if(luminosity(tc_ui_bg) < 0.5)
-    phAnimation(tc_ui_bg_darken, 17%)
-  else
-    phAnimation(tc_ui_bg_darken, 10%)
-  background-color tc_ui_bg_darken
-
-.ph
-  span
-    if(luminosity(tc_ui_bg) < 0.5)
-      phAnimation(tc_ui_bg_semi, 17%)
-    else
-      phAnimation(tc_ui_bg_semi, 10%)
-    background-color tc_ui_bg_semi
-  &_dark
+.project-page
+  & &__logo
+    box-shadow var(--tc_shadow_block)
+  & &__progress
+    background-color var(--tc_border)
     span
-      if(luminosity(tc_ui_bg) < 0.5)
-        phAnimation(tc_ui_bg_darken, 17%)
-      else
-        phAnimation(tc_ui_bg_darken, 10%)
-      background-color tc_ui_bg_darken
-  & &__nav, & &__mnav
-    span
-      if(luminosity(tc_aside_bg) < 0.5)
-        if(luminosity(tc_ui_bg) < 0.5)
-          background-image linear-gradient(to left, rgba(255,255,255,0.05) 0%,rgba(255,255,255,0.15) 50%, rgba(255,255,255,0.05) 100%)
-        else
-          background-image linear-gradient(to left, rgba(255,255,255,0.05) 0%,rgba(255,255,255,0.3) 50%, rgba(255,255,255,0.05) 100%)
-        background-color rgba(255,255,255,0.05)
-      else
-        background-color rgba(0,0,0,0.15)
-        background-image linear-gradient(to left, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.15) 100%)
-  & &__table
-    box-shadow tc_ui_shadow
-    span
-      if(luminosity(tc_ui_bg) < 0.5)
-        phAnimation(tc_ui_bg_semi, 10%, lighten)
-      else
-        phAnimation(tc_ui_bg_semi, 5%)
-      background-color tc_ui_bg_semi
-    &-row
-      box-shadow tc_ui_shadow
-      background-color tc_ui_bg
-      border-color tc_border_light
-  & &__list
-    box-shadow tc_ui_shadow
-    span
-      if(luminosity(tc_ui_bg) < 0.5)
-        phAnimation(tc_ui_bg_semi, 10%, lighten)
-      else
-        phAnimation(tc_ui_bg_semi, 10%)
-      background-color tc_ui_bg_semi
-    &-row
-      box-shadow tc_ui_shadow
-      background-color tc_ui_bg
-      border-color tc_border_light
+      background-color cl_grass
+      color cl_grass
+      &:after
+        background-color cl_grass
+        
 
 
-frame-nav
-  @media res_tablet--lg
-    background-color tc_aside_bg
 
-// Placeholder end
 
 .action-menu
   & &__click
-    color tc_link_semi
+    color var(--tc_link_semi)
     &:hover
-      color tc_link_semi_active
+      color var(--tc_link_semi_active)
 
 .ava-text
   .icon
-    background-color tc_ui_bg_darken
-    color tc_text_caption
+    background-color var(--tc_ui_bg_darken)
+    color var(--tc_text_caption)
 
 .novatar
-  background-color tc_ui_bg_darken
-  color tc_text_caption
+  background-color var(--tc_ui_bg_darken)
+  color var(--tc_text_caption)
 
 .number-field
   & &__field
-    background-color tc_ui_bg
-    border 1px solid tc_border
+    background-color var(--tc_ui_bg)
+    border 1px solid var(--tc_border)
   & &__plus, & &__minus
-    border 1px solid tc_border
-    color tc_ui_btn_light_text
-    background-color tc_ui_btn_grey
+    border 1px solid var(--tc_border)
+    color var(--tc_ui_btn_light_text)
+    background-color var(--tc_ui_btn_grey)
     &:hover
-      background-color tc_ui_hover
-      color tc_ui_hover_text
-      border 1px solid tc_ui_hover
+      background-color var(--tc_ui_hover)
+      color var(--tc_ui_hover_text)
+      border 1px solid var(--tc_ui_hover)
 
 .figure-loader
   & &__img
-    background-color tc_ui_bg
+    background-color var(--tc_ui_bg)
   & &__remove
-    color tc_link_semi
+    color var(--tc_link_semi)
     &:hover
-      color tc_link_semi_active
+      color var(--tc_link_semi_active)
 
 .form-title
-  color tc_text
+  color var(--tc_text)
   .icon
-    color tc_text_caption
+    color var(--tc_text_caption)
 
 .ui-title
-  color tc_text
+  color var(--tc_text)
 
 .header-tabs
-  border-bottom-color tc_border
+  border-bottom-color var(--tc_border)
   & &__link, & &__ltlink
-    color tc_link_semi
+    color var(--tc_link_semi)
     &.active
-      border-bottom-color tc_ui_hover
-      color tc_link_semi_active
+      border-bottom-color var(--tc_ui_hover)
+      color var(--tc_link_semi_active)
     &:hover
-      color tc_link_semi_active
-  // .cm-item
-  //   &__button
-  //     color tc_link_semi
-  //     &.active
-  //       border-bottom-color tc_ui_hover
-  //       color tc_link_semi_active
-  //     &:hover
-  //       color tc_link_semi_active
+      color var(--tc_link_semi_active)
 
 .form-spoiler
   & &__title
-    color tc_link_black
+    color var(--tc_link_black)
     &:hover
-      color tc_link
+      color var(--tc_link)
   &:before
-    background-color tc_border_light
+    background-color var(--tc_border_light)
   &:after
-    border-color tc_border_night
-
-
-// .v
-//   &--modal
-//     background-color tc_ui_bg !important
-//     &-overlay
-//       background alpha(cl_black, 0.8) !important
-//     &-close
-//       color tc_link_semi
-//       &:hover
-//         color tc_link_semi_active
-
+    border-color var(--tc_border_night)
 
 .vue-dialog
   .vue-dialog-buttons
     .vue-dialog-button
       &:nth-child(2)
-        border-top 1px solid tc_border_light
-        background-color tc_ui_bg !important
+        border-top 1px solid var(--tc_border_light)
+        background-color var(--tc_ui_bg) !important
         color cl_asphalt !important
         &:hover
-          if(luminosity(tc_ui_bg) > 0.5)
-            background-color darken(tc_ui_bg, 5%) !important
-          else
-            background-color lighten(tc_ui_bg, 5%) !important
+          {lt} &
+            background-color var(--tc_ui_bg_d) !important
+          {dt} &
+            background-color var(--tc_ui_bg_l) !important
           color cl_asphalt
 
 
 .modal
-  background-color: alpha(cl_black, 0.8)
+  background-color alpha(cl_black, 0.8)
   & &__dialog
-    background-color tc_ui_bg
+    background-color var(--tc_ui_bg)
   & &__close
-    color tc_link_semi
+    color var(--tc_link_semi)
     &:hover
-      color tc_link_semi_active
+      color var(--tc_link_semi_active)
   .line-btns 
-    background-color tc_ui_bg
+    background-color var(--tc_ui_bg)
     &__wrap
-      background-color tc_ui_bg
+      background-color var(--tc_ui_bg)
     .btn
       background-color cl_grass !important
       color cl_white !important
@@ -237,17 +190,17 @@ frame-nav
         background-color darken(cl_grass, 10%) !important
         color cl_white
       &:nth-child(2)
-        border-top 1px solid tc_border_light
-        background-color tc_ui_bg !important
+        border-top 1px solid var(--tc_border_light)
+        background-color var(--tc_ui_bg) !important
         color cl_asphalt !important
         &:hover, &:focus
-          if(luminosity(tc_ui_bg) > 0.5)
-            background-color darken(tc_ui_bg, 5%) !important
-          else
-            background-color lighten(tc_ui_bg, 5%) !important
+          {lt} &
+            background-color var(--tc_ui_bg_d) !important
+          {dt} &
+            background-color var(--tc_ui_bg_l) !important
           color cl_asphalt
       &[disabled="disabled"]
-        background-color tc_ui_darkbg !important
+        background-color var(--tc_ui_darkbg) !important
         pointer-events none
         opacity 0.5
 
@@ -267,86 +220,86 @@ frame-nav
 
 .hfilter
   & &__wrap
-    background-color tc_ui_bg
+    background-color var(--tc_ui_bg)
     min-height 100%
 
 .overflow-window
-  background-color tc_ui_bg
-  color tc_text
+  background-color var(--tc_ui_bg)
+  color var(--tc_text)
   & &__link
-    color tc_link_black
+    color var(--tc_link_black)
     &_red
       color cl_warn
     &:hover
-      background-color tc_ui_btn_light
+      background-color var(--tc_ui_btn_light)
   & &__title
-    color tc_text_caption
+    color var(--tc_text_caption)
   & &__close
-    color tc_link_semi
+    color var(--tc_link_semi)
     &:hover
-      color tc_link_semi_active
+      color var(--tc_link_semi_active)
 
 .filter
   & &__slink
-    color tc_link_semi
+    color var(--tc_link_semi)
     .icon
-      color tc_link_semi
+      color var(--tc_link_semi)
     &:hover
-      color tc_link_semi_active
+      color var(--tc_link_semi_active)
       .icon
-        color tc_link_semi_active
+        color var(--tc_link_semi_active)
       &:after
-        border-top-color tc_link_semi_active
+        border-top-color var(--tc_link_semi_active)
   & &__checkbox
     &-label
-      border-color tc_border
-      color tc_link_semi
+      border-color var(--tc_border)
+      color var(--tc_link_semi)
       &:hover
-        color tc_link_semi_active
+        color var(--tc_link_semi_active)
     &-datapicker
-      color tc_link_semi
+      color var(--tc_link_semi)
       &:focus
-        color tc_link_semi_active
+        color var(--tc_link_semi_active)
     & ^[0]__checkbox-hInput:checked + .filter__checkbox-label
-      background-color tc_ui_bg
-      color tc_link_semi_active
+      background-color var(--tc_ui_bg)
+      color var(--tc_link_semi_active)
       .filter__checkbox-datapicker
-        background-color tc_ui_bg
+        background-color var(--tc_ui_bg)
     &-cell
       &_active
         & ^[0]__checkbox-label
-          background-color tc_ui_bg
-          color uiElement_active
+          background-color var(--tc_ui_bg)
+          color var(--uiElement_active)
         & ^[0]__checkbox-datapicker
-          background-color tc_ui_bg
+          background-color var(--tc_ui_bg)
   &__form-builder
-    background-color: tc_ui_bg
+    background-color var(--tc_ui_bg)
 
 .price-table
-  // border 1px solid tc_border
+  // border 1px solid var(--tc_border)
   padding-left 1px
   & &__cell
-    border 1px solid tc_border
-    background-color tc_ui_bg
+    border 1px solid var(--tc_border)
+    background-color var(--tc_ui_bg)
     &.active
       border 1px solid cl_grass
   & &__list
     li
-      border-bottom 1px solid tc_border_dark
-      color tc_text_caption
+      border-bottom 1px solid var(--tc_border_dark)
+      color var(--tc_text_caption)
       &:last-child
         border-bottom 0
   & &__spoiler
     & ^[0]__list
       li
         &:last-child
-          border-bottom 1px solid tc_border_dark
+          border-bottom 1px solid var(--tc_border_dark)
   & &__caption
-    color tc_text_caption
+    color var(--tc_text_caption)
     &_dark
-      color tc_text
+      color var(--tc_text)
   & &__moreinfo
-    color tc_link_dark
+    color var(--tc_link_dark)
     &:hover
       text-decoration underline
   & &--cancel
@@ -355,73 +308,71 @@ frame-nav
 
 .paycard
   & &__current
-    color tc_text
+    color var(--tc_text)
     &-caption
-      color tc_text_caption
+      color var(--tc_text_caption)
   & &__info-text
-    color tc_text_caption
+    color var(--tc_text_caption)
   & &__wrap
     color cl_white
-    background-image tc_gradient_1
-    box-shadow tc_shadow_blue
+    background-image var(--tc_gradient_1)
+    box-shadow var(--tc_shadow_blue)
   & &__select
     color cl_white
     &:hover
       color cl_white !important
   &_red
     & ^[0]__wrap
-      background-image tc_gradient_2
-      box-shadow tc_shadow_red
+      background-image var(--tc_gradient_2)
+      box-shadow var(--tc_shadow_red)
   &_white
     & ^[0]__wrap
-        box-shadow tc_shadow_gblue
+        box-shadow var(--tc_shadow_gblue)
         background-image none
-        background-color tc_ui_bg
+        background-color var(--tc_ui_bg)
     & ^[0]__select
-        color tc_link_semi
+        color var(--tc_link_semi)
   & &__paylogo
     figcaption
-      color tc_text
+      color var(--tc_text)
   & &__hover
-    background-color tc_ui_bgopacity
+    background-color var(--tc_ui_bgopacity)
   &:hover
     & ^[0]__select
-      color tc_link_semi
+      color var(--tc_link_semi)
 
-@media (pointer: coarse)
+@media (pointer coarse)
   .paycard
     & &__hover
       background-color transparent
     & &--btn
-      color tc_link_semi !important
+      color var(--tc_link_semi) !important
       background-color transparent !important
     & &__select
-      color tc_link_semi !important
+      color var(--tc_link_semi) !important
 
 
 .modal_fullscreen
-  background-color tc_ui_bg
+  background-color var(--tc_ui_bg)
   .modal
     &__header
-      border-bottom 1px solid tc_border
-      background-color tc_ui_bg
+      border-bottom 1px solid var(--tc_border)
+      background-color var(--tc_ui_bg)
     &__back
-      color tc_link_semi
+      color var(--tc_link_semi)
       &:hover
-        color tc_link_semi_active
+        color var(--tc_link_semi_active)
 
 
 .radiobox
-  color tc_link_semi
+  color var(--tc_link_semi)
   & &__icon
-    border 1px solid tc_border
+    border 1px solid var(--tc_border)
     &:before
       opacity 0
-  // & &__text
-  //   color tc_link_semi
   & ^[0]__field:checked + .radiobox__content
     & ^[0]__text
-      color tc_link_semi_active
+      color var(--tc_link_semi_active)
     & ^[0]__icon
       background-color cl_grass
       border-color cl_grass
@@ -431,67 +382,41 @@ frame-nav
         background-color cl_white
   & ^[0]__field:focus + .radiobox__content
     & ^[0]__icon
-      border 1px solid tc_ui_focus
+      border 1px solid var(--tc_ui_focus)
 
-
-// .box-checker
-//   overflow hidden
-//   position relative
-//   padding-left 1px
-// 
-//   & &__content
-//     background-color tc_ui_bg_semi
-//     border 1px solid tc_border
-//   & &__box
-//     color tc_text_caption
-//     margin-left -1px  
-//     &:first-child
-//       & ^[0]__content
-//         border-radius 3px 0px 0px 3px
-//     &:last-child
-//       & ^[0]__content
-//         border-radius 0px 3px 3px 0px
-//   & ^[0]__field:focus + .box-checker__content
-//     background-color tc_ui_focus
-//     color cl_white
 .box-checker        
   .fc-radio .fc-radio__box.is-checked
-    background-color tc_ui_bg
-    color tc_text
+    background-color var(--tc_ui_bg)
+    color var(--tc_text)
     z-index 10
     position relative
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1)
+    box-shadow 0 0 5px rgba(0, 0, 0, 0.1)
     border 1px solid cl_grass
-    
     &:not(:first-child)
-      margin-left: -1px
-
+      margin-left -1px
     .box-checker__caption
-      color tc_text_caption
+      color var(--tc_text_caption)
 
 .fc-radio
   overflow hidden
   position relative
   & &__box
-    border 1px solid tc_border
+    border 1px solid var(--tc_border)
     border-left none
-    color tc_text_caption
+    color var(--tc_text_caption)
     &:first-child
-      border-left 1px solid tc_border
+      border-left 1px solid var(--tc_border)
       border-radius 3px 0 0 3px
     &:last-child
       border-radius 0 3px 3px 0
   & &__text
-    background-color tc_ui_bg_semi
+    background-color var(--tc_ui_bg_semi)
   & ^[0]__field:focus + .fc-radio__text
-    background-color tc_ui_focus
+    background-color var(--tc_ui_focus)
     color cl_white
   & ^[0]__field:checked + .fc-radio__text
-    background-color tc_ui_bg
-    color tc_text
-
-        
-  
+    background-color var(--tc_ui_bg)
+    color var(--tc_text)  
 
 .icn-dot
   background-color cl_warn
@@ -499,48 +424,48 @@ frame-nav
 .checkbox
   & &__text
     span
-      color tc_link_semi
+      color var(--tc_link_semi)
     .icon
-      border 1px solid tc_border_dark
+      border 1px solid var(--tc_border_dark)
       color transparent
   input:checked + .checkbox__text span
-    color tc_link_semi_active
+    color var(--tc_link_semi_active)
   input:checked + .checkbox__text .icon
     color cl_white
     background-color cl_grass
     border 1px solid cl_grass
   input:focus + .checkbox__text .icon
-    border 1px solid tc_ui_focus
+    border 1px solid var(--tc_ui_focus)
   input:focus + span .icon
     box-shadow 0px 0px 0px 1px cl_sky !important
   &_s2
     .icon
-      if(luminosity(tc_ui_bg) > 0.5)
-        background-color tc_ui_darkbg
-      else
-        background-color darken(tc_ui_darkbg, 50%)
+      {lt} &
+        background-color var(--tc_ui_darkbg)
+      {dt} &
+        background-color var(--tc_ui_darkbg_d)
       &:before
         background-color cl_white
-        box-shadow 0px 0px 5px alpha(tc_ui_darkbg, 0.5)
+        box-shadow 0px 0px 5px var(--tc_ui_darkbg_o)
   &_disabled
     & input:disabled + ^[0]__text
       .icon
-        border-color: tc_border
+        border-color var(--tc_border)
         color transparent
-        background-color tc_ui_bg_semi
+        background-color var(--tc_ui_bg_semi)
       span
-        color: tc_link_semi
+        color var(--tc_link_semi)
     & input:disabled:checked + ^[0]__text
       .icon
-        color: tc_ui_darkbg
+        color var(--tc_ui_darkbg)
     &^[0]_s2
       & input:disabled + ^[0]__text
         .icon
-          border-color: tc_border
+          border-color var(--tc_border)
           opacity 0.3
-          background-color tc_ui_darkbg
+          background-color var(--tc_ui_darkbg)
         span
-          color: tc_link_semi
+          color var(--tc_link_semi)
 
 
 
@@ -548,134 +473,134 @@ frame-nav
 
 .multiselect
   & &__tag
-    color tc_ui_tag_text !important
-    background-color tc_ui_tag !important
+    color var(--tc_ui_tag_text) !important
+    background-color var(--tc_ui_tag) !important
     &-icon
-      border-left 1px solid tc_ui_bg !important
+      border-left 1px solid var(--tc_ui_bg) !important
   & &__tags
-    background-color tc_ui_bg
-    border 1px solid tc_border_ins !important
+    background-color var(--tc_ui_bg)
+    border 1px solid var(--tc_border_ins) !important
   & &__content-wrapper
-    background-color tc_ui_bg
-    border 1px solid tc_border_ins
+    background-color var(--tc_ui_bg)
+    border 1px solid var(--tc_border_ins)
     border-top 0px !important
   &--above
     & ^[0]__content-wrapper
-      border-top 1px solid tc_border_ins !important
+      border-top 1px solid var(--tc_border_ins) !important
       border-bottom 0 !important
   & &__input
-    background-color tc_ui_bg
-    color tc_text
+    background-color var(--tc_ui_bg)
+    color var(--tc_text)
   & &__select
-    border-color: tc_ui_bg transparent transparent
+    border-color var(--tc_ui_bg) transparent transparent
   & &__option
-    color tc_text
+    color var(--tc_text)
     &--highlight
-      background-color tc_ui_bg_semi !important
-      color tc_text !important
+      background-color var(--tc_ui_bg_semi) !important
+      color var(--tc_text) !important
 
 .multiselect__input::-webkit-input-placeholder
-  color tc_text !important
+  color var(--tc_text) !important
 
 .multiselect__input:-moz-placeholder
-  color tc_text !important
+  color var(--tc_text) !important
 
 .multiselect__input::-moz-placeholder
-  color tc_text !important
+  color var(--tc_text) !important
 
 .multiselect__input:-ms-input-placeholder
-  color tc_text !important
+  color var(--tc_text) !important
 
 .mselect
   & &__label
-    color tc_text_caption
+    color var(--tc_text_caption)
 
 
 .multi-bl
   & &__title
-    color tc_text
+    color var(--tc_text)
   & &__close
-    color tc_link_semi
+    color var(--tc_link_semi)
     &:hover
-      color tc_link_semi_active
+      color var(--tc_link_semi_active)
   & &__clear
-    color tc_link_black
+    color var(--tc_link_black)
     background-color transparent
     &:hover
       color cl_warn
     &:focus
-      color tc_ui_focus
+      color var(--tc_ui_focus)
   & &__add
     background-color transparent
-    color tc_link
+    color var(--tc_link)
     &:hover, &:focus
-      color tc_link_dark
+      color var(--tc_link_dark)
   &_disabled &
       &__clear,
       &__close,
       &__add
-          opacity: .5
-          color tc_text_caption
+          opacity .5
+          color var(--tc_text_caption)
 
 .input
   & &__okicon
     color cl_salad
   & &__editable
-    border-left 1px solid tc_border_ins
+    border-left 1px solid var(--tc_border_ins)
     &-caption
-      color tc_text_caption   
+      color var(--tc_text_caption)
   & &__eye
-    color tc_text_caption
+    color var(--tc_text_caption)
     &:hover
-      color tc_link
+      color var(--tc_link)
   & &__field
-    border 1px solid tc_border_ins
-    color tc_text
-    background-color tc_ui_bg
+    border 1px solid var(--tc_border_ins)
+    color var(--tc_text)
+    background-color var(--tc_ui_bg)
     tr(0.25)
     &:focus
-      border 1px solid tc_ui_focus
+      border 1px solid var(--tc_ui_focus)
     &:-webkit-autofill
-      -webkit-box-shadow 0 0 0 30px tc_ui_bg inset
-      -webkit-text-fill-color tc_text !important
+      -webkit-box-shadow 0 0 0 30px var(--tc_ui_bg) inset
+      -webkit-text-fill-color var(--tc_text) !important
   & &__textarea
-    border 1px solid tc_border_ins
-    color tc_text
-    background-color tc_ui_bg
+    border 1px solid var(--tc_border_ins)
+    color var(--tc_text)
+    background-color var(--tc_ui_bg)
     &:focus
-      border 1px solid tc_ui_focus
+      border 1px solid var(--tc_ui_focus)
     &:-webkit-autofill
-      -webkit-box-shadow 0 0 0 30px tc_ui_bg inset
-      -webkit-text-fill-color tc_text !important
+      -webkit-box-shadow 0 0 0 30px var(--tc_ui_bg inset)
+      -webkit-text-fill-color var(--tc_text) !important
   & &__label
-    color tc_text_caption
-    background-color tc_ui_bg
+    color var(--tc_text_caption)
+    background-color var(--tc_ui_bg)
   & &__clone, & &__remove
-    background-color tc_ui_bg_semi
-    color tc_link_semi
+    background-color var(--tc_ui_bg_semi)
+    color var(--tc_link_semi)
     &:hover
-      color tc_link_semi_active
+      color var(--tc_link_semi_active)
   &_autocomplete
     & ^[0]__field
-      border 1px solid tc_link_dark !important
+      border 1px solid var(--tc_link_dark) !important
   & &__autocomplete
-    background-color tc_ui_bg
+    background-color var(--tc_ui_bg)
     border 1px solid cl_sky
     border-top 0px
     &-caption
-      color tc_text_caption
+      color var(--tc_text_caption)
     &-info
-      background-color tc_ui_bg_semi
-      color tc_text_caption
+      background-color var(--tc_ui_bg_semi)
+      color var(--tc_text_caption)
     &-loading
-      background-color tc_ui_bg_semi
-      color tc_text_caption
+      background-color var(--tc_ui_bg_semi)
+      color var(--tc_text_caption)
     &-hidden
       a
-        color tc_link_black
+        color var(--tc_link_black)
         &:hover
-          background-color tc_ui_btn_light
-          color tc_link_black
+          background-color var(--tc_ui_btn_light)
+          color var(--tc_link_black)
 
   &_error
     & ^[0] ^[0]__field
@@ -684,53 +609,53 @@ frame-nav
       border 1px solid cl_warn
   &_ok
     & ^[0]__field
-      if(luminosity(tc_page_bg) > 0.5)
+      {lt} &
         border 1px solid cl_salad
     & ^[0]__textarea
-      if(luminosity(tc_page_bg) > 0.5)
+      {lt} &
         border 1px solid cl_salad
   &_disabled
     opacity 0.5
     & ^[0]__field
-      border 1px solid tc_border
-      color tc_text_caption
-      background-color tc_page_bg
+      border 1px solid var(--tc_border)
+      color var(--tc_text_caption)
+      background-color var(--tc_ui_bg)
     & ^[0]__textarea
-      border 1px solid tc_border
-      color tc_text_caption
-      background-color tc_page_bg
+      border 1px solid var(--tc_border)
+      color var(--tc_text_caption)
+      background-color var(--tc_ui_bg)
     & ^[0]__label
-      background-color tc_page_bg
+      background-color var(--tc_ui_bg)
 
 .modal-form
   & &__title
-    color tc_text
+    color var(--tc_text)
   & &__buttons
-    border-top 1px solid tc_border_ins
+    border-top 1px solid var(--tc_border_ins)
 
 .loading-inline, .loading-block
   &:before
-    background-color tc_ui_bg
+    background-color var(--tc_ui_bg)
 
 .btn
-  color tc_btn_text
-  background-color tc_btn_bg
+  color var(--tc_btn_text)
+  background-color var(--tc_btn_bg)
   &:hover, &:focus
-    background-color darken(tc_btn_bg, 10%)
-    color tc_btn_text
+    background-color var(--tc_btn_bg_active)
+    color var(--tc_btn_text)
   &_white
-    background-color tc_btn_tr_bg
-    color tc_btn_tr_text
+    background-color var(--tc_btn_tr_bg)
+    color var(--tc_btn_tr_text)
     &:hover, &:focus
-      background-color darken(tc_btn_tr_bg, 10%)
-      color tc_btn_tr_text
+      background-color var(--tc_btn_tr_bg_d)
+      color var(--tc_btn_tr_text)
   &_transparent
     background-color transparent
-    color tc_btn_tr_text
+    color var(--tc_btn_tr_text)
     &:hover, &:focus
-      background-color darken(tc_ui_bg_darken, 10%)
+      background-color var(--tc_ui_bg_darken_s)
   &_sh
-    box-shadow: 1px 2px 3px alpha(tc_btn_bg, 0.5);
+    box-shadow 1px 2px 3px var(--tc_btn_bg_shadow);
   &_darkred
     background-color transparent
     color cl_white
@@ -739,15 +664,15 @@ frame-nav
       background-color transparent
   &_greylink
     background-color transparent
-    color tc_link_semi
+    color var(--tc_link_semi)
     &:hover, &:focus
       background-color transparent
-      color tc_link
+      color var(--tc_link)
   &.loading-inline
     &:hover, &:focus
       background-color cl_grass
   &[disabled="disabled"]
-    background-color tc_ui_darkbg !important
+    background-color var(--tc_ui_darkbg) !important
     pointer-events none
     opacity 0.5
 
@@ -755,56 +680,56 @@ frame-nav
 
 .pager
   & &__caption
-    color tc_link_semi
+    color var(--tc_link_semi)
   & &__shows
     &-link
-      color tc_link_semi
+      color var(--tc_link_semi)
       &:hover
-        color tc_link_semi_active
+        color var(--tc_link_semi_active)
         &:after
-          border-top-color tc_link_semi_active
+          border-top-color var(--tc_link_semi_active)
   & &__link
-    border 1px solid tc_border
-    color tc_link_semi
+    border 1px solid var(--tc_border)
+    color var(--tc_link_semi)
     &_active
-      background-color tc_ui_bg
-      color tc_link_semi_active
+      background-color var(--tc_ui_bg)
+      color var(--tc_link_semi_active)
     &:hover
-      color tc_link_semi_active
+      color var(--tc_link_semi_active)
   & &__spacer
-    border 1px solid tc_border
-    color tc_link_semi
+    border 1px solid var(--tc_border)
+    color var(--tc_link_semi)
   & &__arr-left, & &__arr-right
-    color tc_link_semi
+    color var(--tc_link_semi)
     &:hover
-      color tc_link_semi_active
+      color var(--tc_link_semi_active)
 
 .actions-overflow
   & &__icon
-    border-left 1px solid tc_border_light
-    border-bottom 1px solid tc_border_light
+    border-left 1px solid var(--tc_border_light)
+    border-bottom 1px solid var(--tc_border_light)
   & &__link
-    color tc_link_black
+    color var(--tc_link_black)
     &_red
       color cl_warn
     &:hover
-      background-color tc_ui_btn_light
+      background-color var(--tc_ui_btn_light)
   & &__title
-    color tc_text_caption
+    color var(--tc_text_caption)
   & &__actions
-    background-color tc_ui_bg
+    background-color var(--tc_ui_bg)
 
 .tooltip
-  background-color tc_tooltip_bg
+  background-color var(--tc_tooltip_bg)
   &:before
-    border-top: 4px solid tc_tooltip_bg
+    border-top 4px solid var(--tc_tooltip_bg)
   &[x-placement="right"]
     &:before
       border-top 4px solid transparent
-      border-right 4px solid tc_tooltip_bg
+      border-right 4px solid var(--tc_tooltip_bg)
   &.theme-error
     background-color cl_warn
-    color tc_tooltip_text
+    color var(--tc_tooltip_text)
     &:before
       border-top-color cl_warn
     &[x-placement="right"]
@@ -814,62 +739,62 @@ frame-nav
 
 .notifications
   .vue-notification
-    background-color: tc_link !important
-    if(luminosity(tc_page_bg) > 0.5)
-      box-shadow 3px 4px 20px alpha(tc_link, 0.5) !important
-    else
+    background-color cl_sky !important
+    {lt} &
+      box-shadow 3px 4px 20px alpha(cl_sky, 0.5) !important
+    {dt} &
       box-shadow 3px 4px 20px alpha(cl_black, 0.5) !important
     &__animation
-      background-color: darken(tc_link, 15%) !important
+      background-color darken(cl_sky, 15%) !important
     &.success
       background-color cl_grass !important
       box-shadow 3px 4px 20px alpha(cl_salad, 0.5) !important
-      if (luminosity(tc_page_bg) > 0.5)
+      {lt} &
         box-shadow 3px 4px 20px alpha(cl_salad, 0.5) !important
-      else
+      {dt} &
         box-shadow 3px 4px 20px alpha(cl_black, 0.5) !important
       .vue-notification__animation
-        background-color: darken(cl_salad, 15%) !important
+        background-color darken(cl_salad, 15%) !important
       .vue-notification__btn:hover
-        color: cl_yellow !important
+        color cl_yellow !important
     &.error
-      background-color: cl_warn !important
-      if (luminosity(tc_page_bg) > 0.5)
+      background-color cl_warn !important
+      {lt} &
         box-shadow 3px 4px 20px alpha(cl_warn, 0.5) !important
-      else
+      {dt} &
         box-shadow 3px 4px 20px alpha(cl_black, 0.5) !important
       .vue-notification__animation
-        background-color: darken(cl_warn, 15%) !important
+        background-color darken(cl_warn, 15%) !important
       .vue-notification__btn:hover
-        color: cl_warn !important
+        color cl_warn !important
     &.warn
-      background-color: cl_yellow !important
-      if (luminosity(tc_page_bg) > 0.5)
+      background-color cl_yellow !important
+      {lt} &
         box-shadow 3px 4px 20px alpha(cl_yellow, 0.5) !important
-      else
+      {dt} &
         box-shadow 3px 4px 20px alpha(cl_black, 0.5) !important
       .vue-notification__animation
-        background-color: darken(cl_yellow, 15%) !important
+        background-color darken(cl_yellow, 15%) !important
       .vue-notification__btn:hover
-        color: cl_yellow !important
+        color cl_yellow !important
   &_header
     .vue-notification
       &__btn
-        color: cl_white
-        border: 1px solid rgba(255,255,255,0.5)
+        color cl_white
+        border 1px solid alpha(cl_white, 0.5)
         &:hover
-          background-color: cl_white
-          color: tc_link
+          background-color cl_white
+          color var(--tc_link)
       &__close
-        color: cl_white
+        color cl_white
   &_rb
     .vue-notification
       &__wrap
-        padding-left: 30px
+        padding-left 30px
       &__close
-        color: cl_white
+        color cl_white
       &__left-icon
-        color: cl_white
+        color cl_white
 
 body.v--modal-block-scroll
   .vue-notification
@@ -877,62 +802,73 @@ body.v--modal-block-scroll
 
 .flex-list
   & &__caption
-    color tc_text_caption
+    color var(--tc_text_caption)
   & &__title
-    color tc_text
+    color var(--tc_text)
 
 .text-caption
-  color tc_text_caption
+  color var(--tc_text_caption)
 
 .blue-link
-  color tc_link
+  color var(--tc_link)
 
 .upper-link
-  color tc_text_caption
+  color var(--tc_text_caption)
   &:hover
-    color tc_link
+    color var(--tc_link)
+
+table
+  background-color var(--tc_ui_bg)
+  th
+    background-color var(--tc_ui_bg_darken)
+    color var(--tc_text_caption)
+  td
+    border-bottom 1px solid var(--tc_border_dark)
+  tr
+    &:hover
+      background-color var(--tc_ui_bg_semi)
 
 .int-table
   & &__footer
-    background-color tc_ui_bg_darken
+    background-color var(--tc_ui_bg_darken)
   & &__drag-icon
     .icon
-      color tc_text_caption
+      color var(--tc_text_caption)
   & &__flink
-    color tc_link_semi
+    color var(--tc_link_semi)
     &:hover
-      color tc_link_semi_active
+      color var(--tc_link_semi_active)
   & &__fcaption
-    color tc_text
+    color var(--tc_text)
   & &__header
-    border 1px solid tc_border
+    border 1px solid var(--tc_border)
   & &__count
     span
-      color tc_text_caption
+      color var(--tc_text_caption)
   & &__table
-    background-color tc_ui_bg
+    background-color var(--tc_ui_bg)
     th
-      background-color tc_ui_bg_darken
-      color tc_text_caption
+      background-color var(--tc_ui_bg_darken)
+      color var(--tc_text_caption)
     td
-      border-bottom 1px solid tc_border_dark
+      border-bottom 1px solid var(--tc_border_dark)
     tr
       &:hover
-        background-color tc_ui_bg_semi
+        background-color var(--tc_ui_bg_semi)
     tr.active:hover
       background-color transparent
 
     tbody
-      box-shadow tc_ui_shadow
+      box-shadow var(--tc_ui_shadow)
   & &__show
-    color tc_text_caption
+    color var(--tc_text_caption)
   & &__status
     &-icon
-      color tc_text_caption
+      color var(--tc_text_caption)
   & &__link, a
-    color tc_link
+    color var(--tc_link)
   & &__caption
-    color tc_text_caption
+    color var(--tc_text_caption)
   & &__status
     border 1px solid cl_grass
     color cl_grass
@@ -941,69 +877,75 @@ body.v--modal-block-scroll
       color cl_white
       border 1px solid cl_warn
   & &__controll
-    color tc_link_semi
+    color var(--tc_link_semi)
     &:hover, &.active
-      color tc_link_semi_active
+      color var(--tc_link_semi_active)
     &-tab
       @media res_desktop--md
-        border-left 1px solid tc_border
+        border-left 1px solid var(--tc_border)
         &.active
-          background-color lighten(tc_border_dark, 50%)
+          background-color var(--tc_border_semi)
   & &__block
     &.active
       & ^[0]__controll-tab
         @media res_desktop--md
-            background-color: tc_ui_bg_semi
-            border-bottom 1px solid tc_border
+            background-color var(--tc_ui_bg_semi)
+            border-bottom 1px solid var(--tc_border)
+
+
+.user-menu
+  & &__list
+    box-shadow var(--tc_ui_context_menu_shadow)
+    background-color var(--tc_ui_context_menu_bg)
 
 .context-menu
   &__overlay
-    background-color: tc_ui_shadow-overflow
+    background-color var(--tc_ui_shadow-overflow)
 
   &__list
-    box-shadow: tc_ui_context_menu_shadow
-    background-color tc_ui_context_menu_bg
+    box-shadow var(--tc_ui_context_menu_shadow)
+    background-color var(--tc_ui_context_menu_bg)
 
   &__toggler-default
-    color tc_text
-    border-color: tc_ui_context_menu_border
+    color var(--tc_text)
+    border-color var(--tc_ui_context_menu_border)
 
     &:hover
-      background-color: tc_ui_context_menu_border
+      background-color var(--tc_ui_context_menu_border)
 
   &.is-opened
     .context-menu__toggler-default
-        background-color: tc_ui_context_menu_border
+        background-color var(--tc_ui_context_menu_border)
 
   &.is-top-side
     .context-menu__list
-      box-shadow: tc_ui_context_menu_shadow_top
+      box-shadow var(--tc_ui_context_menu_shadow_top)
 
 .cm-item
   &.is-separator
-    border-bottom: 1px solid tc_ui_context_menu_border
+    border-bottom 1px solid var(--tc_ui_context_menu_border)
 
   &__link,
   &__button
-    color tc_link_semi
+    color var(--tc_link_semi)
 
     &:hover,
     &:focus
-      color tc_link_semi_active
-      background-color: tc_ui_context_menu_hover_bg
+      color var(--tc_link_semi_active)
+      background-color var(--tc_ui_context_menu_hover_bg)
 
     &.is-danger
-      color: cl_warn
+      color cl_warn
     
     &.is-active
-      border-bottom-color tc_ui_context_menu_hover_bg
-      color tc_link_semi_active
+      border-bottom-color var(--tc_ui_context_menu_hover_bg)
+      color var(--tc_link_semi_active)
 
   &__panel
-    border-bottom: 1px solid tc_ui_bg_darken
+    border-bottom 1px solid var(--tc_ui_bg_darken)
 
     &.is-secondary
-      background-color: tc_page_bg
+      background-color var(--tc_page_bg)
 
 .chart
   &-icon
@@ -1028,58 +970,65 @@ body.v--modal-block-scroll
       &:before, &:after
         background-color cl_heartlife
 
+mark
+  color cl_white
+  background-color cl_black
+
 .tf
   &-caption
-    color tc_text_caption
+    color var(--tc_text_caption)
+  &-blcode
+    color cl_white
+    background-color cl_black
   ol
     li
       &:before
-        color tc_text_caption
+        color var(--tc_text_caption)
   &-dottedlink
-    color tc_link_semi
-    border-color tc_link_semi
+    color var(--tc_link_semi)
+    border-color var(--tc_link_semi)
     &:hover
-      color tc_link_semi_active
-      border-color tc_link_semi_active
+      color var(--tc_link_semi_active)
+      border-color var(--tc_link_semi_active)
   &-pagetitle
-    color tc_text
+    color var(--tc_text)
   &-hyplink
-    color tc_text_caption
+    color var(--tc_text_caption)
     &:hover
-      color tc_link
+      color var(--tc_link)
 
 
 
 .chart
   &-icon
     i
-      border-color tc_ui_bg
+      border-color var(--tc_ui_bg)
 
 .chart-box
-  box-shadow tc_ui_shadow
-  background-color tc_ui_bg
-  color tc_text
+  box-shadow var(--tc_ui_shadow)
+  background-color var(--tc_ui_bg)
+  color var(--tc_text)
   & &__icon
-    color tc_text_caption
+    color var(--tc_text_caption)
   & &__list
     a
-      color tc_link_semi
+      color var(--tc_link_semi)
       &:hover
-        color tc_link_semi_active
+        color var(--tc_link_semi_active)
       &.active
-        color tc_link_semi_active
-        border-color tc_link_semi_active
+        color var(--tc_link_semi_active)
+        border-color var(--tc_link_semi_active)
   & &__mrlink
-    color tc_link_semi
+    color var(--tc_link_semi)
     &:hover
-      color tc_link_semi_active
+      color var(--tc_link_semi_active)
   & &__info
     &-more
-      color tc_link_semi
+      color var(--tc_link_semi)
       &:hover
-        color tc_link_semi_active
+        color var(--tc_link_semi_active)
     &-greycapt
-      color tc_text_caption
+      color var(--tc_text_caption)
     &-redcapt
       color cl_warn
   &_error
@@ -1087,7 +1036,7 @@ body.v--modal-block-scroll
       color cl_warn
 
 .cl_caption
-  color tc_text_caption
+  color var(--tc_text_caption)
 
 .cl
   &_red
@@ -1097,54 +1046,54 @@ body.v--modal-block-scroll
 
 
 .justify-list
-  color tc_text
-  box-shadow tc_ui_shadow
-  background-color tc_ui_bg
+  color var(--tc_text)
+  box-shadow var(--tc_ui_shadow)
+  background-color var(--tc_ui_bg)
   a
-    color tc_link
+    color var(--tc_link)
   li
-    border-color tc_border_light
+    border-color var(--tc_border_light)
 
 .j-table
-  color tc_text
-  box-shadow tc_ui_shadow
-  background-color tc_ui_bg
+  color var(--tc_text)
+  box-shadow var(--tc_ui_shadow)
+  background-color var(--tc_ui_bg)
   & &__nd
     &-caption
-      color tc_text_caption
+      color var(--tc_text_caption)
     &-icon
-      color tc_text_caption
+      color var(--tc_text_caption)
   a
-    color tc_link
+    color var(--tc_link)
   & &__rate
-    color tc_text_caption
+    color var(--tc_text_caption)
   td
-    border-color tc_border_light
+    border-color var(--tc_border_light)
     @media res_mobile--md
       border-bottom 0
   tr
     @media res_mobile--md
-      border-color tc_border_light
+      border-color var(--tc_border_light)
 
 .dashboard
   & &__tabs
-    box-shadow tc_ui_shadow
+    box-shadow var(--tc_ui_shadow)
     .justify-list
-      box-shadow: none
+      box-shadow none
     .tabs-component
       &-tab
-        border-color tc_border_light
+        border-color var(--tc_border_light)
         font-size f_normal
         a
-          color tc_text_caption
+          color var(--tc_text_caption)
           &:hover
-            color tc_text
+            color var(--tc_text)
         &.is-active
-          background-color tc_ui_bg
+          background-color var(--tc_ui_bg)
           a
-            color tc_text
+            color var(--tc_text)
             &:hover
-              color tc_text
+              color var(--tc_text)
 
 .header-notification, header-notification
   &.error, &[type="error"]
@@ -1155,230 +1104,226 @@ body.v--modal-block-scroll
 
 .profile-wrap
   & &__ava
-    background-color tc_ui_bg_darken
+    background-color var(--tc_ui_bg_darken)
     &-noavatar
-      color tc_text_caption
+      color var(--tc_text_caption)
 
 .login-page
   & &__left
-    background-color tc_ui_bg
+    background-color var(--tc_ui_bg)
   & &__spacer
-    color tc_text_caption
+    color var(--tc_text_caption)
     i
-      background-color tc_ui_bg
+      background-color var(--tc_ui_bg)
       &:before, &:after
-        background-color tc_border
+        background-color var(--tc_border)
   & &__logo
-    if (luminosity(tc_page_bg) > 0.5)
-      color tc_color_main
-    else
-      color tc_link
+    {lt} &
+      color var(--tc_color_main)
+    {dt} &
+      color var(--tc_link)
     &:hover
-      color lighten(tc_color_main, 15%)
+      color var(--tc_color_main_l) 
     &_white
       color cl_white
       @media res_mobile--lg
-        if (luminosity(tc_page_bg) > 0.5)
-          color tc_color_main
-        else
-          color tc_link
+        {lt} &
+          color var(--tc_color_main)
+        {dt} &
+          color var(--tc_link)
       &:hover
         color cl_sky
     
   & &__sbox
-    background-color tc_ui_bg
+    background-color var(--tc_ui_bg)
 
 .keycode
   & &__field
-    border 1px solid tc_border_ins
-    background-color tc_ui_bg
-    color tc_text
+    border 1px solid var(--tc_border_ins)
+    background-color var(--tc_ui_bg)
+    color var(--tc_text)
     &:focus
-      border 1px solid tc_ui_focus
+      border 1px solid var(--tc_ui_focus)
   & &__ffield
     &:after
-      background-color tc_text_caption
+      background-color var(--tc_text_caption)
 
 .frame
   & &__mobile-shadow
-    background-color tc_ui_shadow-overflow
+    background-color var(--tc_ui_shadow-overflow)
   & &__aside
-    background-image tc_aside_gradient
-    if (luminosity(tc_page_bg) > 0.5)
-      box-shadow 0 20px 30px lighten(tc_aside_bg, 60%)
-    else
-      box-shadow 0 20px 30px darken(tc_aside_bg, 50%)
-
+    background-image var(--tc_aside_gradient)
+    box-shadow 0 20px 30px rgba(0,0,0,0.1)
     &-mtitle
-      color tc_aside_text
+      color var(--tc_aside_text)
     &-close
-      color tc_aside_text
+      color var(--tc_aside_text)
     &-usermenu
       .context-menu
         // &:after
-        //   background-color: tc_ui_shadow-overflow //rgba(cl_black, 65%)
+        //   background-color var(--tc_ui_shadow-overflow)
     &-open
       span
-        background-color tc_aside_link
+        background-color var(--tc_aside_link)
         &:before
-          background-color tc_aside_link
+          background-color var(--tc_aside_link)
         &:after
-          background-color tc_aside_link
+          background-color var(--tc_aside_link)
     &-title
-      background-color tc_aside_bg_dark
-      color tc_aside_text
+      background-color var(--tc_aside_bg_dark)
+      color var(--tc_aside_text)
       @media res_tablet--lg
         background-color transparent
     &-inlink
-      color tc_aside_link
+      color var(--tc_aside_link)
       &:before
-        background-color tc_aside_link
+        background-color var(--tc_aside_link)
       &:hover
         &:before
-          background-color tc_aside_link
+          background-color var(--tc_aside_link)
     &-intitle
-      color tc_aside_link
+      color var(--tc_aside_link)
     &-link
-      color tc_aside_link
+      color var(--tc_aside_link)
       .icon
-        color tc_aside_link
+        color var(--tc_aside_link)
       &_active
         &:before
-          background-color tc_aside_bg_nav
+          background-color var(--tc_aside_bg_nav)
     &-hidden
-      background-color tc_aside_bg_nav
+      background-color var(--tc_aside_bg_nav)
     &-line
       @media res_tablet--lg
-        background-image tc_aside_gradient_header
-        color tc_aside_text
-        if (luminosity(tc_aside_bg) > 0.5)
-          box-shadow: 0 0 30px alpha(tc_aside_bg, 0.4)
-        else
-          box-shadow: 0 0 30px alpha(cl_black, 0.7)
+        background-image var(--tc_aside_gradient_header)
+        color var(--tc_aside_text)
+        {lt} &
+          box-shadow 0 0 30px rgba(0,0,0,0.1)
+        {dt} &
+          box-shadow 0 0 30px alpha(cl_black, 0.7)
       &_top
           @media res_tablet--lg
             box-shadow none
     &-nav
       @media res_tablet--lg
-        background-image tc_aside_gradient
+        background-image var(--tc_aside_gradient)
       &.active
         @media res_tablet--lg
-          box-shadow 0 0 30px darken(tc_aside_bg, 60%)
+          box-shadow 0 0 30px rgba(0,0,0,0.1)
     &-li
       &_active
         & ^[0]__aside-link
           opacity 1
           &:before
             height 100%
-            background-color tc_aside_bg_dark
+            background-color var(--tc_aside_bg_dark)
   & &__right
-    background-color tc_page_bg
+    background-color var(--tc_page_bg)
   & &__header
-    background-color tc_header_bg
+    background-color var(--tc_header_bg)
     &-rlink
-      border-color  tc_header_iconlink
-      color  tc_header_iconlink
+      border-color var(--tc_header_iconlink)
+      color var(--tc_header_iconlink)
       &:hover
-        background-color  tc_header_iconlink
-        color tc_header_iconlink_active
+        background-color var(--tc_header_iconlink)
+        color var(--tc_header_iconlink_active)
     &-filter
-      color tc_header_link
+      color var(--tc_header_link)
       &:hover
-        color tc_header_link_active
+        color var(--tc_header_link_active)
     &-add
       box-shadow 0 0 20px rgba(85, 61, 0, 0.15)
-      background-color tc_ui_btn_smcolor
-      color tc_ui_btn_smcolor_text
+      background-color var(--tc_ui_btn_smcolor)
+      color var(--tc_ui_btn_smcolor_text)
       &:hover
-        background-color darken(tc_ui_btn_smcolor, 10%)
-        color tc_ui_btn_smcolor_text
+        background-color var(--tc_ui_btn_smcolor_active)
+        color var(--tc_ui_btn_smcolor_text)
     &-title
-      color tc_text
+      color var(--tc_text)
   & &__userinfo
-    @media res_tablet--lg
-      background-color tc_header_bg
+    @media res_tablet--sm
+      background-color var(--tc_header_bg)
       box-shadow 0px -5px 30px rgba(92,92,92,0.05)
     &-link
       .icon
-        color tc_header_link
+        color var(--tc_header_link)
       &:hover
         .icon
-          color tc_header_link_active
+          color var(--tc_header_link_active)
     &_twolinks
       a
-        border-right-color tc_bordeer
+        border-right-color var(--tc_border)
   & &__usermenu
     .context-menu__dropdown
-      box-shadow: 0 10px 20px 5px tc_ui_bg_darken
+      box-shadow 0 10px 20px 5px var(--tc_ui_bg_darken)
   & &__search
     &-input
-      border-bottom 1px solid tc_border_ins
+      border-bottom 1px solid var(--tc_border_ins)
       background-color transparent
-      color tc_text
+      color var(--tc_text)
       &:focus
-        border-bottom 1px solid tc_border_active
+        border-bottom 1px solid var(--tc_border_active)
     &-link
-      color tc_header_link
+      color var(--tc_header_link)
       &:hover
-        color tc_header_link_active
+        color var(--tc_header_link_active)
     &-close
-      color tc_header_link
+      color var(--tc_header_link)
       &:hover
-        color tc_header_link_active
+        color var(--tc_header_link_active)
 
 
 .todolist
-  background-color tc_ui_bg
-  color tc_text
+  background-color var(--tc_ui_bg)
+  color var(--tc_text)
   & &__head
-    border-bottom 1px solid tc_border_dark
+    border-bottom 1px solid var(--tc_border_dark)
   & &__block
-    border-bottom 1px solid tc_border_dark
+    border-bottom 1px solid var(--tc_border_dark)
     &-add
-      color tc_link_black
-      border 1px solid tc_border_dark
+      color var(--tc_link_black)
+      border 1px solid var(--tc_border_dark)
     &-title
-      color tc_text
+      color var(--tc_text)
       span
-        color tc_text_caption
+        color var(--tc_text_caption)
       &:before
-        color tc_text_caption
+        color var(--tc_text_caption)
       &:hover
-        background-color tc_ui_btn_light
+        background-color var(--tc_ui_btn_light)
   & &__plus
-    color tc_link_caption
+    color var(--tc_link_caption)
     &:hover
-      color tc_link_black
+      color var(--tc_link_black)
 
 .profile-wrap
   & &__address
     &-blacklink
-      color tc_link_black
+      color var(--tc_link_black)
       &:hover
-        color tc_link
+        color var(--tc_link)
 
 .project-block
-  background-color tc_ui_bg
+  background-color var(--tc_ui_bg)
   &:hover
-    box-shadow tc_ui_shadow
+    box-shadow var(--tc_ui_shadow)
   & &__time
-    color tc_text_caption
+    color var(--tc_text_caption)
   & &__title
-    color tc_link_black
+    color var(--tc_link_black)
     &:hover
-      color tc_link_black_active
+      color var(--tc_link_black_active)
   & &__type
-    color tc_text_caption
+    color var(--tc_text_caption)
   & &__caption
-    color tc_text_caption
+    color var(--tc_text_caption)
   & &__ava
-    border 1px solid tc_ui_bg
+    border 1px solid var(--tc_ui_bg)
   & &__percent
-    border-bottom 1px solid #cbcbcc
-    color tc_text_caption
+    border-bottom 1px solid var(--tc_border)
+    color var(--tc_text_caption)
   & &__status
-    border 1px solid tc_border_prj
-    color tc_text_caption
+    border 1px solid var(--tc_border_prj)
+    color var(--tc_text_caption)
     &_inproggress
       border 1px solid cl_salad
       color cl_salad
@@ -1387,8 +1332,8 @@ body.v--modal-block-scroll
       background-color cl_warn
       color cl_white
     &_sleep
-      border 1px solid tc_link
-      color tc_link
+      border 1px solid var(--tc_link)
+      color var(--tc_link)
   &_inproggress
     & ^[0]__caption
       color cl_salad
@@ -1400,34 +1345,33 @@ body.v--modal-block-scroll
       color cl_warn
 
 
-.usermenu
-
+.user-menu
   .context-menu__dropdown
-    color: tc_text
-    background-color: tc_header_bg
-
-  &__desc
-    color: tc_text_caption
+    color var(--tc_text)
+    background-color var(--tc_header_bg)
+  & &__desc
+    color var(--tc_text_caption)
 
 .progress
-  color: tc_text_caption
+  color var(--tc_text_caption)
   span
-    color: cl_grass
-
+    color cl_grass
   progress
     &::-webkit-progress-value
-      background-color: cl_grass
+      background-color cl_grass
 
     &::-moz-progress-bar
-      background-color: cl_grass
-
+      background-color cl_grass
   &.is-danger
     span
-      color: cl_warn
+      color cl_warn
 
     progress
       &::-webkit-progress-value
-        background-color: cl_warn
+        background-color cl_warn
 
       &::-moz-progress-bar
-        background-color: cl_warn
+        background-color cl_warn
+
+
+
