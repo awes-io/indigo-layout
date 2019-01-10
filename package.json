@@ -1,6 +1,6 @@
 {
     "name": "awes-layout-crm",
-    "version": "0.0.2",
+    "version": "0.0.4",
     "description": "Base CRM layouts",
     "main": "dist/js/main.js",
     "module": "src/js/plugin.js",
