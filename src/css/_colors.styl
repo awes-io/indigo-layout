@@ -796,6 +796,21 @@ a
       &__left-icon
         color cl_white
 
+.toasted
+    &.success
+        background-color cl_grass !important
+        box-shadow 3px 4px 20px alpha(cl_salad, 0.5) !important
+        {lt} &
+          box-shadow 3px 4px 20px alpha(cl_salad, 0.5) !important
+        {dt} &
+          box-shadow 3px 4px 20px alpha(cl_black, 0.5) !important
+    &.error
+      background-color cl_warn !important
+      {lt} &
+        box-shadow 3px 4px 20px alpha(cl_warn, 0.5) !important
+      {dt} &
+        box-shadow 3px 4px 20px alpha(cl_black, 0.5) !important
+
 body.v--modal-block-scroll
   .vue-notification
     box-shadow none !important
@@ -1149,7 +1164,8 @@ mark
       background-color var(--tc_text_caption)
 
 .frame
-  & &__mobile-shadow
+  & &__mobile-shadow,
+  & &__overlay
     background-color var(--tc_ui_shadow-overflow)
   & &__aside
     background-image var(--tc_aside_gradient)
@@ -1372,6 +1388,3 @@ mark
 
       &::-moz-progress-bar
         background-color cl_warn
-
-
-

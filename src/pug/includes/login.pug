@@ -7,10 +7,10 @@ html(lang="en")
         meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
         link(href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700" rel="stylesheet")
         link(rel='stylesheet', href='css/main.css')
-        script.
-            AWES_CONFIG = {key: '9d1d891a3204aa749436fdbd3ab29c3f', modules: [#{pageModules}]}
-        script(src="/test-core/core.js" async="true" defer="true")
         block pageHead
+        script.
+            AWES_CONFIG = {key: '9d1d891a3204aa749436fdbd3ab29c3f'}
+        script(src="/test-core/core-v5.js")
     body
         div(class="mainwrapper" id="awes-app")
             .login-page
@@ -21,5 +21,3 @@ html(lang="en")
                                 p Content Block
                 span.login-page__bg(style="background-image: url('"+pageAsideBg+"');")
                     span
-
-                        

@@ -27,6 +27,12 @@ export default {
             }
         },
 
+        overlayClick() {
+            this.showUserMenu = false
+            this.togglenav = false
+            this.toggleBodyFix(false)
+        },
+
         notify(text, type = 'success', group = 'bottom-right') {
             this.$notify({
                 group: 'bottom-right',

@@ -1,12 +1,12 @@
 .frame__header
     .frame__header-top
-        form.frame__search#search(v-bind:class="{ active: showSearch }" action="js" method="get") 
-            span.frame__search-link(v-on:click="showSearch = !showSearch")
+        form.frame__search#search(v-bind:class="{ active: $awesLayoutCrm.showSearch }" action="js" method="get") 
+            span.frame__search-link(v-on:click="$awesLayoutCrm.showSearch = !$awesLayoutCrm.showSearch")
                 i.icon.icon-search
             .frame__search-hidden
                 input.frame__search-input(type="text" placeholder="Search...")
                 button.frame__search-btn(type="submit") Search
-                span.frame__search-close(v-on:click="showSearch = !showSearch")
+                span.frame__search-close(v-on:click="$awesLayoutCrm.showSearch = !$awesLayoutCrm.showSearch")
                 i.icon.icon-cross
         .frame__userinfo
             a.frame__userinfo-link(href="")
@@ -17,7 +17,8 @@
             a.frame__userinfo-link(href="")
                 span.icon.icon-hdd
                     i.icn-dot
-            .user-menu(v-show="showUserMenu")
-                include user-menu.pug
+            transition(name="user-menu")
+                .user-menu(v-show="$awesLayoutCrm.showUserMenu")
+                    include user-menu.pug
     .frame__header-line
         h1.frame__header-title= pageTitle

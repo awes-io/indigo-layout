@@ -54,6 +54,20 @@
                         text-decoration: underline
         &-btn
             margin-top: 12px
+    
+    &-enter,
+    &-leave-to
+        @media res_tablet--lg
+            transform: translateX(100%)
+
+        @media res_tablet--lg-i
+            transform: scaleY(.9)
+            opacity: 0
+
+    &-enter-active,
+    &-leave-active
+        transform-origin: top center
+        transition: transform .3s ease, opacity .2s ease
 
 @media res_tablet--lg
     .user-menu

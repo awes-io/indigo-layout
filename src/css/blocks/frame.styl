@@ -272,6 +272,15 @@
       font-size 14px
   & &__content
     padding 30px 40px
+  & &__overlay
+    fixed top left
+    width 100%
+    bottom 0
+    z-index 901
+    &.animated
+      animation-duration .15s
+    @media res_tablet--lg-i
+      opacity 0 !important
 
 @media res_tablet--lg-i
   .frame

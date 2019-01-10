@@ -1,13 +1,13 @@
 .frame__aside#aside
     .frame__aside-line
-        span.frame__aside-open.g-res--tablet-lg( :class="{ active: togglenav }" @click="openNav")
+        span.frame__aside-open.g-res--tablet-lg( :class="{ active: $awesLayoutCrm.togglenav }" @click="$awesLayoutCrm.openNav")
             span
         h2.frame__aside-title AwesCRM
-        button.frame__aside-ava(@click="showUserMenu = ! showUserMenu")
+        button.frame__aside-ava(@click="$awesLayoutCrm.showUserMenu = ! $awesLayoutCrm.showUserMenu")
             i.icon.icon-user.novatar.novatar_box
-    nav.frame__aside-nav(v-bind:class="{ active: togglenav }")
+    nav.frame__aside-nav(v-bind:class="{ active: $awesLayoutCrm.togglenav }")
         .frame__aside-mhead.g-res--tablet-lg
-            a.frame__aside-close(href="" @click.prevent="openNav()")
+            a.frame__aside-close(href="" @click.prevent="$awesLayoutCrm.openNav()")
                 i.icon.icon-cross
             h4.frame__aside-mtitle
                 span AwesCRM
@@ -21,4 +21,3 @@
                         li
                             span.ph__nav-icon
                             span.ph__nav-text
-

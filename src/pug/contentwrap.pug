@@ -2,7 +2,6 @@ extends includes/layout.pug
 
 block pageVariables
     - var pageTitle = "Content wrapper"
-    - var pageModules = "'./js/main.js'"
 
 block pageHead
     // there is can be head meta or sctipts
@@ -10,12 +9,9 @@ block pageHead
 
 block pageContent
 
-    p Не работает, в консоле ошибки
-
     content-wrapper(:data='{"email":"soberbrunner@example.org"}' store-data="content")
         template(slot-scope="props")
             ul.flex-list
                 li
                     span.flex-list__caption First Name
                     b.flex-list__title {{ $get(props, 'data.email') }}
-

@@ -18,14 +18,14 @@
             }
         },
         created() {
-            this.$store.commit('setData', {
+            this.$awesLayoutCrm.$store && this.$awesLayoutCrm.$store.commit('setData', {
                 param: this.storeData,
                 data: this.data
             });
         },
         computed: {
             content() {
-                return this.$store.state[this.storeData];
+                return this.$awesLayoutCrm.$store && this.$awesLayoutCrm.$store.state[this.storeData];
             }
         }
     }

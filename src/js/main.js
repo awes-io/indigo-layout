@@ -1,38 +1,64 @@
-import appMixin from './mixins/app'
-import Shortkey from 'vue-shortkey'
-import Notifications from 'vue-notification'
-import hljs from 'highlight.js';
-import 'highlight.js/styles/dark.css'
+import store from './modules/store.js'
+import { plugin } from './modules/plugin.js'
+import i18n from './modules/i18n.js'
+import { toastedRegistration } from './modules/notifications.js'
 
+const awesPlugin = {
 
-!(function (Vue, App) {
+    modules: {
+        'vue': {
+            src: 'https://unpkg.com/vue@2.5.21/dist/vue.js',
+            cb() {
+                Vue.use(plugin)
+                Vue.config.ignoredElements.push('content-wrapper', 'frame-nav', 'modal-window', 'slide-up-down')
+            }
+        },
+        'lodash': {
+            src: 'https://unpkg.com/lodash@4.17.11/lodash.min.js',
+            deps: ['vue'],
+            cb() {
+                Vue.prototype.$get = _.get
+            }
+        },
+        'vuex': {
+            src: 'https://unpkg.com/vuex@2.5.0/dist/vuex.min.js',
+            deps: ['vue'],
+            cb() {
+                Vue.prototype.$awesLayoutCrm.$store = new Vuex.Store(store)
+            }
+        },
+        'vue-shortkey': {
+            src: 'https://unpkg.com/vue-shortkey@3',
+            deps: ['vue'],
+            cb() {
+                Vue.use(VueShortkey)
+            }
+        },
+        'vue-toasted': {
+            src: 'https://unpkg.com/vue-toasted',
+            deps: ['vue'],
+            cb: toastedRegistration
+        },
+        'highlight': 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js',
+        'highlight_lang_html': {
+            src: 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/javascript.min.js',
+            deps: ['highlight'],
+            cb() {
+                document.querySelectorAll('pre code.html').forEach( block => { hljs.highlightBlock(block) })
+            }
+        },
+        'highlight_css': 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/atom-one-dark.min.css'
+    },
 
-    
-    // vendor plugins
-    Vue.use( Shortkey );
-    Vue.use( Notifications );
+    install() {
+        AWES.lang = i18n
+        // window.Vue.use(Notifications);
+    }
+}
 
-    hljs.initHighlightingOnLoad();
-
-
-    // language strings
-    let lang = Vue.prototype.$lang || {}
-
-    Vue.prototype.$lang = Object.assign({
-        MODAL_BACK: "Go back",
-        MODAL_CLOSE: "Close modal"
-    }, lang)
-    
-    // app mixin
-    App.mixins = App.mixins || []
-    App.mixins.push(appMixin)
-
-    // components
-    const requireComponent = require.context('@/vue', true, /\.vue$/);
-
-    requireComponent.keys().forEach(fileName => {
-        const componentConfig = requireComponent(fileName);
-        const componentName = fileName.replace(/^.\/(.+\/)*(.+)\.vue$/, '$2');
-        Vue.component(componentName, componentConfig.default || componentConfig)
-    });
-})(AWES.Vue, AWES.App)
+if (window && ('AWES' in window)) {
+    AWES.use(awesPlugin)
+} else {
+    window.__awes_plugins_stack__ = window.__awes_plugins_stack__ || []
+    window.__awes_plugins_stack__.push(awesPlugin)
+}

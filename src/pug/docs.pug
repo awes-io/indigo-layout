@@ -512,7 +512,7 @@ block pageContent
             cm-ajax(method='post', url='https://httpbin.org/post', :params="{param1: 'one', param2: 'two'}", @sended="({ data }) => $notify({ group:'right-b', text: JSON.stringify(data) })") Send request
     p Разультат в HTML
     pre
-        code.html
+        code.html.
             &lt;li class="cm-item"&gt;
                 &lt;button class="cm-item__button"&gt;
                     Send request

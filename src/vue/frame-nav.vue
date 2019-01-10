@@ -35,6 +35,9 @@
 import SlideUpDown from './slide-up-down.vue'
 
 export default {
+
+    name: 'frame-nav',
+
     data() {
         return {
             toggle: false,

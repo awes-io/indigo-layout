@@ -3,10 +3,10 @@ const clean = require('gulp-clean')
 const plumber = require('gulp-plumber')
 const noop = require('gulp-noop')
 const stylus = require('gulp-stylus')
+const postcss = require('gulp-postcss')
 const nib = require('nib')
 const sourcemaps = require('gulp-sourcemaps')
-const webpack = require('webpack')
-const webpackStream = require('webpack-stream')
+const rollup = require('gulp-rollup')
 const browserSync = require('browser-sync').create()
 const pug = require('gulp-pug')
 const prettyHtml = require('gulp-pretty-html')
@@ -44,12 +44,20 @@ if ( isDev ) {
  * JS
  */
 
+const rollupConfig = require('./rollup.config.js')
+rollupConfig.allowRealFiles = true // solves gulp-rollup hipotetical file system problem
+rollupConfig.rollup = require('rollup')
+
 gulp.task('build:js', function(){
   return gulp.src('./src/js/main.js')
     .pipe( plumber() )
-    .pipe( webpackStream( require('./webpack.config.js'), webpack ) )
+    .pipe( rollup(rollupConfig) )
     .pipe( gulp.dest('./dist/js') )
 })
+
+/*
+ * Images
+ */
 
 gulp.task('build:images', function() {
   return gulp.src('./src/img/**/*')
@@ -65,6 +73,7 @@ gulp.task('build:styles', function(){
     .pipe( plumber() )
     .pipe( isDev ? sourcemaps.init() : noop() )
     .pipe( stylus({ use: nib(), 'include css': true, import: ['nib'], compress: false }) )
+    .pipe( isDev ? noop() : postcss() )
     .pipe( isDev ? sourcemaps.write() : noop() )
     .pipe( gulp.dest('./dist/css') )
     .pipe( isDev ? browserSync.stream() : noop() )

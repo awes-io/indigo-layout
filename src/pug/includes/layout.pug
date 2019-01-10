@@ -8,19 +8,20 @@ html(lang="en")
         link(href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700" rel="stylesheet")
         link(rel='stylesheet', href='css/main.css')
         script.
-            AWES_CONFIG = {key: '9d1d891a3204aa749436fdbd3ab29c3f', modules: [#{pageModules}]}
-        script(src="/test-core/core.js" async="true" defer="true")
+            AWES_CONFIG = {key: '9d1d891a3204aa749436fdbd3ab29c3f'}
         block pageHead
+        script(src="/js/main.js")
+        //- script(src="https://storage.awes.io/9d1d891a3204aa749436fdbd3ab29c3f/packages/awes-core/v0.x.x/js/main.js")
+        script(src="/test-core/core-v6.js")
     body
         div(class="mainwrapper" id="awes-app")
             div(class="frame")
+                transition(enter-active-class="animated fadeIn" leave-active-class="animated fadeOut")
+                    .frame__overlay(v-show="$awesLayoutCrm.togglenav || $awesLayoutCrm.showUserMenu" @click="$awesLayoutCrm.overlayClick")
                 include frames/aside
                 div(class="frame__right")
                     include frames/header
                     div.frame__content
                         block pageContent
                             p Content Block
-                        
-
-
                         

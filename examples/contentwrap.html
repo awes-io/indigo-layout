@@ -7,19 +7,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
-    <script>AWES_CONFIG = {key: '9d1d891a3204aa749436fdbd3ab29c3f', modules: ['./js/main.js']}</script>
-    <script src="/test-core/core.js" async="true" defer="true"></script><!-- there is can be head meta or sctipts-->
+    <script>AWES_CONFIG = {key: '9d1d891a3204aa749436fdbd3ab29c3f'}</script><!-- there is can be head meta or sctipts-->
+    <script src="/js/main.js"></script>
+    <script src="/test-core/core-v6.js"></script>
 </head>
 
 <body>
     <div class="mainwrapper" id="awes-app">
         <div class="frame">
+            <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
+                <div class="frame__overlay" v-show="$awesLayoutCrm.togglenav || $awesLayoutCrm.showUserMenu" @click="$awesLayoutCrm.overlayClick"></div>
+            </transition>
             <div class="frame__aside" id="aside">
-                <div class="frame__aside-line"><span class="frame__aside-open g-res--tablet-lg" :class="{ active: togglenav }" @click="openNav"><span></span></span>
-                    <h2 class="frame__aside-title">AwesCRM</h2><button class="frame__aside-ava" @click="showUserMenu = ! showUserMenu"><i class="icon icon-user novatar novatar_box"></i></button>
+                <div class="frame__aside-line"><span class="frame__aside-open g-res--tablet-lg" :class="{ active: $awesLayoutCrm.togglenav }" @click="$awesLayoutCrm.openNav"><span></span></span>
+                    <h2 class="frame__aside-title">AwesCRM</h2><button class="frame__aside-ava" @click="$awesLayoutCrm.showUserMenu = ! $awesLayoutCrm.showUserMenu"><i class="icon icon-user novatar novatar_box"></i></button>
                 </div>
-                <nav class="frame__aside-nav" v-bind:class="{ active: togglenav }">
-                    <div class="frame__aside-mhead g-res--tablet-lg"><a class="frame__aside-close" href="" @click.prevent="openNav()"><i class="icon icon-cross"></i></a>
+                <nav class="frame__aside-nav" v-bind:class="{ active: $awesLayoutCrm.togglenav }">
+                    <div class="frame__aside-mhead g-res--tablet-lg"><a class="frame__aside-close" href="" @click.prevent="$awesLayoutCrm.openNav()"><i class="icon icon-cross"></i></a>
                         <h4 class="frame__aside-mtitle"><span>AwesCRM</span></h4>
                     </div>
                     <frame-nav :links="[{title:'Dashboard',icon: 'speed', active:true, link: '#'}, {title:'Admin',icon:'report',sub:[{title:'Dashboard',icon:null,link:'#'},{title:'Plans',icon:null,link:'#'}]}]">
@@ -39,28 +43,29 @@
             <div class="frame__right">
                 <div class="frame__header">
                     <div class="frame__header-top">
-                        <form class="frame__search" id="search" v-bind:class="{ active: showSearch }" action="js" method="get"> <span class="frame__search-link" v-on:click="showSearch = !showSearch"><i class="icon icon-search"></i></span>
-                            <div class="frame__search-hidden"><input class="frame__search-input" type="text" placeholder="Search..."><button class="frame__search-btn" type="submit">Search</button><span class="frame__search-close" v-on:click="showSearch = !showSearch"></span><i class="icon icon-cross"></i></div>
+                        <form class="frame__search" id="search" v-bind:class="{ active: $awesLayoutCrm.showSearch }" action="js" method="get"> <span class="frame__search-link" v-on:click="$awesLayoutCrm.showSearch = !$awesLayoutCrm.showSearch"><i class="icon icon-search"></i></span>
+                            <div class="frame__search-hidden"><input class="frame__search-input" type="text" placeholder="Search..."><button class="frame__search-btn" type="submit">Search</button><span class="frame__search-close" v-on:click="$awesLayoutCrm.showSearch = !$awesLayoutCrm.showSearch"></span><i class="icon icon-cross"></i></div>
                         </form>
                         <div class="frame__userinfo"><a class="frame__userinfo-link" href=""><span class="icon icon-ruppor"><i class="icn-dot"></i></span></a><span class="frame__header-add"><i class="icon icon-plus"></i></span><a class="frame__userinfo-link" href=""><span class="icon icon-hdd"><i class="icn-dot"></i></span></a>
-                            <div class="user-menu" v-show="showUserMenu">
-                                <ul class="user-menu__list">
-                                    <div class="cm-item">
-                                        <div class="cm-item__panel is-secondary"><strong class="user-menu__title">Terry Gerlach</strong><small class="user-menu__desc">Standart until 10 november<br>                5 users $500 per month</small>
-                                                <nav class="user-menu__nav" aria-label="Profile navigation">
-                                                    <ul>
-                                                        <li><a href="https://company.awescrm.cloud/managers/NQ%3D%3D">Profile</a></li>
-                                                        <li class="is-expand"><a href="https://www.awescrm.cloud/logout">Logout</a></li>
-                                                    </ul>
-                                                </nav><label class="progress user-menu__progress"><span>519.05 MB</span> of 2.5 GB used<progress max="2500" value="519">519 MB of 2.5 GB used</progress></label></div>
-                                    </div>
-                                    <div class="cm-item">
-                                        <div class="cm-item__panel">
-                                            <form class="form-builder" action="https://company.awescrm.cloud/api/v1/managers/NQ%3D%3D" method="PATCH">
-                                                <div class="grid grid_forms">
-                                                    <div class="grid__cell user-menu__theme-checkbox grid__cell_padding"><label class="checkbox checkbox_s2" data-awes="fb-checkbox.theme_dark">
-                                                            <div class="v-popover display-block"><span class="trigger" aria-describedby="popover_0ttyghblod" tabindex="-1" style="display: inline-block;"><input class="is-focusable" type="checkbox"><span class="checkbox__text"><i class="icon icon-checkbox" style="touch-action: pan-y; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></i><span>Dark theme</span></span><!-- -->
-                                                                <!-- -->
+                            <transition name="user-menu">
+                                <div class="user-menu" v-show="$awesLayoutCrm.showUserMenu">
+                                    <ul class="user-menu__list">
+                                        <div class="cm-item">
+                                            <div class="cm-item__panel is-secondary"><strong class="user-menu__title">Terry Gerlach</strong><small class="user-menu__desc">Standart until 10 november<br>                5 users $500 per month</small>
+                                                    <nav class="user-menu__nav" aria-label="Profile navigation">
+                                                        <ul>
+                                                            <li><a href="https://company.awescrm.cloud/managers/NQ%3D%3D">Profile</a></li>
+                                                            <li class="is-expand"><a href="https://www.awescrm.cloud/logout">Logout</a></li>
+                                                        </ul>
+                                                    </nav><label class="progress user-menu__progress"><span>519.05 MB</span> of 2.5 GB used<progress max="2500" value="519">519 MB of 2.5 GB used</progress></label></div>
+                                        </div>
+                                        <div class="cm-item">
+                                            <div class="cm-item__panel">
+                                                <form class="form-builder" action="https://company.awescrm.cloud/api/v1/managers/NQ%3D%3D" method="PATCH">
+                                                    <div class="grid grid_forms">
+                                                        <div class="grid__cell user-menu__theme-checkbox grid__cell_padding"><label class="checkbox checkbox_s2" data-awes="fb-checkbox.theme_dark">
+                                                                <div class="v-popover display-block"><span class="trigger" aria-describedby="popover_0ttyghblod" tabindex="-1" style="display: inline-block;"><input class="is-focusable" type="checkbox"><span class="checkbox__text"><i class="icon icon-checkbox" style="touch-action: pan-y; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></i><span>Dark theme</span></span><!-- -->
+                                                                    <!-- -->
                             </span></div></label>
                     </div>
                 </div>
@@ -79,6 +84,7 @@
         </div>
         </ul>
     </div>
+    </transition>
     </div>
     </div>
     <div class="frame__header-line">
@@ -86,7 +92,6 @@
     </div>
     </div>
     <div class="frame__content">
-        <p>Не работает, в консоле ошибки</p>
         <content-wrapper :data="{&quot;email&quot;:&quot;soberbrunner@example.org&quot;}" store-data="content"><template slot-scope="props">
                 <ul class="flex-list">
                     <li><span class="flex-list__caption">First Name</span><b class="flex-list__title">{{ $get(props, 'data.email') }}</b></li>
