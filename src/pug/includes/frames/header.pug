@@ -18,7 +18,7 @@
                 span.icon.icon-hdd
                     i.icn-dot
         transition(name="user-menu")
-            .user-menu(v-show="$awesLayoutCrm.showUserMenu")
+            .user-menu(v-show="$awesLayoutCrm.showUserMenu" style="display: none;")
                 include user-menu.pug
     .frame__header-line
         h1.frame__header-title= pageTitle
