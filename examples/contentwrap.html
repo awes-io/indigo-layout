@@ -90,10 +90,11 @@
                     </div>
                 </div>
                 <div class="frame__content">
-                    <content-wrapper :data="{&quot;email&quot;:&quot;soberbrunner@example.org&quot;}" store-data="content"><template slot-scope="props">
-                            <ul class="flex-list">
-                                <li><span class="flex-list__caption">First Name</span><b class="flex-list__title">{{ $get(props, 'data.email') }}</b></li>
-                            </ul>
+                    <content-wrapper :data="{&quot;email&quot;:&quot;soberbrunner@example.org&quot;, &quot;pagetitle&quot;: &quot;This example content wrapper&quot;}" store-data="content"><template slot-scope="props">
+                            <h1>{{ $get(props, 'data.pagetitle') }}</h1>
+                            <p>You can look on this email <b>{{ $get(props, 'data.email') }}</b>, what parsing from data</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro obcaecati expedita molestias non quos ut eos reprehenderit, eligendi voluptate quam eaque, illum neque cum quasi dolorum! Dolore officiis molestias ad.</p>
+                            <h2>With styles all okay</h2>
                         </template></content-wrapper>
                 </div>
             </div>
