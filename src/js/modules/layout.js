@@ -1,4 +1,5 @@
 const BODY_NO_SCROLL_CLASS = 'body-overflow-hidden'
+const BODY_NO_SCROLL_CLASS_MOBILE = "body-overflow-usermenu"
 
 export default {
 
@@ -15,6 +16,10 @@ export default {
 
         toggleBodyFix(shouldFix) {
             document.documentElement.classList[shouldFix ? 'add' : 'remove'](BODY_NO_SCROLL_CLASS)
+        },
+
+        toggleBodyMobileFix(shouldFix) {
+            document.documentElement.classList[shouldFix ? 'add' : 'remove'](BODY_NO_SCROLL_CLASS_MOBILE)
         },
 
         openNav() {
@@ -45,7 +50,7 @@ export default {
     
     watch: {
         showUserMenu( isShown ) {
-            this.toggleBodyFix(isShown)
+            this.toggleBodyMobileFix(isShown)
         }
     }
 }
