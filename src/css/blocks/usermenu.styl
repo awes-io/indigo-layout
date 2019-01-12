@@ -54,26 +54,35 @@
                         text-decoration: underline
         &-btn
             margin-top: 12px
-    
+    & &__close
+        display none
+        absolute right 5px top 5px
+        font-size 30px
+        line-height 30px
+        size 30px
     &-enter,
     &-leave-to
+        opacity: 0
         @media res_tablet--lg
             transform: translateX(100%)
-
+            opacity 0
         @media res_tablet--lg-i
-            transform: scaleY(.9)
-            opacity: 0
-
+            transform: scaleY(.75)
     &-enter-active,
     &-leave-active
         transform-origin: top center
         transition: transform .3s ease, opacity .2s ease
+    
+
 
 @media res_tablet--lg
     .user-menu
         fixed top 0 right 0
-        z-index 901
+        z-index 1000
         height 100vh
         & &__list
             height 100vh
             overflow: auto
+        & &__close
+            display block
+            
