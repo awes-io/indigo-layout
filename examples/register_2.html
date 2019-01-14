@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Confirmation code</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <script>
+        AWES_CONFIG = {
+            key: '680a7d07f89b94e7fc83be657a2daa27'
+        }
+    </script><!-- there is can be head meta or sctipts-->
+    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/form-builder/v0.x.x/js/main.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="test/core.js"></script>
+</head>
+
+<body>
+    <div class="mainwrapper" id="awes-app">
+        <div class="login-page">
+            <div class="login-page__left">
+                <div class="login-page__left-wrap">
+                    <div class="login-page__left-center"><a class="login-page__logo" href="https://www.awescrm.cloud"><i class="icon icon-logo"></i></a>
+                        <h2>Confirmation code</h2><span class="login-page__spacer login-page__spacer_rc"><i>Step 2 of 4</i></span><span class="tf-caption tf-caption_mb-m">We have sent a six-digit confirmation code to <b data-awes="msg.email">veawdawd@gmail.com</b>. This code will expire soon, so do not wait too long.</span>
+                        <div class="login-page__form">
+                            <form-builder url="https://www.awescrm.cloud/register" btntext="Next">
+                                <fb-code name="code"></fb-code>
+                                <fb-auto-captcha :show="false"></fb-auto-captcha>
+                            </form-builder>
+                        </div>
+                        <div class="tf-centerlink">
+                            <form-builder url="https://www.awescrm.cloud/register" :default="{'email_unsubmit':true}" btntext="Change email"></form-builder>
+                            <form-builder url="https://www.awescrm.cloud/register" :default="{'email_resend':true}" btntext="Resend confirmation code"></form-builder>
+                            <form-builder url="https://www.awescrm.cloud/register" :default="{'clear_data':true}" btntext="Clear registration data"></form-builder><a href="https://www.awescrm.cloud/login">Back to login page</a>
+                        </div>
+                    </div>
+                </div>
+            </div><span class="login-page__bg" style="background-image: url('https://www.spirit-of-metal.com/les%20goupes/L/Lacuna%20Coil/pics/f9c9_2.jpg');"><span></span></span>
+        </div>
+    </div>
+</body>
+
+</html>

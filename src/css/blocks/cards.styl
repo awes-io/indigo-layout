@@ -1,0 +1,250 @@
+.cards
+    fl(w)
+    margin-bottom 10px
+    margin-left -10px
+    margin-right -10px
+    & &__cell
+        width 50%
+        max-width 360px
+        padding-left 10px
+        padding-right 10px
+        margin-bottom 20px
+    
+
+.paycard
+    position relative
+    & &__wrap
+        border-radius 5px
+        padding 30px
+        min-height 230px
+        &_flex
+            fl(,,c)
+    & &__select
+        absolute top 20px right 20px
+        z-index 10
+        fl(,,c)
+        font-size 14px
+        opacity 0
+        .icon
+            font-size 16px
+            padding-left 10px
+        &.active
+            opacity 1
+    & &__logo
+        height 24px
+        margin-bottom 25px
+        font-size 22px
+        display block
+        user-select none
+        pointer-events none
+    & &__paylogo
+        text-align center
+        width 100%
+        img
+            height 36px
+            margin-bottom 30px
+        figcaption
+            font-size 24px
+            letter-spacing 1.8px
+            background-color transparent
+    & &__chip
+        user-select none
+        pointer-events none
+        margin-bottom 20px
+    & &__number
+        font-size 24px
+        text-shadow 1px 1px 1px rgba(0, 0, 0, 0.15)
+        letter-spacing 1.8px
+        fl(,sb)
+        width 100%
+        margin-bottom 13px
+    & &__footer
+        fl(,sb)
+        width 100%
+        text-shadow 1px 1px 1px rgba(0, 0, 0, 0.15)
+        font-size 16px
+        text-transform uppercase
+    & &__name
+        white-space nowrap
+        text-overflow ellipsis
+        overflow hidden
+        display block
+        max-width calc(100% - 50px)
+    & &__hover
+        absolute left 0 top 0
+        size 100%
+        fl(,c,c)
+        flex-direction: column
+        border-radius 5px
+        padding-top 30px
+        opacity 0
+        tr(0.25)
+        &-cell
+            width 100%
+            margin-bottom 10px
+            fl(,c)
+            &:last-child
+                margin-bottom 0
+    &:hover
+        & ^[0]__hover
+            opacity 1
+        & ^[0]__select
+            opacity 1
+    & &__info
+        fl(,sb)
+        margin-bottom 15px
+        &-text
+            font-size 14px
+            max-width 120px
+            margin-bottom 15px
+    & &__current
+        margin-bottom 15px
+        margin-right 15px
+        &-plan
+            text-transform uppercase
+            display block
+            line-height 1
+            margin-bottom 5px
+            font-size 18px
+        &-price
+            display block
+            font-size 48px
+            font-weight 300
+            line-height 1
+            margin-bottom 5px
+            small
+                font-size 60%
+                vertical-align top
+                padding-top 3px
+                display inline-block
+        &-caption
+            font-size 14px
+    & &__btns
+        fl(w,,c)
+        margin-bottom -10px
+        .btn
+            margin-right 10px
+            margin-bottom 10px
+            &:last-child
+                margin-right 0
+
+
+@media res_tablet--md
+    .paycard
+        & &__btns
+            .btn
+                padding-left 15px
+                padding-right 15px
+                min-width 1px
+
+
+@media res_tablet--sm
+    .paycard
+        & &__wrap
+            padding 25px 20px
+        & &__logo
+            margin-bottom 15px
+        & &__chip
+            margin-bottom 10px
+        & &__wrap
+            min-height 200px
+        & &__number
+            font-size 22px
+        & &__current
+            margin-bottom 10px
+            &-price
+                font-size 37px
+            &-plan
+                font-size 16px
+
+
+
+@media res_mobile--lg
+    .paycard
+        & &__wrap
+            padding 20px 15px
+        & &__logo
+            margin-bottom 15px
+        & &__chip
+            margin-bottom 10px
+            max-width 35px
+        & &__wrap
+            min-height 200px
+        & &__number
+            font-size 19px
+        & &__footer
+            font-size 14px
+        & &__info-text
+            font-size 13px
+
+@media res_mobile--md
+    .cards
+        & &__cell
+            width 100%
+            max-width 100%
+
+    .paycard
+        & &__wrap
+            padding 30px
+        & &__logo
+            margin-bottom 20px
+        & &__chip
+            margin-bottom 20px
+            max-width 100%
+        & &__wrap
+            min-height 230px
+        & &__number
+            font-size 24px
+        & &__footer
+            font-size 16px
+
+
+@media res_mobile--sm
+    .paycard
+        & &__wrap
+            padding 25px 20px
+        & &__logo
+            margin-bottom 15px
+        & &__chip
+            margin-bottom 10px
+        & &__wrap
+            min-height 170px
+        & &__number
+            font-size 22px
+        
+
+@media (pointer: coarse)
+    .paycard
+        fl(w,sb,c)
+        & &__wrap
+            width 100%
+        & &__hover
+            padding-top 10px
+            height auto
+            opacity 1
+            position relative
+            left auto
+            top auto
+            width auto
+            flex-direction row
+            justify-content space-between
+            &-cell
+                width auto
+                margin-bottom 0
+        & &--btn
+            padding 0
+            margin 0
+            min-width 1px 
+            margin-right 15px
+            padding-top 5px
+            padding-bottom 5px
+        & &__select
+            opacity 1
+            position relative
+            right auto
+            top auto
+            margin-top 10px
+
+
+
+

@@ -1,0 +1,71 @@
+.dashboard
+    fl(w,fs,)
+    margin-left -10px
+    margin-right -10px
+    padding-top 10px
+    & &__cell
+        width 100%
+        padding-left 10px
+        padding-right 10px
+        margin-bottom 20px
+        &_smart
+            width 33.333%
+        &_semi
+            width 50%
+        &_big
+            width 66.666%
+            &-semi
+                width 33.333%
+    & &__tabs
+        min-height 360px
+        .tabs-component
+            .justify-list
+                min-height 1px
+                box-shadow none
+            &-tabs
+                fl()
+                width 100%
+            &-tab
+                border-bottom 1px solid
+                min-height 60px
+                fl(,c,c)
+                text-align center
+                width 50%
+                &.is-active
+                    pointer-events: none
+                a
+                    min-height 60px
+                    fl(,c,c)
+                    width 100%
+                    &:hover
+                        text-decoration none
+
+    
+
+@media res_desktop--lg
+    .dashboard
+        & &__cell
+            &_smart
+                width 50%
+            &_full-tablet
+                width 100%
+            &_semi-tablet
+                width 50%
+
+
+@media res_tablet--sm
+    .dashboard
+        & &__cell
+            &_big
+                width 100%
+                &-semi
+                    width 100%
+            &_smart
+                width 100%
+            &_semi
+                width 100%
+
+@media res_mobile--md
+    .dashboard
+        & &__cell
+            margin-bottom 10px

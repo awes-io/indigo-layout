@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Placeholder Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <script>AWES_CONFIG = {key: '9d1d891a3204aa749436fdbd3ab29c3f', modules: ['./js/main.js']}</script>
+    <script src="/test-core/core.js" async="true" defer="true"></script><!-- there is can be head meta or sctipts-->
+</head>
+
+<body>
+    <div class="mainwrapper" id="awes-app">
+        <div class="frame">
+            <div class="frame__aside" id="aside">
+                <div class="frame__aside-line"><span class="frame__aside-open g-res--tablet-lg" :class="{ active: togglenav }" @click="openNav"><span></span></span>
+                    <h2 class="frame__aside-title">AwesCRM</h2><button class="frame__aside-ava" @click="showUserMenu = ! showUserMenu"><i class="icon icon-user novatar novatar_box"></i></button>
+                </div>
+                <nav class="frame__aside-nav" v-bind:class="{ active: togglenav }">
+                    <div class="frame__aside-mhead g-res--tablet-lg"><a class="frame__aside-close" href="" @click.prevent="openNav()"><i class="icon icon-cross"></i></a>
+                        <h4 class="frame__aside-mtitle"><span>AwesCRM</span></h4>
+                    </div>
+                    <frame-nav :links="[{title:'Dashboard',icon: 'speed', active:true, link: '#'}, {title:'Admin',icon:'report',sub:[{title:'Dashboard',icon:null,link:'#'},{title:'Plans',icon:null,link:'#'}]}]">
+                        <div class="ph">
+                            <div class="ph__mnav"><span class="ph__mnav-link"></span><span class="ph__mnav-title"></span></div>
+                            <ul class="ph__nav">
+                                <li><span class="ph__nav-icon"></span><span class="ph__nav-text"></span></li>
+                                <li><span class="ph__nav-icon"></span><span class="ph__nav-text"></span></li>
+                                <li><span class="ph__nav-icon"></span><span class="ph__nav-text"></span></li>
+                                <li><span class="ph__nav-icon"></span><span class="ph__nav-text"></span></li>
+                                <li><span class="ph__nav-icon"></span><span class="ph__nav-text"></span></li>
+                            </ul>
+                        </div>
+                    </frame-nav>
+                </nav>
+            </div>
+            <div class="frame__right">
+                <div class="frame__header">
+                    <div class="frame__header-top">
+                        <form class="frame__search" id="search" v-bind:class="{ active: showSearch }" action="js" method="get"> <span class="frame__search-link" v-on:click="showSearch = !showSearch"><i class="icon icon-search"></i></span>
+                            <div class="frame__search-hidden"><input class="frame__search-input" type="text" placeholder="Search..."><button class="frame__search-btn" type="submit">Search</button><span class="frame__search-close" v-on:click="showSearch = !showSearch"></span><i class="icon icon-cross"></i></div>
+                        </form>
+                        <div class="frame__userinfo"><a class="frame__userinfo-link" href=""><span class="icon icon-ruppor"><i class="icn-dot"></i></span></a><span class="frame__header-add"><i class="icon icon-plus"></i></span><a class="frame__userinfo-link" href=""><span class="icon icon-hdd"><i class="icn-dot"></i></span></a>
+                            <div class="user-menu" v-show="showUserMenu">
+                                <ul class="user-menu__list">
+                                    <div class="cm-item">
+                                        <div class="cm-item__panel is-secondary"><strong class="user-menu__title">Terry Gerlach</strong><small class="user-menu__desc">Standart until 10 november<br>                5 users $500 per month</small>
+                                                <nav class="user-menu__nav" aria-label="Profile navigation">
+                                                    <ul>
+                                                        <li><a href="https://company.awescrm.cloud/managers/NQ%3D%3D">Profile</a></li>
+                                                        <li class="is-expand"><a href="https://www.awescrm.cloud/logout">Logout</a></li>
+                                                    </ul>
+                                                </nav><label class="progress user-menu__progress"><span>519.05 MB</span> of 2.5 GB used<progress max="2500" value="519">519 MB of 2.5 GB used</progress></label></div>
+                                    </div>
+                                    <div class="cm-item">
+                                        <div class="cm-item__panel">
+                                            <form class="form-builder" action="https://company.awescrm.cloud/api/v1/managers/NQ%3D%3D" method="PATCH">
+                                                <div class="grid grid_forms">
+                                                    <div class="grid__cell user-menu__theme-checkbox grid__cell_padding"><label class="checkbox checkbox_s2" data-awes="fb-checkbox.theme_dark">
+                                                            <div class="v-popover display-block"><span class="trigger" aria-describedby="popover_0ttyghblod" tabindex="-1" style="display: inline-block;"><input class="is-focusable" type="checkbox"><span class="checkbox__text"><i class="icon icon-checkbox" style="touch-action: pan-y; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></i><span>Dark theme</span></span><!-- -->
+                                                                <!-- -->
+                            </span></div></label>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+        <div class="cm-item">
+            <div class="cm-item__panel"><strong class="user-menu__companies" id="companies_list">4 companies</strong>
+                <ul class="user-menu__companies-list" aria-labelledby="companies_list">
+                    <li><a href="">Awesome</a></li>
+                    <li><a href="">Microsoft</a></li>
+                    <li><a href="">Apple</a></li>
+                    <li><a href="">Tesla</a></li>
+                </ul>
+            </div>
+        </div>
+        </ul>
+    </div>
+    </div>
+    </div>
+    <div class="frame__header-line">
+        <h1 class="frame__header-title">Placeholder Test</h1>
+    </div>
+    </div>
+    <div class="frame__content">
+        <h1>Компонент контекстное меню (context-menu)</h1>
+        <ul>
+            <li><a href="#minimal-markup">Минимальная разметка</a></li>
+            <li><a href="#wrapper-props">Параметры компонента-обёртки <context-menu></context-menu></a></li>
+            <li><a href="#positioning">Позиционирование на экране</a></li>
+            <li><a href="#elements">Элементы контекстного меню</a>
+                <ul>
+                    <li><a href="#elements-button">Кнопка <cm-button></cm-button></a></li>
+                    <li><a href="#elements-link">Ссылка <cm-link></cm-link></a></li>
+                    <li><a href="#elements-separator">Разделитель <cm-separator></cm-separator></a></li>
+                    <li><a href="#elements-panel">Панель <cm-panel></cm-panel></a></li>
+                    <li><a href="#elements-query">GET-параметры в адресной строке <cm-query></cm-query></a></li>
+                    <li><a href="#elements-ajax">AJAX-запрос <cm-ajax></cm-ajax></a></li>
+                </ul>
+            </li>
+            <li><a href="#toggler-slot">Стилизация открывающей кнопки</a></li>
+        </ul>
+        <p>Предназначен для отображения скрытого по-умолчанию списка нажатием на кнопку</p>
+        <div id="minimal-markup"></div>
+        <h2>Минимальная разметка</h2>
+        <p>Компонент состоит из раскрывающейся обёртки (dropdown) и элементов. Без элементов внутри
+            обёртки, она не имеет смысла, поэтому минимальная разметка выглядит как</p><pre></pre>
+        <p><strong>Внешний вид</strong></p>
+        <div class="vue-example">
+            <context-menu>
+                <cm-button>Click me!</cm-button>
+            </context-menu>
+        </div>
+        <p><strong>Сгенерированная разметка</strong></p><pre></pre>
+        <p><em>Открытие</em> выпадающего списка происходит нажатием на открывающую кнопку, <em>закрытие</em> - кликом на ту же кнопку, на ссылку или кнопку среди <a href="#elements">элементов контекстного
+                меню</a> или кликом снаружи выпадающего меню</p>
+        <div id="wrapper-props"></div>
+        <h2>Параметры компонента-обёртки <code><context-menu></context-menu></code></h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Название</th>
+                    <th>Тип</th>
+                    <th>По умолчанию</th>
+                    <th>Опиание</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>button-class</td>
+                    <td><strong>String</strong></td>
+                    <td><em>undefined</em></td>
+                    <td>Дополнительный класс для кнопки, открывающей список</td>
+                </tr>
+                <tr>
+                    <td>right</td>
+                    <td><strong>Boolean</strong></td>
+                    <td><code>false</code></td>
+                    <td>Приоритет в <a href="#positioning-info">расположении списка</a> по правой границе
+                        открывающей кнопки</td>
+                </tr>
+                <tr>
+                    <td>top</td>
+                    <td><strong>Boolean</strong></td>
+                    <td><code>false</code></td>
+                    <td>Приоритет в раскрытии списка вверх, <a href="#positioning-info">располагаясь</a> сверху открывающей кнопки</td>
+                </tr>
+                <tr>
+                    <td>auto-position</td>
+                    <td><strong>Boolean</strong></td>
+                    <td><code>true</code></td>
+                    <td><a href="#positioning-auto">Автоматическое позиционирование</a> списка в
+                        зависимости от заданных границ и видимости на экране</td>
+                </tr>
+                <tr>
+                    <td>boundary</td>
+                    <td><strong>String</strong></td>
+                    <td><code>body</code></td>
+                    <td>Селектор элемента - <a href="#positioning-bounds">границы</a> для автоматического
+                        позиционирования списка</td>
+                </tr>
+            </tbody>
+        </table>
+        <div id="positioning"></div>
+        <h2>Позиционирование на экране</h2>
+        <p>Раскрывающийся список (dropdown) располагается относительно открывающей кнопки, и по-умолчанию
+            примыкает к нижней и левой границам и открывается вниз</p>
+        <div id="positioning-info"></div>
+        <p><strong>Варианты расположения</strong></p>
+        <p><strong>По-умолчанию</strong></p>
+        <div class="vue-example">
+            <context-menu :auto-position="false">
+                <cm-button>Click me!</cm-button>
+            </context-menu>
+        </div>
+        <p><strong>Сверху (<code>top</code>)</strong></p>
+        <div class="vue-example">
+            <context-menu top="" :auto-position="false">
+                <cm-button>Click me!</cm-button>
+            </context-menu>
+        </div>
+        <p><strong>По правой стороне (<code>right</code>)</strong></p>
+        <div class="vue-example">
+            <context-menu right="" :auto-position="false">
+                <cm-button>Click me!</cm-button>
+            </context-menu>
+        </div>
+        <p><strong>Сверху по правой стороне (<code>top</code>, <code>right</code>)</strong></p>
+        <div class="vue-example">
+            <context-menu top="" right="" :auto-position="false">
+                <cm-button>Click me!</cm-button>
+            </context-menu>
+        </div>
+        <div id="positioning-auto"></div>
+        <p><strong>Автоматическое позиционирование</strong> Заданное расположение является лишь рекомендацией, если включен параметр <code>auto-position =
+true</code>. Если при заданном положении раскрывающийся список не отображается в области
+            видимости или не вписывается в <a href="#positioning-bounds">ограничительный контейнер</a>, то
+            он изменит своё положение, так чтобы:</p>
+        <ol>
+            <li>отобразиться на экране максимально видимым</li>
+            <li>вписаться в <a href="#positioning-bounds">границы</a></li>
+        </ol>
+        <div id="positioning-bounds"></div>
+        <p><strong>Ограничительный контейнер</strong> Свойство <code>boundary</code> - селектор границы, по-умолчанию, или если по-селектору не
+            найден элемент среди родителей компонента этим контейнером является контейнер страницы <code>body</code></p>
+        <p><em>Выпадающий список не может раскрыться вниз и вправо, но может вписаться в границы поэтому он
+открывается вверх и влево</em></p>
+        <div class="vue-example">
+            <div id="example-bounds" style="padding:50px 15px 15px; height: 100px; width: 300px; border: 1px solid gray;">
+                <context-menu style="float: right;" boundary="#example-bounds">
+                    <cm-button>Click me!</cm-button>
+                </context-menu>
+            </div>
+        </div>
+        <p><em>Выпадающий список не может вписаться в границы, открывшись вверх и влево, поэтому он
+открывается вниз и влево (это направление в приритете) при этом он старается отображаться
+на экране максимально видимым</em></p>
+        <div class="vue-example">
+            <div id="example-bounds" style="padding:10px; height: 50px; width: 50px; border: 1px solid gray;">
+                <context-menu top="" right="" boundary="#example-bounds">
+                    <cm-button>Click me!</cm-button>
+                    <cm-button>Click me too!</cm-button>
+                    <cm-button>Click me too!</cm-button>
+                </context-menu>
+            </div>
+        </div>
+        <div id="elements"></div>
+        <h2>Элементы контекстного меню</h2>
+        <div id="elements-button"></div>
+        <h3>Кнопка <cm-button></cm-button>
+        </h3><pre></pre>
+        <p><img src="/uploads/1f2a1658ec55e1aeaadfab168efd79b0/default-opened.png" alt="button"></p>
+        <p><em>Свойства элемента <code><cm-button></cm-button></code></em></p>
+        <table>
+            <thead>
+                <tr>
+                    <th style="text-align: center;">Название</th>
+                    <th style="text-align: center;">Тип</th>
+                    <th style="text-align: center;">По умолчанию</th>
+                    <th>Опиание</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align: center;">itemClass</td>
+                    <td style="text-align: center;"><strong>String</strong></td>
+                    <td style="text-align: center;"><em>undefined</em></td>
+                    <td>Дополнительный класс для кнопки</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>На элемент нужно навешивать обработчики событий и можно добавлять дополтительные атрибуты. Без
+            обработчика клик по кнопке будет просто закрывать открытое меню. Такая разметка</p><pre></pre>
+        <div class="vue-example">
+            <context-menu>
+                <cm-button class="list-item-class" item-class="item-class" aria-label="Awesome Button!" @click="$notify({group: 'right-b', type: 'sucсess', title: 'Notification!'})">Send notification</cm-button>
+            </context-menu>
+        </div>
+        <p>Будет сгенерирована в такой HTML, по клику будет вызван метод <code>someMethod</code>:</p><pre></pre>
+        <div id="elements-link"></div>
+        <h3>Ссылка <cm-link></cm-link>
+        </h3><pre></pre>
+        <div class="vue-example">
+            <context-menu>
+                <cm-link href="https://google.com" target="_blank" rel="nofollow noopener">This is a link element</cm-link>
+            </context-menu>
+        </div>
+        <p><em>Свойства элемента <code><cm-link></cm-link></code></em></p>
+        <table>
+            <thead>
+                <tr>
+                    <th style="text-align: center;">Название</th>
+                    <th style="text-align: center;">Тип</th>
+                    <th style="text-align: center;">По умолчанию</th>
+                    <th>Опиание</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align: center;">itemClass</td>
+                    <td style="text-align: center;"><strong>String</strong></td>
+                    <td style="text-align: center;"><em>undefined</em></td>
+                    <td>Дополнительный класс для ссылки</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">href*</td>
+                    <td style="text-align: center;"><strong>String</strong></td>
+                    <td style="text-align: center;"><em>undefined</em></td>
+                    <td>url или якорь, обязательное свойство</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>Также на элемент можно навешивать обработчики событий и добавлять дополтительные атрибуты, для
+            примера, такая разметка</p><pre></pre>
+        <div class="vue-example">
+            <context-menu>
+                <cm-link class="list-item-class" href="#anchor" item-class="item-class" data-prop="someProp" @click.prevent="someMethod">This is a link element</cm-link>
+            </context-menu>
+        </div>
+        <p>Будет сгенерирована в такой HTML, по клику перехода не будет, а будет вызван метод <code>someMethod</code>:</p><pre></pre>
+        <h3><a name="elements-separator"></a> Разделитель <cm-separator></cm-separator>
+        </h3><pre></pre>
+        <div class="vue-example">
+            <context-menu>
+                <cm-button>Above separator</cm-button>
+                <cm-separator></cm-separator>
+                <cm-button>Below separator</cm-button>
+            </context-menu>
+        </div>
+        <div id="elements-panel"></div>
+        <h3>Панель <cm-panel></cm-panel>
+        </h3>
+        <p>Компонент предназначен для размещения контента внутри контекстного меню</p><pre></pre>
+        <div class="vue-example">
+            <context-menu>
+                <cm-panel>Default panel</cm-panel>
+                <cm-panel secondary="">Secondary panel</cm-panel>
+            </context-menu>
+        </div>
+        <p><em>Свойства элемента <code><cm-panel></cm-panel></code></em></p>
+        <table>
+            <thead>
+                <tr>
+                    <th style="text-align: center;">Название</th>
+                    <th style="text-align: center;">Тип</th>
+                    <th style="text-align: center;">По умолчанию</th>
+                    <th>Опиание</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align: center;">secondary</td>
+                    <td style="text-align: center;"><strong>Boolean</strong></td>
+                    <td style="text-align: center;"><code>false</code></td>
+                    <td>Меняет цвет фона на более тёмный</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>Сгенерированная разметка</p><pre></pre>
+        <div id="elements-query"></div>
+        <h3>GET-параметры в адресной строке <cm-query></cm-query>
+        </h3>
+        <p>Компонент предназначен для вставки GET-параметров в адресную строку браузера без перезагрузки
+            (например для фильтрации или сортировки), другие компоненты могут отслеживать эти параметры и
+            обновлять данные.</p>
+        <p><em>Свойства элемента <code><cm-query></cm-query></code></em></p>
+        <table>
+            <thead>
+                <tr>
+                    <th style="text-align: center;">Название</th>
+                    <th style="text-align: center;">Тип</th>
+                    <th style="text-align: center;">По умолчанию</th>
+                    <th>Опиание</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align: center;">itemClass</td>
+                    <td style="text-align: center;"><strong>String</strong></td>
+                    <td style="text-align: center;"><em>undefined</em></td>
+                    <td>Дополнительный класс для кнопки</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">param*</td>
+                    <td style="text-align: center;"><strong>Object</strong></td>
+                    <td style="text-align: center;"><em>undefined</em></td>
+                    <td><em>Обязательное свойство</em>. Параметры, которые необходимо подставить или
+                        заменить в адресной строке, и при совпадении с которыми кнопка полузит активное
+                        состояние</td>
+                </tr>
+            </tbody>
+        </table><pre></pre>
+        <div class="vue-example">
+            <context-menu>
+                <cm-query :param="{state: 'active'}">I am active</cm-query>
+                <cm-query :param="{state: 'not-active'}">I am not active</cm-query>
+            </context-menu>
+        </div>
+        <p>HTML выглядит как</p><pre></pre>
+        <div id="elements-ajax"></div>
+        <h3>AJAX-запрос <cm-ajax></cm-ajax>
+        </h3>
+        <p>Компонент предназначен для отправки данных на сервер с возможностью вызова метода для обработки
+            полученного ответа, обрабатывая событие <code>sended</code>, в который передаются данные
+            ответа. Для отправки запроса используется миксин <code>serverRequest</code></p>
+        <p><em>Свойства элемента <code><cm-ajax></cm-ajax></code></em></p>
+        <table>
+            <thead>
+                <tr>
+                    <th style="text-align: center;">Название</th>
+                    <th style="text-align: center;">Тип</th>
+                    <th style="text-align: center;">По умолчанию</th>
+                    <th>Опиание</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align: center;">itemClass</td>
+                    <td style="text-align: center;"><strong>String</strong></td>
+                    <td style="text-align: center;"><em>undefined</em></td>
+                    <td>Дополнительный класс для кнопки</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">params</td>
+                    <td style="text-align: center;"><strong>Object</strong></td>
+                    <td style="text-align: center;"><code>{}</code></td>
+                    <td>Объект данных для отправки</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">url*</td>
+                    <td style="text-align: center;"><strong>String</strong></td>
+                    <td style="text-align: center;"><em>undefined</em></td>
+                    <td><em>Обязательный параметр</em>. Адрес запроса</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">method</td>
+                    <td style="text-align: center;"><strong>String</strong></td>
+                    <td style="text-align: center;"><code>get</code></td>
+                    <td>Метод для проведения запроса, ограничен вариантами <code>get</code>, <code>put</code>,<code>post</code>, <code>delete</code>, <code>patch</code></td>
+                </tr>
+            </tbody>
+        </table>
+        <p><em>События, вызываемые элементом <code><cm-ajax></cm-ajax></code></em></p>
+        <table>
+            <thead>
+                <tr>
+                    <th style="text-align: center;">Название</th>
+                    <th style="text-align: center;">Аргументы</th>
+                    <th>Опиание</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align: center;">sended</td>
+                    <td style="text-align: center;">data (<code>Object</code>)</td>
+                    <td>Вызвается после получения ответа и передаёт присланные данные</td>
+                </tr>
+            </tbody>
+        </table><pre></pre>
+        <div class="vue-example">
+            <context-menu>
+                <cm-ajax method="post" url="https://httpbin.org/post" :params="{param1: 'one', param2: 'two'}" @sended="({ data }) =&gt; $notify({ group:'right-b', text: JSON.stringify(data) })">Send request</cm-ajax>
+            </context-menu>
+        </div>
+        <p>Разультат в HTML</p><pre></pre>
+        <div id="toggler-slot"></div>
+        <h2>Стилизация открывающей кнопки</h2>
+        <p>Кнопка, открывающая контекстное меню может быть изменена с помощью <a href="https://ru.vuejs.org/v2/guide/components-slots.html" target="_blank">слота</a>, с именем <code>toggler</code>.
+            Содержимое слота помещается внутри тега <code></code><button><code></code>, поэтому не должно
+                содержать блочных по семантике элементов (<code></code>
+                <div><code></code>). Блочный контент должен
+                    быть представлен в виде <code><span style="display:block;"></span></code>
+                    <p></p>
+                    <p><strong>Пример</strong></p><pre></pre>
+                    <div class="vue-example">
+                        <context-menu><span slot="toggler" style="display: inline-block; color: white; background-color: lightseagreen; border: 1px solid aqua; padding: 5px 15px; margin-bottom: 3px; border-radius: 15px; height: 30px;">Open
+me</span>
+                            <cm-button>Click me!</cm-button>
+                        </context-menu>
+                    </div>
+                </div></button></p>
+    </div>
+    </div>
+    </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+extends includes/layout.pug
+
+block pageVariables
+    - var pageTitle = "404"
+
+block pageHead
+    // there is can be head meta or sctipts
+
+
+block pageContent
+    .tf-centerblock
+        .tf-infoblock.tf-infoblock_center
+            .infbl
+                i.icon.icon-stop.infbl_icon
+                span.infbl__caption No such page
+                h1.infbl__title 404
+                h4.infbl__type error

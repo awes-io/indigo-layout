@@ -1,0 +1,61 @@
+.todolist
+    absolute top 50px right -270px
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    z-index 950
+    width 260px
+    overflow auto
+    display block
+    padding-bottom 50px
+    tr(0.3)
+    &.active
+        right 0
+    & &__head
+        fl(,sb,c)
+        padding 20px 30px
+    & &__title
+        font-size f_middle
+        font-weight 700
+    & &__plus
+        font-size 20px
+        size 20px
+        display block
+        cursor pointer
+        tr(0.3)
+    & &__block
+        &-title
+            display block
+            padding 15px 45px 15px 30px
+            font-size f_normal
+            cursor pointer
+            position relative
+            &:before
+                absolute right 30px top 50%
+                margin-top -3px
+            .icn-dot
+                margin-left 5px
+                margin-top -2px
+            &_active
+                &:before
+                    transform rotate(90deg)
+        &-add
+            height 34px
+            width 100%
+            border-radius 2px
+            padding 0 12px
+            font-size f_small
+            margin-top 5px
+    & &__hidden
+        padding 5px 30px 20px 30px
+        display none
+        li
+            margin-bottom 14px
+            &:last-child
+                margin-bottom 0
+
+    
+@media res_tablet--md
+    .todolist
+        top 64px
+        z-index 999
+        position fixed
+        height calc(100% - 124px) !important

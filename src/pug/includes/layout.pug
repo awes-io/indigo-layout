@@ -1,0 +1,21 @@
+block pageVariables
+doctype html
+html(lang="en")
+    head
+        title= pageTitle
+        include frames/metahead
+        block pageHead
+        script(src="/js/main.js")
+        script(src="/test/core.js")
+    body
+        div(class="mainwrapper" id="awes-app")
+            div(class="frame")
+                transition(enter-active-class="animated fadeIn" leave-active-class="animated fadeOut")
+                    .frame__overlay(v-show="$awesLayoutCrm.togglenav || $awesLayoutCrm.showUserMenu" @click="$awesLayoutCrm.overlayClick")
+                include frames/aside
+                div(class="frame__right")
+                    include frames/header
+                    div.frame__content
+                        block pageContent
+                            p Content Block
+                        

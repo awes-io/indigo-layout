@@ -1,0 +1,47 @@
+extends includes/external.pug
+
+block pageVariables
+    - var pageTitle = "Tracking"
+    - var pageContentClass = "static-page--vat"
+
+block rightHead
+    span.static-page__semititle Tracking number: CER0010002000166SQHTD
+
+
+
+block pageContent
+    .project-page
+        .project-page__head
+            .project-page__head-left
+                h2.project-page__title Lorem ipsum dolor sit amet consectetur adipisicing elit adipisicing elit
+                .project-page__progress
+                    span(style="width: 37%") 
+                        i 37
+                ul.flex-list
+                    li
+                        span.flex-list__caption Number
+                        b.flex-list__title #64564-546
+                    li
+                        span.flex-list__caption Data
+                        b.flex-list__title 18.04.18
+                    li
+                        span.flex-list__caption Company
+                        b.flex-list__title Gazprommediagroup
+            
+            .project-page__head-right
+                picture.project-page__logo
+                    img(src="img/demo/logo_ux.jpg", alt="")
+
+        .project-page__content
+            h3.project-page__stitle Status
+
+            ul.history-list
+                li.active Status 1
+                li.active Status 2
+                li.active Status 3
+                li.current Status 4
+                li Status 5
+                li Status 6
+                li Status 7
+                li Status 8
+            

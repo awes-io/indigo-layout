@@ -1,0 +1,244 @@
+.login-page
+    min-height 100vh
+    position relative
+    fl()
+    & &__full
+        width 100% 
+        background-size cover
+        background-position center center
+        fl(,c,c)
+        padding 15px
+        &:before
+            absolute left 0 top 0
+            size 100%
+            display block
+            background-color alpha(cl_black, 0.5)
+            content ''
+    & &__swrap
+        max-width 480px
+        width 100%
+        margin auto
+        text-align center
+        position relative
+        z-index 10
+    .checkbox
+        &__text 
+            span
+                font-size f_normal
+    & &__ins
+        padding-left 10px
+        padding-right 10px
+        width 100%
+        fl(w)
+        &_center
+            text-align center
+            justify-content center
+        &_mb
+            margin-top 5px
+            margin-bottom 5px
+        
+    & &__sbox
+        padding 50px 40px
+    & &__left
+        width 50%
+        min-height 100vh
+        fl(,fe)
+        padding 50px
+        text-align center
+        &-wrap
+            fl()
+            max-width 390px
+            width 100%
+        &-center
+            display block
+            margin auto
+            width 100%
+    & &__qr
+        text-align center
+        padding-top 10px
+        img
+            display inline-block
+            width 200px
+    & &__checkform
+        fl(w,sb,c)
+        width 100%
+        padding 5px 10px
+        .grid__cell
+            width auto !important
+    & &__lostpass
+        display inline-block
+        margin-bottom 10px
+    & &__bg
+        display block
+        background-size cover
+        background-position center center
+        width 50%
+        position relative
+        &:before
+            absolute left 0 top 0
+            size 100%
+            display block
+            background-color alpha(cl_black, 0.5)
+            content ''
+    & &__logo
+        margin-bottom 65px
+        display inline-block
+        position relative
+        text-align center
+        .icon
+            line-height 1
+            font-size 70px
+        span
+            font-size 20px
+            display block
+            margin-top 7px
+        &:hover
+            text-decoration none
+
+    & &__form
+        text-align left
+        margin-bottom 30px
+        .line-btns
+            .btn
+                width 100%
+                margin 0
+        &-inframe
+            width 100%
+            text-align center
+            margin-bottom 30px
+        &_btn-center
+            .line-btns
+                text-align center
+                .btn
+                    width auto
+                    display inline-block
+                    min-width 160px
+        &_btn-marg
+            .line-btns
+                margin-top 20px
+    & &__title
+        margin-bottom 5px
+    & &__spacer
+        margin-top 25px
+        margin-bottom 20px
+        display block
+        text-align center
+        position relative
+        overflow hidden
+        i
+            padding-left 20px
+            padding-right 20px
+            display inline-block
+            position relative
+            &:before
+                size 50px 1px
+                absolute left -50px top 50%
+                display block
+                content ''
+            &:after
+                size 50px 1px
+                absolute right -50px top 50%
+                display block
+                content ''
+        &_rc
+            margin-top 5px
+            margin-bottom 35px
+            i
+                font-style normal
+    & &__socials
+        fl(w,c,c)
+        font-size 30px
+        line-height 1
+        a
+            margin-left 10px
+            margin-right 10px
+            border-radius 50%
+            position relative
+            display block
+            &:after
+                background-color #ffffff
+                size 25px
+                border-radius 50%
+                z-index 1
+                absolute left 2px top 2px
+                display block
+                content ''
+            &:before
+                position relative
+                z-index 2
+            &:hover
+                opacity 0.5
+            &.icon-gp
+                color #d23933
+            &.icon-in
+                color #0e76b5
+            &.icon-fb
+                color #2e4185
+    & &__apps
+        fl(,c)
+        &-link
+            display block
+            margin-left 5px
+            margin-right 5px
+            margin-bottom 10px 
+            max-width calc(50% - 10px)
+            img
+                width 135px
+                display block
+            &:hover
+                opacity 0.75
+
+@media res_tablet--md
+    .login-page
+        & &__left
+            width 75%
+            justify-content center
+        & &__bg
+            width 25%
+
+
+@media res_mobile--lg
+    .login-page
+        & &__bg
+            display none
+        & &__left
+            width 100% 
+        & &__logo
+            margin-bottom 10px
+            display none
+            span
+                display none
+            .icon
+                font-size 50px 
+        & &__full
+            background-image none !important
+            &:before
+                display none
+        & &__sbox
+            padding 0
+            max-width 380px
+            margin-left auto
+            margin-right auto
+        & &__form
+            margin-bottom 20px
+        & &__spacer
+            margin-top 15px
+            &_rc
+                margin-top 5px
+
+
+@media res_mobile--md
+    .login-page
+        & &__left
+            padding 20px
+
+@media res_mobile--sm
+    .login-page
+        & &__checkform
+            padding-left 0
+            padding-right 0
+
+@media (max-height 700px)
+    .login-page
+        & &__logo
+            display none

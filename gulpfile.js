@@ -6,14 +6,14 @@ const stylus = require('gulp-stylus')
 const postcss = require('gulp-postcss')
 const nib = require('nib')
 const sourcemaps = require('gulp-sourcemaps')
-const webpack = require('webpack')
-const webpackStream = require('webpack-stream')
+const rollup = require('gulp-rollup')
 const browserSync = require('browser-sync').create()
 const pug = require('gulp-pug')
 const prettyHtml = require('gulp-pretty-html')
 const iconfont = require('gulp-iconfont')
 const consolidate = require('gulp-consolidate')
 
+// Types
 const isDev = process.env.NODE_ENV === 'development'
 const isModern = process.env.BROWSERS_ENV === 'modern'
 
@@ -22,7 +22,7 @@ const isModern = process.env.BROWSERS_ENV === 'modern'
  */
 
 if ( isDev ) {
-  gulp.task('serve', function(){
+  gulp.task('serve',  function() {
 
     browserSync.init({
       ui: false,
@@ -32,6 +32,7 @@ if ( isDev ) {
     })
 
     gulp.watch('./src/css/**/*.styl', gulp.series('build:styles'))
+    gulp.watch('./src/img/**/*', gulp.series('build:images'))
     gulp.watch(['./src/js/**/*.js', './src/vue/**/*.vue'], gulp.series('build:js', 'reload'))
     gulp.watch('./src/pug/**/*.pug', gulp.series('build:html', 'reload'))
   })
@@ -43,20 +44,32 @@ if ( isDev ) {
  * JS
  */
 
+const rollupConfig = require('./rollup.config.js')
+rollupConfig.allowRealFiles = true // solves gulp-rollup hipotetical file system problem
+rollupConfig.rollup = require('rollup')
+
 gulp.task('build:js', function(){
   return gulp.src('./src/js/main.js')
     .pipe( plumber() )
-    .pipe( webpackStream( require('./webpack.config.js'), webpack ) )
+    .pipe( rollup(rollupConfig) )
     .pipe( gulp.dest('./dist/js') )
 })
 
+/*
+ * Images
+ */
+
+gulp.task('build:images', function() {
+  return gulp.src('./src/img/**/*')
+    .pipe( gulp.dest('./dist/img') )
+})
 
 /*
  * Styles
  */
 
 gulp.task('build:styles', function(){
-  return gulp.src('./src/css/main.styl')
+  return gulp.src('./src/css/framework/main.styl')
     .pipe( plumber() )
     .pipe( isDev ? sourcemaps.init() : noop() )
     .pipe( stylus({ use: nib(), 'include css': true, import: ['nib'], compress: false }) )
@@ -90,6 +103,7 @@ gulp.task('build:icons', function(){
     return gulp.src('./src/svg/*.svg')
       .pipe(iconfont({
         fontName: 'icons',
+        fontHeight: 1000,
         prependUnicode: true,
         formats: ['ttf', 'eot', 'woff'],
         normalize: true,
@@ -103,7 +117,7 @@ gulp.task('build:icons', function(){
           fontPath: '../fonts/', // TODO: need full path in production build !!!
           className: 'icon'
         }) )
-        .pipe( gulp.dest('./src/css/') )
+        .pipe( gulp.dest('./src/css/framework/') )
     })
     .pipe(gulp.dest('./dist/fonts/'));
 })
@@ -118,7 +132,7 @@ gulp.task('clean', function(){
     .pipe( clean() )
 })
 
-gulp.task('build', gulp.series('build:js', 'build:icons', 'build:styles', 'build:html') )
+gulp.task('build', gulp.series('build:js', 'build:icons', 'build:styles', 'build:html', 'build:images') )
 
 // start
 defaultTask = ['build']

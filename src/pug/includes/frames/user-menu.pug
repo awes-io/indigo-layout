@@ -1,0 +1,46 @@
+ul.user-menu__list
+    button.user-menu__close(@click="$awesLayoutCrm.showUserMenu = ! $awesLayoutCrm.showUserMenu") &times;
+
+    .cm-item
+        .cm-item__panel.is-secondary
+            strong.user-menu__title Terry Gerlach
+            small.user-menu__desc
+                | Standart until 10 november
+                br
+                |                 5 users $500 per month
+            nav.user-menu__nav(aria-label='Profile navigation')
+                ul
+                    li
+                        a(href='https://company.awescrm.cloud/managers/NQ%3D%3D') Profile
+                    li.is-expand
+                        a(href='https://www.awescrm.cloud/logout') Logout
+            label.progress.user-menu__progress
+                span 519.05 MB
+                |  of 2.5 GB used
+                progress(max='2500', value='519') 519 MB of 2.5 GB used
+    .cm-item
+        .cm-item__panel
+            form.form-builder(action='https://company.awescrm.cloud/api/v1/managers/NQ%3D%3D', method='PATCH')
+                .grid.grid_forms
+                    .grid__cell.user-menu__theme-checkbox.grid__cell_padding
+                        label.checkbox.checkbox_s2(data-awes='fb-checkbox.theme_dark')
+                            .v-popover.display-block
+                                span.trigger(aria-describedby='popover_0ttyghblod', tabindex='-1', style='display: inline-block;')
+                                    input.is-focusable(type='checkbox')
+                                    span.checkbox__text
+                                        i.icon.icon-checkbox(style='touch-action: pan-y; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);')
+                                        span Dark theme
+                                    // 
+                                    // 
+    .cm-item
+        .cm-item__panel
+            strong#companies_list.user-menu__companies 4 companies
+            ul.user-menu__companies-list(aria-labelledby='companies_list')
+                li
+                    a(href='') Awesome
+                li
+                    a(href='') Microsoft
+                li
+                    a(href='') Apple
+                li
+                    a(href='') Tesla

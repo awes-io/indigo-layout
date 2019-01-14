@@ -23,17 +23,18 @@
             
             slideUpDuration: {
                 type: Number,
-                default: 300 // milliseconds
+                default: 250 // milliseconds
             },
             
             slideDownDuration: {
                 type: Number,
-                default: 450 // milliseconds
+                default: 300 // milliseconds
             }
         },
 
         data() {
             return {
+                isAnimating: false,
                 isOpened: this.show
             }
         },
@@ -58,16 +59,20 @@
                         let fraction = easeOutCubic(time, this.slideDownDuration)
                         el.style.height = `${Math.round(fraction * height)}px`
                         el.style.opacity = fraction.toFixed(1)
-                        requestAnimationFrame(setHeight)
+                        this.__animDown = requestAnimationFrame(setHeight)
                     } else {
                         el.style.height = null
                         el.style.opacity = null
                         done()
                     }
                 }
-                requestAnimationFrame(setHeight)
+                this.__animDown = requestAnimationFrame(setHeight)
             },
-            
+
+            stopDown() {
+                cancelAnimationFrame(this.__animDown)
+            },
+
             slideUp(el, done) {
                 const height = el.offsetHeight
                 const start = new Date().getTime()
@@ -77,14 +82,20 @@
                         let fraction = 1 - easeInOutCubic(time, this.slideUpDuration)
                         el.style.height = `${Math.round( fraction * height )}px`
                         el.style.opacity = fraction.toFixed(1)
-                        requestAnimationFrame(setHeight)
+                        this.__animUp = requestAnimationFrame(setHeight)
                     } else {
                         el.style.height = null
                         el.style.opacity = null
                         done()
                     }
                 }
-                requestAnimationFrame(setHeight)
+                this.__animUp = requestAnimationFrame(setHeight)
+            },
+
+            stopUp(el) {
+                cancelAnimationFrame(this.__animUp)
+                el.style.height = null
+                el.style.opacity = null
             },
 
             close() {
@@ -105,7 +116,9 @@
                     props: { css: false },
                     on: {
                         enter: this.slideDown,
-                        leave: this.slideUp
+                        'enter-cancelled': this.stopDown,
+                        leave: this.slideUp,
+                        'leave-cancelled': this.stopUp
                     }
                 }, [
                     h(this.tag, {

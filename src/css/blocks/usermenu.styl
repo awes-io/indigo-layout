@@ -1,0 +1,88 @@
+.user-menu
+    absolute right 0 top 50px
+    z-index 1000
+    & &__list
+        min-width: 300px
+    & &__title
+        font-size: 18px
+        margin-bottom: 0
+
+    & &__desc
+        display: block
+        line-height: 1.5em
+        margin-top: .5em
+
+    & &__progress
+        margin: 16px 0 -17px
+        progress
+            margin-left: -30px
+            margin-right: -30px
+            width calc(100% + 60px)
+    & &__nav
+        margin-top: 1em
+        ul
+            display: flex
+            margin-left: -15px
+            margin-top: -10px
+        li
+            padding-left: 15px
+            margin-top: 10px
+            &.is-expand
+                flex-grow: 1
+                text-align: right
+    & &__theme-checkbox .checkbox
+        margin-bottom: 0
+        padding-bottom: 0
+    & &__companies
+        &-list
+            li
+                line-height: 1.5
+                margin-top: 1rem
+                padding-left: 18px
+                position: relative
+
+                &:before
+                    content: '—'
+                    display: block
+                    position: absolute
+                    left: 0
+                    top: 0
+
+                a
+                    color: inherit
+                    &:hover
+                        text-decoration: underline
+        &-btn
+            margin-top: 12px
+    & &__close
+        display none
+        absolute right 5px top 5px
+        font-size 30px
+        line-height 30px
+        size 30px
+    &-enter,
+    &-leave-to
+        opacity: 0
+        @media res_tablet--lg
+            transform: translateX(100%)
+            opacity 0
+        @media res_tablet--lg-i
+            transform: scaleY(.75)
+    &-enter-active,
+    &-leave-active
+        transform-origin: top center
+        transition: transform .3s ease, opacity .2s ease
+    
+
+
+@media res_tablet--lg
+    .user-menu
+        fixed top 0 right 0
+        z-index 1000
+        height 100vh
+        & &__list
+            height 100vh
+            overflow: auto
+        & &__close
+            display block
+            

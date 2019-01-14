@@ -1,0 +1,89 @@
+.actions-overflow
+    display block
+    size 30px
+    absolute right 0 top 0
+    font-size f_normal
+    opacity 0
+    pointer-events none
+    & &__icon
+        size 30px
+        tr(0.3)
+        z-index 500
+        position relative
+        cursor pointer
+        line-height 3px
+        fl(,c,c)
+        font-size 3px
+    & &__actions
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.1)
+        padding 5px
+        absolute right 0 top 100%
+        display none
+        padding-top 20px
+        z-index 600
+        padding-bottom 20px
+    & &__link
+        display block
+        padding 5px 25px
+        &_red
+            margin-top 7px
+    & &__title
+        display block
+        padding 5px 25px
+        margin-bottom 7px
+    &.active
+        opacity 1 !important
+        pointer-events: auto
+        & ^[0]__actions
+            display block
+
+
+// .overflow-window
+//     box-shadow: 0 0 30px rgba(0, 0, 0, 0.1)
+//     max-width 160px
+//     padding 22px 5px 25px 5px
+//     font-size f_normal
+//     position relative
+//     z-index 900
+//     & &__title
+//         padding 5px 25px
+//         display block
+//         margin-bottom 7px
+//     & &__link
+//         display block
+//         padding 5px 25px
+//         &_red
+//             margin-top 7px
+//     & &__close
+//         absolute right 20px top 20px
+//         font-size 16px
+//     &_big
+//         min-width 150px
+//         padding 10px 0
+//         & ^[0]__link
+//             font-size f_normal
+//             padding-top 7px
+//             padding-bottom 7px
+
+
+.action-menu
+    position relative
+    width 34px
+    & &__click
+        font-size 3px
+        text-align center
+        padding 10px
+    .overflow-window
+        display none
+        absolute right 0 top 100%
+        margin-top 10px
+        opacity 1
+    &.active
+        .overflow-window
+            display block
+
+
+@media res_desktop--sm
+    .actions-overflow
+        opacity 1
+        pointer-events auto

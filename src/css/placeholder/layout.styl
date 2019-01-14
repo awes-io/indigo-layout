@@ -1,0 +1,28 @@
+.login-page__checkform
+    fb-checkbox
+        margin-top 0
+
+form-builder .login-page__checkform
+    opacity 0
+    animation phShow 1.5s 1 forwards !important
+
+frame-nav
+    position relative
+    overflow hidden
+
+modal, modal-form, modal-window, filter-form, slide-up-down, transition
+    display none
+
+
+
+.filter
+    opacity 0
+    animation phShow 1.5s 1 forwards !important
+
+@media res_tablet--lg
+    frame-nav
+        background-color var(--tc_aside_bg)
+        size 100% 62px
+        fixed top 0 left 0
+        display block
+        z-index 1000
