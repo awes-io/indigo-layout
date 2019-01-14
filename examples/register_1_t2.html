@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Login</title>
+    <title>Register</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700" rel="stylesheet">
@@ -17,26 +17,23 @@
 <body>
     <div class="mainwrapper" id="awes-app">
         <div class="login-page">
-            <div class="login-page__left">
-                <div class="login-page__left-wrap">
-                    <div class="login-page__left-center"><a class="login-page__logo" href="https://www.awescrm.cloud"><i class="icon icon-logo"></i></a>
-                        <h2>Login</h2>
+            <div class="login-page__full" style="background-image: url(&quot;https://www.spirit-of-metal.com/les%20goupes/L/Lacuna%20Coil/pics/f9c9_2.jpg&quot;);">
+                <div class="login-page__swrap"><a class="login-page__logo login-page__logo_white" href="https://www.awescrm.cloud"><i class="icon icon-logo"></i><span>Awes<b>CRM</b></span></a>
+                    <div class="login-page__sbox">
+                        <h1 class="login-page__title">Register</h1><span class="login-page__spacer login-page__spacer_rc"><i>Step 1 of 4</i></span>
                         <div class="login-page__form">
-                            <form-builder disabled-dialog="" url="https://www.awescrm.cloud/login" btntext="Login">
+                            <form-builder url="https://www.awescrm.cloud/register" :default="{'email':''}" btntext="Next">
                                 <fb-input name="email" type="email" label="E-Mail" focus=""></fb-input>
-                                <fb-input name="password" label="Password" type="password"></fb-input>
-                                <fb-auto-captcha :show="false"></fb-auto-captcha>
-                                <div class="login-page__checkform">
-                                    <fb-checkbox name="remember" label="Remember me" :cell="2" enter-skip=""></fb-checkbox>
-                                    <div class="grid__cell grid__cell_2"><a class="login-page__lostpass" href="https://www.awescrm.cloud/password/request">Forgot password?</a></div>
+                                <div class="login-page__ins">
+                                    <fb-checkbox name="agree" label="Agree" cell="1"></fb-checkbox>
                                 </div>
                             </form-builder>
                         </div>
-                        <div class="tf-centerlink"><a href="https://www.awescrm.cloud/register">No, I want to register</a></div><span class="login-page__spacer"><i>or enter with a social network</i></span>
+                        <div class="tf-centerlink"><a href="https://www.awescrm.cloud/login">Back to login page</a></div><span class="login-page__spacer"><i>or register with a social network</i></span>
                         <div class="login-page__socials"><a class="icon icon-fb" href="https://www.awescrm.cloud/login/facebook"></a><a class="icon icon-in" href="https://www.awescrm.cloud/login/linkedin"></a><a class="icon icon-gp" href="https://www.awescrm.cloud/login/google"></a></div>
                     </div>
                 </div>
-            </div><span class="login-page__bg" style="background-image: url('https://www.spirit-of-metal.com/les%20goupes/L/Lacuna%20Coil/pics/f9c9_2.jpg');"><span></span></span>
+            </div>
         </div>
     </div>
 </body>

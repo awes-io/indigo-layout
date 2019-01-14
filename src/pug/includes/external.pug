@@ -2,15 +2,9 @@ block pageVariables
 doctype html
 html(lang="en")
     head
-        meta(charset="utf-8")
         title= pageTitle
-        meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
-        link(href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700" rel="stylesheet")
-        link(rel='stylesheet', href='css/main.css')
-        script.
-            AWES_CONFIG = {key: '9d1d891a3204aa749436fdbd3ab29c3f'}
+        include frames/metahead
         block pageHead
-        script(src="/test-core/core-v6.js")
     body
         div(class="mainwrapper" id="awes-app")
 

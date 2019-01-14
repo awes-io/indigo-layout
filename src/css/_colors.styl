@@ -557,7 +557,6 @@ a
     border 1px solid var(--tc_border_ins)
     color var(--tc_text)
     background-color var(--tc_ui_bg)
-    tr(0.25)
     &:focus
       border 1px solid var(--tc_ui_focus)
     &:-webkit-autofill
@@ -1133,10 +1132,7 @@ mark
       &:before, &:after
         background-color var(--tc_border)
   & &__logo
-    {lt} &
-      color var(--tc_color_main)
-    {dt} &
-      color var(--tc_link)
+    color var(--tc_link)
     &:hover
       color var(--tc_color_main_l) 
     &_white
@@ -1151,6 +1147,9 @@ mark
     
   & &__sbox
     background-color var(--tc_ui_bg)
+  & &__full
+    @media res_mobile--lg
+      background-color var(--tc_ui_bg)
 
 .keycode
   & &__field

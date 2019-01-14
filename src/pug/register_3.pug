@@ -1,0 +1,30 @@
+extends includes/login.pug
+
+block pageVariables
+    - var pageTitle = "Password"
+    - var pageAsideBg = "https://www.spirit-of-metal.com/les%20goupes/L/Lacuna%20Coil/pics/f9c9_2.jpg"
+
+block pageHead
+    // there is can be head meta or sctipts
+    script(src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/js-core/v0.x.x/js/main.js" defer="defer")
+    script(src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/packages/forms/v0.x.x/js/main.js" defer="defer")
+
+block pageContent
+    a.login-page__logo(href='https://www.awescrm.cloud')
+        i.icon.icon-logo
+    h2= pageTitle
+    span.login-page__spacer.login-page__spacer_rc
+        i Step 3 of 4
+    .login-page__form
+        form-builder(url='https://www.awescrm.cloud/register', :default="{'email':'veawdawd@gmail.com'}", btntext='Next')
+            fb-input(name='email', type='email', label='E-Mail', style='display:none', focus='')
+            fb-input(name='password', type='password', label='Password', focus='')
+            fb-input(name='password_confirmation', type='password', label='Confirm Password')
+    .tf-centerlink
+        form-builder(url='https://www.awescrm.cloud/register', :default="{'clear_data':true}", btntext='Clear registration data')
+        a(href='https://www.awescrm.cloud/login') Back to login page
+
+
+
+    
+

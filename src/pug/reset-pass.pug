@@ -1,0 +1,24 @@
+extends includes/login.pug
+
+block pageVariables
+    - var pageTitle = "Reset password"
+    - var pageAsideBg = "https://www.spirit-of-metal.com/les%20goupes/L/Lacuna%20Coil/pics/f9c9_2.jpg"
+
+block pageHead
+    // there is can be head meta or sctipts
+    script(src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/js-core/v0.x.x/js/main.js" defer="defer")
+    link(rel="stylesheet" href="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/packages/forms/v0.x.x/css/main.css")
+    script(src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/packages/forms/v0.x.x/js/main.js" defer="defer")
+
+block pageContent
+    a.login-page__logo(href='https://www.awescrm.cloud')
+        i.icon.icon-logo
+    h2= pageTitle
+    span.tf-caption.tf-caption_mb-m Enter your email address you used to register. Number of messages is limited
+    .login-page__form
+        form-builder(url='https://www.awescrm.cloud/password/email', btntext='Send Password Reset Link')
+            fb-input(name='email', type='email', label='E-Mail', focus='')
+    .tf-centerlink
+        a(href='https://www.awescrm.cloud/login') Back to login page
+    
+

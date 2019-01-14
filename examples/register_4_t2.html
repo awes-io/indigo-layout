@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Information</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <script>AWES_CONFIG = {key: '680a7d07f89b94e7fc83be657a2daa27'}</script>
+    <script src="/test-core/core-v6.js"></script><!-- there is can be head meta or sctipts-->
+    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/js-core/v0.x.x/js/main.js" defer="defer"></script>
+    <link rel="stylesheet" href="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/packages/forms/v0.x.x/css/main.css">
+    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/packages/forms/v0.x.x/js/main.js" defer="defer"></script>
+</head>
+
+<body>
+    <div class="mainwrapper" id="awes-app">
+        <div class="login-page">
+            <div class="login-page__full" style="background-image: url(&quot;https://www.spirit-of-metal.com/les%20goupes/L/Lacuna%20Coil/pics/f9c9_2.jpg&quot;);">
+                <div class="login-page__swrap"><a class="login-page__logo login-page__logo_white" href="https://www.awescrm.cloud"><i class="icon icon-logo"></i><span>Awes<b>CRM</b></span></a>
+                    <div class="login-page__sbox">
+                        <h1 class="login-page__title">Information</h1><span class="login-page__spacer login-page__spacer_rc"><i>Step 4 of 4</i></span>
+                        <div class="login-page__form">
+                            <form-builder url="https://www.awescrm.cloud/register" :default="{'company_type':'company'}" btntext="Next">
+                                <fb-radio-group name="type" :items="['Company', 'Freelancer']" box=""></fb-radio-group>
+                                <fb-input name="company" label="Company name" focus=""></fb-input>
+                                <fb-company-slug name="slug" label="Domain" input="company"></fb-company-slug>
+                                <fb-input name="first_name" label="First Name" cell="2" focus=""></fb-input>
+                                <fb-input name="last_name" label="Surname" cell="2"></fb-input>
+                                <div class="grid__cell">
+                                    <div class="login-page__ins login-page__ins_mb login-page__ins_center"><label class="checkbox checkbox_s2"><input class="fb__el" type="checkbox"><span class="checkbox__text"><i class="icon icon-checkbox"></i><span>Payment for the year, 20% discount</span></span></label></div>
+                                </div>
+                                <fb-radio-group class="box-checker" name="plan" :items="[{plan:{name:'Free', price:0, caption:'only for freelancers'}, value:'free'},{plan:{name:'Standart', price:30, caption:'per user/month'}, value:'standart'},{plan:{name:'Professional', price:50, caption:'per user/month'}, value:'professional'}]" box=""><template slot-scope="radio"><span :class="{'is-checked': radio.checked}"><span class="box-checker__title">{{ radio.item.plan.name }}</span><span class="box-checker__price">{{ radio.item.plan.price }} <small>€</small></span><span class="box-checker__caption">{{ radio.item.plan.caption }}</span></span></template></fb-radio-group>
+                                <div class="grid__cell"><span class="tf-rcaption cl_green"><span>30 days free</span><a href="" @click.prevent="$root.$emit('modals:open', 'plan-options')">see plan options</a></span></div>
+                            </form-builder>
+                        </div>
+                        <div class="tf-centerlink tf-centerlink_afterframe"><a class="tf-hyplink" href="">back</a></div>
+                        <modal-window name="plan-options" title="Plan options" fullscreen>
+                            <div class="modal__checker"><label class="checkbox checkbox_s2"><input class="fb__el" type="checkbox"><span class="checkbox__text"><i class="icon icon-checkbox"></i><span>Payment for the year, 20% discount</span></span></label></div>
+                            <div class="price-table">
+                                <div class="price-table__cell">
+                                    <div class="price-table__head"><b class="price-table__title">free</b><span class="price-table__number">0<small>€</small></span><span class="price-table__caption">only for freelansers</span></div>
+                                    <ul class="price-table__list">
+                                        <li>Сlient Base</li>
+                                        <li>Project Management</li>
+                                        <li>100 MB Cloud Storage*</li>
+                                        <li>Сlient Base</li>
+                                        <li>Project Management</li>
+                                        <li>100 MB Cloud Storage*</li>
+                                    </ul><a class="btn" href="">select plan</a>
+                                </div><!-- / .price-table__cell-->
+                                <div class="price-table__cell">
+                                    <div class="price-table__head"><b class="price-table__title">standart</b><span class="price-table__number">30<small>€</small></span><span class="price-table__caption">pro user/month</span></div>
+                                    <ul class="price-table__list">
+                                        <li>Сlient Base</li>
+                                        <li>Project Management</li>
+                                        <li>100 MB Cloud Storage*</li>
+                                        <li>DATEV Integration</li>
+                                        <li>Analytics</li>
+                                        <li>Сlient Base</li>
+                                        <li>Project Management</li>
+                                        <li>100 MB Cloud Storage*</li>
+                                        <li>DATEV Integration</li>
+                                        <li>Analytics</li>
+                                    </ul><a class="btn" href="">select plan</a>
+                                </div><!-- / .price-table__cell-->
+                                <div class="price-table__cell">
+                                    <div class="price-table__head"><b class="price-table__title">professional</b><span class="price-table__number">50<small>€</small></span><span class="price-table__caption">pro user/month</span></div>
+                                    <ul class="price-table__list">
+                                        <li>Сlient Base</li>
+                                        <li>Project Management</li>
+                                        <li>100 MB Cloud Storage*</li>
+                                        <li>DATEV Integration</li>
+                                        <li>Analytics</li>
+                                        <li>Сlient Base</li>
+                                        <li>Project Management</li>
+                                        <li>100 MB Cloud Storage*</li>
+                                        <li>DATEV Integration</li>
+                                        <li>Analytics</li>
+                                    </ul><a class="btn" href="">select plan</a>
+                                </div><!-- / .price-table__cell-->
+                                <!-- / .price-table-->
+                            </div>
+                        </modal-window>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

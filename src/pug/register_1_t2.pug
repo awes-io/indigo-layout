@@ -1,8 +1,9 @@
-extends includes/login.pug
+extends includes/login_2.pug
 
 block pageVariables
-    - var pageTitle = "Login"
+    - var pageTitle = "Register"
     - var pageAsideBg = "https://www.spirit-of-metal.com/les%20goupes/L/Lacuna%20Coil/pics/f9c9_2.jpg"
+    - var stepNumber = 1
 
 block pageHead
     // there is can be head meta or sctipts
@@ -11,24 +12,19 @@ block pageHead
     script(src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/packages/forms/v0.x.x/js/main.js" defer="defer")
 
 block pageContent
-    a.login-page__logo(href='https://www.awescrm.cloud')
-        i.icon.icon-logo
-    h2= pageTitle
     .login-page__form
-        form-builder(disabled-dialog='', url='https://www.awescrm.cloud/login', btntext='Login')
+        form-builder(url='https://www.awescrm.cloud/register', :default="{'email':''}", btntext='Next')
             fb-input(name='email', type='email', label='E-Mail', focus='')
-            fb-input(name='password', label='Password', type='password')
-            fb-auto-captcha(:show='false')
-            .login-page__checkform
-                fb-checkbox(name='remember', label='Remember me', :cell='2', enter-skip='')
-                .grid__cell.grid__cell_2
-                    a.login-page__lostpass(href='https://www.awescrm.cloud/password/request')
-                        | Forgot password?
+            .login-page__ins
+                fb-checkbox(name='agree', label='Agree', cell='1')
     .tf-centerlink
-        a(href='https://www.awescrm.cloud/register') No, I want to register
+        a(href='https://www.awescrm.cloud/login') Back to login page
     span.login-page__spacer
-        i or enter with a social network
+        i or register with a social network
     .login-page__socials
         a.icon.icon-fb(href='https://www.awescrm.cloud/login/facebook')
         a.icon.icon-in(href='https://www.awescrm.cloud/login/linkedin')
         a.icon.icon-gp(href='https://www.awescrm.cloud/login/google')
+
+    
+
