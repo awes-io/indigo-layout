@@ -103,6 +103,7 @@ gulp.task('build:icons', function(){
     return gulp.src('./src/svg/*.svg')
       .pipe(iconfont({
         fontName: 'icons',
+        fontHeight: 1000,
         prependUnicode: true,
         formats: ['ttf', 'eot', 'woff'],
         normalize: true,
