@@ -2,14 +2,14 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
     <title>Content wrapper</title>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
-    <script>AWES_CONFIG = {key: '9d1d891a3204aa749436fdbd3ab29c3f'}</script><!-- there is can be head meta or sctipts-->
+    <script>AWES_CONFIG = {key: '680a7d07f89b94e7fc83be657a2daa27'}</script>
+    <script src="/test-core/core-v6.js"></script><!-- there is can be head meta or sctipts-->
     <script src="/js/main.js"></script>
-    <script src="/test-core/core-v6.js"></script>
 </head>
 
 <body>
@@ -46,60 +46,59 @@
                         <form class="frame__search" id="search" v-bind:class="{ active: $awesLayoutCrm.showSearch }" action="js" method="get"> <span class="frame__search-link" v-on:click="$awesLayoutCrm.showSearch = !$awesLayoutCrm.showSearch"><i class="icon icon-search"></i></span>
                             <div class="frame__search-hidden"><input class="frame__search-input" type="text" placeholder="Search..."><button class="frame__search-btn" type="submit">Search</button><span class="frame__search-close" v-on:click="$awesLayoutCrm.showSearch = !$awesLayoutCrm.showSearch"></span><i class="icon icon-cross"></i></div>
                         </form>
-                        <div class="frame__userinfo"><a class="frame__userinfo-link" href=""><span class="icon icon-ruppor"><i class="icn-dot"></i></span></a><span class="frame__header-add"><i class="icon icon-plus"></i></span><a class="frame__userinfo-link" href=""><span class="icon icon-hdd"><i class="icn-dot"></i></span></a>
-                            <transition name="user-menu">
-                                <div class="user-menu" v-show="$awesLayoutCrm.showUserMenu">
-                                    <ul class="user-menu__list">
-                                        <div class="cm-item">
-                                            <div class="cm-item__panel is-secondary"><strong class="user-menu__title">Terry Gerlach</strong><small class="user-menu__desc">Standart until 10 november<br>                5 users $500 per month</small>
-                                                    <nav class="user-menu__nav" aria-label="Profile navigation">
-                                                        <ul>
-                                                            <li><a href="https://company.awescrm.cloud/managers/NQ%3D%3D">Profile</a></li>
-                                                            <li class="is-expand"><a href="https://www.awescrm.cloud/logout">Logout</a></li>
-                                                        </ul>
-                                                    </nav><label class="progress user-menu__progress"><span>519.05 MB</span> of 2.5 GB used<progress max="2500" value="519">519 MB of 2.5 GB used</progress></label></div>
+                        <div class="frame__userinfo"><a class="frame__userinfo-link" href=""><span class="icon icon-ruppor"><i class="icn-dot"></i></span></a><span class="frame__header-add"><i class="icon icon-plus"></i></span><a class="frame__userinfo-link" href=""><span class="icon icon-hdd"><i class="icn-dot"></i></span></a></div>
+                        <transition name="user-menu">
+                            <div class="user-menu" v-show="$awesLayoutCrm.showUserMenu" style="display: none;">
+                                <ul class="user-menu__list"><button class="user-menu__close" @click="$awesLayoutCrm.showUserMenu = ! $awesLayoutCrm.showUserMenu">&times;</button>
+                                    <div class="cm-item">
+                                        <div class="cm-item__panel is-secondary"><strong class="user-menu__title">Terry Gerlach</strong><small class="user-menu__desc">Standart until 10 november<br>                5 users $500 per month</small>
+                                                <nav class="user-menu__nav" aria-label="Profile navigation">
+                                                    <ul>
+                                                        <li><a href="https://company.awescrm.cloud/managers/NQ%3D%3D">Profile</a></li>
+                                                        <li class="is-expand"><a href="https://www.awescrm.cloud/logout">Logout</a></li>
+                                                    </ul>
+                                                </nav><label class="progress user-menu__progress"><span>519.05 MB</span> of 2.5 GB used<progress max="2500" value="519">519 MB of 2.5 GB used</progress></label></div>
+                                    </div>
+                                    <div class="cm-item">
+                                        <div class="cm-item__panel">
+                                            <form class="form-builder" action="https://company.awescrm.cloud/api/v1/managers/NQ%3D%3D" method="PATCH">
+                                                <div class="grid grid_forms">
+                                                    <div class="grid__cell user-menu__theme-checkbox grid__cell_padding"><label class="checkbox checkbox_s2" data-awes="fb-checkbox.theme_dark">
+                                                            <div class="v-popover display-block"><span class="trigger" aria-describedby="popover_0ttyghblod" tabindex="-1" style="display: inline-block;"><input class="is-focusable" type="checkbox"><span class="checkbox__text"><i class="icon icon-checkbox" style="touch-action: pan-y; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></i><span>Dark theme</span></span><!-- -->
+                                                                <!-- --></span></div>
+                                                        </label></div>
+                                                </div>
+                                            </form>
                                         </div>
-                                        <div class="cm-item">
-                                            <div class="cm-item__panel">
-                                                <form class="form-builder" action="https://company.awescrm.cloud/api/v1/managers/NQ%3D%3D" method="PATCH">
-                                                    <div class="grid grid_forms">
-                                                        <div class="grid__cell user-menu__theme-checkbox grid__cell_padding"><label class="checkbox checkbox_s2" data-awes="fb-checkbox.theme_dark">
-                                                                <div class="v-popover display-block"><span class="trigger" aria-describedby="popover_0ttyghblod" tabindex="-1" style="display: inline-block;"><input class="is-focusable" type="checkbox"><span class="checkbox__text"><i class="icon icon-checkbox" style="touch-action: pan-y; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></i><span>Dark theme</span></span><!-- -->
-                                                                    <!-- -->
-                            </span></div></label>
+                                    </div>
+                                    <div class="cm-item">
+                                        <div class="cm-item__panel"><strong class="user-menu__companies" id="companies_list">4 companies</strong>
+                                            <ul class="user-menu__companies-list" aria-labelledby="companies_list">
+                                                <li><a href="">Awesome</a></li>
+                                                <li><a href="">Microsoft</a></li>
+                                                <li><a href="">Apple</a></li>
+                                                <li><a href="">Tesla</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </ul>
+                            </div>
+                        </transition>
+                    </div>
+                    <div class="frame__header-line">
+                        <h1 class="frame__header-title">Content wrapper</h1>
                     </div>
                 </div>
-                </form>
+                <div class="frame__content">
+                    <content-wrapper :data="{&quot;email&quot;:&quot;soberbrunner@example.org&quot;, &quot;pagetitle&quot;: &quot;This example content wrapper&quot;}" store-data="content"><template slot-scope="props">
+                            <h1>{{ $get(props, 'data.pagetitle') }}</h1>
+                            <p>You can look on this email <b>{{ $get(props, 'data.email') }}</b>, what parsing from data</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro obcaecati expedita molestias non quos ut eos reprehenderit, eligendi voluptate quam eaque, illum neque cum quasi dolorum! Dolore officiis molestias ad.</p>
+                            <h2>With styles all okay</h2>
+                        </template></content-wrapper>
+                </div>
             </div>
         </div>
-        <div class="cm-item">
-            <div class="cm-item__panel"><strong class="user-menu__companies" id="companies_list">4 companies</strong>
-                <ul class="user-menu__companies-list" aria-labelledby="companies_list">
-                    <li><a href="">Awesome</a></li>
-                    <li><a href="">Microsoft</a></li>
-                    <li><a href="">Apple</a></li>
-                    <li><a href="">Tesla</a></li>
-                </ul>
-            </div>
-        </div>
-        </ul>
-    </div>
-    </transition>
-    </div>
-    </div>
-    <div class="frame__header-line">
-        <h1 class="frame__header-title">Content wrapper</h1>
-    </div>
-    </div>
-    <div class="frame__content">
-        <content-wrapper :data="{&quot;email&quot;:&quot;soberbrunner@example.org&quot;}" store-data="content"><template slot-scope="props">
-                <ul class="flex-list">
-                    <li><span class="flex-list__caption">First Name</span><b class="flex-list__title">{{ $get(props, 'data.email') }}</b></li>
-                </ul>
-            </template></content-wrapper>
-    </div>
-    </div>
-    </div>
     </div>
 </body>
 

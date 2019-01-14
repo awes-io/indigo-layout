@@ -9,9 +9,9 @@ block pageHead
 
 block pageContent
 
-    content-wrapper(:data='{"email":"soberbrunner@example.org"}' store-data="content")
+    content-wrapper(:data='{"email":"soberbrunner@example.org", "pagetitle": "This example content wrapper"}' store-data="content")
         template(slot-scope="props")
-            ul.flex-list
-                li
-                    span.flex-list__caption First Name
-                    b.flex-list__title {{ $get(props, 'data.email') }}
+            h1 {{ $get(props, 'data.pagetitle') }}
+            p You can look on this email <b>{{ $get(props, 'data.email') }}</b>, what parsing from data
+            p Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro obcaecati expedita molestias non quos ut eos reprehenderit, eligendi voluptate quam eaque, illum neque cum quasi dolorum! Dolore officiis molestias ad.
+            h2 With styles all okay

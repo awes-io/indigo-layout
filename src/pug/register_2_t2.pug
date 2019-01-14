@@ -1,0 +1,30 @@
+extends includes/login_2.pug
+
+block pageVariables
+    - var pageTitle = "Confirmation code"
+    - var pageAsideBg = "https://www.spirit-of-metal.com/les%20goupes/L/Lacuna%20Coil/pics/f9c9_2.jpg"
+    - var stepNumber = 2
+
+block pageHead
+    // there is can be head meta or sctipts
+    script(src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/js-core/v0.x.x/js/main.js" defer="defer")
+    link(rel="stylesheet" href="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/packages/forms/v0.x.x/css/main.css")
+    script(src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/packages/forms/v0.x.x/js/main.js" defer="defer")
+
+block pageContent
+    .login-page__form.login-page__form_btn-center
+        form-builder(url='https://www.awescrm.cloud/register', btntext='continue')
+            fb-code(name='code', focus='')
+            fb-auto-captcha(:show='false')
+            .login-page__form-inframe
+                span.tf-bcaption.tf-bcaption_mc
+                    | We have sent an e-mail to 
+                    b test@example.com
+                a(href='') Resend
+    .tf-centerlink.tf-centerlink_afterframe
+        a.tf-hyplink(href='') back
+
+
+
+    
+

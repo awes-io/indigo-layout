@@ -434,9 +434,11 @@
         z-index 1100
         justify-content space-between
         flex-direction column
-        tr(0.3, left)
+        opacity 0
+        transition left 0.3s ease, opacity 0.2s ease
         &.active
           left 0
+          opacity 1
         &-wrap
           overflow auto
           absolute left 0 top 64px

@@ -1,0 +1,115 @@
+extends includes/login_2.pug
+
+block pageVariables
+    - var pageTitle = "Information"
+    - var pageAsideBg = "https://www.spirit-of-metal.com/les%20goupes/L/Lacuna%20Coil/pics/f9c9_2.jpg"
+    - var stepNumber = 4
+
+block pageHead
+    // there is can be head meta or sctipts
+    script(src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/js-core/v0.x.x/js/main.js" defer="defer")
+    link(rel="stylesheet" href="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/packages/forms/v0.x.x/css/main.css")
+    script(src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/packages/forms/v0.x.x/js/main.js" defer="defer")
+
+block pageContent
+    .login-page__form
+        form-builder(url='https://www.awescrm.cloud/register', :default="{'company_type':'company'}", btntext='Next')
+            fb-radio-group(name='type', :items="['Company', 'Freelancer']", box='')
+            fb-input(name='company', label='Company name', focus='')
+            fb-company-slug(name='slug', label='Domain', input='company')
+            fb-input(name='first_name', label='First Name', cell='2', focus='')
+            fb-input(name='last_name', label='Surname', cell='2')
+            .grid__cell
+                .login-page__ins.login-page__ins_mb.login-page__ins_center
+                    label.checkbox.checkbox_s2
+                        input.fb__el(type='checkbox')
+                        span.checkbox__text
+                            i.icon.icon-checkbox
+                            span Payment for the year, 20% discount
+            fb-radio-group.box-checker(name='plan', :items="[{plan:{name:'Free', price:0, caption:'only for freelancers'}, value:'free'},{plan:{name:'Standart', price:30, caption:'per user/month'}, value:'standart'},{plan:{name:'Professional', price:50, caption:'per user/month'}, value:'professional'}]", box='')
+                template(slot-scope='radio')
+                    span(:class="{'is-checked': radio.checked}")
+                        span.box-checker__title {{ radio.item.plan.name }}
+                        span.box-checker__price
+                            | {{ radio.item.plan.price }} 
+                            small €
+                        span.box-checker__caption {{ radio.item.plan.caption }}
+            .grid__cell
+                span.tf-rcaption.cl_green
+                    span 30 days free
+                    a(href='', @click.prevent="$root.$emit('modals:open', 'plan-options')") see plan options
+    .tf-centerlink.tf-centerlink_afterframe
+        a.tf-hyplink(href='') back
+
+    modal-window(name='plan-options', title='Plan options', fullscreen)
+        .modal__checker
+            label.checkbox.checkbox_s2
+                input.fb__el(type='checkbox')
+                span.checkbox__text
+                    i.icon.icon-checkbox
+                    span Payment for the year, 20% discount
+        .price-table
+            .price-table__cell
+                .price-table__head
+                    b.price-table__title free
+                    span.price-table__number
+                        | 0
+                        small €
+                    span.price-table__caption only for freelansers
+                ul.price-table__list
+                    li Сlient Base
+                    li Project Management
+                    li 100 MB Cloud Storage*
+                    li Сlient Base
+                    li Project Management
+                    li 100 MB Cloud Storage*
+                a.btn(href='') select plan
+            // / .price-table__cell
+            .price-table__cell
+                .price-table__head
+                    b.price-table__title standart
+                    span.price-table__number
+                        | 30
+                        small €
+                    span.price-table__caption pro user/month
+                ul.price-table__list
+                    li Сlient Base
+                    li Project Management
+                    li 100 MB Cloud Storage*
+                    li DATEV Integration
+                    li Analytics
+                    li Сlient Base
+                    li Project Management
+                    li 100 MB Cloud Storage*
+                    li DATEV Integration
+                    li Analytics
+                a.btn(href='') select plan
+            // / .price-table__cell
+            .price-table__cell
+                .price-table__head
+                    b.price-table__title professional
+                    span.price-table__number
+                        | 50
+                        small €
+                    span.price-table__caption pro user/month
+                ul.price-table__list
+                    li Сlient Base
+                    li Project Management
+                    li 100 MB Cloud Storage*
+                    li DATEV Integration
+                    li Analytics
+                    li Сlient Base
+                    li Project Management
+                    li 100 MB Cloud Storage*
+                    li DATEV Integration
+                    li Analytics
+                a.btn(href='') select plan
+            // / .price-table__cell
+            // / .price-table
+
+
+
+
+
+    
+

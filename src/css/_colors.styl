@@ -557,7 +557,6 @@ a
     border 1px solid var(--tc_border_ins)
     color var(--tc_text)
     background-color var(--tc_ui_bg)
-    tr(0.25)
     &:focus
       border 1px solid var(--tc_ui_focus)
     &:-webkit-autofill
@@ -1133,10 +1132,7 @@ mark
       &:before, &:after
         background-color var(--tc_border)
   & &__logo
-    {lt} &
-      color var(--tc_color_main)
-    {dt} &
-      color var(--tc_link)
+    color var(--tc_link)
     &:hover
       color var(--tc_color_main_l) 
     &_white
@@ -1151,6 +1147,9 @@ mark
     
   & &__sbox
     background-color var(--tc_ui_bg)
+  & &__full
+    @media res_mobile--lg
+      background-color var(--tc_ui_bg)
 
 .keycode
   & &__field
@@ -1163,10 +1162,35 @@ mark
     &:after
       background-color var(--tc_text_caption)
 
+::-webkit-scrollbar-button
+  background-color var(--tc_border)
+
+::-webkit-scrollbar-track
+  background-color var(--tc_border)
+
+::-webkit-scrollbar-corner
+  background-color cl_red
+
+::-webkit-scrollbar
+  background-color: var(--tc_border)
+
+::-webkit-resizer 
+  background-color cl_red
+
+::-webkit-scrollbar-thumb
+  background-color var(--tc_color_main)
+
+::-webkit-scrollbar-thumb:hover
+  background-color var(--tc_color_main_l)
+
+
+
+
 .frame
   & &__mobile-shadow,
   & &__overlay
-    background-color var(--tc_ui_shadow-overflow)
+    @media res_tablet--lg
+      background-color var(--tc_ui_shadow-overflow)
   & &__aside
     background-image var(--tc_aside_gradient)
     box-shadow 0 20px 30px rgba(0,0,0,0.1)

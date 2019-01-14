@@ -1,0 +1,34 @@
+extends includes/login.pug
+
+block pageVariables
+    - var pageTitle = "Confirmation code"
+    - var pageAsideBg = "https://www.spirit-of-metal.com/les%20goupes/L/Lacuna%20Coil/pics/f9c9_2.jpg"
+
+block pageHead
+    // there is can be head meta or sctipts
+    script(src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/js-core/v0.x.x/js/main.js" defer="defer")
+    link(rel="stylesheet" href="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/packages/forms/v0.x.x/css/main.css")
+    script(src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/packages/forms/v0.x.x/js/main.js" defer="defer")
+
+block pageContent
+    a.login-page__logo(href='https://www.awescrm.cloud')
+        i.icon.icon-logo
+    h2= pageTitle
+    span.login-page__spacer.login-page__spacer_rc
+        i Step 2 of 4
+    span.tf-caption.tf-caption_mb-m We have sent a six-digit confirmation code to 
+        b(data-awes='msg.email') veawdawd@gmail.com
+        | . This code will expire soon, so do not wait too long.
+    .login-page__form
+        form-builder(url='https://www.awescrm.cloud/register', btntext='Next')
+            fb-code(name='code')
+            fb-auto-captcha(:show='false')
+    .tf-centerlink
+        form-builder(url='https://www.awescrm.cloud/register', :default="{'email_unsubmit':true}", btntext='Change email')
+        form-builder(url='https://www.awescrm.cloud/register', :default="{'email_resend':true}", btntext='Resend confirmation code')
+        form-builder(url='https://www.awescrm.cloud/register', :default="{'clear_data':true}", btntext='Clear registration data')
+        a(href='https://www.awescrm.cloud/login') Back to login page
+
+
+    
+

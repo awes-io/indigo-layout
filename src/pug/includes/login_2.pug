@@ -1,0 +1,20 @@
+block pageVariables
+doctype html
+html(lang="en")
+    head
+        title= pageTitle
+        include frames/metahead
+        block pageHead
+    body
+        div(class="mainwrapper" id="awes-app")
+            .login-page
+                .login-page__full(style='background-image: url("'+pageAsideBg+'");')
+                    .login-page__swrap
+                        a.login-page__logo.login-page__logo_white(href='https://www.awescrm.cloud')
+                            i.icon.icon-logo
+                            span Awes<b>CRM</b>
+                        .login-page__sbox
+                            h1.login-page__title= pageTitle
+                            span.login-page__spacer.login-page__spacer_rc
+                                i Step #{stepNumber} of 4
+                            block pageContent
