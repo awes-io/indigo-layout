@@ -13,6 +13,5 @@
 ...and components:
 
 - [Content-wrapper]('docs/content-wrapper')
-- [Modal-window]('docs/modal-window')
 - [Notifications]('docs/notifications')
 - [Slide-up-down]('docs/slide-up-down')

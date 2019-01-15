@@ -5,12 +5,13 @@ block pageVariables
 
 block pageHead
     // there is can be head meta or sctipts
+    script(src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/modal/v0.1.0/js/main.js")
 
 
 block pageContent
-    button.btn(@click="$root.$emit('modals:open', 'default')") Default modal
+    button.btn(@click="AWES.emit('modal::default.open')") Default modal
     br
-    button.btn(@click="$root.$emit('modals:open', 'fullscreen')") Fullscreen modal
+    button.btn(@click="AWES.emit('modal::fullscreen.open')") Fullscreen modal
 
     br
     br
