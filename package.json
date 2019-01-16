@@ -1,5 +1,5 @@
 {
-    "name": "awes-layout-crm",
+    "name": "layout-crm",
     "version": "0.0.4",
     "description": "Base CRM layouts",
     "main": "dist/js/main.js",
@@ -28,16 +28,24 @@
         "dist/fonts/icons.ttf",
         "dist/fonts/icons.woff"
     ],
+    "awes-files": [
+        "css/main.css",
+        "js/main.js",
+        "js/main.legacy.js",
+        "fonts/icons.eot",
+        "fonts/icons.ttf",
+        "fonts/icons.woff"
+    ],
     "author": "AwesCode (https://www.awescode.de/)",
     "license": "ISC",
     "devDependencies": {
         "@babel/core": "^7.2.2",
         "@babel/preset-env": "^7.2.3",
-        "autoprefixer": "^9.4.2",
-        "babel-loader": "^8.0.4",
+        "autoprefixer": "^9.4.5",
+        "babel-loader": "^8.0.5",
         "browser-sync": "^2.26.3",
         "cross-env": "^5.2.0",
-        "cssnano": "^4.1.7",
+        "cssnano": "^4.1.8",
         "gulp": "^4.0.0",
         "gulp-clean": "^0.4.0",
         "gulp-consolidate": "^0.2.0",
@@ -63,7 +71,7 @@
         "rollup-plugin-node-resolve": "^4.0.0",
         "rollup-plugin-postcss": "^1.6.3",
         "rollup-plugin-uglify-es": "0.0.1",
-        "rollup-plugin-vue": "^4.3.2",
-        "vue-template-compiler": "^2.5.21"
+        "rollup-plugin-vue": "^4.6.1",
+        "vue-template-compiler": "^2.5.22"
     }
 }

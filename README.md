@@ -1,4 +1,4 @@
-# AWES-core module
+# AWES CRM Layout
 
 [![Build Status](https://www.awc.wtf/packages/awes-layout-crm/status.svg)](https://www.awes.io/) 
 [![Downloads](https://www.awc.wtf/packages/awes-layout-crm/downloads.svg)](https://www.awes.io/) 
