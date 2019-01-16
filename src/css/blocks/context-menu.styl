@@ -10,24 +10,28 @@ context-menu
   min-height: 1em
   z-index 200
   position: relative
-
+  & &__list
+    list-style none
+    margin 0
+    padding 0
+    li
+      margin-bottom 0
   &__toggler
-    // reset
     padding: 0
     background: none
     margin: 0
     text-align: left
-    min-height: 1em
-    min-width: 1em
+    min-height: 24px
+    min-width: 24px
     line-height: 1
     color: inherit
     transition none
-    
+    min-height 24px
+    fl(,c,c)
     * 
       pointer-events: inherit;
 
     &-default
-    
       border: 1px solid
       border-radius: 2px
       background: none
@@ -47,7 +51,7 @@ context-menu
           opacity: 1
   
   &.is-opened
-    z-index 201
+    z-index 990
 
   &.is-opened &__toggler-default
     .icon-dots

@@ -18,7 +18,7 @@ block pageContent
     br
     br
 
-    modal-window(name='modalform', title="Modal form", data-awes='checkOpenModal')
+    modal-window(name='modalform', title="Modal form", class="modal_formbuilder" data-awes='checkOpenModal')
         form-builder(url="valera", method='PATCH', store-data='content')
             template(slot-scope='{ fields }')
                 fb-checkbox(name='theme_dark', theme='s2', label="{{_p('managers.form.theme_dark', 'Dark theme')}}")
@@ -35,7 +35,8 @@ block pageContent
                 fb-multi-block(name='socials', label="{{_p('managers.form.add_social', 'Add social network')}}", :disabled='!fields.active')
                     template(slot-scope='{ id }')
                         fb-input(name='social', label="{{_p('general.social', 'Social network')}}", :id='id')
-             
+                fb-checkbox(name='profile_manager.smtp', label="{{_p('managers.form.smtp', 'SMTP settings')}}", :disabled='!fields.active')
+
 
     modal-window(name="default" title="Default modal")
         p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab expedita, asperiores ipsum itaque amet iure deserunt minima dolorum, aut et assumenda quaerat odit quibusdam molestias saepe cumque veritatis rem doloremque.
