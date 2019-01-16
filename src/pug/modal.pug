@@ -35,7 +35,12 @@ block pageContent
                 fb-multi-block(name='socials', label="{{_p('managers.form.add_social', 'Add social network')}}", :disabled='!fields.active')
                     template(slot-scope='{ id }')
                         fb-input(name='social', label="{{_p('general.social', 'Social network')}}", :id='id')
-             
+                fb-checkbox(name='profile_manager.smtp', label="{{_p('managers.form.smtp', 'SMTP settings')}}", :disabled='!fields.active')
+                template(v-if='fields.profile_manager.smtp')
+                    fb-input(name='profile_manager.smtp_host', label="{{_p('managers.form.smtp_login', 'SMTP login')}}", :disabled='!fields.active || !fields.profile_manager.smtp')
+                    fb-input(name='profile_manager.smtp_password', label="{{_p('managers.form.smtp_password', 'SMTP password')}}", :disabled='!fields.active || !fields.profile_manager.smtp')
+                    fb-input(name='profile_manager.mail_from', label="{{_p('managers.form.mail_from', 'Mail from')}}", :disabled='!fields.active || !fields.profile_manager.smtp')
+
 
     modal-window(name="default" title="Default modal")
         p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab expedita, asperiores ipsum itaque amet iure deserunt minima dolorum, aut et assumenda quaerat odit quibusdam molestias saepe cumque veritatis rem doloremque.
