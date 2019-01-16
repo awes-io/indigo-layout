@@ -215,16 +215,16 @@
                     <p><strong> Ограничительный контейнер</strong>: Свойство <mark>boundary</mark> - селектор границы, по-умолчанию, или если по-селектору не найден элемент среди родителей компонента этим контейнером является контейнер страницы <mark>body</mark> </p>
                     <p><em>Выпадающий список не может раскрыться вниз и вправо, но может вписаться в границы поэтому он открывается вверх и влево</em></p>
                     <div class="vue-example">
-                        <div id="example-bounds" style="padding:50px 15px 15px; height: 100px; width: 300px; border: 1px solid gray;">
-                            <context-menu style="float: right;" boundary="#example-bounds">
+                        <div class="vue-example__bounds" style="padding: 50px 15px 15px;height: 100px; width: 270px; ">
+                            <context-menu style="float: right;" boundary=".vue-example__bounds">
                                 <cm-button>Click me!</cm-button>
                             </context-menu>
                         </div>
                     </div>
                     <p><em>Выпадающий список не может вписаться в границы, открывшись вверх и влево, поэтому он открывается вниз и влево (это направление в приритете) при этом он старается отображаться на экране максимально видимым</em></p>
                     <div class="vue-example">
-                        <div id="example-bounds" style="padding:10px; height: 50px; width: 50px; border: 1px solid gray;">
-                            <context-menu top="" right="" boundary="#example-bounds">
+                        <div class="vue-example__bounds" style="padding:10px; height: 50px; width: 50px; ">
+                            <context-menu top="" right="" boundary=".vue-example__bounds">
                                 <cm-button>Click me!</cm-button>
                                 <cm-button>Click me too!</cm-button>
                                 <cm-button>Click me too!</cm-button>
@@ -486,7 +486,26 @@
 &lt;/li&gt;</code></pre>
                     <div id="toggler-slot"></div>
                     <h2>Стилизация открывающей кнопки</h2>
-                    <p>Кнопка, открывающая контекстное меню может быть изменена с помощью <a href="https://ru.vuejs.org/v2/guide/components-slots.html" target="_blank">слота, </a>с именем <mark>toggler</mark>. Содержимое слота помещается внутри тега, поэтому не должно содержать блочных по семантике элементов (<mark>&lt;div&gt;</mark>). Блочный контент должен быть представлен в виде 11<mark>&lt;span style='display:block;' &gt;</mark></p><strong>Пример</strong><pre></pre>
+                    <p>Кнопка, открывающая контекстное меню может быть изменена с помощью <a href="https://ru.vuejs.org/v2/guide/components-slots.html" target="_blank">слота, </a>с именем <mark>toggler</mark>. Содержимое слота помещается внутри тега, поэтому не должно содержать блочных по семантике элементов (<mark>&lt;div&gt;</mark>). Блочный контент должен быть представлен в виде 11<mark>&lt;span style='display:block;' &gt;</mark></p>
+                    <p> <strong>Пример</strong></p><pre><code class="html">&lt;context-menu&gt;
+    &lt;span slot="toggler" class="new-toggler"&gt;Open me&lt;/span&gt;
+    &lt;cm-button&gt;
+        Click me!
+    &lt;/cm-button&gt;
+&lt;/context-menu&gt;
+
+&lt;style&gt;
+.new-toggler {
+    display: inline-block;
+    color: white;
+    background-color: lightseagreen;
+    border: 1px solid aqua;
+    padding: 5px 15px;
+    margin-bottom: 3px;
+    border-radius: 15px;
+    height: 30px;
+}
+&lt;/style&gt;</code></pre>
                     <div class="vue-example">
                         <context-menu><span slot="toggler" style="display: inline-block; color: white; background-color: lightseagreen; border: 1px solid aqua; padding: 5px 15px; margin-bottom: 3px; border-radius: 15px; height: 30px;">Open
 me</span>

@@ -188,14 +188,14 @@ block pageContent
     p
         em Выпадающий список не может раскрыться вниз и вправо, но может вписаться в границы поэтому он открывается вверх и влево
     .vue-example
-        #example-bounds(style='padding:50px 15px 15px; height: 100px; width: 300px; border: 1px solid gray;')
-            context-menu(style='float: right;', boundary='#example-bounds')
+        .vue-example__bounds(style='padding: 50px 15px 15px;height: 100px; width: 270px; ')
+            context-menu(style='float: right;', boundary='.vue-example__bounds')
                 cm-button Click me!
     p
         em Выпадающий список не может вписаться в границы, открывшись вверх и влево, поэтому он открывается вниз и влево (это направление в приритете) при этом он старается отображаться на экране максимально видимым
     .vue-example
-        #example-bounds(style='padding:10px; height: 50px; width: 50px; border: 1px solid gray;')
-            context-menu(top='', right='', boundary='#example-bounds')
+        .vue-example__bounds(style='padding:10px; height: 50px; width: 50px; ')
+            context-menu(top='', right='', boundary='.vue-example__bounds')
                 cm-button Click me!
                 cm-button Click me too!
                 cm-button Click me too!
@@ -524,10 +524,30 @@ block pageContent
         | Кнопка, открывающая контекстное меню может быть изменена с помощью 
         a(href='https://ru.vuejs.org/v2/guide/components-slots.html', target='_blank') слота, 
         | с именем <mark>toggler</mark>. Содержимое слота помещается внутри тега, поэтому не должно содержать блочных по семантике элементов (<mark>&lt;div&gt;</mark>). Блочный контент должен быть представлен в виде 11<mark>&lt;span style='display:block;' &gt;</mark>
-    strong Пример
-    
+    p 
+        strong Пример
 
-    pre.
+    pre
+        code.html.
+            &lt;context-menu&gt;
+                &lt;span slot="toggler" class="new-toggler"&gt;Open me&lt;/span&gt;
+                &lt;cm-button&gt;
+                    Click me!
+                &lt;/cm-button&gt;
+            &lt;/context-menu&gt;
+
+            &lt;style&gt;
+            .new-toggler {
+                display: inline-block;
+                color: white;
+                background-color: lightseagreen;
+                border: 1px solid aqua;
+                padding: 5px 15px;
+                margin-bottom: 3px;
+                border-radius: 15px;
+                height: 30px;
+            }
+            &lt;/style&gt;
     .vue-example
         context-menu
             span(slot='toggler', style='display: inline-block; color: white; background-color: lightseagreen; border: 1px solid aqua; padding: 5px 15px; margin-bottom: 3px; border-radius: 15px; height: 30px;')

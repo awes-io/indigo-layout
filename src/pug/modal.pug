@@ -18,7 +18,7 @@ block pageContent
     br
     br
 
-    modal-window(name='modalform', title="Modal form", data-awes='checkOpenModal')
+    modal-window(name='modalform', title="Modal form", class="modal_formbuilder" data-awes='checkOpenModal')
         form-builder(url="valera", method='PATCH', store-data='content')
             template(slot-scope='{ fields }')
                 fb-checkbox(name='theme_dark', theme='s2', label="{{_p('managers.form.theme_dark', 'Dark theme')}}")
@@ -36,10 +36,6 @@ block pageContent
                     template(slot-scope='{ id }')
                         fb-input(name='social', label="{{_p('general.social', 'Social network')}}", :id='id')
                 fb-checkbox(name='profile_manager.smtp', label="{{_p('managers.form.smtp', 'SMTP settings')}}", :disabled='!fields.active')
-                template(v-if='fields.profile_manager.smtp')
-                    fb-input(name='profile_manager.smtp_host', label="{{_p('managers.form.smtp_login', 'SMTP login')}}", :disabled='!fields.active || !fields.profile_manager.smtp')
-                    fb-input(name='profile_manager.smtp_password', label="{{_p('managers.form.smtp_password', 'SMTP password')}}", :disabled='!fields.active || !fields.profile_manager.smtp')
-                    fb-input(name='profile_manager.mail_from', label="{{_p('managers.form.mail_from', 'Mail from')}}", :disabled='!fields.active || !fields.profile_manager.smtp')
 
 
     modal-window(name="default" title="Default modal")

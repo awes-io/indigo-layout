@@ -92,7 +92,7 @@
                     </div>
                 </div>
                 <div class="frame__content"><button class="btn" @click="AWES.emit('modal::default.open', 'form')">Default modal</button><br><button class="btn" @click="AWES.emit('modal::fullscreen.open')">Fullscreen modal</button><br><button class="btn" @click="AWES.emit('modal::modalform.open' )">Modal form modal</button><br><br>
-                    <modal-window name="modalform" title="Modal form" data-awes="checkOpenModal">
+                    <modal-window class="modal_formbuilder" name="modalform" title="Modal form" data-awes="checkOpenModal">
                         <form-builder url="valera" method="PATCH" store-data="content"><template slot-scope="{ fields }">
                                 <fb-checkbox name="theme_dark" theme="s2" label="{{_p('managers.form.theme_dark', 'Dark theme')}}"></fb-checkbox>
                                 <fb-input name="email" type="email" label="{{_p('general.email', 'E-Mail')}}" :disabled="!fields.active"></fb-input>
@@ -108,11 +108,7 @@
                                 <fb-multi-block name="socials" label="{{_p('managers.form.add_social', 'Add social network')}}" :disabled="!fields.active"><template slot-scope="{ id }">
                                         <fb-input name="social" label="{{_p('general.social', 'Social network')}}" :id="id"></fb-input>
                                     </template></fb-multi-block>
-                                <fb-checkbox name="profile_manager.smtp" label="{{_p('managers.form.smtp', 'SMTP settings')}}" :disabled="!fields.active"></fb-checkbox><template v-if="fields.profile_manager.smtp">
-                                    <fb-input name="profile_manager.smtp_host" label="{{_p('managers.form.smtp_login', 'SMTP login')}}" :disabled="!fields.active || !fields.profile_manager.smtp"></fb-input>
-                                    <fb-input name="profile_manager.smtp_password" label="{{_p('managers.form.smtp_password', 'SMTP password')}}" :disabled="!fields.active || !fields.profile_manager.smtp"></fb-input>
-                                    <fb-input name="profile_manager.mail_from" label="{{_p('managers.form.mail_from', 'Mail from')}}" :disabled="!fields.active || !fields.profile_manager.smtp"></fb-input>
-                                </template>
+                                <fb-checkbox name="profile_manager.smtp" label="{{_p('managers.form.smtp', 'SMTP settings')}}" :disabled="!fields.active"></fb-checkbox>
                             </template></form-builder>
                     </modal-window>
                     <modal-window name="default" title="Default modal">

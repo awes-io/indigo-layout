@@ -665,7 +665,7 @@
                     document.querySelectorAll('pre code.html').forEach( block => { hljs.highlightBlock(block); });
                 }
             },
-            'highlight_css': 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/atom-one-dark.min.css'
+            'highlight_css': 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/github-gist.min.css'
         },
 
         install() {
