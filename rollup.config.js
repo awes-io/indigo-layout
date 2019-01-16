@@ -46,7 +46,7 @@ if ( ! isDev ) {
     module.exports.plugins = module.exports.plugins.concat([
         uglifyPlugin(),
         licensePlugin({
-            banner: "Bundle of <%= pkg.name %> " + (isModern ? '' : 'transpiled and polyfilled') + " \n Generated: <%= moment().format('YYYY-MM-DD') %> \n Version: <%= pkg.version %>"
+            banner: "Bundle of AWES <%= pkg.name %> " + (isModern ? '' : 'transpiled and polyfilled') + " \n Generated: <%= moment().format('YYYY-MM-DD') %> \n Version: <%= pkg.version %>"
         })
     ])
 }
