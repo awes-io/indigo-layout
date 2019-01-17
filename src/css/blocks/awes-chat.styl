@@ -55,18 +55,31 @@
             padding-left 50px
     & &__actions
         padding 30px
+        absolute right 0 bottom 0
+        width calc(650px - 33%)
     & &__window
         // max-height 100vh
         // overflow auto
-        padding 30px
+        padding 30px 30px 200px 30px
+    & &__smiles
+        absolute left 0 top 0
+        size 100%
+        z-index 10
+        padding 20px
+        overflow auto
+        &-close
+            absolute right 10px top 7px
+            line-height 1
+            font-size 15px
     & &__form
         border 1px solid 
         border-radius 2px
+        position relative
         &-textarea
             border 0
             background-color transparent
             padding 10px
-            size 100% 130px
+            size 100% 90px
         &-line
             padding 10px
             fl(w,sb,c)
@@ -80,7 +93,7 @@
             border-radius 5px
             padding 5px
             line-height 1
-            fl(,c,c)
+            display inline-block
 
 @media res_mobile--lg
     .awes-chat
@@ -94,12 +107,23 @@
             width 100%
         & &__current-thread
             display block
+        & &__actions
+            width auto !important
+            left 0
+            margin auto
+
+
+@media (max-height: 400px)
+    .awes-chat
+        & &__form
+            &-textarea
+                height 50px
 
 @media res_mobile--md
     .awes-chat
         & &__form
             &-textarea
-                height 60px
+                height 50px
         & &__thread
             padding-left 50px
             padding-right 30px

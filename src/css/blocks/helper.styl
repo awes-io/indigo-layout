@@ -1,20 +1,25 @@
 .helper
     absolute right 0 top 50px
     z-index 1000
-    size 100% calc(100% - 50px)
+    size 100% calc(100vh - 50px)
     max-width 650px
     & &__block
         display block
-        height 100%
+        size 100%
+    & &__scroll-bl
         overflow auto
-        width 100%
+        size 100% calc(100% - 62px)
     & &__head
         fl(,sb,c)
-        padding 20px 30px
+        height 62px
+        padding 5px 30px
         border-bottom 1px solid
     & &__title
         margin-bottom 0
         padding-right 15px
+        white-space nowrap
+        overflow hidden
+        text-overflow ellipsis
         &_btn
             font-size 18px
             font-weight 700

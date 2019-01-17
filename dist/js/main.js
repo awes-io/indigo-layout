@@ -687,6 +687,7 @@
 
     if (window && ('AWES' in window)) {
         AWES.use(awesPlugin);
+
     } else {
         window.__awes_plugins_stack__ = window.__awes_plugins_stack__ || [];
         window.__awes_plugins_stack__.push(awesPlugin);

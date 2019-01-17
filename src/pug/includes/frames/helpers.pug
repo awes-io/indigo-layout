@@ -4,179 +4,185 @@
         button.helper__close
             i.icon.icon-cross  
     
-    .helper__head
-        button.helper__title.helper__title_btn 
-            span Back
-        button.helper__close
-            i.icon.icon-cross   
-    
-    vue-tabs
-        v-tab(title='Hint')
-            .helper__stepper
-                h3.helper__stepper-title Hint for the project section <span class='tf-grey'>2 of 3</span>
-                .helper__stepper-navs
-                    button.upper-link previous            
-                    button.upper-link next
-            .helper__content
-                .helper__step.tf-content
-                    img(src="img/demo/dmimg.jpg", alt="")
+    //- .helper__head
+    //-     button.helper__title.helper__title_btn 
+    //-         span Back
+    //-     button.helper__close
+    //-         i.icon.icon-cross   
+    .helper__scroll-bl
+        vue-tabs
+            v-tab(title='Hint')
+                .helper__stepper
+                    h3.helper__stepper-title Hint for the project section <span class='tf-grey'>2 of 3</span>
+                    .helper__stepper-navs
+                        button.upper-link previous            
+                        button.upper-link next
+                .helper__content
+                    .helper__step.tf-content
+                        img(src="img/demo/dmimg.jpg", alt="")
 
-                    p In the work of the Telegram messenger, there was a global failure. This is evidenced by the statistics of the site Downdetector.
-                    p Messenger works with interruptions in Russia, Belarus, Ukraine, as well as in the EU countries - Germany, France, Italy, Spain, the Netherlands, Austria, Sweden and other countries.
-                    p "If you read this, you are resistance" Roskomnadzor is fighting with Telegram. The whole Internet suffers The failures are also reported by residents of South Africa, Iran, Israel and Kazakhstan.
-                    p Telegram unsuccessfully trying to block in Russia, starting in mid-April. According to the decision of the Tagansky District Court of Moscow, access to the messenger should be limited, since the Telegram management refused to provide the FSB with encryption keys that would allow the siloviki to read the correspondence of users.
+                        p In the work of the Telegram messenger, there was a global failure. This is evidenced by the statistics of the site Downdetector.
+                        p Messenger works with interruptions in Russia, Belarus, Ukraine, as well as in the EU countries - Germany, France, Italy, Spain, the Netherlands, Austria, Sweden and other countries.
+                        p "If you read this, you are resistance" Roskomnadzor is fighting with Telegram. The whole Internet suffers The failures are also reported by residents of South Africa, Iran, Israel and Kazakhstan.
+                        p Telegram unsuccessfully trying to block in Russia, starting in mid-April. According to the decision of the Tagansky District Court of Moscow, access to the messenger should be limited, since the Telegram management refused to provide the FSB with encryption keys that would allow the siloviki to read the correspondence of users.
 
-        v-tab(title='Asq a question')
-            .helper__stepper
-                h3.helper__stepper-title Chats <span class='tf-grey'>7</span>
-                .helper__stepper-navs
-                    button.upper-link create new chat
-            .awes-chat
-                .awes-chat__threads
+            v-tab(title='Asq a question')
+                .helper__stepper
+                    h3.helper__stepper-title Chats <span class='tf-grey'>7</span>
+                    .helper__stepper-navs
+                        button.upper-link create new chat
+                .awes-chat
+                    .awes-chat__threads
 
-                    mixin thread(status, icon, active)
-                        button.awes-chat__thread(class=active)
-                            span.awes-chat__thread-title
-                                i.awes-status(class="awes-status_"+status)
-                                span Holod SergOn Monday, June 4, Apple held a ... 
-                            span.awes-chat__thread-footer
-                                span.awes-chat__thread-time 19 minutes ago
-                                if(icon)
-                                    i.icn-dot
+                        mixin thread(status, icon, active)
+                            button.awes-chat__thread(class=active)
+                                span.awes-chat__thread-title
+                                    i.awes-status(class="awes-status_"+status)
+                                    span Holod SergOn Monday, June 4, Apple held a ... 
+                                span.awes-chat__thread-footer
+                                    span.awes-chat__thread-time 19 minutes ago
+                                    if(icon)
+                                        i.icn-dot
 
-                    +thread('blue', true, 'active')
-                    +thread('blue', true, false)
-                    +thread('blue', false, false)
-                    +thread('green', false, false)
-                    +thread('green', false, false)
-                    +thread('green', false, false)
-                    +thread('green', false, false)
-                    +thread('green', false, false)
-                    +thread('grey', false, false)
-                    +thread('grey', false, false)
-                    
-                    .awes-chat__threads-footer
-                        button.tf-dottedlink more tickets
-
-                .awes-chat__defchat
-                    .awes-chat__current-thread
+                        +thread('blue', true, 'active')
                         +thread('blue', true, false)
-                    .awes-chat__window
-                        mixin message()
-                            .awes-chat__message
-                                .awes-chat__message-head
-                                    picture.awes-chat__message-ava
-                                        img(src="img/demo/ava.png", alt="")
-                                    b.awes-chat__message-name Pivovarov Andrey
-                                    span.awes-chat__message-time 19 minutes ago
-                                .awes-chat__message-block.tf-content
-                                    p On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.
+                        +thread('blue', false, false)
+                        +thread('green', false, false)
+                        +thread('green', false, false)
+                        +thread('green', false, false)
+                        +thread('green', false, false)
+                        +thread('green', false, false)
+                        +thread('grey', false, false)
+                        +thread('grey', false, false)
+                        
+                        .awes-chat__threads-footer
+                            button.tf-dottedlink more tickets
+
+                    .awes-chat__defchat
+                        .awes-chat__current-thread
+                            +thread('blue', true, false)
+                        .awes-chat__window
+                            mixin message()
+                                .awes-chat__message
+                                    .awes-chat__message-head
+                                        picture.awes-chat__message-ava
+                                            img(src="img/demo/ava.png", alt="")
+                                        b.awes-chat__message-name Pivovarov Andrey
+                                        span.awes-chat__message-time 19 minutes ago
+                                    .awes-chat__message-block.tf-content
+                                        p On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.
+                    
+                            +message()        
+                            +message()        
+                            +message()        
+                            +message()        
+                            +message()       
+                            +message()       
+                            +message()       
+                            +message()       
+                            +message()       
+                            +message()       
+                            +message()       
+                            +message()       
+                            +message()       
+                            +message()       
+                            +message()       
+                            +message()       
+                            +message()       
+                            +message()       
+                            +message()       
+                            +message()       
+                            +message()       
+                            +message()       
+                            +message()       
+                            +message()       
+                            +message()       
+                            +message()       
+                            +message()       
+                            +message()       
+                            +message()    
+
+                        // TODO need get scroll and insert it in style (7px = scrollwidth / 2, 13px = scrollwidth)
+                        .awes-chat__actions#formactions(style="right: 13px; width: calc(67% - 7px)" )
+
+                            .awes-chat__form
+                                textarea.awes-chat__form-textarea(placeholder="Message")
+                                .awes-chat__smiles
+                                    button.awes-chat__smiles-close &times;
+                                    -for(var i = 0; i < 20; i++)
+                                        button.awes-chat__form-btn
+                                            i.icon.icon-smile
+                                .awes-chat__form-line
+                                    .awes-chat__form-buttons
+                                        button.awes-chat__form-btn
+                                            i.icon.icon-link
+                                        button.awes-chat__form-btn
+                                            i.icon.icon-smile
+
+                                    button.awes-chat__form-btn(type="submit")
+                                        i.icon.icon-message
+
+            v-tab(title='Question answer')
                 
-                        +message()        
-                        +message()        
-                        +message()        
-                        +message()        
-                        +message()       
-                        +message()       
-                        +message()       
-                        +message()       
-                        +message()       
-                        +message()       
-                        +message()       
-                        +message()       
-                        +message()       
-                        +message()       
-                        +message()       
-                        +message()       
-                        +message()       
-                        +message()       
-                        +message()       
-                        +message()       
-                        +message()       
-                        +message()       
-                        +message()       
-                        +message()       
-                        +message()       
-                        +message()       
-                        +message()       
-                        +message()       
-                        +message()       
+                .helper__stepper
+                    h3.helper__stepper-title Questions and answers <span class='tf-grey'>7</span>
+                    .helper__stepper-navs
+                        button.upper-link Ask a Question
+                .helper__content
 
-                    .awes-chat__actions
+                    .awes-accordion
+                        button.awes-accordion__title 
+                            span Question 1 Question 1Question 1Question 1Question 1Question 1Question 1Question 1Question 1
+                            i
+                        .awes-accordion__content.tf-content
+                            p In the work of the Telegram messenger, there was a global failure. This is evidenced by the statistics of the site Downdetector. Messenger works with interruptions in Russia, Belarus, Ukraine, as well as in the EU countries - Germany, France, Italy, Spain, the Netherlands, Austria, Sweden and other countries. "If you read this, you are resistance"
+                            p Roskomnadzor is fighting with Telegram. The whole Internet suffers
+                            p The failures are also reported by residents of South Africa, Iran, Israel and Kazakhstan.
+                            p Telegram unsuccessfully trying to block in Russia, starting in mid-April. According to the decision of the Tagansky District Court of Moscow, access to the messenger should be limited, since the Telegram management refused to provide the FSB with encryption keys that would allow the siloviki to read the correspondence of users.
+                    
+                    .awes-accordion
+                        button.awes-accordion__title.active 
+                            span Question 2
+                            i
+                        .awes-accordion__content.tf-content
+                            p In the work of the Telegram messenger, there was a global failure. This is evidenced by the statistics of the site Downdetector. Messenger works with interruptions in Russia, Belarus, Ukraine, as well as in the EU countries - Germany, France, Italy, Spain, the Netherlands, Austria, Sweden and other countries. "If you read this, you are resistance"
+                            p Roskomnadzor is fighting with Telegram. The whole Internet suffers
+                            p The failures are also reported by residents of South Africa, Iran, Israel and Kazakhstan.
+                            p Telegram unsuccessfully trying to block in Russia, starting in mid-April. According to the decision of the Tagansky District Court of Moscow, access to the messenger should be limited, since the Telegram management refused to provide the FSB with encryption keys that would allow the siloviki to read the correspondence of users.
 
-                        .awes-chat__form
-                            textarea.awes-chat__form-textarea(placeholder="Message")
-                            .awes-chat__form-line
-                                .awes-chat__form-buttons
-                                    button.awes-chat__form-btn
-                                        i.icon.icon-link
-                                    button.awes-chat__form-btn
-                                        i.icon.icon-smile
+                    .awes-accordion
+                        button.awes-accordion__title 
+                            span Question 3
+                            i
+                        .awes-accordion__content.tf-content
+                            p In the work of the Telegram messenger, there was a global failure. This is evidenced by the statistics of the site Downdetector. Messenger works with interruptions in Russia, Belarus, Ukraine, as well as in the EU countries - Germany, France, Italy, Spain, the Netherlands, Austria, Sweden and other countries. "If you read this, you are resistance"
+                            p Roskomnadzor is fighting with Telegram. The whole Internet suffers
+                            p The failures are also reported by residents of South Africa, Iran, Israel and Kazakhstan.
+                            p Telegram unsuccessfully trying to block in Russia, starting in mid-April. According to the decision of the Tagansky District Court of Moscow, access to the messenger should be limited, since the Telegram management refused to provide the FSB with encryption keys that would allow the siloviki to read the correspondence of users.
 
-                                button.awes-chat__form-btn(type="submit")
-                                    i.icon.icon-message
+                    .awes-accordion
+                        button.awes-accordion__title 
+                            span Question 4
+                            i
+                        .awes-accordion__content.tf-content
+                            p In the work of the Telegram messenger, there was a global failure. This is evidenced by the statistics of the site Downdetector. Messenger works with interruptions in Russia, Belarus, Ukraine, as well as in the EU countries - Germany, France, Italy, Spain, the Netherlands, Austria, Sweden and other countries. "If you read this, you are resistance"
+                            p Roskomnadzor is fighting with Telegram. The whole Internet suffers
+                            p The failures are also reported by residents of South Africa, Iran, Israel and Kazakhstan.
+                            p Telegram unsuccessfully trying to block in Russia, starting in mid-April. According to the decision of the Tagansky District Court of Moscow, access to the messenger should be limited, since the Telegram management refused to provide the FSB with encryption keys that would allow the siloviki to read the correspondence of users.
 
-        v-tab(title='Question answer')
-            
-            .helper__stepper
-                h3.helper__stepper-title Questions and answers <span class='tf-grey'>7</span>
-                .helper__stepper-navs
-                    button.upper-link Ask a Question
-            .helper__content
+                    .awes-accordion    
+                        button.awes-accordion__title 
+                            span Question 5
+                            i
+                        .awes-accordion__content.tf-content
+                            p In the work of the Telegram messenger, there was a global failure. This is evidenced by the statistics of the site Downdetector. Messenger works with interruptions in Russia, Belarus, Ukraine, as well as in the EU countries - Germany, France, Italy, Spain, the Netherlands, Austria, Sweden and other countries. "If you read this, you are resistance"
+                            p Roskomnadzor is fighting with Telegram. The whole Internet suffers
+                            p The failures are also reported by residents of South Africa, Iran, Israel and Kazakhstan.
+                            p Telegram unsuccessfully trying to block in Russia, starting in mid-April. According to the decision of the Tagansky District Court of Moscow, access to the messenger should be limited, since the Telegram management refused to provide the FSB with encryption keys that would allow the siloviki to read the correspondence of users.
 
-                .awes-accordion
-                    button.awes-accordion__title 
-                        span Question 1 Question 1Question 1Question 1Question 1Question 1Question 1Question 1Question 1
-                        i
-                    .awes-accordion__content.tf-content
-                        p In the work of the Telegram messenger, there was a global failure. This is evidenced by the statistics of the site Downdetector. Messenger works with interruptions in Russia, Belarus, Ukraine, as well as in the EU countries - Germany, France, Italy, Spain, the Netherlands, Austria, Sweden and other countries. "If you read this, you are resistance"
-                        p Roskomnadzor is fighting with Telegram. The whole Internet suffers
-                        p The failures are also reported by residents of South Africa, Iran, Israel and Kazakhstan.
-                        p Telegram unsuccessfully trying to block in Russia, starting in mid-April. According to the decision of the Tagansky District Court of Moscow, access to the messenger should be limited, since the Telegram management refused to provide the FSB with encryption keys that would allow the siloviki to read the correspondence of users.
-                
-                .awes-accordion
-                    button.awes-accordion__title.active 
-                        span Question 2
-                        i
-                    .awes-accordion__content.tf-content
-                        p In the work of the Telegram messenger, there was a global failure. This is evidenced by the statistics of the site Downdetector. Messenger works with interruptions in Russia, Belarus, Ukraine, as well as in the EU countries - Germany, France, Italy, Spain, the Netherlands, Austria, Sweden and other countries. "If you read this, you are resistance"
-                        p Roskomnadzor is fighting with Telegram. The whole Internet suffers
-                        p The failures are also reported by residents of South Africa, Iran, Israel and Kazakhstan.
-                        p Telegram unsuccessfully trying to block in Russia, starting in mid-April. According to the decision of the Tagansky District Court of Moscow, access to the messenger should be limited, since the Telegram management refused to provide the FSB with encryption keys that would allow the siloviki to read the correspondence of users.
+                    
 
-                .awes-accordion
-                    button.awes-accordion__title 
-                        span Question 3
-                        i
-                    .awes-accordion__content.tf-content
-                        p In the work of the Telegram messenger, there was a global failure. This is evidenced by the statistics of the site Downdetector. Messenger works with interruptions in Russia, Belarus, Ukraine, as well as in the EU countries - Germany, France, Italy, Spain, the Netherlands, Austria, Sweden and other countries. "If you read this, you are resistance"
-                        p Roskomnadzor is fighting with Telegram. The whole Internet suffers
-                        p The failures are also reported by residents of South Africa, Iran, Israel and Kazakhstan.
-                        p Telegram unsuccessfully trying to block in Russia, starting in mid-April. According to the decision of the Tagansky District Court of Moscow, access to the messenger should be limited, since the Telegram management refused to provide the FSB with encryption keys that would allow the siloviki to read the correspondence of users.
-
-                .awes-accordion
-                    button.awes-accordion__title 
-                        span Question 4
-                        i
-                    .awes-accordion__content.tf-content
-                        p In the work of the Telegram messenger, there was a global failure. This is evidenced by the statistics of the site Downdetector. Messenger works with interruptions in Russia, Belarus, Ukraine, as well as in the EU countries - Germany, France, Italy, Spain, the Netherlands, Austria, Sweden and other countries. "If you read this, you are resistance"
-                        p Roskomnadzor is fighting with Telegram. The whole Internet suffers
-                        p The failures are also reported by residents of South Africa, Iran, Israel and Kazakhstan.
-                        p Telegram unsuccessfully trying to block in Russia, starting in mid-April. According to the decision of the Tagansky District Court of Moscow, access to the messenger should be limited, since the Telegram management refused to provide the FSB with encryption keys that would allow the siloviki to read the correspondence of users.
-
-                .awes-accordion    
-                    button.awes-accordion__title 
-                        span Question 5
-                        i
-                    .awes-accordion__content.tf-content
-                        p In the work of the Telegram messenger, there was a global failure. This is evidenced by the statistics of the site Downdetector. Messenger works with interruptions in Russia, Belarus, Ukraine, as well as in the EU countries - Germany, France, Italy, Spain, the Netherlands, Austria, Sweden and other countries. "If you read this, you are resistance"
-                        p Roskomnadzor is fighting with Telegram. The whole Internet suffers
-                        p The failures are also reported by residents of South Africa, Iran, Israel and Kazakhstan.
-                        p Telegram unsuccessfully trying to block in Russia, starting in mid-April. According to the decision of the Tagansky District Court of Moscow, access to the messenger should be limited, since the Telegram management refused to provide the FSB with encryption keys that would allow the siloviki to read the correspondence of users.
-
-                
-
-                
+                    
 
 
 
