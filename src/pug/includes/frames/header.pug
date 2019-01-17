@@ -25,5 +25,5 @@ transition(name="user-menu")
         include user-menu
 
 transition(name="user-menu")
-    .helper(style="display: block !important;")
+    .helper(v-show="$awesLayoutCrm.showHelpers" style="display: none;")
         include helpers

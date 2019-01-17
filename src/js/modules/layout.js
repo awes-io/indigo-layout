@@ -8,6 +8,7 @@ export default {
             togglenav: false,
             showSearch: false,
             showUserMenu: false,
+            showHelpers: false,
             stActive: false
         }
     },
@@ -51,6 +52,11 @@ export default {
     watch: {
         showUserMenu( isShown ) {
             this.toggleBodyMobileFix(isShown)
+        },
+
+        showHelpers( isShown ) {
+            this.toggleBodyMobileFix(isShown)
         }
+    }
     }
 }

@@ -23,6 +23,7 @@
                 togglenav: false,
                 showSearch: false,
                 showUserMenu: false,
+                showHelpers: false,
                 stActive: false
             }
         },

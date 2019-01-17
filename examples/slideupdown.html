@@ -90,10 +90,10 @@
                     </div>
                 </transition>
                 <transition name="user-menu">
-                    <div class="helper" style="display: block !important;">
+                    <div class="helper" v-show="$awesLayoutCrm.showHelpers" style="display: none;">
                         <div class="helper__block">
                             <div class="helper__head">
-                                <h3 class="helper__title">Help</h3><button class="helper__close"><i class="icon icon-cross"> </i></button>
+                                <h3 class="helper__title">Help</h3><button class="helper__close" @click="$awesLayoutCrm.showHelpers = ! $awesLayoutCrm.showHelpers"><i class="icon icon-cross"> </i></button>
                             </div>
                             <div class="helper__scroll-bl">
                                 <vue-tabs>
@@ -433,7 +433,7 @@
                 </div>
             </div>
         </div>
-        <div class="float-icns"><button class="float-icns__icon float-icns__icon_helper">?</button></div>
+        <div class="float-icns"><button class="float-icns__icon float-icns__icon_helper" @click="$awesLayoutCrm.showHelpers = ! $awesLayoutCrm.showHelpers">?</button></div>
     </div>
 </body>
 

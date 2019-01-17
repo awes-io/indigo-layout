@@ -1,13 +1,13 @@
 .helper__block
     .helper__head
         h3.helper__title Help
-        button.helper__close
+        button.helper__close(@click="$awesLayoutCrm.showHelpers = ! $awesLayoutCrm.showHelpers")
             i.icon.icon-cross  
     
     //- .helper__head
     //-     button.helper__title.helper__title_btn 
     //-         span Back
-    //-     button.helper__close
+    //-     button.helper__close(@click="$awesLayoutCrm.showHelpers = ! $awesLayoutCrm.showHelpers")
     //-         i.icon.icon-cross   
     .helper__scroll-bl
         vue-tabs
