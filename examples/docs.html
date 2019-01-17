@@ -93,9 +93,7 @@
                 <transition name="user-menu">
                     <div class="helper" v-show="$awesLayoutCrm.showHelpers" style="display: none;">
                         <div class="helper__block">
-                            <div class="helper__head">
-                                <h3 class="helper__title">Help</h3><button class="helper__close" @click="$awesLayoutCrm.showHelpers = ! $awesLayoutCrm.showHelpers"><i class="icon icon-cross"> </i></button>
-                            </div>
+                            <div class="helper__head"><button class="helper__title helper__title_btn"> <span>Back</span></button><button class="helper__close" @click="$awesLayoutCrm.showHelpers = ! $awesLayoutCrm.showHelpers"><i class="icon icon-cross">  </i></button></div>
                             <div class="helper__scroll-bl">
                                 <vue-tabs>
                                     <v-tab title="Hint">
@@ -371,7 +369,7 @@
                                     <v-tab title="Question answer">
                                         <div class="helper__stepper">
                                             <h3 class="helper__stepper-title">Questions and answers <span class='tf-grey'>7</span></h3>
-                                            <div class="helper__stepper-navs"><button class="upper-link">Ask a Question</button></div>
+                                            <div class="helper__stepper-navs"><button class="upper-link">Ask in a faq</button><button class="upper-link">Ask in a chat</button></div>
                                         </div>
                                         <div class="helper__content">
                                             <div class="awes-accordion"><button class="awes-accordion__title"> <span>Question 1 Question 1Question 1Question 1Question 1Question 1Question 1Question 1Question 1</span><i></i></button>
