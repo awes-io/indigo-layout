@@ -1,0 +1,105 @@
+.awes-chat
+    fl()
+    & &__threads
+        width 33%
+        &-footer
+            padding 30px
+            text-align center
+    & &__defchat
+        width 67%
+    & &__current-thread
+        display none
+    & &__thread
+        padding 20px 20px 20px 40px
+        text-align left
+        width 100%
+        border-bottom 1px solid
+        .awes-status
+            absolute left -20px top 4px
+        &-title
+            display block
+            position relative
+            margin-bottom 10px
+        &-footer
+            fl(,sb,c)
+            .icn-dot
+                position static
+                left auto
+                top auto
+                right auto
+        &-time
+            font-size f_smart
+    & &__message
+        margin-bottom 20px
+        &-head
+            fl(w,sb,c)
+            padding-left 50px
+            position relative
+            min-height 36px
+            margin-bottom 5px
+        &-ava
+            absolute left 0 top 0
+            size 36px
+            border-radius 50%
+            img
+                display block
+                size 36px
+                border-radius 50%
+        &-name
+            font-weight 700
+            padding-right 10px
+        &-time
+            font-size f_smart
+            padding-top 3px
+        &-block
+            padding-left 50px
+    & &__actions
+        padding 30px
+    & &__window
+        // max-height 100vh
+        // overflow auto
+        padding 30px
+    & &__form
+        border 1px solid 
+        border-radius 2px
+        &-textarea
+            border 0
+            background-color transparent
+            padding 10px
+            size 100% 130px
+        &-line
+            padding 10px
+            fl(w,sb,c)
+        &-link
+            font-size 14px
+        &-buttons
+            fl(w)
+            & ^[0]__form-btn
+                margin-right 10px
+        &-btn
+            border-radius 5px
+            padding 5px
+            line-height 1
+            fl(,c,c)
+
+@media res_mobile--lg
+    .awes-chat
+        flex-wrap wrap
+        & &__threads
+            width 100%
+            display none
+            &.active
+                display block
+        & &__defchat
+            width 100%
+        & &__current-thread
+            display block
+
+@media res_mobile--md
+    .awes-chat
+        & &__form
+            &-textarea
+                height 60px
+        & &__thread
+            padding-left 50px
+            padding-right 30px

@@ -1,0 +1,98 @@
+.helper
+    absolute right 0 top 50px
+    z-index 1000
+    size 100% calc(100% - 50px)
+    max-width 650px
+    & &__block
+        display block
+        height 100%
+        overflow auto
+        width 100%
+    & &__head
+        fl(,sb,c)
+        padding 20px 30px
+        border-bottom 1px solid
+    & &__title
+        margin-bottom 0
+        padding-right 15px
+        &_btn
+            font-size 18px
+            font-weight 700
+            padding-left 14px
+            position relative
+            span
+                position relative
+                &:after
+                    angle()
+                    left -14px
+                    transform rotate(90deg)
+                    margin-top -3px
+    & &__close
+        font-size 18px
+        line-height 1
+        padding-top 1px
+    .nav-tabs
+        display flex
+        text-align center
+        li
+            flex 1
+    .tabs
+        &__link
+            padding 0 10px
+            min-height 50px
+            fl(,c,c)
+            text-align center
+            width 100%
+            &:hover
+                text-decoration none
+    & &__content
+        padding 30px
+    & &__stepper
+        fl(,sb,c)
+        padding 20px 30px
+        border-bottom 1px solid
+        &-title
+            margin-bottom 0
+            margin-top 0
+        &-navs
+            text-align right
+            button
+                margin-left 20px
+                display inline-block
+                text-align right
+
+@media res_tablet--lg
+    .helper
+        fixed top 0 right 0
+        width 100%
+        height 100vh
+
+@media res_mobile--md
+    .helper
+
+        .nav-tabs
+            fl(w)
+            .tab
+                width 100%
+                flex none
+                order 2
+                text-align left
+                &.active
+                    order 1
+                    a
+                        background-color transparent
+            .tabs__link
+                border-bottom 1px solid transparent
+
+            .active_tab
+                border-bottom 1px solid
+                position relative
+                padding-right 50px
+                &:after
+                    angle()
+                    right 30px
+            .tabs__link
+                text-align left
+                justify-content flex-start
+                padding-left 30px
+                padding-right 30px

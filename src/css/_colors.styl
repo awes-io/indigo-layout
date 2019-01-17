@@ -29,7 +29,38 @@ a
   color var(--tc_link)
   &:hover
     color cl_skydark
-      
+
+.awes-chat
+  & &__threads
+    background-color var(--tc_ui_bg_semi)
+  & &__thread
+    border-color var(--tc_border)
+    background-color var(--tc_ui_bg_semi)
+    &:hover
+      background-color var(--tc_ui_bg_semi_v)
+    &-time
+      color var(--tc_text_caption)
+    &.active
+      background-color var(--tc_ui_bg)
+  & &__message
+    &-time
+      color var(--tc_text_caption)
+  & &__form
+    border-color var(--tc_border)
+    &-btn
+      color var(--tc_link_semi)
+      &:hover
+        color var(--tc_link_semi_active)
+      &:focus
+        background-color var(--tc_ui_bg_semi)
+
+.awes-status
+  background-color var(--tc_ui_bg_semi_d)
+  &_blue
+    background-color cl_morning
+  &_green
+    background-color cl_grass
+
 .infbl
   & &_icon
     color var(--tc_text_caption)
@@ -912,6 +943,39 @@ table
     box-shadow var(--tc_ui_context_menu_shadow)
     background-color var(--tc_ui_context_menu_bg)
 
+
+    
+.helper
+  & &__block
+    box-shadow var(--tc_ui_context_menu_shadow)
+    background-color var(--tc_ui_context_menu_bg)
+  & &__title
+      &_btn
+        span
+          &:after
+            border-top-color var(--tc_text)
+  & &__close
+    color var(--tc_link_semi)
+    &:hover
+      color var(--tc_link_semi_active)
+  & &__head, & &__stepper
+    border-color var(--tc_border)
+  .nav-tabs
+      background-color var(--tc_ui_bg_semi)
+      .tabs__link
+        color var(--tc_link_semi)
+      .active_tab
+        background-color var(--tc_ui_bg)
+        color var(--tc_link_semi_active)
+        &:after
+          border-top-color var(--tc_text)
+        @media res_mobile--md
+          border-color var(--tc_border)
+                    
+        
+
+    
+
 .context-menu
   &__overlay
     background-color var(--tc_ui_shadow-overflow)
@@ -989,6 +1053,8 @@ mark
   background-color cl_black
 
 .tf
+  &-grey
+    color var(--tc_text_caption)
   &-caption
     color var(--tc_text_caption)
   &-blcode
@@ -1186,6 +1252,15 @@ mark
 
 ::-webkit-scrollbar-thumb:hover
   background-color var(--tc_color_main_l)
+
+.float-icns
+    & &__icon
+      &_helper
+        box-shadow var(--tc_shadow_blur)
+        background-color cl_skydark
+        color cl_white
+        &:hover
+          background-color cl_sky
 
 
 
