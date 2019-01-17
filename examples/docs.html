@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/main.css">
     <script>AWES_CONFIG = {key: '680a7d07f89b94e7fc83be657a2daa27'}</script><!-- there is can be head meta or sctipts-->
     <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/context-menu/v0.1.1/js/main.js"></script>
+    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/form-builder/v0.1.4/js/main.js"></script>
     <script src="/js/main.js"></script>
     <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/js-core/v0.1.2/js/main.js"></script>
 </head>
@@ -91,37 +92,23 @@
                     </div>
                 </div>
                 <div class="frame__content">
-                    <h1>Компонент контекстное меню (context-menu)</h1>
-                    <ul>
-                        <li><a href="#minimal-markup">Минимальная разметка</a></li>
-                        <li><a href="#wrapper-props"> Параметры компонента-обёртки <mark>&lt;context-menu&gt;</mark></a></li>
-                        <li><a href="#positioning">Позиционирование на экране</a></li>
-                        <li><a href="#elements">Элементы контекстного меню</a>
-                            <ul>
-                                <li><a href="#elements-button">Кнопка <mark>&lt;cm-button&gt;</mark></a></li>
-                                <li><a href="#elements-link">Ссылка <mark>&lt;cm-link&gt;</mark></a></li>
-                                <li><a href="#elements-separator">Разделитель <mark>&lt;cm-separator&gt;</mark></a></li>
-                                <li><a href="#elements-panel">Панель <mark>&lt;cm-panel&gt;</mark></a></li>
-                                <li><a href="#elements-query">GET-параметры в адресной строке <mark>&lt;cm-query&gt;</mark></a></li>
-                                <li><a href="#elements-ajax">AJAX-запрос <mark>&lt;cm-ajax&gt;</mark></a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#toggler-slot">Стилизация открывающей кнопки</a></li>
-                    </ul>
-                    <p>Предназначен для отображения скрытого по-умолчанию списка нажатием на кнопку</p>
-                    <div id="minimal-markup"></div>
-                    <h2>Минимальная разметка</h2>
-                    <p>Компонент состоит из раскрывающейся обёртки (dropdown) и элементов. Без элементов внутри обёртки, она не имеет смысла, поэтому минимальная разметка выглядит как</p><pre><code class="html">&lt;context-menu&gt;
+                    <div class="frame__inlayout">
+                        <div class="frame__inlayout-content">
+                            <h1>Компонент контекстное меню (context-menu)</h1>
+                            <p>Предназначен для отображения скрытого по-умолчанию списка нажатием на кнопку</p>
+                            <div id="minimal-markup"></div>
+                            <h2>Минимальная разметка</h2>
+                            <p>Компонент состоит из раскрывающейся обёртки (dropdown) и элементов. Без элементов внутри обёртки, она не имеет смысла, поэтому минимальная разметка выглядит как</p><pre><code class="html">&lt;context-menu&gt;
     &lt;cm-button&gt;Click me!&lt;/cm-button&gt;
 &lt;/context-menu&gt;
 </code></pre>
-                    <p><strong>Внешний вид</strong></p>
-                    <div class="vue-example">
-                        <context-menu>
-                            <cm-button>Click me!</cm-button>
-                        </context-menu>
-                    </div>
-                    <p><strong>Сгенерированная разметка</strong></p><pre><code class="html">&lt;div class="context-menu"&gt;
+                            <p><strong>Внешний вид</strong></p>
+                            <div class="vue-example">
+                                <context-menu>
+                                    <cm-button>Click me!</cm-button>
+                                </context-menu>
+                            </div>
+                            <p><strong>Сгенерированная разметка</strong></p><pre><code class="html">&lt;div class="context-menu"&gt;
     &lt;button aria-haspopup="true" class="context-menu__toggler context-menu__toggler-default"&gt;
         &lt;i class="icon icon-dots"&gt;&lt;/i&gt;
     &lt;/button&gt;
@@ -133,172 +120,172 @@
         &lt;/ul&gt;
     &lt;/div&gt;
 &lt;/div&gt;</code></pre>
-                    <p><em>Открытие выпадающего списка происходит нажатием на открывающую кнопку, </em><em>закрытие кликом на ту же кнопку, на ссылку или кнопку среди </em><a href="#elements">элементов контекстного меню или кликом снаружи выпадающего меню</a></p>
-                    <div id="wrapper-props"></div>
-                    <h2>Параметры компонента-обёртки <mark>&lt;context-menu&gt;</mark></h2>
-                    <table>
-                        <tr>
-                            <th>Название</th>
-                            <th>Тип</th>
-                            <th>По умолчанию</th>
-                            <th>Опиание</th>
-                        </tr>
-                        <tr>
-                            <td>button-class</td>
-                            <td><strong>String</strong></td>
-                            <td><em>undefined</em></td>
-                            <td>Дополнительный класс для кнопки, открывающей список</td>
-                        </tr>
-                        <tr>
-                            <td>right</td>
-                            <td><strong>Boolean</strong></td>
-                            <td><mark>false</mark></td>
-                            <td>Приоритет в <a href="#positioning-info">расположении списка</a> по правой границе
-                                открывающей кнопки</td>
-                        </tr>
-                        <tr>
-                            <td>top</td>
-                            <td><strong>Boolean</strong></td>
-                            <td><mark>false</mark></td>
-                            <td>Приоритет в раскрытии списка вверх, <a href="#positioning-info">располагаясь</a> сверху открывающей кнопки</td>
-                        </tr>
-                        <tr>
-                            <td>auto-position</td>
-                            <td><strong>Boolean</strong></td>
-                            <td><mark>true</mark></td>
-                            <td><a href="#positioning-auto">Автоматическое позиционирование</a> списка в
-                                зависимости от заданных границ и видимости на экране</td>
-                        </tr>
-                        <tr>
-                            <td>boundary</td>
-                            <td><strong>String</strong></td>
-                            <td><mark>body</mark></td>
-                            <td>Селектор элемента - <a href="#positioning-bounds">границы для автоматического позиционирования списка </a></td>
-                        </tr>
-                    </table>
-                    <div id="positioning"></div>
-                    <h2>Позиционирование на экране</h2>
-                    <p>Раскрывающийся список (dropdown) располагается относительно открывающей кнопки, и по-умолчанию примыкает к нижней и левой границам и открывается вниз</p>
-                    <div id="positioning-info"></div>
-                    <p><strong>Варианты расположения</strong></p>
-                    <p><strong>По-умолчанию</strong></p>
-                    <div class="vue-example">
-                        <context-menu :auto-position="false">
-                            <cm-button>Click me!</cm-button>
-                        </context-menu>
-                    </div>
-                    <p><strong>Сверху (<mark>top</mark>)</strong></p>
-                    <div class="vue-example">
-                        <context-menu top="" :auto-position="false">
-                            <cm-button>Click me!</cm-button>
-                        </context-menu>
-                    </div>
-                    <p><strong>По правой стороне (<mark>right</mark>)</strong></p>
-                    <div class="vue-example">
-                        <context-menu right="" :auto-position="false">
-                            <cm-button>Click me!</cm-button>
-                        </context-menu>
-                    </div>
-                    <p><strong>Сверху по правой стороне (<mark>top</mark>, <mark>right</mark>)</strong></p>
-                    <div class="vue-example">
-                        <context-menu top="" right="" :auto-position="false">
-                            <cm-button>Click me!</cm-button>
-                        </context-menu>
-                    </div>
-                    <div id="positioning-auto"></div>
-                    <p><strong> Автоматическое позиционирование</strong>: Заданное расположение является лишь рекомендацией, если включен параметр <mark>auto-position = true</mark>. Если при заданном положении раскрывающийся список не отображается в области видимости или не вписывается в <a href='#positioning-bounds'>ограничительный контейнер</a>, то он изменит своё положение, так чтобы:</p>
-                    <ol>
-                        <li>отобразиться на экране максимально видимым</li>
-                        <li>вписаться в <a href='#positioning-bounds'>границы</a></li>
-                    </ol>
-                    <div id="positioning-bounds"></div>
-                    <p><strong> Ограничительный контейнер</strong>: Свойство <mark>boundary</mark> - селектор границы, по-умолчанию, или если по-селектору не найден элемент среди родителей компонента этим контейнером является контейнер страницы <mark>body</mark> </p>
-                    <p><em>Выпадающий список не может раскрыться вниз и вправо, но может вписаться в границы поэтому он открывается вверх и влево</em></p>
-                    <div class="vue-example">
-                        <div class="vue-example__bounds" style="padding: 50px 15px 15px;height: 100px; width: 270px; ">
-                            <context-menu style="float: right;" boundary=".vue-example__bounds">
-                                <cm-button>Click me!</cm-button>
-                            </context-menu>
-                        </div>
-                    </div>
-                    <p><em>Выпадающий список не может вписаться в границы, открывшись вверх и влево, поэтому он открывается вниз и влево (это направление в приритете) при этом он старается отображаться на экране максимально видимым</em></p>
-                    <div class="vue-example">
-                        <div class="vue-example__bounds" style="padding:10px; height: 50px; width: 50px; ">
-                            <context-menu top="" right="" boundary=".vue-example__bounds">
-                                <cm-button>Click me!</cm-button>
-                                <cm-button>Click me too!</cm-button>
-                                <cm-button>Click me too!</cm-button>
-                            </context-menu>
-                        </div>
-                    </div>
-                    <div id="elements"></div>
-                    <h2>Элементы контекстного меню</h2>
-                    <div id="elements-button"></div>
-                    <h3>Кнопка <mark>&lt;cm-button&gt;</mark></h3><pre><code class="html">&lt;context-menu&gt;
+                            <p><em>Открытие выпадающего списка происходит нажатием на открывающую кнопку, </em><em>закрытие кликом на ту же кнопку, на ссылку или кнопку среди </em><a href="#elements">элементов контекстного меню или кликом снаружи выпадающего меню</a></p>
+                            <div id="wrapper-props"></div>
+                            <h2>Параметры компонента-обёртки <mark>&lt;context-menu&gt;</mark></h2>
+                            <table>
+                                <tr>
+                                    <th>Название</th>
+                                    <th>Тип</th>
+                                    <th>По умолчанию</th>
+                                    <th>Опиание</th>
+                                </tr>
+                                <tr>
+                                    <td>button-class</td>
+                                    <td><strong>String</strong></td>
+                                    <td><em>undefined</em></td>
+                                    <td>Дополнительный класс для кнопки, открывающей список</td>
+                                </tr>
+                                <tr>
+                                    <td>right</td>
+                                    <td><strong>Boolean</strong></td>
+                                    <td><mark>false</mark></td>
+                                    <td>Приоритет в <a href="#positioning-info">расположении списка</a> по правой границе
+                                        открывающей кнопки</td>
+                                </tr>
+                                <tr>
+                                    <td>top</td>
+                                    <td><strong>Boolean</strong></td>
+                                    <td><mark>false</mark></td>
+                                    <td>Приоритет в раскрытии списка вверх, <a href="#positioning-info">располагаясь</a> сверху открывающей кнопки</td>
+                                </tr>
+                                <tr>
+                                    <td>auto-position</td>
+                                    <td><strong>Boolean</strong></td>
+                                    <td><mark>true</mark></td>
+                                    <td><a href="#positioning-auto">Автоматическое позиционирование</a> списка в
+                                        зависимости от заданных границ и видимости на экране</td>
+                                </tr>
+                                <tr>
+                                    <td>boundary</td>
+                                    <td><strong>String</strong></td>
+                                    <td><mark>body</mark></td>
+                                    <td>Селектор элемента - <a href="#positioning-bounds">границы для автоматического позиционирования списка </a></td>
+                                </tr>
+                            </table>
+                            <div id="positioning"></div>
+                            <h2>Позиционирование на экране</h2>
+                            <p>Раскрывающийся список (dropdown) располагается относительно открывающей кнопки, и по-умолчанию примыкает к нижней и левой границам и открывается вниз</p>
+                            <div id="positioning-info"></div>
+                            <p><strong>Варианты расположения</strong></p>
+                            <p><strong>По-умолчанию</strong></p>
+                            <div class="vue-example">
+                                <context-menu :auto-position="false">
+                                    <cm-button>Click me!</cm-button>
+                                </context-menu>
+                            </div>
+                            <p><strong>Сверху (<mark>top</mark>)</strong></p>
+                            <div class="vue-example">
+                                <context-menu top="" :auto-position="false">
+                                    <cm-button>Click me!</cm-button>
+                                </context-menu>
+                            </div>
+                            <p><strong>По правой стороне (<mark>right</mark>)</strong></p>
+                            <div class="vue-example">
+                                <context-menu right="" :auto-position="false">
+                                    <cm-button>Click me!</cm-button>
+                                </context-menu>
+                            </div>
+                            <p><strong>Сверху по правой стороне (<mark>top</mark>, <mark>right</mark>)</strong></p>
+                            <div class="vue-example">
+                                <context-menu top="" right="" :auto-position="false">
+                                    <cm-button>Click me!</cm-button>
+                                </context-menu>
+                            </div>
+                            <div id="positioning-auto"></div>
+                            <p><strong> Автоматическое позиционирование</strong>: Заданное расположение является лишь рекомендацией, если включен параметр <mark>auto-position = true</mark>. Если при заданном положении раскрывающийся список не отображается в области видимости или не вписывается в <a href='#positioning-bounds'>ограничительный контейнер</a>, то он изменит своё положение, так чтобы:</p>
+                            <ol>
+                                <li>отобразиться на экране максимально видимым</li>
+                                <li>вписаться в <a href='#positioning-bounds'>границы</a></li>
+                            </ol>
+                            <div id="positioning-bounds"></div>
+                            <p><strong> Ограничительный контейнер</strong>: Свойство <mark>boundary</mark> - селектор границы, по-умолчанию, или если по-селектору не найден элемент среди родителей компонента этим контейнером является контейнер страницы <mark>body</mark> </p>
+                            <p><em>Выпадающий список не может раскрыться вниз и вправо, но может вписаться в границы поэтому он открывается вверх и влево</em></p>
+                            <div class="vue-example">
+                                <div class="vue-example__bounds" style="padding: 50px 15px 15px;height: 100px; width: 270px; ">
+                                    <context-menu style="float: right;" boundary=".vue-example__bounds">
+                                        <cm-button>Click me!</cm-button>
+                                    </context-menu>
+                                </div>
+                            </div>
+                            <p><em>Выпадающий список не может вписаться в границы, открывшись вверх и влево, поэтому он открывается вниз и влево (это направление в приритете) при этом он старается отображаться на экране максимально видимым</em></p>
+                            <div class="vue-example">
+                                <div class="vue-example__bounds" style="padding:10px; height: 50px; width: 50px; ">
+                                    <context-menu top="" right="" boundary=".vue-example__bounds">
+                                        <cm-button>Click me!</cm-button>
+                                        <cm-button>Click me too!</cm-button>
+                                        <cm-button>Click me too!</cm-button>
+                                    </context-menu>
+                                </div>
+                            </div>
+                            <div id="elements"></div>
+                            <h2>Элементы контекстного меню</h2>
+                            <div id="elements-button"></div>
+                            <h3>Кнопка <mark>&lt;cm-button&gt;</mark></h3><pre><code class="html">&lt;context-menu&gt;
     &lt;cm-button @click="someMethod"&gt;Click me!&lt;/cm-button&gt;
 &lt;/context-menu&gt;</code></pre>
-                    <p><img src="/uploads/1f2a1658ec55e1aeaadfab168efd79b0/default-opened.png" alt="button"></p>
-                    <p><em>Свойства элемента <mark>&lt;cm-button&gt;</mark></em></p>
-                    <table>
-                        <tr>
-                            <th style="text-align: center;">Название</th>
-                            <th style="text-align: center;">Тип</th>
-                            <th style="text-align: center;">По умолчанию</th>
-                            <th>Опиание</th>
-                        </tr>
-                        <tr>
-                            <td style="text-align: center;">itemClass</td>
-                            <td style="text-align: center;"><strong>String</strong></td>
-                            <td style="text-align: center;"><em>undefined</em></td>
-                            <td>Дополнительный класс для кнопки</td>
-                        </tr>
-                    </table>
-                    <p>На элемент нужно навешивать обработчики событий и можно добавлять дополтительные атрибуты. Без бработчика клик по кнопке будет просто закрывать открытое меню. Такая разметка</p><pre><code class="html">&lt;cm-button class="list-item-class" item-class="item-class" @click="$notify({group: 'right-b', type: 'sucсess', title: 'Notification!'})"&gt; Send notification &lt;/cm-button&gt;
+                            <p><img src="/uploads/1f2a1658ec55e1aeaadfab168efd79b0/default-opened.png" alt="button"></p>
+                            <p><em>Свойства элемента <mark>&lt;cm-button&gt;</mark></em></p>
+                            <table>
+                                <tr>
+                                    <th style="text-align: center;">Название</th>
+                                    <th style="text-align: center;">Тип</th>
+                                    <th style="text-align: center;">По умолчанию</th>
+                                    <th>Опиание</th>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: center;">itemClass</td>
+                                    <td style="text-align: center;"><strong>String</strong></td>
+                                    <td style="text-align: center;"><em>undefined</em></td>
+                                    <td>Дополнительный класс для кнопки</td>
+                                </tr>
+                            </table>
+                            <p>На элемент нужно навешивать обработчики событий и можно добавлять дополтительные атрибуты. Без бработчика клик по кнопке будет просто закрывать открытое меню. Такая разметка</p><pre><code class="html">&lt;cm-button class="list-item-class" item-class="item-class" @click="$notify({group: 'right-b', type: 'sucсess', title: 'Notification!'})"&gt; Send notification &lt;/cm-button&gt;
 </code></pre>
-                    <div class="vue-example">
-                        <context-menu>
-                            <cm-button class="list-item-class" item-class="item-class" aria-label="Awesome Button!" @click="$notify({group: 'right-b', type: 'sucсess', title: 'Notification!'})">Send notification</cm-button>
-                        </context-menu>
-                    </div>
-                    <p>Будет сгенерирована в такой HTML, по клику будет вызван метод <mark>someMethod</mark>:</p><pre><code class="html">&lt;li class="cm-item list-item-class"&gt;
+                            <div class="vue-example">
+                                <context-menu>
+                                    <cm-button class="list-item-class" item-class="item-class" aria-label="Awesome Button!" @click="$notify({group: 'right-b', type: 'sucсess', title: 'Notification!'})">Send notification</cm-button>
+                                </context-menu>
+                            </div>
+                            <p>Будет сгенерирована в такой HTML, по клику будет вызван метод <mark>someMethod</mark>:</p><pre><code class="html">&lt;li class="cm-item list-item-class"&gt;
     &lt;button aria-label="Awesome Button!" class="cm-item__button item-class"&gt;
         Send notification
     &lt;/button&gt;
 &lt;/li&gt;
 
 </code></pre>
-                    <div id="elements-link"></div>
-                    <h3>Ссылка <mark>&lt;cm-link&gt;</mark></h3><pre><code class="html">&lt;context-menu&gt;
+                            <div id="elements-link"></div>
+                            <h3>Ссылка <mark>&lt;cm-link&gt;</mark></h3><pre><code class="html">&lt;context-menu&gt;
     &lt;cm-link href="https://some.url"&gt;This is a link elemen&lt;/cm-link&gt;
 &lt;/context-menu&gt;
 </code></pre>
-                    <div class="vue-example">
-                        <context-menu>
-                            <cm-link href="https://google.com" target="_blank" rel="nofollow noopener">This is a link element</cm-link>
-                        </context-menu>
-                    </div>
-                    <p><em>Свойства элемента <mark>&lt;cm-link&gt;</mark>  </em></p>
-                    <table>
-                        <tr>
-                            <th style="text-align: center;">Название</th>
-                            <th style="text-align: center;">Тип</th>
-                            <th style="text-align: center;">По умолчанию</th>
-                            <th>Опиание</th>
-                        </tr>
-                        <tr>
-                            <td style="text-align: center;">itemClass</td>
-                            <td style="text-align: center;"><strong>String</strong></td>
-                            <td style="text-align: center;"><em>undefined</em></td>
-                            <td>Дополнительный класс для ссылки</td>
-                        </tr>
-                        <tr>
-                            <td style="text-align: center;">href*</td>
-                            <td style="text-align: center;"><strong>String</strong></td>
-                            <td style="text-align: center;"><em>undefined</em></td>
-                            <td>url или якорь, обязательное свойство</td>
-                        </tr>
-                    </table>
-                    <p>Также на элемент можно навешивать обработчики событий и добавлять дополтительные атрибуты, для примера, такая разметка</p><pre><code class="html">&lt;context-menu&gt;
+                            <div class="vue-example">
+                                <context-menu>
+                                    <cm-link href="https://google.com" target="_blank" rel="nofollow noopener">This is a link element</cm-link>
+                                </context-menu>
+                            </div>
+                            <p><em>Свойства элемента <mark>&lt;cm-link&gt;</mark>  </em></p>
+                            <table>
+                                <tr>
+                                    <th style="text-align: center;">Название</th>
+                                    <th style="text-align: center;">Тип</th>
+                                    <th style="text-align: center;">По умолчанию</th>
+                                    <th>Опиание</th>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: center;">itemClass</td>
+                                    <td style="text-align: center;"><strong>String</strong></td>
+                                    <td style="text-align: center;"><em>undefined</em></td>
+                                    <td>Дополнительный класс для ссылки</td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: center;">href*</td>
+                                    <td style="text-align: center;"><strong>String</strong></td>
+                                    <td style="text-align: center;"><em>undefined</em></td>
+                                    <td>url или якорь, обязательное свойство</td>
+                                </tr>
+                            </table>
+                            <p>Также на элемент можно навешивать обработчики событий и добавлять дополтительные атрибуты, для примера, такая разметка</p><pre><code class="html">&lt;context-menu&gt;
     &lt;cm-link href="#anchor"
             class="list-item-class"
             item-class="item-class"
@@ -307,31 +294,31 @@
         This is a link element
     &lt;/cm-link&gt;
 &lt;/context-menu&gt;</code></pre>
-                    <div class="vue-example">
-                        <context-menu>
-                            <cm-link class="list-item-class" href="#anchor" item-class="item-class" data-prop="someProp" @click.prevent="someMethod">This is a link element</cm-link>
-                        </context-menu>
-                    </div>
-                    <p>Будет сгенерирована в такой HTML, по клику перехода не будет, а будет вызван метод <mark>someMethod</mark>:</p><pre><code class="html">&lt;li class="cm-item list-item-class"&gt;
+                            <div class="vue-example">
+                                <context-menu>
+                                    <cm-link class="list-item-class" href="#anchor" item-class="item-class" data-prop="someProp" @click.prevent="someMethod">This is a link element</cm-link>
+                                </context-menu>
+                            </div>
+                            <p>Будет сгенерирована в такой HTML, по клику перехода не будет, а будет вызван метод <mark>someMethod</mark>:</p><pre><code class="html">&lt;li class="cm-item list-item-class"&gt;
     &lt;a href="#anchor" data-prop="someProp" class="cm-item__link item-class"&gt;
         This is a link element
     &lt;/a&gt;
 &lt;/li&gt;</code></pre>
-                    <h3><a href="" name="elements-separator"> </a>Разделитель <mark>&lt;cm-separator&gt;</mark></h3><pre><code class="html">&lt;context-menu&gt;
+                            <h3><a href="" name="elements-separator"> </a>Разделитель <mark>&lt;cm-separator&gt;</mark></h3><pre><code class="html">&lt;context-menu&gt;
     &lt;cm-button&gt;Above separator&lt;/cm-button&gt;
     &lt;cm-separator&gt;&lt;/cm-separator&gt;&lt;!-- разделитель --&gt;
     &lt;cm-button&gt;Below separator&lt;/cm-button&gt;
 &lt;/context-menu&gt;</code></pre>
-                    <div class="vue-example">
-                        <context-menu>
-                            <cm-button>Above separator</cm-button>
-                            <cm-separator></cm-separator>
-                            <cm-button>Below separator</cm-button>
-                        </context-menu>
-                    </div>
-                    <div id="elements-panel"></div>
-                    <h3>Панель <mark>&lt;cm-panel&gt;</mark></h3>
-                    <p>Компонент предназначен для размещения контента внутри контекстного меню</p><pre><code class="html">&lt;context-menu&gt;
+                            <div class="vue-example">
+                                <context-menu>
+                                    <cm-button>Above separator</cm-button>
+                                    <cm-separator></cm-separator>
+                                    <cm-button>Below separator</cm-button>
+                                </context-menu>
+                            </div>
+                            <div id="elements-panel"></div>
+                            <h3>Панель <mark>&lt;cm-panel&gt;</mark></h3>
+                            <p>Компонент предназначен для размещения контента внутри контекстного меню</p><pre><code class="html">&lt;context-menu&gt;
     &lt;cm-panel&gt;
         Default panel
     &lt;/cm-panel&gt;
@@ -339,28 +326,28 @@
         Secondary panel
     &lt;/cm-panel&gt;
 &lt;/context-menu&gt;</code></pre>
-                    <div class="vue-example">
-                        <context-menu>
-                            <cm-panel>Default panel</cm-panel>
-                            <cm-panel secondary="">Secondary panel</cm-panel>
-                        </context-menu>
-                    </div>
-                    <p>Свойства элемента <mark>&lt;cm-panel&gt;</mark> </p>
-                    <table>
-                        <tr>
-                            <th style="text-align: center;">Название</th>
-                            <th style="text-align: center;">Тип</th>
-                            <th style="text-align: center;">По умолчанию</th>
-                            <th>Опиание</th>
-                        </tr>
-                        <tr>
-                            <td style="text-align: center;">secondary</td>
-                            <td style="text-align: center;"><strong>Boolean</strong></td>
-                            <td style="text-align: center;"><mark>false</mark></td>
-                            <td>Меняет цвет фона на более тёмный</td>
-                        </tr>
-                    </table>
-                    <p>Сгенерированная разметка</p><pre><code class="html">&lt;li class="cm-item"&gt;
+                            <div class="vue-example">
+                                <context-menu>
+                                    <cm-panel>Default panel</cm-panel>
+                                    <cm-panel secondary="">Secondary panel</cm-panel>
+                                </context-menu>
+                            </div>
+                            <p>Свойства элемента <mark>&lt;cm-panel&gt;</mark> </p>
+                            <table>
+                                <tr>
+                                    <th style="text-align: center;">Название</th>
+                                    <th style="text-align: center;">Тип</th>
+                                    <th style="text-align: center;">По умолчанию</th>
+                                    <th>Опиание</th>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: center;">secondary</td>
+                                    <td style="text-align: center;"><strong>Boolean</strong></td>
+                                    <td style="text-align: center;"><mark>false</mark></td>
+                                    <td>Меняет цвет фона на более тёмный</td>
+                                </tr>
+                            </table>
+                            <p>Сгенерированная разметка</p><pre><code class="html">&lt;li class="cm-item"&gt;
     &lt;div class="cm-item__panel"&gt;
         Default panel
     &lt;/div&gt;
@@ -370,43 +357,43 @@
         Secondary panel
     &lt;/div&gt;
 &lt;/li&gt;</code></pre>
-                    <div id="elements-query"></div>
-                    <h3>GET-параметры в адресной строке <mark>&lt;cm-query&gt;</mark> </h3>
-                    <p>Компонент предназначен для вставки GET-параметров в адресную строку браузера без перезагрузки (например для фильтрации или сортировки), другие компоненты могут отслеживать эти параметры и обновлять данные.</p>
-                    <p><em>Свойства элемента <mark>&lt;cm-query&gt;</mark> </em></p>
-                    <table>
-                        <tr>
-                            <th style="text-align: center;">Название</th>
-                            <th style="text-align: center;">Тип</th>
-                            <th style="text-align: center;">По умолчанию</th>
-                            <th>Опиание</th>
-                        </tr>
-                        <tr>
-                            <td style="text-align: center;">itemClass</td>
-                            <td style="text-align: center;"><strong>String</strong></td>
-                            <td style="text-align: center;"><em>undefined</em></td>
-                            <td>Дополнительный класс для кнопки</td>
-                        </tr>
-                        <tr>
-                            <td style="text-align: center;">param*</td>
-                            <td style="text-align: center;"><strong>Object</strong></td>
-                            <td style="text-align: center;"><em>undefined</em></td>
-                            <td><em>Обязательное свойство. Параметры, которые необходимо подставить или заменить в адресной строке, и при совпадении с которыми кнопка полузит активное состояние</em></td>
-                        </tr>
-                    </table><pre><code class="html">&lt;context-menu&gt;
+                            <div id="elements-query"></div>
+                            <h3>GET-параметры в адресной строке <mark>&lt;cm-query&gt;</mark> </h3>
+                            <p>Компонент предназначен для вставки GET-параметров в адресную строку браузера без перезагрузки (например для фильтрации или сортировки), другие компоненты могут отслеживать эти параметры и обновлять данные.</p>
+                            <p><em>Свойства элемента <mark>&lt;cm-query&gt;</mark> </em></p>
+                            <table>
+                                <tr>
+                                    <th style="text-align: center;">Название</th>
+                                    <th style="text-align: center;">Тип</th>
+                                    <th style="text-align: center;">По умолчанию</th>
+                                    <th>Опиание</th>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: center;">itemClass</td>
+                                    <td style="text-align: center;"><strong>String</strong></td>
+                                    <td style="text-align: center;"><em>undefined</em></td>
+                                    <td>Дополнительный класс для кнопки</td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: center;">param*</td>
+                                    <td style="text-align: center;"><strong>Object</strong></td>
+                                    <td style="text-align: center;"><em>undefined</em></td>
+                                    <td><em>Обязательное свойство. Параметры, которые необходимо подставить или заменить в адресной строке, и при совпадении с которыми кнопка полузит активное состояние</em></td>
+                                </tr>
+                            </table><pre><code class="html">&lt;context-menu&gt;
     &lt;cm-query :param="{state: 'active'}"&gt;
         I am active
     &lt;/cm-query&gt;
     &lt;cm-query :param="{state: 'not-active'}"&gt;
         I am not act
 &lt;/context-menu&gt;</code></pre>
-                    <div class="vue-example">
-                        <context-menu>
-                            <cm-query :param="{state: 'active'}">I am active</cm-query>
-                            <cm-query :param="{state: 'not-active'}">I am not active</cm-query>
-                        </context-menu>
-                    </div>
-                    <p>HTML выглядит как</p><pre><code class="html">&lt;li class="cm-item"&gt;
+                            <div class="vue-example">
+                                <context-menu>
+                                    <cm-query :param="{state: 'active'}">I am active</cm-query>
+                                    <cm-query :param="{state: 'not-active'}">I am not active</cm-query>
+                                </context-menu>
+                            </div>
+                            <p>HTML выглядит как</p><pre><code class="html">&lt;li class="cm-item"&gt;
     &lt;button class="cm-item__button is-active"&gt;
         I am active
     &lt;/button&gt;
@@ -416,55 +403,55 @@
         I am not active
     &lt;/button&gt;
 &lt;/li&gt;</code></pre>
-                    <div id="elements-ajax"></div>
-                    <h3>AJAX-запрос <mark>&lt;cm-ajax&gt;</mark></h3>
-                    <p>Компонент предназначен для отправки данных на сервер с возможностью вызова метода для обработки полученного ответа, обрабатывая событие <mark>sended</mark>, в который передаются данные ответа. Для отправки запроса используется миксин <mark>serverRequest</mark></p>
-                    <p><em>Свойства элемента <mark>cm-ajax</mark></em></p>
-                    <table>
-                        <tr>
-                            <th style="text-align: center;">Название</th>
-                            <th style="text-align: center;">Тип</th>
-                            <th style="text-align: center;">По умолчанию</th>
-                            <th>Опиание</th>
-                        </tr>
-                        <tr>
-                            <td style="text-align: center;">itemClass</td>
-                            <td style="text-align: center;"><strong>String</strong></td>
-                            <td style="text-align: center;"><em>undefined</em></td>
-                            <td>Дополнительный класс для кнопки</td>
-                        </tr>
-                        <tr>
-                            <td style="text-align: center;">params</td>
-                            <td style="text-align: center;"><strong>Object</strong></td>
-                            <td style="text-align: center;"><mark>{}</mark></td>
-                            <td>Объект данных для отправки</td>
-                        </tr>
-                        <tr>
-                            <td style="text-align: center;">url*</td>
-                            <td style="text-align: center;"><strong>String</strong></td>
-                            <td style="text-align: center;"><em>undefined</em></td>
-                            <td><em>Обязательный параметр</em>. Адрес запроса</td>
-                        </tr>
-                        <tr>
-                            <td style="text-align: center;">method</td>
-                            <td style="text-align: center;"><strong>String</strong></td>
-                            <td style="text-align: center;"><mark>get</mark></td>
-                            <td>Метод для проведения запроса, ограничен вариантами <mark>get</mark>, <mark>put</mark>,<mark>post</mark>, <mark>delete</mark>, <mark>patch</mark></td>
-                        </tr>
-                    </table>
-                    <p><em>События, вызываемые элементом <mark>cm-ajax</mark></em></p>
-                    <table>
-                        <tr>
-                            <th style="text-align: center;">Название</th>
-                            <th style="text-align: center;">Аргументы</th>
-                            <th>Опиание</th>
-                        </tr>
-                        <tr>
-                            <td style="text-align: center;">sended</td>
-                            <td style="text-align: center;">data (<mark>Object</mark>)</td>
-                            <td>Вызвается после получения ответа и передаёт присланные данные</td>
-                        </tr>
-                    </table><pre><code class="html">&lt;context-menu&gt;
+                            <div id="elements-ajax"></div>
+                            <h3>AJAX-запрос <mark>&lt;cm-ajax&gt;</mark></h3>
+                            <p>Компонент предназначен для отправки данных на сервер с возможностью вызова метода для обработки полученного ответа, обрабатывая событие <mark>sended</mark>, в который передаются данные ответа. Для отправки запроса используется миксин <mark>serverRequest</mark></p>
+                            <p><em>Свойства элемента <mark>cm-ajax</mark></em></p>
+                            <table>
+                                <tr>
+                                    <th style="text-align: center;">Название</th>
+                                    <th style="text-align: center;">Тип</th>
+                                    <th style="text-align: center;">По умолчанию</th>
+                                    <th>Опиание</th>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: center;">itemClass</td>
+                                    <td style="text-align: center;"><strong>String</strong></td>
+                                    <td style="text-align: center;"><em>undefined</em></td>
+                                    <td>Дополнительный класс для кнопки</td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: center;">params</td>
+                                    <td style="text-align: center;"><strong>Object</strong></td>
+                                    <td style="text-align: center;"><mark>{}</mark></td>
+                                    <td>Объект данных для отправки</td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: center;">url*</td>
+                                    <td style="text-align: center;"><strong>String</strong></td>
+                                    <td style="text-align: center;"><em>undefined</em></td>
+                                    <td><em>Обязательный параметр</em>. Адрес запроса</td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: center;">method</td>
+                                    <td style="text-align: center;"><strong>String</strong></td>
+                                    <td style="text-align: center;"><mark>get</mark></td>
+                                    <td>Метод для проведения запроса, ограничен вариантами <mark>get</mark>, <mark>put</mark>,<mark>post</mark>, <mark>delete</mark>, <mark>patch</mark></td>
+                                </tr>
+                            </table>
+                            <p><em>События, вызываемые элементом <mark>cm-ajax</mark></em></p>
+                            <table>
+                                <tr>
+                                    <th style="text-align: center;">Название</th>
+                                    <th style="text-align: center;">Аргументы</th>
+                                    <th>Опиание</th>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: center;">sended</td>
+                                    <td style="text-align: center;">data (<mark>Object</mark>)</td>
+                                    <td>Вызвается после получения ответа и передаёт присланные данные</td>
+                                </tr>
+                            </table><pre><code class="html">&lt;context-menu&gt;
     &lt;cm-ajax
         method="post"
         url="https://httpbin.org/post"
@@ -474,20 +461,20 @@
     &lt;/cm-ajax&gt;
 &lt;/context-menu&gt;
 </code></pre>
-                    <div class="vue-example">
-                        <context-menu>
-                            <cm-ajax method="post" url="https://httpbin.org/post" :params="{param1: 'one', param2: 'two'}" @sended="({ data }) =&gt; $notify({ group:'right-b', text: JSON.stringify(data) })">Send request</cm-ajax>
-                        </context-menu>
-                    </div>
-                    <p>Разультат в HTML</p><pre><code class="html">&lt;li class="cm-item"&gt;
+                            <div class="vue-example">
+                                <context-menu>
+                                    <cm-ajax method="post" url="https://httpbin.org/post" :params="{param1: 'one', param2: 'two'}" @sended="({ data }) =&gt; $notify({ group:'right-b', text: JSON.stringify(data) })">Send request</cm-ajax>
+                                </context-menu>
+                            </div>
+                            <p>Разультат в HTML</p><pre><code class="html">&lt;li class="cm-item"&gt;
     &lt;button class="cm-item__button"&gt;
         Send request
     &lt;/button&gt;
 &lt;/li&gt;</code></pre>
-                    <div id="toggler-slot"></div>
-                    <h2>Стилизация открывающей кнопки</h2>
-                    <p>Кнопка, открывающая контекстное меню может быть изменена с помощью <a href="https://ru.vuejs.org/v2/guide/components-slots.html" target="_blank">слота, </a>с именем <mark>toggler</mark>. Содержимое слота помещается внутри тега, поэтому не должно содержать блочных по семантике элементов (<mark>&lt;div&gt;</mark>). Блочный контент должен быть представлен в виде 11<mark>&lt;span style='display:block;' &gt;</mark></p>
-                    <p> <strong>Пример</strong></p><pre><code class="html">&lt;context-menu&gt;
+                            <div id="toggler-slot"></div>
+                            <h2>Стилизация открывающей кнопки</h2>
+                            <p>Кнопка, открывающая контекстное меню может быть изменена с помощью <a href="https://ru.vuejs.org/v2/guide/components-slots.html" target="_blank">слота, </a>с именем <mark>toggler</mark>. Содержимое слота помещается внутри тега, поэтому не должно содержать блочных по семантике элементов (<mark>&lt;div&gt;</mark>). Блочный контент должен быть представлен в виде 11<mark>&lt;span style='display:block;' &gt;</mark></p>
+                            <p> <strong>Пример</strong></p><pre><code class="html">&lt;context-menu&gt;
     &lt;span slot="toggler" class="new-toggler"&gt;Open me&lt;/span&gt;
     &lt;cm-button&gt;
         Click me!
@@ -506,11 +493,38 @@
     height: 30px;
 }
 &lt;/style&gt;</code></pre>
-                    <div class="vue-example">
-                        <context-menu><span slot="toggler" style="display: inline-block; color: white; background-color: lightseagreen; border: 1px solid aqua; padding: 5px 15px; margin-bottom: 3px; border-radius: 15px; height: 30px;">Open
+                            <div class="vue-example">
+                                <context-menu><span slot="toggler" style="display: inline-block; color: white; background-color: lightseagreen; border: 1px solid aqua; padding: 5px 15px; margin-bottom: 3px; border-radius: 15px; height: 30px;">Open
 me</span>
-                            <cm-button>Click me!</cm-button>
-                        </context-menu>
+                                    <cm-button>Click me!</cm-button>
+                                </context-menu>
+                            </div>
+                        </div>
+                        <div class="frame__inlayout-aside">
+                            <div class="frame__aside-select">
+                                <div class="grid grid_forms">
+                                    <fb-select label="Choose Version"></fb-select>
+                                </div>
+                            </div><!-- class frame__inlayout-block_fixed can make a block float top-->
+                            <div class="frame__inlayout-block frame__inlayout-block_fixed2">
+                                <ul class="tf-titlenav">
+                                    <li><a class="active" href="#minimal-markup">Минимальная разметка</a></li>
+                                    <li><a href="#wrapper-props"> Параметры компонента-обёртки <em>&lt;context-menu&gt;</em></a></li>
+                                    <li><a href="#positioning">Позиционирование на экране</a></li>
+                                    <li><a href="#elements">Элементы контекстного меню</a>
+                                        <ul>
+                                            <li><a href="#elements-button">Кнопка <em>&lt;cm-button&gt;</em></a></li>
+                                            <li><a href="#elements-link">Ссылка <em>&lt;cm-link&gt;</em></a></li>
+                                            <li><a href="#elements-separator">Разделитель <em>&lt;cm-separator&gt;</em></a></li>
+                                            <li><a href="#elements-panel">Панель <em>&lt;cm-panel&gt;</em></a></li>
+                                            <li><a href="#elements-query">GET-параметры в адресной строке <em>&lt;cm-query&gt;</em></a></li>
+                                            <li><a href="#elements-ajax">AJAX-запрос <em>&lt;cm-ajax&gt;</em></a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#toggler-slot">Стилизация открывающей кнопки</a></li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

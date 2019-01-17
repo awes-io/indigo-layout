@@ -4,6 +4,19 @@
 .frame
   fl()
   min-height 100vh
+  & &__inlayout
+    fl(,sb)
+    &-content
+      width calc(100% - 340px)
+    &-aside
+      width 300px
+    &-block
+      display block
+      width 300px
+      padding 15px 40px
+      &_fixed
+        fixed top 30px right 40px
+        z-index 750
   & &__mobile-shadow
     display none
   & &__aside
@@ -11,6 +24,9 @@
     min-height 100vh
     flex-shrink 0
     z-index 990
+    &-select
+      margin-bottom 30px
+      
     &-ava
       display block
       size 50px

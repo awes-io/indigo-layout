@@ -6,551 +6,565 @@ block pageVariables
 block pageHead
     // there is can be head meta or sctipts
     script(src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/context-menu/v0.1.1/js/main.js")
+    script(src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/form-builder/v0.1.4/js/main.js")
 
 
 block pageContent
-    h1 Компонент контекстное меню (context-menu)
-    ul
-        li
-            a(href='#minimal-markup') Минимальная разметка
-        li
-            a(href='#wrapper-props') 
-                | Параметры компонента-обёртки 
-                mark &lt;context-menu&gt;
-        li
-            a(href='#positioning') Позиционирование на экране
-        li
-            a(href='#elements') Элементы контекстного меню
-            ul
-                li
-                    a(href='#elements-button')
-                        | Кнопка 
-                        mark &lt;cm-button&gt;
-                li
-                    a(href='#elements-link')
-                        | Ссылка 
-                        mark &lt;cm-link&gt;
-                li
-                    a(href='#elements-separator')
-                        | Разделитель 
-                        mark &lt;cm-separator&gt;
-                li
-                    a(href='#elements-panel')
-                        | Панель 
-                        mark &lt;cm-panel&gt;
-                li
-                    a(href='#elements-query')
-                        | GET-параметры в адресной строке 
-                        mark &lt;cm-query&gt;
-                li
-                    a(href='#elements-ajax')
-                        | AJAX-запрос 
-                        mark &lt;cm-ajax&gt;
-        li
-            a(href='#toggler-slot') Стилизация открывающей кнопки
-
-    p Предназначен для отображения скрытого по-умолчанию списка нажатием на кнопку
-
-
-
-    #minimal-markup
-    h2 Минимальная разметка
-    p Компонент состоит из раскрывающейся обёртки (dropdown) и элементов. Без элементов внутри обёртки, она не имеет смысла, поэтому минимальная разметка выглядит как
-    
-    pre
-        code.html.
-            &lt;context-menu&gt;
-                &lt;cm-button&gt;Click me!&lt;/cm-button&gt;
-            &lt;/context-menu&gt;
-
-    p
-        strong Внешний вид
-    .vue-example
-        context-menu
-            cm-button Click me!
-    p
-        strong Сгенерированная разметка
-    pre
-        code.html.
-            &lt;div class="context-menu"&gt;
-                &lt;button aria-haspopup="true" class="context-menu__toggler context-menu__toggler-default"&gt;
-                    &lt;i class="icon icon-dots"&gt;&lt;/i&gt;
-                &lt;/button&gt;
-                &lt;div aria-expanded="false" class="context-menu__dropdown" style="display: none;"&gt;
-                    &lt;ul class="context-menu__list"&gt;
-                        &lt;li class="cm-item"&gt;
-                            &lt;button class="cm-item__button"&gt;Click me!&lt;/button&gt;
-                        &lt;/li&gt;
-                    &lt;/ul&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-    p
-        em Открытие выпадающего списка происходит нажатием на открывающую кнопку, 
-        em закрытие кликом на ту же кнопку, на ссылку или кнопку среди 
-        a(href='#elements') элементов контекстного меню или кликом снаружи выпадающего меню
-
-
-
-    #wrapper-props
-    h2 Параметры компонента-обёртки <mark>&lt;context-menu&gt;</mark>
-    table
-        tr
-            th Название
-            th Тип
-            th По умолчанию
-            th Опиание
-        tr
-            td button-class
-            td
-                strong String
-            td
-                em undefined
-            td Дополнительный класс для кнопки, открывающей список
-        tr
-            td right
-            td
-                strong Boolean
-            td
-                mark false
-            td
-                | Приоритет в 
-                a(href='#positioning-info') расположении списка
-                |  по правой границе
-                | 				открывающей кнопки
-        tr
-            td top
-            td
-                strong Boolean
-            td
-                mark false
-            td
-                | Приоритет в раскрытии списка вверх, 
-                a(href='#positioning-info') располагаясь
-                |  сверху открывающей кнопки
-        tr
-            td auto-position
-            td
-                strong Boolean
-            td
-                mark true
-            td
-                a(href='#positioning-auto') Автоматическое позиционирование
-                |  списка в
-                | 				зависимости от заданных границ и видимости на экране
-        tr
-            td boundary
-            td
-                strong String
-            td
-                mark body
-            td
-                | Селектор элемента - 
-                a(href='#positioning-bounds') границы для автоматического позиционирования списка		
-
-
-
-    #positioning
-    h2 Позиционирование на экране
-    p Раскрывающийся список (dropdown) располагается относительно открывающей кнопки, и по-умолчанию примыкает к нижней и левой границам и открывается вниз
-    
-    
-    
-    #positioning-info
-    p
-        strong Варианты расположения
-    p
-        strong По-умолчанию
-    .vue-example
-        context-menu(:auto-position='false')
-            cm-button Click me!
-    p
-        strong Сверху (<mark>top</mark>)
-    .vue-example
-        context-menu(top='', :auto-position='false')
-            cm-button Click me!
-    p
-        strong По правой стороне (<mark>right</mark>)
-    .vue-example
-        context-menu(right='', :auto-position='false')
-            cm-button Click me!
-    p
-        strong Сверху по правой стороне (<mark>top</mark>, <mark>right</mark>)
-    .vue-example
-        context-menu(top='', right='', :auto-position='false')
-            cm-button Click me!
-    #positioning-auto
-    p <strong> Автоматическое позиционирование</strong>: Заданное расположение является лишь рекомендацией, если включен параметр <mark>auto-position = true</mark>. Если при заданном положении раскрывающийся список не отображается в области видимости или не вписывается в <a href='#positioning-bounds'>ограничительный контейнер</a>, то он изменит своё положение, так чтобы:
-    ol
-        li отобразиться на экране максимально видимым
-        li вписаться в <a href='#positioning-bounds'>границы</a>
-    #positioning-bounds
-    p <strong> Ограничительный контейнер</strong>: Свойство <mark>boundary</mark> - селектор границы, по-умолчанию, или если по-селектору не найден элемент среди родителей компонента этим контейнером является контейнер страницы <mark>body</mark> 
-    p
-        em Выпадающий список не может раскрыться вниз и вправо, но может вписаться в границы поэтому он открывается вверх и влево
-    .vue-example
-        .vue-example__bounds(style='padding: 50px 15px 15px;height: 100px; width: 270px; ')
-            context-menu(style='float: right;', boundary='.vue-example__bounds')
-                cm-button Click me!
-    p
-        em Выпадающий список не может вписаться в границы, открывшись вверх и влево, поэтому он открывается вниз и влево (это направление в приритете) при этом он старается отображаться на экране максимально видимым
-    .vue-example
-        .vue-example__bounds(style='padding:10px; height: 50px; width: 50px; ')
-            context-menu(top='', right='', boundary='.vue-example__bounds')
-                cm-button Click me!
-                cm-button Click me too!
-                cm-button Click me too!
-
-
-
-
-    #elements
-    h2 Элементы контекстного меню
-
-
-    #elements-button
-    h3 Кнопка <mark>&lt;cm-button&gt;</mark>
+    .frame__inlayout
         
-    pre
-        code.html.
-            &lt;context-menu&gt;
-                &lt;cm-button @click="someMethod"&gt;Click me!&lt;/cm-button&gt;
-            &lt;/context-menu&gt;
-    p
-        img(src='/uploads/1f2a1658ec55e1aeaadfab168efd79b0/default-opened.png', alt='button')
-    p
-        em Свойства элемента <mark>&lt;cm-button&gt;</mark>
+        .frame__inlayout-content
+            h1 Компонент контекстное меню (context-menu)
 
-    table
-        tr
-            th(style='text-align: center;') Название
-            th(style='text-align: center;') Тип
-            th(style='text-align: center;') По умолчанию
-            th Опиание
-        tr
-            td(style='text-align: center;') itemClass
-            td(style='text-align: center;')
-                strong String
-            td(style='text-align: center;')
-                em undefined
-            td Дополнительный класс для кнопки
-    
-    p На элемент нужно навешивать обработчики событий и можно добавлять дополтительные атрибуты. Без бработчика клик по кнопке будет просто закрывать открытое меню. Такая разметка
-    
-    pre
-        code.html.
-            &lt;cm-button class="list-item-class" item-class="item-class" @click="$notify({group: 'right-b', type: 'sucсess', title: 'Notification!'})"&gt; Send notification &lt;/cm-button&gt;
-    
-    .vue-example
-        context-menu
-            cm-button.list-item-class(item-class='item-class', aria-label='Awesome Button!', @click="$notify({group: 'right-b', type: 'sucсess', title: 'Notification!'})") Send notification
-    p Будет сгенерирована в такой HTML, по клику будет вызван метод  <mark>someMethod</mark>:
-    
-    pre
-        code.html.
-            &lt;li class="cm-item list-item-class"&gt;
-                &lt;button aria-label="Awesome Button!" class="cm-item__button item-class"&gt;
-                    Send notification
-                &lt;/button&gt;
-            &lt;/li&gt;
+            p Предназначен для отображения скрытого по-умолчанию списка нажатием на кнопку
 
 
-    #elements-link
-    h3 Ссылка <mark>&lt;cm-link&gt;</mark>
 
-    pre
-        code.html.
-            &lt;context-menu&gt;
-                &lt;cm-link href="https://some.url"&gt;This is a link elemen&lt;/cm-link&gt;
-            &lt;/context-menu&gt;
-
-    .vue-example
-        context-menu
-            cm-link(href='https://google.com', target='_blank', rel='nofollow noopener') This is a link element
-    
-    p
-        em Свойства элемента <mark>&lt;cm-link&gt;</mark>  
-    
-    table
-        tr
-            th(style='text-align: center;') Название
-            th(style='text-align: center;') Тип
-            th(style='text-align: center;') По умолчанию
-            th Опиание
-        tr
-            td(style='text-align: center;') itemClass
-            td(style='text-align: center;')
-                strong String
-            td(style='text-align: center;')
-                em undefined
-            td Дополнительный класс для ссылки
-        tr
-            td(style='text-align: center;') href*
-            td(style='text-align: center;')
-                strong String
-            td(style='text-align: center;')
-                em undefined
-            td url или якорь, обязательное свойство
-    p Также на элемент можно навешивать обработчики событий и добавлять дополтительные атрибуты, для примера, такая разметка
-    pre
-        code.html.
-            &lt;context-menu&gt;
-                &lt;cm-link href="#anchor"
-                        class="list-item-class"
-                        item-class="item-class"
-                        data-prop="someProp"
-                        @click.prevent="someMethod"&gt;
-                    This is a link element
-                &lt;/cm-link&gt;
-            &lt;/context-menu&gt;
-    .vue-example
-        context-menu
-            cm-link.list-item-class(href='#anchor', item-class='item-class', data-prop='someProp', @click.prevent='someMethod') This is a link element
-    p Будет сгенерирована в такой HTML, по клику перехода не будет, а будет вызван метод <mark>someMethod</mark>:
-    pre
-        code.html.
-            &lt;li class="cm-item list-item-class"&gt;
-                &lt;a href="#anchor" data-prop="someProp" class="cm-item__link item-class"&gt;
-                    This is a link element
-                &lt;/a&gt;
-            &lt;/li&gt;
-    h3
-        a(href="" name='elements-separator') 
-        | Разделитель <mark>&lt;cm-separator&gt;</mark>
-    pre
-        code.html.
-            &lt;context-menu&gt;
-                &lt;cm-button&gt;Above separator&lt;/cm-button&gt;
-                &lt;cm-separator&gt;&lt;/cm-separator&gt;&lt;!-- разделитель --&gt;
-                &lt;cm-button&gt;Below separator&lt;/cm-button&gt;
-            &lt;/context-menu&gt;
-    .vue-example
-        context-menu
-            cm-button Above separator
-            cm-separator
-            cm-button Below separator
-    #elements-panel
-    h3 Панель <mark>&lt;cm-panel&gt;</mark>
-    p Компонент предназначен для размещения контента внутри контекстного меню
-    pre
-        code.html.
-            &lt;context-menu&gt;
-                &lt;cm-panel&gt;
-                    Default panel
-                &lt;/cm-panel&gt;
-                &lt;cm-panel secondary&gt;
-                    Secondary panel
-                &lt;/cm-panel&gt;
-            &lt;/context-menu&gt;
-    .vue-example
-        context-menu
-            cm-panel Default panel
-            cm-panel(secondary='') Secondary panel
-    p Свойства элемента <mark>&lt;cm-panel&gt;</mark>       
-    table
-        tr
-            th(style='text-align: center;') Название
-            th(style='text-align: center;') Тип
-            th(style='text-align: center;') По умолчанию
-            th Опиание
-        tr
-            td(style='text-align: center;') secondary
-            td(style='text-align: center;')
-                strong Boolean
-            td(style='text-align: center;')
-                mark false
-            td Меняет цвет фона на более тёмный
-    p Сгенерированная разметка
-    pre
-        code.html.
-            &lt;li class="cm-item"&gt;
-                &lt;div class="cm-item__panel"&gt;
-                    Default panel
-                &lt;/div&gt;
-            &lt;/li&gt;
-            &lt;li class="cm-item"&gt;
-                &lt;div class="cm-item__panel is-secondary"&gt;
-                    Secondary panel
-                &lt;/div&gt;
-            &lt;/li&gt;
-    #elements-query
-    h3 GET-параметры в адресной строке  <mark>&lt;cm-query&gt;</mark> 
-    p Компонент предназначен для вставки GET-параметров в адресную строку браузера без перезагрузки (например для фильтрации или сортировки), другие компоненты могут отслеживать эти параметры и обновлять данные.
-    p
-        em Свойства элемента <mark>&lt;cm-query&gt;</mark> 
-                
-    table
-        tr
-            th(style='text-align: center;') Название
-            th(style='text-align: center;') Тип
-            th(style='text-align: center;') По умолчанию
-            th Опиание
-        tr
-            td(style='text-align: center;') itemClass
-            td(style='text-align: center;')
-                strong String
-            td(style='text-align: center;')
-                em undefined
-            td Дополнительный класс для кнопки
-        tr
-            td(style='text-align: center;') param*
-            td(style='text-align: center;')
-                strong Object
-            td(style='text-align: center;')
-                em undefined
-            td
-                em Обязательное свойство. Параметры, которые необходимо подставить или заменить в адресной строке, и при совпадении с которыми кнопка полузит активное состояние
-    pre
-        code.html.
-            &lt;context-menu&gt;
-                &lt;cm-query :param="{state: 'active'}"&gt;
-                    I am active
-                &lt;/cm-query&gt;
-                &lt;cm-query :param="{state: 'not-active'}"&gt;
-                    I am not act
-            &lt;/context-menu&gt;
-    .vue-example
-        context-menu
-            cm-query(:param="{state: 'active'}") I am active
-            cm-query(:param="{state: 'not-active'}") I am not active
-    p HTML выглядит как
-    pre
-        code.html.
-            &lt;li class="cm-item"&gt;
-                &lt;button class="cm-item__button is-active"&gt;
-                    I am active
-                &lt;/button&gt;
-            &lt;/li&gt;
-            &lt;li class="cm-item"&gt;
-                &lt;button class="cm-item__button"&gt;
-                    I am not active
-                &lt;/button&gt;
-            &lt;/li&gt;
-    #elements-ajax
-    h3 AJAX-запрос <mark>&lt;cm-ajax&gt;</mark>
-    p Компонент предназначен для отправки данных на сервер с возможностью вызова метода для обработки полученного ответа, обрабатывая событие <mark>sended</mark>, в который передаются данные ответа. Для отправки запроса используется миксин <mark>serverRequest</mark>
-        
-    p
-        em Свойства элемента <mark>cm-ajax</mark>
+            #minimal-markup
+            h2 Минимальная разметка
+            p Компонент состоит из раскрывающейся обёртки (dropdown) и элементов. Без элементов внутри обёртки, она не имеет смысла, поэтому минимальная разметка выглядит как
             
+            pre
+                code.html.
+                    &lt;context-menu&gt;
+                        &lt;cm-button&gt;Click me!&lt;/cm-button&gt;
+                    &lt;/context-menu&gt;
+
+            p
+                strong Внешний вид
+            .vue-example
+                context-menu
+                    cm-button Click me!
+            p
+                strong Сгенерированная разметка
+            pre
+                code.html.
+                    &lt;div class="context-menu"&gt;
+                        &lt;button aria-haspopup="true" class="context-menu__toggler context-menu__toggler-default"&gt;
+                            &lt;i class="icon icon-dots"&gt;&lt;/i&gt;
+                        &lt;/button&gt;
+                        &lt;div aria-expanded="false" class="context-menu__dropdown" style="display: none;"&gt;
+                            &lt;ul class="context-menu__list"&gt;
+                                &lt;li class="cm-item"&gt;
+                                    &lt;button class="cm-item__button"&gt;Click me!&lt;/button&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+            p
+                em Открытие выпадающего списка происходит нажатием на открывающую кнопку, 
+                em закрытие кликом на ту же кнопку, на ссылку или кнопку среди 
+                a(href='#elements') элементов контекстного меню или кликом снаружи выпадающего меню
+
+
+
+            #wrapper-props
+            h2 Параметры компонента-обёртки <mark>&lt;context-menu&gt;</mark>
+            table
+                tr
+                    th Название
+                    th Тип
+                    th По умолчанию
+                    th Опиание
+                tr
+                    td button-class
+                    td
+                        strong String
+                    td
+                        em undefined
+                    td Дополнительный класс для кнопки, открывающей список
+                tr
+                    td right
+                    td
+                        strong Boolean
+                    td
+                        mark false
+                    td
+                        | Приоритет в 
+                        a(href='#positioning-info') расположении списка
+                        |  по правой границе
+                        | 				открывающей кнопки
+                tr
+                    td top
+                    td
+                        strong Boolean
+                    td
+                        mark false
+                    td
+                        | Приоритет в раскрытии списка вверх, 
+                        a(href='#positioning-info') располагаясь
+                        |  сверху открывающей кнопки
+                tr
+                    td auto-position
+                    td
+                        strong Boolean
+                    td
+                        mark true
+                    td
+                        a(href='#positioning-auto') Автоматическое позиционирование
+                        |  списка в
+                        | 				зависимости от заданных границ и видимости на экране
+                tr
+                    td boundary
+                    td
+                        strong String
+                    td
+                        mark body
+                    td
+                        | Селектор элемента - 
+                        a(href='#positioning-bounds') границы для автоматического позиционирования списка		
+
+
+
+            #positioning
+            h2 Позиционирование на экране
+            p Раскрывающийся список (dropdown) располагается относительно открывающей кнопки, и по-умолчанию примыкает к нижней и левой границам и открывается вниз
+            
+            
+            
+            #positioning-info
+            p
+                strong Варианты расположения
+            p
+                strong По-умолчанию
+            .vue-example
+                context-menu(:auto-position='false')
+                    cm-button Click me!
+            p
+                strong Сверху (<mark>top</mark>)
+            .vue-example
+                context-menu(top='', :auto-position='false')
+                    cm-button Click me!
+            p
+                strong По правой стороне (<mark>right</mark>)
+            .vue-example
+                context-menu(right='', :auto-position='false')
+                    cm-button Click me!
+            p
+                strong Сверху по правой стороне (<mark>top</mark>, <mark>right</mark>)
+            .vue-example
+                context-menu(top='', right='', :auto-position='false')
+                    cm-button Click me!
+            #positioning-auto
+            p <strong> Автоматическое позиционирование</strong>: Заданное расположение является лишь рекомендацией, если включен параметр <mark>auto-position = true</mark>. Если при заданном положении раскрывающийся список не отображается в области видимости или не вписывается в <a href='#positioning-bounds'>ограничительный контейнер</a>, то он изменит своё положение, так чтобы:
+            ol
+                li отобразиться на экране максимально видимым
+                li вписаться в <a href='#positioning-bounds'>границы</a>
+            #positioning-bounds
+            p <strong> Ограничительный контейнер</strong>: Свойство <mark>boundary</mark> - селектор границы, по-умолчанию, или если по-селектору не найден элемент среди родителей компонента этим контейнером является контейнер страницы <mark>body</mark> 
+            p
+                em Выпадающий список не может раскрыться вниз и вправо, но может вписаться в границы поэтому он открывается вверх и влево
+            .vue-example
+                .vue-example__bounds(style='padding: 50px 15px 15px;height: 100px; width: 270px; ')
+                    context-menu(style='float: right;', boundary='.vue-example__bounds')
+                        cm-button Click me!
+            p
+                em Выпадающий список не может вписаться в границы, открывшись вверх и влево, поэтому он открывается вниз и влево (это направление в приритете) при этом он старается отображаться на экране максимально видимым
+            .vue-example
+                .vue-example__bounds(style='padding:10px; height: 50px; width: 50px; ')
+                    context-menu(top='', right='', boundary='.vue-example__bounds')
+                        cm-button Click me!
+                        cm-button Click me too!
+                        cm-button Click me too!
+
+
+
+
+            #elements
+            h2 Элементы контекстного меню
+
+
+            #elements-button
+            h3 Кнопка <mark>&lt;cm-button&gt;</mark>
                 
-    table
-        tr
-            th(style='text-align: center;') Название
-            th(style='text-align: center;') Тип
-            th(style='text-align: center;') По умолчанию
-            th Опиание
-        tr
-            td(style='text-align: center;') itemClass
-            td(style='text-align: center;')
-                strong String
-            td(style='text-align: center;')
-                em undefined
-            td Дополнительный класс для кнопки
-        tr
-            td(style='text-align: center;') params
-            td(style='text-align: center;')
-                strong Object
-            td(style='text-align: center;')
-                mark {}
-            td Объект данных для отправки
-        tr
-            td(style='text-align: center;') url*
-            td(style='text-align: center;')
-                strong String
-            td(style='text-align: center;')
-                em undefined
-            td
-                em Обязательный параметр
-                | . Адрес запроса
-        tr
-            td(style='text-align: center;') method
-            td(style='text-align: center;')
-                strong String
-            td(style='text-align: center;')
-                mark get
-            td
-                | Метод для проведения запроса, ограничен вариантами 
-                mark get
-                | , 
-                mark put
-                | ,
-                mark post
-                | , 
-                mark delete
-                | , 
-                mark patch
-    p
-        em
-            | События, вызываемые элементом 
-            mark cm-ajax
-    table
-        tr
-            th(style='text-align: center;') Название
-            th(style='text-align: center;') Аргументы
-            th Опиание
-        tr
-            td(style='text-align: center;') sended
-            td(style='text-align: center;')
-                | data (
-                mark Object
-                | )
-            td Вызвается после получения ответа и передаёт присланные данные
-    pre
-        code.html.
-            &lt;context-menu&gt;
-                &lt;cm-ajax
-                    method="post"
-                    url="https://httpbin.org/post"
-                    :params="{param1: 'one', param2: 'two'}"
-                    @sended="({ data }) =&gt; $notify({ group:'right-b', text: JSON.stringify(data) })"&gt;
-                    Send request
-                &lt;/cm-ajax&gt;
-            &lt;/context-menu&gt;
+            pre
+                code.html.
+                    &lt;context-menu&gt;
+                        &lt;cm-button @click="someMethod"&gt;Click me!&lt;/cm-button&gt;
+                    &lt;/context-menu&gt;
+            p
+                img(src='/uploads/1f2a1658ec55e1aeaadfab168efd79b0/default-opened.png', alt='button')
+            p
+                em Свойства элемента <mark>&lt;cm-button&gt;</mark>
 
-    .vue-example
-        context-menu
-            cm-ajax(method='post', url='https://httpbin.org/post', :params="{param1: 'one', param2: 'two'}", @sended="({ data }) => $notify({ group:'right-b', text: JSON.stringify(data) })") Send request
-    p Разультат в HTML
-    pre
-        code.html.
-            &lt;li class="cm-item"&gt;
-                &lt;button class="cm-item__button"&gt;
-                    Send request
-                &lt;/button&gt;
-            &lt;/li&gt;
-    #toggler-slot
-    h2 Стилизация открывающей кнопки
-    p
-        | Кнопка, открывающая контекстное меню может быть изменена с помощью 
-        a(href='https://ru.vuejs.org/v2/guide/components-slots.html', target='_blank') слота, 
-        | с именем <mark>toggler</mark>. Содержимое слота помещается внутри тега, поэтому не должно содержать блочных по семантике элементов (<mark>&lt;div&gt;</mark>). Блочный контент должен быть представлен в виде 11<mark>&lt;span style='display:block;' &gt;</mark>
-    p 
-        strong Пример
+            table
+                tr
+                    th(style='text-align: center;') Название
+                    th(style='text-align: center;') Тип
+                    th(style='text-align: center;') По умолчанию
+                    th Опиание
+                tr
+                    td(style='text-align: center;') itemClass
+                    td(style='text-align: center;')
+                        strong String
+                    td(style='text-align: center;')
+                        em undefined
+                    td Дополнительный класс для кнопки
+            
+            p На элемент нужно навешивать обработчики событий и можно добавлять дополтительные атрибуты. Без бработчика клик по кнопке будет просто закрывать открытое меню. Такая разметка
+            
+            pre
+                code.html.
+                    &lt;cm-button class="list-item-class" item-class="item-class" @click="$notify({group: 'right-b', type: 'sucсess', title: 'Notification!'})"&gt; Send notification &lt;/cm-button&gt;
+            
+            .vue-example
+                context-menu
+                    cm-button.list-item-class(item-class='item-class', aria-label='Awesome Button!', @click="$notify({group: 'right-b', type: 'sucсess', title: 'Notification!'})") Send notification
+            p Будет сгенерирована в такой HTML, по клику будет вызван метод  <mark>someMethod</mark>:
+            
+            pre
+                code.html.
+                    &lt;li class="cm-item list-item-class"&gt;
+                        &lt;button aria-label="Awesome Button!" class="cm-item__button item-class"&gt;
+                            Send notification
+                        &lt;/button&gt;
+                    &lt;/li&gt;
 
-    pre
-        code.html.
-            &lt;context-menu&gt;
-                &lt;span slot="toggler" class="new-toggler"&gt;Open me&lt;/span&gt;
-                &lt;cm-button&gt;
-                    Click me!
-                &lt;/cm-button&gt;
-            &lt;/context-menu&gt;
 
-            &lt;style&gt;
-            .new-toggler {
-                display: inline-block;
-                color: white;
-                background-color: lightseagreen;
-                border: 1px solid aqua;
-                padding: 5px 15px;
-                margin-bottom: 3px;
-                border-radius: 15px;
-                height: 30px;
-            }
-            &lt;/style&gt;
-    .vue-example
-        context-menu
-            span(slot='toggler', style='display: inline-block; color: white; background-color: lightseagreen; border: 1px solid aqua; padding: 5px 15px; margin-bottom: 3px; border-radius: 15px; height: 30px;')
-                | Open
-                | me
-            cm-button Click me!
+            #elements-link
+            h3 Ссылка <mark>&lt;cm-link&gt;</mark>
+
+            pre
+                code.html.
+                    &lt;context-menu&gt;
+                        &lt;cm-link href="https://some.url"&gt;This is a link elemen&lt;/cm-link&gt;
+                    &lt;/context-menu&gt;
+
+            .vue-example
+                context-menu
+                    cm-link(href='https://google.com', target='_blank', rel='nofollow noopener') This is a link element
+            
+            p
+                em Свойства элемента <mark>&lt;cm-link&gt;</mark>  
+            
+            table
+                tr
+                    th(style='text-align: center;') Название
+                    th(style='text-align: center;') Тип
+                    th(style='text-align: center;') По умолчанию
+                    th Опиание
+                tr
+                    td(style='text-align: center;') itemClass
+                    td(style='text-align: center;')
+                        strong String
+                    td(style='text-align: center;')
+                        em undefined
+                    td Дополнительный класс для ссылки
+                tr
+                    td(style='text-align: center;') href*
+                    td(style='text-align: center;')
+                        strong String
+                    td(style='text-align: center;')
+                        em undefined
+                    td url или якорь, обязательное свойство
+            p Также на элемент можно навешивать обработчики событий и добавлять дополтительные атрибуты, для примера, такая разметка
+            pre
+                code.html.
+                    &lt;context-menu&gt;
+                        &lt;cm-link href="#anchor"
+                                class="list-item-class"
+                                item-class="item-class"
+                                data-prop="someProp"
+                                @click.prevent="someMethod"&gt;
+                            This is a link element
+                        &lt;/cm-link&gt;
+                    &lt;/context-menu&gt;
+            .vue-example
+                context-menu
+                    cm-link.list-item-class(href='#anchor', item-class='item-class', data-prop='someProp', @click.prevent='someMethod') This is a link element
+            p Будет сгенерирована в такой HTML, по клику перехода не будет, а будет вызван метод <mark>someMethod</mark>:
+            pre
+                code.html.
+                    &lt;li class="cm-item list-item-class"&gt;
+                        &lt;a href="#anchor" data-prop="someProp" class="cm-item__link item-class"&gt;
+                            This is a link element
+                        &lt;/a&gt;
+                    &lt;/li&gt;
+            h3
+                a(href="" name='elements-separator') 
+                | Разделитель <mark>&lt;cm-separator&gt;</mark>
+            pre
+                code.html.
+                    &lt;context-menu&gt;
+                        &lt;cm-button&gt;Above separator&lt;/cm-button&gt;
+                        &lt;cm-separator&gt;&lt;/cm-separator&gt;&lt;!-- разделитель --&gt;
+                        &lt;cm-button&gt;Below separator&lt;/cm-button&gt;
+                    &lt;/context-menu&gt;
+            .vue-example
+                context-menu
+                    cm-button Above separator
+                    cm-separator
+                    cm-button Below separator
+            #elements-panel
+            h3 Панель <mark>&lt;cm-panel&gt;</mark>
+            p Компонент предназначен для размещения контента внутри контекстного меню
+            pre
+                code.html.
+                    &lt;context-menu&gt;
+                        &lt;cm-panel&gt;
+                            Default panel
+                        &lt;/cm-panel&gt;
+                        &lt;cm-panel secondary&gt;
+                            Secondary panel
+                        &lt;/cm-panel&gt;
+                    &lt;/context-menu&gt;
+            .vue-example
+                context-menu
+                    cm-panel Default panel
+                    cm-panel(secondary='') Secondary panel
+            p Свойства элемента <mark>&lt;cm-panel&gt;</mark>       
+            table
+                tr
+                    th(style='text-align: center;') Название
+                    th(style='text-align: center;') Тип
+                    th(style='text-align: center;') По умолчанию
+                    th Опиание
+                tr
+                    td(style='text-align: center;') secondary
+                    td(style='text-align: center;')
+                        strong Boolean
+                    td(style='text-align: center;')
+                        mark false
+                    td Меняет цвет фона на более тёмный
+            p Сгенерированная разметка
+            pre
+                code.html.
+                    &lt;li class="cm-item"&gt;
+                        &lt;div class="cm-item__panel"&gt;
+                            Default panel
+                        &lt;/div&gt;
+                    &lt;/li&gt;
+                    &lt;li class="cm-item"&gt;
+                        &lt;div class="cm-item__panel is-secondary"&gt;
+                            Secondary panel
+                        &lt;/div&gt;
+                    &lt;/li&gt;
+            #elements-query
+            h3 GET-параметры в адресной строке  <mark>&lt;cm-query&gt;</mark> 
+            p Компонент предназначен для вставки GET-параметров в адресную строку браузера без перезагрузки (например для фильтрации или сортировки), другие компоненты могут отслеживать эти параметры и обновлять данные.
+            p
+                em Свойства элемента <mark>&lt;cm-query&gt;</mark> 
+                        
+            table
+                tr
+                    th(style='text-align: center;') Название
+                    th(style='text-align: center;') Тип
+                    th(style='text-align: center;') По умолчанию
+                    th Опиание
+                tr
+                    td(style='text-align: center;') itemClass
+                    td(style='text-align: center;')
+                        strong String
+                    td(style='text-align: center;')
+                        em undefined
+                    td Дополнительный класс для кнопки
+                tr
+                    td(style='text-align: center;') param*
+                    td(style='text-align: center;')
+                        strong Object
+                    td(style='text-align: center;')
+                        em undefined
+                    td
+                        em Обязательное свойство. Параметры, которые необходимо подставить или заменить в адресной строке, и при совпадении с которыми кнопка полузит активное состояние
+            pre
+                code.html.
+                    &lt;context-menu&gt;
+                        &lt;cm-query :param="{state: 'active'}"&gt;
+                            I am active
+                        &lt;/cm-query&gt;
+                        &lt;cm-query :param="{state: 'not-active'}"&gt;
+                            I am not act
+                    &lt;/context-menu&gt;
+            .vue-example
+                context-menu
+                    cm-query(:param="{state: 'active'}") I am active
+                    cm-query(:param="{state: 'not-active'}") I am not active
+            p HTML выглядит как
+            pre
+                code.html.
+                    &lt;li class="cm-item"&gt;
+                        &lt;button class="cm-item__button is-active"&gt;
+                            I am active
+                        &lt;/button&gt;
+                    &lt;/li&gt;
+                    &lt;li class="cm-item"&gt;
+                        &lt;button class="cm-item__button"&gt;
+                            I am not active
+                        &lt;/button&gt;
+                    &lt;/li&gt;
+            #elements-ajax
+            h3 AJAX-запрос <mark>&lt;cm-ajax&gt;</mark>
+            p Компонент предназначен для отправки данных на сервер с возможностью вызова метода для обработки полученного ответа, обрабатывая событие <mark>sended</mark>, в который передаются данные ответа. Для отправки запроса используется миксин <mark>serverRequest</mark>
+                
+            p
+                em Свойства элемента <mark>cm-ajax</mark>
+                    
+                        
+            table
+                tr
+                    th(style='text-align: center;') Название
+                    th(style='text-align: center;') Тип
+                    th(style='text-align: center;') По умолчанию
+                    th Опиание
+                tr
+                    td(style='text-align: center;') itemClass
+                    td(style='text-align: center;')
+                        strong String
+                    td(style='text-align: center;')
+                        em undefined
+                    td Дополнительный класс для кнопки
+                tr
+                    td(style='text-align: center;') params
+                    td(style='text-align: center;')
+                        strong Object
+                    td(style='text-align: center;')
+                        mark {}
+                    td Объект данных для отправки
+                tr
+                    td(style='text-align: center;') url*
+                    td(style='text-align: center;')
+                        strong String
+                    td(style='text-align: center;')
+                        em undefined
+                    td
+                        em Обязательный параметр
+                        | . Адрес запроса
+                tr
+                    td(style='text-align: center;') method
+                    td(style='text-align: center;')
+                        strong String
+                    td(style='text-align: center;')
+                        mark get
+                    td
+                        | Метод для проведения запроса, ограничен вариантами 
+                        mark get
+                        | , 
+                        mark put
+                        | ,
+                        mark post
+                        | , 
+                        mark delete
+                        | , 
+                        mark patch
+            p
+                em
+                    | События, вызываемые элементом 
+                    mark cm-ajax
+            table
+                tr
+                    th(style='text-align: center;') Название
+                    th(style='text-align: center;') Аргументы
+                    th Опиание
+                tr
+                    td(style='text-align: center;') sended
+                    td(style='text-align: center;')
+                        | data (
+                        mark Object
+                        | )
+                    td Вызвается после получения ответа и передаёт присланные данные
+            pre
+                code.html.
+                    &lt;context-menu&gt;
+                        &lt;cm-ajax
+                            method="post"
+                            url="https://httpbin.org/post"
+                            :params="{param1: 'one', param2: 'two'}"
+                            @sended="({ data }) =&gt; $notify({ group:'right-b', text: JSON.stringify(data) })"&gt;
+                            Send request
+                        &lt;/cm-ajax&gt;
+                    &lt;/context-menu&gt;
+
+            .vue-example
+                context-menu
+                    cm-ajax(method='post', url='https://httpbin.org/post', :params="{param1: 'one', param2: 'two'}", @sended="({ data }) => $notify({ group:'right-b', text: JSON.stringify(data) })") Send request
+            p Разультат в HTML
+            pre
+                code.html.
+                    &lt;li class="cm-item"&gt;
+                        &lt;button class="cm-item__button"&gt;
+                            Send request
+                        &lt;/button&gt;
+                    &lt;/li&gt;
+            #toggler-slot
+            h2 Стилизация открывающей кнопки
+            p
+                | Кнопка, открывающая контекстное меню может быть изменена с помощью 
+                a(href='https://ru.vuejs.org/v2/guide/components-slots.html', target='_blank') слота, 
+                | с именем <mark>toggler</mark>. Содержимое слота помещается внутри тега, поэтому не должно содержать блочных по семантике элементов (<mark>&lt;div&gt;</mark>). Блочный контент должен быть представлен в виде 11<mark>&lt;span style='display:block;' &gt;</mark>
+            p 
+                strong Пример
+
+            pre
+                code.html.
+                    &lt;context-menu&gt;
+                        &lt;span slot="toggler" class="new-toggler"&gt;Open me&lt;/span&gt;
+                        &lt;cm-button&gt;
+                            Click me!
+                        &lt;/cm-button&gt;
+                    &lt;/context-menu&gt;
+
+                    &lt;style&gt;
+                    .new-toggler {
+                        display: inline-block;
+                        color: white;
+                        background-color: lightseagreen;
+                        border: 1px solid aqua;
+                        padding: 5px 15px;
+                        margin-bottom: 3px;
+                        border-radius: 15px;
+                        height: 30px;
+                    }
+                    &lt;/style&gt;
+            .vue-example
+                context-menu
+                    span(slot='toggler', style='display: inline-block; color: white; background-color: lightseagreen; border: 1px solid aqua; padding: 5px 15px; margin-bottom: 3px; border-radius: 15px; height: 30px;')
+                        | Open
+                        | me
+                    cm-button Click me!
+
+        
+        .frame__inlayout-aside
+            .frame__aside-select
+                .grid.grid_forms
+                    fb-select(label="Choose Version")
+
+            // class frame__inlayout-block_fixed can make a block float top
+            .frame__inlayout-block.frame__inlayout-block_fixed2
+                
+                ul.tf-titlenav
+                    li
+                        a(href='#minimal-markup').active Минимальная разметка
+                    li
+                        a(href='#wrapper-props') 
+                            | Параметры компонента-обёртки 
+                            em &lt;context-menu&gt;
+                    li
+                        a(href='#positioning') Позиционирование на экране
+                    li
+                        a(href='#elements') Элементы контекстного меню
+                        ul
+                            li
+                                a(href='#elements-button')
+                                    | Кнопка 
+                                    em &lt;cm-button&gt;
+                            li
+                                a(href='#elements-link')
+                                    | Ссылка 
+                                    em &lt;cm-link&gt;
+                            li
+                                a(href='#elements-separator')
+                                    | Разделитель 
+                                    em &lt;cm-separator&gt;
+                            li
+                                a(href='#elements-panel')
+                                    | Панель 
+                                    em &lt;cm-panel&gt;
+                            li
+                                a(href='#elements-query')
+                                    | GET-параметры в адресной строке 
+                                    em &lt;cm-query&gt;
+                            li
+                                a(href='#elements-ajax')
+                                    | AJAX-запрос 
+                                    em &lt;cm-ajax&gt;
+                    li
+                        a(href='#toggler-slot') Стилизация открывающей кнопки

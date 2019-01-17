@@ -989,6 +989,13 @@ mark
   background-color cl_black
 
 .tf
+  &-titlenav
+    a
+      color var(--tc_link_semi)
+      &:hover, em
+        color var(--tc_link_semi_active)
+      &.active
+        color var(--tc_link)
   &-caption
     color var(--tc_text_caption)
   &-blcode
@@ -1191,6 +1198,9 @@ mark
 
 
 .frame
+  & &__inlayout
+    &-block
+      border-left 1px solid var(--tc_border_light)
   & &__mobile-shadow,
   & &__overlay
     @media res_tablet--lg
