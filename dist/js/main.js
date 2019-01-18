@@ -178,8 +178,10 @@
     }
 
     /* script */
-                const __vue_script__ = script;
-                
+    const __vue_script__ = script;
+    // For security concerns, we use only base name in production mode. See https://github.com/vuejs/rollup-plugin-vue/issues/258
+    script.__file = "E:\\awes-layout-crm\\src\\vue\\content-wrapper.vue";
+
     /* template */
     var __vue_render__ = function() {
       var _vm = this;
@@ -351,8 +353,10 @@
     };
 
     /* script */
-                const __vue_script__$1 = script$1;
-                
+    const __vue_script__$1 = script$1;
+    // For security concerns, we use only base name in production mode. See https://github.com/vuejs/rollup-plugin-vue/issues/258
+    script$1.__file = "E:\\awes-layout-crm\\src\\vue\\slide-up-down.vue";
+
     /* template */
 
       /* style */
@@ -425,108 +429,117 @@
     };
 
     /* script */
-                const __vue_script__$2 = script$2;
-                
+    const __vue_script__$2 = script$2;
+    // For security concerns, we use only base name in production mode. See https://github.com/vuejs/rollup-plugin-vue/issues/258
+    script$2.__file = "E:\\awes-layout-crm\\src\\vue\\frame-nav.vue";
+
     /* template */
     var __vue_render__$1 = function() {
       var _vm = this;
       var _h = _vm.$createElement;
       var _c = _vm._self._c || _h;
-      return _c("div", { staticClass: "frame__aside-nav-wrap" }, [
-        _c(
-          "ul",
-          { staticClass: "frame__aside-links" },
-          _vm._l(_vm.menu, function(item, index) {
-            return _c("li", { staticClass: "frame__aside-li" }, [
-              item.link != null
-                ? _c(
-                    "a",
-                    {
-                      staticClass: "frame__aside-link",
-                      class: { "frame__aside-link_active": item.active },
-                      attrs: { href: item.link }
-                    },
-                    [
-                      _c("i", { class: "icon icon-" + item.icon }),
-                      _vm._v(" "),
-                      _c("span", [_vm._v(_vm._s(item.title))])
-                    ]
-                  )
-                : _c(
-                    "div",
-                    [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "frame__aside-link frame__aside-link_sub",
-                          class: { "frame__aside-link_active": item.active },
-                          attrs: { href: "#" },
-                          on: {
-                            click: function($event) {
-                              $event.preventDefault();
-                              _vm.setActive(index, item.active);
+      return _c(
+        "div",
+        { staticClass: "frame__aside-nav-wrap" },
+        [
+          _c(
+            "ul",
+            { staticClass: "frame__aside-links" },
+            _vm._l(_vm.menu, function(item, index) {
+              return _c("li", { staticClass: "frame__aside-li" }, [
+                item.link != null
+                  ? _c(
+                      "a",
+                      {
+                        staticClass: "frame__aside-link",
+                        class: { "frame__aside-link_active": item.active },
+                        attrs: { href: item.link }
+                      },
+                      [
+                        _c("i", { class: "icon icon-" + item.icon }),
+                        _vm._v(" "),
+                        _c("span", [_vm._v(_vm._s(item.title))])
+                      ]
+                    )
+                  : _c(
+                      "div",
+                      [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "frame__aside-link frame__aside-link_sub",
+                            class: { "frame__aside-link_active": item.active },
+                            attrs: { href: "#" },
+                            on: {
+                              click: function($event) {
+                                $event.preventDefault();
+                                _vm.setActive(index, item.active);
+                              }
                             }
-                          }
-                        },
-                        [
-                          _c("i", { class: "icon icon-" + item.icon }),
-                          _vm._v(" "),
-                          _c("span", [_vm._v(_vm._s(item.title))]),
-                          _vm._v(" "),
-                          _c("i", { staticClass: "icon icon-angle-bottom" })
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "slide-up-down",
-                        {
-                          attrs: {
-                            show: item.active,
-                            slideDownDuration: 380,
-                            slideUpDuration: 210
-                          }
-                        },
-                        [
-                          _c(
-                            "ul",
-                            { staticClass: "frame__aside-hidden active" },
-                            _vm._l(item.sub, function(sub) {
-                              return _c(
-                                "li",
-                                { staticClass: "frame__aside-inlist" },
-                                [
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "frame__aside-inlink",
-                                      class: {
-                                        "frame__aside-inlink_active": sub.active
+                          },
+                          [
+                            _c("i", { class: "icon icon-" + item.icon }),
+                            _vm._v(" "),
+                            _c("span", [_vm._v(_vm._s(item.title))]),
+                            _vm._v(" "),
+                            _c("i", { staticClass: "icon icon-angle-bottom" })
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "slide-up-down",
+                          {
+                            attrs: {
+                              show: item.active,
+                              slideDownDuration: 380,
+                              slideUpDuration: 210
+                            }
+                          },
+                          [
+                            _c(
+                              "ul",
+                              { staticClass: "frame__aside-hidden active" },
+                              _vm._l(item.sub, function(sub) {
+                                return _c(
+                                  "li",
+                                  { staticClass: "frame__aside-inlist" },
+                                  [
+                                    _c(
+                                      "a",
+                                      {
+                                        staticClass: "frame__aside-inlink",
+                                        class: {
+                                          "frame__aside-inlink_active": sub.active
+                                        },
+                                        attrs: { href: sub.link }
                                       },
-                                      attrs: { href: sub.link }
-                                    },
-                                    [
-                                      _c(
-                                        "span",
-                                        { class: { "tf-strong": sub.active } },
-                                        [_vm._v(_vm._s(sub.title))]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              )
-                            }),
-                            0
-                          )
-                        ]
-                      )
-                    ],
-                    1
-                  )
-            ])
-          }),
-          0
-        )
-      ])
+                                      [
+                                        _c(
+                                          "span",
+                                          { class: { "tf-strong": sub.active } },
+                                          [_vm._v(_vm._s(sub.title))]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                )
+                              }),
+                              0
+                            )
+                          ]
+                        )
+                      ],
+                      1
+                    )
+              ])
+            }),
+            0
+          ),
+          _vm._v(" "),
+          _vm._t("difnav")
+        ],
+        2
+      )
     };
     var __vue_staticRenderFns__$1 = [];
     __vue_render__$1._withStripped = true;

@@ -27,6 +27,7 @@
                 </div>
             </li>
         </ul> 
+        <slot name="difnav"></slot>
 
     </div>
 </template>

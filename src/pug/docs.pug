@@ -1,7 +1,7 @@
-extends includes/layout.pug
+extends includes/external_docs
 
 block pageVariables
-    - var pageTitle = "Placeholder Test"
+    - var pageTitle = "Компонент контекстное меню (context-menu)"
 
 block pageHead
     // there is can be head meta or sctipts
@@ -13,8 +13,6 @@ block pageContent
     .frame__inlayout
         
         .frame__inlayout-content
-            h1 Компонент контекстное меню (context-menu)
-
             p Предназначен для отображения скрытого по-умолчанию списка нажатием на кнопку
 
 
@@ -523,10 +521,6 @@ block pageContent
 
         
         .frame__inlayout-aside
-            .frame__aside-select
-                .grid.grid_forms
-                    fb-select(label="Choose Version")
-
             // class frame__inlayout-block_fixed can make a block float top
             .frame__inlayout-block.frame__inlayout-block_fixed2
                 
