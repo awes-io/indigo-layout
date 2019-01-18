@@ -2,12 +2,14 @@
 <html lang="en">
 
 <head>
-    <title>Content wrapper</title>
+    <title>Placeholder Test</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
     <script>AWES_CONFIG = {key: '680a7d07f89b94e7fc83be657a2daa27'}</script><!-- there is can be head meta or sctipts-->
+    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/modal/v0.x.x/js/main.js"></script>
+    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/form-builder/v0.x.x/js/main.js"></script>
     <script src="/js/main.js"></script>
     <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/js-core/v0.x.x/js/main.js"></script>
 </head>
@@ -86,16 +88,17 @@
                         </transition>
                     </div>
                     <div class="frame__header-line">
-                        <h1 class="frame__header-title">Content wrapper</h1>
+                        <h1 class="frame__header-title">Placeholder Test</h1>
                     </div>
                 </div>
                 <div class="frame__content">
-                    <content-wrapper :data="{&quot;email&quot;:&quot;soberbrunner@example.org&quot;, &quot;pagetitle&quot;: &quot;This example content wrapper&quot;}" store-data="content"><template slot-scope="props">
-                            <h1>{{ $get(props, 'data.pagetitle') }}</h1>
-                            <p>You can look on this email <b>{{ $get(props, 'data.email') }}</b>, what parsing from data</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro obcaecati expedita molestias non quos ut eos reprehenderit, eligendi voluptate quam eaque, illum neque cum quasi dolorum! Dolore officiis molestias ad.</p>
-                            <h2>With styles all okay</h2>
-                        </template></content-wrapper>
+                    <p>Новые формы</p>
+                    <form-builder url="http://httpbin.org/post">
+                        <fb-slider name="range" :cell="2"></fb-slider>
+                        <fb-input name="valera22" label="Oh Valera kuda tenya zaneslo" :cell="2"></fb-input>
+                        <fb-phone name="phone" :cell="2"></fb-phone>
+                        <fb-input name="valera22" label="Yosip ishchet lojku" :cell="2"></fb-input>
+                    </form-builder>
                 </div>
             </div>
         </div>

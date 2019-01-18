@@ -1,0 +1,19 @@
+extends includes/layout.pug
+
+block pageVariables
+    - var pageTitle = "Placeholder Test"
+
+block pageHead
+    // there is can be head meta or sctipts
+    script(src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/modal/v0.x.x/js/main.js")
+    script(src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/form-builder/v0.x.x/js/main.js")
+
+
+
+block pageContent
+    p Новые формы
+    form-builder(url="http://httpbin.org/post")
+        fb-slider(name="range" :cell="2")
+        fb-input(name="valera22" label="Oh Valera kuda tenya zaneslo" :cell="2")
+        fb-phone(name="phone" :cell="2")
+        fb-input(name="valera22" label="Yosip ishchet lojku" :cell="2")

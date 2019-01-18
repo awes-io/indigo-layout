@@ -5,6 +5,9 @@ block pageVariables
 
 block pageHead
     // there is can be head meta or sctipts
+    script(src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/modal/v0.x.x/js/main.js")
+    script(src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/form-builder/v0.x.x/js/main.js")
+
 
 
 block pageContent
@@ -12,6 +15,10 @@ block pageContent
 
     h2 Forms
     .grid.grid_forms
+        .grid__cell.grid__cell_2
+            fb-slider(name="range")
+        .grid__cell.grid__cell_2
+            fb-phone(name="phone")
         .grid__cell.grid__cell_2
             fb-input
         .grid__cell.grid__cell_2

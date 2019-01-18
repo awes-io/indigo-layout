@@ -178,8 +178,10 @@
     }
 
     /* script */
-                const __vue_script__ = script;
-                
+    const __vue_script__ = script;
+    // For security concerns, we use only base name in production mode. See https://github.com/vuejs/rollup-plugin-vue/issues/258
+    script.__file = "E:\\awes-layout-crm\\src\\vue\\content-wrapper.vue";
+
     /* template */
     var __vue_render__ = function() {
       var _vm = this;
@@ -351,8 +353,10 @@
     };
 
     /* script */
-                const __vue_script__$1 = script$1;
-                
+    const __vue_script__$1 = script$1;
+    // For security concerns, we use only base name in production mode. See https://github.com/vuejs/rollup-plugin-vue/issues/258
+    script$1.__file = "E:\\awes-layout-crm\\src\\vue\\slide-up-down.vue";
+
     /* template */
 
       /* style */
@@ -425,8 +429,10 @@
     };
 
     /* script */
-                const __vue_script__$2 = script$2;
-                
+    const __vue_script__$2 = script$2;
+    // For security concerns, we use only base name in production mode. See https://github.com/vuejs/rollup-plugin-vue/issues/258
+    script$2.__file = "E:\\awes-layout-crm\\src\\vue\\frame-nav.vue";
+
     /* template */
     var __vue_render__$1 = function() {
       var _vm = this;
