@@ -23,6 +23,7 @@
                 togglenav: false,
                 showSearch: false,
                 showUserMenu: false,
+                showHelpers: false,
                 stActive: false
             }
         },
@@ -65,6 +66,10 @@
         
         watch: {
             showUserMenu( isShown ) {
+                this.toggleBodyMobileFix(isShown);
+            },
+
+            showHelpers( isShown ) {
                 this.toggleBodyMobileFix(isShown);
             }
         }
@@ -178,8 +183,10 @@
     }
 
     /* script */
-                const __vue_script__ = script;
-                
+    const __vue_script__ = script;
+    // For security concerns, we use only base name in production mode. See https://github.com/vuejs/rollup-plugin-vue/issues/258
+    script.__file = "E:\\awes-layout-crm\\src\\vue\\content-wrapper.vue";
+
     /* template */
     var __vue_render__ = function() {
       var _vm = this;
@@ -351,8 +358,10 @@
     };
 
     /* script */
-                const __vue_script__$1 = script$1;
-                
+    const __vue_script__$1 = script$1;
+    // For security concerns, we use only base name in production mode. See https://github.com/vuejs/rollup-plugin-vue/issues/258
+    script$1.__file = "E:\\awes-layout-crm\\src\\vue\\slide-up-down.vue";
+
     /* template */
 
       /* style */
@@ -425,8 +434,10 @@
     };
 
     /* script */
-                const __vue_script__$2 = script$2;
-                
+    const __vue_script__$2 = script$2;
+    // For security concerns, we use only base name in production mode. See https://github.com/vuejs/rollup-plugin-vue/issues/258
+    script$2.__file = "E:\\awes-layout-crm\\src\\vue\\frame-nav.vue";
+
     /* template */
     var __vue_render__$1 = function() {
       var _vm = this;
@@ -657,6 +668,13 @@
                 deps: ['vue'],
                 cb: toastedRegistration
             },
+            'vue-tabs-component': {
+                src: 'https://unpkg.com/vue-nav-tabs/dist/vue-tabs.js',
+                deps: ['vue'],
+                cb() {
+                    Vue.use(VueTabs);
+                }
+            },
             'highlight': {
                 src: [
                     'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js',
@@ -680,6 +698,7 @@
 
     if (window && ('AWES' in window)) {
         AWES.use(awesPlugin);
+
     } else {
         window.__awes_plugins_stack__ = window.__awes_plugins_stack__ || [];
         window.__awes_plugins_stack__.push(awesPlugin);
