@@ -421,69 +421,13 @@
                     </div>
                 </transition>
                 <div class="frame__content">
-                    <p>Для того, чтобы проверить плейсхолдеры, отключите js в браузере.</p>
-                    <h2>Forms</h2>
-                    <div class="grid grid_forms">
-                        <div class="grid__cell grid__cell_2">
-                            <fb-slider name="range"></fb-slider>
-                        </div>
-                        <div class="grid__cell grid__cell_2">
-                            <fb-phone name="phone"></fb-phone>
-                        </div>
-                        <div class="grid__cell grid__cell_2">
-                            <fb-input></fb-input>
-                        </div>
-                        <div class="grid__cell grid__cell_2">
-                            <fb-input></fb-input>
-                        </div>
-                        <div class="grid__cell grid__cell_2">
-                            <fb-select></fb-select>
-                        </div>
-                        <div class="grid__cell grid__cell_2">
-                            <fb-select></fb-select>
-                        </div>
-                        <div class="grid__cell">
-                            <fb-textarea></fb-textarea>
-                        </div>
-                        <div class="grid__cell">
-                            <fb-checkbox></fb-checkbox>
-                        </div>
-                        <placeholder>
-                            <div class="ph ph_dark"> ph btn_btn has mod ph__btn_page for page without grid cell<div class="ph__btn"><span></span><span></span></div>
-                            </div>
-                        </placeholder>
-                    </div>
-                    <h2>Filters</h2>
-                    <placeholder>
-                        <div class="ph ph_dark">
-                            <div class="ph__filter">
-                                <div class="ph__filter-left"><span></span><span></span><span></span></div>
-                                <div class="ph__filter-right"><span></span><span></span></div>
-                            </div>
-                        </div>
-                    </placeholder>
-                    <h2>Pagination</h2>
-                    <placeholder>
-                        <div class="ph ph_dark">
-                            <div class="ph__pagination">
-                                <div class="ph__pagination-left"><span></span></div>
-                                <div class="ph__pagination-center"><span class="ph__pagination-arrow"></span><span></span><span class="ph__pagination-arrow"></span></div>
-                                <div class="ph__pagination-right"><span></span></div>
-                            </div>
-                        </div>
-                    </placeholder>
-                    <h2>Table</h2>
-                    <placeholder>
-                        <div class="ph">
-                            <div class="ph__table"><i class="ph__table-row"><b class="ph__table-coll"><span></span></b><b class="ph__table-coll"><span></span></b><b class="ph__table-coll"><span></span></b><b class="ph__table-coll"><span></span></b><b class="ph__table-coll"><span></span></b></i><i class="ph__table-row"><b class="ph__table-coll"><span></span></b><b class="ph__table-coll"><span></span></b><b class="ph__table-coll"><span></span></b><b class="ph__table-coll"><span></span></b><b class="ph__table-coll"><span></span></b></i><i class="ph__table-row"><b class="ph__table-coll"><span></span></b><b class="ph__table-coll"><span></span></b><b class="ph__table-coll"><span></span></b><b class="ph__table-coll"><span></span></b><b class="ph__table-coll"><span></span></b></i><i class="ph__table-row"><b class="ph__table-coll"><span></span></b><b class="ph__table-coll"><span></span></b><b class="ph__table-coll"><span></span></b><b class="ph__table-coll"><span></span></b><b class="ph__table-coll"><span></span></b></i><i class="ph__table-row"><b class="ph__table-coll"><span></span></b><b class="ph__table-coll"><span></span></b><b class="ph__table-coll"><span></span></b><b class="ph__table-coll"><span></span></b><b class="ph__table-coll"><span></span></b></i><i class="ph__table-row"><b class="ph__table-coll"><span></span></b><b class="ph__table-coll"><span></span></b><b class="ph__table-coll"><span></span></b><b class="ph__table-coll"><span></span></b><b class="ph__table-coll"><span></span></b></i><i class="ph__table-row"><b class="ph__table-coll"><span></span></b><b class="ph__table-coll"><span></span></b><b class="ph__table-coll"><span></span></b><b class="ph__table-coll"><span></span></b><b class="ph__table-coll"><span></span></b></i><i class="ph__table-row"><b class="ph__table-coll"><span></span></b><b class="ph__table-coll"><span></span></b><b class="ph__table-coll"><span></span></b><b class="ph__table-coll"><span></span></b><b class="ph__table-coll"><span></span></b></i><i class="ph__table-row"><b class="ph__table-coll"><span></span></b><b class="ph__table-coll"><span></span></b><b class="ph__table-coll"><span></span></b><b class="ph__table-coll"><span></span></b><b class="ph__table-coll"><span></span></b></i><i class="ph__table-row"><b class="ph__table-coll"><span></span></b><b class="ph__table-coll"><span></span></b><b class="ph__table-coll"><span></span></b><b class="ph__table-coll"><span></span></b><b class="ph__table-coll"><span></span></b></i></div>
-                        </div>
-                    </placeholder>
-                    <h2>List</h2>
-                    <placeholder>
-                        <div class="ph">
-                            <div class="ph__list"><i class="ph__list-row"><b class="ph__list-coll"><span></span></b></i><i class="ph__list-row"><b class="ph__list-coll"><span></span></b></i><i class="ph__list-row"><b class="ph__list-coll"><span></span></b></i><i class="ph__list-row"><b class="ph__list-coll"><span></span></b></i></div>
-                        </div>
-                    </placeholder>
+                    <p>Новые формы</p>
+                    <form-builder url="http://httpbin.org/post">
+                        <fb-slider name="range" :cell="2"></fb-slider>
+                        <fb-input name="valera22" label="Oh Valera kuda tenya zaneslo" :cell="2"></fb-input>
+                        <fb-phone name="phone" :cell="2"></fb-phone>
+                        <fb-input name="valera22" label="Yosip ishchet lojku" :cell="2"></fb-input>
+                    </form-builder>
                 </div>
             </div>
         </div>
