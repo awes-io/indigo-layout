@@ -2,7 +2,7 @@ const isDev = process.env.NODE_ENV === 'development'
 const isModern = process.env.BROWSERSLIST_ENV === 'modern'
 
 const vuePlugin = require('rollup-plugin-vue')
-const uglifyPlugin = require('rollup-plugin-uglify-es')
+const uglifyPlugin = require('rollup-plugin-terser').terser
 const nodeResolvePlugin = require('rollup-plugin-node-resolve')
 const jsonPlugin = require('rollup-plugin-json')
 const commonJsPlugin = require('rollup-plugin-commonjs')
