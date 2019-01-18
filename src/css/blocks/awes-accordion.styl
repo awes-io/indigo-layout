@@ -1,0 +1,31 @@
+.awes-accordion
+    margin-bottom 25px
+    & &__title
+        font-size f_middle
+        display inline-block
+        text-align left
+        margin-right 20px
+        position relative
+        span
+            border-bottom 1px dashed
+        i
+            position relative
+            &:after
+                angle()
+                margin-top -2px
+                right -15px
+                transform rotate(-90deg)
+        &.active
+            i
+                &:after
+                    transform rotate(0deg)
+                    margin-top 0
+            & + ^[0]__content
+                display block
+    & &__content
+        display none
+        margin-top 15px
+        p
+            margin-bottom 10px
+            &:last-child
+                margin-bottom 0

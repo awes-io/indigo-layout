@@ -47,48 +47,377 @@
                             <div class="frame__search-hidden"><input class="frame__search-input" type="text" placeholder="Search..."><button class="frame__search-btn" type="submit">Search</button><span class="frame__search-close" v-on:click="$awesLayoutCrm.showSearch = !$awesLayoutCrm.showSearch"></span><i class="icon icon-cross"></i></div>
                         </form>
                         <div class="frame__userinfo"><a class="frame__userinfo-link" href=""><span class="icon icon-ruppor"><i class="icn-dot"></i></span></a><span class="frame__header-add"><i class="icon icon-plus"></i></span><a class="frame__userinfo-link" href=""><span class="icon icon-hdd"><i class="icn-dot"></i></span></a></div>
-                        <transition name="user-menu">
-                            <div class="user-menu" v-show="$awesLayoutCrm.showUserMenu" style="display: none;">
-                                <ul class="user-menu__list"><button class="user-menu__close" @click="$awesLayoutCrm.showUserMenu = ! $awesLayoutCrm.showUserMenu">&times;</button>
-                                    <div class="cm-item">
-                                        <div class="cm-item__panel is-secondary"><strong class="user-menu__title">Terry Gerlach</strong><small class="user-menu__desc">Standart until 10 november<br>                5 users $500 per month</small>
-                                                <nav class="user-menu__nav" aria-label="Profile navigation">
-                                                    <ul>
-                                                        <li><a href="https://company.awescrm.cloud/managers/NQ%3D%3D">Profile</a></li>
-                                                        <li class="is-expand"><a href="https://www.awescrm.cloud/logout">Logout</a></li>
-                                                    </ul>
-                                                </nav><label class="progress user-menu__progress"><span>519.05 MB</span> of 2.5 GB used<progress max="2500" value="519">519 MB of 2.5 GB used</progress></label></div>
-                                    </div>
-                                    <div class="cm-item">
-                                        <div class="cm-item__panel">
-                                            <form class="form-builder" action="https://company.awescrm.cloud/api/v1/managers/NQ%3D%3D" method="PATCH">
-                                                <div class="grid grid_forms">
-                                                    <div class="grid__cell user-menu__theme-checkbox grid__cell_padding"><label class="checkbox checkbox_s2" data-awes="fb-checkbox.theme_dark">
-                                                            <div class="v-popover display-block"><span class="trigger" aria-describedby="popover_0ttyghblod" tabindex="-1" style="display: inline-block;"><input class="is-focusable" type="checkbox"><span class="checkbox__text"><i class="icon icon-checkbox" style="touch-action: pan-y; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></i><span>Dark theme</span></span><!-- -->
-                                                                <!-- --></span></div>
-                                                        </label></div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <div class="cm-item">
-                                        <div class="cm-item__panel"><strong class="user-menu__companies" id="companies_list">4 companies</strong>
-                                            <ul class="user-menu__companies-list" aria-labelledby="companies_list">
-                                                <li><a href="">Awesome</a></li>
-                                                <li><a href="">Microsoft</a></li>
-                                                <li><a href="">Apple</a></li>
-                                                <li><a href="">Tesla</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </ul>
-                            </div>
-                        </transition>
                     </div>
                     <div class="frame__header-line">
                         <h1 class="frame__header-title">Typography</h1>
                     </div>
                 </div>
+                <transition name="user-menu">
+                    <div class="user-menu" v-show="$awesLayoutCrm.showUserMenu" style="display: none;">
+                        <ul class="user-menu__list"><button class="user-menu__close" @click="$awesLayoutCrm.showUserMenu = ! $awesLayoutCrm.showUserMenu">&times;</button>
+                            <div class="cm-item">
+                                <div class="cm-item__panel is-secondary"><strong class="user-menu__title">Terry Gerlach</strong><small class="user-menu__desc">Standart until 10 november<br>                5 users $500 per month</small>
+                                        <nav class="user-menu__nav" aria-label="Profile navigation">
+                                            <ul>
+                                                <li><a href="https://company.awescrm.cloud/managers/NQ%3D%3D">Profile</a></li>
+                                                <li class="is-expand"><a href="https://www.awescrm.cloud/logout">Logout</a></li>
+                                            </ul>
+                                        </nav><label class="progress user-menu__progress"><span>519.05 MB</span> of 2.5 GB used<progress max="2500" value="519">519 MB of 2.5 GB used</progress></label></div>
+                            </div>
+                            <div class="cm-item">
+                                <div class="cm-item__panel">
+                                    <form class="form-builder" action="https://company.awescrm.cloud/api/v1/managers/NQ%3D%3D" method="PATCH">
+                                        <div class="grid grid_forms">
+                                            <div class="grid__cell user-menu__theme-checkbox grid__cell_padding"><label class="checkbox checkbox_s2" data-awes="fb-checkbox.theme_dark">
+                                                    <div class="v-popover display-block"><span class="trigger" aria-describedby="popover_0ttyghblod" tabindex="-1" style="display: inline-block;"><input class="is-focusable" type="checkbox"><span class="checkbox__text"><i class="icon icon-checkbox" style="touch-action: pan-y; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></i><span>Dark theme</span></span><!-- -->
+                                                        <!-- --></span></div>
+                                                </label></div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="cm-item">
+                                <div class="cm-item__panel"><strong class="user-menu__companies" id="companies_list">4 companies</strong>
+                                    <ul class="user-menu__companies-list" aria-labelledby="companies_list">
+                                        <li><a href="">Awesome</a></li>
+                                        <li><a href="">Microsoft</a></li>
+                                        <li><a href="">Apple</a></li>
+                                        <li><a href="">Tesla</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </ul>
+                    </div>
+                </transition>
+                <transition name="user-menu">
+                    <div class="helper" v-show="$awesLayoutCrm.showHelpers" style="display: none;">
+                        <div class="helper__block">
+                            <div class="helper__head"><button class="helper__title helper__title_btn"> <span>Back</span></button><button class="helper__close" @click="$awesLayoutCrm.showHelpers = ! $awesLayoutCrm.showHelpers"><i class="icon icon-cross">  </i></button></div>
+                            <div class="helper__scroll-bl">
+                                <vue-tabs>
+                                    <v-tab title="Hint">
+                                        <div class="helper__stepper">
+                                            <h3 class="helper__stepper-title">Hint for the project section <span class='tf-grey'>2 of 3</span></h3>
+                                            <div class="helper__stepper-navs"><button class="upper-link">previous </button><button class="upper-link">next</button></div>
+                                        </div>
+                                        <div class="helper__content">
+                                            <div class="helper__step tf-content"><img src="img/demo/dmimg.jpg" alt="">
+                                                <p>In the work of the Telegram messenger, there was a global failure. This is evidenced by the statistics of the site Downdetector.</p>
+                                                <p>Messenger works with interruptions in Russia, Belarus, Ukraine, as well as in the EU countries - Germany, France, Italy, Spain, the Netherlands, Austria, Sweden and other countries.</p>
+                                                <p>"If you read this, you are resistance" Roskomnadzor is fighting with Telegram. The whole Internet suffers The failures are also reported by residents of South Africa, Iran, Israel and Kazakhstan.</p>
+                                                <p>Telegram unsuccessfully trying to block in Russia, starting in mid-April. According to the decision of the Tagansky District Court of Moscow, access to the messenger should be limited, since the Telegram management refused to provide the FSB with encryption keys that would allow the siloviki to read the correspondence of users.</p>
+                                            </div>
+                                        </div>
+                                    </v-tab>
+                                    <v-tab title="Asq a question">
+                                        <div class="helper__stepper">
+                                            <h3 class="helper__stepper-title">Chats <span class='tf-grey'>7</span></h3>
+                                            <div class="helper__stepper-navs"><button class="upper-link">create new chat</button></div>
+                                        </div>
+                                        <div class="awes-chat">
+                                            <div class="awes-chat__threads"><button class="awes-chat__thread active"><span class="awes-chat__thread-title"><i class="awes-status awes-status_blue"></i><span>Holod SergOn Monday, June 4, Apple held a ... </span></span><span class="awes-chat__thread-footer"><span class="awes-chat__thread-time">19 minutes ago</span><i class="icn-dot"></i></span></button><button class="awes-chat__thread"><span class="awes-chat__thread-title"><i class="awes-status awes-status_blue"></i><span>Holod SergOn Monday, June 4, Apple held a ... </span></span><span class="awes-chat__thread-footer"><span class="awes-chat__thread-time">19 minutes ago</span><i class="icn-dot"></i></span></button><button class="awes-chat__thread"><span class="awes-chat__thread-title"><i class="awes-status awes-status_blue"></i><span>Holod SergOn Monday, June 4, Apple held a ... </span></span><span class="awes-chat__thread-footer"><span class="awes-chat__thread-time">19 minutes ago</span></span></button><button class="awes-chat__thread"><span class="awes-chat__thread-title"><i class="awes-status awes-status_green"></i><span>Holod SergOn Monday, June 4, Apple held a ... </span></span><span class="awes-chat__thread-footer"><span class="awes-chat__thread-time">19 minutes ago</span></span></button><button class="awes-chat__thread"><span class="awes-chat__thread-title"><i class="awes-status awes-status_green"></i><span>Holod SergOn Monday, June 4, Apple held a ... </span></span><span class="awes-chat__thread-footer"><span class="awes-chat__thread-time">19 minutes ago</span></span></button><button class="awes-chat__thread"><span class="awes-chat__thread-title"><i class="awes-status awes-status_green"></i><span>Holod SergOn Monday, June 4, Apple held a ... </span></span><span class="awes-chat__thread-footer"><span class="awes-chat__thread-time">19 minutes ago</span></span></button><button class="awes-chat__thread"><span class="awes-chat__thread-title"><i class="awes-status awes-status_green"></i><span>Holod SergOn Monday, June 4, Apple held a ... </span></span><span class="awes-chat__thread-footer"><span class="awes-chat__thread-time">19 minutes ago</span></span></button><button class="awes-chat__thread"><span class="awes-chat__thread-title"><i class="awes-status awes-status_green"></i><span>Holod SergOn Monday, June 4, Apple held a ... </span></span><span class="awes-chat__thread-footer"><span class="awes-chat__thread-time">19 minutes ago</span></span></button><button class="awes-chat__thread"><span class="awes-chat__thread-title"><i class="awes-status awes-status_grey"></i><span>Holod SergOn Monday, June 4, Apple held a ... </span></span><span class="awes-chat__thread-footer"><span class="awes-chat__thread-time">19 minutes ago</span></span></button><button class="awes-chat__thread"><span class="awes-chat__thread-title"><i class="awes-status awes-status_grey"></i><span>Holod SergOn Monday, June 4, Apple held a ... </span></span><span class="awes-chat__thread-footer"><span class="awes-chat__thread-time">19 minutes ago</span></span></button>
+                                                <div class="awes-chat__threads-footer"><button class="tf-dottedlink">more tickets</button></div>
+                                            </div>
+                                            <div class="awes-chat__defchat">
+                                                <div class="awes-chat__current-thread"><button class="awes-chat__thread"><span class="awes-chat__thread-title"><i class="awes-status awes-status_blue"></i><span>Holod SergOn Monday, June 4, Apple held a ... </span></span><span class="awes-chat__thread-footer"><span class="awes-chat__thread-time">19 minutes ago</span><i class="icn-dot"></i></span></button></div>
+                                                <div class="awes-chat__window">
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- TODO need get scroll and insert it in style (7px = scrollwidth / 2, 13px = scrollwidth)-->
+                                                <div class="awes-chat__actions" id="formactions" style="right: 13px; width: calc(67% - 7px)">
+                                                    <div class="awes-chat__form"><textarea class="awes-chat__form-textarea" placeholder="Message"></textarea>
+                                                        <div class="awes-chat__smiles"><button class="awes-chat__smiles-close">&times;</button><button class="awes-chat__form-btn"><i class="icon icon-smile"></i></button><button class="awes-chat__form-btn"><i class="icon icon-smile"></i></button><button class="awes-chat__form-btn"><i class="icon icon-smile"></i></button><button class="awes-chat__form-btn"><i class="icon icon-smile"></i></button><button class="awes-chat__form-btn"><i class="icon icon-smile"></i></button><button class="awes-chat__form-btn"><i class="icon icon-smile"></i></button><button class="awes-chat__form-btn"><i class="icon icon-smile"></i></button><button class="awes-chat__form-btn"><i class="icon icon-smile"></i></button><button class="awes-chat__form-btn"><i class="icon icon-smile"></i></button><button class="awes-chat__form-btn"><i class="icon icon-smile"></i></button><button class="awes-chat__form-btn"><i class="icon icon-smile"></i></button><button class="awes-chat__form-btn"><i class="icon icon-smile"></i></button><button class="awes-chat__form-btn"><i class="icon icon-smile"></i></button><button class="awes-chat__form-btn"><i class="icon icon-smile"></i></button><button class="awes-chat__form-btn"><i class="icon icon-smile"></i></button><button class="awes-chat__form-btn"><i class="icon icon-smile"></i></button><button class="awes-chat__form-btn"><i class="icon icon-smile"></i></button><button class="awes-chat__form-btn"><i class="icon icon-smile"></i></button><button class="awes-chat__form-btn"><i class="icon icon-smile"></i></button><button class="awes-chat__form-btn"><i class="icon icon-smile"></i></button></div>
+                                                        <div class="awes-chat__form-line">
+                                                            <div class="awes-chat__form-buttons"><button class="awes-chat__form-btn"><i class="icon icon-link"></i></button><button class="awes-chat__form-btn"><i class="icon icon-smile"></i></button></div><button class="awes-chat__form-btn" type="submit"><i class="icon icon-message"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </v-tab>
+                                    <v-tab title="Question answer">
+                                        <div class="helper__stepper">
+                                            <h3 class="helper__stepper-title">Questions and answers <span class='tf-grey'>7</span></h3>
+                                            <div class="helper__stepper-navs"><button class="upper-link">Ask a Question</button></div>
+                                        </div>
+                                        <div class="helper__content">
+                                            <div class="awes-accordion"><button class="awes-accordion__title"> <span>Question 1 Question 1Question 1Question 1Question 1Question 1Question 1Question 1Question 1</span><i></i></button>
+                                                <div class="awes-accordion__content tf-content">
+                                                    <p>In the work of the Telegram messenger, there was a global failure. This is evidenced by the statistics of the site Downdetector. Messenger works with interruptions in Russia, Belarus, Ukraine, as well as in the EU countries - Germany, France, Italy, Spain, the Netherlands, Austria, Sweden and other countries. "If you read this, you are resistance"</p>
+                                                    <p>Roskomnadzor is fighting with Telegram. The whole Internet suffers</p>
+                                                    <p>The failures are also reported by residents of South Africa, Iran, Israel and Kazakhstan.</p>
+                                                    <p>Telegram unsuccessfully trying to block in Russia, starting in mid-April. According to the decision of the Tagansky District Court of Moscow, access to the messenger should be limited, since the Telegram management refused to provide the FSB with encryption keys that would allow the siloviki to read the correspondence of users.</p>
+                                                </div>
+                                            </div>
+                                            <div class="awes-accordion"><button class="awes-accordion__title active"> <span>Question 2</span><i></i></button>
+                                                <div class="awes-accordion__content tf-content">
+                                                    <p>In the work of the Telegram messenger, there was a global failure. This is evidenced by the statistics of the site Downdetector. Messenger works with interruptions in Russia, Belarus, Ukraine, as well as in the EU countries - Germany, France, Italy, Spain, the Netherlands, Austria, Sweden and other countries. "If you read this, you are resistance"</p>
+                                                    <p>Roskomnadzor is fighting with Telegram. The whole Internet suffers</p>
+                                                    <p>The failures are also reported by residents of South Africa, Iran, Israel and Kazakhstan.</p>
+                                                    <p>Telegram unsuccessfully trying to block in Russia, starting in mid-April. According to the decision of the Tagansky District Court of Moscow, access to the messenger should be limited, since the Telegram management refused to provide the FSB with encryption keys that would allow the siloviki to read the correspondence of users.</p>
+                                                </div>
+                                            </div>
+                                            <div class="awes-accordion"><button class="awes-accordion__title"> <span>Question 3</span><i></i></button>
+                                                <div class="awes-accordion__content tf-content">
+                                                    <p>In the work of the Telegram messenger, there was a global failure. This is evidenced by the statistics of the site Downdetector. Messenger works with interruptions in Russia, Belarus, Ukraine, as well as in the EU countries - Germany, France, Italy, Spain, the Netherlands, Austria, Sweden and other countries. "If you read this, you are resistance"</p>
+                                                    <p>Roskomnadzor is fighting with Telegram. The whole Internet suffers</p>
+                                                    <p>The failures are also reported by residents of South Africa, Iran, Israel and Kazakhstan.</p>
+                                                    <p>Telegram unsuccessfully trying to block in Russia, starting in mid-April. According to the decision of the Tagansky District Court of Moscow, access to the messenger should be limited, since the Telegram management refused to provide the FSB with encryption keys that would allow the siloviki to read the correspondence of users.</p>
+                                                </div>
+                                            </div>
+                                            <div class="awes-accordion"><button class="awes-accordion__title"> <span>Question 4</span><i></i></button>
+                                                <div class="awes-accordion__content tf-content">
+                                                    <p>In the work of the Telegram messenger, there was a global failure. This is evidenced by the statistics of the site Downdetector. Messenger works with interruptions in Russia, Belarus, Ukraine, as well as in the EU countries - Germany, France, Italy, Spain, the Netherlands, Austria, Sweden and other countries. "If you read this, you are resistance"</p>
+                                                    <p>Roskomnadzor is fighting with Telegram. The whole Internet suffers</p>
+                                                    <p>The failures are also reported by residents of South Africa, Iran, Israel and Kazakhstan.</p>
+                                                    <p>Telegram unsuccessfully trying to block in Russia, starting in mid-April. According to the decision of the Tagansky District Court of Moscow, access to the messenger should be limited, since the Telegram management refused to provide the FSB with encryption keys that would allow the siloviki to read the correspondence of users.</p>
+                                                </div>
+                                            </div>
+                                            <div class="awes-accordion"> <button class="awes-accordion__title"> <span>Question 5</span><i></i></button>
+                                                <div class="awes-accordion__content tf-content">
+                                                    <p>In the work of the Telegram messenger, there was a global failure. This is evidenced by the statistics of the site Downdetector. Messenger works with interruptions in Russia, Belarus, Ukraine, as well as in the EU countries - Germany, France, Italy, Spain, the Netherlands, Austria, Sweden and other countries. "If you read this, you are resistance"</p>
+                                                    <p>Roskomnadzor is fighting with Telegram. The whole Internet suffers</p>
+                                                    <p>The failures are also reported by residents of South Africa, Iran, Israel and Kazakhstan.</p>
+                                                    <p>Telegram unsuccessfully trying to block in Russia, starting in mid-April. According to the decision of the Tagansky District Court of Moscow, access to the messenger should be limited, since the Telegram management refused to provide the FSB with encryption keys that would allow the siloviki to read the correspondence of users.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </v-tab>
+                                </vue-tabs>
+                            </div>
+                        </div>
+                    </div>
+                </transition>
                 <div class="frame__content">
                     <h1>Lorem ipsum dolor sit amet.</h1>
                     <h2>Lorem ipsum dolor sit amet.</h2>
@@ -222,6 +551,7 @@
                 </div>
             </div>
         </div>
+        <div class="float-icns"><button class="float-icns__icon float-icns__icon_helper" @click="$awesLayoutCrm.showHelpers = ! $awesLayoutCrm.showHelpers">?</button></div>
     </div>
 </body>
 
