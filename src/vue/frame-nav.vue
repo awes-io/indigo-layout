@@ -1,9 +1,9 @@
 <template>
     <div class="frame__aside-nav-wrap">
-        <ul class="frame__aside-links">
-            <li class="frame__aside-li" v-for="(item, index) in menu">
-
-                <a class="frame__aside-link" :href="item.link" v-if="item.link != null" :class="{ 'frame__aside-link_active': item.active }">
+        <ul class="frame__aside-links" v-if="links">
+            <li class="frame__aside-li" v-for="(item, index) in links" :key="index">
+                <nav-item v-bind="item"></nav-item>
+                <!-- <a class="frame__aside-link" :href="item.link" v-if="item.link != null" :class="{ 'frame__aside-link_active': item.active }">
                     <i :class="'icon icon-'+item.icon"></i>
                     <span>{{ item.title }}</span>
                 </a>
@@ -24,19 +24,33 @@
                             </li>
                         </ul>
                     </slide-up-down>
-                </div>
+                </div> -->
+                
             </li>
         </ul> 
-
+        <slot name="difnav"></slot>
     </div>
 </template>
 
 <script>
-import SlideUpDown from './slide-up-down.vue'
+import navItem from './_nav-item.vue'
 
 export default {
 
     name: 'frame-nav',
+
+    components: { navItem },
+
+    props: {
+
+        links: Array,
+
+        expanded: {
+            type: Boolean,
+            default: false
+        }
+    },
+
 
     data() {
         return {
@@ -45,29 +59,20 @@ export default {
             val: false
         }
     },
-    components: {
-        SlideUpDown
-    },
+
+
     computed: {
-        menu() {
-            return this.links.map( (item, key) => {
-                if (this.active !== null && item.link === undefined) {
-                    item.active = (key === this.active) ? this.val : false;
-                }
-                return item;
-            });
-        }
+        // menu() {
+        //     return this.links.map( (item, key) => {
+        //         if (this.active !== null && item.link === undefined) {
+        //             item.active = (key === this.active) ? this.val : false;
+        //         }
+        //         return item;
+        //     });
+        // }
     },
-    props: {
-        links: {
-            type: [Object, Array],
-            default: function() {return []}
-        },
-        title: {
-            type: String,
-            default: "AwesCRM"
-        }
-    },
+
+
     methods: {
         setActive(index, val) {
             this.val = !val;

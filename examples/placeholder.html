@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/main.css">
     <script>AWES_CONFIG = {key: '680a7d07f89b94e7fc83be657a2daa27'}</script><!-- there is can be head meta or sctipts-->
     <script src="/js/main.js"></script>
-    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/js-core/v0.1.2/js/main.js"></script>
+    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/js-core/v0.1.5/js/main.js"></script>
 </head>
 
 <body>
@@ -26,7 +26,7 @@
                     <div class="frame__aside-mhead g-res--tablet-lg"><a class="frame__aside-close" href="" @click.prevent="$awesLayoutCrm.openNav()"><i class="icon icon-cross"></i></a>
                         <h4 class="frame__aside-mtitle"><span>AwesCRM</span></h4>
                     </div>
-                    <frame-nav :links="[{title:'Dashboard',icon: 'speed', active:true, link: '#'}, {title:'Admin',icon:'report',sub:[{title:'Dashboard',icon:null,link:'#'},{title:'Plans',icon:null,link:'#'}]}]">
+                    <frame-nav :links="[{name:'Dashboard', icon:'speed', url: '#'}, {name:'Admin', icon:'report', children: [{name:'Dashboard', url:'#'}, {name:'Plans', url:'#'}]}]">
                         <div class="ph">
                             <div class="ph__mnav"><span class="ph__mnav-link"></span><span class="ph__mnav-title"></span></div>
                             <ul class="ph__nav">
@@ -368,7 +368,7 @@
                                     <v-tab title="Question answer">
                                         <div class="helper__stepper">
                                             <h3 class="helper__stepper-title">Questions and answers <span class='tf-grey'>7</span></h3>
-                                            <div class="helper__stepper-navs"><button class="upper-link">Ask in a faq</button><button class="upper-link">Ask in a chat</button></div>
+                                            <div class="helper__stepper-navs"><button class="upper-link">Ask a Question</button></div>
                                         </div>
                                         <div class="helper__content">
                                             <div class="awes-accordion"><button class="awes-accordion__title"> <span>Question 1 Question 1Question 1Question 1Question 1Question 1Question 1Question 1Question 1</span><i></i></button>

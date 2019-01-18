@@ -185,7 +185,7 @@
     /* script */
     const __vue_script__ = script;
     // For security concerns, we use only base name in production mode. See https://github.com/vuejs/rollup-plugin-vue/issues/258
-    script.__file = "E:\\awes-layout-crm\\src\\vue\\content-wrapper.vue";
+    script.__file = "/home/illjah/awescode/awes-layout-crm/src/vue/content-wrapper.vue";
 
     /* template */
     var __vue_render__ = function() {
@@ -222,6 +222,233 @@
         undefined
       );
 
+    var script$1 = {
+
+        name: 'nav-item',
+
+        props: {
+
+            name: {
+                type: String,
+                required: true
+            },
+            
+            className: {
+                type: String,
+                default: 'frame__aside-link'
+            },
+
+            icon: String,
+
+            url: String,
+
+            children: Array
+        },
+
+
+        data() {
+            return {
+                isOpened: false
+            }
+        },
+
+
+        methods: {
+            onClick($event) {
+                $event.preventDefault();
+                this.isOpened = ! this.isOpened;
+            }
+        },
+
+
+        render(h) {
+
+            const navItemInner = [ this.name ];
+            const navItemData = { 
+                class: this.className,
+                domProps: {},
+                on: {}
+            };
+
+            if ( this.icon ) navItemInner.unshift(
+                h('i', { class: `icon icon-${this.icon}` })
+            );
+
+            if ( this.url ) {
+                navItemData.domProps.href = this.url;
+            } else if ( this.children ) {
+                navItemData.domProps.href = '';
+                navItemData.on.click = this.onClick;
+            }
+
+            if ( this.children && this.children.length ) {
+                // with subnav
+                navItemData.class += ' frame__aside-link_sub';
+
+                return h('div', [
+                    h('a', navItemData, navItemInner),
+                    h('i', {
+                        class: 'icon icon-angle-bottom',
+                        on: { click: this.onClick }
+                    }),
+                    h('slide-up-down', { props: { tag:'ul', show: this.isOpened } }, [
+                        this.children.map( child => {
+                            return h('li', { class: 'frame__aside-inlist' }, [
+                                h('nav-item', { props: {...child, className: 'frame__aside-inlink'} })
+                            ])
+                        })
+                    ])
+                ])
+            } else {
+                // without subnav
+                return h('a', navItemData, navItemInner)
+            }
+        }
+    };
+
+    /* script */
+    const __vue_script__$1 = script$1;
+    // For security concerns, we use only base name in production mode. See https://github.com/vuejs/rollup-plugin-vue/issues/258
+    script$1.__file = "/home/illjah/awescode/awes-layout-crm/src/vue/_nav-item.vue";
+
+    /* template */
+
+      /* style */
+      const __vue_inject_styles__$1 = undefined;
+      /* scoped */
+      const __vue_scope_id__$1 = undefined;
+      /* module identifier */
+      const __vue_module_identifier__$1 = undefined;
+      /* functional template */
+      const __vue_is_functional_template__$1 = undefined;
+      /* style inject */
+      
+      /* style inject SSR */
+      
+
+      
+      var navItem = normalizeComponent(
+        {},
+        __vue_inject_styles__$1,
+        __vue_script__$1,
+        __vue_scope_id__$1,
+        __vue_is_functional_template__$1,
+        __vue_module_identifier__$1,
+        undefined,
+        undefined
+      );
+
+    //
+
+    var script$2 = {
+
+        name: 'frame-nav',
+
+        components: { navItem },
+
+        props: {
+
+            links: Array,
+
+            expanded: {
+                type: Boolean,
+                default: false
+            }
+        },
+
+
+        data() {
+            return {
+                toggle: false,
+                active: null,
+                val: false
+            }
+        },
+
+
+        computed: {
+            // menu() {
+            //     return this.links.map( (item, key) => {
+            //         if (this.active !== null && item.link === undefined) {
+            //             item.active = (key === this.active) ? this.val : false;
+            //         }
+            //         return item;
+            //     });
+            // }
+        },
+
+
+        methods: {
+            setActive(index, val) {
+                this.val = !val;
+                this.active = index;
+            }
+        }
+    };
+
+    /* script */
+    const __vue_script__$2 = script$2;
+    // For security concerns, we use only base name in production mode. See https://github.com/vuejs/rollup-plugin-vue/issues/258
+    script$2.__file = "/home/illjah/awescode/awes-layout-crm/src/vue/frame-nav.vue";
+
+    /* template */
+    var __vue_render__$1 = function() {
+      var _vm = this;
+      var _h = _vm.$createElement;
+      var _c = _vm._self._c || _h;
+      return _c(
+        "div",
+        { staticClass: "frame__aside-nav-wrap" },
+        [
+          _vm.links
+            ? _c(
+                "ul",
+                { staticClass: "frame__aside-links" },
+                _vm._l(_vm.links, function(item, index) {
+                  return _c(
+                    "li",
+                    { key: index, staticClass: "frame__aside-li" },
+                    [_c("nav-item", _vm._b({}, "nav-item", item, false))],
+                    1
+                  )
+                }),
+                0
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm._t("difnav")
+        ],
+        2
+      )
+    };
+    var __vue_staticRenderFns__$1 = [];
+    __vue_render__$1._withStripped = true;
+
+      /* style */
+      const __vue_inject_styles__$2 = undefined;
+      /* scoped */
+      const __vue_scope_id__$2 = undefined;
+      /* module identifier */
+      const __vue_module_identifier__$2 = undefined;
+      /* functional template */
+      const __vue_is_functional_template__$2 = false;
+      /* style inject */
+      
+      /* style inject SSR */
+      
+
+      
+      var frameNav = normalizeComponent(
+        { render: __vue_render__$1, staticRenderFns: __vue_staticRenderFns__$1 },
+        __vue_inject_styles__$2,
+        __vue_script__$2,
+        __vue_scope_id__$2,
+        __vue_is_functional_template__$2,
+        __vue_module_identifier__$2,
+        undefined,
+        undefined
+      );
+
     function easeOutCubic(time, duration) {
         return (time = time / duration - 1) * time * time + 1
     }
@@ -231,7 +458,7 @@
         return ((time-=2)*time*time + 2) / 2;
     }
 
-    var script$1 = {
+    var script$3 = {
 
         name: 'slide-up-down',
         
@@ -358,211 +585,33 @@
     };
 
     /* script */
-    const __vue_script__$1 = script$1;
+    const __vue_script__$3 = script$3;
     // For security concerns, we use only base name in production mode. See https://github.com/vuejs/rollup-plugin-vue/issues/258
-    script$1.__file = "E:\\awes-layout-crm\\src\\vue\\slide-up-down.vue";
+    script$3.__file = "/home/illjah/awescode/awes-layout-crm/src/vue/slide-up-down.vue";
 
     /* template */
 
       /* style */
-      const __vue_inject_styles__$1 = undefined;
+      const __vue_inject_styles__$3 = undefined;
       /* scoped */
-      const __vue_scope_id__$1 = undefined;
+      const __vue_scope_id__$3 = undefined;
       /* module identifier */
-      const __vue_module_identifier__$1 = undefined;
+      const __vue_module_identifier__$3 = undefined;
       /* functional template */
-      const __vue_is_functional_template__$1 = undefined;
+      const __vue_is_functional_template__$3 = undefined;
       /* style inject */
       
       /* style inject SSR */
       
 
       
-      var SlideUpDown = normalizeComponent(
+      var slideUpDown = normalizeComponent(
         {},
-        __vue_inject_styles__$1,
-        __vue_script__$1,
-        __vue_scope_id__$1,
-        __vue_is_functional_template__$1,
-        __vue_module_identifier__$1,
-        undefined,
-        undefined
-      );
-
-    //
-
-    var script$2 = {
-
-        name: 'frame-nav',
-
-        data() {
-            return {
-                toggle: false,
-                active: null,
-                val: false
-            }
-        },
-        components: {
-            SlideUpDown
-        },
-        computed: {
-            menu() {
-                return this.links.map( (item, key) => {
-                    if (this.active !== null && item.link === undefined) {
-                        item.active = (key === this.active) ? this.val : false;
-                    }
-                    return item;
-                });
-            }
-        },
-        props: {
-            links: {
-                type: [Object, Array],
-                default: function() {return []}
-            },
-            title: {
-                type: String,
-                default: "AwesCRM"
-            }
-        },
-        methods: {
-            setActive(index, val) {
-                this.val = !val;
-                this.active = index;
-            }
-        }
-    };
-
-    /* script */
-    const __vue_script__$2 = script$2;
-    // For security concerns, we use only base name in production mode. See https://github.com/vuejs/rollup-plugin-vue/issues/258
-    script$2.__file = "E:\\awes-layout-crm\\src\\vue\\frame-nav.vue";
-
-    /* template */
-    var __vue_render__$1 = function() {
-      var _vm = this;
-      var _h = _vm.$createElement;
-      var _c = _vm._self._c || _h;
-      return _c("div", { staticClass: "frame__aside-nav-wrap" }, [
-        _c(
-          "ul",
-          { staticClass: "frame__aside-links" },
-          _vm._l(_vm.menu, function(item, index) {
-            return _c("li", { staticClass: "frame__aside-li" }, [
-              item.link != null
-                ? _c(
-                    "a",
-                    {
-                      staticClass: "frame__aside-link",
-                      class: { "frame__aside-link_active": item.active },
-                      attrs: { href: item.link }
-                    },
-                    [
-                      _c("i", { class: "icon icon-" + item.icon }),
-                      _vm._v(" "),
-                      _c("span", [_vm._v(_vm._s(item.title))])
-                    ]
-                  )
-                : _c(
-                    "div",
-                    [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "frame__aside-link frame__aside-link_sub",
-                          class: { "frame__aside-link_active": item.active },
-                          attrs: { href: "#" },
-                          on: {
-                            click: function($event) {
-                              $event.preventDefault();
-                              _vm.setActive(index, item.active);
-                            }
-                          }
-                        },
-                        [
-                          _c("i", { class: "icon icon-" + item.icon }),
-                          _vm._v(" "),
-                          _c("span", [_vm._v(_vm._s(item.title))]),
-                          _vm._v(" "),
-                          _c("i", { staticClass: "icon icon-angle-bottom" })
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "slide-up-down",
-                        {
-                          attrs: {
-                            show: item.active,
-                            slideDownDuration: 380,
-                            slideUpDuration: 210
-                          }
-                        },
-                        [
-                          _c(
-                            "ul",
-                            { staticClass: "frame__aside-hidden active" },
-                            _vm._l(item.sub, function(sub) {
-                              return _c(
-                                "li",
-                                { staticClass: "frame__aside-inlist" },
-                                [
-                                  _c(
-                                    "a",
-                                    {
-                                      staticClass: "frame__aside-inlink",
-                                      class: {
-                                        "frame__aside-inlink_active": sub.active
-                                      },
-                                      attrs: { href: sub.link }
-                                    },
-                                    [
-                                      _c(
-                                        "span",
-                                        { class: { "tf-strong": sub.active } },
-                                        [_vm._v(_vm._s(sub.title))]
-                                      )
-                                    ]
-                                  )
-                                ]
-                              )
-                            }),
-                            0
-                          )
-                        ]
-                      )
-                    ],
-                    1
-                  )
-            ])
-          }),
-          0
-        )
-      ])
-    };
-    var __vue_staticRenderFns__$1 = [];
-    __vue_render__$1._withStripped = true;
-
-      /* style */
-      const __vue_inject_styles__$2 = undefined;
-      /* scoped */
-      const __vue_scope_id__$2 = undefined;
-      /* module identifier */
-      const __vue_module_identifier__$2 = undefined;
-      /* functional template */
-      const __vue_is_functional_template__$2 = false;
-      /* style inject */
-      
-      /* style inject SSR */
-      
-
-      
-      var frameNav = normalizeComponent(
-        { render: __vue_render__$1, staticRenderFns: __vue_staticRenderFns__$1 },
-        __vue_inject_styles__$2,
-        __vue_script__$2,
-        __vue_scope_id__$2,
-        __vue_is_functional_template__$2,
-        __vue_module_identifier__$2,
+        __vue_inject_styles__$3,
+        __vue_script__$3,
+        __vue_scope_id__$3,
+        __vue_is_functional_template__$3,
+        __vue_module_identifier__$3,
         undefined,
         undefined
       );
@@ -576,7 +625,7 @@
 
         Vue.component('content-wrapper', contentWrapper);
         Vue.component('frame-nav', frameNav);
-        Vue.component('slide-up-down', SlideUpDown);
+        Vue.component('slide-up-down', slideUpDown);
     }
 
     const plugin = {

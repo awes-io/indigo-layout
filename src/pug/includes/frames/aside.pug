@@ -11,7 +11,7 @@
                 i.icon.icon-cross
             h4.frame__aside-mtitle
                 span AwesCRM
-        frame-nav(:links="[{title:'Dashboard',icon: 'speed', active:true, link: '#'}, {title:'Admin',icon:'report',sub:[{title:'Dashboard',icon:null,link:'#'},{title:'Plans',icon:null,link:'#'}]}]")
+        frame-nav(:links="[{name:'Dashboard', icon:'speed', url: '#'}, {name:'Admin', icon:'report', children: [{name:'Dashboard', url:'#'}, {name:'Plans', url:'#'}]}]")
             div.ph
                 div.ph__mnav
                     span.ph__mnav-link
