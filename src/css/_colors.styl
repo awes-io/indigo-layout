@@ -576,9 +576,46 @@ a
           opacity .5
           color var(--tc_text_caption)
 
+.vue-tel-input
+  border 1px solid var(--tc_border_ins) !important
+  .dropdown
+    background-color var(--tc_ui_bg) !important
+    border-right 1px solid var(--tc_border_ins)
+    &:hover
+      background-color var(--tc_ui_bg_semi_light) !important
+  input
+    background-color var(--tc_ui_bg) !important
+    color var(--tc_text) !important
+  ul
+    background-color var(--tc_ui_bg) !important
+  .dropdown-item
+    color var(--tc_text) !important
+    &.highlighted
+      background-color var(--tc_ui_bg_semi) !important
+      
+  &:focus-within
+    box-shadow none !important
+    border-color var(--tc_ui_focus) !important
+
 .input
   & &__okicon
     color cl_salad
+  &_range
+    input[type='range']
+      background-color cl_grass
+      &::-ms-track
+        background-color cl_grass
+      &::-moz-range-track
+        background-color cl_grass
+      &::-webkit-slider-thumb
+        background-color cl_white
+        box-shadow var(--tc_shadow_smr)
+      &::-moz-range-thumb
+        background-color cl_white
+        box-shadow var(--tc_shadow_smr)
+      &::-ms-thumb
+        background-color cl_white
+        box-shadow var(--tc_shadow_smr)
   & &__editable
     border-left 1px solid var(--tc_border_ins)
     &-caption
