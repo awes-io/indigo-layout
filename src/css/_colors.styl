@@ -1015,6 +1015,19 @@ table
         
 
     
+.head-context
+  & &__main
+    border-color var(--tc_border)
+    background-color var(--tc_ui_bg)
+    &:hover
+        background-color: var(--tc_ui_bg_semi)
+  & &__hidden
+    border-color var(--tc_border)
+    background-color var(--tc_ui_bg)
+    &-btn
+      color var(--tc_link_semi)
+      &:hover
+        background-color: var(--tc_ui_bg_semi)
 
 .context-menu
   &__overlay
@@ -1095,6 +1108,13 @@ mark
 .tf
   &-grey
     color var(--tc_text_caption)
+  &-titlenav
+    a
+      color var(--tc_link_semi)
+      &:hover, em
+        color var(--tc_link_semi_active)
+      &.active
+        color var(--tc_link)
   &-caption
     color var(--tc_text_caption)
   &-blcode
@@ -1306,10 +1326,26 @@ mark
 
 
 .frame
+  & &__inlayout
+    &-block
+      border-left 1px solid var(--tc_border_light)
   & &__mobile-shadow,
   & &__overlay
     @media res_tablet--lg
       background-color var(--tc_ui_shadow-overflow)
+  & &__head
+    &-link
+      color var(--tc_link_semi)
+      @media res_tablet--lg
+        color var(--tc_aside_link)
+        opacity 0.4
+      &:hover
+        color var(--tc_aside_link)
+        @media res_tablet--lg
+          color var(--tc_aside_link)
+          opacity 1
+      
+      
   & &__aside
     background-image var(--tc_aside_gradient)
     box-shadow 0 20px 30px rgba(0,0,0,0.1)

@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
     <script>AWES_CONFIG = {key: '680a7d07f89b94e7fc83be657a2daa27'}</script><!-- there is can be head meta or sctipts-->
-    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/modal/v0.1.1/js/main.js"></script>
+    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/modal/v0.x.x/js/main.js"></script>
     <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/form-builder/v0.x.x/js/main.js"></script>
     <script src="/js/main.js"></script>
     <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/js-core/v0.x.x/js/main.js"></script>
@@ -28,7 +28,7 @@
                     <div class="frame__aside-mhead g-res--tablet-lg"><a class="frame__aside-close" href="" @click.prevent="$awesLayoutCrm.openNav()"><i class="icon icon-cross"></i></a>
                         <h4 class="frame__aside-mtitle"><span>AwesCRM</span></h4>
                     </div>
-                    <frame-nav :links="[{title:'Dashboard',icon: 'speed', active:true, link: '#'}, {title:'Admin',icon:'report',sub:[{title:'Dashboard',icon:null,link:'#'},{title:'Plans',icon:null,link:'#'}]}]">
+                    <frame-nav :links="[{name:'Dashboard', icon:'speed', url: '#'}, {name:'Admin', icon:'report', children: [{name:'Dashboard', url:'#'}, {name:'Plans', url:'#'}]}]">
                         <div class="ph">
                             <div class="ph__mnav"><span class="ph__mnav-link"></span><span class="ph__mnav-title"></span></div>
                             <ul class="ph__nav">
@@ -420,7 +420,7 @@
                         </div>
                     </div>
                 </transition>
-                <div class="frame__content"><button class="btn" @click="AWES.emit('modal::default.open', 'form')">Default modal</button><br><button class="btn" @click="AWES.emit('modal::fullscreen.open')">Fullscreen modal</button><br><button class="btn" @click="AWES.emit('modal::modalform.open' )">Modal form modal</button><br><br>
+                <div class="frame__content"><button class="btn" onclick="AWES.emit('modal::default.open')">Default modal</button><br><button class="btn" onclick="AWES.emit('modal::fullscreen.open')">Fullscreen modal</button><br><button class="btn" onclick="AWES.emit('modal::modalform.open')">Modal form modal</button><br><br>
                     <modal-window class="modal_formbuilder" name="modalform" title="Modal form" data-awes="checkOpenModal">
                         <form-builder url="valera" method="PATCH" :default="{active:1, profile_manager:{first_name:'Valera'}}"><template slot-scope="{ fields }">
                                 <fb-checkbox name="theme_dark" theme="s2" label="Dark theme"></fb-checkbox>
