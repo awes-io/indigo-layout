@@ -568,6 +568,8 @@
             font-size 10px
 
         input[type='range']
+            margin: 0
+            padding: 0
             appearance none
             -webkit-appearance none
             width 100%
@@ -576,20 +578,32 @@
             max-width 400px
             &:focus
                 outline none
+            &::-moz-focus-outer
+                border-color: transparent
             &::-webkit-slider-runnable-track
-                height 5px
+                height 3px
             &::-webkit-slider-thumb
                 appearance none
                 -webkit-appearance none
                 margin-top -6px
             &::-moz-range-track
                 height 5px
-                border-radius 10px
+                // border-radius 10px
+                width: 100%;
+                height: 3px;
+                cursor: pointer;
+                animate: 0.2s;
+            &::-moz-range-progress
+                height: 3px
             &::-ms-track
-                width 100%
-                height 5px
+                width calc(100% - 18px)
+                height 3px
+                margin: 0 9px
                 cursor pointer
-                border-color transparent
+                background-clip: content-box
+                border: 10px solid transparent
+                border-left-width: 0
+                border-right-width: 0
                 color transparent
             &::-webkit-slider-thumb
                 appearance none
@@ -608,11 +622,12 @@
                 border-radius 50%
                 cursor pointer
             &::-ms-thumb
+                margin: 0 8px
                 appearance none
                 -webkit-appearance none
                 border 0
                 size 16px
-                border-radius 50%          
+                border-radius 50%
                 cursor pointer
                 margin-top 0
             

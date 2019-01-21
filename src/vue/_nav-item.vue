@@ -1,3 +1,11 @@
+<template>
+    <a :href="url" :class="[{'frame__aside-link_active': isActive}, className]" v-on="url ? null : $listeners">
+        <i v-if="icon"
+           :class="`icon icon-${icon}`"></i>
+        {{ name }}
+    </a>
+</template>
+
 <script>
     export default {
 
@@ -9,77 +17,58 @@
                 type: String,
                 required: true
             },
-            
-            className: {
-                type: String,
-                default: 'frame__aside-link'
-            },
 
             icon: String,
 
-            url: String,
+            url: {
+                type: String,
+                default: ''
+            },
 
-            children: Array
+            active: {
+                type: Boolean,
+                default: false
+            },
+
+            className: [String, Array, Object]
+        },
+
+
+        inject: {
+
+            expanded: {
+                from: 'expanded',
+                default: false
+            }
         },
 
 
         data() {
             return {
-                isOpened: false
+                isCurrent: false
+            }
+        },
+
+
+        computed: {
+
+            isActive() {
+                return this.isCurrent || this.active || this.expanded
             }
         },
 
 
         methods: {
-            onClick($event) {
-                $event.preventDefault()
-                this.isOpened = ! this.isOpened
+
+            checkIsCurrent() {
+                this.isCurrent = window.location.pathname === this.url
             }
         },
 
 
-        render(h) {
-
-            const navItemInner = [ this.name ]
-            const navItemData = { 
-                class: this.className,
-                domProps: {},
-                on: {}
-            }
-
-            if ( this.icon ) navItemInner.unshift(
-                h('i', { class: `icon icon-${this.icon}` })
-            )
-
-            if ( this.url ) {
-                navItemData.domProps.href = this.url
-            } else if ( this.children ) {
-                navItemData.domProps.href = ''
-                navItemData.on.click = this.onClick
-            }
-
-            if ( this.children && this.children.length ) {
-                // with subnav
-                navItemData.class += ' frame__aside-link_sub'
-
-                return h('div', [
-                    h('a', navItemData, navItemInner),
-                    h('i', {
-                        class: 'icon icon-angle-bottom',
-                        on: { click: this.onClick }
-                    }),
-                    h('slide-up-down', { props: { tag:'ul', show: this.isOpened } }, [
-                        this.children.map( child => {
-                            return h('li', { class: 'frame__aside-inlist' }, [
-                                h('nav-item', { props: {...child, className: 'frame__aside-inlink'} })
-                            ])
-                        })
-                    ])
-                ])
-            } else {
-                // without subnav
-                return h('a', navItemData, navItemInner)
-            }
+        beforeMount() {
+            // TODO: Отслеживать изменение URL, когда сделаем SPA
+            this.checkIsCurrent()
         }
     }
 </script>

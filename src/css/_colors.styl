@@ -602,11 +602,17 @@ a
     color cl_salad
   &_range
     input[type='range']
-      background-color cl_grass
+      // background-color cl_grass
       &::-ms-track
+        background-color cl_cloud
+      &::-ms-fill-lower
+        background-color cl_grass
+      &::-moz-range-progress
         background-color cl_grass
       &::-moz-range-track
-        background-color cl_grass
+        background-color cl_cloud
+      &::-webkit-slider-runnable-track
+        background: linear-gradient(cl_grass, cl_grass) s('0/ var(--percent)') 100% no-repeat cl_cloud
       &::-webkit-slider-thumb
         background-color cl_white
         box-shadow var(--tc_shadow_smr)
@@ -615,7 +621,10 @@ a
         box-shadow var(--tc_shadow_smr)
       &::-ms-thumb
         background-color cl_white
-        box-shadow var(--tc_shadow_smr)
+        box-shadow 0 0 10px rgba(0, 0, 0, 0.15);
+        // box-shadow var(--tc_shadow_smr)
+      &::-ms-tooltip
+        display: none
   & &__editable
     border-left 1px solid var(--tc_border_ins)
     &-caption
@@ -1349,6 +1358,8 @@ mark
   & &__aside
     background-image var(--tc_aside_gradient)
     box-shadow 0 20px 30px rgba(0,0,0,0.1)
+    &-nav-inwrap .icon-angle-bottom
+      color var(--tc_aside_link)
     &-mtitle
       color var(--tc_aside_text)
     &-close

@@ -26,7 +26,7 @@
                     <div class="frame__aside-mhead g-res--tablet-lg"><a class="frame__aside-close" href="" @click.prevent="$awesLayoutCrm.openNav()"><i class="icon icon-cross"></i></a>
                         <h4 class="frame__aside-mtitle"><span>AwesCRM</span></h4>
                     </div>
-                    <frame-nav :links="[{name:'Dashboard', icon:'speed', url: '#'}, {name:'Admin', icon:'report', children: [{name:'Dashboard', url:'#'}, {name:'Plans', url:'#'}]}]">
+                    <frame-nav :links="[{name:'Dashboard', icon:'speed'}, {name:'Admin', icon:'report', children: [{name:'Dashboard', url: '/modal.html'}, {name:'Plans'}, {name:'Third', children: [{name:'Dashboard', url:'#'}, {name:'Plans', url:'#'}] }]}]">
                         <div class="ph">
                             <div class="ph__mnav"><span class="ph__mnav-link"></span><span class="ph__mnav-title"></span></div>
                             <ul class="ph__nav">
