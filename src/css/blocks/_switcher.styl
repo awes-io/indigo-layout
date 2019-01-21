@@ -1,0 +1,17 @@
+switcher()
+    size 31px 16px
+    border 0 !important
+    border-radius 8px
+    tr(0.25)
+    &:before
+        width 18px
+        height 18px
+        tr(0.25)
+        display block
+        border-radius 50%
+        absolute left -1px top -1px
+        content ''
+
+switcher-active()
+    &:before
+        left 14px

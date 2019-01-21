@@ -1,7 +1,7 @@
 
 body
   color var(--tc_text)
-  background-color var(--tc_theme_body)
+  background-color var(--tc_ui_bg)
 
 blockquote
   background-color var(--tc_ui_bg)
@@ -502,7 +502,17 @@ a
           color var(--tc_link_semi)
 
 
-
+.theme-switcher
+    &__switcher
+        {lt} &
+            background-color var(--tc_ui_darkbg)
+        {dt} &
+            background-color var(--tc_ui_darkbg_d)
+        &:before
+            background-color cl_white
+            box-shadow 0px 0px 5px var(--tc_ui_darkbg_o)
+    &.is-active .theme-switcher__switcher
+        background-color cl_grass
 
 
 .multiselect
