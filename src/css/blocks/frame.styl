@@ -180,11 +180,28 @@
         display block
         margin-right 15px
         tr(1.5)
+      .icon-angle-bottom
+        fl(w,c,c)
+        margin-right: 0
+        font-size 5px
+        absolute right 0 top 0
+        bottom 0
+        size 50px auto
+        &:before
+          tr(0.3)
+        &:after
+          content ''
+          display block
+          absolute left 0 top 1rem
+          bottom 1rem
+          width 1px
+          background-color currentColor
+          opacity .5
       &_active
         opacity 1
         &:before
           height 100%
-        .icon-angle-bottom
+        .icon-angle-bottom:before
           transform scaleY(-1)
       &_sub
         pointer-events auto !important
@@ -197,14 +214,7 @@
         div
           display block !important
           height auto !important
-    &-nav-inwrap
-        position: relative;
-        .icon-angle-bottom
-          font-size 5px
-          absolute right 20px top 50%
-          display block
-          size 30px
-          tr(0.3)
+
   & &__max
     max-width 680px
   & &__right
