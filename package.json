@@ -1,6 +1,6 @@
 {
     "name": "layout-crm",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "description": "Base CRM layouts",
     "main": "dist/js/main.js",
     "module": "src/js/plugin.js",
