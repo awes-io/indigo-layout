@@ -20,16 +20,17 @@ ul.user-menu__list
                 progress(max='2500', value='519') 519 MB of 2.5 GB used
     .cm-item
         .cm-item__panel
-            form.form-builder(action='https://company.awescrm.cloud/api/v1/managers/NQ%3D%3D', method='PATCH')
-                .grid.grid_forms
-                    .grid__cell.user-menu__theme-checkbox.grid__cell_padding
-                        label.checkbox.checkbox_s2(data-awes='fb-checkbox.theme_dark')
-                            .v-popover.display-block
-                                span.trigger(aria-describedby='popover_0ttyghblod', tabindex='-1', style='display: inline-block;')
-                                    input.is-focusable(type='checkbox')
-                                    span.checkbox__text
-                                        i.icon.icon-checkbox(style='touch-action: pan-y; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);')
-                                        span Dark theme
+            theme-switcher
+            //- form.form-builder(action='https://company.awescrm.cloud/api/v1/managers/NQ%3D%3D', method='PATCH')
+            //-     .grid.grid_forms
+            //-         .grid__cell.user-menu__theme-checkbox.grid__cell_padding
+            //-             label.checkbox.checkbox_s2(data-awes='fb-checkbox.theme_dark')
+            //-                 .v-popover.display-block
+            //-                     span.trigger(aria-describedby='popover_0ttyghblod', tabindex='-1', style='display: inline-block;')
+            //-                         input.is-focusable(type='checkbox')
+            //-                         span.checkbox__text
+            //-                             i.icon.icon-checkbox(style='touch-action: pan-y; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);')
+            //-                             span Dark theme
                                     // 
                                     // 
     .cm-item

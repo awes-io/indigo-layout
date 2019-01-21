@@ -1,0 +1,20 @@
+.theme-switcher
+    fl(,,c)
+
+    &__switcher
+        switcher()
+        position: relative
+        margin-right: 11px
+        z-index: 1
+
+    &__input
+        &::-moz-focus-outer
+            border-color: transparent
+        width: 100%
+        position: relative
+        z-index: 2
+        opacity: 0
+
+    &.is-active
+        .theme-switcher__switcher
+            switcher-active()
