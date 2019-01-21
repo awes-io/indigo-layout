@@ -52,6 +52,10 @@ p
 a
     &:hover
         text-decoration underline
+    mark
+        text-decoration none !important
+        &:hover
+            text-decoration none
 
 blockquote
     display block
@@ -100,7 +104,7 @@ table
 
 
 
-.frame__content
+.frame__content, .tf-content
     ol
         line-height 1.5
         margin-bottom tf_text_margin
@@ -154,6 +158,9 @@ table
             width 80%
             margin-bottom tf_text_margin
 
+    img
+        margin-bottom 30px
+
 mark
     padding 2px 5px 4px 5px
     margin-left 5px
@@ -163,6 +170,14 @@ mark
 // Help Classes
 
 .tf
+    &-titlenav
+        list-style none !important
+        margin 0 !important
+        font-size 13px
+        padding 0
+        li
+            ul
+                list-style none
     &-blcode
         padding 2px 5px 4px 5px
         margin-left 5px

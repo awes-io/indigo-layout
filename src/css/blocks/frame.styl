@@ -4,13 +4,45 @@
 .frame
   fl()
   min-height 100vh
+  & &__inlayout
+    fl(,sb)
+    &-content
+      width calc(100% - 340px)
+    &-aside
+      width 300px
+    &-block
+      display block
+      width 300px
+      padding 15px 0px 15px 40px
+      &_fixed
+        fixed top 30px right 40px
+        z-index 750
   & &__mobile-shadow
     display none
+  & &__head
+    &-rlinks
+      absolute right 0 top 0
+      height 50px
+      fl(,fe,c)
+      padding-right 15px
+    &-link
+      margin-left 20px
+    &-callbtn
+      margin-left 30px
+      padding-top 12px
+      padding-bottom 12px
+      &:hover
+        text-decoration none
+  & &__title-line
+    position relative
+    fl(,,c)
   & &__aside
     width 260px
     min-height 100vh
     flex-shrink 0
-    z-index 990
+    z-index 990   
+    &-callbtn
+      display none   
     &-ava
       display block
       size 50px
@@ -148,12 +180,6 @@
         display block
         margin-right 15px
         tr(1.5)
-      .icon-angle-bottom
-        font-size 5px
-        absolute right 20px top 50%
-        display block
-        size auto auto
-        tr(0.3)
       &_active
         opacity 1
         &:before
@@ -171,6 +197,14 @@
         div
           display block !important
           height auto !important
+    &-nav-inwrap
+        position: relative;
+        .icon-angle-bottom
+          font-size 5px
+          absolute right 20px top 50%
+          display block
+          size 30px
+          tr(0.3)
   & &__max
     max-width 680px
   & &__right
@@ -191,6 +225,7 @@
       font-size 14px
     &-top
       padding-left 40px
+      min-height 50px
       width 100%
       fl(,sb,c)
     &-title
@@ -226,6 +261,7 @@
   & &__userinfo
     fl(,fe,c)
     padding-right 55px
+    height 50px
     &-link
       fl(,c,c)
       size 50px
@@ -356,6 +392,35 @@
     content attr(data-loading)
 
 
+@media res_desktop--lg
+  .frame
+    & &__inlayout
+      &-content
+        width calc(100% - 280px)
+      &-aside
+        width 250px
+      &-block
+        padding-left 30px
+        width 250px
+
+
+@media res_desktop--lg
+  .frame
+    & &__inlayout
+      flex-wrap wrap
+      &-content
+        width 100%
+        order 2
+      &-aside
+        width 100%
+        order 1
+        
+      &-block
+        padding-left 0px
+        width 100%
+        border 0 !important
+        position static !important
+        margin-bottom 30px
 
 @media res_desktop--sm
   .frame
@@ -395,6 +460,22 @@
     & &__right
       width 100%
       padding-top 64px
+    & &__head
+      &-rlinks
+        position static
+        flex-wrap wrap
+        width 100%
+        padding 20px 0 0 0
+      &-callbtn
+        display none
+      &-link
+        text-align left
+        display block
+        padding 10px 40px
+        margin 0
+        width 100%
+        &:hover
+          text-decoration none
     & &__mobile-shadow
       fixed top 0 left 0
       width 100%
@@ -408,6 +489,13 @@
       box-shadow none
       position static
       z-index auto
+      &-callbtn
+        display block
+        margin-right 15px
+        padding-left 25px
+        padding-right 25px
+        min-width 1px
+        white-space nowrap
       &-ava
         border-radius 50%
         margin-top 11px
@@ -527,7 +615,15 @@
           &:nth-child(2)
             border-right 0 !important
 
-
+@media res_mobile--md
+  .frame
+    & &__title-line
+      flex-wrap wrap
+      .head-context
+        margin-left 0
+        margin-top 15px
+      & ^[0]__header-title
+        width 100%
 
 @media res_mobile--sm
   .frame

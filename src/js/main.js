@@ -39,15 +39,26 @@ const awesPlugin = {
             deps: ['vue'],
             cb: toastedRegistration
         },
-        'highlight': 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js',
+        'vue-tabs-component': {
+            src: 'https://unpkg.com/vue-nav-tabs/dist/vue-tabs.js',
+            deps: ['vue'],
+            cb() {
+                Vue.use(VueTabs);
+            }
+        },
+        'highlight': {
+            src: [
+                'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js',
+                'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/github-gist.min.css'
+            ]
+        },
         'highlight_lang_html': {
             src: 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/javascript.min.js',
             deps: ['highlight'],
             cb() {
                 document.querySelectorAll('pre code.html').forEach( block => { hljs.highlightBlock(block) })
             }
-        },
-        'highlight_css': 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/atom-one-dark.min.css'
+        }
     },
 
     install() {
@@ -58,7 +69,11 @@ const awesPlugin = {
 
 if (window && ('AWES' in window)) {
     AWES.use(awesPlugin)
+
 } else {
     window.__awes_plugins_stack__ = window.__awes_plugins_stack__ || []
     window.__awes_plugins_stack__.push(awesPlugin)
 }
+
+
+

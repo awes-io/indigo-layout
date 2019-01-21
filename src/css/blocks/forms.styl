@@ -511,7 +511,126 @@
                 display block
                 font-size f_medium
                 padding 5px 12px
+    &_phone
+        & ^[0]__label
+            left 65px
+            width calc(100% - 75px)
+            background-color transparent !important
+        input
+            height 48px
+            padding-top 12px
+            padding-left 15px !important
+            padding-right 15px
+            width calc(100% - 60px) !important
+            placeholder(transparent)
+        ul
+            top 48px !important
+            width calc(100% + 1px) !important
+            li
+                margin-bottom 5px !important
+                padding-left 8px !important
+                strong
+                    font-weight 400
+        .dropdown 
+            position static !important
+            width 60px
+            tr(0.25)
+            border-radius 3px 0 0 3px
+        .vue-tel-input
+            display flex
+            
 
+
+    & &__range
+        width 100%
+        &-wrap
+            fl(,,c)
+            width 100%
+        &-left
+            width 60px
+            text-align center
+            margin-right 10px
+        &-right
+            width calc(100% - 70px)
+    &_range
+        size 100% 50px
+        padding-top 10px
+        fl(,,c)
+        .v-popover
+            width 100%
+        & ^[0]__label
+            width 100%
+            absolute left 0 
+            top -20px !important
+            text-align left
+            background-color transparent !important
+            padding 0
+            font-size 10px
+
+        input[type='range']
+            margin: 0
+            padding: 0
+            appearance none
+            -webkit-appearance none
+            width 100%
+            overflow visible
+            display block
+            max-width 400px
+            &:focus
+                outline none
+            &::-moz-focus-outer
+                border-color: transparent
+            &::-webkit-slider-runnable-track
+                height 3px
+            &::-webkit-slider-thumb
+                appearance none
+                -webkit-appearance none
+                margin-top -6px
+            &::-moz-range-track
+                height 5px
+                // border-radius 10px
+                width: 100%;
+                height: 3px;
+                cursor: pointer;
+                animate: 0.2s;
+            &::-moz-range-progress
+                height: 3px
+            &::-ms-track
+                width calc(100% - 18px)
+                height 3px
+                margin: 0 9px
+                cursor pointer
+                background-clip: content-box
+                border: 10px solid transparent
+                border-left-width: 0
+                border-right-width: 0
+                color transparent
+            &::-webkit-slider-thumb
+                appearance none
+                -webkit-appearance none
+                border 0
+                size 16px
+                border-radius 50%
+                cursor pointer
+                position relative
+            &::-moz-range-thumb
+                appearance none
+                -webkit-appearance none
+                -moz-appearance none
+                border 0
+                size 16px
+                border-radius 50%
+                cursor pointer
+            &::-ms-thumb
+                margin: 0 8px
+                appearance none
+                -webkit-appearance none
+                border 0
+                size 16px
+                border-radius 50%
+                cursor pointer
+                margin-top 0
+            
     &_active
         & ^[0]__color
             opacity 1
@@ -533,6 +652,26 @@
             padding-right 50px
         & ^[0]__label
             width calc(100% - 35px)
+
+
+.progress
+    display: block
+    text-align: center
+    font-size: .6rem
+
+    progress
+        display: block
+        margin-top: .5rem
+        appearance: none
+        border: none
+        font-size: 0
+        width: 100%
+        height: 1px
+        background: transparent
+
+    &::-webkit-progress-bar
+        background: transparent
+
 
 // animation hack autofill detection
 @keyframes autoFillStart
