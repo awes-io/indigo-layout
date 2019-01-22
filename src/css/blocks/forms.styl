@@ -65,7 +65,7 @@
         .multiselect__input, .multiselect__single
             opacity 1
     &_opened
-        z-index 200
+        z-index 200 !important
 
 
 
@@ -501,6 +501,7 @@
                 font-size f_medium
                 padding 5px 12px
     &_phone
+        z-index auto
         & ^[0]__label
             left 65px
             width calc(100% - 75px)
@@ -515,6 +516,7 @@
         ul
             top 48px !important
             width calc(100% + 1px) !important
+            z-index 101 !important
             li
                 margin-bottom 5px !important
                 padding-left 8px !important
