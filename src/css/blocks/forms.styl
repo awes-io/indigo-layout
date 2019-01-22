@@ -401,7 +401,7 @@
         display block
         border-radius 3px
         pointer-events none
-        z-index 700
+        z-index 1
         white-space nowrap
         text-overflow ellipsis
         overflow hidden
@@ -637,7 +637,8 @@
         & ^[0]__autocomplete
             display block
     &_disabled
-        pointer-events: none
+        pointer-events none
+        user-select none
     &_ok
         & ^[0]__field
             padding-right 50px
