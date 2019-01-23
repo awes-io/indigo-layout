@@ -186,7 +186,7 @@
                 text-decoration none
         & &__list
             margin-bottom 0
-            padding-top 10px
+            padding-top 3px
             tr
                 td
                     &:first-child
@@ -197,7 +197,7 @@
                     td
                         background-color var(--tc_ui_bg)
             td
-                padding-top 0px
+                padding-top 7px
                 padding-bottom 10px
                 border 0px
             &-number, &-type, &-size, &-date
@@ -224,6 +224,9 @@
                         color var(--tc_link)
             &-name
                 padding-left 10px
+            &-ftitle
+                max-width 200px
+                word-break break-all
             &-progress
                 padding 0 !important
                 position relative
@@ -979,15 +982,19 @@
     .fb
         &-uploader
             & &__list
+                padding-top 5px
                 table, td
                     display block
                     padding 0
                 tr
                     fl(w,,fs)
-                    padding 15px 30px 5px 30px
+                    padding 10px 30px 5px 30px
                     position relative
                 td
                     border-bottom 0
+                &-pgwrap
+                    padding 0 !important
+                    display block
                 &-number
                     padding 0 !important
                     width 30px !important
@@ -1013,8 +1020,10 @@
                     font-size f_small
                     margin-bottom 10px
                     margin-right 10px
+                &-progress
+                    width 100%
                 &-delete
-                    absolute right 0 top 12px
+                    absolute right 0 top 7px
                     
 
 @media res_mobile--md
