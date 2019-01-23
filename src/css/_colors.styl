@@ -1260,6 +1260,25 @@ mark
     & ^[0]__close
       color cl_white
 
+.fb
+  &-uploader
+    .uploader-drop
+      background-color var(--tc_ui_bg)
+      border-color var(--tc_border_ins)
+      color var(--tc_link_semi)
+      &:hover
+        background-color  var(--tc_ui_bg_semi)
+    & &__btn, & &__fakebtn
+      color var(--tc_link_semi)
+    & &__list
+      tr
+        background-color var(--tc_ui_bg) !important
+        &:hover
+          background-color var(--tc_ui_bg) !important
+
+  
+
+
 .profile-wrap
   & &__ava
     background-color var(--tc_ui_bg_darken)

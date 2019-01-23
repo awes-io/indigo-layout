@@ -1,4 +1,4 @@
-fb-input, fb-select, fb-textarea
+fb-input, fb-select, fb-textarea, fb-uploader
     animation placeholderAnimation 30s infinite linear
 
 form-builder
@@ -9,7 +9,7 @@ form-builder
         width calc(50% - 5px) !important
 
 
-fb-input, fb-checkbox, fb-textarea, fb-select, fb-slider, fb-phone
+fb-input, fb-checkbox, fb-textarea, fb-select, fb-slider, fb-phone, fb-uploader
     width: 100%   
 
 fb-slider
@@ -46,11 +46,14 @@ fb-input, fb-select, fb-phone, fb-slider
     margin-bottom 10px
     border-radius 2px
 
-fb-textarea
+fb-textarea, fb-uploader
     height 92px
     margin-bottom 10px
     display block
     border-radius 2px
+
+fb-uploader
+    height 120px 
 
 fb-checkbox
     margin-top 10px
@@ -79,7 +82,7 @@ fb-checkbox
         opacity 0.7
 
 
-fb-input, fb-select, fb-textarea, fb-checkbox:before, fb-checkbox:after, fb-phone, fb-slider:before, fb-slider:after
+fb-input, fb-select, fb-textarea, fb-checkbox:before, fb-checkbox:after, fb-phone, fb-slider:before, fb-slider:after, fb-uploader
     background-color var(--tc_ui_bg_darken)
     {dt} &
         phAnimation(--tc_ui_bg_darken, --tc_ui_bg_stn)
