@@ -115,9 +115,16 @@ modal-width = 600px
         max-width 1000px
         transform translateX(0px) !important
 
-.body-overflow-hidden
+.body-overflow-hidden 
+  overflow: hidden
+  body
     overflow: hidden
 
+@media res_tablet--lg
+  .body-overflow-usermenu 
+    overflow: hidden
+    body
+      overflow hidden
 
 @media res_tablet--md
   .modal
