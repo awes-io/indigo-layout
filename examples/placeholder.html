@@ -9,8 +9,10 @@
     <link rel="stylesheet" href="css/main.css">
     <script>AWES_CONFIG = {key: '680a7d07f89b94e7fc83be657a2daa27'}</script>
     <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/theme-switcher/v0.0.2/js/main.js"></script><!-- there is can be head meta or sctipts-->
-    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/modal/v0.x.x/js/main.js"></script>
-    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/form-builder/v0.x.x/js/main.js"></script>
+    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/modal/v0.x.x/js/main.js" type="module"></script>
+    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/form-builder/v0.1.11/js/main.js" type="module"></script>
+    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/modal/v0.x.x/js/main.legacy.js" nomodule></script>
+    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/form-builder/v0.1.11/js/main.legacy.js" nomodule></script>
     <script src="/js/main.js"></script>
     <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/js-core/v0.x.x/js/main.js"></script>
 </head>
@@ -417,36 +419,22 @@
                 <div class="frame__content"><button class="frame__header-add"><i class="icon icon-plus"></i></button>
                     <p>Для того, чтобы проверить плейсхолдеры, отключите js в браузере.</p>
                     <h2>Forms</h2>
-                    <div class="grid grid_forms">
-                        <div class="grid__cell grid__cell_2">
-                            <fb-slider name="range"></fb-slider>
-                        </div>
-                        <div class="grid__cell grid__cell_2">
-                            <fb-phone name="phone"></fb-phone>
-                        </div>
-                        <div class="grid__cell grid__cell_2">
-                            <fb-input></fb-input>
-                        </div>
-                        <div class="grid__cell grid__cell_2">
-                            <fb-input></fb-input>
-                        </div>
-                        <div class="grid__cell grid__cell_2">
-                            <fb-select></fb-select>
-                        </div>
-                        <div class="grid__cell grid__cell_2">
-                            <fb-select></fb-select>
-                        </div>
-                        <div class="grid__cell">
-                            <fb-textarea></fb-textarea>
-                        </div>
-                        <div class="grid__cell">
-                            <fb-checkbox></fb-checkbox>
-                        </div>
+                    <form-builder url="http://httpbin.org/post" disabled-dialog>
+                        <fb-slider name="range" label="Placeholder" cell="2"></fb-slider>
+                        <fb-phone name="phone" label="Placeholder" cell="2"></fb-phone>
+                        <fb-input label="Placeholder" cell="2"></fb-input>
+                        <fb-input label="Placeholder" cell="2"></fb-input>
+                        <fb-select label="Placeholder" cell="2"></fb-select>
+                        <fb-select label="Placeholder" cell="2"></fb-select>
+                        <fb-textarea label="Placeholder" cell="2"></fb-textarea>
+                        <fb-input label="Placeholder" cell="2"></fb-input>
+                        <fb-input label="Placeholder" cell="2"></fb-input>
+                        <fb-checkbox label="Placeholder"></fb-checkbox>
                         <placeholder>
                             <div class="ph ph_dark"> ph btn_btn has mod ph__btn_page for page without grid cell<div class="ph__btn"><span></span><span></span></div>
                             </div>
                         </placeholder>
-                    </div>
+                    </form-builder>
                     <h2>Filters</h2>
                     <placeholder>
                         <div class="ph ph_dark">

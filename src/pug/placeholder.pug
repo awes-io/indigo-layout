@@ -5,8 +5,10 @@ block pageVariables
 
 block pageHead
     // there is can be head meta or sctipts
-    script(src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/modal/v0.x.x/js/main.js")
-    script(src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/form-builder/v0.x.x/js/main.js")
+    script(src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/modal/v0.x.x/js/main.js" type="module")
+    script(src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/form-builder/v0.1.11/js/main.js" type="module")
+    script(src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/modal/v0.x.x/js/main.legacy.js" nomodule)
+    script(src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/form-builder/v0.1.11/js/main.legacy.js" nomodule)
 
 
 
@@ -14,29 +16,26 @@ block pageContent
     p Для того, чтобы проверить плейсхолдеры, отключите js в браузере.
 
     h2 Forms
-    .grid.grid_forms
-        .grid__cell.grid__cell_2
-            fb-slider(name="range")
-        .grid__cell.grid__cell_2
-            fb-phone(name="phone")
-        .grid__cell.grid__cell_2
-            fb-input
-        .grid__cell.grid__cell_2
-            fb-input
-        .grid__cell.grid__cell_2
-            fb-select
-        .grid__cell.grid__cell_2
-            fb-select
-        .grid__cell
-            fb-textarea
-        .grid__cell
-            fb-checkbox
+    form-builder(url="http://httpbin.org/post" disabled-dialog)
+        fb-slider(name="range" label="Placeholder" cell="2")
+        fb-phone(name="phone" label="Placeholder" cell="2")
+        fb-input(label="Placeholder" cell="2")
+        fb-input(label="Placeholder" cell="2")
+        fb-select(label="Placeholder" cell="2")
+        fb-select(label="Placeholder" cell="2")
+        fb-textarea(label="Placeholder" cell="2")
+        
+        fb-input(label="Placeholder" cell="2")
+        fb-input(label="Placeholder" cell="2")
+        fb-checkbox(label="Placeholder")
         placeholder
             .ph.ph_dark
                 |  ph btn_btn has mod ph__btn_page for page without grid cell
                 .ph__btn
                     span
                     span
+
+
     h2 Filters
     placeholder
         .ph.ph_dark
