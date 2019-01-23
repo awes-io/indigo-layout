@@ -258,7 +258,7 @@
       cursor pointer
       border-radius 50%
       tr(0.3)
-      absolute right 40px bottom -24px
+      absolute right 40px top -24px
       font-size 19px
       z-index 750
       fl(,c,c)
@@ -318,6 +318,7 @@
       font-size 14px
   & &__content
     padding 30px 40px
+    position relative
   & &__overlay
     fixed top left
     width 100%
@@ -597,11 +598,11 @@
         padding-bottom 20px
         fl(,sb,c)
       &-add
-        position static
-        bottom auto
-        right auto
-        margin-left 15px
-        margin-right 15px
+        fixed left 0 bottom 7px right 0 
+        top auto
+        margin auto
+        z-index 901
+
     & &__userinfo
       fixed bottom 0 left 0
       z-index 900
@@ -616,6 +617,12 @@
       //   display none
       &-hidden
         display none !important
+      &-link
+        width 50%
+        &:first-child
+          padding-right 30px
+        &:last-child
+          padding-left 30px
       &_twolinks
         padding 0 !important
         a
