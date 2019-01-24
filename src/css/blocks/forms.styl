@@ -67,7 +67,87 @@
     &_opened
         z-index 200 !important
 
+.fb-editor
+    margin-bottom 10px
+    & &__modes
+        fl()
+        padding-left 1px
+        &-button
+            padding 7px 10px
+            border 1px solid
+            margin-left -1px
+            margin-bottom 10px
+            font-size f_small
+            &:first-child
+                border-radius 2px 0 0 2px
+            &:last-child
+                border-radius 0 2px 2px 0
+    .mce-tinymce.mce-container.mce-panel
+        border 0px
+    .fb-editor__tab
+        border 1px solid
+    .mce-toolbar-grp
+        border 0
+    .mce-tinymce
+        box-shadow: none
+    .mce-edit-area 
+        border 0
+    .mce-top-part
+        &:before
+            display none
+    .mce-flow-layout
+        padding 5px
+    .mce-btn 
+        button
+            border-radius 2px
+            padding-left 5px
+            padding-right 5px
+            fl(,c,c)
+            text-align center
+    .mce-listbox 
+        button
+            font-size f_small
+            justify-content flex-start !important
+        .mce-txt
+            width auto
+        .mce-caret
+            position static
+            margin-top 1px
+            display inline-block
 
+    .mce-btn-group 
+        *
+            white-space normal !important
+            line-height normal
+        .mce-btn
+            border 0
+        .mce-btn-has-text
+            font-weight 700
+            
+    
+    .mce-ico
+        font-size 14px
+        line-height 17px !important
+        text-align center
+        tr(0.25)
+    .mce-fixed-width 
+        width auto
+        button
+            width auto
+            height 24px
+            margin-right 5px
+            span
+                white-space nowrap !important
+                max-width 200px
+                margin-right 10px
+                font-weight 700
+.mce-menu
+    z-index 200 !important
+    max-height 250px !important
+    margin-top 5px !important
+    &-item
+        .mce-text
+            font-size f_small !important
 
 .multiselect
     margin-bottom 10px
@@ -195,15 +275,10 @@
                         padding-left 15px
                     &:last-child
                         padding-right 15px
-                &:hover
-                    td
-                        background-color var(--tc_ui_bg)
             td
                 padding-top 7px
                 padding-bottom 10px
                 border 0px
-            &-number, &-type, &-size, &-date
-                color var(--tc_text_caption)
             &-number
                 padding-right 0
                 text-align center
@@ -222,8 +297,6 @@
                     font-weight 300
                     line-height 22px
                     padding 0 5px
-                    &:hover
-                        color var(--tc_link)
             &-name
                 padding-left 10px
             &-ftitle
@@ -240,13 +313,6 @@
                     -moz-appearance none
                     -webkit-appearance none
                     appearance none
-                    background-color var(--tc_border)
-                    &::-webkit-progress-bar
-                        background-color var(--tc_border)
-                    &::-moz-progress-bar
-                        background-color cl_grass
-                    &::-webkit-progress-value 
-                        background-color cl_grass
         & &__cwrap
             padding 30px 30px 20px 30px
         abbr

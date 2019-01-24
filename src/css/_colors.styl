@@ -607,6 +607,71 @@ a
     box-shadow none !important
     border-color var(--tc_ui_focus) !important
 
+.fb-editor
+  & &__modes
+    &-button
+      border-color var(--tc_border_ins)
+      background-color var(--tc_ui_bg_semi)
+      color var(--tc_text_caption)
+      &.is-active
+        background-color var(--tc_ui_bg)
+        color var(--tc_text)
+  & &__tab
+    border-color var(--tc_border_ins)
+  .mce-flow-layout
+    background-color var(--tc_ui_bg_semi)
+  .mce-listbox 
+    button
+      background-color var(--tc_ui_bg_semi)
+
+
+  .mce-menubtn button
+    color var(--tc_text)
+      
+  .mce-btn, .mce-btn:hover, .mce-btn:active, .mce-btn.mce-active, .mce-btn.mce-active:hover, .mce-btn.mce-active:focus, .mce-btn.mce-active:active
+    background-color transparent !important
+  
+  
+  .mce-btn
+    button
+      background-color var(--tc_ui_bg_semi)
+      .mce-ico
+        color var(--tc_link_semi)
+      &:hover
+        background-color var(--tc_ui_bg)
+        .mce-ico
+          color var(--tc_link_semi_active)
+    &.mce-active
+      button
+        {lt} &
+          background-color var(--tc_ui_bg_semi_v) !important
+        {dt} &
+          background-color var(--tc_ui_bg_semi_d) !important
+        .mce-ico, .mce-txt
+          color var(--tc_text) !important
+
+.mce-btn.mce-active .mce-caret, .mce-btn.mce-active:hover .mce-caret
+  border-top-color var(--tc_text) !important
+
+
+
+
+.mce-menu
+  background-color var(--tc_ui_bg) !important
+  border-color var(--tc_border_ins) !important
+  &-item
+    .mce-text
+        color var(--tc_text) !important
+    &:hover, &:focus
+      background-color var(--tc_ui_bg_semi) !important
+      .mce-text
+        color var(--tc_text) !important
+    &.mce-active
+      background-color var(--tc_aside_bg) !important
+      .mce-text
+        color var(--tc_aside_text) !important
+      
+
 .input
   & &__okicon
     color cl_salad
@@ -1275,6 +1340,25 @@ mark
         background-color var(--tc_ui_bg) !important
         &:hover
           background-color var(--tc_ui_bg) !important
+          td
+            background-color var(--tc_ui_bg)
+      &-number, &-type, &-size, &-date
+        color var(--tc_text_caption)
+      &-delete
+        button
+          &:hover
+            color var(--tc_link)
+      &-progress
+        progress
+          background-color var(--tc_border)
+          &::-webkit-progress-bar
+            background-color var(--tc_border)
+          &::-moz-progress-bar
+            background-color cl_grass
+          &::-webkit-progress-value 
+            background-color cl_grass
+
+    
 
   
 
