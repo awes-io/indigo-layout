@@ -4,14 +4,18 @@
 [![Downloads](https://www.awc.wtf/packages/awes-layout-crm/downloads.svg)](https://www.awes.io/) 
 [![Last version](https://www.awc.wtf/packages/awes-layout-crm/version.svg)](https://www.awes.io/)
 
-## Includes
+Includes:
 
 - Layout for CRM with aside navigation
 - Two columns layout
 - Hero image layout
 
-...and components:
+## Documentation
 
-- [Content-wrapper]('docs/content-wrapper')
-- [Notifications]('docs/notifications')
-- [Slide-up-down]('docs/slide-up-down')
+[Russian](http://gitlab.awescode.com/packages/awes-layout-crm/blob/dev/docs/index.md)
+
+## NPM scripts
+
+Development mode `npm run watch` or simply `npm start`
+Development mode for IE `npm run watch:legacy`
+Production build `npm run build`
