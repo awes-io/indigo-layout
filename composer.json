@@ -48,10 +48,7 @@
         "laravel": {
             "providers": [
                 "AwesIO\\IndigoLayout\\IndigoLayoutServiceProvider"
-            ],
-            "aliases": {
-                "IndigoLayout": "AwesIO\\IndigoLayout\\Facades\\IndigoLayout"
-            }
+            ]
         }
     }
 }
