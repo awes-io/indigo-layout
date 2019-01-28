@@ -1,8 +1,8 @@
 # AWES CRM Layout
 
-[![Build Status](https://www.awc.wtf/packages/awes-layout-crm/status.svg)](https://www.awes.io/) 
-[![Downloads](https://www.awc.wtf/packages/awes-layout-crm/downloads.svg)](https://www.awes.io/) 
-[![Last version](https://www.awc.wtf/packages/awes-layout-crm/version.svg)](https://www.awes.io/)
+[![Build Status](https://www.awc.wtf/awes-io/indigo-layout/status.svg)](https://www.awes.io/) 
+[![Downloads](https://www.awc.wtf/awes-io/indigo-layout/downloads.svg)](https://www.awes.io/) 
+[![Last version](https://www.awc.wtf/awes-io/indigo-layout/version.svg)](https://www.awes.io/)
 
 Includes:
 
@@ -12,7 +12,7 @@ Includes:
 
 ## Documentation
 
-[Russian](http://gitlab.awescode.com/packages/awes-layout-crm/blob/dev/docs/index.md)
+[Russian](http://gitlab.awescode.com/awes-io/indigo-layout/blob/dev/docs/index.md)
 
 ## NPM scripts
 
