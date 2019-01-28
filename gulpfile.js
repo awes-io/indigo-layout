@@ -62,7 +62,7 @@ gulp.task('build:js', function(){
  */
 
 gulp.task('build:styles', function(){
-  return gulp.src('./resources/css/framework/main.styl')
+  return gulp.src('./resources/css/framework/+(main|editor).styl')
     .pipe( plumber() )
     .pipe( isDev ? sourcemaps.init() : noop() )
     .pipe( stylus({ use: nib(), 'include css': true, import: ['nib'], compress: false }) )
@@ -119,7 +119,7 @@ gulp.task('build:icons', function(){
 /*
  * Gloabl tasks
  */
- 
+
 gulp.task('clean', function(){
   return gulp.src('./dist', { read: false, allowEmpty: true })
     .pipe( clean() )
