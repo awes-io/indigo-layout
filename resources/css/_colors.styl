@@ -1146,11 +1146,18 @@ table
     background-color var(--tc_ui_context_menu_bg)
 
   &__toggler-default
-    color var(--tc_text)
-    border-color var(--tc_ui_context_menu_border)
-
+    {lt} &
+      background-color var(--tc_ui_bg_semi_v)
+    {dt} &
+      background-color var(--tc_ui_bg_semi_s)
     &:hover
-      background-color var(--tc_ui_context_menu_border)
+      {lt} &
+        background-color var(--tc_ui_bg_semi_s)
+      {dt} &
+        background-color var(--tc_ui_bg_semi_d)
+    circle
+      fill var(--tc_text)
+    
 
   &.is-opened
     .context-menu__toggler-default
@@ -1351,6 +1358,8 @@ mark
       color cl_white
 
 .fb
+  &__input-domain
+    color var(--tc_text_caption)
   &-uploader
     .uploader-drop
       background-color var(--tc_ui_bg)

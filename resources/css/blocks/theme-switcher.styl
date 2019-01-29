@@ -1,6 +1,7 @@
 .theme-switcher
     fl(,,c)
-
+    cursor pointer
+    user-select none
     &__switcher
         switcher()
         position: relative
@@ -8,6 +9,7 @@
         z-index: 1
 
     &__input
+        cursor pointer
         &::-moz-focus-outer
             border-color: transparent
         width: 100%

@@ -1,12 +1,23 @@
 tf_titles = (h1 h2 h3 h4 h5)
 tf_tags = (p blockquote table ul ol dl core pre 'div[id]') 
-tf_margin = 30px
+tf_margin = 27px
 tf_text_margin = 25px
 
 for tag in tf_tags
     for value in tf_titles
         {tag} + {value}
             margin-top 35px
+
+for tag in tf_titles
+    {tag}
+        display block
+        margin-bottom tf_margin
+        + p
+            margin-top -10px 
+
+    for stag in tf_titles
+        {tag} + {stag}
+            margin-top -10px
 
 body
     font-size f_normal
@@ -39,15 +50,11 @@ h5
     font-weight 400
     font-size f_medium
 
-h1,h2,h3,h4,h5
-    display block
-    margin-bottom tf_margin
-    + p 
-        margin-bottom tf_text_margin
-
 p
     margin-bottom 20px
     line-height 1.5
+    + p
+        margin-top -15px
 
 a
     &:hover
@@ -78,7 +85,7 @@ blockquote
         &:last-child
             margin-bottom 0
     
-table
+table:not(.int-table__table)
     width 100%
     margin-bottom tf_margin
     display block

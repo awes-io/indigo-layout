@@ -17,8 +17,8 @@
         padding 15px 0
     & &__clist
         display block
-        margin-top 3px
-        margin-left 45px
+        list-style none
+        margin 0px
         li
             margin-bottom 5px
     & &__count
@@ -40,6 +40,7 @@
         display none
         font-size 16px
         size 60px
+        margin-bottom 0
         &:hover
             text-decoration none !important
     & &__right
@@ -59,6 +60,7 @@
                 padding-left 30px
         td
             padding 12px 15px
+            word-break break-all
             &:first-child
                 padding-left 30px
         tr
@@ -101,6 +103,7 @@
             fl(,,c)
     & &__hidden
         display none
+        cursor default
         &:hover
             background-color transparent !important
     & &__inline-rtd
@@ -214,33 +217,21 @@
                     display block
                 span
                     display none
+        &.active
+            & ^[0]__show
+                .icon
+                    transform scaleY(-1)
 
     .context-menu
-      // display: flex
-
-      &__toggler
-        opacity: 0
-        // width: 100%
-
-        // &-default
-        //   padding: 12px
-        //   width: 100%
-
-      // &__dropdown
-      //   left: 12px
-      //   top: calc(100% - 10px)
-      //
-      // &.is-right-side
-      //   .context-menu__dropdown
-      //     right: 12px
-
-      &.is-opened
-        .context-menu__toggler
-          opacity: 1
+        &__toggler
+            opacity: 0
+        &.is-opened
+            .context-menu__toggler
+                opacity: 1
 
     &__block:hover
-      .context-menu__toggler
-        opacity: 1
+        .context-menu__toggler
+            opacity: 1
 
 
 @media res_desktop--lg
