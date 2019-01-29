@@ -17,7 +17,7 @@ block pageContent
 
 
 
-            #minimal-markup
+            #minimal-codeup
             h2 Минимальная разметка
             p Компонент состоит из раскрывающейся обёртки (dropdown) и элементов. Без элементов внутри обёртки, она не имеет смысла, поэтому минимальная разметка выглядит как
             
@@ -56,7 +56,7 @@ block pageContent
 
 
             #wrapper-props
-            h2 Параметры компонента-обёртки <mark>&lt;context-menu&gt;</mark>
+            h2 Параметры компонента-обёртки <code>&lt;context-menu&gt;</code>
             table
                 tr
                     th Название
@@ -75,7 +75,7 @@ block pageContent
                     td
                         strong Boolean
                     td
-                        mark false
+                        code false
                     td
                         | Приоритет в 
                         a(href='#positioning-info') расположении списка
@@ -86,7 +86,7 @@ block pageContent
                     td
                         strong Boolean
                     td
-                        mark false
+                        code false
                     td
                         | Приоритет в раскрытии списка вверх, 
                         a(href='#positioning-info') располагаясь
@@ -96,7 +96,7 @@ block pageContent
                     td
                         strong Boolean
                     td
-                        mark true
+                        kbd true
                     td
                         a(href='#positioning-auto') Автоматическое позиционирование
                         |  списка в
@@ -106,7 +106,7 @@ block pageContent
                     td
                         strong String
                     td
-                        mark body
+                        code body
                     td
                         | Селектор элемента - 
                         a(href='#positioning-bounds') границы для автоматического позиционирования списка		
@@ -128,27 +128,27 @@ block pageContent
                 context-menu(:auto-position='false')
                     cm-button Click me!
             p
-                strong Сверху (<mark>top</mark>)
+                strong Сверху (<code>top</code>)
             .vue-example
                 context-menu(top='', :auto-position='false')
                     cm-button Click me!
             p
-                strong По правой стороне (<mark>right</mark>)
+                strong По правой стороне (<code>right</code>)
             .vue-example
                 context-menu(right='', :auto-position='false')
                     cm-button Click me!
             p
-                strong Сверху по правой стороне (<mark>top</mark>, <mark>right</mark>)
+                strong Сверху по правой стороне (<code>top</code>, <code>right</code>)
             .vue-example
                 context-menu(top='', right='', :auto-position='false')
                     cm-button Click me!
             #positioning-auto
-            p <strong> Автоматическое позиционирование</strong>: Заданное расположение является лишь рекомендацией, если включен параметр <mark>auto-position = true</mark>. Если при заданном положении раскрывающийся список не отображается в области видимости или не вписывается в <a href='#positioning-bounds'>ограничительный контейнер</a>, то он изменит своё положение, так чтобы:
+            p <strong> Автоматическое позиционирование</strong>: Заданное расположение является лишь рекомендацией, если включен параметр <code>auto-position = true</code>. Если при заданном положении раскрывающийся список не отображается в области видимости или не вписывается в <a href='#positioning-bounds'>ограничительный контейнер</a>, то он изменит своё положение, так чтобы:
             ol
                 li отобразиться на экране максимально видимым
                 li вписаться в <a href='#positioning-bounds'>границы</a>
             #positioning-bounds
-            p <strong> Ограничительный контейнер</strong>: Свойство <mark>boundary</mark> - селектор границы, по-умолчанию, или если по-селектору не найден элемент среди родителей компонента этим контейнером является контейнер страницы <mark>body</mark> 
+            p <strong> Ограничительный контейнер</strong>: Свойство <code>boundary</code> - селектор границы, по-умолчанию, или если по-селектору не найден элемент среди родителей компонента этим контейнером является контейнер страницы <code>body</code> 
             p
                 em Выпадающий список не может раскрыться вниз и вправо, но может вписаться в границы поэтому он открывается вверх и влево
             .vue-example
@@ -172,7 +172,7 @@ block pageContent
 
 
             #elements-button
-            h3 Кнопка <mark>&lt;cm-button&gt;</mark>
+            h3 Кнопка <code>&lt;cm-button&gt;</code>
                 
             pre
                 code.html.
@@ -182,7 +182,7 @@ block pageContent
             p
                 img(src='/uploads/1f2a1658ec55e1aeaadfab168efd79b0/default-opened.png', alt='button')
             p
-                em Свойства элемента <mark>&lt;cm-button&gt;</mark>
+                em Свойства элемента <code>&lt;cm-button&gt;</code>
 
             table
                 tr
@@ -207,7 +207,7 @@ block pageContent
             .vue-example
                 context-menu
                     cm-button.list-item-class(item-class='item-class', aria-label='Awesome Button!', @click="$notify({group: 'right-b', type: 'sucсess', title: 'Notification!'})") Send notification
-            p Будет сгенерирована в такой HTML, по клику будет вызван метод  <mark>someMethod</mark>:
+            p Будет сгенерирована в такой HTML, по клику будет вызван метод  <code>someMethod</code>:
             
             pre
                 code.html.
@@ -219,7 +219,7 @@ block pageContent
 
 
             #elements-link
-            h3 Ссылка <mark>&lt;cm-link&gt;</mark>
+            h3 Ссылка <code>&lt;cm-link&gt;</code>
 
             pre
                 code.html.
@@ -232,7 +232,7 @@ block pageContent
                     cm-link(href='https://google.com', target='_blank', rel='nofollow noopener') This is a link element
             
             p
-                em Свойства элемента <mark>&lt;cm-link&gt;</mark>  
+                em Свойства элемента <code>&lt;cm-link&gt;</code>  
             
             table
                 tr
@@ -269,7 +269,7 @@ block pageContent
             .vue-example
                 context-menu
                     cm-link.list-item-class(href='#anchor', item-class='item-class', data-prop='someProp', @click.prevent='someMethod') This is a link element
-            p Будет сгенерирована в такой HTML, по клику перехода не будет, а будет вызван метод <mark>someMethod</mark>:
+            p Будет сгенерирована в такой HTML, по клику перехода не будет, а будет вызван метод <code>someMethod</code>:
             pre
                 code.html.
                     &lt;li class="cm-item list-item-class"&gt;
@@ -279,7 +279,7 @@ block pageContent
                     &lt;/li&gt;
             h3
                 a(href="" name='elements-separator') 
-                | Разделитель <mark>&lt;cm-separator&gt;</mark>
+                | Разделитель <code>&lt;cm-separator&gt;</code>
             pre
                 code.html.
                     &lt;context-menu&gt;
@@ -293,7 +293,7 @@ block pageContent
                     cm-separator
                     cm-button Below separator
             #elements-panel
-            h3 Панель <mark>&lt;cm-panel&gt;</mark>
+            h3 Панель <code>&lt;cm-panel&gt;</code>
             p Компонент предназначен для размещения контента внутри контекстного меню
             pre
                 code.html.
@@ -309,7 +309,7 @@ block pageContent
                 context-menu
                     cm-panel Default panel
                     cm-panel(secondary='') Secondary panel
-            p Свойства элемента <mark>&lt;cm-panel&gt;</mark>       
+            p Свойства элемента <code>&lt;cm-panel&gt;</code>       
             table
                 tr
                     th(style='text-align: center;') Название
@@ -321,7 +321,7 @@ block pageContent
                     td(style='text-align: center;')
                         strong Boolean
                     td(style='text-align: center;')
-                        mark false
+                        code false
                     td Меняет цвет фона на более тёмный
             p Сгенерированная разметка
             pre
@@ -337,10 +337,10 @@ block pageContent
                         &lt;/div&gt;
                     &lt;/li&gt;
             #elements-query
-            h3 GET-параметры в адресной строке  <mark>&lt;cm-query&gt;</mark> 
+            h3 GET-параметры в адресной строке  <code>&lt;cm-query&gt;</code> 
             p Компонент предназначен для вставки GET-параметров в адресную строку браузера без перезагрузки (например для фильтрации или сортировки), другие компоненты могут отслеживать эти параметры и обновлять данные.
             p
-                em Свойства элемента <mark>&lt;cm-query&gt;</mark> 
+                em Свойства элемента <code>&lt;cm-query&gt;</code> 
                         
             table
                 tr
@@ -390,11 +390,11 @@ block pageContent
                         &lt;/button&gt;
                     &lt;/li&gt;
             #elements-ajax
-            h3 AJAX-запрос <mark>&lt;cm-ajax&gt;</mark>
-            p Компонент предназначен для отправки данных на сервер с возможностью вызова метода для обработки полученного ответа, обрабатывая событие <mark>sended</mark>, в который передаются данные ответа. Для отправки запроса используется миксин <mark>serverRequest</mark>
+            h3 AJAX-запрос <code>&lt;cm-ajax&gt;</code>
+            p Компонент предназначен для отправки данных на сервер с возможностью вызова метода для обработки полученного ответа, обрабатывая событие <code>sended</code>, в который передаются данные ответа. Для отправки запроса используется миксин <code>serverRequest</code>
                 
             p
-                em Свойства элемента <mark>cm-ajax</mark>
+                em Свойства элемента <code>cm-ajax</code>
                     
                         
             table
@@ -415,7 +415,7 @@ block pageContent
                     td(style='text-align: center;')
                         strong Object
                     td(style='text-align: center;')
-                        mark {}
+                        code {}
                     td Объект данных для отправки
                 tr
                     td(style='text-align: center;') url*
@@ -431,22 +431,22 @@ block pageContent
                     td(style='text-align: center;')
                         strong String
                     td(style='text-align: center;')
-                        mark get
+                        code get
                     td
                         | Метод для проведения запроса, ограничен вариантами 
-                        mark get
+                        code get
                         | , 
-                        mark put
+                        code put
                         | ,
-                        mark post
+                        code post
                         | , 
-                        mark delete
+                        code delete
                         | , 
-                        mark patch
+                        code patch
             p
                 em
                     | События, вызываемые элементом 
-                    mark cm-ajax
+                    code cm-ajax
             table
                 tr
                     th(style='text-align: center;') Название
@@ -456,7 +456,7 @@ block pageContent
                     td(style='text-align: center;') sended
                     td(style='text-align: center;')
                         | data (
-                        mark Object
+                        code Object
                         | )
                     td Вызвается после получения ответа и передаёт присланные данные
             pre
@@ -487,7 +487,7 @@ block pageContent
             p
                 | Кнопка, открывающая контекстное меню может быть изменена с помощью 
                 a(href='https://ru.vuejs.org/v2/guide/components-slots.html', target='_blank') слота, 
-                | с именем <mark>toggler</mark>. Содержимое слота помещается внутри тега, поэтому не должно содержать блочных по семантике элементов (<mark>&lt;div&gt;</mark>). Блочный контент должен быть представлен в виде 11<mark>&lt;span style='display:block;' &gt;</mark>
+                | с именем <code>toggler</code>. Содержимое слота помещается внутри тега, поэтому не должно содержать блочных по семантике элементов (<code>&lt;div&gt;</code>). Блочный контент должен быть представлен в виде 11<code>&lt;span style='display:block;' &gt;</code>
             p 
                 strong Пример
 
@@ -526,7 +526,7 @@ block pageContent
                 
                 ul.tf-titlenav
                     li
-                        a(href='#minimal-markup').active Минимальная разметка
+                        a(href='#minimal-codeup').active Минимальная разметка
                     li
                         a(href='#wrapper-props') 
                             | Параметры компонента-обёртки 
