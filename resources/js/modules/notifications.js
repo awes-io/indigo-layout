@@ -7,7 +7,7 @@ const allowedStatuses = ['success', 'error']
 const defaultOptions = {
     type : 'success',
     position: 'bottom-right',
-    duration: 2000
+    duration: 5000
 }
 
 const templateRightBottom = icon => ({ title, message }) => {

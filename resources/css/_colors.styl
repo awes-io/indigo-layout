@@ -77,7 +77,7 @@ a
     color var(--tc_invert)
   & &__content
     background-color var(--tc_ui_bg)
-  & &__search-link  
+  & &__search-link
     color var(--tc_aside_text)
     &:hover
       color var(--tc_link)
@@ -121,7 +121,7 @@ a
       color cl_grass
       &:after
         background-color cl_grass
-        
+
 
 
 
@@ -213,7 +213,7 @@ a
     color var(--tc_link_semi)
     &:hover
       color var(--tc_link_semi_active)
-  .line-btns 
+  .line-btns
     background-color var(--tc_ui_bg)
     &__wrap
       background-color var(--tc_ui_bg)
@@ -410,7 +410,7 @@ a
     & ^[0]__icon
       background-color cl_grass
       border-color cl_grass
-      color cl_white 
+      color cl_white
       &:before
         opacity 1
         background-color cl_white
@@ -418,7 +418,7 @@ a
     & ^[0]__icon
       border 1px solid var(--tc_ui_focus)
 
-.box-checker        
+.box-checker
   .fc-radio .fc-radio__box.is-checked
     background-color var(--tc_ui_bg)
     color var(--tc_text)
@@ -450,7 +450,7 @@ a
     color cl_white
   & ^[0]__field:checked + .fc-radio__text
     background-color var(--tc_ui_bg)
-    color var(--tc_text)  
+    color var(--tc_text)
 
 .icn-dot
   background-color cl_warn
@@ -602,7 +602,7 @@ a
     color var(--tc_text) !important
     &.highlighted
       background-color var(--tc_ui_bg_semi) !important
-      
+
   &:focus-within
     box-shadow none !important
     border-color var(--tc_ui_focus) !important
@@ -620,18 +620,18 @@ a
     border-color var(--tc_border_ins)
   .mce-flow-layout
     background-color var(--tc_ui_bg_semi)
-  .mce-listbox 
+  .mce-listbox
     button
       background-color var(--tc_ui_bg_semi)
 
 
   .mce-menubtn button
     color var(--tc_text)
-      
+
   .mce-btn, .mce-btn:hover, .mce-btn:active, .mce-btn.mce-active, .mce-btn.mce-active:hover, .mce-btn.mce-active:focus, .mce-btn.mce-active:active
     background-color transparent !important
-  
-  
+
+
   .mce-btn
     button
       background-color var(--tc_ui_bg_semi)
@@ -670,7 +670,32 @@ a
       background-color var(--tc_aside_bg) !important
       .mce-text
         color var(--tc_aside_text) !important
-      
+
+// code editor
+.fb-editor .CodeMirror
+  &.cm-s-default
+    background-color: var(--tc_ui_bg)
+    color: var(--tc_text)
+  &-gutters
+    background: var(--tc_ui_bg_semi)
+    border-right: 2px var(--tc_border_semi)
+  &-cursor
+    border-color: var(--tc_text)
+  &-linenumber
+    color: var(--tc_text_caption)
+  span.CodeMirror-matchingbracket
+    color: cl_yellow
+  span.CodeMirror-matchingtag
+    background-color: alpha(cl_yellow, 50%)
+  span.cm-tag
+    color: var(--tc_html_tag)
+  span.cm-attribute
+    color: var(--tc_html_attr)
+  span.cm-string,
+  span.cm-atom
+    color: var(--tc_html_str)
+  span.cm-error
+    color: cl_red
 
 .input
   & &__okicon
@@ -1067,7 +1092,7 @@ table
     background-color var(--tc_ui_context_menu_bg)
 
 
-    
+
 .helper
   & &__block
     box-shadow var(--tc_ui_context_menu_shadow)
@@ -1094,10 +1119,10 @@ table
           border-top-color var(--tc_text)
         @media res_mobile--md
           border-color var(--tc_border)
-                    
-        
 
-    
+
+
+
 .head-context
   & &__main
     border-color var(--tc_border)
@@ -1150,7 +1175,7 @@ table
 
     &.is-danger
       color cl_warn
-    
+
     &.is-active
       border-bottom-color var(--tc_ui_context_menu_hover_bg)
       color var(--tc_link_semi_active)
@@ -1355,12 +1380,12 @@ mark
             background-color var(--tc_border)
           &::-moz-progress-bar
             background-color cl_grass
-          &::-webkit-progress-value 
+          &::-webkit-progress-value
             background-color cl_grass
 
-    
 
-  
+
+
 
 
 .profile-wrap
@@ -1385,7 +1410,7 @@ mark
   & &__logo
     color var(--tc_link)
     &:hover
-      color var(--tc_color_main_l) 
+      color var(--tc_color_main_l)
     &_white
       color cl_white
       @media res_mobile--lg
@@ -1395,7 +1420,7 @@ mark
           color var(--tc_link)
       &:hover
         color cl_sky
-    
+
   & &__sbox
     background-color var(--tc_ui_bg)
   & &__full
@@ -1425,7 +1450,7 @@ mark
 ::-webkit-scrollbar
   background-color: var(--tc_border)
 
-::-webkit-resizer 
+::-webkit-resizer
   background-color cl_red
 
 ::-webkit-scrollbar-thumb
@@ -1465,8 +1490,8 @@ mark
         @media res_tablet--lg
           color var(--tc_aside_link)
           opacity 1
-      
-      
+
+
   & &__aside
     background-image var(--tc_aside_gradient)
     box-shadow 0 20px 30px rgba(0,0,0,0.1)
