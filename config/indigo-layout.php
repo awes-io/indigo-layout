@@ -3,7 +3,8 @@
 return [
 
     'src' => [
-        'script' => 'awes-io/indigo-layout/v0.x.x/js/main.js'
+        'script' => 'awes-io/indigo-layout/v0.x.x/js/main.js',
+        'style' => 'awes-io/indigo-layout/v0.x.x/css/main.css'
     ],
 
     'local' => [
