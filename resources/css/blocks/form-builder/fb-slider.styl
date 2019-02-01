@@ -1,0 +1,110 @@
+.fb-slider
+    size 100% 50px
+    margin-bottom 1px
+    padding-bottom 10px
+    position relative
+    fl(,,c)
+    & &__wrap
+        fl(,,c)
+        width 100%
+        &-left
+            width 60px
+            text-align center
+            margin-right 10px
+        &-right
+            width calc(100% - 70px)
+    .v-popover
+        width 100%
+    & &__label
+        width 100%
+        absolute left 0 top -20px
+        text-align left
+        padding 0
+        font-size 10px
+        color var(--tc_text_caption)
+        white-space: nowrap
+        overflow hidden
+        display block
+        text-overflow: ellipsis
+        width 100%
+    & &__field
+        margin: 0
+        padding: 0
+        appearance none
+        -webkit-appearance none
+        width 100%
+        overflow visible
+        display block
+        max-width 400px
+        &:focus
+            outline none
+        &::-moz-focus-outer
+            border-color: transparent
+        &::-webkit-slider-runnable-track
+            height 3px
+            background: linear-gradient(cl_grass, cl_grass) s('0/ var(--percent)') 100% no-repeat cl_cloud
+        &::-moz-range-track
+            height 5px
+            width: 100%;
+            height: 3px;
+            cursor: pointer;
+            animate: 0.2s;
+            background-color cl_cloud
+        &::-moz-range-progress
+            height: 3px
+            background-color cl_grass
+        &::-ms-track
+            width calc(100% - 18px)
+            height 3px
+            margin: 0 9px
+            cursor pointer
+            background-clip: content-box
+            border: 10px solid transparent
+            border-left-width: 0
+            border-right-width: 0
+            color transparent
+            background-color cl_cloud
+        &::-webkit-slider-thumb
+            border 0
+            size 16px
+            border-radius 50%
+            cursor pointer
+            position relative
+            appearance none
+            -webkit-appearance none
+            margin-top -6px
+            background-color cl_white
+            box-shadow var(--tc_shadow_smr)
+        &::-moz-range-thumb
+            appearance none
+            -webkit-appearance none
+            -moz-appearance none
+            border 0
+            size 16px
+            border-radius 50%
+            cursor pointer
+            background-color cl_white
+            box-shadow var(--tc_shadow_smr)
+        &::-ms-thumb
+            margin: 0 8px
+            appearance none
+            -webkit-appearance none
+            border 0
+            background-color cl_white
+            box-shadow var(--tc_shadow_smr)
+            size 16px
+            border-radius 50%
+            cursor pointer
+            margin-top 0
+        &::-ms-fill-lower
+            background-color cl_grass
+        &::-ms-tooltip
+            display: none
+    &_disabled
+        disabled()
+    &_ok
+        & ^[0]__label
+            color cl_grass
+    &_error
+        & ^[0]__label, & ^[0]__value
+            color cl_warn

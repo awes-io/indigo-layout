@@ -6,26 +6,139 @@ block pageVariables
 block pageHead
     // there is can be head meta or sctipts
     script(src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/modal/v0.x.x/js/main.js" type="module")
-    script(src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/form-builder/v0.1.20/js/main.js" type="module")
+    script(src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/form-builder/v1.0.3/js/main.js" type="module")
 
 
 
 block pageContent
     p Новые формы
     form-builder(url="http://httpbin.org/post" disabled-dialog)
-        fb-select(name="valera22" cell="2" label="Yosip ishchet lojku")
-        fb-phone(name="phone" cell="2")
-        fb-editor(name="editor")    
-        fb-textarea                    
-        fb-textarea                    
-        fb-textarea                    
 
-        fb-uploader(name="files" url="http://httpbin.org/post" format="docx" size="15")
-        fb-slider(name="range" label="Krutoy label, prosto ogon sredi genadiev" cell="2")
-        fb-input(name="valera22" label="Oh Valera kuda tenya zaneslo" cell="2" disabled)
-        fb-input(name="valera22" label="Yosip ishchet lojku" cell="2")
-        fb-select(name="valera22" label="Yosip ishchet lojku" cell="2")
-        fb-input(name="valera22" label="Oh Valera kuda tenya zaneslo" cell="2" disabled)
-        fb-input(name="valera22" label="Oh Valera kuda tenya zaneslo" cell="2" disabled)
-        fb-input(name="valera22" label="Oh Valera kuda tenya zaneslo" cell="2" disabled)
-        fb-input(name="valera22" label="Oh Valera kuda tenya zaneslo" cell="2" disabled)
+        p All form elements has mod <code>blockname_error</code>, <code>blockname_ok</code>, <code>blockname_disabled</code>
+
+
+        h4 Switcher
+        fb-group
+            fb-switcher(label="switcher" name="switcher1" cell="2") 
+            fb-switcher(label="switcher" disabled name="switcher1" cell="2") 
+            fb-switcher.fb-switcher_error(label="switcher" name="switcher1" cell="2") 
+            fb-switcher.fb-switcher_ok(label="switcher" name="switcher1" cell="2") 
+
+        br
+        br
+
+        h4 Select
+        fb-group
+            fb-select(name="select1" cell="2" label="Yosip ishchet lojku" :multiple="false" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]")
+            fb-select(name="select2" cell="2" label="Yosip ishchet lojku" :multiple="true" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]")
+            fb-select(name="select3" class="fb-select_ok" disabled cell="2" label="Yosip ishchet lojku" :multiple="false" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]")
+            fb-select(name="select4" class="fb-select_error" disabled cell="2" label="Yosip ishchet lojku" :multiple="true" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]")
+        
+        br
+        br
+        h4 Phone input
+        fb-group
+            fb-phone(name="phone1" disabled label="Phone label" cell="2")
+            fb-phone(name="phone2" label="Phone label" cell="2")
+            
+            fb-phone(name="phone3" class="fb-phone_ok" label="Phone ok" cell="2")
+            fb-phone(name="phone4" class="fb-phone_error" label="Phone error" cell="2")
+
+        br
+        br
+        h4 MCE Editor
+        fb-editor(name="editor1")    
+        fb-editor(name="editor2" disabled)   
+        fb-group
+            fb-editor(name="editor3" cell="2" class="fb-editor_ok")    
+            fb-editor(name="editor4" cell="2" class="fb-editor_error")  
+
+        br
+        br
+        h4 Textarea
+        fb-group
+            fb-textarea(name="ed1" cell="2" label="Textarea label")                    
+            fb-textarea(name="ed2" cell="2" label="Textarea disabled" disabled)
+            fb-textarea(name="ed3" cell="2" label="Textarea error" class="fb-textarea_error")                    
+            fb-textarea(name="ed4" cell="2" label="Textarea ok" class="fb-textarea_ok")
+
+        br
+        br
+        h4 Uploader
+        fb-uploader(name="files1" url="http://httpbin.org/post" format="docx" size="15")
+        fb-uploader(name="files2" url="http://httpbin.org/post" format="docx" size="15" disabled)
+        fb-uploader(name="files3" url="http://httpbin.org/post" class="fb-uploader_ok" format="docx" size="15")
+        fb-uploader(name="files4" url="http://httpbin.org/post" class="fb-uploader_error" format="docx" size="15")
+
+        br
+        br
+        h4 Range Slider
+        fb-group
+            fb-slider(name="range1" label="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat iure perspiciatis corporis nesciunt inventore, eius quos maiores sit, ipsa neque quas harum maxime. Sunt a nobis excepturi accusamus assumenda necessitatibus?" cell="2")
+            fb-slider(name="range2" label="Disabled" cell="2" disabled)
+            fb-slider(name="range3" label="Slider error" class="fb-slider_error" cell="2")
+            fb-slider(name="range4" label="Slider Ok" class="fb-slider_ok" cell="2")
+
+        br
+        br
+        h4 Input example
+        fb-group
+            fb-input(name="input1" label="Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore id minima facilis voluptate vitae magnam rem beatae corporis, explicabo eveniet molestias quibusdam accusantium voluptatum accusamus eius officiis! Amet, fugiat ad?" cell="2" disabled)
+            fb-input(name="input2" label="Default label" cell="2")
+            fb-input(name="input3" class="fb-input_ok" label="Input ok" cell="2")
+            fb-input(name="input4" class="fb-input_error" label="Input error"  cell="2")
+        
+        br
+        br
+        h4 Checkbox example
+        fb-group
+            fb-checkbox(name="checkbox1" cell="2" label="default checkbox")
+            fb-checkbox(name="checkbox2" cell="2" label="disabled checkbox" disabled)
+            fb-checkbox.fb-checkbox_ok(name="checkbox3" cell="2" label="checkbox ok")
+            fb-checkbox.fb-checkbox_error(name="checkbox4" cell="2" label="checkbox error")
+
+        br
+        br
+        h4 Code example
+        fb-group
+            fb-code(name="code1")
+            fb-code(disabled name="code2")
+            fb-code.fb-keycode_ok(name="code3")
+            fb-code.fb-keycode_error(name="code4")
+
+        br
+        br
+        h4 Company Slug
+        fb-group
+            fb-company-slug(label="Slug default" name="slug1" domain="very very long link awescrm.de")
+            fb-company-slug(label="Slug disabled" disabled name="slug2" domain="awescrm.de"  cell="3")
+            fb-company-slug.fb-slug_ok(label="Slug ok" name="slug3" domain="local.awescrm.de" cell="3")
+            fb-company-slug.fb-slug_error(label="Slug error" name="slug4" domain="dev.awescrm.de"  cell="3")
+
+        br
+        br
+        h4 Radio Group
+        fb-group
+            fb-radio-group(name="radio1" cell="2" label="radio" :items="[{name:'one', value: 1}, {name:'two', value: 2}, {name:'three', value: 3}]")
+            fb-radio-group(name="radio2" cell="2" disabled label="radio disabled" :items="[{name:'one', value: 1}, {name:'two', value: 2}, {name:'three', value: 3}]")
+            fb-radio-group.fc-radio_ok(name="radio1" cell="2" label="radio ok" :items="[{name:'one', value: 1}, {name:'two', value: 2}, {name:'three', value: 3}]")
+            fb-radio-group.fc-radio_error(name="radio2" cell="2" label="radio error" :items="[{name:'one', value: 1}, {name:'two', value: 2}, {name:'three', value: 3}]")
+
+
+        br
+        br
+        h4 Multiblock
+        fb-multi-block(name="multi1")
+            template(slot-scope="mb")
+                fb-group
+                    fb-input(name="input22" label="multi-block" :id="mb.id" cell="2")
+                    fb-input(name="input33" label="multi-block" :id="mb.id" cell="2")
+                fb-textarea(name="text11" label="multi block")
+        br
+        br
+        h4 Multiblock disabled
+        fb-multi-block(name="multi2" disabled)
+            template(slot-scope="mb")
+                fb-input(name="input" label="multi-block" :id="mb.id")
+
+

@@ -1,15 +1,39 @@
-fb-input, fb-select, fb-textarea, fb-uploader, fb-editor
+fb-input, fb-select, fb-textarea, fb-uploader, fb-editor, fb-company-slug, fb-multi-block
     animation placeholderAnimation 30s infinite linear
 
 form-builder
     opacity 0
     animation phShow 1.5s 1 forwards !important
+
+fb-radio-group
+    size 100% 40px
+    border 5px solid var(--tc_ui_bg_darken)
+    display block
+    margin-bottom 10px
+    position relative
+    border-radius 2px
+    &:before
+        absolute left 33% top 0
+        size 5px 100%
+        background-color var(--tc_ui_bg_darken)
+        display block
+        content ''
+    &:after
+        absolute left 66% top 0
+        size 5px 100%
+        background-color var(--tc_ui_bg_darken)
+        display block
+        content ''
+    
+fb-group
     fl(w,sb)
     *[cell="2"]
         width calc(50% - 5px) !important
+    *[cell="3"]
+        width calc(33.333% - 5px) !important
 
 
-fb-input, fb-checkbox, fb-textarea, fb-select, fb-slider, fb-phone, fb-uploader, fb-editor
+fb-input, fb-checkbox, fb-textarea, fb-select, fb-slider, fb-phone, fb-uploader, fb-editor, fb-company-slug, fb-multi-block
     width: 100%   
 
 fb-slider
@@ -39,7 +63,7 @@ fb-slider
         left 50%
 
 
-fb-input, fb-select, fb-phone, fb-slider
+fb-input, fb-select, fb-phone, fb-slider, fb-company-slug, fb-multi-block
     display inline-block
     width 100%
     height: 50px
@@ -78,13 +102,21 @@ fb-checkbox
 
 
 {dt}
-    fb-checkbox, fb-textarea, fb-input, fb-select, fb-editor
+    fb-checkbox, fb-textarea, fb-input, fb-select, fb-editor, fb-company-slug
         opacity 0.7
 
 
-fb-input, fb-select, fb-textarea, fb-editor, fb-checkbox:before, fb-checkbox:after, fb-phone, fb-slider:before, fb-slider:after, fb-uploader
+fb-input, fb-select, fb-multi-block, fb-textarea, fb-editor, fb-checkbox:before, fb-checkbox:after, fb-phone, fb-slider:before, fb-slider:after, fb-uploader, fb-company-slug
     background-color var(--tc_ui_bg_darken)
     {dt} &
         phAnimation(--tc_ui_bg_darken, --tc_ui_bg_stn)
     {lt} &
         phAnimation(--tc_ui_bg_darken, --tc_ui_bg_std)
+
+
+@media res_tablet--lg
+    fb-group
+        *[cell="2"]
+            width 100% !important
+        *[cell="3"]
+            width 100% !important

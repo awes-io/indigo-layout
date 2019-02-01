@@ -1,0 +1,138 @@
+// Replace default styles
+.multiselect
+    position relative
+    z-index 100
+    & &__tag
+        color var(--tc_ui_tag_text) !important
+        background-color var(--tc_ui_tag) !important
+        font-size f_small
+        padding-left 5px !important
+        border-radius 2px !important
+        margin-right 6px !important
+        &-icon
+            border-left 1px solid var(--tc_ui_bg) !important
+            border-radius 0px 2px 0px 2px !important
+            width 20px !important
+            &:after
+                color #ffffff !important
+                font-size 20px !important
+                line-height 19px !important
+                display: block !important
+                font-weight 300 !important
+    & &__tags
+        background-color var(--tc_ui_bg)
+        border 1px solid var(--tc_border_ins) !important
+        min-height 50px !important
+        padding-top 20px !important
+        border-radius 2px !important
+        padding-left 15px
+    & &__single
+        font-size f_medium !important
+        padding-left 0 !important
+        background-color transparent !important
+        color var(--tc_text) !important
+    & &__content
+        display block !important
+        margin 0
+        list-style none
+        &-wrapper
+            background-color var(--tc_ui_bg)
+            border 1px solid var(--tc_border_ins)
+            border-top 0px !important
+            margin-top -1px
+    &--above
+        & ^[0]__content-wrapper
+            border-top 1px solid var(--tc_border_ins) !important
+            border-bottom 0 !important
+        & ^[0]__content-wrapper
+            margin-top 0
+            margin-bottom -1px
+    & &__input
+        background-color var(--tc_ui_bg)
+        color var(--tc_text)
+        font-size f_medium !important
+        padding-left 0 !important
+        &::-webkit-input-placeholder
+            color var(--tc_text) !important
+        &:-moz-placeholder
+            color var(--tc_text) !important
+        &::-moz-placeholder
+            color var(--tc_text) !important
+        &:-ms-input-placeholder
+            color var(--tc_text) !important
+    & &__select
+        border-color var(--tc_ui_bg) transparent transparent
+        width 37px !important
+        height 48px !important
+        transition none
+        &:before
+            border-width: 4px 3px 0 !important
+    & &__element
+        margin-bottom 0 !important
+    & &__option
+        color var(--tc_text)
+        padding 7px 12px !important
+        min-height 1px
+        white-space normal
+        &--highlight
+            background-color var(--tc_ui_bg_semi) !important
+            color var(--tc_text) !important
+    & &__placeholder
+        opacity 0
+        margin-bottom 9px !important
+    & &__input, & &__single
+        opacity 0
+        tr(0.3)
+    &--active
+        z-index 200 !important
+        & ^[0]__select
+            transition none
+            &:before
+                top 60%   
+    &--disabled
+        background-color transparent !important
+        & ^[0]__select
+            background-color transparent !important
+
+
+// Write our styles
+.fb-select
+    position relative
+    margin-bottom 10px
+    z-index 10
+    & &__label
+        font-size f_middle
+        absolute left 0 top 13px
+        width 100%
+        padding 0 15px
+        display block
+        pointer-events none
+        z-index 300
+        white-space nowrap
+        text-overflow ellipsis
+        overflow hidden
+        tr(0.15)
+        color var(--tc_text_caption)
+    &_active
+        z-index 11
+        .multiselect__placeholder, .multiselect__input, .multiselect__single
+            opacity 1
+        & ^[0]__label
+            font-size 10px
+            top 7px
+            height auto
+            font-weight 600
+    &_opened
+        z-index 200 !important
+    &_disabled
+        disabled()
+    &_ok
+        & ^[0]__label
+            width calc(100% - 50px)
+        .multiselect__tags
+            border 1px solid cl_salad !important
+    &_error
+        .multiselect__tags
+            border 1px solid cl_warn !important
+        & ^[0]__label
+            color cl_warn

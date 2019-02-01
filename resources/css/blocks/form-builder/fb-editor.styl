@@ -1,0 +1,162 @@
+.fb-editor
+    margin-bottom 10px
+    & &__modes
+        fl()
+        padding-left 1px
+        &-button
+            padding 7px 10px
+            border 1px solid
+            margin-left -1px
+            margin-bottom 10px
+            font-size f_small
+            border-color var(--tc_border_ins)
+            background-color var(--tc_ui_bg_semi)
+            color var(--tc_text_caption)
+            &.is-active
+                background-color var(--tc_ui_bg)
+                color var(--tc_text)
+            &:first-child
+                border-radius 2px 0 0 2px
+            &:last-child
+                border-radius 0 2px 2px 0
+    .mce-tinymce.mce-container.mce-panel
+        border 0px
+    .fb-editor__tab
+        border 1px solid
+    .mce-toolbar-grp
+        border 0
+    .mce-tinymce
+        box-shadow: none
+    .mce-edit-area
+        border 0
+    .mce-top-part
+        &:before
+            display none
+    .mce-flow-layout
+        padding 5px
+        background-color var(--tc_ui_bg_semi)
+    .mce-btn
+        button
+            border-radius 2px
+            padding-left 5px
+            padding-right 5px
+            fl(,c,c)
+            text-align center
+            background-color var(--tc_ui_bg_semi)
+            .mce-ico
+                color var(--tc_link_semi)
+            .mce-txt
+                color var(--tc_text)
+            &:hover
+                background-color var(--tc_ui_bg)
+                .mce-ico
+                    color var(--tc_link_semi_active)
+        &.mce-active
+            button
+                {lt} &
+                    background-color var(--tc_ui_bg_semi_v) !important
+                {dt} &
+                    background-color var(--tc_ui_bg_semi_d) !important
+                .mce-ico, .mce-txt
+                    color var(--tc_text) !important
+    .mce-listbox
+        button
+            font-size f_small
+            justify-content flex-start !important
+            background-color var(--tc_ui_bg_semi)
+        .mce-txt
+            width auto
+        .mce-caret
+            position static
+            margin-top 1px
+            display inline-block
+    .mce-btn-group
+        *
+            white-space normal !important
+            line-height normal
+        .mce-btn
+            border 0
+        .mce-btn-has-text
+            font-weight 700
+    .mce-ico
+        font-size 14px
+        line-height 17px !important
+        text-align center
+        tr(0.25)
+    .mce-fixed-width
+        width auto
+        button
+            width auto
+            height 24px
+            margin-right 5px
+            span
+                white-space nowrap !important
+                max-width 200px
+                margin-right 10px
+                font-weight 700
+    & &__tab
+        border-color var(--tc_border_ins)
+    .CodeMirror
+        &.cm-s-default
+            background-color: var(--tc_ui_bg)
+            color: var(--tc_text)
+        &-gutters
+            background: var(--tc_ui_bg_semi)
+            border-right: 2px var(--tc_border_semi)
+        &-cursor
+            border-color: var(--tc_text)
+        &-linenumber
+            color: var(--tc_text_caption)
+        span.CodeMirror-matchingbracket
+            color: cl_yellow
+        span.CodeMirror-matchingtag
+            background-color: alpha(cl_yellow, 50%)
+        span.cm-tag
+            color: var(--tc_html_tag)
+        span.cm-attribute
+            color: var(--tc_html_attr)
+        span.cm-string,
+        span.cm-atom
+            color: var(--tc_html_str)
+        span.cm-error
+            color: cl_red
+    &_disabled
+        disabled()
+    &_ok
+        & ^[0]__tab
+            border-color cl_salad !important
+    &_error
+        & ^[0]__tab
+            border-color cl_warn !important
+    
+
+.mce-menu
+    z-index 200 !important
+    max-height 250px !important
+    margin-top 5px !important
+    background-color var(--tc_ui_bg) !important
+    border-color var(--tc_border_ins) !important
+    &-item
+        .mce-text
+            font-size f_small !important
+            color var(--tc_text) !important
+        &:hover, &:focus
+            background-color var(--tc_ui_bg_semi) !important
+            .mce-text
+                color var(--tc_text) !important
+        &.mce-active
+            background-color var(--tc_aside_bg) !important
+            .mce-text
+                color var(--tc_aside_text) !important
+
+
+.mce-btn.mce-active .mce-caret, .mce-btn.mce-active:hover .mce-caret
+    border-top-color var(--tc_text) !important
+
+.mce-menubtn button
+    color var(--tc_text)
+
+.mce-btn, .mce-btn:hover, .mce-btn:active, .mce-btn.mce-active, .mce-btn.mce-active:hover, .mce-btn.mce-active:focus, .mce-btn.mce-active:active
+    background-color transparent !important
+
+

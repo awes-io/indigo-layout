@@ -33,6 +33,7 @@ if ( isDev ) {
     })
 
     gulp.watch('./resources/css/**/*.styl', gulp.series('build:styles'))
+    gulp.watch('./resources/img/**/*', gulp.series('build:img'))
     gulp.watch(['./resources/js/**/*.js', './resources/vue/**/*.vue'], gulp.series('build:js', 'reload'))
     gulp.watch('./resources/pug/**/*.pug', gulp.series('build:html', 'reload'))
   })
@@ -72,10 +73,21 @@ gulp.task('build:styles', function(){
     .pipe( isDev ? browserSync.stream() : noop() )
 })
 
+/*
+ * IMAGES
+ */
+
+gulp.task('build:img', function() {
+  return gulp.src('./resources/img/**/*')
+    .pipe( gulp.dest('./dist/img') )
+})
+
+
 
 /*
  * HTML
  */
+
 
 gulp.task('build:html', function(){
   return gulp.src('./resources/pug/*.pug')
@@ -125,7 +137,7 @@ gulp.task('clean', function(){
     .pipe( clean() )
 })
 
-gulp.task('build', gulp.series('build:js', 'build:icons', 'build:styles', 'build:html') )
+gulp.task('build', gulp.series('build:js', 'build:img', 'build:icons', 'build:styles', 'build:html') )
 
 // start
 defaultTask = ['build']
