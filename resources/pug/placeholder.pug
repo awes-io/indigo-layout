@@ -1,0 +1,191 @@
+extends includes/layout.pug
+
+block pageVariables
+    - var pageTitle = "Placeholder Test"
+
+block pageHead
+    // there is can be head meta or sctipts
+    script(src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/modal/v0.x.x/js/main.js" type="module")
+    script(src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/form-builder/v0.1.11/js/main.js" type="module")
+    script(src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/modal/v0.x.x/js/main.legacy.js" nomodule)
+    script(src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/form-builder/v0.1.11/js/main.legacy.js" nomodule)
+
+
+
+block pageContent
+    p Для того, чтобы проверить плейсхолдеры, отключите js в браузере.
+
+    h2 Forms
+    form-builder(url="http://httpbin.org/post" disabled-dialog)
+        fb-slider(name="range" label="Placeholder" cell="2")
+        fb-phone(name="phone" label="Placeholder" cell="2")
+        fb-input(label="Placeholder" cell="2")
+        fb-input(label="Placeholder" cell="2")
+        fb-select(label="Placeholder" cell="2")
+        fb-select(label="Placeholder" cell="2")
+        fb-textarea(label="Placeholder" cell="2")
+        
+        fb-input(label="Placeholder" cell="2")
+        fb-input(label="Placeholder" cell="2")
+        fb-checkbox(label="Placeholder")
+        placeholder
+            .ph.ph_dark
+                |  ph btn_btn has mod ph__btn_page for page without grid cell
+                .ph__btn
+                    span
+                    span
+
+
+    h2 Filters
+    placeholder
+        .ph.ph_dark
+            .ph__filter
+                .ph__filter-left
+                    span
+                    span
+                    span
+                .ph__filter-right
+                    span
+                    span
+    h2 Pagination
+    placeholder
+        .ph.ph_dark
+            .ph__pagination
+                .ph__pagination-left
+                    span
+                .ph__pagination-center
+                    span.ph__pagination-arrow
+                    span
+                    span.ph__pagination-arrow
+                .ph__pagination-right
+                    span
+    h2 Table
+    placeholder
+        .ph
+            .ph__table
+                i.ph__table-row
+                    b.ph__table-coll
+                        span
+                    b.ph__table-coll
+                        span
+                    b.ph__table-coll
+                        span
+                    b.ph__table-coll
+                        span
+                    b.ph__table-coll
+                        span
+                i.ph__table-row
+                    b.ph__table-coll
+                        span
+                    b.ph__table-coll
+                        span
+                    b.ph__table-coll
+                        span
+                    b.ph__table-coll
+                        span
+                    b.ph__table-coll
+                        span
+                i.ph__table-row
+                    b.ph__table-coll
+                        span
+                    b.ph__table-coll
+                        span
+                    b.ph__table-coll
+                        span
+                    b.ph__table-coll
+                        span
+                    b.ph__table-coll
+                        span
+                i.ph__table-row
+                    b.ph__table-coll
+                        span
+                    b.ph__table-coll
+                        span
+                    b.ph__table-coll
+                        span
+                    b.ph__table-coll
+                        span
+                    b.ph__table-coll
+                        span
+                i.ph__table-row
+                    b.ph__table-coll
+                        span
+                    b.ph__table-coll
+                        span
+                    b.ph__table-coll
+                        span
+                    b.ph__table-coll
+                        span
+                    b.ph__table-coll
+                        span
+                i.ph__table-row
+                    b.ph__table-coll
+                        span
+                    b.ph__table-coll
+                        span
+                    b.ph__table-coll
+                        span
+                    b.ph__table-coll
+                        span
+                    b.ph__table-coll
+                        span
+                i.ph__table-row
+                    b.ph__table-coll
+                        span
+                    b.ph__table-coll
+                        span
+                    b.ph__table-coll
+                        span
+                    b.ph__table-coll
+                        span
+                    b.ph__table-coll
+                        span
+                i.ph__table-row
+                    b.ph__table-coll
+                        span
+                    b.ph__table-coll
+                        span
+                    b.ph__table-coll
+                        span
+                    b.ph__table-coll
+                        span
+                    b.ph__table-coll
+                        span
+                i.ph__table-row
+                    b.ph__table-coll
+                        span
+                    b.ph__table-coll
+                        span
+                    b.ph__table-coll
+                        span
+                    b.ph__table-coll
+                        span
+                    b.ph__table-coll
+                        span
+                i.ph__table-row
+                    b.ph__table-coll
+                        span
+                    b.ph__table-coll
+                        span
+                    b.ph__table-coll
+                        span
+                    b.ph__table-coll
+                        span
+                    b.ph__table-coll
+                        span
+    h2 List
+    placeholder
+        .ph
+            .ph__list
+                i.ph__list-row
+                    b.ph__list-coll
+                        span
+                i.ph__list-row
+                    b.ph__list-coll
+                        span
+                i.ph__list-row
+                    b.ph__list-coll
+                        span
+                i.ph__list-row
+                    b.ph__list-coll
+                        span

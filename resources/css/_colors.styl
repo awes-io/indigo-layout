@@ -1,0 +1,1732 @@
+
+body
+  color var(--tc_text)
+  background-color var(--tc_ui_bg)
+
+blockquote
+  background-color var(--tc_ui_bg)
+  box-shadow var(--tc_ui_shadow)
+  &:before
+    color var(--tc_text_caption)
+    opacity .5
+  span
+    color var(--tc_text_caption)
+
+em
+  background-color transparent
+
+s
+  color var(--tc_text_caption)
+
+.frame__content
+  ol
+    li
+      &:before
+        color var(--tc_text_caption)
+a
+  color var(--tc_link)
+  &:hover
+    color cl_skydark
+
+.awes-chat
+  & &__threads
+    background-color var(--tc_ui_bg_semi)
+  & &__smiles
+    background-color var(--tc_ui_shadow-middle)
+  & &__thread
+    border-color var(--tc_border)
+    background-color var(--tc_ui_bg_semi)
+    &:hover
+      background-color var(--tc_ui_bg_semi_v)
+    &-time
+      color var(--tc_text_caption)
+    &.active
+      background-color var(--tc_ui_bg)
+  & &__message
+    &-time
+      color var(--tc_text_caption)
+  & &__form
+    border-color var(--tc_border)
+    background-color var(--tc_ui_bg)
+    &-btn
+      color var(--tc_link_semi)
+      &:hover
+        color var(--tc_link_semi_active)
+      &:focus
+        background-color var(--tc_ui_bg_semi)
+
+.awes-status
+  background-color var(--tc_ui_bg_semi_d)
+  &_blue
+    background-color cl_morning
+  &_green
+    background-color cl_grass
+
+.infbl
+  & &_icon
+    color var(--tc_text_caption)
+  & &__caption
+    color var(--tc_text_caption)
+
+.static-page
+  background-color var(--tc_ui_bg_semi)
+  & &__head
+    background-image var(--tc_aside_gradient)
+    color var(--tc_invert)
+  & &__content
+    background-color var(--tc_ui_bg)
+  & &__search-link
+    color var(--tc_aside_text)
+    &:hover
+      color var(--tc_link)
+  & &__title
+    color var(--tc_aside_text)
+  & &__footer
+    &-logo
+      color var(--tc_text_caption)
+      a
+        color var(--tc_text_caption)
+        &:hover
+          color var(--tc_link)
+      .icon
+        color var(--tc_link)
+
+
+.history-list
+  li
+    color var(--tc_text_caption)
+    &:before
+      box-shadow 0px 0px 0px 2px var(--tc_text_caption) inset
+    &.active
+      color cl_grass
+      &:before
+        background-color cl_grass
+        box-shadow none
+      &:after
+        background-color  var(--tc_border)
+    &.current
+      color cl_grass
+      &:before
+        box-shadow 0px 0px 0px 2px cl_grass inset
+
+.project-page
+  & &__logo
+    box-shadow var(--tc_shadow_block)
+  & &__progress
+    background-color var(--tc_border)
+    span
+      background-color cl_grass
+      color cl_grass
+      &:after
+        background-color cl_grass
+
+
+
+
+
+.action-menu
+  & &__click
+    color var(--tc_link_semi)
+    &:hover
+      color var(--tc_link_semi_active)
+
+.ava-text
+  .icon
+    background-color var(--tc_ui_bg_darken)
+    color var(--tc_text_caption)
+
+.novatar
+  background-color var(--tc_ui_bg_darken)
+  color var(--tc_text_caption)
+
+.number-field
+  & &__field
+    background-color var(--tc_ui_bg)
+    border 1px solid var(--tc_border)
+  & &__plus, & &__minus
+    border 1px solid var(--tc_border)
+    color var(--tc_ui_btn_light_text)
+    background-color var(--tc_ui_btn_grey)
+    &:hover
+      background-color var(--tc_ui_hover)
+      color var(--tc_ui_hover_text)
+      border 1px solid var(--tc_ui_hover)
+
+.figure-loader
+  & &__img
+    background-color var(--tc_ui_bg)
+  & &__remove
+    color var(--tc_link_semi)
+    &:hover
+      color var(--tc_link_semi_active)
+
+.form-title
+  color var(--tc_text)
+  .icon
+    color var(--tc_text_caption)
+
+.ui-title
+  color var(--tc_text)
+
+.header-tabs
+  border-bottom-color var(--tc_border)
+  & &__link, & &__ltlink
+    color var(--tc_link_semi)
+    &.active
+      border-bottom-color var(--tc_ui_hover)
+      color var(--tc_link_semi_active)
+    &:hover
+      color var(--tc_link_semi_active)
+
+.form-spoiler
+  & &__title
+    color var(--tc_link_black)
+    &:hover
+      color var(--tc_link)
+  &:before
+    background-color var(--tc_border_light)
+  &:after
+    border-color var(--tc_border_night)
+
+.vue-dialog
+  .vue-dialog-buttons
+    .vue-dialog-button
+      &:nth-child(2)
+        border-top 1px solid var(--tc_border_light)
+        background-color var(--tc_ui_bg) !important
+        color cl_asphalt !important
+        &:hover
+          {lt} &
+            background-color var(--tc_ui_bg_d) !important
+          {dt} &
+            background-color var(--tc_ui_bg_l) !important
+          color cl_asphalt
+
+
+.modal
+  background-color alpha(cl_black, 0.8)
+  & &__dialog
+    background-color var(--tc_ui_bg)
+  & &__close
+    color var(--tc_link_semi)
+    &:hover
+      color var(--tc_link_semi_active)
+  .line-btns
+    background-color var(--tc_ui_bg)
+    &__wrap
+      background-color var(--tc_ui_bg)
+    .btn
+      background-color cl_grass !important
+      color cl_white !important
+      &:hover, &:focus
+        background-color darken(cl_grass, 10%) !important
+        color cl_white
+      &:nth-child(2)
+        border-top 1px solid var(--tc_border_light)
+        background-color var(--tc_ui_bg) !important
+        color cl_asphalt !important
+        &:hover, &:focus
+          {lt} &
+            background-color var(--tc_ui_bg_d) !important
+          {dt} &
+            background-color var(--tc_ui_bg_l) !important
+          color cl_asphalt
+      &[disabled="disabled"]
+        background-color var(--tc_ui_darkbg) !important
+        pointer-events none
+        opacity 0.5
+
+
+
+.vue-dialog-buttons
+  .vue-dialog-button
+    background-color cl_grass !important
+    color cl_white !important
+    &:hover
+      background-color darken(cl_grass, 10%) !important
+    &:nth-child(2)
+      background-color cl_white !important
+      color cl_asphalt !important
+      &:hover
+        background-color darken(cl_white, 5%) !important
+
+.hfilter
+  & &__wrap
+    background-color var(--tc_ui_bg)
+    min-height 100%
+
+.overflow-window
+  background-color var(--tc_ui_bg)
+  color var(--tc_text)
+  & &__link
+    color var(--tc_link_black)
+    &_red
+      color cl_warn
+    &:hover
+      background-color var(--tc_ui_btn_light)
+  & &__title
+    color var(--tc_text_caption)
+  & &__close
+    color var(--tc_link_semi)
+    &:hover
+      color var(--tc_link_semi_active)
+
+.filter
+  & &__slink
+    color var(--tc_link_semi)
+    .icon
+      color var(--tc_link_semi)
+    &:hover
+      color var(--tc_link_semi_active)
+      .icon
+        color var(--tc_link_semi_active)
+      &:after
+        border-top-color var(--tc_link_semi_active)
+  & &__checkbox
+    &-label
+      border-color var(--tc_border)
+      color var(--tc_link_semi)
+      &:hover
+        color var(--tc_link_semi_active)
+    &-datapicker
+      color var(--tc_link_semi)
+      &:focus
+        color var(--tc_link_semi_active)
+    & ^[0]__checkbox-hInput:checked + .filter__checkbox-label
+      background-color var(--tc_ui_bg)
+      color var(--tc_link_semi_active)
+      .filter__checkbox-datapicker
+        background-color var(--tc_ui_bg)
+    &-cell
+      &_active
+        & ^[0]__checkbox-label
+          background-color var(--tc_ui_bg)
+          color var(--uiElement_active)
+        & ^[0]__checkbox-datapicker
+          background-color var(--tc_ui_bg)
+  &__form-builder
+    background-color var(--tc_ui_bg)
+
+.price-table
+  // border 1px solid var(--tc_border)
+  padding-left 1px
+  & &__cell
+    border 1px solid var(--tc_border)
+    background-color var(--tc_ui_bg)
+    &.active
+      border 1px solid cl_grass
+  & &__list
+    li
+      border-bottom 1px solid var(--tc_border_dark)
+      color var(--tc_text_caption)
+      &:last-child
+        border-bottom 0
+  & &__spoiler
+    & ^[0]__list
+      li
+        &:last-child
+          border-bottom 1px solid var(--tc_border_dark)
+  & &__caption
+    color var(--tc_text_caption)
+    &_dark
+      color var(--tc_text)
+  & &__moreinfo
+    color var(--tc_link_dark)
+    &:hover
+      text-decoration underline
+  & &--cancel
+    &:hover
+      color cl_red
+
+.paycard
+  & &__current
+    color var(--tc_text)
+    &-caption
+      color var(--tc_text_caption)
+  & &__info-text
+    color var(--tc_text_caption)
+  & &__wrap
+    color cl_white
+    background-image var(--tc_gradient_1)
+    box-shadow var(--tc_shadow_blue)
+  & &__select
+    color cl_white
+    &:hover
+      color cl_white !important
+  &_red
+    & ^[0]__wrap
+      background-image var(--tc_gradient_2)
+      box-shadow var(--tc_shadow_red)
+  &_white
+    & ^[0]__wrap
+        box-shadow var(--tc_shadow_gblue)
+        background-image none
+        background-color var(--tc_ui_bg)
+    & ^[0]__select
+        color var(--tc_link_semi)
+  & &__paylogo
+    figcaption
+      color var(--tc_text)
+  & &__hover
+    background-color var(--tc_ui_bgopacity)
+  &:hover
+    & ^[0]__select
+      color var(--tc_link_semi)
+
+@media (pointer coarse)
+  .paycard
+    & &__hover
+      background-color transparent
+    & &--btn
+      color var(--tc_link_semi) !important
+      background-color transparent !important
+    & &__select
+      color var(--tc_link_semi) !important
+
+
+.modal_fullscreen
+  background-color var(--tc_ui_bg)
+  .modal
+    &__header
+      border-bottom 1px solid var(--tc_border)
+      background-color var(--tc_ui_bg)
+    &__back
+      color var(--tc_link_semi)
+      &:hover
+        color var(--tc_link_semi_active)
+
+
+.radiobox
+  color var(--tc_link_semi)
+  & &__icon
+    border 1px solid var(--tc_border)
+    &:before
+      opacity 0
+  & ^[0]__field:checked + .radiobox__content
+    & ^[0]__text
+      color var(--tc_link_semi_active)
+    & ^[0]__icon
+      background-color cl_grass
+      border-color cl_grass
+      color cl_white
+      &:before
+        opacity 1
+        background-color cl_white
+  & ^[0]__field:focus + .radiobox__content
+    & ^[0]__icon
+      border 1px solid var(--tc_ui_focus)
+
+.box-checker
+  .fc-radio .fc-radio__box.is-checked
+    background-color var(--tc_ui_bg)
+    color var(--tc_text)
+    z-index 10
+    position relative
+    box-shadow 0 0 5px rgba(0, 0, 0, 0.1)
+    border 1px solid cl_grass
+    &:not(:first-child)
+      margin-left -1px
+    .box-checker__caption
+      color var(--tc_text_caption)
+
+.fc-radio
+  overflow hidden
+  position relative
+  & &__box
+    border 1px solid var(--tc_border)
+    border-left none
+    color var(--tc_text_caption)
+    &:first-child
+      border-left 1px solid var(--tc_border)
+      border-radius 3px 0 0 3px
+    &:last-child
+      border-radius 0 3px 3px 0
+  & &__text
+    background-color var(--tc_ui_bg_semi)
+  & ^[0]__field:focus + .fc-radio__text
+    background-color var(--tc_ui_focus)
+    color cl_white
+  & ^[0]__field:checked + .fc-radio__text
+    background-color var(--tc_ui_bg)
+    color var(--tc_text)
+
+.icn-dot
+  background-color cl_warn
+
+.checkbox
+  & &__text
+    span
+      color var(--tc_link_semi)
+    .icon
+      border 1px solid var(--tc_border_dark)
+      color transparent
+  input:checked + .checkbox__text span
+    color var(--tc_link_semi_active)
+  input:checked + .checkbox__text .icon
+    color cl_white
+    background-color cl_grass
+    border 1px solid cl_grass
+  input:focus + .checkbox__text .icon
+    border 1px solid var(--tc_ui_focus)
+  input:focus + span .icon
+    box-shadow 0px 0px 0px 1px cl_sky !important
+  &_s2
+    .icon
+      {lt} &
+        background-color var(--tc_ui_darkbg)
+      {dt} &
+        background-color var(--tc_ui_darkbg_d)
+      &:before
+        background-color cl_white
+        box-shadow 0px 0px 5px var(--tc_ui_darkbg_o)
+  &_disabled
+    & input:disabled + ^[0]__text
+      .icon
+        border-color var(--tc_border)
+        color transparent
+        background-color var(--tc_ui_bg_semi)
+      span
+        color var(--tc_link_semi)
+    & input:disabled:checked + ^[0]__text
+      .icon
+        color var(--tc_ui_darkbg)
+    &^[0]_s2
+      & input:disabled + ^[0]__text
+        .icon
+          border-color var(--tc_border)
+          opacity 0.3
+          background-color var(--tc_ui_darkbg)
+        span
+          color var(--tc_link_semi)
+
+
+.theme-switcher
+    &__switcher
+        {lt} &
+            background-color var(--tc_ui_darkbg)
+        {dt} &
+            background-color var(--tc_ui_darkbg_d)
+        &:before
+            background-color cl_white
+            box-shadow 0px 0px 5px var(--tc_ui_darkbg_o)
+    &.is-active .theme-switcher__switcher
+        background-color cl_grass
+
+
+.multiselect
+  & &__tag
+    color var(--tc_ui_tag_text) !important
+    background-color var(--tc_ui_tag) !important
+    &-icon
+      border-left 1px solid var(--tc_ui_bg) !important
+  & &__tags
+    background-color var(--tc_ui_bg)
+    border 1px solid var(--tc_border_ins) !important
+  & &__content-wrapper
+    background-color var(--tc_ui_bg)
+    border 1px solid var(--tc_border_ins)
+    border-top 0px !important
+  &--above
+    & ^[0]__content-wrapper
+      border-top 1px solid var(--tc_border_ins) !important
+      border-bottom 0 !important
+  & &__input
+    background-color var(--tc_ui_bg)
+    color var(--tc_text)
+  & &__select
+    border-color var(--tc_ui_bg) transparent transparent
+  & &__option
+    color var(--tc_text)
+    &--highlight
+      background-color var(--tc_ui_bg_semi) !important
+      color var(--tc_text) !important
+
+.multiselect__input::-webkit-input-placeholder
+  color var(--tc_text) !important
+
+.multiselect__input:-moz-placeholder
+  color var(--tc_text) !important
+
+.multiselect__input::-moz-placeholder
+  color var(--tc_text) !important
+
+.multiselect__input:-ms-input-placeholder
+  color var(--tc_text) !important
+
+.mselect
+  & &__label
+    color var(--tc_text_caption)
+
+
+.multi-bl
+  & &__title
+    color var(--tc_text)
+  & &__close
+    color var(--tc_link_semi)
+    &:hover
+      color var(--tc_link_semi_active)
+  & &__clear
+    color var(--tc_link_black)
+    background-color transparent
+    &:hover
+      color cl_warn
+    &:focus
+      color var(--tc_ui_focus)
+  & &__add
+    background-color transparent
+    color var(--tc_link)
+    &:hover, &:focus
+      color var(--tc_link_dark)
+  &_disabled &
+      &__clear,
+      &__close,
+      &__add
+          opacity .5
+          color var(--tc_text_caption)
+
+.vue-tel-input
+  border 1px solid var(--tc_border_ins) !important
+  .dropdown
+    background-color var(--tc_ui_bg) !important
+    border-right 1px solid var(--tc_border_ins)
+    &:hover
+      background-color var(--tc_ui_bg_semi_light) !important
+  input
+    background-color var(--tc_ui_bg) !important
+    color var(--tc_text) !important
+  ul
+    background-color var(--tc_ui_bg) !important
+  .dropdown-item
+    color var(--tc_text) !important
+    &.highlighted
+      background-color var(--tc_ui_bg_semi) !important
+
+  &:focus-within
+    box-shadow none !important
+    border-color var(--tc_ui_focus) !important
+
+.fb-editor
+  & &__modes
+    &-button
+      border-color var(--tc_border_ins)
+      background-color var(--tc_ui_bg_semi)
+      color var(--tc_text_caption)
+      &.is-active
+        background-color var(--tc_ui_bg)
+        color var(--tc_text)
+  & &__tab
+    border-color var(--tc_border_ins)
+  .mce-flow-layout
+    background-color var(--tc_ui_bg_semi)
+  .mce-listbox
+    button
+      background-color var(--tc_ui_bg_semi)
+
+
+  .mce-menubtn button
+    color var(--tc_text)
+
+  .mce-btn, .mce-btn:hover, .mce-btn:active, .mce-btn.mce-active, .mce-btn.mce-active:hover, .mce-btn.mce-active:focus, .mce-btn.mce-active:active
+    background-color transparent !important
+
+
+  .mce-btn
+    button
+      background-color var(--tc_ui_bg_semi)
+      .mce-ico
+        color var(--tc_link_semi)
+      &:hover
+        background-color var(--tc_ui_bg)
+        .mce-ico
+          color var(--tc_link_semi_active)
+    &.mce-active
+      button
+        {lt} &
+          background-color var(--tc_ui_bg_semi_v) !important
+        {dt} &
+          background-color var(--tc_ui_bg_semi_d) !important
+        .mce-ico, .mce-txt
+          color var(--tc_text) !important
+
+.mce-btn.mce-active .mce-caret, .mce-btn.mce-active:hover .mce-caret
+  border-top-color var(--tc_text) !important
+
+
+
+
+.mce-menu
+  background-color var(--tc_ui_bg) !important
+  border-color var(--tc_border_ins) !important
+  &-item
+    .mce-text
+        color var(--tc_text) !important
+    &:hover, &:focus
+      background-color var(--tc_ui_bg_semi) !important
+      .mce-text
+        color var(--tc_text) !important
+    &.mce-active
+      background-color var(--tc_aside_bg) !important
+      .mce-text
+        color var(--tc_aside_text) !important
+
+// code editor
+.fb-editor .CodeMirror
+  &.cm-s-default
+    background-color: var(--tc_ui_bg)
+    color: var(--tc_text)
+  &-gutters
+    background: var(--tc_ui_bg_semi)
+    border-right: 2px var(--tc_border_semi)
+  &-cursor
+    border-color: var(--tc_text)
+  &-linenumber
+    color: var(--tc_text_caption)
+  span.CodeMirror-matchingbracket
+    color: cl_yellow
+  span.CodeMirror-matchingtag
+    background-color: alpha(cl_yellow, 50%)
+  span.cm-tag
+    color: var(--tc_html_tag)
+  span.cm-attribute
+    color: var(--tc_html_attr)
+  span.cm-string,
+  span.cm-atom
+    color: var(--tc_html_str)
+  span.cm-error
+    color: cl_red
+
+.input
+  & &__okicon
+    color cl_salad
+  &_range
+    input[type='range']
+      // background-color cl_grass
+      &::-ms-track
+        background-color cl_cloud
+      &::-ms-fill-lower
+        background-color cl_grass
+      &::-moz-range-progress
+        background-color cl_grass
+      &::-moz-range-track
+        background-color cl_cloud
+      &::-webkit-slider-runnable-track
+        background: linear-gradient(cl_grass, cl_grass) s('0/ var(--percent)') 100% no-repeat cl_cloud
+      &::-webkit-slider-thumb
+        background-color cl_white
+        box-shadow var(--tc_shadow_smr)
+      &::-moz-range-thumb
+        background-color cl_white
+        box-shadow var(--tc_shadow_smr)
+      &::-ms-thumb
+        background-color cl_white
+        box-shadow var(--tc_shadow_smr)
+      &::-ms-tooltip
+        display: none
+  & &__editable
+    border-left 1px solid var(--tc_border_ins)
+    &-caption
+      color var(--tc_text_caption)
+  & &__eye
+    color var(--tc_text_caption)
+    &:hover
+      color var(--tc_link)
+  & &__field
+    border 1px solid var(--tc_border_ins)
+    color var(--tc_text)
+    background-color var(--tc_ui_bg)
+    &:focus
+      border 1px solid var(--tc_ui_focus)
+    &:-webkit-autofill
+      -webkit-box-shadow 0 0 0 30px var(--tc_ui_bg) inset
+      -webkit-text-fill-color var(--tc_text) !important
+  & &__textarea
+    border 1px solid var(--tc_border_ins)
+    color var(--tc_text)
+    background-color var(--tc_ui_bg)
+    &:focus
+      border 1px solid var(--tc_ui_focus)
+    &:-webkit-autofill
+      -webkit-box-shadow 0 0 0 30px var(--tc_ui_bg inset)
+      -webkit-text-fill-color var(--tc_text) !important
+  & &__label
+    color var(--tc_text_caption)
+    background-color var(--tc_ui_bg)
+  & &__clone, & &__remove
+    background-color var(--tc_ui_bg_semi)
+    color var(--tc_link_semi)
+    &:hover
+      color var(--tc_link_semi_active)
+  &_autocomplete
+    & ^[0]__field
+      border 1px solid var(--tc_link_dark) !important
+  & &__autocomplete
+    background-color var(--tc_ui_bg)
+    border 1px solid cl_sky
+    border-top 0px
+    &-caption
+      color var(--tc_text_caption)
+    &-info
+      background-color var(--tc_ui_bg_semi)
+      color var(--tc_text_caption)
+    &-loading
+      background-color var(--tc_ui_bg_semi)
+      color var(--tc_text_caption)
+    &-hidden
+      a
+        color var(--tc_link_black)
+        &:hover
+          background-color var(--tc_ui_btn_light)
+          color var(--tc_link_black)
+
+  &_error
+    & ^[0] ^[0]__field
+      border 1px solid cl_warn
+    & ^[0] ^[0]__textarea
+      border 1px solid cl_warn
+  &_ok
+    & ^[0]__field
+      {lt} &
+        border 1px solid cl_salad
+    & ^[0]__textarea
+      {lt} &
+        border 1px solid cl_salad
+  &_disabled
+    opacity 0.5
+    & ^[0]__field
+      border 1px solid var(--tc_border)
+      color var(--tc_text_caption)
+      background-color var(--tc_ui_bg)
+    & ^[0]__textarea
+      border 1px solid var(--tc_border)
+      color var(--tc_text_caption)
+      background-color var(--tc_ui_bg)
+    & ^[0]__label
+      background-color var(--tc_ui_bg)
+
+.modal-form
+  & &__title
+    color var(--tc_text)
+  & &__buttons
+    border-top 1px solid var(--tc_border_ins)
+
+.loading-inline, .loading-block
+  &:before
+    background-color var(--tc_ui_bg)
+
+.btn
+  color var(--tc_btn_text)
+  background-color var(--tc_btn_bg)
+  &:hover, &:focus
+    background-color var(--tc_btn_bg_active)
+    color var(--tc_btn_text)
+  &_white
+    background-color var(--tc_btn_tr_bg)
+    color var(--tc_btn_tr_text)
+    &:hover, &:focus
+      background-color var(--tc_btn_tr_bg_d)
+      color var(--tc_btn_tr_text)
+  &_transparent
+    background-color transparent
+    color var(--tc_btn_tr_text)
+    &:hover, &:focus
+      background-color var(--tc_ui_bg_darken_s)
+  &_sh
+    box-shadow 1px 2px 3px var(--tc_btn_bg_shadow);
+  &_darkred
+    background-color transparent
+    color cl_white
+    &:hover, &:focus
+      color cl_warn
+      background-color transparent
+  &_greylink
+    background-color transparent
+    color var(--tc_link_semi)
+    &:hover, &:focus
+      background-color transparent
+      color var(--tc_link)
+  &.loading-inline
+    &:hover, &:focus
+      background-color cl_grass
+  &[disabled="disabled"]
+    background-color var(--tc_ui_darkbg) !important
+    pointer-events none
+    opacity 0.5
+
+
+
+.pager
+  & &__caption
+    color var(--tc_link_semi)
+  & &__shows
+    &-link
+      color var(--tc_link_semi)
+      &:hover
+        color var(--tc_link_semi_active)
+        &:after
+          border-top-color var(--tc_link_semi_active)
+  & &__link
+    border 1px solid var(--tc_border)
+    color var(--tc_link_semi)
+    &_active
+      background-color var(--tc_ui_bg)
+      color var(--tc_link_semi_active)
+    &:hover
+      color var(--tc_link_semi_active)
+  & &__spacer
+    border 1px solid var(--tc_border)
+    color var(--tc_link_semi)
+  & &__arr-left, & &__arr-right
+    color var(--tc_link_semi)
+    &:hover
+      color var(--tc_link_semi_active)
+
+.actions-overflow
+  & &__icon
+    border-left 1px solid var(--tc_border_light)
+    border-bottom 1px solid var(--tc_border_light)
+  & &__link
+    color var(--tc_link_black)
+    &_red
+      color cl_warn
+    &:hover
+      background-color var(--tc_ui_btn_light)
+  & &__title
+    color var(--tc_text_caption)
+  & &__actions
+    background-color var(--tc_ui_bg)
+
+.tooltip
+  background-color var(--tc_tooltip_bg)
+  &:before
+    border-top 4px solid var(--tc_tooltip_bg)
+  &[x-placement="right"]
+    &:before
+      border-top 4px solid transparent
+      border-right 4px solid var(--tc_tooltip_bg)
+  &.theme-error
+    background-color cl_warn
+    color var(--tc_tooltip_text)
+    &:before
+      border-top-color cl_warn
+    &[x-placement="right"]
+      &:before
+        border-top 4px solid transparent
+        border-right 4px solid cl_warn
+
+.notifications
+  .vue-notification
+    background-color cl_sky !important
+    {lt} &
+      box-shadow 3px 4px 20px alpha(cl_sky, 0.5) !important
+    {dt} &
+      box-shadow 3px 4px 20px alpha(cl_black, 0.5) !important
+    &__animation
+      background-color darken(cl_sky, 15%) !important
+    &.success
+      background-color cl_grass !important
+      box-shadow 3px 4px 20px alpha(cl_salad, 0.5) !important
+      {lt} &
+        box-shadow 3px 4px 20px alpha(cl_salad, 0.5) !important
+      {dt} &
+        box-shadow 3px 4px 20px alpha(cl_black, 0.5) !important
+      .vue-notification__animation
+        background-color darken(cl_salad, 15%) !important
+      .vue-notification__btn:hover
+        color cl_yellow !important
+    &.error
+      background-color cl_warn !important
+      {lt} &
+        box-shadow 3px 4px 20px alpha(cl_warn, 0.5) !important
+      {dt} &
+        box-shadow 3px 4px 20px alpha(cl_black, 0.5) !important
+      .vue-notification__animation
+        background-color darken(cl_warn, 15%) !important
+      .vue-notification__btn:hover
+        color cl_warn !important
+    &.warn
+      background-color cl_yellow !important
+      {lt} &
+        box-shadow 3px 4px 20px alpha(cl_yellow, 0.5) !important
+      {dt} &
+        box-shadow 3px 4px 20px alpha(cl_black, 0.5) !important
+      .vue-notification__animation
+        background-color darken(cl_yellow, 15%) !important
+      .vue-notification__btn:hover
+        color cl_yellow !important
+  &_header
+    .vue-notification
+      &__btn
+        color cl_white
+        border 1px solid alpha(cl_white, 0.5)
+        &:hover
+          background-color cl_white
+          color var(--tc_link)
+      &__close
+        color cl_white
+  &_rb
+    .vue-notification
+      &__wrap
+        padding-left 30px
+      &__close
+        color cl_white
+      &__left-icon
+        color cl_white
+
+.toasted
+    &.success
+        background-color cl_grass !important
+        box-shadow 3px 4px 20px alpha(cl_salad, 0.5) !important
+        {lt} &
+          box-shadow 3px 4px 20px alpha(cl_salad, 0.5) !important
+        {dt} &
+          box-shadow 3px 4px 20px alpha(cl_black, 0.5) !important
+    &.error
+      background-color cl_warn !important
+      {lt} &
+        box-shadow 3px 4px 20px alpha(cl_warn, 0.5) !important
+      {dt} &
+        box-shadow 3px 4px 20px alpha(cl_black, 0.5) !important
+
+body.v--modal-block-scroll
+  .vue-notification
+    box-shadow none !important
+
+.flex-list
+  & &__caption
+    color var(--tc_text_caption)
+  & &__title
+    color var(--tc_text)
+
+.text-caption
+  color var(--tc_text_caption)
+
+.blue-link
+  color var(--tc_link)
+
+.upper-link
+  color var(--tc_text_caption)
+  &:hover
+    color var(--tc_link)
+
+table
+  background-color var(--tc_ui_bg)
+  th
+    background-color var(--tc_ui_bg_darken)
+    color var(--tc_text_caption)
+  td
+    border-bottom 1px solid var(--tc_border_dark)
+  tr
+    &:hover
+      background-color var(--tc_ui_bg_semi)
+
+.int-table
+  & &__footer
+    background-color var(--tc_ui_bg_darken)
+  & &__drag-icon
+    .icon
+      color var(--tc_text_caption)
+  & &__flink
+    color var(--tc_link_semi)
+    &:hover
+      color var(--tc_link_semi_active)
+  & &__fcaption
+    color var(--tc_text)
+  & &__header
+    border 1px solid var(--tc_border)
+  & &__count
+    span
+      color var(--tc_text_caption)
+  & &__table
+    background-color var(--tc_ui_bg)
+    th
+      background-color var(--tc_ui_bg_darken)
+      color var(--tc_text_caption)
+    td
+      border-bottom 1px solid var(--tc_border_dark)
+    tr
+      &:hover
+        background-color var(--tc_ui_bg_semi)
+    tr.active:hover
+      background-color transparent
+
+    tbody
+      box-shadow var(--tc_ui_shadow)
+  & &__show
+    color var(--tc_text_caption)
+  & &__status
+    &-icon
+      color var(--tc_text_caption)
+  & &__link, a
+    color var(--tc_link)
+  & &__caption
+    color var(--tc_text_caption)
+  & &__status
+    border 1px solid cl_grass
+    color cl_grass
+    &_red
+      background-color cl_warn
+      color cl_white
+      border 1px solid cl_warn
+  & &__controll
+    color var(--tc_link_semi)
+    &:hover, &.active
+      color var(--tc_link_semi_active)
+    &-tab
+      @media res_desktop--md
+        border-left 1px solid var(--tc_border)
+        &.active
+          background-color var(--tc_border_semi)
+  & &__block
+    &.active
+      & ^[0]__controll-tab
+        @media res_desktop--md
+            background-color var(--tc_ui_bg_semi)
+            border-bottom 1px solid var(--tc_border)
+
+
+.user-menu
+  & &__list
+    box-shadow var(--tc_ui_context_menu_shadow)
+    background-color var(--tc_ui_context_menu_bg)
+
+
+
+.helper
+  & &__block
+    box-shadow var(--tc_ui_context_menu_shadow)
+    background-color var(--tc_ui_context_menu_bg)
+  & &__title
+      &_btn
+        span
+          &:after
+            border-top-color var(--tc_text)
+  & &__close
+    color var(--tc_link_semi)
+    &:hover
+      color var(--tc_link_semi_active)
+  & &__head, & &__stepper
+    border-color var(--tc_border)
+  .nav-tabs
+      background-color var(--tc_ui_bg_semi)
+      .tabs__link
+        color var(--tc_link_semi)
+      .active_tab
+        background-color var(--tc_ui_bg)
+        color var(--tc_link_semi_active)
+        &:after
+          border-top-color var(--tc_text)
+        @media res_mobile--md
+          border-color var(--tc_border)
+
+
+
+
+.head-context
+  & &__main
+    border-color var(--tc_border)
+    background-color var(--tc_ui_bg)
+    &:hover
+        background-color: var(--tc_ui_bg_semi)
+  & &__hidden
+    border-color var(--tc_border)
+    background-color var(--tc_ui_bg)
+    &-btn
+      color var(--tc_link_semi)
+      &:hover
+        background-color: var(--tc_ui_bg_semi)
+
+.context-menu
+  &__overlay
+    background-color var(--tc_ui_shadow-overflow)
+
+  &__list
+    box-shadow var(--tc_ui_context_menu_shadow)
+    background-color var(--tc_ui_context_menu_bg)
+
+  &__toggler-default
+    {lt} &
+      background-color var(--tc_ui_bg_semi_v)
+    {dt} &
+      background-color var(--tc_ui_bg_semi_s)
+    &:hover
+      {lt} &
+        background-color var(--tc_ui_bg_semi_s)
+      {dt} &
+        background-color var(--tc_ui_bg_semi_d)
+    circle
+      fill var(--tc_text)
+    
+
+  &.is-opened
+    .context-menu__toggler-default
+        background-color var(--tc_ui_context_menu_border)
+
+  &.is-top-side
+    .context-menu__list
+      box-shadow var(--tc_ui_context_menu_shadow_top)
+
+.cm-item
+  &.is-separator
+    border-bottom 1px solid var(--tc_ui_context_menu_border)
+
+  &__link,
+  &__button
+    color var(--tc_link_semi)
+
+    &:hover,
+    &:focus
+      color var(--tc_link_semi_active)
+      background-color var(--tc_ui_context_menu_hover_bg)
+
+    &.is-danger
+      color cl_warn
+
+    &.is-active
+      border-bottom-color var(--tc_ui_context_menu_hover_bg)
+      color var(--tc_link_semi_active)
+
+  &__panel
+    border-bottom 1px solid var(--tc_ui_bg_darken)
+
+    &.is-secondary
+      background-color var(--tc_page_bg)
+
+.chart
+  &-icon
+    &:before
+      background-color cl_black
+      border-color cl_white
+    &:after
+      background-color cl_black
+    &_1
+      &:before, &:after
+        background-color cl_morning
+    &_2
+      &:before, &:after
+        background-color cl_dream
+    &_3
+      &:before, &:after
+        background-color cl_darkdrean
+    &_4
+      &:before, &:after
+        background-color cl_japanshine
+    &_5
+      &:before, &:after
+        background-color cl_heartlife
+
+kbd
+  color cl_white
+  background-color cl_black
+
+code
+  color var(--tc_text_mark)
+  
+
+pre
+  code
+    background-color: transparent
+
+.tf
+  &-grey
+    color var(--tc_text_caption)
+  &-titlenav
+    a
+      color var(--tc_link_semi)
+      &:hover, em
+        color var(--tc_link_semi_active)
+      &.active
+        color var(--tc_link)
+  &-caption
+    color var(--tc_text_caption)
+  &-blcode
+    color cl_white
+    background-color cl_black
+  ol
+    li
+      &:before
+        color var(--tc_text_caption)
+  &-dottedlink
+    color var(--tc_link_semi)
+    border-color var(--tc_link_semi)
+    &:hover
+      color var(--tc_link_semi_active)
+      border-color var(--tc_link_semi_active)
+  &-pagetitle
+    color var(--tc_text)
+  &-hyplink
+    color var(--tc_text_caption)
+    &:hover
+      color var(--tc_link)
+
+
+
+.chart
+  &-icon
+    i
+      border-color var(--tc_ui_bg)
+
+.chart-box
+  box-shadow var(--tc_ui_shadow)
+  background-color var(--tc_ui_bg)
+  color var(--tc_text)
+  & &__icon
+    color var(--tc_text_caption)
+  & &__list
+    a
+      color var(--tc_link_semi)
+      &:hover
+        color var(--tc_link_semi_active)
+      &.active
+        color var(--tc_link_semi_active)
+        border-color var(--tc_link_semi_active)
+  & &__mrlink
+    color var(--tc_link_semi)
+    &:hover
+      color var(--tc_link_semi_active)
+  & &__info
+    &-more
+      color var(--tc_link_semi)
+      &:hover
+        color var(--tc_link_semi_active)
+    &-greycapt
+      color var(--tc_text_caption)
+    &-redcapt
+      color cl_warn
+  &_error
+    & ^[0]__icon
+      color cl_warn
+
+.cl_caption
+  color var(--tc_text_caption)
+
+.cl
+  &_red
+    color cl_warn
+  &_green
+    color cl_grass
+
+
+.justify-list
+  color var(--tc_text)
+  box-shadow var(--tc_ui_shadow)
+  background-color var(--tc_ui_bg)
+  a
+    color var(--tc_link)
+  li
+    border-color var(--tc_border_light)
+
+.j-table
+  color var(--tc_text)
+  box-shadow var(--tc_ui_shadow)
+  background-color var(--tc_ui_bg)
+  & &__nd
+    &-caption
+      color var(--tc_text_caption)
+    &-icon
+      color var(--tc_text_caption)
+  a
+    color var(--tc_link)
+  & &__rate
+    color var(--tc_text_caption)
+  td
+    border-color var(--tc_border_light)
+    @media res_mobile--md
+      border-bottom 0
+  tr
+    @media res_mobile--md
+      border-color var(--tc_border_light)
+
+.dashboard
+  & &__tabs
+    box-shadow var(--tc_ui_shadow)
+    .justify-list
+      box-shadow none
+    .tabs-component
+      &-tab
+        border-color var(--tc_border_light)
+        font-size f_normal
+        a
+          color var(--tc_text_caption)
+          &:hover
+            color var(--tc_text)
+        &.is-active
+          background-color var(--tc_ui_bg)
+          a
+            color var(--tc_text)
+            &:hover
+              color var(--tc_text)
+
+.header-notification, header-notification
+  &.error, &[type="error"]
+    background-color cl_warn
+    color cl_white
+    & ^[0]__close
+      color cl_white
+
+.fb
+  &__input-domain
+    color var(--tc_text_caption)
+  &-uploader
+    .uploader-drop
+      background-color var(--tc_ui_bg)
+      border-color var(--tc_border_ins)
+      color var(--tc_link_semi)
+      &:hover
+        background-color  var(--tc_ui_bg_semi)
+    & &__btn, & &__fakebtn
+      color var(--tc_link_semi)
+    & &__list
+      tr
+        background-color var(--tc_ui_bg) !important
+        &:hover
+          background-color var(--tc_ui_bg) !important
+          td
+            background-color var(--tc_ui_bg)
+      &-number, &-type, &-size, &-date
+        color var(--tc_text_caption)
+      &-delete
+        button
+          &:hover
+            color var(--tc_link)
+      &-progress
+        progress
+          background-color var(--tc_border)
+          &::-webkit-progress-bar
+            background-color var(--tc_border)
+          &::-moz-progress-bar
+            background-color cl_grass
+          &::-webkit-progress-value
+            background-color cl_grass
+
+
+
+
+
+
+.profile-wrap
+  & &__ava
+    background-color var(--tc_ui_bg_darken)
+    &-noavatar
+      color var(--tc_text_caption)
+
+.vue-example
+  & &__bounds
+    border 1px solid var(--tc_border)
+
+.login-page
+  & &__left
+    background-color var(--tc_ui_bg)
+  & &__spacer
+    color var(--tc_text_caption)
+    i
+      background-color var(--tc_ui_bg)
+      &:before, &:after
+        background-color var(--tc_border)
+  & &__logo
+    color var(--tc_link)
+    &:hover
+      color var(--tc_color_main_l)
+    &_white
+      color cl_white
+      @media res_mobile--lg
+        {lt} &
+          color var(--tc_color_main)
+        {dt} &
+          color var(--tc_link)
+      &:hover
+        color cl_sky
+
+  & &__sbox
+    background-color var(--tc_ui_bg)
+  & &__full
+    @media res_mobile--lg
+      background-color var(--tc_ui_bg)
+
+.keycode
+  & &__field
+    border 1px solid var(--tc_border_ins)
+    background-color var(--tc_ui_bg)
+    color var(--tc_text)
+    &:focus
+      border 1px solid var(--tc_ui_focus)
+  & &__ffield
+    &:after
+      background-color var(--tc_text_caption)
+
+::-webkit-scrollbar-button
+  background-color var(--tc_border)
+
+::-webkit-scrollbar-track
+  background-color var(--tc_border)
+
+::-webkit-scrollbar-corner
+  background-color cl_red
+
+::-webkit-scrollbar
+  background-color: var(--tc_border)
+
+::-webkit-resizer
+  background-color cl_red
+
+::-webkit-scrollbar-thumb
+  background-color var(--tc_scroll_thumb)
+
+::-webkit-scrollbar-thumb:hover
+  background-color var(--tc_scroll_thumb_active)
+
+.float-icns
+    & &__icon
+      &_helper
+        box-shadow var(--tc_shadow_blur)
+        background-color cl_skydark
+        color cl_white
+        &:hover
+          background-color cl_sky
+
+
+
+
+.frame
+  & &__inlayout
+    &-block
+      border-left 1px solid var(--tc_border_light)
+  & &__mobile-shadow,
+  & &__overlay
+    @media res_tablet--lg
+      background-color var(--tc_ui_shadow-overflow)
+  & &__head
+    &-link
+      color var(--tc_link_semi)
+      @media res_tablet--lg
+        color var(--tc_aside_link)
+        opacity 0.4
+      &:hover
+        color var(--tc_aside_link)
+        @media res_tablet--lg
+          color var(--tc_aside_link)
+          opacity 1
+
+
+  & &__aside
+    background-image var(--tc_aside_gradient)
+    box-shadow 0 20px 30px rgba(0,0,0,0.1)
+    &-nav-inwrap .icon-angle-bottom
+      color var(--tc_aside_link)
+    &-mtitle
+      color var(--tc_aside_text)
+    &-close
+      color var(--tc_aside_text)
+    &-usermenu
+      .context-menu
+        // &:after
+        //   background-color var(--tc_ui_shadow-overflow)
+    &-open
+      span
+        background-color var(--tc_aside_link)
+        &:before
+          background-color var(--tc_aside_link)
+        &:after
+          background-color var(--tc_aside_link)
+    &-title
+      background-color var(--tc_aside_bg_dark)
+      color var(--tc_aside_text)
+      @media res_tablet--lg
+        background-color transparent
+    &-inlink
+      color var(--tc_aside_link)
+      &:before
+        background-color var(--tc_aside_link)
+      &:hover
+        &:before
+          background-color var(--tc_aside_link)
+    &-intitle
+      color var(--tc_aside_link)
+    &-link
+      color var(--tc_aside_link)
+      .icon
+        color var(--tc_aside_link)
+      &_active
+        &:before
+          background-color var(--tc_aside_bg_nav)
+    &-hidden
+      background-color var(--tc_aside_bg_nav)
+    &-line
+      @media res_tablet--lg
+        background-image var(--tc_aside_gradient_header)
+        color var(--tc_aside_text)
+        {lt} &
+          box-shadow 0 0 30px rgba(0,0,0,0.1)
+        {dt} &
+          box-shadow 0 0 30px alpha(cl_black, 0.7)
+      &_top
+          @media res_tablet--lg
+            box-shadow none
+    &-nav
+      @media res_tablet--lg
+        background-image var(--tc_aside_gradient)
+      &.active
+        @media res_tablet--lg
+          box-shadow 0 0 30px rgba(0,0,0,0.1)
+    &-li
+      &_active
+        & ^[0]__aside-link
+          opacity 1
+          &:before
+            height 100%
+            background-color var(--tc_aside_bg_dark)
+  & &__right
+    background-color var(--tc_page_bg)
+  & &__header
+    background-color var(--tc_header_bg)
+    &-rlink
+      border-color var(--tc_header_iconlink)
+      color var(--tc_header_iconlink)
+      &:hover
+        background-color var(--tc_header_iconlink)
+        color var(--tc_header_iconlink_active)
+    &-filter
+      color var(--tc_header_link)
+      &:hover
+        color var(--tc_header_link_active)
+    &-add
+      box-shadow 0 0 20px rgba(85, 61, 0, 0.15)
+      background-color var(--tc_ui_btn_smcolor)
+      color var(--tc_ui_btn_smcolor_text)
+      &:hover
+        background-color var(--tc_ui_btn_smcolor_active)
+        color var(--tc_ui_btn_smcolor_text)
+    &-title
+      color var(--tc_text)
+  & &__userinfo
+    @media res_tablet--sm
+      background-color var(--tc_header_bg)
+      box-shadow 0px -5px 30px rgba(92,92,92,0.05)
+    &-link
+      .icon
+        color var(--tc_header_link)
+      &:hover
+        .icon
+          color var(--tc_header_link_active)
+    &_twolinks
+      a
+        border-right-color var(--tc_border)
+  & &__usermenu
+    .context-menu__dropdown
+      box-shadow 0 10px 20px 5px var(--tc_ui_bg_darken)
+  & &__search
+    &-input
+      border-bottom 1px solid var(--tc_border_ins)
+      background-color transparent
+      color var(--tc_text)
+      &:focus
+        border-bottom 1px solid var(--tc_border_active)
+    &-link
+      color var(--tc_header_link)
+      &:hover
+        color var(--tc_header_link_active)
+    &-close
+      color var(--tc_header_link)
+      &:hover
+        color var(--tc_header_link_active)
+
+
+.todolist
+  background-color var(--tc_ui_bg)
+  color var(--tc_text)
+  & &__head
+    border-bottom 1px solid var(--tc_border_dark)
+  & &__block
+    border-bottom 1px solid var(--tc_border_dark)
+    &-add
+      color var(--tc_link_black)
+      border 1px solid var(--tc_border_dark)
+    &-title
+      color var(--tc_text)
+      span
+        color var(--tc_text_caption)
+      &:before
+        color var(--tc_text_caption)
+      &:hover
+        background-color var(--tc_ui_btn_light)
+  & &__plus
+    color var(--tc_link_caption)
+    &:hover
+      color var(--tc_link_black)
+
+.profile-wrap
+  & &__address
+    &-blacklink
+      color var(--tc_link_black)
+      &:hover
+        color var(--tc_link)
+
+.project-block
+  background-color var(--tc_ui_bg)
+  &:hover
+    box-shadow var(--tc_ui_shadow)
+  & &__time
+    color var(--tc_text_caption)
+  & &__title
+    color var(--tc_link_black)
+    &:hover
+      color var(--tc_link_black_active)
+  & &__type
+    color var(--tc_text_caption)
+  & &__caption
+    color var(--tc_text_caption)
+  & &__ava
+    border 1px solid var(--tc_ui_bg)
+  & &__percent
+    border-bottom 1px solid var(--tc_border)
+    color var(--tc_text_caption)
+  & &__status
+    border 1px solid var(--tc_border_prj)
+    color var(--tc_text_caption)
+    &_inproggress
+      border 1px solid cl_salad
+      color cl_salad
+    &_stop
+      border 1px solid cl_warn
+      background-color cl_warn
+      color cl_white
+    &_sleep
+      border 1px solid var(--tc_link)
+      color var(--tc_link)
+  &_inproggress
+    & ^[0]__caption
+      color cl_salad
+    & ^[0]__percent
+      border-bottom 1px solid cl_salad
+      color cl_salad
+  &_stop
+    & ^[0]__caption
+      color cl_warn
+
+
+.user-menu
+  .context-menu__dropdown
+    color var(--tc_text)
+    background-color var(--tc_header_bg)
+  & &__desc
+    color var(--tc_text_caption)
+
+.progress
+  color var(--tc_text_caption)
+  span
+    color cl_grass
+  progress
+    &::-webkit-progress-value
+      background-color cl_grass
+
+    &::-moz-progress-bar
+      background-color cl_grass
+  &.is-danger
+    span
+      color cl_warn
+
+    progress
+      &::-webkit-progress-value
+        background-color cl_warn
+
+      &::-moz-progress-bar
+        background-color cl_warn

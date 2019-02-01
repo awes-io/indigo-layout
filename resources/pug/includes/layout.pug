@@ -1,0 +1,26 @@
+block pageVariables
+doctype html
+html(lang="en")
+    head
+        title= pageTitle
+        include frames/metahead
+        script(src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/theme-switcher/v0.x.x/js/main.js")
+        block pageHead
+        script(src="/js/main.js")
+        script(src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/js-core/v0.x.x/js/main.js")
+    body
+        div(class="mainwrapper" id="awes-app")
+            div(class="frame")
+                transition(enter-active-class="animated fadeIn" leave-active-class="animated fadeOut")
+                    .frame__overlay(v-show="$awesLayoutCrm.togglenav || $awesLayoutCrm.showUserMenu" @click="$awesLayoutCrm.overlayClick")
+                include frames/aside
+                div(class="frame__right")
+                    include frames/header
+                    div.frame__content
+                        button.frame__header-add
+                            i.icon.icon-plus
+                        block pageContent
+                            p Content Block
+
+            .float-icns
+                button.float-icns__icon.float-icns__icon_helper(@click="$awesLayoutCrm.showHelpers = ! $awesLayoutCrm.showHelpers") ?

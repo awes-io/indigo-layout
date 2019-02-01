@@ -1,0 +1,222 @@
+modal-width = 600px
+
+.modal
+  position fixed
+  z-index: 1000 !important
+  top 0
+  left 0
+  width 100%
+  height 100%
+  overflow auto
+  display flex
+  padding 25px
+  &&_fullscreen
+    & ^[0]__dialog
+      fixed top 0 left 0
+      width 100%
+      height 100%
+      overflow auto
+    & ^[0]__content
+      padding 30px 15px
+      absolute left 0 top 80px right 0 bottom 0
+      margin auto
+      overflow auto
+    & ^[0]__checker
+      text-align center
+      margin-bottom 20px
+    & ^[0]__header
+      fixed top 0 left 0
+      width 100%
+      fl(,c,c)
+      padding 25px 100px
+      height 80px
+    & ^[0]__close
+      top 50%
+      right 40px
+      margin-top -14px
+    & ^[0]__close-kbd
+      text-align center
+      width 100%
+      font-size 10px
+      display block
+      font-family inherit
+    & ^[0]__back
+      absolute left 40px top 50%
+      font-size 18px
+      display block
+      margin-top -9px
+    & ^[0]__title
+      margin 0
+  & &__dialog
+    box-sizing border-box
+    padding 30px 40px
+    width modal-width
+    margin auto
+    max-width 100%
+    position relative
+  &&_formbuilder
+    & ^[0]__dialog
+      padding-bottom 70px
+  & &__bottom
+    absolute bottom 0 left 0 right 0
+    height: 1px
+  & &__title
+    text-align center
+    line-height 1.1
+    padding-bottom 0 !important
+    padding-left 30px
+    padding-right 30px
+  & &__close
+    background transparent
+    padding 0
+    absolute right 20px top 20px
+    font-size 50px
+    font-weight 300
+    line-height 23px
+  .line-btns
+    absolute left 0 bottom 0
+    width 100%
+    fl()
+    &__wrap
+      width 100%
+      fl()
+    .btn
+      margin 0
+      width 100%
+      text-transform capitalize
+      min-width 50%
+      border-radius 0
+      font-size f_medium
+      padding 20px 5px
+      min-height 60px
+      transition background-color 0.3s ease, color 0.3s ease
+  & &__header
+    width 100%
+  & &__overwrap
+    width 100%
+    fl(w)
+  &:not(.modal_bottom-visible)
+    .line-btns
+      &__wrap
+        fixed bottom 0
+        max-width: 100%
+        margin-left auto
+        margin-right auto
+        z-index 100 !important
+  &:not(.modal_fullscreen):not(.modal_bottom-visible)
+    .line-btns
+      &__wrap
+        width modal-width
+  &&_bottom-visible
+    .line-btns
+      &__wrap
+        absolute left 0 bottom 0 right 0
+        width 100%
+        max-width 1000px
+        transform translateX(0px) !important
+
+.body-overflow-hidden 
+  overflow: hidden
+  body
+    overflow: hidden
+
+@media res_tablet--lg
+  .body-overflow-usermenu 
+    overflow: hidden
+    body
+      overflow hidden
+
+@media res_tablet--md
+  .modal
+    &.modal_fullscreen
+      & ^[0]__header
+        padding 20px 60px
+        height 70px
+      & ^[0]__close
+          right 20px
+          margin-top -8px
+          &:after
+            display none
+      & ^[0]__content
+        top 70px
+      & ^[0]__back
+        left 20px
+      & ^[0]__title
+        font-size 20px
+
+@media res_tablet--sm
+
+  .modal
+    padding: 0
+    & &__dialog
+      margin-top: 0
+      height 100vh
+      padding-bottom 25px
+      overflow auto
+    &&_formbuilder
+      & ^[0]__dialog
+        padding-bottom 25px
+        height calc(100vh - 60px)
+    & &__close
+      top 30px
+      right 25px
+    .line-btns
+      fixed left 0 bottom 0
+      width 100%
+      margin 0
+      z-index 200
+      // transform translateX(0px) !important
+    & &__overwrap
+      position relative
+      & ^[0]__close
+        right 5px
+        top 5px
+
+@media res_mobile--md
+  .modal
+    & &__dialog
+      padding-left 25px
+      padding-right 25px
+    & &__header
+      margin-left -5px
+      margin-right -5px
+    & &__title
+      text-align left
+      padding-left 5px
+      padding-right 5px
+
+
+/*
+ * Transition (mobile)
+ */
+
+.modal-fade
+    &-enter-active
+        transition: opacity 150ms ease-out
+    &-leave-active
+        transition: opacity 90ms ease
+    &-enter
+        opacity: 0
+    &-leave-to
+        opacity: 0
+
+    // additional dialog transition (tablet, desktop)
+    @media res_tablet--sm-i
+        &-enter-active
+            overflow: hidden
+            transition: opacity 300ms ease-out
+        &-leave-active
+            overflow: hidden
+            transition: opacity 200ms ease-out
+        &__translate
+            transition: 200ms transform cubic-bezier(0.215, 0.61, 0.355, 1) 100ms, 100ms opacity 100ms
+            
+        &-enter
+            .modal-fade__translate
+                opacity: 0
+                transform: translateY(-50px);
+        &-leave-active
+            .modal-fade__translate
+                transition: 200ms transform cubic-bezier(0.215, 0.61, 0.355, 1), opacity 100ms
+                opacity: 0
+                transform: translateY(-50px);

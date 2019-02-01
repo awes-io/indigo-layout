@@ -17,6 +17,7 @@ const consolidate = require('gulp-consolidate')
 const isDev = process.env.NODE_ENV === 'development'
 const isModern = process.env.BROWSERS_ENV === 'modern'
 
+
 /*
  * Server
  */
@@ -31,14 +32,14 @@ if ( isDev ) {
       server: ['./examples', './dist']
     })
 
-    gulp.watch('./src/css/**/*.styl', gulp.series('build:styles'))
-    gulp.watch('./src/img/**/*', gulp.series('build:images'))
-    gulp.watch(['./src/js/**/*.js', './src/vue/**/*.vue'], gulp.series('build:js', 'reload'))
-    gulp.watch('./src/pug/**/*.pug', gulp.series('build:html', 'reload'))
+    gulp.watch('./resources/css/**/*.styl', gulp.series('build:styles'))
+    gulp.watch(['./resources/js/**/*.js', './resources/vue/**/*.vue'], gulp.series('build:js', 'reload'))
+    gulp.watch('./resources/pug/**/*.pug', gulp.series('build:html', 'reload'))
   })
 
   gulp.task('reload', function(done) { browserSync.reload(); done() })
 }
+
 
 /*
  * JS
@@ -49,27 +50,19 @@ rollupConfig.allowRealFiles = true // solves gulp-rollup hipotetical file system
 rollupConfig.rollup = require('rollup')
 
 gulp.task('build:js', function(){
-  return gulp.src('./src/js/main.js')
+  return gulp.src('./resources/js/main.js')
     .pipe( plumber() )
     .pipe( rollup(rollupConfig) )
     .pipe( gulp.dest('./dist/js') )
 })
 
-/*
- * Images
- */
-
-gulp.task('build:images', function() {
-  return gulp.src('./src/img/**/*')
-    .pipe( gulp.dest('./dist/img') )
-})
 
 /*
  * Styles
  */
 
 gulp.task('build:styles', function(){
-  return gulp.src('./src/css/framework/main.styl')
+  return gulp.src('./resources/css/framework/+(main|editor).styl')
     .pipe( plumber() )
     .pipe( isDev ? sourcemaps.init() : noop() )
     .pipe( stylus({ use: nib(), 'include css': true, import: ['nib'], compress: false }) )
@@ -85,7 +78,7 @@ gulp.task('build:styles', function(){
  */
 
 gulp.task('build:html', function(){
-  return gulp.src('./src/pug/*.pug')
+  return gulp.src('./resources/pug/*.pug')
     .pipe( plumber() )
     .pipe( pug() )
     .pipe( prettyHtml() )
@@ -100,7 +93,7 @@ gulp.task('build:html', function(){
 const runTimestamp = Math.round(Date.now()/1000)
 
 gulp.task('build:icons', function(){
-    return gulp.src('./src/svg/*.svg')
+    return gulp.src('./resources/svg/*.svg')
       .pipe(iconfont({
         fontName: 'icons',
         fontHeight: 1000,
@@ -110,14 +103,14 @@ gulp.task('build:icons', function(){
         timestamp: runTimestamp
     }))
     .on('glyphs', function(glyphs, options) {
-      gulp.src('./src/svg/template/icons.styl')
+      gulp.src('./resources/svg/template/icons.styl')
         .pipe( consolidate('lodash', {
           glyphs: glyphs,
           fontName: options.fontName,
           fontPath: '../fonts/', // TODO: need full path in production build !!!
           className: 'icon'
         }) )
-        .pipe( gulp.dest('./src/css/framework/') )
+        .pipe( gulp.dest('./resources/css/framework/') )
     })
     .pipe(gulp.dest('./dist/fonts/'));
 })
@@ -126,13 +119,13 @@ gulp.task('build:icons', function(){
 /*
  * Gloabl tasks
  */
- 
+
 gulp.task('clean', function(){
   return gulp.src('./dist', { read: false, allowEmpty: true })
     .pipe( clean() )
 })
 
-gulp.task('build', gulp.series('build:js', 'build:icons', 'build:styles', 'build:html', 'build:images') )
+gulp.task('build', gulp.series('build:js', 'build:icons', 'build:styles', 'build:html') )
 
 // start
 defaultTask = ['build']

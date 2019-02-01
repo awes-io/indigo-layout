@@ -1,0 +1,322 @@
+tf_titles = (h1 h2 h3 h4 h5)
+tf_tags = (p blockquote table ul ol dl core pre 'div[id]') 
+tf_margin = 27px
+tf_text_margin = 25px
+
+for tag in tf_tags
+    for value in tf_titles
+        {tag} + {value}
+            margin-top 35px
+
+for tag in tf_titles
+    {tag}
+        display block
+        margin-bottom tf_margin
+        + p
+            margin-top -10px 
+
+    for stag in tf_titles
+        {tag} + {stag}
+            margin-top -10px
+
+body
+    font-size f_normal
+
+.vue-example
+    margin-bottom tf_text_margin
+
+code
+    margin-bottom tf_margin
+
+h1
+    margin-bottom tf_margin
+    font-weight 700
+    display block
+    font-size f_big
+
+h2
+    font-weight 400
+    font-size f_big
+
+h3
+    font-weight 700
+    font-size f_middle
+
+h4
+    font-weight 400
+    font-size f_middle
+
+h5
+    font-weight 400
+    font-size f_medium
+
+p
+    margin-bottom 20px
+    line-height 1.5
+    + p
+        margin-top -10px
+
+a
+    &:hover
+        text-decoration underline
+    mark
+        text-decoration none !important
+        &:hover
+            text-decoration none
+
+blockquote
+    display block
+    padding 30px
+    margin-bottom tf_margin
+    line-height 1.5
+    margin-left 0
+    margin-right 0
+    margin-top 0
+    position relative
+    &:before
+        absolute right 5px top 5px
+        font-size 100px
+        line-height 1
+        content "\201C"
+    span
+        display block
+        margin-top 7px
+    p
+        &:last-child
+            margin-bottom 0
+    
+table:not(.int-table__table)
+    width 100%
+    margin-bottom tf_margin
+    display block
+    overflow: auto
+    tbody
+        display table
+        width 100%
+        border-collapse collapse
+    th
+        padding 17px 15px
+        font-weight 400
+        text-align left
+        &:first-child
+            padding-left 30px
+        &:last-child
+            padding-right 30px
+    td
+        padding 12px 15px
+        &:first-child
+            padding-left 30px
+        &:last-child
+            padding-right 30px
+
+
+
+.frame__content, .tf-content
+    ol
+        line-height 1.5
+        margin-bottom tf_text_margin
+        padding-bottom 1px
+        margin-left 30px
+        li
+            margin-bottom 12px
+            position relative
+            &:before
+                padding-right 7px
+                absolute left -27px
+                width 20px
+                text-align right        
+                font-size 90%                                     
+                content: counter(list)
+            &:last-child
+                margin-bottom 0
+        ul, ol
+            margin-top 12px
+            margin-bottom 12px
+    
+    ul
+        list-style disc
+        margin-left 15px    
+        line-height 1.5
+        margin-bottom tf_text_margin
+        margin-left 30px
+        padding-bottom 1px
+        li
+            margin-bottom 12px
+            &:before 
+                display none
+            &:last-child
+                margin-bottom 0
+        ul, ol
+            margin-top 12px
+            margin-bottom 12px
+
+    dl
+        fl(w,sb)
+        margin-top 0
+        margin-bottom tf_margin - tf_text_margin
+        dt
+            font-weight 700
+            padding-right 10px
+            width 20%
+            margin-bottom tf_text_margin
+        dd
+            margin-left 0
+            padding-left 0
+            width 80%
+            margin-bottom tf_text_margin
+
+    img
+        margin-bottom 30px
+
+kbd
+    padding 2px 5px 4px 5px
+    margin-left 5px
+    margin-right 5px
+    display inline
+    font-family fontfamily
+
+
+code
+    font-family fontfamily
+    display inline
+
+// Help Classes
+
+.tf
+    &-titlenav
+        list-style none !important
+        margin 0 !important
+        font-size 13px
+        padding 0
+        li
+            ul
+                list-style none
+    &-blcode
+        padding 2px 5px 4px 5px
+        margin-left 5px
+        margin-right 5px
+    &-dl
+        margin-bottom 30px
+        dl
+            margin-bottom 15px
+    &-formcaption
+        display block
+        width 100%
+        margin-bottom 12px
+        line-height 1.6
+    &-rcaption
+        text-align center
+        display block
+        width 100%
+        margin-bottom 30px
+        span
+            padding-right 10px
+    &-strong
+        font-weight 700
+    &-centerlink
+        text-align center
+        &_afterframe
+            margin-top -5px
+            position relative
+    &-hyplink
+        text-transform uppercase
+        font-size 10px
+        font-weight 700
+    &-form
+        &-title
+            margin-bottom 0
+        &-text
+            line-height 1.43
+            margin-bottom 0
+        &-title + p
+            margin-top 5px
+    &-left
+        text-align left
+    &-center
+        text-align center
+    &-right
+        text-align right
+    &-dottedlink
+        font-size f_normal
+        border-bottom 1px dashed
+        &:hover
+            text-decoration none
+    &-pagetitle
+        font-size f_middle
+        display block
+        margin-bottom 30px
+        font-weight 700
+    &-nowrap 
+        display block
+        overflow hidden
+        text-overflow: ellipsis
+        white-space: nowrap
+        max-width 100%
+    &-oneline
+        white-space nowrap
+    &-caption
+        font-size 13px
+        display block
+        width 100%
+        &_mb-m
+            margin-bottom 20px
+    &-bcaption
+        font-size 13px
+        display block
+        width 100%
+        &_mc
+            margin-bottom 7px
+    &-centerblock
+        min-height calc(100vh - 250px)
+        fl()
+        & &__cell
+            margin auto
+            width 100%
+    &-infoblock
+        text-align center
+        width 100%
+        display block
+        &_pd
+            padding-top 20px
+            padding-bottom 20px
+        &_smart
+            max-width 310px
+            margin-left auto
+            margin-right auto
+        &_dashboard
+            padding-top 10px
+            padding-bottom 20px
+        &_center
+            margin auto
+        p
+            display block
+            font-size f_big
+            margin-bottom 30px
+            font-weight 400
+        .btn
+            display inline-block
+            margin-left 5px
+            margin-right 5px
+            margin-bottom 10px
+
+
+@media res_tablet--md
+    .frame__content
+        dl
+            dt
+                width 100%
+                margin-bottom 15px
+            dd
+                width 100%
+
+@media res_tablet--sm
+    .tf
+        &-pagetitle
+            margin-bottom 20px
+            &_mobile-pleft
+                padding-left 20px
+        &-centerlink
+            &_dashboard
+                margin-bottom 20px
+
+
