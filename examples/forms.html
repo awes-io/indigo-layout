@@ -17,7 +17,7 @@
 }</script>
     <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/theme-switcher/v0.x.x/js/main.js"></script><!-- there is can be head meta or sctipts-->
     <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/modal/v0.x.x/js/main.js" type="module"></script>
-    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/form-builder/v0.1.20/js/main.js" type="module"></script>
+    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/form-builder/v1.0.1/js/main.js" type="module"></script>
     <script src="/js/main.js"></script>
     <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/js-core/v0.x.x/js/main.js"></script>
 </head>
@@ -424,21 +424,40 @@
                 <div class="frame__content"><button class="frame__header-add"><i class="icon icon-plus"></i></button>
                     <p>Новые формы</p>
                     <form-builder url="http://httpbin.org/post" disabled-dialog>
-                        <fb-select name="valera22" cell="2" label="Yosip ishchet lojku"></fb-select>
-                        <fb-phone name="phone" cell="2"></fb-phone>
+                        <h2>Select</h2>
+                        <fb-group>
+                            <fb-select name="select1" cell="2" label="Yosip ishchet lojku" :multiple="false" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]"></fb-select>
+                            <fb-select name="select2" cell="2" label="Yosip ishchet lojku" :multiple="true" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]"></fb-select>
+                            <fb-select name="select3" disabled cell="2" label="Yosip ishchet lojku" :multiple="false" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]"></fb-select>
+                            <fb-select name="select4" disabled cell="2" label="Yosip ishchet lojku" :multiple="true" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]"></fb-select>
+                        </fb-group>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, accusantium? Deserunt minus animi repellat aut quisquam, dignissimos veniam quod cumque delectus? Ipsum dolorem quidem corrupti alias placeat ullam, consequuntur autem?</p>
+                        <fb-group>
+                            <fb-phone name="phone1" disabled label="Phone label" cell="2"></fb-phone>
+                            <fb-phone name="phone2" label="Phone label" cell="2"></fb-phone>
+                        </fb-group><br>
+                        <h4>Title text</h4>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus, cumque corrupti sequi earum consequuntur quas expedita maiores et totam reprehenderit odit voluptate accusantium harum quos! Dicta eos quibusdam omnis temporibus.</p>
                         <fb-editor name="editor"> </fb-editor>
-                        <fb-textarea> </fb-textarea>
-                        <fb-textarea> </fb-textarea>
-                        <fb-textarea> </fb-textarea>
+                        <fb-editor name="editor" disabled> </fb-editor><br>
+                        <h4>Title text</h4>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus, cumque corrupti sequi earum consequuntur quas expedita maiores et totam reprehenderit odit voluptate accusantium harum quos! Dicta eos quibusdam omnis temporibus.</p>
+                        <fb-textarea name="ed1" label="Textarea label"> </fb-textarea>
+                        <fb-textarea name="ed2" label="Textarea disabled" disabled> </fb-textarea><br>
+                        <h4>Title text</h4>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus, cumque corrupti sequi earum consequuntur quas expedita maiores et totam reprehenderit odit voluptate accusantium harum quos! Dicta eos quibusdam omnis temporibus.</p>
                         <fb-uploader name="files" url="http://httpbin.org/post" format="docx" size="15"></fb-uploader>
-                        <fb-slider name="range" label="Krutoy label, prosto ogon sredi genadiev" cell="2"></fb-slider>
+                        <fb-uploader name="files" url="http://httpbin.org/post" format="docx" size="15" disabled></fb-uploader><br>
+                        <h4>Title text</h4>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus, cumque corrupti sequi earum consequuntur quas expedita maiores et totam reprehenderit odit voluptate accusantium harum quos! Dicta eos quibusdam omnis temporibus.</p>
+                        <fb-group>
+                            <fb-slider name="range1" label="Krutoy label, prosto ogon sredi genadiev" cell="2"></fb-slider>
+                            <fb-slider name="range2" label="Disabled" cell="2" disabled></fb-slider>
+                        </fb-group><br>
+                        <h4>Title text</h4>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus, cumque corrupti sequi earum consequuntur quas expedita maiores et totam reprehenderit odit voluptate accusantium harum quos! Dicta eos quibusdam omnis temporibus.</p>
                         <fb-input name="valera22" label="Oh Valera kuda tenya zaneslo" cell="2" disabled></fb-input>
                         <fb-input name="valera22" label="Yosip ishchet lojku" cell="2"></fb-input>
-                        <fb-select name="valera22" label="Yosip ishchet lojku" cell="2"></fb-select>
-                        <fb-input name="valera22" label="Oh Valera kuda tenya zaneslo" cell="2" disabled></fb-input>
-                        <fb-input name="valera22" label="Oh Valera kuda tenya zaneslo" cell="2" disabled></fb-input>
-                        <fb-input name="valera22" label="Oh Valera kuda tenya zaneslo" cell="2" disabled></fb-input>
-                        <fb-input name="valera22" label="Oh Valera kuda tenya zaneslo" cell="2" disabled></fb-input>
                     </form-builder>
                 </div>
             </div>

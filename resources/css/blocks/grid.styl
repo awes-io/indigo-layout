@@ -1,42 +1,43 @@
 .grid
-    fl(w)
     width 100%
-    & &__wrap
+    &:not(.grid_forms), & &__cell-group
         fl(w)
-        width 100% 
+        & ^[0]__cell
+            width 100%
+            &_padding
+                padding-top 5px
+                padding-bottom 5px
+            &_2
+                width 50% 
+                .input_with-close 
+                    .input__clear 
+                        justify-content center
+            &_3
+                width 33.333% 
+                .input_with-close 
+                    .input__clear 
+                        justify-content center
+            &_inline
+                width auto
+                margin-right 5px
+            &_finfo
+                margin-bottom 20px
     & &__section
         width 100%
         fl(w)
         margin-bottom 15px 
-
-    & &__cell
-        width 100%
-        &_padding
-            padding-top 5px
-            padding-bottom 5px
-        &_2
-            width 50% 
-            .input_with-close 
-                .input__clear 
-                    justify-content center
-        &_3
-            width 33.333% 
-            .input_with-close 
-                .input__clear 
-                    justify-content center
-        &_inline
-            width auto
-            margin-right 5px
-        &_finfo
-            margin-bottom 20px
     & &__left-group
         padding-left 40px
         width 100%
         fl(w)
-    &_forms
+    & &__wrap
+        fl(w)
+        width 100% 
+    & &__cell-group
         margin-left -5px
         margin-right -5px
         width calc(100% + 10px)
+        fl(w)
         & ^[0]__cell
             padding-left 5px
             padding-right 5px 

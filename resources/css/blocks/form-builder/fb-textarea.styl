@@ -1,0 +1,55 @@
+.fb-textarea
+    width 100%
+    margin-bottom 10px
+    & &__field
+        width 100%
+        min-height 92px
+        padding 30px 20px 12px 15px
+        font-size f_medium
+        max-height textarea_max-height
+        overflow hidden
+        border-radius 2px
+        font-size 14px
+        overflow-y: scroll
+        border 1px solid var(--tc_border_ins)
+        color var(--tc_text)
+        background-color var(--tc_ui_bg)
+        &:focus
+            border 1px solid var(--tc_ui_focus)
+        &:-webkit-autofill
+            -webkit-box-shadow 0 0 0 30px var(--tc_ui_bg inset)
+            -webkit-text-fill-color var(--tc_text) !important
+    & &__label
+        font-size f_middle
+        absolute left 5px top 5px
+        width calc(100% - 25px)
+        padding 8px 15px 3px 10px
+        display block
+        border-radius 3px
+        pointer-events none
+        z-index 1
+        white-space nowrap
+        text-overflow ellipsis
+        overflow hidden
+        tr(0.15)
+        background-color var(--tc_ui_bg)
+        color var(--tc_text_caption)
+    &_disabled
+        disabled()
+    &_ok
+        & ^[0]__field
+            border-color cl_salad
+    &_error
+        & ^[0]__field
+            border-color cl_warn
+        & ^[0]__label
+            color cl_warn
+    &_active
+        z-index 11
+        & ^[0]__label
+            font-size 10px
+            top 1px
+            padding-top 10px
+            height auto
+            font-weight 600
+    

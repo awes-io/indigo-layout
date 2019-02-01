@@ -72,6 +72,11 @@ fl(ww = 'nowrap', jj = 'flex-start', aa = 'stretch')
 	else if aa != "stretch"
 		align-items aa
 
+disabled()
+	pointer-events none
+	user-select none
+	opacity 0.75
+
 bg(urls, positionr = 'center center', psr = 'no-repeat')
 	background-image url(pathimg+urls) 
 	if positionr == 'c'

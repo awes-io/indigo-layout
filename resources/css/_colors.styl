@@ -513,49 +513,9 @@ a
         background-color cl_grass
 
 
-.multiselect
-  & &__tag
-    color var(--tc_ui_tag_text) !important
-    background-color var(--tc_ui_tag) !important
-    &-icon
-      border-left 1px solid var(--tc_ui_bg) !important
-  & &__tags
-    background-color var(--tc_ui_bg)
-    border 1px solid var(--tc_border_ins) !important
-  & &__content-wrapper
-    background-color var(--tc_ui_bg)
-    border 1px solid var(--tc_border_ins)
-    border-top 0px !important
-  &--above
-    & ^[0]__content-wrapper
-      border-top 1px solid var(--tc_border_ins) !important
-      border-bottom 0 !important
-  & &__input
-    background-color var(--tc_ui_bg)
-    color var(--tc_text)
-  & &__select
-    border-color var(--tc_ui_bg) transparent transparent
-  & &__option
-    color var(--tc_text)
-    &--highlight
-      background-color var(--tc_ui_bg_semi) !important
-      color var(--tc_text) !important
 
-.multiselect__input::-webkit-input-placeholder
-  color var(--tc_text) !important
 
-.multiselect__input:-moz-placeholder
-  color var(--tc_text) !important
 
-.multiselect__input::-moz-placeholder
-  color var(--tc_text) !important
-
-.multiselect__input:-ms-input-placeholder
-  color var(--tc_text) !important
-
-.mselect
-  & &__label
-    color var(--tc_text_caption)
 
 
 .multi-bl
@@ -584,144 +544,16 @@ a
           opacity .5
           color var(--tc_text_caption)
 
-.vue-tel-input
-  border 1px solid var(--tc_border_ins) !important
-  .dropdown
-    background-color var(--tc_ui_bg) !important
-    border-right 1px solid var(--tc_border_ins)
-    &:hover
-      background-color var(--tc_ui_bg_semi_light) !important
-  input
-    background-color var(--tc_ui_bg) !important
-    color var(--tc_text) !important
-  ul
-    background-color var(--tc_ui_bg) !important
-  .dropdown-item
-    color var(--tc_text) !important
-    &.highlighted
-      background-color var(--tc_ui_bg_semi) !important
-
-  &:focus-within
-    box-shadow none !important
-    border-color var(--tc_ui_focus) !important
-
-.fb-editor
-  & &__modes
-    &-button
-      border-color var(--tc_border_ins)
-      background-color var(--tc_ui_bg_semi)
-      color var(--tc_text_caption)
-      &.is-active
-        background-color var(--tc_ui_bg)
-        color var(--tc_text)
-  & &__tab
-    border-color var(--tc_border_ins)
-  .mce-flow-layout
-    background-color var(--tc_ui_bg_semi)
-  .mce-listbox
-    button
-      background-color var(--tc_ui_bg_semi)
-
-
-  .mce-menubtn button
-    color var(--tc_text)
-
-  .mce-btn, .mce-btn:hover, .mce-btn:active, .mce-btn.mce-active, .mce-btn.mce-active:hover, .mce-btn.mce-active:focus, .mce-btn.mce-active:active
-    background-color transparent !important
-
-
-  .mce-btn
-    button
-      background-color var(--tc_ui_bg_semi)
-      .mce-ico
-        color var(--tc_link_semi)
-      &:hover
-        background-color var(--tc_ui_bg)
-        .mce-ico
-          color var(--tc_link_semi_active)
-    &.mce-active
-      button
-        {lt} &
-          background-color var(--tc_ui_bg_semi_v) !important
-        {dt} &
-          background-color var(--tc_ui_bg_semi_d) !important
-        .mce-ico, .mce-txt
-          color var(--tc_text) !important
-
-.mce-btn.mce-active .mce-caret, .mce-btn.mce-active:hover .mce-caret
-  border-top-color var(--tc_text) !important
 
 
 
 
-.mce-menu
-  background-color var(--tc_ui_bg) !important
-  border-color var(--tc_border_ins) !important
-  &-item
-    .mce-text
-        color var(--tc_text) !important
-    &:hover, &:focus
-      background-color var(--tc_ui_bg_semi) !important
-      .mce-text
-        color var(--tc_text) !important
-    &.mce-active
-      background-color var(--tc_aside_bg) !important
-      .mce-text
-        color var(--tc_aside_text) !important
 
-// code editor
-.fb-editor .CodeMirror
-  &.cm-s-default
-    background-color: var(--tc_ui_bg)
-    color: var(--tc_text)
-  &-gutters
-    background: var(--tc_ui_bg_semi)
-    border-right: 2px var(--tc_border_semi)
-  &-cursor
-    border-color: var(--tc_text)
-  &-linenumber
-    color: var(--tc_text_caption)
-  span.CodeMirror-matchingbracket
-    color: cl_yellow
-  span.CodeMirror-matchingtag
-    background-color: alpha(cl_yellow, 50%)
-  span.cm-tag
-    color: var(--tc_html_tag)
-  span.cm-attribute
-    color: var(--tc_html_attr)
-  span.cm-string,
-  span.cm-atom
-    color: var(--tc_html_str)
-  span.cm-error
-    color: cl_red
 
 .input
   & &__okicon
     color cl_salad
-  &_range
-    input[type='range']
-      // background-color cl_grass
-      &::-ms-track
-        background-color cl_cloud
-      &::-ms-fill-lower
-        background-color cl_grass
-      &::-moz-range-progress
-        background-color cl_grass
-      &::-moz-range-track
-        background-color cl_cloud
-      &::-webkit-slider-runnable-track
-        background: linear-gradient(cl_grass, cl_grass) s('0/ var(--percent)') 100% no-repeat cl_cloud
-      &::-webkit-slider-thumb
-        background-color cl_white
-        box-shadow var(--tc_shadow_smr)
-      &::-moz-range-thumb
-        background-color cl_white
-        box-shadow var(--tc_shadow_smr)
-      &::-ms-thumb
-        background-color cl_white
-        box-shadow var(--tc_shadow_smr)
-      &::-ms-tooltip
-        display: none
+      
   & &__editable
     border-left 1px solid var(--tc_border_ins)
     &-caption
@@ -738,15 +570,6 @@ a
       border 1px solid var(--tc_ui_focus)
     &:-webkit-autofill
       -webkit-box-shadow 0 0 0 30px var(--tc_ui_bg) inset
-      -webkit-text-fill-color var(--tc_text) !important
-  & &__textarea
-    border 1px solid var(--tc_border_ins)
-    color var(--tc_text)
-    background-color var(--tc_ui_bg)
-    &:focus
-      border 1px solid var(--tc_ui_focus)
-    &:-webkit-autofill
-      -webkit-box-shadow 0 0 0 30px var(--tc_ui_bg inset)
       -webkit-text-fill-color var(--tc_text) !important
   & &__label
     color var(--tc_text_caption)
@@ -785,11 +608,9 @@ a
       border 1px solid cl_warn
   &_ok
     & ^[0]__field
-      {lt} &
-        border 1px solid cl_salad
+      border 1px solid cl_salad
     & ^[0]__textarea
-      {lt} &
-        border 1px solid cl_salad
+      border 1px solid cl_salad
   &_disabled
     opacity 0.5
     & ^[0]__field
@@ -1366,41 +1187,6 @@ pre
 .fb
   &__input-domain
     color var(--tc_text_caption)
-  &-uploader
-    .uploader-drop
-      background-color var(--tc_ui_bg)
-      border-color var(--tc_border_ins)
-      color var(--tc_link_semi)
-      &:hover
-        background-color  var(--tc_ui_bg_semi)
-    & &__btn, & &__fakebtn
-      color var(--tc_link_semi)
-    & &__list
-      tr
-        background-color var(--tc_ui_bg) !important
-        &:hover
-          background-color var(--tc_ui_bg) !important
-          td
-            background-color var(--tc_ui_bg)
-      &-number, &-type, &-size, &-date
-        color var(--tc_text_caption)
-      &-delete
-        button
-          &:hover
-            color var(--tc_link)
-      &-progress
-        progress
-          background-color var(--tc_border)
-          &::-webkit-progress-bar
-            background-color var(--tc_border)
-          &::-moz-progress-bar
-            background-color cl_grass
-          &::-webkit-progress-value
-            background-color cl_grass
-
-
-
-
 
 
 .profile-wrap

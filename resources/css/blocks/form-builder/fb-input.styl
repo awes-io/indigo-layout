@@ -1,0 +1,151 @@
+.fb-input
+    position relative
+    margin-bottom 10px
+    z-index 100
+    width 100%
+    & &__eye
+        absolute right 15px top 50%
+        margin-top -9px
+        display block
+        z-index 701
+        .icon
+            font-size 18px
+    & &__wrap
+        position relative
+        width 100%
+    & &__label
+        font-size f_middle
+        absolute left 5px top 5px
+        width calc(100% - 35px)
+        padding 8px 15px 3px 10px
+        display block
+        border-radius 3px
+        pointer-events none
+        z-index 1
+        white-space nowrap
+        text-overflow ellipsis
+        overflow hidden
+        tr(0.15)
+        color var(--tc_text_caption)
+    & &__color
+        absolute left 15px bottom 10px
+        size 14px
+        display block
+        pointer-events none
+        tr(0.3)
+        background-color #eeeeee
+        opacity 0
+    &_3
+        width calc(33.333% - 10px)
+        margin-left 5px
+        margin-right 5px
+    &_2
+        width calc(50% - 10px)
+        margin-left 5px
+        margin-right 5px
+    & &__field
+        size 100% 50px
+        padding 0 15px
+        font-size f_medium
+        border-radius 2px
+        padding-top 12px
+        tr(0.25, border-color)
+        &_editable
+            padding-right 52%
+        &_password
+            padding-right 50px
+    &_color
+        padding-right 34px
+        & ^[0]__field
+            padding-left 35px
+    &_focus
+        z-index 500
+        & ^[0]__color
+            opacity 1
+    &_plus
+        & ^[0]__field
+            padding-right 65px
+    & &__clone
+        absolute right 1px top 1px
+        border-radius 2px
+        size 48px
+        fl(,c,c)
+        font-size 16px
+        cursor pointer
+        tr(0.3)
+    & &__remove
+        absolute right 1px top 1px
+        border-radius 2px
+        size 48px
+        fl(,c,c)
+        font-size 14px
+        cursor pointer
+        tr(0.3)
+    & &__clone-link
+        font-size f_small
+        display inline-block
+        margin-top 8px
+        &:hover
+            text-decoration underline
+    &_autocomplete
+        z-index 110
+    & &__okicon
+        absolute right 15px top 18px
+        font-size 14px
+        line-height 1
+    & &__autocomplete
+        absolute left 0
+        top calc(100% - 2px)
+        display none
+        display block
+        width 100%
+        border-radius 0 0 2px 2px
+        &-caption
+            font-size f_smart
+            font-weight 600
+            display block
+            width 100%
+            padding 7px 12px
+        &-info
+            font-size f_smart
+            font-weight 600
+            display block
+            width 100%
+            padding 7px 12px
+            text-transform uppercase
+        &-loading
+            padding 15px 12px
+            display block
+            width 100%
+            .icon
+                animation rotate 1s infinite linear
+        &-hidden
+            padding-bottom 10px
+            a
+                display block
+                font-size f_medium
+                padding 5px 12px
+
+
+    &_active
+        & ^[0]__color
+            opacity 1
+        & ^[0]__label
+            font-size 10px
+            top 1px
+            height auto
+            font-weight 400
+        & ^[0]__textarea
+            height auto
+            padding-top 30px
+            min-height 92px
+        & ^[0]__autocomplete
+            display block
+    &_disabled
+        pointer-events none
+        user-select none
+    &_ok
+        & ^[0]__field
+            padding-right 50px
+        & ^[0]__label
+            width calc(100% - 35px)

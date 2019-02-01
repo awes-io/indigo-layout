@@ -1,0 +1,85 @@
+.fb-phone
+    z-index auto
+    position relative
+    margin-bottom 10px  
+    & &__label
+        font-size f_middle
+        absolute left 65px top 5px
+        width calc(100% - 75px)
+        padding 8px 15px 3px 10px
+        display block
+        border-radius 3px
+        pointer-events none
+        z-index 1
+        white-space nowrap
+        text-overflow ellipsis
+        overflow hidden
+        tr(0.15)
+        color var(--tc_text_caption)
+    input
+        height 48px
+        padding-top 12px
+        padding-left 15px !important
+        padding-right 15px
+        width calc(100% - 60px) !important
+        placeholder(transparent)
+        background-color var(--tc_ui_bg) !important
+        color var(--tc_text) !important
+        &:-webkit-autofill
+            -webkit-box-shadow 0 0 0 30px var(--tc_ui_bg) inset
+            -webkit-text-fill-color var(--tc_text) !important
+            animation-name: autoFillStart
+        &:not(:-webkit-autofill)
+            animation-name: autoFillEnd
+    ul
+        top 48px !important
+        width 100% !important
+        z-index 101 !important
+        margin-left 0
+        left 0 !important
+        background-color var(--tc_ui_bg) !important
+        border 1px solid var(--tc_border_ins) !important
+        li
+            margin-bottom 5px !important
+            padding-left 8px !important
+            strong
+                font-weight 400
+    .dropdown
+        position static !important
+        width 60px
+        tr(0.25)
+        border-radius 3px 0 0 3px
+        background-color var(--tc_ui_bg) !important
+        border-right 1px solid var(--tc_border_ins)
+        &:hover
+            background-color var(--tc_ui_bg_semi_light) !important
+        &-item
+            color var(--tc_text) !important
+            &.highlighted
+                background-color var(--tc_ui_bg_semi) !important
+    .vue-tel-input
+        display flex
+        border 1px solid var(--tc_border_ins) !important
+        &:focus-within
+            box-shadow none !important
+            border-color var(--tc_ui_focus) !important
+    &_active
+        & ^[0]__label
+            font-size 10px
+            top 1px
+            height auto
+            font-weight 400
+    &_disabled
+        disabled()
+    &_ok
+        input
+            padding-right 50px
+        & ^[0]__label
+            width calc(100% - 110px)
+        .vue-tel-input
+            border 1px solid cl_salad !important
+    &_error
+        .vue-tel-input
+            border 1px solid cl_warn !important
+        & ^[0]__label
+            color cl_warn
