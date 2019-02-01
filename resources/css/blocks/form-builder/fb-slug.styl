@@ -1,0 +1,67 @@
+.fb-slug
+    width 100%
+    position relative
+    margin-bottom 10px
+    & &__field
+        size 100% 50px
+        padding 0 15px
+        font-size f_medium
+        border-radius 2px
+        padding-top 12px
+        tr(0.25, border-color)
+        border 1px solid var(--tc_border_ins)
+        color var(--tc_text)
+        background-color var(--tc_ui_bg)
+        formautofill()
+        &:focus
+            border 1px solid var(--tc_ui_focus)
+    & &__label
+        font-size f_middle
+        absolute left 5px top 5px
+        width calc(100% - 35px)
+        padding 8px 15px 3px 10px
+        display block
+        border-radius 3px
+        pointer-events none
+        z-index 1
+        white-space nowrap
+        text-overflow ellipsis
+        overflow hidden
+        tr(0.15)
+        color var(--tc_text_caption)
+    & &__group
+        &-wrap
+            fl(,,fe)
+            width 100%
+        &-field
+            flex-grow 1
+        &-label
+            max-width 150px
+            margin-left 10px
+            padding-bottom 10px
+            word-break break-all
+            display block
+            color var(--tc_text_caption)
+    &_active
+        & ^[0]__color
+            opacity 1
+        & ^[0]__label
+            font-size 10px
+            top 1px
+            height auto
+            font-weight 400
+        & ^[0]__autocomplete
+            display block
+    &_disabled
+        disabled()
+    &_ok
+        & ^[0]__field
+            padding-right 50px
+            border 1px solid cl_salad
+        & ^[0]__label
+            width calc(100% - 35px)
+    &_error
+        & ^[0]__field
+            border 1px solid cl_warn
+        & ^[0]__label
+            color cl_warn

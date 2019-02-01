@@ -1,0 +1,68 @@
+.fb-multiblock
+    display flex
+    width 100%
+    flex-wrap wrap
+    align-items flex-start
+    & &__add
+        font-size: f_small
+        display: inline-block
+        margin-top -5px
+        margin-left 20px
+        cursor pointer
+        margin-bottom 10px
+        vertical-align bottom
+        background-color transparent
+        color var(--tc_link)
+        &:hover, &:focus
+            text-decoration underline
+            color var(--tc_link_dark)
+        &-block
+            font-size f_smart
+            text-transform uppercase
+            font-weight 700
+            margin-bottom 20px
+            margin-left 5px
+            display inline-block
+            cursor pointer
+            vertical-align bottom
+            &:hover, &:focus
+                text-decoration underline
+    & &__head
+        fl(w,,c)
+        margin-bottom 10px
+    & &__title
+        display block
+        font-weight 400
+        font-size f_normal
+        margin-right 5px
+        margin-bottom 0
+        color var(--tc_text)
+    & &__close
+        font-size 12px
+        display block
+        line-height 1
+        color var(--tc_link_semi)
+        &:hover
+            color var(--tc_link_semi_active)
+    &_has-close
+        position: relative
+        max-width calc(100% - 40px)
+        &:not(:first-child)
+            margin-top 20px
+    & &__clear
+        absolute right -35px top 0
+        size 34px 50px
+        font-size 18px
+        fl(,fe,c)
+        color var(--tc_link_black)
+        background-color transparent
+        &:hover
+            color cl_warn
+        &:focus
+            color var(--tc_ui_focus)
+    & &__mb
+        margin-bottom 10px
+        width 100%
+        fl(w)
+    &_disabled
+        disabled()

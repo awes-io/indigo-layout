@@ -25,12 +25,7 @@
         placeholder(transparent)
         background-color var(--tc_ui_bg) !important
         color var(--tc_text) !important
-        &:-webkit-autofill
-            -webkit-box-shadow 0 0 0 30px var(--tc_ui_bg) inset
-            -webkit-text-fill-color var(--tc_text) !important
-            animation-name: autoFillStart
-        &:not(:-webkit-autofill)
-            animation-name: autoFillEnd
+        formautofill()
     ul
         top 48px !important
         width 100% !important

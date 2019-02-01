@@ -77,6 +77,14 @@ disabled()
 	user-select none
 	opacity 0.75
 
+formautofill()
+	&:not(:-webkit-autofill)
+		animation-name: autoFillEnd
+	&:-webkit-autofill
+		animation-name: autoFillStart
+		-webkit-box-shadow 0 0 0 30px var(--tc_ui_bg) inset
+		-webkit-text-fill-color var(--tc_text) !important
+
 bg(urls, positionr = 'center center', psr = 'no-repeat')
 	background-image url(pathimg+urls) 
 	if positionr == 'c'

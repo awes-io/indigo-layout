@@ -91,45 +91,7 @@
     &:hover
         text-decoration none
 
-.checkbox
-    cursor pointer
-    margin-bottom 10px
-    display inline-block
-    user-select none
-    position relative
-    padding-bottom 2px
-    text-align left
-    input
-        opacity 0
-        absolute left 0 top 0
-        size 0px
-        border 0
-        background none
-        box-shadow none !important
-        border-radius 0
-        pointer-events none
-    & &__text
-        position relative
-        padding-left 28px
-        display block
-        span
-            font-size f_medium
-    .icon
-        absolute left 0 top 2px
-        size 16px
-        border-radius 2px
-        tr(0.25)
-    &_disabled
-        pointer-events: none
-    &_inline
-        margin-right 20px
-    &_s2
-        & ^[0]__text
-            padding-left 42px
-        .icon
-            switcher()
-        input:checked + span .icon
-            switcher-active()
+
 
 
 
@@ -140,23 +102,7 @@
     &:hover
         text-decoration underline
 
-.fc-radio
-    fl()
-    width 100%
-    text-align center
-    margin-bottom 20px
-    align-items: stretch
-    & &__box
-        width 100%
-        cursor pointer
-    & &__field
-        absolute left 0 top 0
-        size 0px
-        opacity 0
-    & &__text
-        padding 7px
-        width 100%
-        display block
+
 
 
 .radiobox
@@ -188,49 +134,7 @@
             content ''
 
 
-.keycode
-    width 100%
-    display block
-    position relative
-    & &__hidden
-        absolute left 0 top 0
-        size 1px
-        display block
-        opacity 0
-    & &__wrap
-        width 100%
-        fl(,sb)
-        cursor text
-        margin-bottom 30px
-        padding-left 5px
-        padding-right 5px
-    & &__field
-        display block
-        text-align center
-        border-radius 2px
-        font-size 20px
-        font-weight 700
-        position relative
-        height 50px
-        width 100%
-        appearance: textfield
-        &::-webkit-inner-spin-button,
-        &::-webkit-outer-spin-button
-            -webkit-appearance: none
-            margin: 0
 
-    & &__ffield
-        width calc(14% - 5px)
-        &:nth-child(2), &:nth-child(4)
-            margin-right 8%
-            position relative
-            &:after
-                size 6px 2px
-                display block
-                absolute left 139% top 50%
-                margin-left -3px
-                margin-right -50%
-                content ''
 
 
 .box-checker
@@ -266,22 +170,6 @@
         display block
 
 
-.input
-    position relative
-    margin-bottom 10px
-    z-index 100
-    width 100%
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-
 .progress
     display: block
     text-align: center
@@ -312,69 +200,6 @@
         opacity: 1
     to
         opacity: 1
-.input__field
-    &:-webkit-autofill
-        animation-name: autoFillStart
-    &:not(:-webkit-autofill)
-        animation-name: autoFillEnd
-
-.multi-bl
-    display flex
-    width 100%
-    flex-wrap wrap
-    align-items flex-start
-    & &__add
-        font-size: f_small
-        display: inline-block
-        margin-top -5px
-        margin-left 20px
-        cursor pointer
-        margin-bottom 10px
-        vertical-align bottom
-        &:hover, &:focus
-            text-decoration underline
-        &-block
-            font-size f_smart
-            text-transform uppercase
-            font-weight 700
-            margin-bottom 20px
-            margin-left 5px
-            display inline-block
-            cursor pointer
-            vertical-align bottom
-            &:hover, &:focus
-                text-decoration underline
-    & &__head
-        fl(w,,c)
-        margin-bottom 10px
-    & &__title
-        display block
-        font-weight 400
-        font-size f_normal
-        margin-right 5px
-        margin-bottom 0
-    & &__close
-        font-size 12px
-        display block
-        line-height 1
-    & &__has-close
-        position: relative
-        max-width: calc(100% - 40px)
-    & &__clear
-        absolute right -35px top 0
-        size 34px 50px
-        font-size 18px
-        fl(,fe,c)
-    & &__mb
-        margin-bottom 10px
-        width 100%
-        fl(w)
-    &_disabled &
-        &__clear,
-        &__close,
-        &__add
-            cursor: default
-            pointer-events: none
 
 .form-spoiler
     display block
@@ -481,12 +306,7 @@
     .figure-loader
         padding-left 0
 
-@media res_tablet--sm
-    .input
-        &_3
-            width calc(100% - 10px)
-        &_2
-            width calc(100% - 10px)
+
 
 
 @media res_mobile--md

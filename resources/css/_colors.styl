@@ -429,75 +429,12 @@ a
     .box-checker__caption
       color var(--tc_text_caption)
 
-.fc-radio
-  overflow hidden
-  position relative
-  & &__box
-    border 1px solid var(--tc_border)
-    border-left none
-    color var(--tc_text_caption)
-    &:first-child
-      border-left 1px solid var(--tc_border)
-      border-radius 3px 0 0 3px
-    &:last-child
-      border-radius 0 3px 3px 0
-  & &__text
-    background-color var(--tc_ui_bg_semi)
-  & ^[0]__field:focus + .fc-radio__text
-    background-color var(--tc_ui_focus)
-    color cl_white
-  & ^[0]__field:checked + .fc-radio__text
-    background-color var(--tc_ui_bg)
-    color var(--tc_text)
+
 
 .icn-dot
   background-color cl_warn
 
-.checkbox
-  & &__text
-    span
-      color var(--tc_link_semi)
-    .icon
-      border 1px solid var(--tc_border_dark)
-      color transparent
-  input:checked + .checkbox__text span
-    color var(--tc_link_semi_active)
-  input:checked + .checkbox__text .icon
-    color cl_white
-    background-color cl_grass
-    border 1px solid cl_grass
-  input:focus + .checkbox__text .icon
-    border 1px solid var(--tc_ui_focus)
-  input:focus + span .icon
-    box-shadow 0px 0px 0px 1px cl_sky !important
-  &_s2
-    .icon
-      {lt} &
-        background-color var(--tc_ui_darkbg)
-      {dt} &
-        background-color var(--tc_ui_darkbg_d)
-      &:before
-        background-color cl_white
-        box-shadow 0px 0px 5px var(--tc_ui_darkbg_o)
-  &_disabled
-    & input:disabled + ^[0]__text
-      .icon
-        border-color var(--tc_border)
-        color transparent
-        background-color var(--tc_ui_bg_semi)
-      span
-        color var(--tc_link_semi)
-    & input:disabled:checked + ^[0]__text
-      .icon
-        color var(--tc_ui_darkbg)
-    &^[0]_s2
-      & input:disabled + ^[0]__text
-        .icon
-          border-color var(--tc_border)
-          opacity 0.3
-          background-color var(--tc_ui_darkbg)
-        span
-          color var(--tc_link_semi)
+
 
 
 .theme-switcher
@@ -517,112 +454,6 @@ a
 
 
 
-
-.multi-bl
-  & &__title
-    color var(--tc_text)
-  & &__close
-    color var(--tc_link_semi)
-    &:hover
-      color var(--tc_link_semi_active)
-  & &__clear
-    color var(--tc_link_black)
-    background-color transparent
-    &:hover
-      color cl_warn
-    &:focus
-      color var(--tc_ui_focus)
-  & &__add
-    background-color transparent
-    color var(--tc_link)
-    &:hover, &:focus
-      color var(--tc_link_dark)
-  &_disabled &
-      &__clear,
-      &__close,
-      &__add
-          opacity .5
-          color var(--tc_text_caption)
-
-
-
-
-
-
-
-.input
-  & &__okicon
-    color cl_salad
-      
-  & &__editable
-    border-left 1px solid var(--tc_border_ins)
-    &-caption
-      color var(--tc_text_caption)
-  & &__eye
-    color var(--tc_text_caption)
-    &:hover
-      color var(--tc_link)
-  & &__field
-    border 1px solid var(--tc_border_ins)
-    color var(--tc_text)
-    background-color var(--tc_ui_bg)
-    &:focus
-      border 1px solid var(--tc_ui_focus)
-    &:-webkit-autofill
-      -webkit-box-shadow 0 0 0 30px var(--tc_ui_bg) inset
-      -webkit-text-fill-color var(--tc_text) !important
-  & &__label
-    color var(--tc_text_caption)
-    background-color var(--tc_ui_bg)
-  & &__clone, & &__remove
-    background-color var(--tc_ui_bg_semi)
-    color var(--tc_link_semi)
-    &:hover
-      color var(--tc_link_semi_active)
-  &_autocomplete
-    & ^[0]__field
-      border 1px solid var(--tc_link_dark) !important
-  & &__autocomplete
-    background-color var(--tc_ui_bg)
-    border 1px solid cl_sky
-    border-top 0px
-    &-caption
-      color var(--tc_text_caption)
-    &-info
-      background-color var(--tc_ui_bg_semi)
-      color var(--tc_text_caption)
-    &-loading
-      background-color var(--tc_ui_bg_semi)
-      color var(--tc_text_caption)
-    &-hidden
-      a
-        color var(--tc_link_black)
-        &:hover
-          background-color var(--tc_ui_btn_light)
-          color var(--tc_link_black)
-
-  &_error
-    & ^[0] ^[0]__field
-      border 1px solid cl_warn
-    & ^[0] ^[0]__textarea
-      border 1px solid cl_warn
-  &_ok
-    & ^[0]__field
-      border 1px solid cl_salad
-    & ^[0]__textarea
-      border 1px solid cl_salad
-  &_disabled
-    opacity 0.5
-    & ^[0]__field
-      border 1px solid var(--tc_border)
-      color var(--tc_text_caption)
-      background-color var(--tc_ui_bg)
-    & ^[0]__textarea
-      border 1px solid var(--tc_border)
-      color var(--tc_text_caption)
-      background-color var(--tc_ui_bg)
-    & ^[0]__label
-      background-color var(--tc_ui_bg)
 
 .modal-form
   & &__title
@@ -1228,16 +1059,6 @@ pre
     @media res_mobile--lg
       background-color var(--tc_ui_bg)
 
-.keycode
-  & &__field
-    border 1px solid var(--tc_border_ins)
-    background-color var(--tc_ui_bg)
-    color var(--tc_text)
-    &:focus
-      border 1px solid var(--tc_ui_focus)
-  & &__ffield
-    &:after
-      background-color var(--tc_text_caption)
 
 ::-webkit-scrollbar-button
   background-color var(--tc_border)

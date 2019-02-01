@@ -8,6 +8,9 @@
         margin-top -9px
         display block
         z-index 701
+        color var(--tc_text_caption)
+        &:hover
+            color var(--tc_link)
         .icon
             font-size 18px
     & &__wrap
@@ -50,8 +53,12 @@
         border-radius 2px
         padding-top 12px
         tr(0.25, border-color)
-        &_editable
-            padding-right 52%
+        border 1px solid var(--tc_border_ins)
+        color var(--tc_text)
+        background-color var(--tc_ui_bg)
+        formautofill()
+        &:focus
+            border 1px solid var(--tc_ui_focus)
         &_password
             padding-right 50px
     &_color
@@ -65,34 +72,15 @@
     &_plus
         & ^[0]__field
             padding-right 65px
-    & &__clone
-        absolute right 1px top 1px
-        border-radius 2px
-        size 48px
-        fl(,c,c)
-        font-size 16px
-        cursor pointer
-        tr(0.3)
-    & &__remove
-        absolute right 1px top 1px
-        border-radius 2px
-        size 48px
-        fl(,c,c)
-        font-size 14px
-        cursor pointer
-        tr(0.3)
-    & &__clone-link
-        font-size f_small
-        display inline-block
-        margin-top 8px
-        &:hover
-            text-decoration underline
     &_autocomplete
         z-index 110
+        & ^[0]__field
+            border 1px solid var(--tc_link_dark) !important
     & &__okicon
         absolute right 15px top 18px
         font-size 14px
         line-height 1
+        color cl_salad
     & &__autocomplete
         absolute left 0
         top calc(100% - 2px)
@@ -100,14 +88,20 @@
         display block
         width 100%
         border-radius 0 0 2px 2px
+        background-color var(--tc_ui_bg)
+        border 1px solid cl_sky
+        border-top 0px
         &-caption
             font-size f_smart
+            color var(--tc_text_caption)
             font-weight 600
             display block
             width 100%
             padding 7px 12px
         &-info
             font-size f_smart
+            background-color var(--tc_ui_bg_semi)
+            color var(--tc_text_caption)
             font-weight 600
             display block
             width 100%
@@ -116,17 +110,21 @@
         &-loading
             padding 15px 12px
             display block
+            background-color var(--tc_ui_bg_semi)
+            color var(--tc_text_caption)
             width 100%
             .icon
                 animation rotate 1s infinite linear
         &-hidden
             padding-bottom 10px
             a
+                color var(--tc_link_black)
                 display block
                 font-size f_medium
                 padding 5px 12px
-
-
+                &:hover
+                    background-color var(--tc_ui_btn_light)
+                    color var(--tc_link_black)
     &_active
         & ^[0]__color
             opacity 1
@@ -135,17 +133,26 @@
             top 1px
             height auto
             font-weight 400
-        & ^[0]__textarea
-            height auto
-            padding-top 30px
-            min-height 92px
         & ^[0]__autocomplete
             display block
     &_disabled
-        pointer-events none
-        user-select none
+        disabled()
     &_ok
         & ^[0]__field
             padding-right 50px
+            border 1px solid cl_salad
         & ^[0]__label
             width calc(100% - 35px)
+    &_error
+        & ^[0]__field
+            border 1px solid cl_warn
+        & ^[0]__label
+            color cl_warn
+
+
+@media res_tablet--sm
+    .fb-input
+        &_3
+            width calc(100% - 10px)
+        &_2
+            width calc(100% - 10px)
