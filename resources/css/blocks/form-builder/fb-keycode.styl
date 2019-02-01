@@ -1,0 +1,56 @@
+.fb-keycode
+    width 100%
+    display block
+    position relative
+    & &__hidden
+        absolute left 0 top 0
+        size 1px
+        display block
+        opacity 0
+    & &__wrap
+        width 100%
+        fl(,sb)
+        cursor text
+        margin-bottom 30px
+        padding-left 5px
+        padding-right 5px
+    & &__field
+        display block
+        text-align center
+        border-radius 2px
+        font-size 20px
+        font-weight 700
+        position relative
+        height 50px
+        width 100%
+        appearance: textfield
+        border 1px solid var(--tc_border_ins)
+        background-color var(--tc_ui_bg)
+        color var(--tc_text)
+        &::-webkit-inner-spin-button,
+        &::-webkit-outer-spin-button
+            -webkit-appearance: none
+            margin: 0
+        formautofill()
+        &:focus
+            border 1px solid var(--tc_ui_focus)
+    & &__field-wrap
+        width calc(14% - 5px)
+        &:nth-child(2), &:nth-child(4)
+            margin-right 8%
+            position relative
+            &:after
+                size 6px 2px
+                display block
+                absolute left 129% top 50%
+                background-color var(--tc_text_caption)
+                content ''
+    &_disabled
+        disabled()
+    &_error
+        & ^[0]__field
+            border-color cl_warn
+    &_ok
+        & ^[0]__field
+            border-color cl_grass
+

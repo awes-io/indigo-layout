@@ -1,0 +1,56 @@
+.fb-checkbox
+    cursor pointer
+    margin-bottom 10px
+    display inline-block
+    user-select none
+    position relative
+    padding-bottom 2px
+    text-align left
+    & &__text
+        position relative
+        padding-left 28px
+        display block
+        span
+            font-size f_medium
+            color var(--tc_link_semi)
+    .icon
+        absolute left 0 top 2px
+        size 16px
+        border-radius 2px
+        border 1px solid var(--tc_border_dark)
+        color transparent
+        tr(0.25)
+        cursor pointer
+    input
+        opacity 0
+        absolute left 0 top 0
+        size 0px
+        border 0
+        background none
+        box-shadow none !important
+        border-radius 0
+        pointer-events none
+        &:checked 
+            & + ^[0]__text 
+                span
+                    color var(--tc_link_semi_active)
+                .icon
+                    color cl_white
+                    background-color cl_grass
+                    border 1px solid cl_grass
+        &:focus 
+            + span 
+                .icon
+                    box-shadow 0px 0px 0px 2px alpha(cl_sky, 0.5)
+    &_disabled
+        disabled()
+    &_ok
+        span
+            .icon
+                box-shadow 0px 0px 0px 2px alpha(cl_grass, 0.5)
+    &_error
+        & ^[0]__text
+            .icon
+                box-shadow 0px 0px 0px 2px alpha(cl_warn, 0.5)
+            span
+                color cl_warn

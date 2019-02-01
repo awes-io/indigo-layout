@@ -1,0 +1,49 @@
+.fc-radio
+    width 100%
+    text-align center
+    margin-bottom 20px
+    overflow hidden
+    position relative
+    & &__wrap
+        fl()
+    & &__box
+        width 100%
+        cursor pointer
+        border 1px solid var(--tc_border)
+        border-left none
+        color var(--tc_text_caption)
+        &:first-child
+            border-left 1px solid var(--tc_border)
+            border-radius 3px 0 0 3px
+        &:last-child
+            border-radius 0 3px 3px 0
+    & &__text
+        padding 7px
+        width 100%
+        display block
+        background-color var(--tc_ui_bg_semi)
+    & &__field
+        absolute left 0 top 0
+        size 0px
+        opacity 0
+        &:focus
+            & + ^[0]__text
+                background-color var(--tc_ui_focus)
+                color cl_white
+        &:checked
+            & + ^[0]__text
+                background-color var(--tc_ui_bg)
+                color var(--tc_text)
+    &_disabled
+        disabled()
+    &_error
+        & ^[0]__box
+            border-color cl_warn
+            &:first-child
+                border-color cl_warn
+    &_ok
+        & ^[0]__box
+            border-color cl_grass
+            &:first-child
+                border-color cl_grass
+

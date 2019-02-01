@@ -1,0 +1,45 @@
+.fb-switcher
+    fl(,,c)
+    cursor pointer
+    user-select none
+    position relative
+    margin-bottom 10px   
+    & &__field-wrap
+        switcher()
+        absolute left 0 top 3px
+        z-index 1
+        {lt} &
+            background-color var(--tc_ui_darkbg)
+        {dt} &
+            background-color var(--tc_ui_darkbg_d)
+        &:before
+            background-color cl_white
+            box-shadow 0px 0px 5px var(--tc_ui_darkbg_o)
+    & &__field
+        cursor pointer
+        width: 100%
+        position: relative
+        z-index: 2
+        opacity: 0
+        &::-moz-focus-outer
+            border-color: transparent
+    &.is-active
+        .theme-switcher__switcher
+            switcher-active()
+            background-color cl_grass
+    & &__label
+        position relative
+        padding-left 42px
+        display block
+        font-size f_medium
+        color var(--tc_link_semi)
+    &_disabled
+        disabled()
+    &_ok
+        & ^[0]__field-wrap
+            box-shadow 0px 0px 0px 3px alpha(cl_grass, 0.5)
+        & ^[0]__label
+            color cl_grass
+    &_error
+        & ^[0]__field-wrap
+            box-shadow 0px 0px 0px 3px alpha(cl_warn, 0.5)

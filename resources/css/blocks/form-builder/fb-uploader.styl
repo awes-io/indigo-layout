@@ -1,0 +1,187 @@
+.fb-uploader
+    margin-bottom 10px
+    .uploader-drop
+        border-radius 2px
+        text-align center
+        padding 40px 15px
+        tr(0.25)
+        position relative
+        background-color var(--tc_ui_bg)
+        border-color var(--tc_border_ins)
+        color var(--tc_link_semi)
+        &:hover
+            background-color  var(--tc_ui_bg_semi)
+        p
+            margin-bottom 0
+    & &__size
+        font-size f_small
+        font-style normal
+    & &__formats
+        font-size f_small
+        font-style normal
+    & &__fakebtn
+        padding 0 15px
+        text-transform uppercase
+        font-weight 700
+        font-size 10px
+        cursor pointer
+        pointer-events none
+        color var(--tc_link_semi)
+        &:hover
+            text-decoration none
+    & &__btn
+        border 0
+        padding 0 15px
+        text-transform uppercase
+        font-weight 700
+        font-size 10px
+        absolute left 0 top 0
+        size 100%
+        opacity 0
+        color var(--tc_link_semi)
+        span
+            display none
+        &:hover
+            background-color transparent
+            text-decoration none
+    & &__list
+        margin-bottom 0
+        padding-top 10px
+        padding-bottom 10px
+        border-radius 2px
+        tr
+            background-color var(--tc_ui_bg) !important
+            &:hover
+                background-color var(--tc_ui_bg) !important
+                td
+                    background-color var(--tc_ui_bg)
+            td
+                &:first-child
+                    padding-left 15px
+                &:last-child
+                    padding-right 15px
+        td
+            padding-top 7px
+            padding-bottom 10px
+            border 0px
+        &-number
+            padding-right 0
+            text-align center
+            width 35px
+            color var(--tc_text_caption)
+        &-date
+            width 100px
+            color var(--tc_text_caption)
+        &-size
+            width 120px
+            color var(--tc_text_caption)
+        &-type
+            width 100px
+            color var(--tc_text_caption)
+        &-delete
+            text-align right
+            width 74px
+            button
+                font-size 30px
+                font-weight 300
+                line-height 22px
+                padding 0 5px
+                &:hover
+                    color var(--tc_link)
+        &-name
+            padding-left 10px
+        &-ftitle
+            max-width 200px
+            word-break break-all
+        &-progress
+            padding 0 !important
+            position relative
+            height 0px
+            progress
+                width 100%
+                height 3px
+                absolute left 0 top -3px
+                -moz-appearance none
+                -webkit-appearance none
+                appearance none
+                background-color var(--tc_border)
+                &::-webkit-progress-bar
+                    background-color var(--tc_border)
+                &::-moz-progress-bar
+                    background-color cl_grass
+                &::-webkit-progress-value
+                    background-color cl_grass
+    & &__cwrap
+        padding 30px 30px 20px 30px
+    abbr
+        max-width: 150px
+        min-width 100px
+        word-break break-all
+    & &__message
+        + p
+            margin-top 0
+    &_disabled
+        disabled()
+    &_ok
+        .uploader-drop
+            border-color cl_grass
+    &_error
+        .uploader-drop
+            border-color cl_warn
+
+
+@media res_desktop--lg
+    .fb-uploader
+        & &__list
+            &-date, &-size, &-type, &-delete
+                width auto
+
+@media res_tablet--lg
+    .fb-uploader
+        & &__cwrap
+            padding 10px 0 0 0
+
+@media res_mobile--lg
+    .fb-uploader
+        & &__list
+            table, td
+                display block
+                padding 0
+            tr
+                fl(w,,fs)
+                padding 10px 30px 5px 30px
+                position relative
+            td
+                border-bottom 0
+            &-pgwrap
+                padding 0 !important
+                display block
+            &-number
+                padding 0 !important
+                width 30px !important
+                text-align center
+                margin-bottom 5px
+                margin-right 5px
+                flex-shrink 0
+                absolute left 0
+            &-name
+                padding 0
+                width calc(100% - 20px)
+                margin-bottom 5px
+                margin-right 20px
+            &-date
+                font-size f_small
+                margin-bottom 10px
+                margin-right 10px
+            &-type
+                font-size f_small
+                margin-bottom 10px
+                margin-right 10px
+            &-size
+                font-size f_small
+                margin-bottom 10px
+                margin-right 10px
+            &-progress
+                width 100%
+            &-delete
+                absolute right 0 top 7px
