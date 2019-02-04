@@ -11,7 +11,7 @@ block pageHead
 
 block pageContent
     .frame__inlayout
-        
+
         .frame__inlayout-content
             p Предназначен для отображения скрытого по-умолчанию списка нажатием на кнопку
 
@@ -20,13 +20,164 @@ block pageContent
             #minimal-codeup
             h2 Минимальная разметка
             p Компонент состоит из раскрывающейся обёртки (dropdown) и элементов. Без элементов внутри обёртки, она не имеет смысла, поэтому минимальная разметка выглядит как
-            
+
             pre
-                code.html.
+                code.language-html.
                     &lt;context-menu&gt;
                         &lt;cm-button&gt;Click me!&lt;/cm-button&gt;
                     &lt;/context-menu&gt;
 
+            h2 Test Bash
+            pre
+                code.language-bash.
+                    #!/bin/bash
+
+                    ###### CONFIG
+                    ACCEPTED_HOSTS="/root/.hag_accepted.conf"
+                    BE_VERBOSE=false
+
+                    if [ "$UID" -ne 0 ]
+                    then
+                        echo "Superuser rights required"
+                        exit 2
+                    fi
+
+                    genApacheConf(){
+                        echo -e "# Host ${HOME_DIR}$1/$2 :"
+                    }
+
+            h2 Test PHP
+            pre
+                code.language-php.
+                    require_once 'Zend/Uri/Http.php';
+
+                    namespace Location\Web;
+
+                    interface Factory
+                    {
+                        static function _factory();
+                    }
+
+                    abstract class URI extends BaseURI implements Factory
+                    {
+                        abstract function test();
+
+                        public static $st1 = 1;
+                        const ME = "Yo";
+                        var $list = NULL;
+                        private $var;
+
+                        /**
+                        * Returns a URI
+                        *
+                        * @return URI
+                        */
+                        static public function _factory($stats = array(), $uri = 'http')
+                        {
+                            echo __METHOD__;
+                            $uri = explode(':', $uri, 0b10);
+                            $schemeSpecific = isset($uri[1]) ? $uri[1] : '';
+                            $desc = 'Multi
+                    line description';
+
+                            // Security check
+                            if (!ctype_alnum($scheme)) {
+                                throw new Zend_Uri_Exception('Illegal scheme');
+                            }
+
+                            $this->var = 0 - self::$st;
+                            $this->list = list(Array("1"=> 2, 2=>self::ME, 3 => \Location\Web\URI::class));
+
+                            return [
+                                'uri'   => $uri,
+                                'value' => null,
+                            ];
+                        }
+                    }
+
+                    echo URI::ME . URI::$st1;
+
+                    __halt_compiler () ; datahere
+                    datahere
+                    datahere */
+                    datahere
+
+            h2 Test Blade (language - php)
+            pre
+                code.language-php.
+                    @extends('layout')
+
+                    @section('title', _p('managers.h1', 'List of managers'))
+
+                    @section('filters')
+                        &lt;div class=&quot;filter&quot;&gt;
+                            &lt;div class=&quot;filter__left&quot;&gt;
+                                &lt;div class=&quot;filter__checkbox&quot;&gt;
+                                    &lt;filter-builder label=&quot;active&quot;&gt;&lt;/filter-builder&gt;
+                                    &lt;filter-builder label=&quot;all&quot;&gt;&lt;/filter-builder&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    @endsection
+
+            h2 Test YAML
+            pre
+                code(v-pre).language-yaml.
+                    ---
+                    # comment
+                    string_1: "Bar"
+                    string_2: 'bar'
+                    string_3: bar
+                    inline_keys_ignored: sompath/name/file.jpg
+                    keywords_in_yaml:
+                    - true
+                    - false
+                    - TRUE
+                    - FALSE
+                    - 21
+                    - 21.0
+                    - !!str 123
+                    "quoted_key": &foobar
+                    bar: foo
+                    foo:
+                    "foo": bar
+
+                    reference: *foobar
+
+                    multiline_1: |
+                    Multiline
+                    String
+                    multiline_2: >
+                    Multiline
+                    String
+                    multiline_3: "
+                    Multiline string
+                    "
+
+                    ansible_variables: "foo {{variable}}"
+
+                    array_nested:
+                    - a
+                    - b: 1
+                    c: 2
+                    - b
+                    - comment
+
+            h2 Test JSON
+            pre
+                code.language-json.
+                    [
+                        {
+                            "title": "apples",
+                            "count": [12000, 20000],
+                            "description": {"text": "...", "sensitive": false}
+                        },
+                        {
+                            "title": "oranges",
+                            "count": [17500, null],
+                            "description": {"text": "...", "sensitive": false}
+                        }
+                    ]
             p
                 strong Внешний вид
             .vue-example
@@ -35,7 +186,7 @@ block pageContent
             p
                 strong Сгенерированная разметка
             pre
-                code.html.
+                code.language-html.
                     &lt;div class="context-menu"&gt;
                         &lt;button aria-haspopup="true" class="context-menu__toggler context-menu__toggler-default"&gt;
                             &lt;i class="icon icon-dots"&gt;&lt;/i&gt;
@@ -49,8 +200,8 @@ block pageContent
                         &lt;/div&gt;
                     &lt;/div&gt;
             p
-                em Открытие выпадающего списка происходит нажатием на открывающую кнопку, 
-                em закрытие кликом на ту же кнопку, на ссылку или кнопку среди 
+                em Открытие выпадающего списка происходит нажатием на открывающую кнопку,
+                em закрытие кликом на ту же кнопку, на ссылку или кнопку среди
                 a(href='#elements') элементов контекстного меню или кликом снаружи выпадающего меню
 
 
@@ -77,7 +228,7 @@ block pageContent
                     td
                         code false
                     td
-                        | Приоритет в 
+                        | Приоритет в
                         a(href='#positioning-info') расположении списка
                         |  по правой границе
                         | 				открывающей кнопки
@@ -88,7 +239,7 @@ block pageContent
                     td
                         code false
                     td
-                        | Приоритет в раскрытии списка вверх, 
+                        | Приоритет в раскрытии списка вверх,
                         a(href='#positioning-info') располагаясь
                         |  сверху открывающей кнопки
                 tr
@@ -108,17 +259,17 @@ block pageContent
                     td
                         code body
                     td
-                        | Селектор элемента - 
-                        a(href='#positioning-bounds') границы для автоматического позиционирования списка		
+                        | Селектор элемента -
+                        a(href='#positioning-bounds') границы для автоматического позиционирования списка
 
 
 
             #positioning
             h2 Позиционирование на экране
             p Раскрывающийся список (dropdown) располагается относительно открывающей кнопки, и по-умолчанию примыкает к нижней и левой границам и открывается вниз
-            
-            
-            
+
+
+
             #positioning-info
             p
                 strong Варианты расположения
@@ -148,7 +299,7 @@ block pageContent
                 li отобразиться на экране максимально видимым
                 li вписаться в <a href='#positioning-bounds'>границы</a>
             #positioning-bounds
-            p <strong> Ограничительный контейнер</strong>: Свойство <code>boundary</code> - селектор границы, по-умолчанию, или если по-селектору не найден элемент среди родителей компонента этим контейнером является контейнер страницы <code>body</code> 
+            p <strong> Ограничительный контейнер</strong>: Свойство <code>boundary</code> - селектор границы, по-умолчанию, или если по-селектору не найден элемент среди родителей компонента этим контейнером является контейнер страницы <code>body</code>
             p
                 em Выпадающий список не может раскрыться вниз и вправо, но может вписаться в границы поэтому он открывается вверх и влево
             .vue-example
@@ -173,9 +324,9 @@ block pageContent
 
             #elements-button
             h3 Кнопка <code>&lt;cm-button&gt;</code>
-                
+
             pre
-                code.html.
+                code.language-html.
                     &lt;context-menu&gt;
                         &lt;cm-button @click="someMethod"&gt;Click me!&lt;/cm-button&gt;
                     &lt;/context-menu&gt;
@@ -197,20 +348,20 @@ block pageContent
                     td(style='text-align: center;')
                         em undefined
                     td Дополнительный класс для кнопки
-            
+
             p На элемент нужно навешивать обработчики событий и можно добавлять дополтительные атрибуты. Без бработчика клик по кнопке будет просто закрывать открытое меню. Такая разметка
-            
+
             pre
-                code.html.
+                code.language-html.
                     &lt;cm-button class="list-item-class" item-class="item-class" @click="$notify({group: 'right-b', type: 'sucсess', title: 'Notification!'})"&gt; Send notification &lt;/cm-button&gt;
-            
+
             .vue-example
                 context-menu
                     cm-button.list-item-class(item-class='item-class', aria-label='Awesome Button!', @click="$notify({group: 'right-b', type: 'sucсess', title: 'Notification!'})") Send notification
             p Будет сгенерирована в такой HTML, по клику будет вызван метод  <code>someMethod</code>:
-            
+
             pre
-                code.html.
+                code.language-html.
                     &lt;li class="cm-item list-item-class"&gt;
                         &lt;button aria-label="Awesome Button!" class="cm-item__button item-class"&gt;
                             Send notification
@@ -222,7 +373,7 @@ block pageContent
             h3 Ссылка <code>&lt;cm-link&gt;</code>
 
             pre
-                code.html.
+                code.language-html.
                     &lt;context-menu&gt;
                         &lt;cm-link href="https://some.url"&gt;This is a link elemen&lt;/cm-link&gt;
                     &lt;/context-menu&gt;
@@ -230,10 +381,10 @@ block pageContent
             .vue-example
                 context-menu
                     cm-link(href='https://google.com', target='_blank', rel='nofollow noopener') This is a link element
-            
+
             p
-                em Свойства элемента <code>&lt;cm-link&gt;</code>  
-            
+                em Свойства элемента <code>&lt;cm-link&gt;</code>
+
             table
                 tr
                     th(style='text-align: center;') Название
@@ -256,7 +407,7 @@ block pageContent
                     td url или якорь, обязательное свойство
             p Также на элемент можно навешивать обработчики событий и добавлять дополтительные атрибуты, для примера, такая разметка
             pre
-                code.html.
+                code.language-html.
                     &lt;context-menu&gt;
                         &lt;cm-link href="#anchor"
                                 class="list-item-class"
@@ -271,17 +422,17 @@ block pageContent
                     cm-link.list-item-class(href='#anchor', item-class='item-class', data-prop='someProp', @click.prevent='someMethod') This is a link element
             p Будет сгенерирована в такой HTML, по клику перехода не будет, а будет вызван метод <code>someMethod</code>:
             pre
-                code.html.
+                code.language-html.
                     &lt;li class="cm-item list-item-class"&gt;
                         &lt;a href="#anchor" data-prop="someProp" class="cm-item__link item-class"&gt;
                             This is a link element
                         &lt;/a&gt;
                     &lt;/li&gt;
             h3
-                a(href="" name='elements-separator') 
+                a(href="" name='elements-separator')
                 | Разделитель <code>&lt;cm-separator&gt;</code>
             pre
-                code.html.
+                code.language-html.
                     &lt;context-menu&gt;
                         &lt;cm-button&gt;Above separator&lt;/cm-button&gt;
                         &lt;cm-separator&gt;&lt;/cm-separator&gt;&lt;!-- разделитель --&gt;
@@ -296,7 +447,7 @@ block pageContent
             h3 Панель <code>&lt;cm-panel&gt;</code>
             p Компонент предназначен для размещения контента внутри контекстного меню
             pre
-                code.html.
+                code.language-html.
                     &lt;context-menu&gt;
                         &lt;cm-panel&gt;
                             Default panel
@@ -309,7 +460,7 @@ block pageContent
                 context-menu
                     cm-panel Default panel
                     cm-panel(secondary='') Secondary panel
-            p Свойства элемента <code>&lt;cm-panel&gt;</code>       
+            p Свойства элемента <code>&lt;cm-panel&gt;</code>
             table
                 tr
                     th(style='text-align: center;') Название
@@ -325,7 +476,7 @@ block pageContent
                     td Меняет цвет фона на более тёмный
             p Сгенерированная разметка
             pre
-                code.html.
+                code.language-html.
                     &lt;li class="cm-item"&gt;
                         &lt;div class="cm-item__panel"&gt;
                             Default panel
@@ -337,11 +488,11 @@ block pageContent
                         &lt;/div&gt;
                     &lt;/li&gt;
             #elements-query
-            h3 GET-параметры в адресной строке  <code>&lt;cm-query&gt;</code> 
+            h3 GET-параметры в адресной строке  <code>&lt;cm-query&gt;</code>
             p Компонент предназначен для вставки GET-параметров в адресную строку браузера без перезагрузки (например для фильтрации или сортировки), другие компоненты могут отслеживать эти параметры и обновлять данные.
             p
-                em Свойства элемента <code>&lt;cm-query&gt;</code> 
-                        
+                em Свойства элемента <code>&lt;cm-query&gt;</code>
+
             table
                 tr
                     th(style='text-align: center;') Название
@@ -364,7 +515,7 @@ block pageContent
                     td
                         em Обязательное свойство. Параметры, которые необходимо подставить или заменить в адресной строке, и при совпадении с которыми кнопка полузит активное состояние
             pre
-                code.html.
+                code.language-html.
                     &lt;context-menu&gt;
                         &lt;cm-query :param="{state: 'active'}"&gt;
                             I am active
@@ -378,7 +529,7 @@ block pageContent
                     cm-query(:param="{state: 'not-active'}") I am not active
             p HTML выглядит как
             pre
-                code.html.
+                code.language-html.
                     &lt;li class="cm-item"&gt;
                         &lt;button class="cm-item__button is-active"&gt;
                             I am active
@@ -392,11 +543,11 @@ block pageContent
             #elements-ajax
             h3 AJAX-запрос <code>&lt;cm-ajax&gt;</code>
             p Компонент предназначен для отправки данных на сервер с возможностью вызова метода для обработки полученного ответа, обрабатывая событие <code>sended</code>, в который передаются данные ответа. Для отправки запроса используется миксин <code>serverRequest</code>
-                
+
             p
                 em Свойства элемента <code>cm-ajax</code>
-                    
-                        
+
+
             table
                 tr
                     th(style='text-align: center;') Название
@@ -433,19 +584,19 @@ block pageContent
                     td(style='text-align: center;')
                         code get
                     td
-                        | Метод для проведения запроса, ограничен вариантами 
+                        | Метод для проведения запроса, ограничен вариантами
                         code get
-                        | , 
+                        | ,
                         code put
                         | ,
                         code post
-                        | , 
+                        | ,
                         code delete
-                        | , 
+                        | ,
                         code patch
             p
                 em
-                    | События, вызываемые элементом 
+                    | События, вызываемые элементом
                     code cm-ajax
             table
                 tr
@@ -460,7 +611,7 @@ block pageContent
                         | )
                     td Вызвается после получения ответа и передаёт присланные данные
             pre
-                code.html.
+                code.language-html.
                     &lt;context-menu&gt;
                         &lt;cm-ajax
                             method="post"
@@ -476,7 +627,7 @@ block pageContent
                     cm-ajax(method='post', url='https://httpbin.org/post', :params="{param1: 'one', param2: 'two'}", @sended="({ data }) => $notify({ group:'right-b', text: JSON.stringify(data) })") Send request
             p Разультат в HTML
             pre
-                code.html.
+                code.language-html.
                     &lt;li class="cm-item"&gt;
                         &lt;button class="cm-item__button"&gt;
                             Send request
@@ -485,14 +636,14 @@ block pageContent
             #toggler-slot
             h2 Стилизация открывающей кнопки
             p
-                | Кнопка, открывающая контекстное меню может быть изменена с помощью 
-                a(href='https://ru.vuejs.org/v2/guide/components-slots.html', target='_blank') слота, 
+                | Кнопка, открывающая контекстное меню может быть изменена с помощью
+                a(href='https://ru.vuejs.org/v2/guide/components-slots.html', target='_blank') слота,
                 | с именем <code>toggler</code>. Содержимое слота помещается внутри тега, поэтому не должно содержать блочных по семантике элементов (<code>&lt;div&gt;</code>). Блочный контент должен быть представлен в виде 11<code>&lt;span style='display:block;' &gt;</code>
-            p 
+            p
                 strong Пример
 
             pre
-                code.html.
+                code.language-html.
                     &lt;context-menu&gt;
                         &lt;span slot="toggler" class="new-toggler"&gt;Open me&lt;/span&gt;
                         &lt;cm-button&gt;
@@ -519,17 +670,17 @@ block pageContent
                         | me
                     cm-button Click me!
 
-        
+
         .frame__inlayout-aside
             // class frame__inlayout-block_fixed can make a block float top
             .frame__inlayout-block.frame__inlayout-block_fixed2
-                
+
                 ul.tf-titlenav
                     li
                         a(href='#minimal-codeup').active Минимальная разметка
                     li
-                        a(href='#wrapper-props') 
-                            | Параметры компонента-обёртки 
+                        a(href='#wrapper-props')
+                            | Параметры компонента-обёртки
                             em &lt;context-menu&gt;
                     li
                         a(href='#positioning') Позиционирование на экране
@@ -538,27 +689,27 @@ block pageContent
                         ul
                             li
                                 a(href='#elements-button')
-                                    | Кнопка 
+                                    | Кнопка
                                     em &lt;cm-button&gt;
                             li
                                 a(href='#elements-link')
-                                    | Ссылка 
+                                    | Ссылка
                                     em &lt;cm-link&gt;
                             li
                                 a(href='#elements-separator')
-                                    | Разделитель 
+                                    | Разделитель
                                     em &lt;cm-separator&gt;
                             li
                                 a(href='#elements-panel')
-                                    | Панель 
+                                    | Панель
                                     em &lt;cm-panel&gt;
                             li
                                 a(href='#elements-query')
-                                    | GET-параметры в адресной строке 
+                                    | GET-параметры в адресной строке
                                     em &lt;cm-query&gt;
                             li
                                 a(href='#elements-ajax')
-                                    | AJAX-запрос 
+                                    | AJAX-запрос
                                     em &lt;cm-ajax&gt;
                     li
                         a(href='#toggler-slot') Стилизация открывающей кнопки
