@@ -48,15 +48,19 @@ const awesPlugin = {
         },
         'highlight': {
             src: [
-                'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js',
-                'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/github-gist.min.css'
+                'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js',
+                'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/github-gist.min.css'
             ]
         },
-        'highlight_lang_html': {
-            src: 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/languages/javascript.min.js',
+        'highlight_langs': {
+            src: [
+                'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/languages/yaml.min.js'
+            ],
             deps: ['highlight'],
             cb() {
-                document.querySelectorAll('pre code.html').forEach( block => { hljs.highlightBlock(block) })
+                document.querySelectorAll('pre code[class*="language-"]').forEach(block => {
+                    hljs.highlightBlock(block)
+                })
             }
         }
     },
