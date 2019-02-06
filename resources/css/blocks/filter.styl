@@ -1,23 +1,31 @@
 .filter
-  fl(w,sb,c)
+  fl(,sb,c)
   width 100%
   margin-bottom 15px
   position relative
+  z-index 250
   & &__left
     fl(w)
+    margin-right 10px
   & &__right
-    margin-bottom 10px
+    margin-bottom 15px
     padding-right 20px
+    flex-shrink: 0
     fl(,fe,c)
+  & &__rlink
+    margin-left 40px
+    margin-bottom 5px
+    &:first-child
+      margin-left 0
   & &__slink
-    margin-bottom 10px
     fl(,,c)
     text(f_small)
-    margin-left 40px
     cursor pointer
     tr(0.3)
     position relative
     padding-right 15px
+    min-height 1px
+    white-space: nowrap
     .icon
       size 18px 15px
       display block
@@ -144,10 +152,33 @@
   
   .filter
     margin-bottom 0
+    flex-wrap wrap
     & &__left, &__right
       //display none !important
 
 @media res_mobile--lg
+
+  .filter
+    & &__left
+      width 100%
+      margin-right 0
+      margin-bottom 15px
+    & &__right
+      width 100%
+      justify-content center
+    & &__checkbox
+      margin-bottom 0
+      margin-top -1px
+      width 100%
+      margin-right 0
+      &-cell
+        flex-grow: 1
+    & &__rlink
+      margin-left 15px
+      margin-right 15px
+      &:first-child
+        margin-left 15px
+    
 
   .js-window
     fixed top 0 left 0 

@@ -231,7 +231,6 @@ for key, val in vars_i
   background-repeat no-repeat
   size 0px
 
-
 ::-webkit-scrollbar-thumb
   background-image  url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDoyRDQ1RDVFRjVBMTYxMUU1QkFDMUNGNTcxNDI4QUI5OSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDoyRDQ1RDVGMDVBMTYxMUU1QkFDMUNGNTcxNDI4QUI5OSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjJENDVENUVENUExNjExRTVCQUMxQ0Y1NzE0MjhBQjk5IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjJENDVENUVFNUExNjExRTVCQUMxQ0Y1NzE0MjhBQjk5Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+BWJJWgAAACFJREFUeNpi/P//PwMuwAIiGBkZjdElgJrOMg42nQABBgCZ4hgFtlVPowAAAABJRU5ErkJggg==')
   background-position center 
@@ -262,6 +261,73 @@ for key, val in vars_i
   size 9px
   border-radius 50%
   display block
+
+
+.loading
+  &-block
+    position relative
+    *
+      pointer-events none
+    &:before
+      size 100%
+      pointer-events auto !important
+      display block
+      absolute left 0 top 0
+      opacity 0.75
+      z-index 700
+      content ''
+    &:after
+      padding 0 32px 0 52px
+      box-shadow 3px 4px 20px rgba(0, 0, 0, 0.2)
+      border-radius 15px
+      height 30px
+      background-color rgba(0,0,0,0.4)
+      fl(,c,c)
+      color #fff
+      line-height 1
+      text-align center
+      z-index 701
+      white-space nowrap
+      max-width 200px
+      overflow hidden
+      text-overflow ellipsis
+      absolute left 50% top 10%
+      transform translateX(-50%)
+      bg('loading.svg', left 30px center)
+      content attr(data-loading)
+  &-inline
+    cursor default
+    @extend .loading-block
+    text-indent -9999px
+    &:before
+      opacity 0.4
+    &:after
+      text-indent 0
+      box-shadow none
+      border-radius 0
+      padding 0 0 0 20px
+      background none
+      height 100%
+      absolute left 50% top 0
+      bg('loading.svg', left center)
+  &-show
+    position relative
+    &:after
+      padding 0 32px 0 52px
+      box-shadow 3px 4px 20px rgba(0, 0, 0, 0.2)
+      border-radius 15px
+      height 30px
+      background-color rgba(0,0,0,0.4)
+      fl(,c,c)
+      color #fff
+      line-height 1
+      text-align center
+      z-index 701
+      absolute left 50% bottom -15px
+      transform translateX(-50%)
+      bg('loading.svg', left 30px center)
+      content attr(data-loading)
+
     
 @media res_tablet--sm
   .float-icns

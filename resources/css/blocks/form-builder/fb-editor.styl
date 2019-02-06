@@ -122,6 +122,9 @@
             color: cl_red
     &_disabled
         disabled()
+    &_focus
+        & ^[0]__tab
+            border-color var(--tc_ui_focus) !important
     &_ok
         & ^[0]__tab
             border-color cl_salad !important
