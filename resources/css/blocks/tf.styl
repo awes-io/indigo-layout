@@ -88,16 +88,16 @@ blockquote
     p
         &:last-child
             margin-bottom 0
-    
-table:not(.int-table__table)
+
+.md-table
     width 100%
     margin-bottom tf_margin
     display block
-    overflow: auto
-    tbody
-        display table
-        width 100%
-        border-collapse collapse
+    overflow auto
+
+table:not(.int-table__table)
+    width 100%
+    border-collapse collapse
     th
         padding 17px 15px
         font-weight 400
@@ -185,8 +185,8 @@ kbd
 code
     font-family fontfamily
     display inline
-    padding-left 3px
-    padding-right 3px
+    padding-left 7px
+    padding-right 7px
     {lt} &
         background-color lighten(#ffeaa7, 20%)
     {dt} &
