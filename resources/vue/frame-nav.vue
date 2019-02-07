@@ -18,17 +18,18 @@
                 <!-- link with children -->
                 <div v-else>
                     <a  :href="item.link || ''"
-                        :class="['frame__aside-link frame__aside-link_sub', {'frame__aside-link_active': itemActive(index) }]"
+                        :class="['frame__aside-link frame__aside-link_sub',
+                                {'frame__aside-link_active': active === index || isPermanentlyActive[index] }]"
                         @click="item.link ? null : toggleActive($event, index)"
                     >
                         <i v-if="item.icon" :class="'icon icon-'+item.icon"></i>
                         <span>{{ item.name }}</span>
-                        <i v-if="! expanded"
+                        <i v-if="! isPermanentlyActive[index]"
                            class="icon icon-angle-bottom"
                            @click="toggleActive($event, index)"></i>
                     </a>
 
-                    <slide-up-down :show="itemActive(index)">
+                    <slide-up-down :show="active === index || isPermanentlyActive[index]">
                         <ul class="frame__aside-hidden active">
                             <li class="frame__aside-inlist"
                                 v-for="(child, i) in item.children"
@@ -45,7 +46,7 @@
 
             </li>
         </ul>
-        
+
         <!-- additional nav -->
         <slot name="difnav"></slot>
     </div>
@@ -100,12 +101,24 @@ export default {
     },
 
 
+    computed: {
+
+        isPermanentlyActive() {
+            return this.links.map( link => {
+                return link.active || // active itself
+                       link.children && this.expanded || // all items expanded
+                       link.children && link.children.some( child => child.active ) // has active children
+            })
+        }
+    },
+
+
     methods: {
 
         itemActive(index) {
-            return this.active === index ||
-                   this.links[index].active ||
-                   this.expanded
+            return this.links[index].active ||
+                   this.expanded ||
+                   this.hasActiveChildren[index]
         },
 
         toggleActive( $event, index ) {
