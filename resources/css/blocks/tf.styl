@@ -22,6 +22,10 @@ for tag in tf_titles
 body
     font-size f_normal
 
+.mainwrapper .hljs
+    padding 25px 30px
+    line-height 1.5
+
 .vue-example
     margin-bottom tf_text_margin
 
@@ -174,11 +178,31 @@ kbd
     margin-right 5px
     display inline
     font-family fontfamily
+    color cl_white
+    background-color cl_black
 
 
 code
     font-family fontfamily
     display inline
+    padding-left 3px
+    padding-right 3px
+    {lt} &
+        background-color lighten(#ffeaa7, 20%)
+    {dt} &
+        background-color alpha(#ffeaa7, 0.2)
+    
+
+pre
+    code
+        {lt} &
+            background-color var(--tc_ui_bg) !important
+        {dt} &
+            background-color var(--tc_ui_bg_d) !important
+            color var(--tc_text_caption) !important
+            .hljs-tag
+                color var(--tc_text_caption) !important
+
 
 // Help Classes
 

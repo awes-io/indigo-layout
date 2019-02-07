@@ -76,5 +76,8 @@
     &_error
         .vue-tel-input
             border 1px solid cl_warn !important
+            &:focus-within
+                box-shadow none !important
+                border-color cl_warn !important
         & ^[0]__label
             color cl_warn

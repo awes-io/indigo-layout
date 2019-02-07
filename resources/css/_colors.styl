@@ -203,38 +203,7 @@ a
           color cl_asphalt
 
 
-.modal
-  background-color alpha(cl_black, 0.8)
-  & &__dialog
-    background-color var(--tc_ui_bg)
-  & &__close
-    color var(--tc_link_semi)
-    &:hover
-      color var(--tc_link_semi_active)
-  .line-btns
-    background-color var(--tc_ui_bg)
-    &__wrap
-      background-color var(--tc_ui_bg)
-    .btn
-      background-color cl_grass !important
-      color cl_white !important
-      &:hover, &:focus
-        background-color darken(cl_grass, 10%) !important
-        color cl_white
-      &:nth-child(2)
-        border-top 1px solid var(--tc_border_light)
-        background-color var(--tc_ui_bg) !important
-        color cl_asphalt !important
-        &:hover, &:focus
-          {lt} &
-            background-color var(--tc_ui_bg_d) !important
-          {dt} &
-            background-color var(--tc_ui_bg_l) !important
-          color cl_asphalt
-      &[disabled="disabled"]
-        background-color var(--tc_ui_darkbg) !important
-        pointer-events none
-        opacity 0.5
+
 
 
 
@@ -384,16 +353,7 @@ a
       color var(--tc_link_semi) !important
 
 
-.modal_fullscreen
-  background-color var(--tc_ui_bg)
-  .modal
-    &__header
-      border-bottom 1px solid var(--tc_border)
-      background-color var(--tc_ui_bg)
-    &__back
-      color var(--tc_link_semi)
-      &:hover
-        color var(--tc_link_semi_active)
+
 
 
 .radiobox
@@ -455,11 +415,7 @@ a
 
 
 
-.modal-form
-  & &__title
-    color var(--tc_text)
-  & &__buttons
-    border-top 1px solid var(--tc_border_ins)
+
 
 .loading-inline, .loading-block
   &:before
@@ -639,9 +595,7 @@ a
       {dt} &
         box-shadow 3px 4px 20px alpha(cl_black, 0.5) !important
 
-body.v--modal-block-scroll
-  .vue-notification
-    box-shadow none !important
+
 
 .flex-list
   & &__caption
@@ -866,17 +820,7 @@ table
       &:before, &:after
         background-color cl_heartlife
 
-kbd
-  color cl_white
-  background-color cl_black
 
-code
-  color var(--tc_text_mark)
-  
-
-pre
-  code
-    background-color: transparent
 
 .tf
   &-grey
@@ -1093,148 +1037,7 @@ pre
 
 
 
-.frame
-  & &__inlayout
-    &-block
-      border-left 1px solid var(--tc_border_light)
-  & &__mobile-shadow,
-  & &__overlay
-    @media res_tablet--lg
-      background-color var(--tc_ui_shadow-overflow)
-  & &__head
-    &-link
-      color var(--tc_link_semi)
-      @media res_tablet--lg
-        color var(--tc_aside_link)
-        opacity 0.4
-      &:hover
-        color var(--tc_aside_link)
-        @media res_tablet--lg
-          color var(--tc_aside_link)
-          opacity 1
 
-
-  & &__aside
-    background-image var(--tc_aside_gradient)
-    box-shadow 0 20px 30px rgba(0,0,0,0.1)
-    &-nav-inwrap .icon-angle-bottom
-      color var(--tc_aside_link)
-    &-mtitle
-      color var(--tc_aside_text)
-    &-close
-      color var(--tc_aside_text)
-    &-usermenu
-      .context-menu
-        // &:after
-        //   background-color var(--tc_ui_shadow-overflow)
-    &-open
-      span
-        background-color var(--tc_aside_link)
-        &:before
-          background-color var(--tc_aside_link)
-        &:after
-          background-color var(--tc_aside_link)
-    &-title
-      background-color var(--tc_aside_bg_dark)
-      color var(--tc_aside_text)
-      @media res_tablet--lg
-        background-color transparent
-    &-inlink
-      color var(--tc_aside_link)
-      &:before
-        background-color var(--tc_aside_link)
-      &:hover
-        &:before
-          background-color var(--tc_aside_link)
-    &-intitle
-      color var(--tc_aside_link)
-    &-link
-      color var(--tc_aside_link)
-      .icon
-        color var(--tc_aside_link)
-      &_active
-        &:before
-          background-color var(--tc_aside_bg_nav)
-    &-hidden
-      background-color var(--tc_aside_bg_nav)
-    &-line
-      @media res_tablet--lg
-        background-image var(--tc_aside_gradient_header)
-        color var(--tc_aside_text)
-        {lt} &
-          box-shadow 0 0 30px rgba(0,0,0,0.1)
-        {dt} &
-          box-shadow 0 0 30px alpha(cl_black, 0.7)
-      &_top
-          @media res_tablet--lg
-            box-shadow none
-    &-nav
-      @media res_tablet--lg
-        background-image var(--tc_aside_gradient)
-      &.active
-        @media res_tablet--lg
-          box-shadow 0 0 30px rgba(0,0,0,0.1)
-    &-li
-      &_active
-        & ^[0]__aside-link
-          opacity 1
-          &:before
-            height 100%
-            background-color var(--tc_aside_bg_dark)
-  & &__right
-    background-color var(--tc_page_bg)
-  & &__header
-    background-color var(--tc_header_bg)
-    &-rlink
-      border-color var(--tc_header_iconlink)
-      color var(--tc_header_iconlink)
-      &:hover
-        background-color var(--tc_header_iconlink)
-        color var(--tc_header_iconlink_active)
-    &-filter
-      color var(--tc_header_link)
-      &:hover
-        color var(--tc_header_link_active)
-    &-add
-      box-shadow 0 0 20px rgba(85, 61, 0, 0.15)
-      background-color var(--tc_ui_btn_smcolor)
-      color var(--tc_ui_btn_smcolor_text)
-      &:hover
-        background-color var(--tc_ui_btn_smcolor_active)
-        color var(--tc_ui_btn_smcolor_text)
-    &-title
-      color var(--tc_text)
-  & &__userinfo
-    @media res_tablet--sm
-      background-color var(--tc_header_bg)
-      box-shadow 0px -5px 30px rgba(92,92,92,0.05)
-    &-link
-      .icon
-        color var(--tc_header_link)
-      &:hover
-        .icon
-          color var(--tc_header_link_active)
-    &_twolinks
-      a
-        border-right-color var(--tc_border)
-  & &__usermenu
-    .context-menu__dropdown
-      box-shadow 0 10px 20px 5px var(--tc_ui_bg_darken)
-  & &__search
-    &-input
-      border-bottom 1px solid var(--tc_border_ins)
-      background-color transparent
-      color var(--tc_text)
-      &:focus
-        border-bottom 1px solid var(--tc_border_active)
-    &-link
-      color var(--tc_header_link)
-      &:hover
-        color var(--tc_header_link_active)
-    &-close
-      color var(--tc_header_link)
-      &:hover
-        color var(--tc_header_link_active)
 
 
 .todolist

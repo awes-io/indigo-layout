@@ -14,6 +14,7 @@
       display block
       width 300px
       padding 15px 0px 15px 40px
+      border-left 1px solid var(--tc_border_light)
       &_fixed
         fixed top 30px right 40px
         z-index 750
@@ -27,6 +28,9 @@
       padding-right 15px
     &-link
       margin-left 20px
+      color var(--tc_link_semi)
+      &:hover
+        color var(--tc_aside_link)
     &-callbtn
       margin-left 30px
       padding-top 12px
@@ -40,9 +44,15 @@
     width 260px
     min-height 100vh
     flex-shrink 0
-    z-index 990   
+    z-index 990
+    background-image var(--tc_aside_gradient)
+    box-shadow 0 20px 30px rgba(0,0,0,0.1)
+    &-intitle
+      color var(--tc_aside_link)
     &-callbtn
       display none   
+    &-nav-inwrap .icon-angle-bottom
+      color var(--tc_aside_link)
     &-ava
       display block
       size 50px
@@ -72,6 +82,7 @@
       overflow hidden
       text-overflow ellipsis
       margin-bottom 0
+      color var(--tc_aside_text)
     &-usermenu
       z-index: 1505
       margin-left: 14px
@@ -100,12 +111,14 @@
         transform translate(-50%, -50%)
         transition all 0.3s ease
         border-radius 3px
+        background-color var(--tc_aside_link)
         &:before
           size 24px 2px
           display block
           absolute left 0 top -7px
           transition all 0.3s ease
           border-radius 3px
+          background-color var(--tc_aside_link)
           content ""
         &:after
           size 24px 2px
@@ -113,6 +126,7 @@
           transition all 0.3s ease
           border-radius 3px
           absolute left 0 bottom -7px
+          background-color var(--tc_aside_link)
           content ""
     &-title
       text(f_big, 700)
@@ -121,6 +135,8 @@
       text-align center
       min-height 110px
       margin-bottom 0
+      background-color var(--tc_aside_bg_dark)
+      color var(--tc_aside_text)
       span
         text-overflow ellipsis
         max-width 100%
@@ -129,6 +145,7 @@
     &-hidden
       padding-bottom 10px
       display none
+      background-color var(--tc_aside_bg_nav)
       &.active
         display block
     &-inlist
@@ -143,11 +160,13 @@
       font-size f_small
       position relative
       padding-left 17px
+      color var(--tc_aside_link)
       &:before
         opacity 0.5
         absolute left 5px top 50%
         display block
         flex-shrink 0
+        background-color var(--tc_aside_link)
         size 5px 1px
         tr(0.3)
         content ""
@@ -157,7 +176,10 @@
         &:before
           left 0
           width 10px
+          background-color var(--tc_aside_link)
           opacity 1
+    &-close
+      color var(--tc_aside_text)
     &-link
       fl(,,c)
       min-height 60px
@@ -166,6 +188,7 @@
       position relative
       opacity 0.4
       tr(0.5)
+      color var(--tc_aside_link)
       &:before
         display block
         size 100% 0px
@@ -179,6 +202,7 @@
         font-size 17px
         display block
         margin-right 15px
+        color var(--tc_aside_link)
         tr(1.5)
       .icon-angle-bottom
         fl(w,c,c)
@@ -201,6 +225,7 @@
         opacity 1
         &:before
           height 100%
+          background-color var(--tc_aside_bg_nav)
         .icon-angle-bottom:before
           transform scaleY(-1)
       &_sub
@@ -214,15 +239,22 @@
         div
           display block !important
           height auto !important
+        & ^[0]__aside-link
+          opacity 1
+          &:before
+            height 100%
+            background-color var(--tc_aside_bg_dark)
 
   & &__max
     max-width 680px
   & &__right
     width calc(100% - 260px)
     position relative
+    background-color var(--tc_page_bg)
   & &__header
     min-height 110px
     position relative
+    background-color var(--tc_header_bg)
     &-lwrap
       width 70%
       fl(w,sb,c)
@@ -233,6 +265,11 @@
       border 1px solid
       fl(,c,c)
       font-size 14px
+      border-color var(--tc_header_iconlink)
+      color var(--tc_header_iconlink)
+      &:hover
+        background-color var(--tc_header_iconlink)
+        color var(--tc_header_iconlink_active)
     &-top
       padding-left 40px
       min-height 50px
@@ -241,6 +278,7 @@
     &-title
       text(f_big, 700, 1)
       margin-bottom 0
+      color var(--tc_text)
     &-line
       padding 10px 40px 15px 40px
     &-filter
@@ -249,10 +287,13 @@
       size 32px 15px
       cursor pointer
       tr(0.3)
+      color var(--tc_header_link)
       .icon
         position relative
       &:after
         angle()
+      &:hover
+        color var(--tc_header_link_active)
     &-add
       size 48px
       cursor pointer
@@ -262,12 +303,18 @@
       font-size 19px
       z-index 750
       fl(,c,c)
+      box-shadow 0 0 20px rgba(85, 61, 0, 0.15)
+      background-color var(--tc_ui_btn_smcolor)
+      color var(--tc_ui_btn_smcolor_text)
+      &:hover
+        background-color var(--tc_ui_btn_smcolor_active)
+        color var(--tc_ui_btn_smcolor_text)
   & &__usermenu
     min-width: 50px
     margin-left 15px
     z-index: 795
-    @media res_tablet--lg
-      display: none
+    .context-menu__dropdown
+      box-shadow 0 10px 20px 5px var(--tc_ui_bg_darken)
   & &__userinfo
     fl(,fe,c)
     padding-right 55px
@@ -281,8 +328,14 @@
         font-size 16px
         tr(0.3)
         position relative
+        color var(--tc_header_link)
       &:hover
         text-decoration none
+        .icon
+          color var(--tc_header_link_active)
+    &_twolinks
+      a
+        border-right-color var(--tc_border)
     
   & &__search
     fl(,,c)
@@ -294,6 +347,9 @@
       flex-shrink 0
       font-size 20px
       tr(0.3)
+      color var(--tc_header_link)
+      &:hover
+        color var(--tc_header_link_active)
     &.active
       & ^[0]__search-hidden
         width 275px
@@ -303,6 +359,11 @@
       width 100%
       height 26px
       font-size 16px
+      border-bottom 1px solid var(--tc_border_ins)
+      background-color transparent
+      color var(--tc_text)
+      &:focus
+        border-bottom 1px solid var(--tc_border_active)
     &-hidden
       position relative
       tr(0.3)
@@ -316,6 +377,9 @@
       flex-shrink 0
       cursor pointer
       font-size 14px
+      color var(--tc_header_link)
+      &:hover
+        color var(--tc_header_link_active)
   & &__content
     padding 30px 40px
     position relative
@@ -326,82 +390,15 @@
     z-index 950
     &.animated
       animation-duration .15s
-    @media res_tablet--lg-i
-      opacity 0 !important
+
 
 @media res_tablet--lg-i
   .frame
     & &__usermenu
       .context-menu__overlay
         display: none
-
-
-.loading-block
-  position relative
-  *
-    pointer-events none
-  &:before
-    size 100%
-    pointer-events auto !important
-    display block
-    absolute left 0 top 0
-    opacity 0.75
-    z-index 700
-    content ''
-  &:after
-    padding 0 32px 0 52px
-    box-shadow 3px 4px 20px rgba(0, 0, 0, 0.2)
-    border-radius 15px
-    height 30px
-    background-color rgba(0,0,0,0.4)
-    fl(,c,c)
-    color #fff
-    line-height 1
-    text-align center
-    z-index 701
-    white-space nowrap
-    max-width 200px
-    overflow hidden
-    text-overflow ellipsis
-    absolute left 50% top 10%
-    transform translateX(-50%)
-    bg('loading.svg', left 30px center)
-    content attr(data-loading)
-
-.loading-inline
-  cursor default
-  @extend .loading-block
-  text-indent -9999px
-  &:before
-    opacity 0.4
-  &:after
-    text-indent 0
-    box-shadow none
-    border-radius 0
-    padding 0 0 0 20px
-    background none
-    height 100%
-    absolute left 50% top 0
-    bg('loading.svg', left center)
-
-.loading-show
-  position relative
-  &:after
-    padding 0 32px 0 52px
-    box-shadow 3px 4px 20px rgba(0, 0, 0, 0.2)
-    border-radius 15px
-    height 30px
-    background-color rgba(0,0,0,0.4)
-    fl(,c,c)
-    color #fff
-    line-height 1
-    text-align center
-    z-index 701
-    absolute left 50% bottom -15px
-    transform translateX(-50%)
-    bg('loading.svg', left 30px center)
-    content attr(data-loading)
-
+    & &__overlay
+      opacity 0 !important
 
 @media res_desktop--lg
   .frame
@@ -485,8 +482,12 @@
         padding 10px 40px
         margin 0
         width 100%
+        color var(--tc_aside_link)
+        opacity 0.4
         &:hover
           text-decoration none
+          color var(--tc_aside_link)
+          opacity 1
     & &__mobile-shadow
       fixed top 0 left 0
       width 100%
@@ -535,9 +536,11 @@
         flex-direction column
         opacity 0
         transition left 0.3s ease, opacity 0.2s ease
+        background-image var(--tc_aside_gradient)
         &.active
           left 0
           opacity 1
+          box-shadow 0 0 30px rgba(0,0,0,0.1)
         &-wrap
           overflow auto
           absolute left 0 top 64px
@@ -567,13 +570,23 @@
         size 100% 64px
         z-index 900
         tr(0.1)
+        background-image var(--tc_aside_gradient_header)
+        color var(--tc_aside_text)
+        {lt} &
+          box-shadow 0 0 30px rgba(0,0,0,0.1)
+        {dt} &
+          box-shadow 0 0 30px alpha(cl_black, 0.7)
         &_top
           top -64px
-          box-sahdow none
+          box-shadow none
         &_fixed
           top 0
     & &__userinfo
       padding-right 0
+    & &__mobile-shadow, & &__overlay
+      background-color var(--tc_ui_shadow-overflow)
+    & &__usermenu
+      display: none
       
 
 
@@ -613,8 +626,8 @@
       padding-left 12%
       padding-right 12%
       justify-content space-around
-      // &-ava
-      //   display none
+      background-color var(--tc_header_bg)
+      box-shadow 0px -5px 30px rgba(92,92,92,0.05)
       &-hidden
         display none !important
       &-link

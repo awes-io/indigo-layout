@@ -5,7 +5,6 @@
     <title>Placeholder Test</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
     <script>const AWES_CONFIG = {
     key: '680a7d07f89b94e7fc83be657a2daa27',
@@ -17,7 +16,7 @@
 }</script>
     <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/theme-switcher/v0.x.x/js/main.js"></script><!-- there is can be head meta or sctipts-->
     <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/modal/v0.x.x/js/main.js" type="module"></script>
-    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/form-builder/v1.0.3/js/main.js" type="module"></script>
+    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/form-builder/v1.0.4/js/main.js" type="module"></script>
     <script src="/js/main.js"></script>
     <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/base-js/v1.x.x/js/main.js"></script>
 </head>
@@ -36,7 +35,7 @@
                     <div class="frame__aside-mhead g-res--tablet-lg"><a class="frame__aside-close" href="" @click.prevent="$awesLayoutCrm.openNav()"><i class="icon icon-cross"></i></a>
                         <h4 class="frame__aside-mtitle"><span>AwesCRM</span></h4>
                     </div>
-                    <frame-nav :links="[{name:'Dashboard', icon:'speed', link: '/newform.html'}, {name:'Admin', icon:'report', link: '/newform.html', children: [{name:'Dashboard', link: '/modal.html'}]}, {name:'Admin', icon:'report', children: [{name:'Dashboard', link: '/modal.html'}]}]">
+                    <frame-nav :links="[{name:'Dashboard', icon:'speed', link: '/newform.html'}, {name:'Admin', icon:'report', link: '/newform.html', children: [{name:'Dashboard', link: '/modal.html'}]}, {name:'Admin', icon:'report', children: [{name:'Dashboard', link: '/modal.html', active: true}]}]">
                         <div class="ph">
                             <div class="ph__mnav"><span class="ph__mnav-link"></span><span class="ph__mnav-title"></span></div>
                             <ul class="ph__nav">
@@ -425,6 +424,7 @@
                     <p>Новые формы</p>
                     <form-builder url="http://httpbin.org/post" disabled-dialog>
                         <p>All form elements has mod <code>blockname_error</code>, <code>blockname_ok</code>, <code>blockname_disabled</code></p>
+                        <p>Сайт рыбатекст <a href="#re">consectetur adipisicing elit</a>поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях. При создании генератора мы использовали небезизвестный универсальный код речей. Текст генерируется абзацами случайным образом от двух до десяти предложений в абзаце, что позволяет сделать текст более привлекательным и живым для визуально-слухового восприятия.</p>
                         <h4>Switcher</h4>
                         <fb-group>
                             <fb-switcher label="switcher" name="switcher1" cell="2"> </fb-switcher>
