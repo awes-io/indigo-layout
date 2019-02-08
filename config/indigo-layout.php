@@ -4,9 +4,22 @@ return [
 
     'name' => env('APP_NAME', 'AwesCRM'),
 
-    'links' => [
-        //'sign_in' => 'https://your-site/'
-    ],
+//    'simple_navs' => [
+//        'btn' => [
+//            'link' =>'https://your-site/',
+//            'text' => 'Main button'
+//        ],
+//        'links' => [
+//            [
+//                'link' =>'https://your-site/',
+//                'text' => 'Link'
+//            ]
+//        ],
+//    ],
+//
+//    'root_variables' => [
+//        '--tc_aside_gradient' => 'linear-gradient(0deg,#0B88EE 0%,#122ACC)'
+//    ],
     
     'src' => [
         'script' => 'awes-io/indigo-layout/v0.x.x/js/main.js',

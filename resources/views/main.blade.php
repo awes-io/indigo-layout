@@ -12,13 +12,13 @@
         @isset($navs)
         <div class="frame__aside" id="aside">
             <div class="frame__aside-line"><span class="frame__aside-open g-res--tablet-lg" :class="{ active: $awesLayoutCrm.togglenav }" @click="$awesLayoutCrm.openNav"><span></span></span>
-                <h2 class="frame__aside-title">{{ config('indigo-layout.name') }}</h2>
-                @if(config('indigo-layout.links.sign_in'))<a href="{{ config('indigo-layout.links.sign_in') }}" class="btn frame__aside-callbtn">Sign In</a>@endif
+                <h2 class="frame__aside-title">{!! config('indigo-layout.name') !!}</h2>
+                @if(config('indigo-layout.simple_navs.btn'))<a class="btn frame__aside-callbtn" href="{{ config('indigo-layout.simple_navs.btn.link') }}">{{ config('indigo-layout.simple_navs.btn.text') }}</a>@endif
                 {{--<button class="frame__aside-ava" @click="$awesLayoutCrm.showUserMenu = ! $awesLayoutCrm.showUserMenu"><i class="icon icon-user novatar novatar_box"></i></button>--}}
             </div>
             <nav class="frame__aside-nav" v-bind:class="{ active: $awesLayoutCrm.togglenav }">
                 <div class="frame__aside-mhead g-res--tablet-lg"><a class="frame__aside-close" href="" @click.prevent="$awesLayoutCrm.openNav()"><i class="icon icon-cross"></i></a>
-                    <h4 class="frame__aside-mtitle"><span>{{ config('indigo-layout.name') }}</span></h4>
+                    <h4 class="frame__aside-mtitle"><span>{!! config('indigo-layout.name') !!}</span></h4>
                 </div>
                 <frame-nav :links='@json($navs)'>
                     <div class="ph">
@@ -36,9 +36,12 @@
                             <div class="frame__head-link">
                                 <theme-switcher></theme-switcher>
                             </div>
-                            {{--<a class="frame__head-link" href="">Link 1</a>--}}
-                            {{--<a class="frame__head-link" href="">Link 2</a>--}}
-                            @if(config('indigo-layout.links.sign_in'))<a class="btn frame__head-callbtn" href="{{ config('indigo-layout.links.sign_in') }}">Sign In</a>@endif
+                            @if(config('indigo-layout.simple_navs.links'))
+                            @foreach(config('indigo-layout.simple_navs.links') as $link)
+                            <a class="frame__head-link" href="{{ $link['link'] ?? '' }}">{{ $link['text'] ?? '' }}</a>
+                            @endforeach
+                            @endif
+                            @if(config('indigo-layout.simple_navs.btn'))<a class="btn frame__head-callbtn" href="{{ config('indigo-layout.simple_navs.btn.link') }}">{{ config('indigo-layout.simple_navs.btn.text') }}</a>@endif
                         </div>
                     </template>
                 </frame-nav>
