@@ -2,6 +2,12 @@
 
 return [
 
+    'name' => env('APP_NAME', 'AwesCRM'),
+
+    'links' => [
+        //'sign_in' => 'https://your-site/'
+    ],
+    
     'src' => [
         'script' => 'awes-io/indigo-layout/v0.x.x/js/main.js',
         'script_legacy' => 'awes-io/indigo-layout/v0.x.x/js/main.legacy.js',

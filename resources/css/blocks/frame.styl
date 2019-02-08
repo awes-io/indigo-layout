@@ -47,6 +47,8 @@
     z-index 990
     background-image var(--tc_aside_gradient)
     box-shadow 0 20px 30px rgba(0,0,0,0.1)
+    & + ^[0]__right
+      width calc(100% - 260px)
     &-intitle
       color var(--tc_aside_link)
     &-callbtn
@@ -248,7 +250,7 @@
   & &__max
     max-width 680px
   & &__right
-    width calc(100% - 260px)
+    width 100%
     position relative
     background-color var(--tc_page_bg)
   & &__header
@@ -434,6 +436,8 @@
   .frame
     & &__aside
       width 210px
+      & + ^[0]__right
+        width calc(100% - 210px)
       &-title
         padding-left 15px
         padding-right 15px
@@ -443,8 +447,6 @@
         padding-left 15px
         padding-right 15px
         min-height 50px
-    & &__right
-      width calc(100% - 210px)
     & &__content
       padding 30px 20px
     & &__header
@@ -501,6 +503,8 @@
       box-shadow none
       position static
       z-index auto
+      & + ^[0]__right
+        width 100%
       &-callbtn
         display block
         margin-right 15px

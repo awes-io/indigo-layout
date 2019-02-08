@@ -23,10 +23,10 @@
         opacity: 0
         &::-moz-focus-outer
             border-color: transparent
-    &.is-active
-        .theme-switcher__switcher
+    &_active
+        & ^[0]__field-wrap
             switcher-active()
-            background-color cl_grass
+            background-color cl_grass !important
     & &__label
         position relative
         padding-left 42px
