@@ -33,7 +33,7 @@
                     </div>
                     <template slot="difnav">
                         <div class="frame__head-rlinks">
-                            <div class="frame__head-link">
+                            <div class="frame__rccell">
                                 <theme-switcher></theme-switcher>
                             </div>
                             {{--<a class="frame__head-link" href="">Link 1</a>--}}
@@ -51,10 +51,10 @@
                     <form class="frame__search" id="search" v-bind:class="{ active: $awesLayoutCrm.showSearch }" action="js" method="get"> <span class="frame__search-link" v-on:click="$awesLayoutCrm.showSearch = !$awesLayoutCrm.showSearch"><i class="icon icon-search"></i></span>
                         <div class="frame__search-hidden"><input class="frame__search-input" type="text" placeholder="Search..."><button class="frame__search-btn" type="submit">Search</button><span class="frame__search-close" v-on:click="$awesLayoutCrm.showSearch = !$awesLayoutCrm.showSearch"></span><i class="icon icon-cross"></i></div>
                     </form>
-                    <div class="frame__userinfo">
-                        {{--<a class="frame__userinfo-link" href=""><span class="icon icon-ruppor"><i class="icn-dot"></i></span></a>--}}
-                        {{--<a class="frame__userinfo-link" href=""><span class="icon icon-hdd"><i class="icn-dot"></i></span></a>--}}
-                    </div>
+                    {{-- <div class="frame__userinfo">
+                        <a class="frame__userinfo-link" href=""><span class="icon icon-ruppor"><i class="icn-dot"></i></span></a>
+                        <a class="frame__userinfo-link" href=""><span class="icon icon-hdd"><i class="icn-dot"></i></span></a>
+                    </div> --}}
                 </div>
                 <div class="frame__header-line">
                     @isset($h1)<h1 class="frame__header-title">{!! $h1 !!}</h1>@endisset
