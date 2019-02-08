@@ -5,9 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700" rel="stylesheet">
 
+
+
 @isset($src['style']['indigo-layout'])
     <link rel="stylesheet" href="{{ $src['style']['indigo-layout'] }}">
 @endisset
+
+@if(config('indigo-layout.root_variables'))
+    <style>
+        :root:not([data-dark=true]), :root[data-dark=true] {
+            @foreach(config('indigo-layout.root_variables') as $k => $v)
+            {{ $k }}: {{ $v }};
+            @endforeach
+        }
+    </style>
+@endif
 
     <!-- config -->
     <script>AWES_CONFIG = @json(config('base-js'))</script>
