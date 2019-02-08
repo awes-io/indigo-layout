@@ -25,7 +25,7 @@
       absolute right 0 top 0
       height 50px
       fl(,fe,c)
-      padding-right 15px
+      padding-right 30px
     &-link
       margin-left 20px
       color var(--tc_link_semi)
@@ -85,6 +85,8 @@
       text-overflow ellipsis
       margin-bottom 0
       color var(--tc_aside_text)
+      a
+        color var(--tc_aside_text)
     &-usermenu
       z-index: 1505
       margin-left: 14px
@@ -134,16 +136,17 @@
       text(f_big, 700)
       fl(,c,c)
       padding 20px
-      text-align center
       min-height 110px
       margin-bottom 0
       background-color var(--tc_aside_bg_dark)
       color var(--tc_aside_text)
-      span
+      span, a
         text-overflow ellipsis
         max-width 100%
         overflow hidden
         display block
+        color var(--tc_aside_link)
+      
     &-hidden
       padding-bottom 10px
       display none
@@ -188,7 +191,7 @@
       width 100%
       padding 10px 30px
       position relative
-      opacity 0.4
+      opacity 0.7
       tr(0.5)
       color var(--tc_aside_link)
       &:before
@@ -248,6 +251,8 @@
             background-color var(--tc_aside_bg_dark)
   & &__rccell
     margin-left 15px
+    & + ^[0]__head-link
+      margin-left 30px 
   & &__max
     max-width 680px
   & &__right
@@ -475,13 +480,25 @@
       margin-left 0
       padding 10px 40px
       width 100%
+      order 100
+      margin-top 20px
       color var(--tc_aside_link)
+      .theme-switcher
+        &__label
+          color var(--tc_aside_link) !important
+          opacity 0.7
+        &:hover
+          .theme-switcher__label
+            opacity 1
+      & + ^[0]__head-link
+        margin-left 0
     & &__head
       &-rlinks
         position static
         flex-wrap wrap
         width 100%
-        padding 20px 0 0 0
+        padding 0
+        
       &-callbtn
         display none
       &-link
@@ -562,7 +579,6 @@
         background-color transparent
         padding-left 10px
         padding-right 10px
-        text-align center
         font-weight 400
         font-size f_middle
         display block

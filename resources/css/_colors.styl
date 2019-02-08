@@ -395,19 +395,23 @@ a
   background-color cl_warn
 
 
-
-
 .theme-switcher
-    &__switcher
-        {lt} &
-            background-color var(--tc_ui_darkbg)
-        {dt} &
-            background-color var(--tc_ui_darkbg_d)
-        &:before
-            background-color cl_white
-            box-shadow 0px 0px 5px var(--tc_ui_darkbg_o)
-    &.is-active .theme-switcher__switcher
-        background-color cl_grass
+  &__label
+    color var(--tc_text_caption)
+    tr(0.25)
+  &__switcher
+    {lt} &
+        background-color var(--tc_ui_darkbg)
+    {dt} &
+        background-color var(--tc_ui_darkbg_d)
+    &:before
+        background-color cl_white
+        box-shadow 0px 0px 5px var(--tc_ui_darkbg_o)
+  &.is-active .theme-switcher__switcher
+      background-color cl_grass
+  &:hover
+    & ^[0]__label
+      color var(--tc_text)
 
 
 

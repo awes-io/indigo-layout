@@ -5,6 +5,7 @@
     <title>Компонент контекстное меню (context-menu)</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700&amp;amp;subset=cyrillic" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
     <script>const AWES_CONFIG = {
     key: '680a7d07f89b94e7fc83be657a2daa27',
@@ -44,7 +45,14 @@
                                 <li><span class="ph__nav-icon"></span><span class="ph__nav-text"></span></li>
                             </ul>
                         </div><template slot="difnav">
-                            <div class="frame__head-rlinks"><a class="frame__head-link" href="">Link 1</a><a class="frame__head-link" href="">Link 2</a><a class="btn frame__head-callbtn" href="">Sign In</a></div>
+                            <div class="frame__head-rlinks">
+                                <div class="frame__rccell">
+                                    <div class="theme-switcher">
+                                        <div class="theme-switcher__switcher"><input class="theme-switcher__input" type="range" min="0" max="1"></div>
+                                        <div class="theme-switcher__label">Theme Dark</div>
+                                    </div>
+                                </div><a class="frame__head-link" href="">Link 1</a><a class="frame__head-link" href="">Link 2</a><a class="btn frame__head-callbtn" href="">Sign In</a>
+                            </div>
                         </template>
                     </frame-nav>
                 </nav>
@@ -100,7 +108,7 @@ genApacheConf(){
     echo -e "# Host ${HOME_DIR}$1/$2 :"
 }
 </code></pre>
-                            <h2>Test PHP</h2><pre><code class="language-php">require_once 'Zend/Uri/Http.php';
+                            <h2>Test PHP</h2><pre data-codelabel="PHP"><code class="language-php">require_once 'Zend/Uri/Http.php';
 
 namespace Location\Web;
 
@@ -153,7 +161,7 @@ datahere
 datahere */
 datahere
 </code></pre>
-                            <h2>Test Blade (language - php)</h2><pre><code class="language-php">@extends('layout')
+                            <h2>Test Blade (language - php)</h2><pre><code class="language-html">@extends('layout')
 
 @section('title', _p('managers.h1', 'List of managers'))
 

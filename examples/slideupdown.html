@@ -5,6 +5,7 @@
     <title>Slide Up Down</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700&amp;amp;subset=cyrillic" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
     <script>const AWES_CONFIG = {
     key: '680a7d07f89b94e7fc83be657a2daa27',
@@ -30,11 +31,11 @@
             </transition>
             <div class="frame__aside" id="aside">
                 <div class="frame__aside-line"><span class="frame__aside-open g-res--tablet-lg" :class="{ active: $awesLayoutCrm.togglenav }" @click="$awesLayoutCrm.openNav"><span></span></span>
-                    <h2 class="frame__aside-title">AwesCRM</h2><button class="frame__aside-ava" @click="$awesLayoutCrm.showUserMenu = ! $awesLayoutCrm.showUserMenu"><i class="icon icon-user novatar novatar_box"></i></button>
+                    <h2 class="frame__aside-title"> <a href="">AwesCRM</a></h2><button class="frame__aside-ava" @click="$awesLayoutCrm.showUserMenu = ! $awesLayoutCrm.showUserMenu"><i class="icon icon-user novatar novatar_box"></i></button>
                 </div>
                 <nav class="frame__aside-nav" v-bind:class="{ active: $awesLayoutCrm.togglenav }">
                     <div class="frame__aside-mhead g-res--tablet-lg"><a class="frame__aside-close" href="" @click.prevent="$awesLayoutCrm.openNav()"><i class="icon icon-cross"></i></a>
-                        <h4 class="frame__aside-mtitle"><span>AwesCRM</span></h4>
+                        <h4 class="frame__aside-mtitle"><a href="">AwesCRM</a></h4>
                     </div>
                     <frame-nav :links="[{name:'Dashboard', icon:'speed', link: '/newform.html'}, {name:'Admin', icon:'report', link: '/newform.html', children: [{name:'Dashboard', link: '/modal.html'}]}, {name:'Admin', icon:'report', children: [{name:'Dashboard', link: '/modal.html', active: true}]}]">
                         <div class="ph">
