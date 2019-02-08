@@ -29,9 +29,6 @@ body
 .vue-example
     margin-bottom tf_text_margin
 
-code
-    margin-bottom tf_margin
-
 h1
     margin-bottom tf_margin
     font-weight 700
@@ -185,15 +182,19 @@ kbd
 code
     font-family fontfamily
     display inline
-    padding 3px 7px
-    {lt} &
-        background-color lighten(#ffeaa7, 20%)
-    {dt} &
-        background-color alpha(#ffeaa7, 0.2)
+    padding 2px 4px
+    color var(--tc_code_text)
+    background-color var(--tc_code_bg)
+    margin-bottom tf_margin
+    white-space nowrap
     
 
 pre
     code
+        padding 30px
+        width 100%
+        white-space pre
+        display block
         {lt} &
             background-color var(--tc_ui_bg) !important
         {dt} &

@@ -49,7 +49,7 @@ const awesPlugin = {
         'highlight': {
             src: [
                 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js',
-                'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/github-gist.min.css'
+                'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/atom-one-light.min.css'
             ]
         },
         'highlight_langs': {
@@ -59,7 +59,11 @@ const awesPlugin = {
             deps: ['highlight'],
             cb() {
                 document.querySelectorAll('pre code[class*="language-"]').forEach(block => {
-                    hljs.highlightBlock(block)
+
+                    
+
+
+                    hljs.highlightBlock(block);
                 })
             }
         }

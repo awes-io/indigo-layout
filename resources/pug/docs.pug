@@ -45,7 +45,7 @@ block pageContent
                     }
 
             h2 Test PHP
-            pre
+            pre(data-codelabel="PHP")
                 code.language-php.
                     require_once 'Zend/Uri/Http.php';
 
@@ -102,7 +102,7 @@ block pageContent
 
             h2 Test Blade (language - php)
             pre
-                code.language-php.
+                code.language-html.
                     @extends('layout')
 
                     @section('title', _p('managers.h1', 'List of managers'))

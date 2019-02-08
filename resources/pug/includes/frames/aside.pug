@@ -2,7 +2,8 @@
     .frame__aside-line
         span.frame__aside-open.g-res--tablet-lg( :class="{ active: $awesLayoutCrm.togglenav }" @click="$awesLayoutCrm.openNav")
             span
-        h2.frame__aside-title AwesCRM
+        h2.frame__aside-title 
+            a(href="") AwesCRM
         button.frame__aside-ava(@click="$awesLayoutCrm.showUserMenu = ! $awesLayoutCrm.showUserMenu")
             i.icon.icon-user.novatar.novatar_box
     nav.frame__aside-nav(v-bind:class="{ active: $awesLayoutCrm.togglenav }")
@@ -10,7 +11,7 @@
             a.frame__aside-close(href="" @click.prevent="$awesLayoutCrm.openNav()")
                 i.icon.icon-cross
             h4.frame__aside-mtitle
-                span AwesCRM
+                a(href="") AwesCRM
         frame-nav(:links="[{name:'Dashboard', icon:'speed', link: '/newform.html'}, {name:'Admin', icon:'report', link: '/newform.html', children: [{name:'Dashboard', link: '/modal.html'}]}, {name:'Admin', icon:'report', children: [{name:'Dashboard', link: '/modal.html', active: true}]}]")
             div.ph
                 div.ph__mnav
