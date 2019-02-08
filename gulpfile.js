@@ -70,7 +70,7 @@ gulp.task('build:styles', function(){
     .pipe( stylus({ use: nib(), 'include css': true, import: ['nib'], compress: false }) )
     .pipe( isDev ? noop() : postcss() )
     .pipe( isDev ? sourcemaps.write() : noop() )
-    .pipe(inject.prepend('/* Created: ' + Date() + ' */\n'))
+    .pipe(inject.prepend('/* Created: ' + new Date().toLocaleString("ru-RU") + ' */\n'))
     .pipe( gulp.dest('./dist/css') )
     .pipe( isDev ? browserSync.stream() : noop() )
 })
