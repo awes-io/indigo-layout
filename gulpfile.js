@@ -12,6 +12,7 @@ const pug = require('gulp-pug')
 const prettyHtml = require('gulp-pretty-html')
 const iconfont = require('gulp-iconfont')
 const consolidate = require('gulp-consolidate')
+const inject = require('gulp-inject-string')
 
 // Types
 const isDev = process.env.NODE_ENV === 'development'
@@ -69,6 +70,7 @@ gulp.task('build:styles', function(){
     .pipe( stylus({ use: nib(), 'include css': true, import: ['nib'], compress: false }) )
     .pipe( isDev ? noop() : postcss() )
     .pipe( isDev ? sourcemaps.write() : noop() )
+    .pipe(inject.prepend('/* Created: ' + Date() + ' */\n'))
     .pipe( gulp.dest('./dist/css') )
     .pipe( isDev ? browserSync.stream() : noop() )
 })
