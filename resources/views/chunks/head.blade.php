@@ -13,7 +13,7 @@
 
 @if(config('indigo-layout.root_variables'))
     <style>
-        :root:not([data-dark=true]), :root[data-dark=true] {
+        :root:not([data-dark=true]) {
             @foreach(config('indigo-layout.root_variables') as $k => $v)
             {{ $k }}: {{ $v }};
             @endforeach
