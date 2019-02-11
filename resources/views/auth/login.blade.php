@@ -1,4 +1,4 @@
-<form-builder disabled-dialog="" url="{{ route('login') }}" btntext="Login">
+<form-builder disabled-dialog="" url="{{ route('login') }}" send-text="Login">
     <fb-input name="email" type="email" label="E-Mail" focus=""></fb-input>
     <fb-input name="password" label="Password" type="password"></fb-input>
     <div class="login-page__checkform">
