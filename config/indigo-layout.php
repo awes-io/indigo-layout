@@ -20,6 +20,10 @@ return [
 //    'root_variables' => [
 //        '--tc_aside_gradient' => 'linear-gradient(0deg,#0B88EE 0%,#122ACC)'
 //    ],
+//
+//    'custom_styles' => [
+//        'html p' => 'color: black',
+//    ],
 
     'bg' => 'https://picsum.photos/600/900/?random',
     
