@@ -11,7 +11,8 @@
         </transition>
         @isset($navs)
         <div class="frame__aside" id="aside">
-            <div class="frame__aside-line"><span class="frame__aside-open g-res--tablet-lg" :class="{ active: $awesLayoutCrm.togglenav }" @click="$awesLayoutCrm.openNav"><span></span></span>
+            <div class="frame__aside-line">
+                <span class="frame__aside-open g-res--tablet-lg" :class="{ active: $awesLayoutCrm.togglenav }" @click="$awesLayoutCrm.openNav"><span></span></span>
                 <h2 class="frame__aside-title">{!! config('indigo-layout.name') !!}</h2>
                 @if(config('indigo-layout.simple_navs.btn'))<a class="btn frame__aside-callbtn" href="{{ config('indigo-layout.simple_navs.btn.link') }}">{{ config('indigo-layout.simple_navs.btn.text') }}</a>@endif
                 {{--<button class="frame__aside-ava" @click="$awesLayoutCrm.showUserMenu = ! $awesLayoutCrm.showUserMenu"><i class="icon icon-user novatar novatar_box"></i></button>--}}
@@ -32,17 +33,17 @@
                         </ul>
                     </div>
                     <template slot="difnav">
-                        <div class="frame__head-rlinks">
-                            <div class="frame__rccell">
-                                <theme-switcher></theme-switcher>
-                            </div>
+                        <ul class="frame__aside-mnav">
                             @if(config('indigo-layout.simple_navs.links'))
-                            @foreach(config('indigo-layout.simple_navs.links') as $link)
-                            <a class="frame__head-link" href="{{ $link['link'] ?? '' }}">{{ $link['text'] ?? '' }}</a>
-                            @endforeach
+                                @foreach(config('indigo-layout.simple_navs.links') as $link)
+                                    <li><a class="frame__aside-link" href="{{ $link['link'] ?? '' }}">{{ $link['text'] ?? '' }}</a></li>
+                                @endforeach
                             @endif
-                            @if(config('indigo-layout.simple_navs.btn'))<a class="btn frame__head-callbtn" href="{{ config('indigo-layout.simple_navs.btn.link') }}">{{ config('indigo-layout.simple_navs.btn.text') }}</a>@endif
-                        </div>
+                            <li class="frame__aside-link">
+                                <theme-switcher></theme-switcher>
+                            </li>
+                            
+                        </ul>
                     </template>
                 </frame-nav>
             </nav>
@@ -52,12 +53,17 @@
             <div class="frame__header">
                 <div class="frame__header-top">
                     <form class="frame__search" id="search" v-bind:class="{ active: $awesLayoutCrm.showSearch }" action="js" method="get"> <span class="frame__search-link" v-on:click="$awesLayoutCrm.showSearch = !$awesLayoutCrm.showSearch"><i class="icon icon-search"></i></span>
-                        <div class="frame__search-hidden"><input class="frame__search-input" type="text" placeholder="Search..."><button class="frame__search-btn" type="submit">Search</button><span class="frame__search-close" v-on:click="$awesLayoutCrm.showSearch = !$awesLayoutCrm.showSearch"></span><i class="icon icon-cross"></i></div>
+                        <div class="frame__search-hidden"><input class="frame__search-input" type="text" placeholder="Search..."><button class="frame__search-btn" type="submit">Search</button><span class="frame__search-close" v-on:click="$awesLayoutCrm.showSearch = !$awesLayoutCrm.showSearch"><i class="icon icon-cross"></i></span></div>
                     </form>
                     {{-- <div class="frame__userinfo">
                         <a class="frame__userinfo-link" href=""><span class="icon icon-ruppor"><i class="icn-dot"></i></span></a>
                         <a class="frame__userinfo-link" href=""><span class="icon icon-hdd"><i class="icn-dot"></i></span></a>
                     </div> --}}
+                    <div class="frame__header-rlinks">
+                        <div class="frame__rccell"><theme-switcher></theme-switcher></div>
+                        <a href="" class="frame__header-link"></a>
+                        @if(config('indigo-layout.simple_navs.btn'))<a class="btn frame__header-callbtn" href="{{ config('indigo-layout.simple_navs.btn.link') }}">{{ config('indigo-layout.simple_navs.btn.text') }}</a>@endif
+                    </div>
                 </div>
                 <div class="frame__header-line">
                     @isset($h1)<h1 class="frame__header-title">{!! $h1 !!}</h1>@endisset
@@ -96,6 +102,7 @@
             <div class="frame__content">
                 @yield('content')
             </div>
+            <span class="frame__copyright">© 2019 - PkgKit - Proudly powered on <a href="">Awes.IO Platform</a>.</span> 
         </div>
     </div>
 </div>
