@@ -35,22 +35,22 @@
 
     <!-- modules -->
 @isset($src['script'])
-@foreach($src['script'] as $script)
-    <script type="module" src="{{ $script }}"></script>
-@endforeach
+    @foreach($src['script'] as $script)
+        <script type="module" src="{{ $script }}"></script>
+    @endforeach
 @endisset
 
 @isset($src['script_legacy'])
-@foreach($src['script_legacy'] as $script_legacy)
-    <script nomodule src="{{ $script_legacy }}"></script>
-@endforeach
+    @foreach($src['script_legacy'] as $script_legacy)
+        <script nomodule src="{{ $script_legacy }}"></script>
+    @endforeach
 @endisset
 
     <!-- core -->
 @isset($src['base'])
-@foreach($src['base'] as $base)
-    <script src="{{ $base }}"></script>
-@endforeach
+    @foreach($src['base'] as $base)
+        <script src="{{ $base }}"></script>
+    @endforeach
 @endisset
 
 </head>

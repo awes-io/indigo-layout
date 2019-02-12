@@ -1,4 +1,4 @@
-<form-builder disabled-dialog="" url="{{ route('register') }}" btntext="Create your {{ config('indigo-layout.name') }} account">
+<form-builder disabled-dialog="" url="{{ route('register') }}" send-text="Register">
     <fb-input name="email" type="email" label="E-Mail" focus=""></fb-input>
     <fb-input name="name" label="Full name"></fb-input>
     <fb-input name="company" label="Company name (Optional)"></fb-input>
