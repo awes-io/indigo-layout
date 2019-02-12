@@ -21,6 +21,16 @@
     </style>
 @endif
 
+@if(config('indigo-layout.custom_styles'))
+    <style>
+        @foreach(config('indigo-layout.custom_styles') as $k => $v)
+            {{ $k }} {
+                {{ $v }};
+            }
+        @endforeach
+    </style>
+@endif
+
     <!-- config -->
     <script>AWES_CONFIG = @json(config('base-js'))</script>
 
