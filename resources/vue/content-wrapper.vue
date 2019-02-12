@@ -18,14 +18,14 @@
             }
         },
         created() {
-            this.$awesLayoutCrm.$store && this.$awesLayoutCrm.$store.commit('setData', {
+            AWES._store.commit('setData', {
                 param: this.storeData,
                 data: this.data
             });
         },
         computed: {
             content() {
-                return this.$awesLayoutCrm.$store && this.$awesLayoutCrm.$store.state[this.storeData];
+                return AWES._store.state[this.storeData];
             }
         }
     }
