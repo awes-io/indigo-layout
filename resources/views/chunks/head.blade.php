@@ -22,11 +22,7 @@
 
 @if(config('indigo-layout.custom_styles'))
     <style>
-        @foreach(config('indigo-layout.custom_styles') as $k => $v)
-            {{ $k }} {
-                {{ $v }};
-            }
-        @endforeach
+        {{ config('indigo-layout.custom_styles') }}
     </style>
 @endif
 
