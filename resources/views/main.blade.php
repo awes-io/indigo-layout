@@ -104,7 +104,7 @@
             </div>
             <span class="frame__copyright">
                 @if(config('indigo-layout.footer_copyright'))
-                    {{ config('indigo-layout.footer_copyright') }}
+                    {!! config('indigo-layout.footer_copyright') !!}
                 @endif
             </span>
         </div>
