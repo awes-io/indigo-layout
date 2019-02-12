@@ -8,9 +8,11 @@
     <div class="login-page">
         <div class="login-page__full" @if(config('indigo-layout.bg'))style="background-image: url('{{ config('indigo-layout.bg') }}');"@endif>
             <div class="login-page__swrap">
-                <a class="login-page__logo login-page__logo_white" href="https://www.awescrm.cloud">
-                    {{--<i class="icon icon-logo"></i><span>{{ config('indigo-layout.name') }}</span>--}}
-                </a>
+                @if(config('indigo-layout.logo'))
+                    <a class="login-page__logo login-page__logo_white" href="{{ config('indigo-layout.url') }}">
+                        <img src="{{ config('indigo-layout.logo') }}" alt="{{ config('indigo-layout.name') }}" title="{{ config('indigo-layout.name') }}" />
+                    </a>
+                @endif
                 <div class="login-page__sbox">
                     @yield('title')
                     <div class="login-page__form">

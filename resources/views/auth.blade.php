@@ -9,9 +9,11 @@
         <div class="login-page__left">
             <div class="login-page__left-wrap">
                 <div class="login-page__left-center">
-                    <a class="login-page__logo" href="https://www.awescrm.cloud">
-                        {{--<i class="icon icon-logo"></i>--}}
-                    </a>
+                    @if(config('indigo-layout.logo'))
+                        <a class="login-page__logo" href="{{ config('indigo-layout.url') }}">
+                            <img src="{{ config('indigo-layout.logo') }}" alt="{{ config('indigo-layout.name') }}" title="{{ config('indigo-layout.name') }}" />
+                        </a>
+                    @endif
                     @yield('title')
                     <div class="login-page__form">
                         @yield('content')

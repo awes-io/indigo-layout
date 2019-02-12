@@ -2,7 +2,9 @@
 
 return [
 
-    'name' => env('APP_NAME', 'AwesCRM'),
+    'name' => env('APP_NAME', 'Awes.IO'),
+    'url' => env('APP_URL', 'https://example.com'),
+    'logo' => env('APP_LOGO', 'https://static.awes.io/logo-blue.svg'),
 
 //    'simple_navs' => [
 //        'btn' => [
