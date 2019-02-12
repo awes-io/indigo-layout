@@ -31,7 +31,7 @@
                     @endif
                 </div>
             </div>
-        </div><span class="login-page__bg" @if(config('indigo-layout.bg'))style="background-image: url('{{ config('indigo-layout.bg') }}');"@endif><span></span></span>
+        </div><span class="login-page__bg" @if(config('indigo-layout.login_img_left'))style="background-image: url('{{ config('indigo-layout.login_img_left') }}');"@endif><span></span></span>
     </div>
 </div>
 </body>
