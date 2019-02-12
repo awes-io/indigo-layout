@@ -8,17 +8,46 @@
                 button.frame__search-btn(type="submit") Search
                 span.frame__search-close(v-on:click="$awesLayoutCrm.showSearch = !$awesLayoutCrm.showSearch")
                 i.icon.icon-cross
-        .frame__userinfo
-            a.frame__userinfo-link(href="")
-                span.icon.icon-ruppor
-                    i.icn-dot
-            a.frame__userinfo-link(href="")
-                span.icon.icon-hdd
-                    i.icn-dot
-            button.frame__userinfo-ava(@click="$awesLayoutCrm.showUserMenu = ! $awesLayoutCrm.showUserMenu")
-                i.icon.icon-user.novatar.novatar_box
+        if(!headLinks)
+            .frame__userinfo
+                a.frame__userinfo-link(href="")
+                    span.icon.icon-ruppor
+                        i.icn-dot
+                a.frame__userinfo-link(href="")
+                    span.icon.icon-hdd
+                        i.icn-dot
+                button.frame__userinfo-ava(@click="$awesLayoutCrm.showUserMenu = ! $awesLayoutCrm.showUserMenu")
+                    i.icon.icon-user.novatar.novatar_box
+        else
+            .frame__header-rlinks
+                .frame__rccell
+                    .theme-switcher
+                        .theme-switcher__switcher
+                            input.theme-switcher__input(type='range', min='0', max='1')
+                        .theme-switcher__label Theme Dark
+                a.frame__header-link(href="") Link 1
+                a.frame__header-link(href="") Link 2
+                a.btn.frame__header-callbtn(href="") Sign In
     .frame__header-line
-        h1.frame__header-title= pageTitle
+        .frame__title-line
+            h1.frame__header-title= pageTitle
+            if(headLinks)
+                .head-context
+                    button.head-context__main v 1.0.0
+                    .head-context__hidden
+                        ul.head-context__hidden-ul
+                            li.active
+                                button.head-context__hidden-btn 1.0.0
+                            li
+                                button.head-context__hidden-btn 1.0.1
+                            li
+                                button.head-context__hidden-btn 1.0.2
+                            li
+                                button.head-context__hidden-btn 1.0.3
+                            li
+                                button.head-context__hidden-btn 1.0.4
+                            li
+                                button.head-context__hidden-btn 1.0.5
 
 transition(name="user-menu")
     .user-menu(v-show="$awesLayoutCrm.showUserMenu" style="display: none;")

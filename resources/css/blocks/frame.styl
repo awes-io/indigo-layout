@@ -23,6 +23,11 @@
   & &__title-line
     position relative
     fl(,,c)
+  & &__copyright
+    display: block
+    padding 15px 40px
+    color var(--tc_text_caption)
+    font-size f_small
   & &__aside
     width 260px
     height 100vh
@@ -314,7 +319,7 @@
       font-size 19px
       z-index 750
       fl(,c,c)
-      box-shadow 0 0 20px rgba(85, 61, 0, 0.15)
+      box-shadow 0 0 7px rgba(85, 61, 0, 0.15)
       background-color var(--tc_ui_btn_smcolor)
       color var(--tc_ui_btn_smcolor_text)
       &:hover
@@ -417,6 +422,7 @@
   & &__content
     padding 30px 40px
     position relative
+    min-height calc(100vh - 155px)
   & &__overlay
     fixed top left
     width 100%
@@ -493,6 +499,9 @@
         font-size f_big_1000
       &-add
         right 20px
+    & &__copyright
+      padding-left 20px
+      padding-right 20px
 
 @media res_tablet--lg
 
@@ -631,6 +640,8 @@
       background-color var(--tc_ui_shadow-overflow)
     & &__usermenu
       display: none
+    & &__content
+      min-height calc(100vh - 210px)
       
 
 
@@ -640,6 +651,10 @@
   .frame
     & &__content
       padding-top 25px
+      padding-bottom 25px
+    & &__copyright
+      padding-bottom 0
+    & &__right
       padding-bottom 90px
     & &__search
       display none
@@ -659,6 +674,7 @@
         top auto
         margin auto
         z-index 901
+        
 
     & &__userinfo
       fixed bottom 0 left 0
@@ -702,6 +718,9 @@
 @media res_mobile--sm
   .frame
     & &__content
+      padding-left 10px
+      padding-right 10px
+    & &__copyright
       padding-left 10px
       padding-right 10px
     & &__aside
