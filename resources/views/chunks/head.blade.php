@@ -6,7 +6,6 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700&amp;subset=cyrillic" rel="stylesheet">
 
 
-
 @isset($src['style']['indigo-layout'])
     <link rel="stylesheet" href="{{ $src['style']['indigo-layout'] }}">
 @endisset
