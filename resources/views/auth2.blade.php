@@ -6,7 +6,7 @@
 <body>
 <div class="mainwrapper" id="awes-app">
     <div class="login-page">
-        <div class="login-page__full" @if(config('indigo-layout.login_img_full'))style="background-image: url('{{ config('indigo-layout.login_img_full') }}');"@endif>
+        <div class="login-page__full" @if(config('indigo-layout.auth_bg_full'))style="background-image: url('{{ config('indigo-layout.auth_bg_full') }}');"@endif>
             <div class="login-page__swrap">
                 @if(config('indigo-layout.logo'))
                     <a class="login-page__logo login-page__logo_white" href="{{ config('indigo-layout.url') }}">

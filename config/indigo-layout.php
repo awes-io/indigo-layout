@@ -5,8 +5,8 @@ return [
     'name' => env('APP_NAME', 'Awes.IO'),
     'url' => env('APP_URL', 'https://example.com'),
     'logo' => env('APP_LOGO', 'https://static.awes.io/logo-blue.svg'),
-    'login_img_left' => '',
-    'login_img_full' => '',
+    'auth_bg_left' => '',
+    'auth_bg_full' => '',
 
 //    'simple_navs' => [
 //        'btn' => [
