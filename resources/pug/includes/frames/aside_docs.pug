@@ -23,12 +23,14 @@
                             span.ph__nav-icon
                             span.ph__nav-text
             template(slot="difnav")
-                .frame__head-rlinks
-                    .frame__rccell
+                ul.frame__aside-mnav 
+                    li
+                        a.frame__aside-link(href="") Link 1
+                    li
+                        a.frame__aside-link(href="") Link 1
+                    li.frame__aside-link
                         .theme-switcher
                             .theme-switcher__switcher
                                 input.theme-switcher__input(type='range', min='0', max='1')
                             .theme-switcher__label Theme Dark
-                    a.frame__head-link(href="") Link 1
-                    a.frame__head-link(href="") Link 2
-                    a.btn.frame__head-callbtn(href="") Sign In
+

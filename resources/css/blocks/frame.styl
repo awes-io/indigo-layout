@@ -20,43 +20,31 @@
         z-index 750
   & &__mobile-shadow
     display none
-  & &__head
-    &-rlinks
-      absolute right 0 top 0
-      height 50px
-      fl(,fe,c)
-      padding-right 30px
-    &-link
-      margin-left 20px
-      color var(--tc_link_semi)
-      &:hover
-        color var(--tc_link_semi_active)
-    &-callbtn
-      margin-left 30px
-      padding-top 12px
-      padding-bottom 12px
-      &:hover
-        text-decoration none
   & &__title-line
     position relative
     fl(,,c)
   & &__aside
     width 260px
-    min-height 100vh
+    height 100vh
+    overflow auto
     flex-shrink 0
     z-index 990
     background-image var(--tc_aside_gradient)
     box-shadow 0 20px 30px rgba(0,0,0,0.1)
+    fixed left 0 top 0
     & + ^[0]__right
       width calc(100% - 260px)
+      margin-left 260px
     &-intitle
       color var(--tc_aside_link)
     &-callbtn
       display none   
+    &-mnav
+      display none
     &-nav-inwrap .icon-angle-bottom
       color var(--tc_aside_link)
     &-ava
-      display block
+      display none
       size 50px
       absolute right 0 top 0
       overflow: hidden
@@ -76,9 +64,6 @@
           font-size 20px
           absolute left 0 top 0
           display block
-      &:hover, &:active
-        &:after
-          transform: translateY(-50%)
     &-mtitle
       display block
       overflow hidden
@@ -252,7 +237,7 @@
             background-color var(--tc_aside_bg_dark)
   & &__rccell
     margin-left 15px
-    & + ^[0]__head-link
+    & + ^[0]__header-link
       margin-left 30px 
   & &__max
     max-width 680px
@@ -260,10 +245,27 @@
     width 100%
     position relative
     background-color var(--tc_page_bg)
+  
   & &__header
     min-height 110px
     position relative
     background-color var(--tc_header_bg)
+    &-rlinks
+      absolute right 0 top 0
+      height 50px
+      fl(,fe,c)
+      padding-right 30px
+    &-link
+      margin-left 20px
+      color var(--tc_link_semi)
+      &:hover
+        color var(--tc_link_semi_active)
+    &-callbtn
+      margin-left 30px
+      padding-top 12px
+      padding-bottom 12px
+      &:hover
+        text-decoration none
     &-lwrap
       width 70%
       fl(w,sb,c)
@@ -326,7 +328,6 @@
       box-shadow 0 10px 20px 5px var(--tc_ui_bg_darken)
   & &__userinfo
     fl(,fe,c)
-    padding-right 55px
     height 50px
     &-link
       fl(,c,c)
@@ -345,7 +346,31 @@
     &_twolinks
       a
         border-right-color var(--tc_border)
-    
+    &-ava
+      display block
+      position: relative
+      size 50px
+      overflow: hidden
+      z-index 900
+      margin-left 10px
+      &:after
+          content ''
+          background-image linear-gradient(to top, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.1) 50%, rgba(255,255,255,0) 100%)
+          absolute left 0 top 0
+          width: 100%
+          height: 200%
+          display block
+          z-index 100
+          transition: transform 150ms ease
+      img, .icon-user
+          size 100%
+          z-index 1
+          font-size 20px
+          absolute left 0 top 0
+          display block
+      &:hover, &:active
+        &:after
+          transform: translateY(-50%)
   & &__search
     fl(,,c)
     &-link
@@ -445,6 +470,7 @@
       width 210px
       & + ^[0]__right
         width calc(100% - 210px)
+        margin-left 210px
       &-title
         padding-left 15px
         padding-right 15px
@@ -493,27 +519,9 @@
             opacity 1
       & + ^[0]__head-link
         margin-left 0
-    & &__head
+    & &__header
       &-rlinks
-        position static
-        flex-wrap wrap
-        width 100%
-        padding 0
-        
-      &-callbtn
         display none
-      &-link
-        text-align left
-        display block
-        padding 17px 40px
-        margin 0
-        width 100%
-        color var(--tc_aside_link)
-        opacity 0.4
-        &:hover
-          text-decoration none
-          color var(--tc_aside_link)
-          opacity 1
     & &__mobile-shadow
       fixed top 0 left 0
       width 100%
@@ -526,9 +534,20 @@
       width auto
       box-shadow none
       position static
+      overflow hidden
       z-index auto
+      &-mnav
+        display block
+        .theme-switcher
+          &__label
+            color var(--tc_aside_link)
+          &:hover
+            .theme-switcher__label
+              color var(--tc_aside_link)
+
       & + ^[0]__right
         width 100%
+        margin-left 0
       &-callbtn
         display block
         margin-right 15px
@@ -536,12 +555,6 @@
         padding-right 25px
         min-width 1px
         white-space nowrap
-      &-ava
-        border-radius 50%
-        margin-top 11px
-        size 42px
-  
-        margin-right 10px
       &-close
         font-size 17px
         display block
@@ -610,6 +623,10 @@
           top 0
     & &__userinfo
       padding-right 0
+      &-ava
+        fixed right 10px top 11px
+        border-radius 50%
+        size 42px
     & &__mobile-shadow, & &__overlay
       background-color var(--tc_ui_shadow-overflow)
     & &__usermenu

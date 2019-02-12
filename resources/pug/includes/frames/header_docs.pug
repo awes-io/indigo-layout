@@ -8,6 +8,15 @@
                 button.frame__search-btn(type="submit") Search
                 span.frame__search-close(v-on:click="$awesLayoutCrm.showSearch = !$awesLayoutCrm.showSearch")
                 i.icon.icon-cross
+        .frame__header-rlinks
+            .frame__rccell
+                .theme-switcher
+                    .theme-switcher__switcher
+                        input.theme-switcher__input(type='range', min='0', max='1')
+                    .theme-switcher__label Theme Dark
+            a.frame__header-link(href="") Link 1
+            a.frame__header-link(href="") Link 2
+            a.btn.frame__header-callbtn(href="") Sign In
     .frame__header-line
         .frame__title-line
             h1.frame__header-title= pageTitle

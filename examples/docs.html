@@ -45,14 +45,16 @@
                                 <li><span class="ph__nav-icon"></span><span class="ph__nav-text"></span></li>
                             </ul>
                         </div><template slot="difnav">
-                            <div class="frame__head-rlinks">
-                                <div class="frame__rccell">
+                            <ul class="frame__aside-mnav">
+                                <li><a class="frame__aside-link" href="">Link 1</a></li>
+                                <li><a class="frame__aside-link" href="">Link 1</a></li>
+                                <li class="frame__aside-link">
                                     <div class="theme-switcher">
                                         <div class="theme-switcher__switcher"><input class="theme-switcher__input" type="range" min="0" max="1"></div>
                                         <div class="theme-switcher__label">Theme Dark</div>
                                     </div>
-                                </div><a class="frame__head-link" href="">Link 1</a><a class="frame__head-link" href="">Link 2</a><a class="btn frame__head-callbtn" href="">Sign In</a>
-                            </div>
+                                </li>
+                            </ul>
                         </template>
                     </frame-nav>
                 </nav>
@@ -63,6 +65,14 @@
                         <form class="frame__search" id="search" v-bind:class="{ active: $awesLayoutCrm.showSearch }" action="js" method="get"> <span class="frame__search-link" v-on:click="$awesLayoutCrm.showSearch = !$awesLayoutCrm.showSearch"><i class="icon icon-search"></i></span>
                             <div class="frame__search-hidden"><input class="frame__search-input" type="text" placeholder="Search..."><button class="frame__search-btn" type="submit">Search</button><span class="frame__search-close" v-on:click="$awesLayoutCrm.showSearch = !$awesLayoutCrm.showSearch"></span><i class="icon icon-cross"></i></div>
                         </form>
+                        <div class="frame__header-rlinks">
+                            <div class="frame__rccell">
+                                <div class="theme-switcher">
+                                    <div class="theme-switcher__switcher"><input class="theme-switcher__input" type="range" min="0" max="1"></div>
+                                    <div class="theme-switcher__label">Theme Dark</div>
+                                </div>
+                            </div><a class="frame__header-link" href="">Link 1</a><a class="frame__header-link" href="">Link 2</a><a class="btn frame__header-callbtn" href="">Sign In</a>
+                        </div>
                     </div>
                     <div class="frame__header-line">
                         <div class="frame__title-line">

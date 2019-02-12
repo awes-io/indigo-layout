@@ -32,7 +32,7 @@
             <div class="frame__aside" id="aside">
                 <div class="frame__aside-wrap">
                     <div class="frame__aside-line"><span class="frame__aside-open g-res--tablet-lg" :class="{ active: $awesLayoutCrm.togglenav }" @click="$awesLayoutCrm.openNav"><span></span></span>
-                        <h2 class="frame__aside-title"> <a href="">AwesCRM</a></h2><button class="frame__aside-ava" @click="$awesLayoutCrm.showUserMenu = ! $awesLayoutCrm.showUserMenu"><i class="icon icon-user novatar novatar_box"></i></button>
+                        <h2 class="frame__aside-title"> <a href="">AwesCRM</a></h2>
                     </div>
                     <nav class="frame__aside-nav" v-bind:class="{ active: $awesLayoutCrm.togglenav }">
                         <div class="frame__aside-mhead g-res--tablet-lg"><a class="frame__aside-close" href="" @click.prevent="$awesLayoutCrm.openNav()"><i class="icon icon-cross"></i></a>
@@ -59,7 +59,7 @@
                         <form class="frame__search" id="search" v-bind:class="{ active: $awesLayoutCrm.showSearch }" action="js" method="get"> <span class="frame__search-link" v-on:click="$awesLayoutCrm.showSearch = !$awesLayoutCrm.showSearch"><i class="icon icon-search"></i></span>
                             <div class="frame__search-hidden"><input class="frame__search-input" type="text" placeholder="Search..."><button class="frame__search-btn" type="submit">Search</button><span class="frame__search-close" v-on:click="$awesLayoutCrm.showSearch = !$awesLayoutCrm.showSearch"></span><i class="icon icon-cross"></i></div>
                         </form>
-                        <div class="frame__userinfo"><a class="frame__userinfo-link" href=""><span class="icon icon-ruppor"><i class="icn-dot"></i></span></a><a class="frame__userinfo-link" href=""><span class="icon icon-hdd"><i class="icn-dot"></i></span></a></div>
+                        <div class="frame__userinfo"><a class="frame__userinfo-link" href=""><span class="icon icon-ruppor"><i class="icn-dot"></i></span></a><a class="frame__userinfo-link" href=""><span class="icon icon-hdd"><i class="icn-dot"></i></span></a><button class="frame__userinfo-ava" @click="$awesLayoutCrm.showUserMenu = ! $awesLayoutCrm.showUserMenu"><i class="icon icon-user novatar novatar_box"></i></button></div>
                     </div>
                     <div class="frame__header-line">
                         <h1 class="frame__header-title">404</h1>
