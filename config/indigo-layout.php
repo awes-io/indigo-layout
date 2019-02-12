@@ -37,6 +37,7 @@ return [
         'script' => '/static/indigo-layout/js/main.js',
         'script_legacy' => '/static/indigo-layout/js/main.legacy.js',
         'style' => '/static/indigo-layout/css/main.css'
-    ]
+    ],
 
+    'footer_copyright' => '© 2019 - Proudly powered on <a href="https://www.awes.io" target="_blank">Awes.IO Platform</a>'
 ];
