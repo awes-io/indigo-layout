@@ -5,7 +5,7 @@
     <title>Slide Up Down</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700&amp;amp;subset=cyrillic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700&amp;amp;subset=cyrillic" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
     <script>const AWES_CONFIG = {
     key: '680a7d07f89b94e7fc83be657a2daa27',
@@ -30,26 +30,28 @@
                 <div class="frame__overlay" v-show="$awesLayoutCrm.togglenav || $awesLayoutCrm.showUserMenu" @click="$awesLayoutCrm.overlayClick"></div>
             </transition>
             <div class="frame__aside" id="aside">
-                <div class="frame__aside-line"><span class="frame__aside-open g-res--tablet-lg" :class="{ active: $awesLayoutCrm.togglenav }" @click="$awesLayoutCrm.openNav"><span></span></span>
-                    <h2 class="frame__aside-title"> <a href="">AwesCRM</a></h2><button class="frame__aside-ava" @click="$awesLayoutCrm.showUserMenu = ! $awesLayoutCrm.showUserMenu"><i class="icon icon-user novatar novatar_box"></i></button>
-                </div>
-                <nav class="frame__aside-nav" v-bind:class="{ active: $awesLayoutCrm.togglenav }">
-                    <div class="frame__aside-mhead g-res--tablet-lg"><a class="frame__aside-close" href="" @click.prevent="$awesLayoutCrm.openNav()"><i class="icon icon-cross"></i></a>
-                        <h4 class="frame__aside-mtitle"><a href="">AwesCRM</a></h4>
+                <div class="frame__aside-wrap">
+                    <div class="frame__aside-line"><span class="frame__aside-open g-res--tablet-lg" :class="{ active: $awesLayoutCrm.togglenav }" @click="$awesLayoutCrm.openNav"><span></span></span>
+                        <h2 class="frame__aside-title"> <a href="">AwesCRM</a></h2><button class="frame__aside-ava" @click="$awesLayoutCrm.showUserMenu = ! $awesLayoutCrm.showUserMenu"><i class="icon icon-user novatar novatar_box"></i></button>
                     </div>
-                    <frame-nav :links="[{name:'Dashboard', icon:'speed', link: '/newform.html'}, {name:'Admin', icon:'report', link: '/newform.html', children: [{name:'Dashboard', link: '/modal.html'}]}, {name:'Admin', icon:'report', children: [{name:'Dashboard', link: '/modal.html', active: true}]}]">
-                        <div class="ph">
-                            <div class="ph__mnav"><span class="ph__mnav-link"></span><span class="ph__mnav-title"></span></div>
-                            <ul class="ph__nav">
-                                <li><span class="ph__nav-icon"></span><span class="ph__nav-text"></span></li>
-                                <li><span class="ph__nav-icon"></span><span class="ph__nav-text"></span></li>
-                                <li><span class="ph__nav-icon"></span><span class="ph__nav-text"></span></li>
-                                <li><span class="ph__nav-icon"></span><span class="ph__nav-text"></span></li>
-                                <li><span class="ph__nav-icon"></span><span class="ph__nav-text"></span></li>
-                            </ul>
+                    <nav class="frame__aside-nav" v-bind:class="{ active: $awesLayoutCrm.togglenav }">
+                        <div class="frame__aside-mhead g-res--tablet-lg"><a class="frame__aside-close" href="" @click.prevent="$awesLayoutCrm.openNav()"><i class="icon icon-cross"></i></a>
+                            <h4 class="frame__aside-mtitle"><a href="">AwesCRM</a></h4>
                         </div>
-                    </frame-nav>
-                </nav>
+                        <frame-nav :links="[{name:'Dashboard', icon:'speed', link: '/newform.html'}, {name:'Dashboard', icon:'speed', link: '/newform.html'},{name:'Dashboard', icon:'speed', link: '/newform.html'},{name:'Dashboard', icon:'speed', link: '/newform.html'},{name:'Dashboard', icon:'speed', link: '/newform.html'},{name:'Dashboard', icon:'speed', link: '/newform.html'},{name:'Dashboard', icon:'speed', link: '/newform.html'},{name:'Dashboard', icon:'speed', link: '/newform.html'},{name:'Dashboard', icon:'speed', link: '/newform.html'},{name:'Dashboard', icon:'speed', link: '/newform.html'},{name:'Admin', icon:'report', link: '/newform.html', children: [{name:'Dashboard', link: '/modal.html'}]}, {name:'Admin', icon:'report', children: [{name:'Dashboard', link: '/modal.html', active: true}]}]">
+                            <div class="ph">
+                                <div class="ph__mnav"><span class="ph__mnav-link"></span><span class="ph__mnav-title"></span></div>
+                                <ul class="ph__nav">
+                                    <li><span class="ph__nav-icon"></span><span class="ph__nav-text"></span></li>
+                                    <li><span class="ph__nav-icon"></span><span class="ph__nav-text"></span></li>
+                                    <li><span class="ph__nav-icon"></span><span class="ph__nav-text"></span></li>
+                                    <li><span class="ph__nav-icon"></span><span class="ph__nav-text"></span></li>
+                                    <li><span class="ph__nav-icon"></span><span class="ph__nav-text"></span></li>
+                                </ul>
+                            </div>
+                        </frame-nav>
+                    </nav>
+                </div>
             </div>
             <div class="frame__right">
                 <div class="frame__header">
@@ -431,7 +433,7 @@
                         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere, quae? Accusantium voluptatibus pariatur rem vitae porro, velit vel cupiditate sint! Repudiandae aliquid quidem facilis repellendus dolorem consequuntur veniam maiores eum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium hic nisi, aliquam beatae doloribus expedita non numquam cumque nemo inventore necessitatibus ex, provident pariatur facilis. Temporibus saepe tempora eaque iste. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod dignissimos sapiente vitae excepturi libero suscipit unde praesentium maiores voluptate facere natus, vero iure. Ipsum necessitatibus laudantium quae, fugiat inventore eum?</p>
                     </slide-up-down>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere, quae? Accusantium voluptatibus pariatur rem vitae porro, velit vel cupiditate sint! Repudiandae aliquid quidem facilis repellendus dolorem consequuntur veniam maiores eum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium hic nisi, aliquam beatae doloribus expedita non numquam cumque nemo inventore necessitatibus ex, provident pariatur facilis. Temporibus saepe tempora eaque iste. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod dignissimos sapiente vitae excepturi libero suscipit unde praesentium maiores voluptate facere natus, vero iure. Ipsum necessitatibus laudantium quae, fugiat inventore eum?</p>
-                </div>
+                </div><span class="frame__copyright">© 2019 - PkgKit - Proudly powered on <a href="">Awes.IO Platform</a>.</span>
             </div>
         </div>
         <div class="float-icns"><button class="float-icns__icon float-icns__icon_helper" @click="$awesLayoutCrm.showHelpers = ! $awesLayoutCrm.showHelpers">?</button></div>

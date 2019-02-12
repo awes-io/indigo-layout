@@ -65,7 +65,7 @@ modal-form = 700px
     background-color var(--tc_ui_bg)
   &&_formbuilder
     & ^[0]__dialog
-      padding-bottom 70px
+      padding-bottom 80px
   & &__bottom
     absolute bottom 0 left 0 right 0
     height: 1px
@@ -78,6 +78,7 @@ modal-form = 700px
   & &__close
     background transparent
     padding 0
+    font-weight 300
     absolute right 20px top 20px
     font-size 50px
     font-weight 300
@@ -97,7 +98,7 @@ modal-form = 700px
         background-color var(--tc_ui_bg)
       .btn
         margin 0
-        width 100%
+        flex-grow: 1
         text-transform capitalize
         min-width 50%
         border-radius 0
