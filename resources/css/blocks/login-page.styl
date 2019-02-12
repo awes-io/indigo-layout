@@ -78,8 +78,11 @@
             absolute left 0 top 0
             size 100%
             display block
-            background-color alpha(cl_black, 0.5)
+            background-color var(--tc_shadow_st)
             content ''
+        &_noshadow
+            &:before
+                display none
     & &__logo
         margin-bottom 65px
         display inline-block
