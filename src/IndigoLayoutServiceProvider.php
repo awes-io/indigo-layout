@@ -12,9 +12,11 @@ class IndigoLayoutServiceProvider extends AwesProvider
     {
         parent::boot();
 
-        View::composer('*', function ($view) {
-            $view->with('navs', config('indigo-layout.navs'));
-        });
+        if (config('indigo-layout.navs')) {
+            View::composer('*', function ($view) {
+                $view->with('navs', config('indigo-layout.navs'));
+            });
+        }
     }
 
     public function getPackageName(): string
