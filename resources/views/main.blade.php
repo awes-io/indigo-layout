@@ -102,7 +102,11 @@
             <div class="frame__content">
                 @yield('content')
             </div>
-            <span class="frame__copyright">© 2019 - PkgKit - Proudly powered on <a href="">Awes.IO Platform</a>.</span> 
+            <span class="frame__copyright">
+                @if(config('indigo-layout.footer_copyright'))
+                    {{ config('indigo-layout.footer_copyright') }}
+                @endif
+            </span>
         </div>
     </div>
 </div>
