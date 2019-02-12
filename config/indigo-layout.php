@@ -5,6 +5,8 @@ return [
     'name' => env('APP_NAME', 'Awes.IO'),
     'url' => env('APP_URL', 'https://example.com'),
     'logo' => env('APP_LOGO', 'https://static.awes.io/logo-blue.svg'),
+    'auth_bg_left' => '',
+    'auth_bg_full' => '',
 
 //    'simple_navs' => [
 //        'btn' => [
@@ -25,8 +27,6 @@ return [
 //
 //    'custom_styles' => "html p { color: black }",
 
-    'bg' => 'https://picsum.photos/600/900/?random',
-    
     'src' => [
         'script' => 'awes-io/indigo-layout/v0.x.x/js/main.js',
         'script_legacy' => 'awes-io/indigo-layout/v0.x.x/js/main.legacy.js',
