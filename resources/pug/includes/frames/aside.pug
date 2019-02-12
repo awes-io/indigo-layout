@@ -5,8 +5,8 @@
                 span
             h2.frame__aside-title 
                 a(href="") AwesCRM
-            button.frame__aside-ava(@click="$awesLayoutCrm.showUserMenu = ! $awesLayoutCrm.showUserMenu")
-                i.icon.icon-user.novatar.novatar_box
+            if(headLinks)
+                a.btn.frame__aside-callbtn(href="") Sign In
         nav.frame__aside-nav(v-bind:class="{ active: $awesLayoutCrm.togglenav }")
             .frame__aside-mhead.g-res--tablet-lg
                 a.frame__aside-close(href="" @click.prevent="$awesLayoutCrm.openNav()")
@@ -23,3 +23,15 @@
                             li
                                 span.ph__nav-icon
                                 span.ph__nav-text
+                if(headLinks)
+                    template(slot="difnav")
+                        ul.frame__aside-mnav 
+                            li
+                                a.frame__aside-link(href="") Link 1
+                            li
+                                a.frame__aside-link(href="") Link 1
+                            li.frame__aside-link
+                                .theme-switcher
+                                    .theme-switcher__switcher
+                                        input.theme-switcher__input(type='range', min='0', max='1')
+                                    .theme-switcher__label Theme Dark

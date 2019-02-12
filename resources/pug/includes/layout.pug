@@ -15,8 +15,9 @@ html(lang="en")
                 div(class="frame__right")
                     include frames/header
                     div.frame__content
-                        button.frame__header-add
-                            i.icon.icon-plus
+                        if(!removePlus)
+                            button.frame__header-add
+                                i.icon.icon-plus
                         block pageContent
                             p Content Block
                     span.frame__copyright © 2019 - PkgKit - Proudly powered on 
