@@ -24,7 +24,7 @@ const awesPlugin = {
             src: 'https://unpkg.com/vuex@2.5.0/dist/vuex.min.js',
             deps: ['vue'],
             cb() {
-                Vue.prototype.$awesLayoutCrm.$store = new Vuex.Store(store)
+                AWES._store = AWES._store || new Vuex.Store(store)
             }
         },
         'vue-shortkey': {
@@ -59,10 +59,6 @@ const awesPlugin = {
             deps: ['highlight'],
             cb() {
                 document.querySelectorAll('pre code[class*="language-"]').forEach(block => {
-
-                    
-
-
                     hljs.highlightBlock(block);
                 })
             }
