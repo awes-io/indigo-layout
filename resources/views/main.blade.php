@@ -14,7 +14,7 @@
             <div class="frame__aside-line">
                 <span class="frame__aside-open g-res--tablet-lg" :class="{ active: $awesLayoutCrm.togglenav }" @click="$awesLayoutCrm.openNav"><span></span></span>
                 <h2 class="frame__aside-title">{!! config('indigo-layout.name') !!}</h2>
-                @if(config('indigo-layout.simple_navs.btn'))<a class="btn frame__aside-callbtn" href="{{ config('indigo-layout.simple_navs.btn.link') }}">{{ config('indigo-layout.simple_navs.btn.text') }}</a>@endif
+                @if(config('indigo-layout.simple_navs.btn') && !Auth::check())<a class="btn frame__aside-callbtn" href="{{ config('indigo-layout.simple_navs.btn.link') }}">{{ config('indigo-layout.simple_navs.btn.text') }}</a>@endif
                 {{--<button class="frame__aside-ava" @click="$awesLayoutCrm.showUserMenu = ! $awesLayoutCrm.showUserMenu"><i class="icon icon-user novatar novatar_box"></i></button>--}}
             </div>
             <nav class="frame__aside-nav" v-bind:class="{ active: $awesLayoutCrm.togglenav }">
@@ -32,6 +32,7 @@
                             <li><span class="ph__nav-icon"></span><span class="ph__nav-text"></span></li>
                         </ul>
                     </div>
+                    @if(!Auth::check())
                     <template slot="difnav">
                         <ul class="frame__aside-mnav">
                             @if(config('indigo-layout.simple_navs.links'))
@@ -45,6 +46,7 @@
                             
                         </ul>
                     </template>
+                    @endif
                 </frame-nav>
             </nav>
         </div>
@@ -59,33 +61,46 @@
                         <a class="frame__userinfo-link" href=""><span class="icon icon-ruppor"><i class="icn-dot"></i></span></a>
                         <a class="frame__userinfo-link" href=""><span class="icon icon-hdd"><i class="icn-dot"></i></span></a>
                     </div> --}}
+                    @if(Auth::check())
+                    <button class="XXXframe__aside-ava" @click="$awesLayoutCrm.showUserMenu = ! $awesLayoutCrm.showUserMenu"><i class="icon icon-user novatar novatar_box"></i></button>
+                    @endif
+                    @if(!Auth::check())
                     <div class="frame__header-rlinks">
                         <div class="frame__rccell"><theme-switcher></theme-switcher></div>
-                        <a href="" class="frame__header-link"></a>
+                        @if(config('indigo-layout.simple_navs.links'))
+                            @foreach(config('indigo-layout.simple_navs.links') as $link)
+                                <a class="frame__header-link" href="{{ $link['link'] ?? '' }}">{{ $link['text'] ?? '' }}</a>
+                            @endforeach
+                        @endif
                         @if(config('indigo-layout.simple_navs.btn'))<a class="btn frame__header-callbtn" href="{{ config('indigo-layout.simple_navs.btn.link') }}">{{ config('indigo-layout.simple_navs.btn.text') }}</a>@endif
                     </div>
+                    @endif
                 </div>
                 <div class="frame__header-line">
                     @isset($h1)<h1 class="frame__header-title">{!! $h1 !!}</h1>@endisset
                 </div>
             </div>
-            {{--<transition name="user-menu">--}}
-                {{--<div class="user-menu" v-show="$awesLayoutCrm.showUserMenu" style="display: none;">--}}
-                    {{--<ul class="user-menu__list"><button class="user-menu__close" @click="$awesLayoutCrm.showUserMenu = ! $awesLayoutCrm.showUserMenu">&times;</button>--}}
-                        {{--<div class="cm-item">--}}
-                            {{--<div class="cm-item__panel is-secondary"><strong class="user-menu__title">Terry Gerlach</strong><small class="user-menu__desc">Standart until 10 november<br>                5 users $500 per month</small>--}}
-                                {{--<nav class="user-menu__nav" aria-label="Profile navigation">--}}
-                                    {{--<ul>--}}
-                                        {{--<li><a href="https://company.awescrm.cloud/managers/NQ%3D%3D">Profile</a></li>--}}
-                                        {{--<li class="is-expand"><a href="https://www.awescrm.cloud/logout">Logout</a></li>--}}
-                                    {{--</ul>--}}
-                                {{--</nav><label class="progress user-menu__progress"><span>519.05 MB</span> of 2.5 GB used<progress max="2500" value="519">519 MB of 2.5 GB used</progress></label></div>--}}
-                        {{--</div>--}}
-                        {{--<div class="cm-item">--}}
-                            {{--<div class="cm-item__panel">--}}
-                                {{--<theme-switcher></theme-switcher>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
+            @if(Auth::check())
+            <transition name="user-menu">
+                <div class="user-menu" v-show="$awesLayoutCrm.showUserMenu" style="display: none;">
+                    <ul class="user-menu__list"><button class="user-menu__close" @click="$awesLayoutCrm.showUserMenu = ! $awesLayoutCrm.showUserMenu">&times;</button>
+                        <div class="cm-item">
+                            <div class="cm-item__panel is-secondary"><strong class="user-menu__title">{{ Auth::user()->name }}</strong>
+                                <small class="user-menu__desc">Standart until 10 november<br>5 users $500 per month</small>
+                                <nav class="user-menu__nav" aria-label="Profile navigation">
+                                    <ul>
+                                        <li><a href="https://company.awescrm.cloud/managers/NQ%3D%3D">Profile</a></li>
+                                        <li class="is-expand"><a href="{{ route('logout') }}">Logout</a></li>
+                                    </ul>
+                                </nav>
+                                {{--<label class="progress user-menu__progress"><span>519.05 MB</span> of 2.5 GB used<progress max="2500" value="519">519 MB of 2.5 GB used</progress></label>--}}
+                            </div>
+                        </div>
+                        <div class="cm-item">
+                            <div class="cm-item__panel">
+                                <theme-switcher></theme-switcher>
+                            </div>
+                        </div>
                         {{--<div class="cm-item">--}}
                             {{--<div class="cm-item__panel"><strong class="user-menu__companies" id="companies_list">4 companies</strong>--}}
                                 {{--<ul class="user-menu__companies-list" aria-labelledby="companies_list">--}}
@@ -96,9 +111,10 @@
                                 {{--</ul>--}}
                             {{--</div>--}}
                         {{--</div>--}}
-                    {{--</ul>--}}
-                {{--</div>--}}
-            {{--</transition>--}}
+                    </ul>
+                </div>
+            </transition>
+            @endif
             <div class="frame__content">
                 @yield('content')
             </div>
