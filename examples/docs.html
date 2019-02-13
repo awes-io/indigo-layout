@@ -458,6 +458,27 @@
                 </transition>
                 <div class="frame__content">
                     <div class="frame__inlayout">
+                        <div class="frame__inlayout-aside">
+                            <!-- class frame__inlayout-block_fixed can make a block float top-->
+                            <div class="frame__inlayout-block">
+                                <ul class="tf-titlenav">
+                                    <li><a class="active" href="#minimal-codeup">Минимальная разметка</a></li>
+                                    <li><a href="#wrapper-props">Параметры компонента-обёртки<em>&lt;context-menu&gt;</em></a></li>
+                                    <li><a href="#positioning">Позиционирование на экране</a></li>
+                                    <li><a href="#elements">Элементы контекстного меню</a>
+                                        <ul>
+                                            <li><a href="#elements-button">Кнопка<em>&lt;cm-button&gt;</em></a></li>
+                                            <li><a href="#elements-link">Ссылка<em>&lt;cm-link&gt;</em></a></li>
+                                            <li><a href="#elements-separator">Разделитель<em>&lt;cm-separator&gt;</em></a></li>
+                                            <li><a href="#elements-panel">Панель<em>&lt;cm-panel&gt;</em></a></li>
+                                            <li><a href="#elements-query">GET-параметры в адресной строке<em>&lt;cm-query&gt;</em></a></li>
+                                            <li><a href="#elements-ajax">AJAX-запрос<em>&lt;cm-ajax&gt;</em></a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#toggler-slot">Стилизация открывающей кнопки</a></li>
+                                </ul>
+                            </div>
+                        </div>
                         <div class="frame__inlayout-content">
                             <p>Предназначен для отображения скрытого по-умолчанию списка нажатием на кнопку</p>
                             <div id="minimal-codeup"></div>
@@ -998,27 +1019,6 @@ c: 2
 me</span>
                                     <cm-button>Click me!</cm-button>
                                 </context-menu>
-                            </div>
-                        </div>
-                        <div class="frame__inlayout-aside">
-                            <!-- class frame__inlayout-block_fixed can make a block float top-->
-                            <div class="frame__inlayout-block frame__inlayout-block_fixed2">
-                                <ul class="tf-titlenav">
-                                    <li><a class="active" href="#minimal-codeup">Минимальная разметка</a></li>
-                                    <li><a href="#wrapper-props">Параметры компонента-обёртки<em>&lt;context-menu&gt;</em></a></li>
-                                    <li><a href="#positioning">Позиционирование на экране</a></li>
-                                    <li><a href="#elements">Элементы контекстного меню</a>
-                                        <ul>
-                                            <li><a href="#elements-button">Кнопка<em>&lt;cm-button&gt;</em></a></li>
-                                            <li><a href="#elements-link">Ссылка<em>&lt;cm-link&gt;</em></a></li>
-                                            <li><a href="#elements-separator">Разделитель<em>&lt;cm-separator&gt;</em></a></li>
-                                            <li><a href="#elements-panel">Панель<em>&lt;cm-panel&gt;</em></a></li>
-                                            <li><a href="#elements-query">GET-параметры в адресной строке<em>&lt;cm-query&gt;</em></a></li>
-                                            <li><a href="#elements-ajax">AJAX-запрос<em>&lt;cm-ajax&gt;</em></a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#toggler-slot">Стилизация открывающей кнопки</a></li>
-                                </ul>
                             </div>
                         </div>
                     </div>

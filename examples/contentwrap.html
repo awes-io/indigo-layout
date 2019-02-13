@@ -427,12 +427,16 @@
                     </div>
                 </transition>
                 <div class="frame__content"><button class="frame__header-add"><i class="icon icon-plus"></i></button>
-                    <content-wrapper :data="{&quot;email&quot;:&quot;soberbrunner@example.org&quot;, &quot;pagetitle&quot;: &quot;This example content wrapper&quot;}" store-data="content"><template slot-scope="props">
-                            <h1>{{ $get(props, 'data.pagetitle') }}</h1>
-                            <p>You can look on this email <b>{{ $get(props, 'data.email') }}</b>, what parsing from data</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro obcaecati expedita molestias non quos ut eos reprehenderit, eligendi voluptate quam eaque, illum neque cum quasi dolorum! Dolore officiis molestias ad.</p>
-                            <h2>With styles all okay</h2>
-                        </template></content-wrapper>
+                    <div class="frame__inlayout">
+                        <div class="frame__inlayout-content">
+                            <content-wrapper :data="{&quot;email&quot;:&quot;soberbrunner@example.org&quot;, &quot;pagetitle&quot;: &quot;This example content wrapper&quot;}" store-data="content"><template slot-scope="props">
+                                    <h1>{{ $get(props, 'data.pagetitle') }}</h1>
+                                    <p>You can look on this email <b>{{ $get(props, 'data.email') }}</b>, what parsing from data</p>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro obcaecati expedita molestias non quos ut eos reprehenderit, eligendi voluptate quam eaque, illum neque cum quasi dolorum! Dolore officiis molestias ad.</p>
+                                    <h2>With styles all okay</h2>
+                                </template></content-wrapper>
+                        </div>
+                    </div>
                 </div><span class="frame__copyright">© 2019 - PkgKit - Proudly powered on <a href="">Awes.IO Platform</a>.</span>
             </div>
         </div>
