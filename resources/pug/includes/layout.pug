@@ -12,7 +12,7 @@ html(lang="en")
                     .frame__overlay(v-show="$awesLayoutCrm.togglenav || $awesLayoutCrm.showUserMenu" @click="$awesLayoutCrm.overlayClick")
                 if(!asideFalse)
                     include frames/aside
-                div(class="frame__right")
+                .frame__right(class=typeof headLinks === "undefined" ? undefined : "frame__right_nui")
                     include frames/header
                     div.frame__content
                         if(!removePlus)
@@ -23,7 +23,6 @@ html(lang="en")
                     span.frame__copyright © 2019 - PkgKit - Proudly powered on 
                         a(href="") Awes.IO Platform
                         |.
-
-            .float-icns
-                button.float-icns__icon.float-icns__icon_helper(@click="$awesLayoutCrm.showHelpers = ! $awesLayoutCrm.showHelpers") ?
+                    .float-icns
+                        button.float-icns__icon.float-icns__icon_helper(@click="$awesLayoutCrm.showHelpers = ! $awesLayoutCrm.showHelpers") ?
 
