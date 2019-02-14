@@ -1,31 +1,53 @@
 <template>
-    <div>
-        <slot :data="content"></slot>
-    </div>
+    <component :is="tag">
+        <slot v-bind="content"></slot>
+    </component>
 </template>
 
 <script>
     export default {
+
         name: 'content-wrapper',
+
+
         props: {
-            data: {
+
+            tag: {
+                type: String,
+                default: 'div'
+            },
+
+            default: {
                 type: Object,
                 default: null
             },
-            'storeData': {
+
+            storeData: {
                 type: String,
-                require: true
+                required: true
             }
         },
-        created() {
-            AWES._store.commit('setData', {
-                param: this.storeData,
-                data: this.data
-            });
-        },
+
+
         computed: {
+
             content() {
                 return AWES._store.state[this.storeData];
+            }
+        },
+
+
+        watch: {
+
+            default: {
+                handler(data) {
+                    if (! data ) return
+                    AWES._store.commit('setData', {
+                        param: this.storeData,
+                        data
+                    });
+                },
+                immediate: true
             }
         }
     }

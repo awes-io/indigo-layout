@@ -3,9 +3,21 @@
 namespace AwesIO\IndigoLayout;
 
 use AwesIO\BaseJS\AwesProvider;
+use Illuminate\Support\Facades\View;
 
 class IndigoLayoutServiceProvider extends AwesProvider
 {
+
+    public function boot()
+    {
+        parent::boot();
+
+        if (config('indigo-layout.navs')) {
+            View::composer('*', function ($view) {
+                $view->with('navs', config('indigo-layout.navs'));
+            });
+        }
+    }
 
     public function getPackageName(): string
     {

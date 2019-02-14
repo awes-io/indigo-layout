@@ -17,7 +17,7 @@ block pageContent
 
         h4 текст
         fb-group
-            fb-input(name="awdaw12312312" label="Label test long label" cell="3")
+            fb-input(name="awdaw12312312" label="Input field" cell="3" autocomplete="off")
             fb-select(name="awdawd123qw" :multiple="false" cell="3" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]")
             fb-select(name="select2" cell="3" label="Yosip ishchet lojku" :multiple="true" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]")
             fb-phone(name="asd123123asd" label="Phone label" cell="3")
@@ -28,9 +28,9 @@ block pageContent
 
         h4 Switcher
         fb-group
-            fb-switcher(label="switcher" name="switcher1" cell="2") 
-            fb-switcher(label="switcher" disabled name="switcher2" cell="2") 
-            fb-switcher.fb-switcher_error(label="switcher" name="switcher3" cell="2") 
+            fb-switcher(label="switcher" name="switcher1" cell="2")
+            fb-switcher(label="switcher" disabled name="switcher2" cell="2")
+            fb-switcher.fb-switcher_error(label="switcher" name="switcher3" cell="2")
             fb-switcher.fb-switcher_ok(label="switcher" name="switcher4" cell="2")
 
         br
@@ -38,11 +38,11 @@ block pageContent
 
         h4 Select
         fb-group
-            fb-select(name="select1" cell="2" label="Yosip ishchet lojku" :multiple="false" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]")
-            fb-select(name="select2" cell="2" label="Yosip ishchet lojku" :multiple="true" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]")
-            fb-select(name="select3" class="fb-select_ok" disabled cell="2" label="Yosip ishchet lojku" :multiple="false" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]")
-            fb-select(name="select4" class="fb-select_error" disabled cell="2" label="Yosip ishchet lojku" :multiple="true" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]")
-        
+            fb-select(name="select1" cell="2" label="Single select" :multiple="false" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]")
+            fb-select(name="select2" cell="2" label="Multiple select" :multiple="true" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]")
+            fb-select(name="select3" class="fb-select_ok" disabled cell="2" label="OK select" :multiple="false" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]")
+            fb-select(name="select4" class="fb-select_error" disabled cell="2" label="Error select" :multiple="true" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]")
+
         br
         br
         h4 Phone input
@@ -55,19 +55,19 @@ block pageContent
         br
         br
         h4 MCE Editor
-        fb-editor(name="editor1")    
-        fb-editor(name="editor2" disabled)   
+        fb-editor(name="editor1")
+        fb-editor(name="editor2" disabled)
         fb-group
-            fb-editor(name="editor3" cell="2" class="fb-editor_ok")    
-            fb-editor(name="editor4" cell="2" class="fb-editor_error")  
+            fb-editor(name="editor3" cell="2" class="fb-editor_ok")
+            fb-editor(name="editor4" cell="2" class="fb-editor_error")
 
         br
         br
         h4 Textarea
         fb-group
-            fb-textarea(name="ed1" cell="2" label="Textarea label")                    
+            fb-textarea(name="ed1" cell="2" label="Textarea label")
             fb-textarea(name="ed2" cell="2" label="Textarea disabled" disabled)
-            fb-textarea(name="ed3" cell="2" label="Textarea error" class="fb-textarea_error")                    
+            fb-textarea(name="ed3" cell="2" label="Textarea error" class="fb-textarea_error")
             fb-textarea(name="ed4" cell="2" label="Textarea ok" class="fb-textarea_ok")
 
         br
@@ -95,7 +95,7 @@ block pageContent
             fb-input(name="input2" label="Default label" cell="2")
             fb-input(name="input3" class="fb-input_ok" label="Input ok" cell="2")
             fb-input(name="input4" class="fb-input_error" label="Input error"  cell="2")
-        
+
         br
         br
         h4 Checkbox example
