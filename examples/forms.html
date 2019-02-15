@@ -32,7 +32,7 @@
             <div class="frame__aside" id="aside">
                 <div class="frame__aside-wrap">
                     <div class="frame__aside-line"><span class="frame__aside-open g-res--tablet-lg" :class="{ active: $awesLayoutCrm.togglenav }" @click="$awesLayoutCrm.openNav"><span></span></span>
-                        <h2 class="frame__aside-title"><a href="">AwesCRM</a></h2>
+                        <h2 class="frame__aside-title"><a href="">Your Logo</a></h2>
                     </div>
                     <nav class="frame__aside-nav" v-bind:class="{ active: $awesLayoutCrm.togglenav }">
                         <div class="frame__aside-mhead g-res--tablet-lg"><a class="frame__aside-close" href="" @click.prevent="$awesLayoutCrm.openNav()"><i class="icon icon-cross"></i></a>
@@ -509,11 +509,12 @@
                             <fb-code class="fb-keycode_error" name="code4"></fb-code>
                         </fb-group><br><br>
                         <h4>Company Slug</h4>
+                        <fb-input label="Company name" name="company1"></fb-input>
                         <fb-group>
-                            <fb-company-slug label="Slug default" name="slug1" domain="very very long link awescrm.de"></fb-company-slug>
-                            <fb-company-slug label="Slug disabled" disabled name="slug2" domain="awescrm.de" cell="3"></fb-company-slug>
-                            <fb-company-slug class="fb-slug_ok" label="Slug ok" name="slug3" domain="local.awescrm.de" cell="3"></fb-company-slug>
-                            <fb-company-slug class="fb-slug_error" label="Slug error" name="slug4" domain="dev.awescrm.de" cell="3"></fb-company-slug>
+                            <fb-company-slug label="Slug default" name="slug1" input="company1" domain="very very long link awescrm.de"></fb-company-slug>
+                            <fb-company-slug label="Slug disabled" disabled name="slug2" input="company1" domain="awescrm.de" cell="3"></fb-company-slug>
+                            <fb-company-slug class="fb-slug_ok" label="Slug ok" name="slug3" input="company1" domain="local.awescrm.de" cell="3"></fb-company-slug>
+                            <fb-company-slug class="fb-slug_error" label="Slug error" name="slug4" input="company1" domain="dev.awescrm.de" cell="3"></fb-company-slug>
                         </fb-group><br><br>
                         <h4>Radio Group</h4>
                         <fb-group>
@@ -528,7 +529,7 @@
                                     <fb-input name="input22" label="multi-block" :id="mb.id" cell="2"></fb-input>
                                     <fb-input name="input33" label="multi-block" :id="mb.id" cell="2"></fb-input>
                                 </fb-group>
-                                <fb-textarea name="text11" label="multi block"></fb-textarea>
+                                <fb-textarea name="text11" label="multi block" :id="mb.id"></fb-textarea>
                             </template></fb-multi-block><br><br>
                         <h4>Multiblock disabled</h4>
                         <fb-multi-block name="multi2" disabled><template slot-scope="mb">

@@ -54,12 +54,17 @@ const awesPlugin = {
         },
         'highlight_langs': {
             src: [
-                'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/languages/yaml.min.js'
+                'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/languages/yaml.min.js',
+                'https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.6.0/dist/highlightjs-line-numbers.min.js'
             ],
             deps: ['highlight'],
             cb() {
+                // console.log( hljs.listLanguages() )
                 document.querySelectorAll('pre code[class*="language-"]').forEach(block => {
                     hljs.highlightBlock(block);
+                    hljs.lineNumbersBlock(block);
+                    let language = block.className.match(/language-([a-z]*)/);
+                    language[1] && block.setAttribute('data-language', language[1])
                 })
             }
         }
