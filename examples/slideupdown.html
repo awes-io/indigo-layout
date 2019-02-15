@@ -17,10 +17,10 @@
 }</script>
     <script src="/js/main.js"></script>
     <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/base-js/v1.x.x/js/main.js"></script>
-    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/context-menu/v0.1.1/js/main.js"></script>
-    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/form-builder/v1.0.5/js/main.js"></script>
-    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/modal/v0.x.x/js/main.js"></script>
-    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/theme-switcher/v0.x.x/js/main.js"></script><!-- there is can be head meta or sctipts-->
+    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/context-menu/v0.x.x/js/main.js"></script>
+    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/form-builder/v1.x.x/js/main.js"></script>
+    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/modal/v1.x.x/js/main.js"></script>
+    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/theme-switcher/v1.x.x/js/main.js"></script><!-- there is can be head meta or sctipts-->
 </head>
 
 <body>
@@ -32,13 +32,13 @@
             <div class="frame__aside" id="aside">
                 <div class="frame__aside-wrap">
                     <div class="frame__aside-line"><span class="frame__aside-open g-res--tablet-lg" :class="{ active: $awesLayoutCrm.togglenav }" @click="$awesLayoutCrm.openNav"><span></span></span>
-                        <h2 class="frame__aside-title"> <a href="">AwesCRM</a></h2>
+                        <h2 class="frame__aside-title"><a href="">AwesCRM</a></h2>
                     </div>
                     <nav class="frame__aside-nav" v-bind:class="{ active: $awesLayoutCrm.togglenav }">
                         <div class="frame__aside-mhead g-res--tablet-lg"><a class="frame__aside-close" href="" @click.prevent="$awesLayoutCrm.openNav()"><i class="icon icon-cross"></i></a>
                             <h4 class="frame__aside-mtitle"><a href="">AwesCRM</a></h4>
                         </div>
-                        <frame-nav :links="[{name:'Dashboard', icon:'speed', link: '/newform.html'}, {name:'Dashboard', icon:'speed', link: '/newform.html'},{name:'Dashboard', icon:'speed', link: '/newform.html'},{name:'Dashboard', icon:'speed', link: '/newform.html'},{name:'Dashboard', icon:'speed', link: '/newform.html'},{name:'Dashboard', icon:'speed', link: '/newform.html'},{name:'Dashboard', icon:'speed', link: '/newform.html'},{name:'Dashboard', icon:'speed', link: '/newform.html'},{name:'Dashboard', icon:'speed', link: '/newform.html'},{name:'Dashboard', icon:'speed', link: '/newform.html'},{name:'Admin', icon:'report', link: '/newform.html', children: [{name:'Dashboard', link: '/modal.html'}]}, {name:'Admin', icon:'report', children: [{name:'Dashboard', link: '/modal.html', active: true}]}]">
+                        <frame-nav :links="[{name:'Dashboard', icon:'speed', link: '/'}, {name:'Phones', icon:'call', link: '/', children: [{name: 'Managers', link: '/'}, {name: 'Suppliers', link: '/'}, {name: 'Clients', link: '/'}]},{name:'Update', icon:'loading', link: '/'}, {name:'Admin', icon:'report', children: [{name:'Options', link: '/'}, {name:'Permissions', link: '/'}]}]">
                             <div class="ph">
                                 <div class="ph__mnav"><span class="ph__mnav-link"></span><span class="ph__mnav-title"></span></div>
                                 <ul class="ph__nav">
@@ -426,8 +426,7 @@
                         </div>
                     </div>
                 </transition>
-                <div class="frame__content"><button class="frame__header-add"><i class="icon icon-plus"></i></button><!-- TODO-->
-                    <p>222 Работает относительно плохо, если кликнуть быстро несколько, то начинаються глюки. Этот плагин ставил не я. Возможным решением может быть добавление .stop() к событию.</p><a class="btn" href="" @click.prevent="$refs.slide.toggle()">test Slide Up Down</a><br>
+                <div class="frame__content"><button class="frame__header-add"><i class="icon icon-plus"></i></button><a class="btn" href="" @click.prevent="$refs.slide.toggle()" style="max-width:180px">test Slide Up Down</a><br>
                     <slide-up-down ref="slide">
                         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere, quae? Accusantium voluptatibus pariatur rem vitae porro, velit vel cupiditate sint! Repudiandae aliquid quidem facilis repellendus dolorem consequuntur veniam maiores eum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium hic nisi, aliquam beatae doloribus expedita non numquam cumque nemo inventore necessitatibus ex, provident pariatur facilis. Temporibus saepe tempora eaque iste. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod dignissimos sapiente vitae excepturi libero suscipit unde praesentium maiores voluptate facere natus, vero iure. Ipsum necessitatibus laudantium quae, fugiat inventore eum?</p>
                         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere, quae? Accusantium voluptatibus pariatur rem vitae porro, velit vel cupiditate sint! Repudiandae aliquid quidem facilis repellendus dolorem consequuntur veniam maiores eum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium hic nisi, aliquam beatae doloribus expedita non numquam cumque nemo inventore necessitatibus ex, provident pariatur facilis. Temporibus saepe tempora eaque iste. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod dignissimos sapiente vitae excepturi libero suscipit unde praesentium maiores voluptate facere natus, vero iure. Ipsum necessitatibus laudantium quae, fugiat inventore eum?</p>

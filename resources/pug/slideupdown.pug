@@ -8,11 +8,9 @@ block pageHead
 
 
 block pageContent
-    // TODO
-    p 222 Работает относительно плохо, если кликнуть быстро несколько, то начинаються глюки. Этот плагин ставил не я. Возможным решением может быть добавление .stop() к событию.
 
-    a.btn(href="" @click.prevent="$refs.slide.toggle()") test Slide Up Down
-    
+    a.btn(href="" @click.prevent="$refs.slide.toggle()" style="max-width:180px") test Slide Up Down
+
     br
 
     slide-up-down(ref="slide")

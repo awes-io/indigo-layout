@@ -11,21 +11,21 @@
     export default {
 
         name: 'slide-up-down',
-        
+
         props: {
 
             show: Boolean,
-            
+
             tag: {
                 type: String,
                 default: 'div'
             },
-            
+
             slideUpDuration: {
                 type: Number,
                 default: 250 // milliseconds
             },
-            
+
             slideDownDuration: {
                 type: Number,
                 default: 300 // milliseconds
@@ -34,7 +34,6 @@
 
         data() {
             return {
-                isAnimating: false,
                 isOpened: this.show
             }
         },
@@ -100,14 +99,17 @@
 
             close() {
                 this.isOpened = false
+                this.$emit('update:show', false)
             },
 
             open() {
                 this.isOpened = true
+                this.$emit('update:show', true)
             },
 
             toggle() {
                 this.isOpened = ! this.isOpened
+                this.$emit('update:show', this.isOpened)
             }
         },
 

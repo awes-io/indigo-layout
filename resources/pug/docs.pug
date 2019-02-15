@@ -6,6 +6,8 @@ block pageVariables
     - var removePlus = true
 
 block pageHead
+    script(src="https://storage.awes.io/74c99e54e4bbe7ab337ddbb5ec348d02/awes-io/page-map/v1.x.x/js/main.js")
+    link(rel="stylesheet" href="https://storage.awes.io/74c99e54e4bbe7ab337ddbb5ec348d02/awes-io/page-map/v1.x.x/css/main.css?v=2019-02-13_08-49-22")
     // there is can be head meta or sctipts
 
 
@@ -672,8 +674,9 @@ block pageContent
 
 
         .frame__inlayout-aside
+            page-map(content=".frame__inlayout-content")
             // class frame__inlayout-block_fixed can make a block float top
-            .frame__inlayout-block.frame__inlayout-block_fixed2
+            //.frame__inlayout-block.frame__inlayout-block_fixed2
 
                 ul.tf-titlenav
                     li

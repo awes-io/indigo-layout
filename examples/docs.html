@@ -17,10 +17,12 @@
 }</script>
     <script src="/js/main.js"></script>
     <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/base-js/v1.x.x/js/main.js"></script>
-    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/context-menu/v0.1.1/js/main.js"></script>
-    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/form-builder/v1.0.5/js/main.js"></script>
-    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/modal/v0.x.x/js/main.js"></script>
-    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/theme-switcher/v0.x.x/js/main.js"></script><!-- there is can be head meta or sctipts-->
+    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/context-menu/v0.x.x/js/main.js"></script>
+    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/form-builder/v1.x.x/js/main.js"></script>
+    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/modal/v1.x.x/js/main.js"></script>
+    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/theme-switcher/v1.x.x/js/main.js"></script>
+    <script src="https://storage.awes.io/74c99e54e4bbe7ab337ddbb5ec348d02/awes-io/page-map/v1.x.x/js/main.js"></script>
+    <link rel="stylesheet" href="https://storage.awes.io/74c99e54e4bbe7ab337ddbb5ec348d02/awes-io/page-map/v1.x.x/css/main.css?v=2019-02-13_08-49-22"><!-- there is can be head meta or sctipts-->
 </head>
 
 <body>
@@ -32,13 +34,13 @@
             <div class="frame__aside" id="aside">
                 <div class="frame__aside-wrap">
                     <div class="frame__aside-line"><span class="frame__aside-open g-res--tablet-lg" :class="{ active: $awesLayoutCrm.togglenav }" @click="$awesLayoutCrm.openNav"><span></span></span>
-                        <h2 class="frame__aside-title"> <a href="">AwesCRM</a></h2><a class="btn frame__aside-callbtn" href="">Sign In</a>
+                        <h2 class="frame__aside-title"><a href="">AwesCRM</a></h2><a class="btn frame__aside-callbtn" href="">Sign In</a>
                     </div>
                     <nav class="frame__aside-nav" v-bind:class="{ active: $awesLayoutCrm.togglenav }">
                         <div class="frame__aside-mhead g-res--tablet-lg"><a class="frame__aside-close" href="" @click.prevent="$awesLayoutCrm.openNav()"><i class="icon icon-cross"></i></a>
                             <h4 class="frame__aside-mtitle"><a href="">AwesCRM</a></h4>
                         </div>
-                        <frame-nav :links="[{name:'Dashboard', icon:'speed', link: '/newform.html'}, {name:'Dashboard', icon:'speed', link: '/newform.html'},{name:'Dashboard', icon:'speed', link: '/newform.html'},{name:'Dashboard', icon:'speed', link: '/newform.html'},{name:'Dashboard', icon:'speed', link: '/newform.html'},{name:'Dashboard', icon:'speed', link: '/newform.html'},{name:'Dashboard', icon:'speed', link: '/newform.html'},{name:'Dashboard', icon:'speed', link: '/newform.html'},{name:'Dashboard', icon:'speed', link: '/newform.html'},{name:'Dashboard', icon:'speed', link: '/newform.html'},{name:'Admin', icon:'report', link: '/newform.html', children: [{name:'Dashboard', link: '/modal.html'}]}, {name:'Admin', icon:'report', children: [{name:'Dashboard', link: '/modal.html', active: true}]}]">
+                        <frame-nav :links="[{name:'Dashboard', icon:'speed', link: '/'}, {name:'Phones', icon:'call', link: '/', children: [{name: 'Managers', link: '/'}, {name: 'Suppliers', link: '/'}, {name: 'Clients', link: '/'}]},{name:'Update', icon:'loading', link: '/'}, {name:'Admin', icon:'report', children: [{name:'Options', link: '/'}, {name:'Permissions', link: '/'}]}]">
                             <div class="ph">
                                 <div class="ph__mnav"><span class="ph__mnav-link"></span><span class="ph__mnav-title"></span></div>
                                 <ul class="ph__nav">
@@ -1001,25 +1003,45 @@ me</span>
                             </div>
                         </div>
                         <div class="frame__inlayout-aside">
-                            <!-- class frame__inlayout-block_fixed can make a block float top-->
-                            <div class="frame__inlayout-block frame__inlayout-block_fixed2">
-                                <ul class="tf-titlenav">
-                                    <li><a class="active" href="#minimal-codeup">Минимальная разметка</a></li>
-                                    <li><a href="#wrapper-props">Параметры компонента-обёртки<em>&lt;context-menu&gt;</em></a></li>
-                                    <li><a href="#positioning">Позиционирование на экране</a></li>
-                                    <li><a href="#elements">Элементы контекстного меню</a>
-                                        <ul>
-                                            <li><a href="#elements-button">Кнопка<em>&lt;cm-button&gt;</em></a></li>
-                                            <li><a href="#elements-link">Ссылка<em>&lt;cm-link&gt;</em></a></li>
-                                            <li><a href="#elements-separator">Разделитель<em>&lt;cm-separator&gt;</em></a></li>
-                                            <li><a href="#elements-panel">Панель<em>&lt;cm-panel&gt;</em></a></li>
-                                            <li><a href="#elements-query">GET-параметры в адресной строке<em>&lt;cm-query&gt;</em></a></li>
-                                            <li><a href="#elements-ajax">AJAX-запрос<em>&lt;cm-ajax&gt;</em></a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#toggler-slot">Стилизация открывающей кнопки</a></li>
-                                </ul>
-                            </div>
+                            <page-map content=".frame__inlayout-content"></page-map><!-- class frame__inlayout-block_fixed can make a block float top-->
+                            <!--.frame__inlayout-block.frame__inlayout-block_fixed2ul.tf-titlenav
+    li
+        a(href='#minimal-codeup').active Минимальная разметка
+    li
+        a(href='#wrapper-props')
+            | Параметры компонента-обёртки
+            em &lt;context-menu&gt;
+    li
+        a(href='#positioning') Позиционирование на экране
+    li
+        a(href='#elements') Элементы контекстного меню
+        ul
+            li
+                a(href='#elements-button')
+                    | Кнопка
+                    em &lt;cm-button&gt;
+            li
+                a(href='#elements-link')
+                    | Ссылка
+                    em &lt;cm-link&gt;
+            li
+                a(href='#elements-separator')
+                    | Разделитель
+                    em &lt;cm-separator&gt;
+            li
+                a(href='#elements-panel')
+                    | Панель
+                    em &lt;cm-panel&gt;
+            li
+                a(href='#elements-query')
+                    | GET-параметры в адресной строке
+                    em &lt;cm-query&gt;
+            li
+                a(href='#elements-ajax')
+                    | AJAX-запрос
+                    em &lt;cm-ajax&gt;
+    li
+        a(href='#toggler-slot') Стилизация открывающей кнопки-->
                         </div>
                     </div>
                 </div><span class="frame__copyright">© 2019 - PkgKit - Proudly powered on <a href="">Awes.IO Platform</a>.</span>
