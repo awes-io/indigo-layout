@@ -117,11 +117,12 @@ block pageContent
         br
         br
         h4 Company Slug
+        fb-input(label="Company name" name="company1")
         fb-group
-            fb-company-slug(label="Slug default" name="slug1" domain="very very long link awescrm.de")
-            fb-company-slug(label="Slug disabled" disabled name="slug2" domain="awescrm.de"  cell="3")
-            fb-company-slug.fb-slug_ok(label="Slug ok" name="slug3" domain="local.awescrm.de" cell="3")
-            fb-company-slug.fb-slug_error(label="Slug error" name="slug4" domain="dev.awescrm.de"  cell="3")
+            fb-company-slug(label="Slug default" name="slug1" input="company1" domain="very very long link awescrm.de")
+            fb-company-slug(label="Slug disabled" disabled name="slug2" input="company1" domain="awescrm.de" cell="3")
+            fb-company-slug.fb-slug_ok(label="Slug ok" name="slug3" input="company1" domain="local.awescrm.de" cell="3")
+            fb-company-slug.fb-slug_error(label="Slug error" name="slug4" input="company1" domain="dev.awescrm.de" cell="3")
 
         br
         br
@@ -141,7 +142,7 @@ block pageContent
                 fb-group
                     fb-input(name="input22" label="multi-block" :id="mb.id" cell="2")
                     fb-input(name="input33" label="multi-block" :id="mb.id" cell="2")
-                fb-textarea(name="text11" label="multi block")
+                fb-textarea(name="text11" label="multi block" :id="mb.id")
         br
         br
         h4 Multiblock disabled
