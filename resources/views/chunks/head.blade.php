@@ -1,10 +1,11 @@
 <head>
-    <title>Empty Test</title>
+    <title>@yield('meta_title', '')</title>
+    <meta name="description" content="@yield('meta_description', '')">
     <meta charset="utf-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700&amp;subset=cyrillic" rel="stylesheet">
-
+    @stack('head')
 
 @isset($src['style']['indigo-layout'])
     <link rel="stylesheet" href="{{ $src['style']['indigo-layout'] }}">
