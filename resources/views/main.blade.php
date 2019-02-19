@@ -52,7 +52,7 @@
             </div>
         @endisset
 
-        <div class="frame__right @if(!Auth::check()) frame__right_nui @endif"> 
+        <div class="frame__right @if(!Auth::check()) frame__right_nui @endif">
 
             <div class="frame__header">
                 <div class="frame__header-top">
@@ -139,9 +139,9 @@
             @endif
             <div class="frame__content">
                 <div class="frame__inlayout">
-                    <div class="frame__inlayout-aside">
+                    <!-- <div class="frame__inlayout-aside">
                         <page-map content=".frame__inlayout-content"></page-map>
-                    </div>
+                    </div> -->
                     <div class="frame__inlayout-content">
                         @yield('content')
                     </div>
@@ -152,9 +152,9 @@
                 @endif
 
                 {{-- <div class="float-icns"><button class="float-icns__icon float-icns__icon_helper"></button></div>    --}}
-                
+
             </div>
-            
+
         </div>
     </div>
 </div>
