@@ -139,9 +139,11 @@
             @endif
             <div class="frame__content">
                 <div class="frame__inlayout">
-                    <!-- <div class="frame__inlayout-aside">
+                    @hasSection('pagemap')
+                    <div class="frame__inlayout-aside">
                         <page-map content=".frame__inlayout-content"></page-map>
-                    </div> -->
+                    </div>
+                    @endif
                     <div class="frame__inlayout-content">
                         @yield('content')
                     </div>
