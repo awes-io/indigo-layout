@@ -28,9 +28,9 @@ return [
 //    'custom_styles' => "html p { color: black }",
 
     'src' => [
-        'script' => 'awes-io/indigo-layout/v0.x.x/js/main.js',
-        'script_legacy' => 'awes-io/indigo-layout/v0.x.x/js/main.legacy.js',
-        'style' => 'awes-io/indigo-layout/v0.x.x/css/main.css'
+        'script' => 'awes-io/indigo-layout/v1.x.x/js/main.js',
+        'script_legacy' => 'awes-io/indigo-layout/v1.x.x/js/main.legacy.js',
+        'style' => 'awes-io/indigo-layout/v1.x.x/css/main.css'
     ],
 
     'local' => [
