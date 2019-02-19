@@ -1,0 +1,55 @@
+.page-map
+    & &__list
+        list-style none
+        margin 0
+        padding 0 0 20px 0
+        li
+            margin-bottom 5px
+            a
+                color var(--tc_link_semi)
+                display block
+                &:hover
+                    color var(--tc_link)
+            &.is-active
+                a
+                    color var(--tc_link_semi_active)
+                    font-weight 400
+                    text-decoration underline                    
+                    &:hover
+                        color var(--tc_link)
+            &.for
+                &-h2
+                    font-size 13px
+                    padding-left 0
+                    & + .for-h3, & + .for-h4, & + .for-h5
+                        margin-top 10px
+                &-h3
+                    font-size 13px
+                    padding-left 15px
+                    & + .for-h2, & + .for-h4, & + .for-h5
+                        margin-top 10px
+                &-h4
+                    font-size 12px
+                    padding-left 30px
+                    & + .for-h2, & + .for-h3, & + .for-h5
+                        margin-top 10px
+                &-h5
+                    font-size 12px
+                    text-transform none
+                    line-height: 1.5
+                    padding-left 45px
+                    & + .for-h2, & + .for-h3, & + .for-h4
+                        margin-top 10px
+                        
+
+@media res_tablet--lg
+    .page-map
+        margin-bottom 20px
+        & &__list
+            li
+                a
+                    color var(--tc_link)
+                &.is-active
+                    a
+                        text-decoration none
+                        color var(--tc_link)

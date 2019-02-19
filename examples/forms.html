@@ -17,10 +17,10 @@
 }</script>
     <script src="/js/main.js"></script>
     <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/base-js/v1.x.x/js/main.js"></script>
-    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/context-menu/v0.1.1/js/main.js"></script>
-    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/form-builder/v1.0.5/js/main.js"></script>
-    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/modal/v0.x.x/js/main.js"></script>
-    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/theme-switcher/v0.x.x/js/main.js"></script><!-- there is can be head meta or sctipts-->
+    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/context-menu/v0.x.x/js/main.js"></script>
+    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/form-builder/v1.x.x/js/main.js"></script>
+    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/modal/v1.x.x/js/main.js"></script>
+    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/theme-switcher/v1.x.x/js/main.js"></script><!-- there is can be head meta or sctipts-->
 </head>
 
 <body>
@@ -32,13 +32,13 @@
             <div class="frame__aside" id="aside">
                 <div class="frame__aside-wrap">
                     <div class="frame__aside-line"><span class="frame__aside-open g-res--tablet-lg" :class="{ active: $awesLayoutCrm.togglenav }" @click="$awesLayoutCrm.openNav"><span></span></span>
-                        <h2 class="frame__aside-title"> <a href="">AwesCRM</a></h2>
+                        <h2 class="frame__aside-title"><a href="">Your Logo</a></h2>
                     </div>
                     <nav class="frame__aside-nav" v-bind:class="{ active: $awesLayoutCrm.togglenav }">
                         <div class="frame__aside-mhead g-res--tablet-lg"><a class="frame__aside-close" href="" @click.prevent="$awesLayoutCrm.openNav()"><i class="icon icon-cross"></i></a>
                             <h4 class="frame__aside-mtitle"><a href="">AwesCRM</a></h4>
                         </div>
-                        <frame-nav :links="[{name:'Dashboard', icon:'speed', link: '/newform.html'}, {name:'Dashboard', icon:'speed', link: '/newform.html'},{name:'Dashboard', icon:'speed', link: '/newform.html'},{name:'Dashboard', icon:'speed', link: '/newform.html'},{name:'Dashboard', icon:'speed', link: '/newform.html'},{name:'Dashboard', icon:'speed', link: '/newform.html'},{name:'Dashboard', icon:'speed', link: '/newform.html'},{name:'Dashboard', icon:'speed', link: '/newform.html'},{name:'Dashboard', icon:'speed', link: '/newform.html'},{name:'Dashboard', icon:'speed', link: '/newform.html'},{name:'Admin', icon:'report', link: '/newform.html', children: [{name:'Dashboard', link: '/modal.html'}]}, {name:'Admin', icon:'report', children: [{name:'Dashboard', link: '/modal.html', active: true}]}]">
+                        <frame-nav :links="[{name:'Dashboard', icon:'speed', link: '/'}, {name:'Phones', icon:'call', link: '/', children: [{name: 'Managers', link: '/'}, {name: 'Suppliers', link: '/'}, {name: 'Clients', link: '/'}]},{name:'Update', icon:'loading', link: '/'}, {name:'Admin', icon:'report', children: [{name:'Options', link: '/'}, {name:'Permissions', link: '/'}]}]">
                             <div class="ph">
                                 <div class="ph__mnav"><span class="ph__mnav-link"></span><span class="ph__mnav-title"></span></div>
                                 <ul class="ph__nav">
@@ -434,7 +434,7 @@
                                 <p>All form elements has mod <code>blockname_error</code>, <code>blockname_ok</code>, <code>blockname_disabled</code></p>
                                 <h4>текст</h4>
                                 <fb-group>
-                                    <fb-input name="awdaw12312312" label="Label test long label" cell="3"></fb-input>
+                                    <fb-input name="awdaw12312312" label="Input field" cell="3" autocomplete="off"></fb-input>
                                     <fb-select name="awdawd123qw" :multiple="false" cell="3" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]"></fb-select>
                                     <fb-select name="select2" cell="3" label="Yosip ishchet lojku" :multiple="true" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]"></fb-select>
                                     <fb-phone name="asd123123asd" label="Phone label" cell="3"></fb-phone>
@@ -444,17 +444,17 @@
                                 <p>Сайт рыбатекст <a href="#re">consectetur adipisicing elit</a>поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях. При создании генератора мы использовали небезизвестный универсальный код речей. Текст генерируется абзацами случайным образом от двух до десяти предложений в абзаце, что позволяет сделать текст более привлекательным и живым для визуально-слухового восприятия.</p>
                                 <h4>Switcher</h4>
                                 <fb-group>
-                                    <fb-switcher label="switcher" name="switcher1" cell="2"> </fb-switcher>
-                                    <fb-switcher label="switcher" disabled name="switcher2" cell="2"> </fb-switcher>
-                                    <fb-switcher class="fb-switcher_error" label="switcher" name="switcher3" cell="2"> </fb-switcher>
+                                    <fb-switcher label="switcher" name="switcher1" cell="2"></fb-switcher>
+                                    <fb-switcher label="switcher" disabled name="switcher2" cell="2"></fb-switcher>
+                                    <fb-switcher class="fb-switcher_error" label="switcher" name="switcher3" cell="2"></fb-switcher>
                                     <fb-switcher class="fb-switcher_ok" label="switcher" name="switcher4" cell="2"></fb-switcher>
                                 </fb-group><br><br>
                                 <h4>Select</h4>
                                 <fb-group>
-                                    <fb-select name="select1" cell="2" label="Yosip ishchet lojku" :multiple="false" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]"></fb-select>
-                                    <fb-select name="select2" cell="2" label="Yosip ishchet lojku" :multiple="true" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]"></fb-select>
-                                    <fb-select class="fb-select_ok" name="select3" disabled cell="2" label="Yosip ishchet lojku" :multiple="false" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]"></fb-select>
-                                    <fb-select class="fb-select_error" name="select4" disabled cell="2" label="Yosip ishchet lojku" :multiple="true" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]"></fb-select>
+                                    <fb-select name="select1" cell="2" label="Single select" :multiple="false" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]"></fb-select>
+                                    <fb-select name="select2" cell="2" label="Multiple select" :multiple="true" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]"></fb-select>
+                                    <fb-select class="fb-select_ok" name="select3" disabled cell="2" label="OK select" :multiple="false" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]"></fb-select>
+                                    <fb-select class="fb-select_error" name="select4" disabled cell="2" label="Error select" :multiple="true" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]"></fb-select>
                                 </fb-group><br><br>
                                 <h4>Phone input</h4>
                                 <fb-group>
@@ -464,17 +464,17 @@
                                     <fb-phone class="fb-phone_error" name="phone4" label="Phone error" cell="2"></fb-phone>
                                 </fb-group><br><br>
                                 <h4>MCE Editor</h4>
-                                <fb-editor name="editor1"> </fb-editor>
-                                <fb-editor name="editor2" disabled> </fb-editor>
+                                <fb-editor name="editor1"></fb-editor>
+                                <fb-editor name="editor2" disabled></fb-editor>
                                 <fb-group>
-                                    <fb-editor class="fb-editor_ok" name="editor3" cell="2"> </fb-editor>
-                                    <fb-editor class="fb-editor_error" name="editor4" cell="2"> </fb-editor>
+                                    <fb-editor class="fb-editor_ok" name="editor3" cell="2"></fb-editor>
+                                    <fb-editor class="fb-editor_error" name="editor4" cell="2"></fb-editor>
                                 </fb-group><br><br>
                                 <h4>Textarea</h4>
                                 <fb-group>
-                                    <fb-textarea name="ed1" cell="2" label="Textarea label"> </fb-textarea>
+                                    <fb-textarea name="ed1" cell="2" label="Textarea label"></fb-textarea>
                                     <fb-textarea name="ed2" cell="2" label="Textarea disabled" disabled></fb-textarea>
-                                    <fb-textarea class="fb-textarea_error" name="ed3" cell="2" label="Textarea error"> </fb-textarea>
+                                    <fb-textarea class="fb-textarea_error" name="ed3" cell="2" label="Textarea error"></fb-textarea>
                                     <fb-textarea class="fb-textarea_ok" name="ed4" cell="2" label="Textarea ok"></fb-textarea>
                                 </fb-group><br><br>
                                 <h4>Uploader</h4>
@@ -511,11 +511,12 @@
                                     <fb-code class="fb-keycode_error" name="code4"></fb-code>
                                 </fb-group><br><br>
                                 <h4>Company Slug</h4>
+                                <fb-input label="Company name" name="company1"></fb-input>
                                 <fb-group>
-                                    <fb-company-slug label="Slug default" name="slug1" domain="very very long link awescrm.de"></fb-company-slug>
-                                    <fb-company-slug label="Slug disabled" disabled name="slug2" domain="awescrm.de" cell="3"></fb-company-slug>
-                                    <fb-company-slug class="fb-slug_ok" label="Slug ok" name="slug3" domain="local.awescrm.de" cell="3"></fb-company-slug>
-                                    <fb-company-slug class="fb-slug_error" label="Slug error" name="slug4" domain="dev.awescrm.de" cell="3"></fb-company-slug>
+                                    <fb-company-slug label="Slug default" name="slug1" input="company1" domain="very very long link awescrm.de"></fb-company-slug>
+                                    <fb-company-slug label="Slug disabled" disabled name="slug2" input="company1" domain="awescrm.de" cell="3"></fb-company-slug>
+                                    <fb-company-slug class="fb-slug_ok" label="Slug ok" name="slug3" input="company1" domain="local.awescrm.de" cell="3"></fb-company-slug>
+                                    <fb-company-slug class="fb-slug_error" label="Slug error" name="slug4" input="company1" domain="dev.awescrm.de" cell="3"></fb-company-slug>
                                 </fb-group><br><br>
                                 <h4>Radio Group</h4>
                                 <fb-group>
@@ -530,7 +531,7 @@
                                             <fb-input name="input22" label="multi-block" :id="mb.id" cell="2"></fb-input>
                                             <fb-input name="input33" label="multi-block" :id="mb.id" cell="2"></fb-input>
                                         </fb-group>
-                                        <fb-textarea name="text11" label="multi block"></fb-textarea>
+                                        <fb-textarea name="text11" label="multi block" :id="mb.id"></fb-textarea>
                                     </template></fb-multi-block><br><br>
                                 <h4>Multiblock disabled</h4>
                                 <fb-multi-block name="multi2" disabled><template slot-scope="mb">
