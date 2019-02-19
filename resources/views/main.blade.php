@@ -51,7 +51,9 @@
                 </nav>
             </div>
         @endisset
-        <div class="frame__right">
+
+        <div class="frame__right @if(!Auth::check()) frame__right_nui @endif"> 
+
             <div class="frame__header">
                 <div class="frame__header-top">
                     <form class="frame__search" id="search" v-bind:class="{ active: $awesLayoutCrm.showSearch }" action="js" method="get"> <span class="frame__search-link" v-on:click="$awesLayoutCrm.showSearch = !$awesLayoutCrm.showSearch"><i class="icon icon-search"></i></span>
@@ -136,13 +138,23 @@
                 </transition>
             @endif
             <div class="frame__content">
-                @yield('content')
-            </div>
-            <span class="frame__copyright">
+                <div class="frame__inlayout">
+                    <div class="frame__inlayout-aside">
+                        <page-map content=".frame__inlayout-content"></page-map>
+                    </div>
+                    <div class="frame__inlayout-content">
+                        @yield('content')
+                    </div>
+                </div>
+
                 @if(config('indigo-layout.footer_copyright'))
-                    {!! config('indigo-layout.footer_copyright') !!}
+                    <span class="frame__copyright">{!! config('indigo-layout.footer_copyright') !!}</span>
                 @endif
-            </span>
+
+                {{-- <div class="float-icns"><button class="float-icns__icon float-icns__icon_helper"></button></div>    --}}
+                
+            </div>
+            
         </div>
     </div>
 </div>
