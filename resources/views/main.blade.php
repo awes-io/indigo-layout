@@ -145,15 +145,14 @@
                     <div class="frame__inlayout-content">
                         @yield('content')
                     </div>
-                </div>
-
-                @if(config('indigo-layout.footer_copyright'))
-                    <span class="frame__copyright">{!! config('indigo-layout.footer_copyright') !!}</span>
-                @endif
-
-                {{-- <div class="float-icns"><button class="float-icns__icon float-icns__icon_helper"></button></div>    --}}
-                
+                </div>                
             </div>
+
+            @if(config('indigo-layout.footer_copyright'))
+                <span class="frame__copyright">{!! config('indigo-layout.footer_copyright') !!}</span>
+            @endif
+
+            {{-- <div class="float-icns"><button class="float-icns__icon float-icns__icon_helper"></button></div>    --}}
             
         </div>
     </div>
