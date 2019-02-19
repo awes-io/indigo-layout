@@ -1,5 +1,5 @@
 tf_titles = (h1 h2 h3 h4 h5)
-tf_tags = (p blockquote table ul ol dl core pre 'div[id]') 
+tf_tags = (p blockquote table ul ol dl core pre 'div[id]')
 tf_margin = 27px
 tf_text_margin = 25px
 
@@ -13,7 +13,7 @@ for tag in tf_titles
         display block
         margin-bottom tf_margin
         + p
-            margin-top -10px 
+            margin-top -10px
 
     for stag in tf_titles
         {tag} + {stag}
@@ -25,6 +25,29 @@ body
 .mainwrapper .hljs
     padding 25px 30px
     line-height 1.5
+    &[data-language]
+        position: relative
+        &:after
+            content: attr(data-language)
+            background-color: var(--tc_ui_bg_semi_s)
+            text-transform: uppercase
+            padding: 2px 5px
+            border-radius: 3px
+            opacity: .4
+            display: block
+            absolute right 30px top 25px
+    &-ln
+        width: 100%
+        td
+            border-bottom: none
+        tr:hover
+            background: none
+        &-numbers
+            width: 45px
+            text-align: right
+        &-n
+            padding-right: 15px
+            opacity: .4
 
 .vue-example
     margin-bottom tf_text_margin
@@ -92,7 +115,7 @@ blockquote
     display block
     overflow auto
 
-table:not(.int-table__table)
+table:not(.int-table__table):not(.hljs-ln)
     width 100%
     border-collapse collapse
     th
@@ -125,25 +148,25 @@ table:not(.int-table__table)
                 padding-right 7px
                 absolute left -27px
                 width 20px
-                text-align right        
-                font-size 90%                                     
+                text-align right
+                font-size 90%
                 content: counter(list)
             &:last-child
                 margin-bottom 0
         ul, ol
             margin-top 12px
             margin-bottom 12px
-    
+
     ul
         list-style disc
-        margin-left 15px    
+        margin-left 15px
         line-height 1.5
         margin-bottom tf_text_margin
         margin-left 30px
         padding-bottom 1px
         li
             margin-bottom 12px
-            &:before 
+            &:before
                 display none
             &:last-child
                 margin-bottom 0
@@ -187,7 +210,7 @@ code
     background-color var(--tc_code_bg)
     margin-bottom tf_margin
     white-space nowrap
-    
+
 
 pre
     code
@@ -270,7 +293,7 @@ pre
         display block
         margin-bottom 30px
         font-weight 700
-    &-nowrap 
+    &-nowrap
         display block
         overflow hidden
         text-overflow: ellipsis

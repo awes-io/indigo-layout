@@ -18,8 +18,14 @@ html(lang="en")
                         if(!removePlus)
                             button.frame__header-add
                                 i.icon.icon-plus
-                        block pageContent
-                            p Content Block
+                        .frame__inlayout
+                            if(asideBlock)
+                                .frame__inlayout-aside
+                                    block pageAside
+                                        p Aside Block
+                            .frame__inlayout-content
+                                block pageContent
+                                    p Content Block
                     span.frame__copyright © 2019 - PkgKit - Proudly powered on 
                         a(href="") Awes.IO Platform
                         |.

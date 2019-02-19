@@ -3,8 +3,8 @@
         .frame__aside-line
             span.frame__aside-open.g-res--tablet-lg( :class="{ active: $awesLayoutCrm.togglenav }" @click="$awesLayoutCrm.openNav")
                 span
-            h2.frame__aside-title 
-                a(href="") AwesCRM
+            h2.frame__aside-title
+                a(href="") Your Logo
             if(headLinks)
                 a.btn.frame__aside-callbtn(href="") Sign In
         nav.frame__aside-nav(v-bind:class="{ active: $awesLayoutCrm.togglenav }")
@@ -13,7 +13,7 @@
                     i.icon.icon-cross
                 h4.frame__aside-mtitle
                     a(href="") AwesCRM
-            frame-nav(:links="[{name:'Dashboard', icon:'speed', link: '/newform.html'}, {name:'Dashboard', icon:'speed', link: '/newform.html'},{name:'Dashboard', icon:'speed', link: '/newform.html'},{name:'Dashboard', icon:'speed', link: '/newform.html'},{name:'Dashboard', icon:'speed', link: '/newform.html'},{name:'Dashboard', icon:'speed', link: '/newform.html'},{name:'Dashboard', icon:'speed', link: '/newform.html'},{name:'Dashboard', icon:'speed', link: '/newform.html'},{name:'Dashboard', icon:'speed', link: '/newform.html'},{name:'Dashboard', icon:'speed', link: '/newform.html'},{name:'Admin', icon:'report', link: '/newform.html', children: [{name:'Dashboard', link: '/modal.html'}]}, {name:'Admin', icon:'report', children: [{name:'Dashboard', link: '/modal.html', active: true}]}]")
+            frame-nav(:links="[{name:'Dashboard', icon:'speed', link: '/'}, {name:'Phones', icon:'call', link: '/', children: [{name: 'Managers', link: '/'}, {name: 'Suppliers', link: '/'}, {name: 'Clients', link: '/'}]},{name:'Update', icon:'loading', link: '/'}, {name:'Admin', icon:'report', children: [{name:'Options', link: '/'}, {name:'Permissions', link: '/'}]}]")
                 div.ph
                     div.ph__mnav
                         span.ph__mnav-link
@@ -25,7 +25,7 @@
                                 span.ph__nav-text
                 if(headLinks)
                     template(slot="difnav")
-                        ul.frame__aside-mnav 
+                        ul.frame__aside-mnav
                             li
                                 a.frame__aside-link(href="") Link 1
                             li

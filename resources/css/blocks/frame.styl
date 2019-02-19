@@ -7,9 +7,14 @@
   & &__inlayout
     fl(,sb)
     &-content
-      width calc(100% - 340px)
+      order 1
+      width 100%
     &-aside
       width 300px
+      order 2
+      & + ^[0]__inlayout-content
+        width calc(100% - 300px)
+        padding-right 40px
     &-block
       display block
       width 300px
@@ -443,18 +448,6 @@
 @media res_desktop--lg
   .frame
     & &__inlayout
-      &-content
-        width calc(100% - 280px)
-      &-aside
-        width 250px
-      &-block
-        padding-left 30px
-        width 250px
-
-
-@media res_desktop--lg
-  .frame
-    & &__inlayout
       flex-wrap wrap
       &-content
         width 100%
@@ -462,7 +455,10 @@
       &-aside
         width 100%
         order 1
-        
+        & + ^[0]__inlayout-content
+          width 100%
+          padding 0
+          order 1
       &-block
         padding-left 0px
         width 100%
