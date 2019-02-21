@@ -27,15 +27,17 @@ body
     line-height 1.5
     &[data-language]
         position: relative
-        &:after
+        &:before
             content: attr(data-language)
-            background-color: var(--tc_ui_bg_semi_s)
+            background-color: var(--tc_ui_bg)
             text-transform: uppercase
-            padding: 2px 5px
+            padding: 20px 30px 15px 30px
             border-radius: 3px
-            opacity: .4
+            font-size: 14px
+            font-weight: 600
+            margin -30px -30px 30px -30px
+            border-bottom 1px solid var(--tc_border)
             display: block
-            absolute right 30px top 25px
     &-ln
         width: 100%
         td
@@ -49,8 +51,6 @@ body
             padding-right: 15px
             opacity: .4
 
-.vue-example
-    margin-bottom tf_text_margin
 
 h1
     margin-bottom tf_margin
@@ -133,9 +133,16 @@ table:not(.int-table__table):not(.hljs-ln)
         &:last-child
             padding-right 30px
 
-
+.frame__inlayout-content
+    & > :first-child
+        margin-top 0 !important
+    & > :last-child 
+        margin-bottom 0 !important
 
 .frame__content, .tf-content
+
+    img
+        box-shadow var(--tc_shadow_smr)
     ol
         line-height 1.5
         margin-bottom tf_text_margin
@@ -226,8 +233,15 @@ pre
             .hljs-tag
                 color var(--tc_text_caption) !important
 
+.vue-example
+    border 1px solid var(--tc_border)
+    padding 30px
+    margin-bottom tf_text_margin
+
 
 // Help Classes
+
+
 
 .tf
     &-titlenav
