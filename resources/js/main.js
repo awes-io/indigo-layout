@@ -60,11 +60,13 @@ const awesPlugin = {
             deps: ['highlight'],
             cb() {
                 // console.log( hljs.listLanguages() )
-                document.querySelectorAll('pre code[class*="language-"]').forEach(block => {
-                    hljs.highlightBlock(block);
-                    hljs.lineNumbersBlock(block);
-                    let language = block.className.match(/language-([a-z]*)/);
-                    language[1] && block.setAttribute('data-language', language[1])
+                AWES.once('core:inited', function() {
+                    hljs.initHighlighting();
+                    document.querySelectorAll('.hljs').forEach(block => {
+                        hljs.lineNumbersBlock(block)
+                        let language = block.className.match(/language-([a-z]*)/);
+                        language[1] && block.parentNode.setAttribute('data-language', language[1])
+                    })
                 })
             }
         }
