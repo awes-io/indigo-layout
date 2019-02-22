@@ -25,6 +25,9 @@ block pageContent
                 &lt;cm-button&gt;Click me!&lt;/cm-button&gt;
             &lt;/context-menu&gt;
 
+
+    img(src="https://picsum.photos/1600/500/?random", alt="")
+
     h2 Test Bash
     pre
         code.language-bash.
@@ -154,59 +157,60 @@ block pageContent
 
     #wrapper-props
     h2 Параметры компонента-обёртки <code>&lt;context-menu&gt;</code>
-    table
-        tr
-            th Название
-            th Тип
-            th По умолчанию
-            th Опиание
-        tr
-            td button-class
-            td
-                strong String
-            td
-                em undefined
-            td Дополнительный класс для кнопки, открывающей список
-        tr
-            td right
-            td
-                strong Boolean
-            td
-                code false
-            td
-                | Приоритет в
-                a(href='#positioning-info') расположении списка
-                |  по правой границе
-                | 				открывающей кнопки
-        tr
-            td top
-            td
-                strong Boolean
-            td
-                code false
-            td
-                | Приоритет в раскрытии списка вверх,
-                a(href='#positioning-info') располагаясь
-                |  сверху открывающей кнопки
-        tr
-            td auto-position
-            td
-                strong Boolean
-            td
-                kbd true
-            td
-                a(href='#positioning-auto') Автоматическое позиционирование
-                |  списка в
-                | 				зависимости от заданных границ и видимости на экране
-        tr
-            td boundary
-            td
-                strong String
-            td
-                code body
-            td
-                | Селектор элемента -
-                a(href='#positioning-bounds') границы для автоматического позиционирования списка
+    .md-table
+        table
+            tr
+                th Название
+                th Тип
+                th По умолчанию
+                th Опиание
+            tr
+                td button-class
+                td
+                    strong String
+                td
+                    em undefined
+                td Дополнительный класс для кнопки, открывающей список
+            tr
+                td right
+                td
+                    strong Boolean
+                td
+                    code false
+                td
+                    | Приоритет в
+                    a(href='#positioning-info') расположении списка
+                    |  по правой границе
+                    | 				открывающей кнопки
+            tr
+                td top
+                td
+                    strong Boolean
+                td
+                    code false
+                td
+                    | Приоритет в раскрытии списка вверх,
+                    a(href='#positioning-info') располагаясь
+                    |  сверху открывающей кнопки
+            tr
+                td auto-position
+                td
+                    strong Boolean
+                td
+                    kbd true
+                td
+                    a(href='#positioning-auto') Автоматическое позиционирование
+                    |  списка в
+                    | 				зависимости от заданных границ и видимости на экране
+            tr
+                td boundary
+                td
+                    strong String
+                td
+                    code body
+                td
+                    | Селектор элемента -
+                    a(href='#positioning-bounds') границы для автоматического позиционирования списка
 
 
 
@@ -249,13 +253,13 @@ block pageContent
     p
         em Выпадающий список не может раскрыться вниз и вправо, но может вписаться в границы поэтому он открывается вверх и влево
     .vue-example
-        .vue-example__bounds(style='padding: 50px 15px 15px;height: 100px; width: 270px; ')
+        .vue-example__bounds
             context-menu(style='float: right;', boundary='.vue-example__bounds')
                 cm-button Click me!
     p
         em Выпадающий список не может вписаться в границы, открывшись вверх и влево, поэтому он открывается вниз и влево (это направление в приритете) при этом он старается отображаться на экране максимально видимым
     .vue-example
-        .vue-example__bounds(style='padding:10px; height: 50px; width: 50px; ')
+        .vue-example__bounds
             context-menu(top='', right='', boundary='.vue-example__bounds')
                 cm-button Click me!
                 cm-button Click me too!
@@ -281,19 +285,20 @@ block pageContent
     p
         em Свойства элемента <code>&lt;cm-button&gt;</code>
 
-    table
-        tr
-            th(style='text-align: center;') Название
-            th(style='text-align: center;') Тип
-            th(style='text-align: center;') По умолчанию
-            th Опиание
-        tr
-            td(style='text-align: center;') itemClass
-            td(style='text-align: center;')
-                strong String
-            td(style='text-align: center;')
-                em undefined
-            td Дополнительный класс для кнопки
+    .md-table
+        table
+            tr
+                th(style='text-align: center;') Название
+                th(style='text-align: center;') Тип
+                th(style='text-align: center;') По умолчанию
+                th Опиание
+            tr
+                td(style='text-align: center;') itemClass
+                td(style='text-align: center;')
+                    strong String
+                td(style='text-align: center;')
+                    em undefined
+                td Дополнительный класс для кнопки
 
     p На элемент нужно навешивать обработчики событий и можно добавлять дополтительные атрибуты. Без бработчика клик по кнопке будет просто закрывать открытое меню. Такая разметка
 
@@ -331,26 +336,27 @@ block pageContent
     p
         em Свойства элемента <code>&lt;cm-link&gt;</code>
 
-    table
-        tr
-            th(style='text-align: center;') Название
-            th(style='text-align: center;') Тип
-            th(style='text-align: center;') По умолчанию
-            th Опиание
-        tr
-            td(style='text-align: center;') itemClass
-            td(style='text-align: center;')
-                strong String
-            td(style='text-align: center;')
-                em undefined
-            td Дополнительный класс для ссылки
-        tr
-            td(style='text-align: center;') href*
-            td(style='text-align: center;')
-                strong String
-            td(style='text-align: center;')
-                em undefined
-            td url или якорь, обязательное свойство
+    .md-table
+        table
+            tr
+                th(style='text-align: center;') Название
+                th(style='text-align: center;') Тип
+                th(style='text-align: center;') По умолчанию
+                th Опиание
+            tr
+                td(style='text-align: center;') itemClass
+                td(style='text-align: center;')
+                    strong String
+                td(style='text-align: center;')
+                    em undefined
+                td Дополнительный класс для ссылки
+            tr
+                td(style='text-align: center;') href*
+                td(style='text-align: center;')
+                    strong String
+                td(style='text-align: center;')
+                    em undefined
+                td url или якорь, обязательное свойство
     p Также на элемент можно навешивать обработчики событий и добавлять дополтительные атрибуты, для примера, такая разметка
     pre
         code.language-html.
@@ -407,19 +413,21 @@ block pageContent
             cm-panel Default panel
             cm-panel(secondary='') Secondary panel
     p Свойства элемента <code>&lt;cm-panel&gt;</code>
-    table
-        tr
-            th(style='text-align: center;') Название
-            th(style='text-align: center;') Тип
-            th(style='text-align: center;') По умолчанию
-            th Опиание
-        tr
-            td(style='text-align: center;') secondary
-            td(style='text-align: center;')
-                strong Boolean
-            td(style='text-align: center;')
-                code false
-            td Меняет цвет фона на более тёмный
+
+    .md-table
+        table
+            tr
+                th(style='text-align: center;') Название
+                th(style='text-align: center;') Тип
+                th(style='text-align: center;') По умолчанию
+                th Опиание
+            tr
+                td(style='text-align: center;') secondary
+                td(style='text-align: center;')
+                    strong Boolean
+                td(style='text-align: center;')
+                    code false
+                td Меняет цвет фона на более тёмный
     p Сгенерированная разметка
     pre
         code.language-html.
@@ -439,27 +447,28 @@ block pageContent
     p
         em Свойства элемента <code>&lt;cm-query&gt;</code>
 
-    table
-        tr
-            th(style='text-align: center;') Название
-            th(style='text-align: center;') Тип
-            th(style='text-align: center;') По умолчанию
-            th Опиание
-        tr
-            td(style='text-align: center;') itemClass
-            td(style='text-align: center;')
-                strong String
-            td(style='text-align: center;')
-                em undefined
-            td Дополнительный класс для кнопки
-        tr
-            td(style='text-align: center;') param*
-            td(style='text-align: center;')
-                strong Object
-            td(style='text-align: center;')
-                em undefined
-            td
-                em Обязательное свойство. Параметры, которые необходимо подставить или заменить в адресной строке, и при совпадении с которыми кнопка полузит активное состояние
+    .md-table
+        table
+            tr
+                th(style='text-align: center;') Название
+                th(style='text-align: center;') Тип
+                th(style='text-align: center;') По умолчанию
+                th Опиание
+            tr
+                td(style='text-align: center;') itemClass
+                td(style='text-align: center;')
+                    strong String
+                td(style='text-align: center;')
+                    em undefined
+                td Дополнительный класс для кнопки
+            tr
+                td(style='text-align: center;') param*
+                td(style='text-align: center;')
+                    strong Object
+                td(style='text-align: center;')
+                    em undefined
+                td
+                    em Обязательное свойство. Параметры, которые необходимо подставить или заменить в адресной строке, и при совпадении с которыми кнопка полузит активное состояние
     pre
         code.language-html.
             &lt;context-menu&gt;
@@ -493,69 +502,71 @@ block pageContent
     p
         em Свойства элемента <code>cm-ajax</code>
 
-
-    table
-        tr
-            th(style='text-align: center;') Название
-            th(style='text-align: center;') Тип
-            th(style='text-align: center;') По умолчанию
-            th Опиание
-        tr
-            td(style='text-align: center;') itemClass
-            td(style='text-align: center;')
-                strong String
-            td(style='text-align: center;')
-                em undefined
-            td Дополнительный класс для кнопки
-        tr
-            td(style='text-align: center;') params
-            td(style='text-align: center;')
-                strong Object
-            td(style='text-align: center;')
-                code {}
-            td Объект данных для отправки
-        tr
-            td(style='text-align: center;') url*
-            td(style='text-align: center;')
-                strong String
-            td(style='text-align: center;')
-                em undefined
-            td
-                em Обязательный параметр
-                | . Адрес запроса
-        tr
-            td(style='text-align: center;') method
-            td(style='text-align: center;')
-                strong String
-            td(style='text-align: center;')
-                code get
-            td
-                | Метод для проведения запроса, ограничен вариантами
-                code get
-                | ,
-                code put
-                | ,
-                code post
-                | ,
-                code delete
-                | ,
-                code patch
+    .md-table
+        table
+            tr
+                th(style='text-align: center;') Название
+                th(style='text-align: center;') Тип
+                th(style='text-align: center;') По умолчанию
+                th Опиание
+            tr
+                td(style='text-align: center;') itemClass
+                td(style='text-align: center;')
+                    strong String
+                td(style='text-align: center;')
+                    em undefined
+                td Дополнительный класс для кнопки
+            tr
+                td(style='text-align: center;') params
+                td(style='text-align: center;')
+                    strong Object
+                td(style='text-align: center;')
+                    code {}
+                td Объект данных для отправки
+            tr
+                td(style='text-align: center;') url*
+                td(style='text-align: center;')
+                    strong String
+                td(style='text-align: center;')
+                    em undefined
+                td
+                    em Обязательный параметр
+                    | . Адрес запроса
+            tr
+                td(style='text-align: center;') method
+                td(style='text-align: center;')
+                    strong String
+                td(style='text-align: center;')
+                    code get
+                td
+                    | Метод для проведения запроса, ограничен вариантами
+                    code get
+                    | ,
+                    code put
+                    | ,
+                    code post
+                    | ,
+                    code delete
+                    | ,
+                    code patch
     p
         em
             | События, вызываемые элементом
             code cm-ajax
-    table
-        tr
-            th(style='text-align: center;') Название
-            th(style='text-align: center;') Аргументы
-            th Опиание
-        tr
-            td(style='text-align: center;') sended
-            td(style='text-align: center;')
-                | data (
-                code Object
-                | )
-            td Вызвается после получения ответа и передаёт присланные данные
+
+    .md-table
+        table
+            tr
+                th(style='text-align: center;') Название
+                th(style='text-align: center;') Аргументы
+                th Опиание
+            tr
+                td(style='text-align: center;') sended
+                td(style='text-align: center;')
+                    | data (
+                    code Object
+                    | )
+                td Вызвается после получения ответа и передаёт присланные данные
     pre
         code.language-html.
             &lt;context-menu&gt;
@@ -618,4 +629,4 @@ block pageContent
 
 
 block pageAside
-    page-map(content=".frame__inlayout-content")
+    page-map(content=".frame__inlayout-content" :offset="-75")

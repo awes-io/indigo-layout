@@ -55,10 +55,7 @@
                                     <li><a class="frame__aside-link" href="">Link 1</a></li>
                                     <li><a class="frame__aside-link" href="">Link 1</a></li>
                                     <li class="frame__aside-link">
-                                        <div class="theme-switcher">
-                                            <div class="theme-switcher__switcher"><input class="theme-switcher__input" type="range" min="0" max="1"></div>
-                                            <div class="theme-switcher__label">Theme Dark</div>
-                                        </div>
+                                        <theme-switcher></theme-switcher>
                                     </li>
                                 </ul>
                             </template>
@@ -74,10 +71,7 @@
                         </form>
                         <div class="frame__header-rlinks">
                             <div class="frame__rccell">
-                                <div class="theme-switcher">
-                                    <div class="theme-switcher__switcher"><input class="theme-switcher__input" type="range" min="0" max="1"></div>
-                                    <div class="theme-switcher__label">Theme Dark</div>
-                                </div>
+                                <theme-switcher></theme-switcher>
                             </div><a class="frame__header-link" href="">Link 1</a><a class="frame__header-link" href="">Link 2</a><a class="btn frame__header-callbtn" href="">Sign In</a>
                         </div>
                     </div>
@@ -461,7 +455,7 @@
                 <div class="frame__content">
                     <div class="frame__inlayout">
                         <div class="frame__inlayout-aside">
-                            <page-map content=".frame__inlayout-content"></page-map>
+                            <page-map content=".frame__inlayout-content" :offset="-75"></page-map>
                         </div>
                         <div class="frame__inlayout-content">
                             <p>Предназначен для отображения скрытого по-умолчанию списка нажатием на кнопку</p>
@@ -470,7 +464,8 @@
                             <p>Компонент состоит из раскрывающейся обёртки (dropdown) и элементов. Без элементов внутри обёртки, она не имеет смысла, поэтому минимальная разметка выглядит как</p><pre><code class="language-html">&lt;context-menu&gt;
     &lt;cm-button&gt;Click me!&lt;/cm-button&gt;
 &lt;/context-menu&gt;
-</code></pre>
+
+</code></pre><img src="https://picsum.photos/1600/500/?random" alt="">
                             <h2>Test Bash</h2><pre><code class="language-bash">#!/bin/bash
 
 ###### CONFIG
@@ -581,46 +576,48 @@ datahere</code></pre>
                             <p><em>Открытие выпадающего списка происходит нажатием на открывающую кнопку,</em><em>закрытие кликом на ту же кнопку, на ссылку или кнопку среди</em><a href="#elements">элементов контекстного меню или кликом снаружи выпадающего меню</a></p>
                             <div id="wrapper-props"></div>
                             <h2>Параметры компонента-обёртки <code>&lt;context-menu&gt;</code></h2>
-                            <table>
-                                <tr>
-                                    <th>Название</th>
-                                    <th>Тип</th>
-                                    <th>По умолчанию</th>
-                                    <th>Опиание</th>
-                                </tr>
-                                <tr>
-                                    <td>button-class</td>
-                                    <td><strong>String</strong></td>
-                                    <td><em>undefined</em></td>
-                                    <td>Дополнительный класс для кнопки, открывающей список</td>
-                                </tr>
-                                <tr>
-                                    <td>right</td>
-                                    <td><strong>Boolean</strong></td>
-                                    <td><code>false</code></td>
-                                    <td>Приоритет в<a href="#positioning-info">расположении списка</a> по правой границе
-                                        открывающей кнопки</td>
-                                </tr>
-                                <tr>
-                                    <td>top</td>
-                                    <td><strong>Boolean</strong></td>
-                                    <td><code>false</code></td>
-                                    <td>Приоритет в раскрытии списка вверх,<a href="#positioning-info">располагаясь</a> сверху открывающей кнопки</td>
-                                </tr>
-                                <tr>
-                                    <td>auto-position</td>
-                                    <td><strong>Boolean</strong></td>
-                                    <td><kbd>true</kbd></td>
-                                    <td><a href="#positioning-auto">Автоматическое позиционирование</a> списка в
-                                        зависимости от заданных границ и видимости на экране</td>
-                                </tr>
-                                <tr>
-                                    <td>boundary</td>
-                                    <td><strong>String</strong></td>
-                                    <td><code>body</code></td>
-                                    <td>Селектор элемента -<a href="#positioning-bounds">границы для автоматического позиционирования списка</a></td>
-                                </tr>
-                            </table>
+                            <div class="md-table">
+                                <table>
+                                    <tr>
+                                        <th>Название</th>
+                                        <th>Тип</th>
+                                        <th>По умолчанию</th>
+                                        <th>Опиание</th>
+                                    </tr>
+                                    <tr>
+                                        <td>button-class</td>
+                                        <td><strong>String</strong></td>
+                                        <td><em>undefined</em></td>
+                                        <td>Дополнительный класс для кнопки, открывающей список</td>
+                                    </tr>
+                                    <tr>
+                                        <td>right</td>
+                                        <td><strong>Boolean</strong></td>
+                                        <td><code>false</code></td>
+                                        <td>Приоритет в<a href="#positioning-info">расположении списка</a> по правой границе
+                                            открывающей кнопки</td>
+                                    </tr>
+                                    <tr>
+                                        <td>top</td>
+                                        <td><strong>Boolean</strong></td>
+                                        <td><code>false</code></td>
+                                        <td>Приоритет в раскрытии списка вверх,<a href="#positioning-info">располагаясь</a> сверху открывающей кнопки</td>
+                                    </tr>
+                                    <tr>
+                                        <td>auto-position</td>
+                                        <td><strong>Boolean</strong></td>
+                                        <td><kbd>true</kbd></td>
+                                        <td><a href="#positioning-auto">Автоматическое позиционирование</a> списка в
+                                            зависимости от заданных границ и видимости на экране</td>
+                                    </tr>
+                                    <tr>
+                                        <td>boundary</td>
+                                        <td><strong>String</strong></td>
+                                        <td><code>body</code></td>
+                                        <td>Селектор элемента -<a href="#positioning-bounds">границы для автоматического позиционирования списка</a></td>
+                                    </tr>
+                                </table>
+                            </div>
                             <div id="positioning"></div>
                             <h2>Позиционирование на экране</h2>
                             <p>Раскрывающийся список (dropdown) располагается относительно открывающей кнопки, и по-умолчанию примыкает к нижней и левой границам и открывается вниз</p>
@@ -660,7 +657,7 @@ datahere</code></pre>
                             <p><strong> Ограничительный контейнер</strong>: Свойство <code>boundary</code> - селектор границы, по-умолчанию, или если по-селектору не найден элемент среди родителей компонента этим контейнером является контейнер страницы <code>body</code></p>
                             <p><em>Выпадающий список не может раскрыться вниз и вправо, но может вписаться в границы поэтому он открывается вверх и влево</em></p>
                             <div class="vue-example">
-                                <div class="vue-example__bounds" style="padding: 50px 15px 15px;height: 100px; width: 270px; ">
+                                <div class="vue-example__bounds">
                                     <context-menu style="float: right;" boundary=".vue-example__bounds">
                                         <cm-button>Click me!</cm-button>
                                     </context-menu>
@@ -668,7 +665,7 @@ datahere</code></pre>
                             </div>
                             <p><em>Выпадающий список не может вписаться в границы, открывшись вверх и влево, поэтому он открывается вниз и влево (это направление в приритете) при этом он старается отображаться на экране максимально видимым</em></p>
                             <div class="vue-example">
-                                <div class="vue-example__bounds" style="padding:10px; height: 50px; width: 50px; ">
+                                <div class="vue-example__bounds">
                                     <context-menu top="" right="" boundary=".vue-example__bounds">
                                         <cm-button>Click me!</cm-button>
                                         <cm-button>Click me too!</cm-button>
@@ -684,20 +681,22 @@ datahere</code></pre>
 &lt;/context-menu&gt;</code></pre>
                             <p><img src="/uploads/1f2a1658ec55e1aeaadfab168efd79b0/default-opened.png" alt="button"></p>
                             <p><em>Свойства элемента <code>&lt;cm-button&gt;</code></em></p>
-                            <table>
-                                <tr>
-                                    <th style="text-align: center;">Название</th>
-                                    <th style="text-align: center;">Тип</th>
-                                    <th style="text-align: center;">По умолчанию</th>
-                                    <th>Опиание</th>
-                                </tr>
-                                <tr>
-                                    <td style="text-align: center;">itemClass</td>
-                                    <td style="text-align: center;"><strong>String</strong></td>
-                                    <td style="text-align: center;"><em>undefined</em></td>
-                                    <td>Дополнительный класс для кнопки</td>
-                                </tr>
-                            </table>
+                            <div class="md-table">
+                                <table>
+                                    <tr>
+                                        <th style="text-align: center;">Название</th>
+                                        <th style="text-align: center;">Тип</th>
+                                        <th style="text-align: center;">По умолчанию</th>
+                                        <th>Опиание</th>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center;">itemClass</td>
+                                        <td style="text-align: center;"><strong>String</strong></td>
+                                        <td style="text-align: center;"><em>undefined</em></td>
+                                        <td>Дополнительный класс для кнопки</td>
+                                    </tr>
+                                </table>
+                            </div>
                             <p>На элемент нужно навешивать обработчики событий и можно добавлять дополтительные атрибуты. Без бработчика клик по кнопке будет просто закрывать открытое меню. Такая разметка</p><pre><code class="language-html">&lt;cm-button class="list-item-class" item-class="item-class" @click="$notify({group: 'right-b', type: 'sucсess', title: 'Notification!'})"&gt; Send notification &lt;/cm-button&gt;
 </code></pre>
                             <div class="vue-example">
@@ -723,26 +722,28 @@ datahere</code></pre>
                                 </context-menu>
                             </div>
                             <p><em>Свойства элемента <code>&lt;cm-link&gt;</code></em></p>
-                            <table>
-                                <tr>
-                                    <th style="text-align: center;">Название</th>
-                                    <th style="text-align: center;">Тип</th>
-                                    <th style="text-align: center;">По умолчанию</th>
-                                    <th>Опиание</th>
-                                </tr>
-                                <tr>
-                                    <td style="text-align: center;">itemClass</td>
-                                    <td style="text-align: center;"><strong>String</strong></td>
-                                    <td style="text-align: center;"><em>undefined</em></td>
-                                    <td>Дополнительный класс для ссылки</td>
-                                </tr>
-                                <tr>
-                                    <td style="text-align: center;">href*</td>
-                                    <td style="text-align: center;"><strong>String</strong></td>
-                                    <td style="text-align: center;"><em>undefined</em></td>
-                                    <td>url или якорь, обязательное свойство</td>
-                                </tr>
-                            </table>
+                            <div class="md-table">
+                                <table>
+                                    <tr>
+                                        <th style="text-align: center;">Название</th>
+                                        <th style="text-align: center;">Тип</th>
+                                        <th style="text-align: center;">По умолчанию</th>
+                                        <th>Опиание</th>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center;">itemClass</td>
+                                        <td style="text-align: center;"><strong>String</strong></td>
+                                        <td style="text-align: center;"><em>undefined</em></td>
+                                        <td>Дополнительный класс для ссылки</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center;">href*</td>
+                                        <td style="text-align: center;"><strong>String</strong></td>
+                                        <td style="text-align: center;"><em>undefined</em></td>
+                                        <td>url или якорь, обязательное свойство</td>
+                                    </tr>
+                                </table>
+                            </div>
                             <p>Также на элемент можно навешивать обработчики событий и добавлять дополтительные атрибуты, для примера, такая разметка</p><pre><code class="language-html">&lt;context-menu&gt;
     &lt;cm-link href="#anchor"
             class="list-item-class"
@@ -791,20 +792,22 @@ datahere</code></pre>
                                 </context-menu>
                             </div>
                             <p>Свойства элемента <code>&lt;cm-panel&gt;</code></p>
-                            <table>
-                                <tr>
-                                    <th style="text-align: center;">Название</th>
-                                    <th style="text-align: center;">Тип</th>
-                                    <th style="text-align: center;">По умолчанию</th>
-                                    <th>Опиание</th>
-                                </tr>
-                                <tr>
-                                    <td style="text-align: center;">secondary</td>
-                                    <td style="text-align: center;"><strong>Boolean</strong></td>
-                                    <td style="text-align: center;"><code>false</code></td>
-                                    <td>Меняет цвет фона на более тёмный</td>
-                                </tr>
-                            </table>
+                            <div class="md-table">
+                                <table>
+                                    <tr>
+                                        <th style="text-align: center;">Название</th>
+                                        <th style="text-align: center;">Тип</th>
+                                        <th style="text-align: center;">По умолчанию</th>
+                                        <th>Опиание</th>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center;">secondary</td>
+                                        <td style="text-align: center;"><strong>Boolean</strong></td>
+                                        <td style="text-align: center;"><code>false</code></td>
+                                        <td>Меняет цвет фона на более тёмный</td>
+                                    </tr>
+                                </table>
+                            </div>
                             <p>Сгенерированная разметка</p><pre><code class="language-html">&lt;li class="cm-item"&gt;
     &lt;div class="cm-item__panel"&gt;
         Default panel
@@ -819,26 +822,28 @@ datahere</code></pre>
                             <h3>GET-параметры в адресной строке <code>&lt;cm-query&gt;</code></h3>
                             <p>Компонент предназначен для вставки GET-параметров в адресную строку браузера без перезагрузки (например для фильтрации или сортировки), другие компоненты могут отслеживать эти параметры и обновлять данные.</p>
                             <p><em>Свойства элемента <code>&lt;cm-query&gt;</code></em></p>
-                            <table>
-                                <tr>
-                                    <th style="text-align: center;">Название</th>
-                                    <th style="text-align: center;">Тип</th>
-                                    <th style="text-align: center;">По умолчанию</th>
-                                    <th>Опиание</th>
-                                </tr>
-                                <tr>
-                                    <td style="text-align: center;">itemClass</td>
-                                    <td style="text-align: center;"><strong>String</strong></td>
-                                    <td style="text-align: center;"><em>undefined</em></td>
-                                    <td>Дополнительный класс для кнопки</td>
-                                </tr>
-                                <tr>
-                                    <td style="text-align: center;">param*</td>
-                                    <td style="text-align: center;"><strong>Object</strong></td>
-                                    <td style="text-align: center;"><em>undefined</em></td>
-                                    <td><em>Обязательное свойство. Параметры, которые необходимо подставить или заменить в адресной строке, и при совпадении с которыми кнопка полузит активное состояние</em></td>
-                                </tr>
-                            </table><pre><code class="language-html">&lt;context-menu&gt;
+                            <div class="md-table">
+                                <table>
+                                    <tr>
+                                        <th style="text-align: center;">Название</th>
+                                        <th style="text-align: center;">Тип</th>
+                                        <th style="text-align: center;">По умолчанию</th>
+                                        <th>Опиание</th>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center;">itemClass</td>
+                                        <td style="text-align: center;"><strong>String</strong></td>
+                                        <td style="text-align: center;"><em>undefined</em></td>
+                                        <td>Дополнительный класс для кнопки</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center;">param*</td>
+                                        <td style="text-align: center;"><strong>Object</strong></td>
+                                        <td style="text-align: center;"><em>undefined</em></td>
+                                        <td><em>Обязательное свойство. Параметры, которые необходимо подставить или заменить в адресной строке, и при совпадении с которыми кнопка полузит активное состояние</em></td>
+                                    </tr>
+                                </table>
+                            </div><pre><code class="language-html">&lt;context-menu&gt;
     &lt;cm-query :param="{state: 'active'}"&gt;
         I am active
     &lt;/cm-query&gt;
@@ -865,51 +870,55 @@ datahere</code></pre>
                             <h3>AJAX-запрос <code>&lt;cm-ajax&gt;</code></h3>
                             <p>Компонент предназначен для отправки данных на сервер с возможностью вызова метода для обработки полученного ответа, обрабатывая событие <code>sended</code>, в который передаются данные ответа. Для отправки запроса используется миксин <code>serverRequest</code></p>
                             <p><em>Свойства элемента <code>cm-ajax</code></em></p>
-                            <table>
-                                <tr>
-                                    <th style="text-align: center;">Название</th>
-                                    <th style="text-align: center;">Тип</th>
-                                    <th style="text-align: center;">По умолчанию</th>
-                                    <th>Опиание</th>
-                                </tr>
-                                <tr>
-                                    <td style="text-align: center;">itemClass</td>
-                                    <td style="text-align: center;"><strong>String</strong></td>
-                                    <td style="text-align: center;"><em>undefined</em></td>
-                                    <td>Дополнительный класс для кнопки</td>
-                                </tr>
-                                <tr>
-                                    <td style="text-align: center;">params</td>
-                                    <td style="text-align: center;"><strong>Object</strong></td>
-                                    <td style="text-align: center;"><code>{}</code></td>
-                                    <td>Объект данных для отправки</td>
-                                </tr>
-                                <tr>
-                                    <td style="text-align: center;">url*</td>
-                                    <td style="text-align: center;"><strong>String</strong></td>
-                                    <td style="text-align: center;"><em>undefined</em></td>
-                                    <td><em>Обязательный параметр</em>. Адрес запроса</td>
-                                </tr>
-                                <tr>
-                                    <td style="text-align: center;">method</td>
-                                    <td style="text-align: center;"><strong>String</strong></td>
-                                    <td style="text-align: center;"><code>get</code></td>
-                                    <td>Метод для проведения запроса, ограничен вариантами<code>get</code>,<code>put</code>,<code>post</code>,<code>delete</code>,<code>patch</code></td>
-                                </tr>
-                            </table>
+                            <div class="md-table">
+                                <table>
+                                    <tr>
+                                        <th style="text-align: center;">Название</th>
+                                        <th style="text-align: center;">Тип</th>
+                                        <th style="text-align: center;">По умолчанию</th>
+                                        <th>Опиание</th>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center;">itemClass</td>
+                                        <td style="text-align: center;"><strong>String</strong></td>
+                                        <td style="text-align: center;"><em>undefined</em></td>
+                                        <td>Дополнительный класс для кнопки</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center;">params</td>
+                                        <td style="text-align: center;"><strong>Object</strong></td>
+                                        <td style="text-align: center;"><code>{}</code></td>
+                                        <td>Объект данных для отправки</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center;">url*</td>
+                                        <td style="text-align: center;"><strong>String</strong></td>
+                                        <td style="text-align: center;"><em>undefined</em></td>
+                                        <td><em>Обязательный параметр</em>. Адрес запроса</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center;">method</td>
+                                        <td style="text-align: center;"><strong>String</strong></td>
+                                        <td style="text-align: center;"><code>get</code></td>
+                                        <td>Метод для проведения запроса, ограничен вариантами<code>get</code>,<code>put</code>,<code>post</code>,<code>delete</code>,<code>patch</code></td>
+                                    </tr>
+                                </table>
+                            </div>
                             <p><em>События, вызываемые элементом<code>cm-ajax</code></em></p>
-                            <table>
-                                <tr>
-                                    <th style="text-align: center;">Название</th>
-                                    <th style="text-align: center;">Аргументы</th>
-                                    <th>Опиание</th>
-                                </tr>
-                                <tr>
-                                    <td style="text-align: center;">sended</td>
-                                    <td style="text-align: center;">data (<code>Object</code>)</td>
-                                    <td>Вызвается после получения ответа и передаёт присланные данные</td>
-                                </tr>
-                            </table><pre><code class="language-html">&lt;context-menu&gt;
+                            <div class="md-table">
+                                <table>
+                                    <tr>
+                                        <th style="text-align: center;">Название</th>
+                                        <th style="text-align: center;">Аргументы</th>
+                                        <th>Опиание</th>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center;">sended</td>
+                                        <td style="text-align: center;">data (<code>Object</code>)</td>
+                                        <td>Вызвается после получения ответа и передаёт присланные данные</td>
+                                    </tr>
+                                </table>
+                            </div><pre><code class="language-html">&lt;context-menu&gt;
     &lt;cm-ajax
         method="post"
         url="https://httpbin.org/post"
