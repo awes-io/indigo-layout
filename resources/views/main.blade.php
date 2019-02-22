@@ -137,6 +137,8 @@
                     </div>
                 </transition>
             @endif
+
+
             <div class="frame__content">
                 <div class="frame__inlayout">
                     @hasSection('pagemap')
@@ -156,7 +158,6 @@
 
             {{-- <div class="float-icns"><button class="float-icns__icon float-icns__icon_helper"></button></div>    --}}
 
-            </div>
 
         </div>
     </div>
