@@ -22,10 +22,9 @@ for tag in tf_titles
 body
     font-size f_normal
 
-.mainwrapper .hljs
-    padding 25px 30px
-    line-height 1.5
-    &[data-language]
+.mainwrapper
+
+    pre[data-language]
         position: relative
         &:before
             content: attr(data-language)
@@ -35,21 +34,26 @@ body
             border-radius: 3px
             font-size: 14px
             font-weight: 600
-            margin -30px -30px 30px -30px
+            // margin -30px -30px 30px -30px
             border-bottom 1px solid var(--tc_border)
             display: block
-    &-ln
-        width: 100%
-        td
-            border-bottom: none
-        tr:hover
-            background: none
-        &-numbers
-            width: 45px
-            text-align: right
-        &-n
-            padding-right: 15px
-            opacity: .4
+
+    .hljs
+        padding 25px 30px
+        line-height 1.5
+
+        &-ln
+            width: 100%
+            td
+                border-bottom: none
+            tr:hover
+                background: none
+            &-numbers
+                width: 45px
+                text-align: right
+            &-n
+                padding-right: 15px
+                opacity: .4
 
 
 h1
@@ -136,7 +140,7 @@ table:not(.int-table__table):not(.hljs-ln)
 .frame__inlayout-content
     & > :first-child
         margin-top 0 !important
-    & > :last-child 
+    & > :last-child
         margin-bottom 0 !important
 
 .frame__content, .tf-content
