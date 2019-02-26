@@ -1,11 +1,11 @@
 # Slide-up-down
 
-Предназначен для анимированного появления/исчезания содержимого компонента
+This component is intended for the animated appearance/disappearance of the component content. Below you will see a visual presentation of such component.
 
 ![slide-up-down](https://storage.googleapis.com/static.awes.io/docs/slide-up-down.gif)
 
 
-## Пример использования
+## Example of use
 
 ```html
 <button class="btn" @click="$refs.slide.toggle">Toggle</button>
@@ -25,22 +25,22 @@
 @endvue
 
 
-## Входные параметры
+## Input parameters
 
-| Название              | Тип         | По умолчанию | Описание                                      |
+| Name                  | Type        | Default      | Description                                   |
 |-----------------------|:-----------:| -------------|-----------------------------------------------|
-| `show`                | **Boolean** | `false`      | Показать / скрыть содержимое                  |
-| `tag`                 | **String**  | `'div'`      | Тег обёртки шабона                            |
-| `slide-up-duration`   | **Number**  | `250`        | Время **закрывания** в миллисекундах          |
-| `slide-down-duration` | **Number**  | `300`        | Время **открывания** в миллисекундах          |
+| `show`                | **Boolean** | `false`      | Show/hide content                             |
+| `tag`                 | **String**  | `'div'`      | Tag for the template wrapper                  |
+| `slide-up-duration`   | **Number**  | `250`        | **Closing** time in milliseconds             |
+| `slide-down-duration` | **Number**  | `300`        | **Opening** time in milliseconds             |
 
 
-## Методы компонента
+## Component methods
 
-Все методы вызываются без параметров
+All methods are called without parameters.
 
-| Название | Описание                      |
+| Name     | Description                   |
 |----------|-------------------------------|
-| `open`   | Показать содержимое           |
-| `close`  | Скрыть содержимое             |
-| `toggle` | Переключить текущее состояние |
+| `open`   | Show content                  |
+| `close`  | Hide content                  |
+| `toggle` | Switch current state          |
