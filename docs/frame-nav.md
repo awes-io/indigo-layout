@@ -1,27 +1,27 @@
-# Frame aside navigation &lt;frame-nav&gt;
+# The &lt;frame-nav&gt; component for frame aside navigation
 
-Предназначен для отображения бокового меню в виде двухуровневого раскрывающегоя списка
+This component is intended for displaying the side menu as a two-level dropdown list. Below you will see a visual presentation of such component.
 
 ![frame-nav](https://storage.googleapis.com/static.awes.io/docs/frame-nav.gif)
 
-## Пример использования
+## Example of use
 
 ```html
 <frame-nav :links="[{name:'First', link:'/first-link'}]"></frame-nav>
 ```
 
 
-## Входные параметры
+## Input parameters
 
-| Название      | Тип           | По умолчанию | Описание                             |
+| Name          | Type          | Default      | Description                          |
 |---------------|:-------------:|--------------|--------------------------------------|
-| `links`       | **Array**     | `undefined`  | [Массив пунктов меню](#props-links)  |
-| `expanded`    | **Boolean**   | `false`      | [Раскрыть все пункты](#props-expand) |
+| `links`       | **Array**     | `undefined`  | [Menu items array](#props-links)     |
+| `expanded`    | **Boolean**   | `false`      | [Expand all menu items](#props-expand) |
 
 
-<h3 id="props-links">Массив пунктов меню `links {Array<LinksItem>}`</h3>
+<h3 id="props-links">The `links {Array<LinksItem>}` menu items array</h3>
 
-Массив должен содержать элементы, которые соответствуют схеме:
+An array should contain items which match the following scheme:
 
 ```javascript
 /**
@@ -29,48 +29,48 @@
  *
  */
 {
-    name: 'Название пунка', // обязательный параметр
-    link: '/link-ulr', // обязательный, если не указан параметр `children`
-    children: [ // обязательный, если не указан параметр `link`
+    name: 'Item name', // required parameter
+    link: '/link-ulr', // required if the `children` parameter is not specified
+    children: [ // required if the `link` parameter is not specified
         {
-            name: 'Дочерний пункт',
+            name: 'Child item',
             link: '/child-link'
         }, ...
     ],
-    icon: 'dashboard', // опциональный, название иконки из списка иконок
-    active: true // опциональный, раскрыт ли этот пункт меню
+    icon: 'dashboard', // optional, icon name from the list of icons
+    active: true // optional; specifies whether this menu item is expanded or not
 }
 ```
 
-#### Параметр `name` {String*}
+#### The `name` {String*} parameter
 
-Обязательный параметр - название пункта меню
+Required parameter. You should specify a name of the menu item.
 
-#### Параметр `link` {String}
+#### The `link` {String} parameter
 
-Опциональный параметр, если указан параметр `children`, если же `children` не указан, то `link` - обязательный.
+If the `children` parameter is specified, the parameter is optional. If the `children` parameter is not specified, the `link` parameter is required.
 
-При наличии дочерних пунктов, клик по пункту меню будет вызывать переход по ссылке, а клик по стрелочке рядом с названием будет раскрывать список дочерних пунктов, и перехода по ссылке не будет.
+If there are child items, clicking on the menu item will cause the transition via the link and clicking on the arrow near the name will expand the list of child items, and the transition via the link will not take place.
 
-#### Параметр `children` {Array<LinksItem>}
+#### The `children` {Array<LinksItem>} parameter
 
-Опциональный параметр, если указан параметр `link`, если же `link` не указан, то `children` - обязательный.
+If the `link` parameter is specified, this parameter is optional. If the `link` parameter is not specified, the `children` parameter is required. 
 
-Отображает дочерние элементы (подпункты) пункта меню. Если есть `children` - то рядом с названием пункта появляется стрелка, при нажатии на которую раскрывается список дочерних пунктов меню. Если не передан параметр `link` - то раскрытие/закрытие списка дочерних элементов происходит также при нажатии на название пункта
+It displays child items (subitems) of the menu item. If there is the `children` parameter, an arrow will appear near the item name, and if you click on it, the list of menu child items will open. If the `link` parameter is not passed, the list of child items will open/close when clicking on the item name.
 
-#### Параметр `icon` {String}
+#### The `icon` {String} parameter
 
-Опциональный параметр, иконка из списка иконок, при наличии, например `icon: 'awesome-icon'`, в разметке сгенерируется:
+Optional parameter for an icon from the list of icons. For example, if there is `icon: 'awesome-icon'` available, the generated markup will look like:
 
 ```html
 <i class="icon icon-awesome-icon"></i>
 ```
 
-#### Параметр `active` {Boolean}
+#### The `active` {Boolean} parameter
 
-Опциональный параметр, добавляет к пункту меню CSS-класс активного сосояния и при наличии дочерних пунктов меню - показывает их список в раскрытом виде, без возможности закрыть его
+Optional parameter. It adds the CSS class of active state to the menu item. If there are menu’s child items available, it will show their list opened, without possibility of closing it.
 
 
-<h3 id="props-expand">Раскрыть все пункты `expanded {Boolean}`</h3>
+<h3 id="props-expand">Expand all menu items `expanded {Boolean}`</h3>
 
-Опциональный параметр. При истинном значении, все пункты с дочерними элементами получают активное состояние, как если бы у каждого было `active: true`
+Optional parameter. If the value is true, all items with child items will get the active state, it is as if each item had `active: true`
