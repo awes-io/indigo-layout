@@ -191,13 +191,13 @@ body.v--modal-block-scroll
 // Media Start
 
 
-@media res_tablet--lg
+@media maw[tlg]
   .body-overflow-usermenu 
     overflow: hidden
     body
       overflow hidden
 
-@media res_tablet--md
+@media maw[tmd]
   .modal
     &.modal_fullscreen
       & ^[0]__header
@@ -215,7 +215,7 @@ body.v--modal-block-scroll
       & ^[0]__title
         font-size 20px
 
-@media res_tablet--sm
+@media maw[tsm]
 
   .modal
     padding: 0
@@ -248,7 +248,7 @@ body.v--modal-block-scroll
         right 5px
         top 5px
 
-@media res_mobile--md
+@media maw[mmd]
   .modal
     & &__dialog
       padding-left 25px
@@ -277,7 +277,7 @@ body.v--modal-block-scroll
         opacity: 0
 
     // additional dialog transition (tablet, desktop)
-    @media res_tablet--sm-i
+    @media miw[tsm]
         &-enter-active
             overflow: hidden
             transition: opacity 300ms ease-out

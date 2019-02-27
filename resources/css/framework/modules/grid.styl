@@ -1,0 +1,293 @@
+if grid_frames is defined && grid_frames
+    .{framework_class_prefix}grid
+        fl(w)
+        if (grid_default_gap is defined && grid_default_gap)
+            margin-left: -(grid_gap / 2)px
+            margin-right: -(grid_gap / 2)px
+            width: "calc(100% + %spx)" % grid_gap
+            [class^=\"{framework_class_prefix}cell\"]
+                padding-left: (grid_gap / 2)px
+                padding-right: (grid_gap / 2)px
+                margin-bottom: (grid_gap)px
+        else
+            width 100%
+        &-gap
+            margin-left: -(grid_gap / 2)px
+            margin-right: -(grid_gap / 2)px
+            width: "calc(100% + %spx)" % grid_gap
+            [class^=\"{framework_class_prefix}cell\"]
+                padding-left: (grid_gap / 2)px
+                padding-right: (grid_gap / 2)px
+                margin-bottom: (grid_gap)px
+            &-x
+                margin-left: -(grid_gap / 2)px
+                margin-right: -(grid_gap / 2)px
+                width: "calc(100% + %spx)" % grid_gap
+                [class^=\"{framework_class_prefix}cell\"]
+                    padding-left: (grid_gap / 2)px
+                    padding-right: (grid_gap / 2)px
+                    if grid_default_gap is defined && grid_default_gap
+                        margin-bottom 0
+            &-y
+                if grid_default_gap is defined && grid_default_gap
+                    margin-left 0
+                    margin-right 0
+                [class^=\"{framework_class_prefix}cell\"]
+                    margin-bottom: (grid_gap)px
+                    if grid_default_gap is defined && grid_default_gap
+                        padding-left 0
+                        padding-right 0
+        &-nogap
+            width 100%
+            margin-left 0
+            margin-right 0
+            [class^=\"{framework_class_prefix}cell\"]
+                padding 0
+                margin-bottom 0
+
+        .{framework_class_prefix}cell
+            width 100%
+            &-auto
+                width auto
+                flex-grow 1
+                flex-shrink 1
+            &-full, &-1-1
+                width 100%
+            &-inline
+                width auto
+            
+        for firstvalue in grid_frames
+            for secondvalue in grid_frames
+
+                if(firstvalue != secondvalue && firstvalue <= secondvalue)
+                    .{framework_class_prefix}cell-{firstvalue}-{secondvalue}
+                        width: (firstvalue / secondvalue * 100)%
+                    // Magins
+                    .{framework_class_prefix}grid-ml-{firstvalue}-{secondvalue}
+                        margin-left: (firstvalue / secondvalue * 100)%
+                    .{framework_class_prefix}grid-mr-{firstvalue}-{secondvalue}
+                        margin-right: (firstvalue / secondvalue * 100)%
+                    .{framework_class_prefix}grid-ma
+                        margin-left auto
+                        margin-right auto
+                    .{framework_class_prefix}grid-mla
+                        margin-left auto
+                    .{framework_class_prefix}grid-mra
+                        margin-right auto
+
+        & > .{framework_class_prefix}grid
+            margin-left 0
+            margin-right 0
+            &:not(ul[class^='grid-inline'], div[class^='grid-inline'], section[class^='grid-inline'], span[class^='grid-inline'], span[class^='grid-inline'])
+                width 100%
+        &-inline
+            width auto
+        &-wrap
+            flex-wrap wrap
+        &-nowrap
+            flex-wrap nowrap
+        &-row
+            flex-direction row
+        &-column
+            flex-direction column
+        &-justify
+            &-start
+                justify-content flex-start
+            &-end
+                justify-content flex-end
+            &-center
+                justify-content center
+            &-between
+                justify-content space-between
+            &-around
+                justify-content space-around
+            &-default
+                justify-content normal
+        &-align
+            &-start
+                align-items flex-start
+            &-end
+                align-items flex-end
+            &-center
+                align-items center
+            &-base
+                align-items baseline
+            &-default
+                align-items normal
+        .{framework_class_prefix}cell
+            &-noshrink
+                flex-shrink 0
+        
+        for zs in 0..10
+            .{framework_class_prefix}cell
+                &-shrink-{zs}
+                    flex-shrink: (zs / 10)
+            
+
+
+    if grid_bpoint is defined && grid_bpoint
+
+        if grid_always_inverted is defined && grid_always_inverted
+            grid_inverted_class = ''
+            grid_default_class = '-i'
+        else
+            grid_inverted_class = '-i'
+            grid_default_class = ''        
+
+        for index, key in grid_bpoint
+            @media(max-width (key)px)
+                .{framework_class_prefix}grid
+                    .{framework_class_prefix}cell
+                        &--{index}{grid_default_class}
+                            width 100%
+                        &-auto--{index}{grid_default_class}
+                            width auto
+                            flex-grow 1
+                            flex-shrink 1
+                        &-full--{index}{grid_default_class}, &-1-1--{index}{grid_default_class}
+                            width 100%
+                        &-noshrink--{index}{grid_default_class}
+                            flex-shrink 0
+                        &-inline--{index}{grid_default_class}
+                            width auto
+                    for firstvalue in grid_frames
+                        for secondvalue in grid_frames
+                            if(firstvalue != secondvalue && firstvalue <= secondvalue)
+                                .{framework_class_prefix}cell-{firstvalue}-{secondvalue}--{index}{grid_default_class}
+                                    width: (firstvalue / secondvalue * 100)%
+                                // Magins
+                                .{framework_class_prefix}grid-ml-{firstvalue}-{secondvalue}--{index}{grid_default_class}
+                                    margin-left: (firstvalue / secondvalue * 100)%
+                                .{framework_class_prefix}grid-mr-{firstvalue}-{secondvalue}--{index}{grid_default_class}
+                                    margin-right: (firstvalue / secondvalue * 100)%
+                                .{framework_class_prefix}grid-ma--{index}{grid_default_class}
+                                    margin-left auto
+                                    margin-right auto
+                                .{framework_class_prefix}grid-mla--{index}{grid_default_class}
+                                    margin-left auto
+                                .{framework_class_prefix}grid-mra--{index}{grid_default_class}
+                                    margin-right auto
+                    
+                    &-wrap--{index}{grid_default_class}
+                        flex-wrap wrap
+                    &-inline--{index}{grid_default_class}
+                        width auto
+                    &-row--{index}{grid_default_class}
+                        flex-direction row
+                    &-column--{index}{grid_default_class}
+                        flex-direction column
+                    &-nowrap--{index}{grid_default_class}
+                        flex-wrap nowrap
+                    &-justify
+                        &-start--{index}{grid_default_class}
+                            justify-content flex-start
+                        &-end--{index}{grid_default_class}
+                            justify-content flex-end
+                        &-center--{index}{grid_default_class}
+                            justify-content center
+                        &-between--{index}{grid_default_class}
+                            justify-content space-between
+                        &-around--{index}{grid_default_class}
+                            justify-content space-around
+                        &-default--{index}{grid_default_class}
+                            justify-content normal
+                    &-align
+                        &-start--{index}{grid_default_class}
+                            align-items flex-start
+                        &-end--{index}{grid_default_class}
+                            align-items flex-end
+                        &-center--{index}{grid_default_class}
+                            align-items center
+                        &-base--{index}{grid_default_class}
+                            align-items baseline
+                        &-default--{index}{grid_default_class}
+                            align-items normal
+                    
+                    for zs in 0..10
+                        .{framework_class_prefix}cell
+                            &-shrink-{zs}--{index}{grid_default_class}
+                                flex-shrink: (zs / 10)
+        
+        
+
+        for index, key in invert_hash(grid_bpoint)
+            @media(min-width (key + 1)px)
+                .{framework_class_prefix}grid
+                    .{framework_class_prefix}cell
+                        &--{index}{grid_inverted_class}
+                            width 100%
+                        &-auto--{index}{grid_inverted_class}
+                            width auto
+                            flex-grow 1
+                            flex-shrink 1
+                        &-full--{index}{grid_inverted_class}, &-1-1--{index}{grid_inverted_class}
+                            width 100%
+                        &-noshrink--{index}{grid_inverted_class}
+                            flex-shrink 0
+                        &-inline--{index}{grid_inverted_class}
+                            width auto
+                    for firstvalue in grid_frames
+                        for secondvalue in grid_frames
+                            if(firstvalue != secondvalue && firstvalue <= secondvalue)
+                                .{framework_class_prefix}cell-{firstvalue}-{secondvalue}--{index}{grid_inverted_class}
+                                    width: (firstvalue / secondvalue * 100)%
+                                // Magins
+                                .{framework_class_prefix}grid-ml-{firstvalue}-{secondvalue}--{index}{grid_inverted_class}
+                                    margin-left: (firstvalue / secondvalue * 100)%
+                                .{framework_class_prefix}grid-mr-{firstvalue}-{secondvalue}--{index}{grid_inverted_class}
+                                    margin-right: (firstvalue / secondvalue * 100)%
+                                .{framework_class_prefix}grid-ma--{index}{grid_inverted_class}
+                                    margin-left auto
+                                    margin-right auto
+                                .{framework_class_prefix}grid-mla--{index}{grid_inverted_class}
+                                    margin-left auto
+                                .{framework_class_prefix}grid-mra--{index}{grid_inverted_class}
+                                    margin-right auto
+                    &-wrap--{index}{grid_inverted_class}
+                        flex-wrap wrap
+                    &-nowrap--{index}{grid_inverted_class}
+                        flex-wrap nowrap
+                    &-inline--{index}{grid_inverted_class}
+                        width auto
+                    &-row--{index}{grid_inverted_class}
+                        flex-direction row
+                    &-column--{index}{grid_inverted_class}
+                        flex-direction column
+                    &-justify
+                        &-start--{index}{grid_inverted_class}
+                            justify-content flex-start
+                        &-end--{index}{grid_inverted_class}
+                            justify-content flex-end
+                        &-center--{index}{grid_inverted_class}
+                            justify-content center
+                        &-between--{index}{grid_inverted_class}
+                            justify-content space-between
+                        &-around--{index}{grid_inverted_class}
+                            justify-content space-around
+                        &-default--{index}{grid_inverted_class}
+                            justify-content normal
+                    &-align
+                        &-start--{index}{grid_inverted_class}
+                            align-items flex-start
+                        &-end--{index}{grid_inverted_class}
+                            align-items flex-end
+                        &-center--{index}{grid_inverted_class}
+                            align-items center
+                        &-base--{index}{grid_inverted_class}
+                            align-items baseline   
+                        &-default--{index}{grid_inverted_class}
+                            align-items normal
+                    
+                    for zs in 0..10
+                        .{framework_class_prefix}cell
+                            &-shrink-{zs}--{index}{grid_inverted_class}
+                                flex-shrink: (zs / 10)
+
+        maw = {}
+        for index, key in grid_bpoint
+            push(maw, maw[index] = '(max-width: '+key+'px)')
+
+        miw = {}
+        for index, key in invert_hash(grid_bpoint)
+            push(miw, miw[index] = '(min-width: '+(key + 1)+'px)')
+

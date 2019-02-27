@@ -1,3 +1,5 @@
+framework_class_prefix = ''
+
 responsive = true
 wrapper = 1200px
 wrap_padding = 15px
@@ -6,26 +8,13 @@ fontfamily = 'Roboto', sans-serif
 
 textarea_max-height = 300px
 
-//breakpoints
-res_desktop--lg = '(max-width 1300px)'
-res_desktop--md = '(max-width 1100px)'
-res_desktop--sm = '(max-width 1000px)'
-res_tablet--lg = '(max-width 900px)'
-res_tablet--md = '(max-width 800px)'
-res_tablet--sm = '(max-width 700px)'
-res_mobile--lg = '(max-width 600px)'
-res_mobile--md = '(max-width 500px)'
-res_mobile--sm = '(max-width 400px)'
 
-res_desktop--lg-i = '(min-width 1301px)'
-res_desktop--md-i = '(min-width 1101px)'
-res_desktop--sm-i = '(min-width 1001px)'
-res_tablet--lg-i = '(min-width 901px)'
-res_tablet--md-i = '(min-width 801px)'
-res_tablet--sm-i = '(min-width 701px)'
-res_mobile--lg-i = '(min-width 601px)'
-res_mobile--md-i = '(min-width 501px)'
-res_mobile--sm-i = '(min-width 401px)'
+// Grid
+grid_frames = (1 2 3 4 5 6 7 8 9 10) // Grid columns
+grid_gap = 10 // Grid margin value in px (but wrote withot px)
+grid_default_gap = true // Boolean (true/false)
+grid_bpoint = {dlg: 1300, dmd: 1100, dsm: 1000, tlg: 900, tmd: 800, tsm: 700, mlg: 600, mmd: 500, msm: 400} // Breakpoints
+grid_always_inverted = false // if true default grid will initially be based on min-width, if false max-width
 
 
 //fonts
