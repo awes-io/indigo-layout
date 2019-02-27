@@ -1,0 +1,610 @@
+extends includes/layout.pug
+
+block pageVariables
+    - var pageTitle = "Grid"
+    - var asideBlock = true
+    - var removePlus = true
+    - var headLinks = true
+
+block pageHead
+    // there is can be head meta or sctipts
+    script(src="https://storage.awes.io/74c99e54e4bbe7ab337ddbb5ec348d02/awes-io/page-map/v1.x.x/js/main.js")
+    link(rel="stylesheet" href="https://storage.awes.io/74c99e54e4bbe7ab337ddbb5ec348d02/awes-io/page-map/v1.x.x/css/main.css?v=2019-02-13_08-49-22")
+    style.
+        [class^="cell"] span {
+            background-color: #3498db;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            word-break: break-all;
+            font-size: 14px;
+        }
+
+block pageContent
+
+    
+
+    h1 Grid layout examples
+
+    p Quick and variable grid setting will help you create a grid for almost any situation.
+
+
+    h2 First step
+
+    p To create the grid you need to specify in <code>_setting.styl</code> the number of columns and breakpoints, in case the site is responsive. For example, I wrote 10 columns and 9 brekpoint, which interact with each other. In the array, you can change the name and resolution, as well as the number of breakpoints, depending on your needs.
+
+    pre
+        code.stylus.
+            grid_frames = (1 2 3 4 5 6 7 8 9 10) // Grid columns
+            grid_gap = 10 // Grid margin value in px (but wrote withot px)
+            grid_default_gap = false // Boolean (true/false)
+            grid_bpoint = {dlg: 1300, dmd: 1100, dsm: 1000, tlg: 900, tmd: 800, tsm: 700, mlg: 600, mmd: 500, msm: 400} // Breakpoints
+            grid_always_inverted = false // if true default grid will initially be based on min-width, if false max-width
+    
+    p This settings will create a large and flexible class chain, which is described in detail below.
+    
+    h3 Default grid
+
+    p In order to create a grid, you need to wrap a <b>.cell</b> in a <b>.grid</b>. Both the cell and the grid we have many modifiers, which let's gradually disassemble. The example below shows the standard grid without brekpoints and modifiers <i>(gap 10)</i>.
+
+    .vue-example
+        .grid
+            .cell 
+                span .cell
+            .cell-1-2 
+                span .cell-1-2
+            .cell-1-2 
+                span .cell-1-2
+            .cell-3-5 
+                span .cell-3-5
+            .cell-2-5 
+                span .cell-2-5
+            .cell-6-8 
+                span .cell-6-8
+            .cell-2-8 
+                span .cell-2-8
+            .cell-2-10 
+                span .cell-2-10
+            .cell-auto
+                span .cell-auto
+            .cell-full 
+                span .cell-full
+
+    pre
+        code.html.
+            &lt;div class=&quot;grid&quot;&gt;
+                &lt;div class=&quot;cell&quot;&gt;.cell&lt;/div&gt;
+                &lt;div class=&quot;cell-1-2&quot;&gt;.cell-1-2&lt;/div&gt;
+                &lt;div class=&quot;cell-1-2&quot;&gt;.cell-1-2&lt;/div&gt;
+                &lt;div class=&quot;cell-3-5&quot;&gt;.cell-3-5&lt;/div&gt;
+                &lt;div class=&quot;cell-2-5&quot;&gt;.cell-2-5&lt;/div&gt;
+                &lt;div class=&quot;cell-6-8&quot;&gt;.cell-6-8&lt;/div&gt;
+                &lt;div class=&quot;cell-2-8&quot;&gt;.cell-2-8&lt;/div&gt;
+                &lt;div class=&quot;cell-2-10&quot;&gt;.cell-2-10&lt;/div&gt;
+                &lt;div class=&quot;cell-auto&quot;&gt;.cell-auto&lt;/div&gt;
+                &lt;div class=&quot;cell-full&quot;&gt;.cell-full&lt;/div&gt;
+            &lt;/div&gt;
+
+    p If you need to output inline blocks, you can use the class <code>.cell-inline</code>
+
+    .vue-example
+        .grid
+            .cell-inline
+                span .cell-inline
+            .cell-inline
+                span .cell-inline
+            .cell-inline
+                span same class with long text 
+    pre
+        code.html.
+            &lt;div class=&quot;grid&quot;&gt;
+                &lt;div class=&quot;cell-inline&quot;&gt;.cell-inline&lt;/div&gt;
+                &lt;div class=&quot;cell-inline&quot;&gt;.cell-inline&lt;/div&gt;
+                &lt;div class=&quot;cell-inline&quot;&gt;same class with long text &lt;/div&gt;
+            &lt;/div&gt;
+    
+    h3 Responsive grid
+
+    p If you have registered something in brekpoints, then classes will be added for the grid, which will be brekpoints that depend on max-width.
+
+    pre
+        code.stylus.
+            grid_bpoint = {dlg: 1300, dmd: 1100, dsm: 1000, tlg: 900, tmd: 800, tsm: 700, mlg: 600, mmd: 500, msm: 400} // Breakpoints
+    p In breakpoints you can register a class and value, which later can be used in the grid. The grid will create classes that will trigger and override values ​​when the screen width reaches the minimum mark.
+    
+    
+    .vue-example
+        .grid
+            .cell-1-2.cell--dsm 
+                span .cell-1-2 .cell--dsm
+            .cell-1-2.cell--dsm 
+                span .cell-1-2 .cell--dsm
+
+
+            .cell-1-5.cell-1-3--dlg.cell-1-2--dmd.cell--tmd
+                span .cell-1-5 .cell-1-3--dlg .cell-1-2--dmd .cell--tmd
+            .cell-1-5.cell-1-3--dlg.cell-1-2--dmd.cell--tmd
+                span .cell-1-5 .cell-1-3--dlg .cell-1-2--dmd .cell--tmd
+            .cell-1-5.cell-1-3--dlg.cell-1-1--dmd
+                span .cell-1-5 .cell-1-3--dlg .cell-1-1--dmd
+
+            .cell-1-5.cell-1-2--dlg.cell-auto--dmd.cell--tmd
+                span .cell-1-5 .cell-1-2--dlg .cell-auto--dmd .cell--tmd
+            .cell-1-5.cell-1-2--dlg.cell-1-1--dmd.cell--tmd
+                span .cell-1-5 .cell-1-2--dlg .cell-1-1--dmd .cell--tmd
+
+            .cell-1-3.cell-1-2--tlg.cell--tsm
+                span .cell-1-3 .cell-1-2--tlg .cell--tsm
+            .cell-1-3.cell-1-2--tlg.cell--tsm
+                span .cell-1-3 .cell-1-2--tlg .cell--tsm
+            .cell-1-3.cell--tlg
+                span .cell-1-3 .cell--tlg
+
+        p If you need a fixed-width column, you can write it this way, but in this case it is impossible to use breakpoints for this column. For such tasks, we recommend using your own classes.
+        .grid
+            .cell(style='width: 250px')
+                span .cell(style='width: 250px')
+            .cell-auto
+                span .cell-auto
+
+        p You can use the grid inside the grid, in some cases this may be necessary.
+        .grid
+            .grid
+                .cell-1-2
+                    span .cell
+                .cell-1-2
+                    span .cell
+            .cell
+                .grid
+                    .cell
+                        span .cell
+
+        pre
+            code.html.
+                &lt;div class=&quot;grid&quot;&gt;
+                    &lt;div class=&quot;cell-1-2 cell--dsm&quot;&gt;.cell-1-2 .cell--dsm&lt;/div&gt;
+                    &lt;div class=&quot;cell-1-2 cell--dsm&quot;&gt;.cell-1-2 .cell--dsm&lt;/div&gt;
+                    &lt;div class=&quot;cell-1-5 cell-1-3--dlg cell-1-2--dmd cell--tmd&quot;&gt;.cell-1-5 .cell-1-3--dlg .cell-1-2--dmd .cell--tmd&lt;/div&gt;
+                    &lt;div class=&quot;cell-1-5 cell-1-3--dlg cell-1-2--dmd cell--tmd&quot;&gt;.cell-1-5 .cell-1-3--dlg .cell-1-2--dmd .cell--tmd&lt;/div&gt;
+                    &lt;div class=&quot;cell-1-5 cell-1-3--dlg cell-auto--dmd&quot;&gt;.cell-1-5 .cell-1-3--dlg .cell-1-2--dmd .cell--tmd&lt;/div&gt;
+                    &lt;div class=&quot;cell-1-5 cell-1-2--dlg cell-auto--dmd cell--tmd&quot;&gt;.cell-1-5 .cell-1-2--dlg .cell-auto--dmd .cell--tmd&lt;/div&gt;
+                    &lt;div class=&quot;cell-1-5 cell-1-2--dlg cell-auto--dmd cell--tmd&quot;&gt;.cell-1-5 .cell-1-2--dlg .cell-auto--dmd .cell--tmd&lt;/div&gt;
+                    &lt;div class=&quot;cell-1-3 cell-1-2--tlg cell--tsm&quot;&gt;.cell-1-3 .cell-1-2--tlg .cell--tsm&lt;/div&gt;
+                    &lt;div class=&quot;cell-1-3 cell-1-2--tlg cell--tsm&quot;&gt;.cell-1-3 .cell-1-2--tlg .cell--tsm&lt;/div&gt;
+                    &lt;div class=&quot;cell-1-3 cell--tlg&quot;&gt;.cell-1-3 .cell--tlg&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;grid&quot;&gt;
+                    &lt;div class=&quot;cell&quot; style=&quot;width: 250px&quot;&gt;.cell(style='width: 250px')&lt;/div&gt;
+                    &lt;div class=&quot;cell-auto&quot;&gt;.cell-auto&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;grid&quot;&gt;
+                    &lt;div class=&quot;grid&quot;&gt;
+                        &lt;div class=&quot;cell-1-2&quot;&gt;.cell&lt;/div&gt;
+                        &lt;div class=&quot;cell-1-2&quot;&gt;.cell&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;cell&quot;&gt;
+                        &lt;div class=&quot;grid&quot;&gt;
+                        &lt;div class=&quot;cell&quot;&gt;.cell&lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+    
+    
+    p If you need inverted breakpoints based on min-width, you can add <code>-i</code> to the end of the class, then the class will take the value min-width, instead of the standard max-width.
+
+    .vue-example
+        .grid
+            .cell.cell-1-2--dsm-i.cell-1-3--dlg-i
+                span .cell .cell-1-2--dsm-i .cell-1-3--dlg-i
+            .cell.cell-1-2--dsm-i.cell-1-3--dlg-i
+                span .cell .cell-1-2--dsm-i .cell-1-3--dlg-i
+            .cell.cell--dsm-i.cell-1-3--dlg-i
+                span .cell .cell--dsm-i .cell-1-3--dlg-i
+
+    pre
+        code.html.
+            &lt;div class=&quot;grid&quot;&gt;
+                &lt;div class=&quot;cell cell-1-2--dsm-i cell-1-3--dlg-i&quot;&gt;.cell .cell-1-2--dsm-i .cell-1-3--dlg-i&lt;/div&gt;
+                &lt;div class=&quot;cell cell-1-2--dsm-i cell-1-3--dlg-i&quot;&gt;.cell .cell-1-2--dsm-i .cell-1-3--dlg-i&lt;/div&gt;
+                &lt;div class=&quot;cell cell--dsm-i cell-1-3--dlg-i&quot;&gt;.cell .cell--dsm-i .cell-1-3--dlg-i&lt;/div&gt;
+            &lt;/div&gt;
+    
+    p If you are used to using min-width permanently in a grid, you can change the variable <code>grid_always_inverted</code> to <code>true</code>, in which case the main classes will use min width.
+    
+
+    h3 Grid Gap
+
+    p  If you set <code>grid_default_gap</code> to <code>true</code>, then each grid will have the specified indent in <code>grid_gap</code>, regardless of class. But if the value is false, then in order to add an indent to the grid, you need to add certain classes to the grid wrapper, see the example below.
+
+    ul
+        li <code>grid-gap</code>: dafault gap (top, bottom, left, right padding in every cell)
+        li <code>grid-gap-x</code>: only horizontal indent (left, right padding)
+        li <code>grid-gap-y</code>: only vertical indent (top, bottom padding)
+        li <code>grid-nogap</code>: disable padding if <code>grid_default_gap</code> is true
+
+    p See Example: 
+
+    .vue-example
+        h5 Grid default:
+        .grid
+            .cell-1-2 
+                span .cell-1-2
+            .cell-1-2 
+                span .cell-1-2
+            .cell-1-4 
+                span .cell-1-4
+            .cell-1-4 
+                span .cell-1-4
+            .cell-1-4 
+                span .cell-1-4
+            .cell-1-4 
+                span .cell-1-4
+
+        h5 Grid with <code>.grid-nogap</code>:
+        .grid.grid-nogap
+            .cell-1-2 
+                span .cell-1-2
+            .cell-1-2 
+                span .cell-1-2
+            .cell-1-4 
+                span .cell-1-4
+            .cell-1-4 
+                span .cell-1-4
+            .cell-1-4 
+                span .cell-1-4
+            .cell-1-4 
+                span .cell-1-4
+
+        h5 Grid with <code>.grid-gap</code>:
+        .grid.grid-gap
+            .cell-1-2 
+                span .cell-1-2
+            .cell-1-2 
+                span .cell-1-2
+            .cell-1-3 
+                span .cell-1-3
+            .cell-1-3 
+                span .cell-1-3
+            .cell-1-3 
+                span .cell-1-3
+        h5 Grid with <code>.grid-gap-x</code>:
+        .grid.grid-gap-x
+            .cell-1-2 
+                span .cell-1-2
+            .cell-1-2 
+                span .cell-1-2
+            .cell-1-3 
+                span .cell-1-3
+            .cell-1-3 
+                span .cell-1-3
+            .cell-1-3 
+                span .cell-1-3
+        h5 Grid with <code>.grid-gap-y</code>:
+        .grid.grid-gap-y
+            .cell-1-2 
+                span .cell-1-2
+            .cell-1-2 
+                span .cell-1-2
+            .cell-1-3 
+                span .cell-1-3
+            .cell-1-3 
+                span .cell-1-3
+            .cell-1-3 
+                span .cell-1-3
+
+    pre
+        code.html.
+            &lt;div class=&quot;grid&quot;&gt;
+                &lt;div class=&quot;cell-1-2&quot;&gt;.cell-1-2&lt;/div&gt;
+                &lt;div class=&quot;cell-1-2&quot;&gt;.cell-1-2&lt;/div&gt;
+                &lt;div class=&quot;cell-1-4&quot;&gt;.cell-1-4&lt;/div&gt;
+                &lt;div class=&quot;cell-1-4&quot;&gt;.cell-1-4&lt;/div&gt;
+                &lt;div class=&quot;cell-1-4&quot;&gt;.cell-1-4&lt;/div&gt;
+                &lt;div class=&quot;cell-1-4&quot;&gt;.cell-1-4&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;grid grid-nogap&quot;&gt;
+                &lt;div class=&quot;cell-1-2&quot;&gt; .cell-1-2&lt;/div&gt;
+                &lt;div class=&quot;cell-1-2&quot;&gt; .cell-1-2&lt;/div&gt;
+                &lt;div class=&quot;cell-1-4&quot;&gt; .cell-1-4&lt;/div&gt;
+                &lt;div class=&quot;cell-1-4&quot;&gt; .cell-1-4&lt;/div&gt;
+                &lt;div class=&quot;cell-1-4&quot;&gt; .cell-1-4&lt;/div&gt;
+                &lt;div class=&quot;cell-1-4&quot;&gt;.cell-1-4&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;grid grid-gap&quot;&gt;
+                &lt;div class=&quot;cell-1-2&quot;&gt;.cell-1-2&lt;/div&gt;
+                &lt;div class=&quot;cell-1-2&quot;&gt;.cell-1-2&lt;/div&gt;
+                &lt;div class=&quot;cell-1-3&quot;&gt;.cell-1-3&lt;/div&gt;
+                &lt;div class=&quot;cell-1-3&quot;&gt;.cell-1-3&lt;/div&gt;
+                &lt;div class=&quot;cell-1-3&quot;&gt;.cell-1-3&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;grid grid-gap-x&quot;&gt;
+                &lt;div class=&quot;cell-1-2&quot;&gt;.cell-1-2&lt;/div&gt;
+                &lt;div class=&quot;cell-1-2&quot;&gt;.cell-1-2&lt;/div&gt;
+                &lt;div class=&quot;cell-1-3&quot;&gt;.cell-1-3&lt;/div&gt;
+                &lt;div class=&quot;cell-1-3&quot;&gt;.cell-1-3&lt;/div&gt;
+                &lt;div class=&quot;cell-1-3&quot;&gt;.cell-1-3&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;grid grid-gap-y&quot;&gt;
+                &lt;div class=&quot;cell-1-2&quot;&gt;.cell-1-2&lt;/div&gt;
+                &lt;div class=&quot;cell-1-2&quot;&gt;.cell-1-2&lt;/div&gt;
+                &lt;div class=&quot;cell-1-3&quot;&gt;.cell-1-3&lt;/div&gt;
+                &lt;div class=&quot;cell-1-3&quot;&gt;.cell-1-3&lt;/div&gt;
+                &lt;div class=&quot;cell-1-3&quot;&gt;.cell-1-3&lt;/div&gt;
+            &lt;/div&gt;
+
+    h3 Grid nesting
+
+    p You can customize the positioning of the grid based on the standard flex properties.
+
+    ul
+        li <code>grid-wrap</code>: flex-wrap wrap as (default)
+        li <code>grid-nowrap</code>: flex-wrap nowrap
+        li <code>grid-inline</code>: This class will remove the given width of the grid, which will make it possible to use it as inline, see the example below.
+        li <code>grid-row</code>: flex-direction row
+        li <code>grid-column</code>: flex-direction column
+        li <code>grid-justify-start</code>: justify-content flex-start
+        li <code>grid-justify-end</code>: justify-content flex-end
+        li <code>grid-justify-center</code>: justify-content center
+        li <code>grid-justify-between</code>: justify-content space-between
+        li <code>grid-justify-around</code>: justify-content space-around
+        li <code>grid-justify-default</code>: justify-content normal (Can be used in responsive if u need default value in mobile)
+        li <code>grid-align-start</code>: align-items flex-start
+        li <code>grid-align-end</code>: align-items flex-end
+        li <code>grid-align-center</code>: align-items center
+        li <code>grid-align-base</code>: align-items baseline
+        li <code>grid-align-default</code>: align-items normal (Can be used in responsive if u need default value in mobile)
+        li <code>cell-shrink-{from 0 to 10, 10 as 100%}</code>: flex-shrink 1 <i>(.cell-shrink-0, .cell-shrink-1 (flex-shrink 0.1), .cell-shrink-2 (flex-shrink 0.2))</i>, <b>aviable in cell</b>
+
+    .vue-example
+        h4 grid-nowrap
+        .grid.grid-nowrap
+            .cell
+                span .cell 
+            .cell
+                span .cell
+        h4 grid-justify-start
+        .grid.grid-justify-start
+            .cell.cell-7-9
+                span .cell .cell-7-9
+        h4 grid-justify-end
+        .grid.grid-justify-end
+            .cell.cell-7-9
+                span .cell .cell-7-9
+        h4 grid-justify-center
+        .grid.grid-justify-center
+            .cell.cell-3-5
+                span .cell .cell-3-5
+        h4 grid-justify-between
+        .grid.grid-justify-between
+            .cell.cell-2-5
+                span .cell .cell-2-5
+            .cell.cell-2-5
+                span .cell .cell-2-5
+        h4 grid-justify-around
+        .grid.grid-justify-around
+            .cell.cell-2-5
+                span .cell .cell-2-5
+            .cell.cell-2-5
+                span .cell .cell-2-5
+        h4 grid-align-start
+        .grid.grid-align-start
+            .cell.cell-1-2
+                span .cell .cell-1-2
+            .cell.cell-1-2(style='height: 100px')
+                span .cell .cell-1-2
+
+        h4 grid-align-end
+        .grid.grid-align-end
+            .cell.cell-1-2
+                span .cell .cell-1-2
+            .cell.cell-1-2(style='height: 100px')
+                span .cell .cell-1-2
+
+        h4 grid-align-center
+        .grid.grid-align-center
+            .cell.cell-1-2
+                span .cell .cell-1-2
+            .cell.cell-1-2(style='height: 100px')
+                span .cell .cell-1-2
+
+        h4 grid-align-base
+        .grid.grid-align-base
+            .cell.cell-1-2
+                span(style="padding-top: 25px;") .cell .cell-1-2
+            .cell.cell-1-2(style='height: 100px')
+                span .cell .cell-1-2
+        h4 grid-inline example
+        p The structure can be much simpler, for example, the last block can simply be given a grid-mla, but I wanted to show how complex blocks can be created ..
+        .grid.grid-justify-between.grid-justify-default--dlg
+            .grid.grid-inline--dlg-i
+                .cell-inline.cell-auto--dlg
+                    span .cell-inline .cell-auto--dlg
+                .cell-inline.cell-auto--dlg
+                    span .cell-inline .cell-auto--dlg
+                .cell-inline.cell-auto--dlg
+                    span .cell-inline .cell-auto--dlg
+            .cell-inline.cell--dlg
+                span .cell-inline .cell--dlg
+
+    pre
+        code.html.
+            &lt;h4&gt;grid-nowrap&lt;/h4&gt;
+            &lt;div class=&quot;grid grid-nowrap&quot;&gt;
+                &lt;div class=&quot;cell&quot;&gt;.cell &lt;/div&gt;
+                &lt;div class=&quot;cell&quot;&gt;.cell&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;h4&gt;grid-justify-start&lt;/h4&gt;
+            &lt;div class=&quot;grid grid-justify-start&quot;&gt;
+                &lt;div class=&quot;cell cell-7-9&quot;&gt;.cell .cell-7-9&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;h4&gt;grid-justify-end&lt;/h4&gt;
+            &lt;div class=&quot;grid grid-justify-end&quot;&gt;
+                &lt;div class=&quot;cell cell-7-9&quot;&gt;.cell .cell-7-9&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;h4&gt;grid-justify-center&lt;/h4&gt;
+            &lt;div class=&quot;grid grid-gap grid-justify-center&quot;&gt;
+                &lt;div class=&quot;cell cell-3-5&quot;&gt;.cell .cell-3-5&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;h4&gt;grid-justify-between&lt;/h4&gt;
+            &lt;div class=&quot;grid grid-justify-between&quot;&gt;
+                &lt;div class=&quot;cell cell-2-5&quot;&gt;.cell .cell-2-5&lt;/div&gt;
+                &lt;div class=&quot;cell cell-2-5&quot;&gt;.cell .cell-2-5&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;h4&gt;grid-justify-around&lt;/h4&gt;
+            &lt;div class=&quot;grid grid-justify-around&quot;&gt;
+                &lt;div class=&quot;cell cell-2-5&quot;&gt;.cell .cell-2-5&lt;/div&gt;
+                &lt;div class=&quot;cell cell-2-5&quot;&gt;.cell .cell-2-5&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;h4&gt;grid-justify-around&lt;/h4&gt;
+            &lt;div class=&quot;grid grid-justify-around&quot;&gt;
+                &lt;div class=&quot;cell cell-2-5&quot;&gt;.cell .cell-2-5&lt;/div&gt;
+                &lt;div class=&quot;cell cell-2-5&quot;&gt;.cell .cell-2-5&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;h4&gt;grid-align-start&lt;/h4&gt;
+            &lt;div class=&quot;grid grid-align-start&quot;&gt;
+                &lt;div class=&quot;cell cell-1-2&quot;&gt;.cell .cell-1-2&lt;/div&gt;
+                &lt;div class=&quot;cell cell-1-2&quot; style=&quot;height: 100px&quot;&gt;.cell .cell-1-2&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;h4&gt;grid-align-end&lt;/h4&gt;
+            &lt;div class=&quot;grid grid-align-end&quot;&gt;
+                &lt;div class=&quot;cell cell-1-2&quot;&gt;.cell .cell-1-2&lt;/div&gt;
+                &lt;div class=&quot;cell cell-1-2&quot; style=&quot;height: 100px&quot;&gt;.cell .cell-1-2&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;h4&gt;grid-align-center&lt;/h4&gt;
+            &lt;div class=&quot;grid grid-align-center&quot;&gt;
+                &lt;div class=&quot;cell cell-1-2&quot;&gt;.cell .cell-1-2&lt;/div&gt;
+                &lt;div class=&quot;cell cell-1-2&quot; style=&quot;height: 100px&quot;&gt;.cell .cell-1-2&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;h4&gt;grid-align-base&lt;/h4&gt;
+            &lt;div class=&quot;grid grid-align-base&quot;&gt;
+                &lt;div class=&quot;cell cell-1-2&quot;&gt;&lt;span style=&quot;padding-top: 25px&quot;&gt;.cell .cell-1-2&lt;/span&gt;&lt;/div&gt;
+                &lt;div class=&quot;cell cell-1-2&quot; style=&quot;height: 100px&quot;&gt;.cell .cell-1-2&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;grid grid-justify-between grid-justify-default--dlg&quot;&gt;
+                &lt;div class=&quot;grid grid-inline--dlg-i&quot;&gt;
+                    &lt;div class=&quot;cell-inline cell-auto--dlg&quot;&gt;.cell-inline .cell-auto--dlg&lt;/div&gt;
+                    &lt;div class=&quot;cell-inline cell-auto--dlg&quot;&gt;.cell-inline .cell-auto--dlg&lt;/div&gt;
+                    &lt;div class=&quot;cell-inline cell-auto--dlg&quot;&gt;.cell-inline .cell-auto--dlg&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;cell-inline cell--dlg&quot;&gt;.cell-inline .cell--dlg&lt;/div&gt;
+            &lt;/div&gt;
+
+    h5 As always, you can use variables for responsive.
+    p <code>.grid-align-base--dmd</code>,  <code>.grid-align-end--mmd</code>,  <code>.grid-justify-between--msm</code>, <code>.grid-nowrap--tlg-i</code>, <code>.grid-justify-start--dsm-i</code>, <b>...</b>
+
+    h3 Grid offset
+
+    p If you need to indent the grid, use the standard classes, an example of which is shown below.
+
+    .vue-example
+        .grid
+            .cell-1-2.grid-ml-1-2
+                span .cell-1-2 .grid-ml-1-2
+            .cell-1-3.grid-mr-1-3
+                span .cell-1-3 .grid-mr-1-3
+            .cell-2-3.grid-ml-1-3
+                span .cell-2-3.grid-ml-1-3
+            .cell-1-5
+                span .cell-1-5
+            .cell-1-5
+                span .cell-1-5
+            .cell-1-5.grid-ml-1-5
+                span .cell-1-5 .grid-ml-1-5
+            .cell-1-5
+                span .cell-1-5
+            .cell-1-5.grid-mla
+                span cell-1-5 .grid-mla
+            .cell-2-5.grid-mra
+                span .cell-2-5 .grid-mra
+            .cell-3-5.grid-ma
+                span .cell-2-5 .grid-ma
+            .cell-3-5.grid-mla
+                span .cell-3-5 .grid-mla
+            .cell-3-5.grid-mra
+                span .cell-3-5 .grid-mra
+        
+
+    pre
+        code.html.
+            &lt;div class=&quot;grid &quot;&gt;
+                &lt;div class=&quot;cell-1-2 grid-ml-1-2&quot;&gt;.cell-1-2 .grid-ml-1-2&lt;/div&gt;
+                &lt;div class=&quot;cell-1-3 grid-mr-1-3&quot;&gt;.cell-1-3 .grid-mr-1-3&lt;/div&gt;
+                &lt;div class=&quot;cell-2-3 grid-ml-1-3&quot;&gt;.cell-2-3.grid-ml-1-3&lt;/div&gt;
+                &lt;div class=&quot;cell-1-5&quot;&gt;.cell-1-5&lt;/div&gt;
+                &lt;div class=&quot;cell-1-5&quot;&gt;.cell-1-5&lt;/div&gt;
+                &lt;div class=&quot;cell-1-5 grid-ml-1-5&quot;&gt;.cell-1-5 .grid-ml-1-5&lt;/div&gt;
+                &lt;div class=&quot;cell-1-5&quot;&gt;.cell-1-5&lt;/div&gt;
+                &lt;div class=&quot;cell-1-5 grid-mla&quot;&gt;.cell-1-5 .grid-mla&lt;/div&gt;
+                &lt;div class=&quot;cell-2-5 grid-mra&quot;&gt;.cell-2-5 .grid-mra&lt;/div&gt;
+                &lt;div class=&quot;cell-3-5 grid-ma&quot;&gt;.cell-2-5 .grid-ma&lt;/div&gt;
+                &lt;div class=&quot;cell-3-5 grid-mla&quot;&gt;.cell-3-5 .grid-mla&lt;/div&gt;
+                &lt;div class=&quot;cell-3-5 grid-mra&quot;&gt;.cell-3-5 .grid-mra&lt;/div&gt;
+            &lt;/div&gt;
+
+    p As you can see, you can specify both automatic indentation and the size of the column. The following classes will be available to you.
+
+    ul
+        li <code>grid-mla</code>: margin-left auto
+        li <code>grid-mra</code>: margin-right auto
+        li <code>grid-ma</code>: margin-right and margin-left auto
+        li <code>grid-ml-{column size}</code>: You can specify any column size specified in your grid settings. (<i>.grid-ml-1-2 .grid-ml-3-5 ...</i>)
+        li <code>grid-mr-{column size}</code>: Like the previous one, only margin-right.
+
+    p If you need to indent only in the responsive version, this is also not a problem, use classes that are the same as in the grid. <b>Please note that the name of the classes depends on how you specify them in the array.</b>
+
+    ul
+        li <code>grid-mla--dsm</code>: margin left auto in dsm variable resolution
+        li <code>grid-mra--dsm-i</code>: margin right auto in dsm variable resolution inverted(min-width)
+        li <code>grid-mr-1-2--dsm-i</code>: margin right 1/2 with dsm variable resolution inverted(min-width)
+    p See example
+    .vue-example
+        h5 Default responsive (try resize window)
+        .grid
+            .cell.cell-1-2--dmd.grid-ml-1-2--dmd
+                span .cell .cell-1-2--dmd .grid-ml-1-2--dmd
+            .cell.cell-2-3--dmd.grid-ma--dmd
+                span .cell .cell-2-3--dmd .grid-ma--dmd
+
+        h5 Inverted responsive
+        .grid
+            .cell.cell-1-2--dmd-i.grid-ml-1-2--dmd-i
+                span .cell .cell-1-2--dmd-i .grid-ml-1-2--dmd-i
+            .cell.cell-2-3--dmd-i.grid-ma--dmd-i
+                span .cell .cell-2-3--dmd-i .grid-ma--dmd-i
+                
+    pre
+        code.html.
+            &lt;h5&gt;Default responsive (try resize window)&lt;/h5&gt;
+            &lt;div class=&quot;grid&quot;&gt;
+                &lt;div class=&quot;cell cell-1-2--dmd grid-ml-1-2--dmd&quot;&gt;.cell .cell-1-2--dmd .grid-ml-1-2--dmd&lt;/div&gt;
+                &lt;div class=&quot;cell cell-2-3--dmd grid-ma--dmd&quot;&gt;.cell .cell-2-3--dmd .grid-ma--dmd&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;h5&gt;Inverted responsive&lt;/h5&gt;
+            &lt;div class=&quot;grid&quot;&gt;
+                &lt;div class=&quot;cell cell-1-2--dmd-i grid-ml-1-2--dmd-i&quot;&gt;.cell .cell-1-2--dmd-i .grid-ml-1-2--dmd-i&lt;/div&gt;
+                &lt;div class=&quot;cell cell-2-3--dmd-i grid-ma--dmd-i&quot;&gt;.cell .cell-2-3--dmd-i .grid-ma--dmd-i&lt;/div&gt;
+            &lt;/div&gt;
+
+    h3 Breakpoint global variables
+    p If you specify any breakpoints in the array, variables will automatically be created that will help you in writing the code.
+
+    ul
+        li <code>maw[index]</code>: '(max-width {key}px)'
+        li <code>miw[index]</code>: '(min-width {key + 1}px)'
+
+    pre
+        code.stylus.
+            @media maw[dsm] // @media (max-width 1000px)
+                .example
+                    display block
+
+            @media miw[dsm] // @media (min-width 1001px)
+                .example
+                    display block
+
+
+    h5 While this is all, as you can see, everything is simple and flexible. If you have suggestions for improvements, create an issue on gitHub.
