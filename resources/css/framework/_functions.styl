@@ -156,6 +156,9 @@ phAnimation(color_def, color_s)
 	background-image linear-gradient(to left, var(color_def) 0%, var(color_s) 50%, var(color_def) 100%)
 	background-size 500% 100%
 
+phLineBg(color_def)
+	background-image linear-gradient(to left, 'var('+color_def+')' 0%, 'var('+color_def+')' 30%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 33%, 'var('+color_def+')' 33%, 'var('+color_def+')' 63%, rgba(0,0,0,0) 63%, rgba(0,0,0,0) 66%, 'var('+color_def+')' 66%, 'var('+color_def+')' 100%)
+
 clearlist()
 	margin 0
 	padding 0
