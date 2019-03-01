@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Slide Up Down</title>
+    <title>Stripe Theme</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700&amp;amp;subset=cyrillic" rel="stylesheet">
@@ -64,7 +64,7 @@
                     </div>
                     <div class="frame__header-line">
                         <div class="frame__title-line">
-                            <h1 class="frame__header-title">Slide Up Down</h1>
+                            <h1 class="frame__header-title">Stripe Theme</h1>
                         </div>
                     </div>
                 </div>
@@ -429,7 +429,16 @@
                 </transition>
                 <div class="frame__content"><button class="frame__header-add"><i class="icon icon-plus"></i></button>
                     <div class="frame__inlayout">
-                        <div class="frame__inlayout-content"></div>
+                        <div class="frame__inlayout-content">
+                            <!-- pp-->
+                            <table-builder store-data="no-pagination" media-queries="[{'mobile': '(max-width: 600px)'}]" :default="[{name:'First', email:'first@mail.com', 'role': 'Manager', 'phone': '+380670000000'}, {name: 'Second', email: 'second@mail.com', 'role': 'Manager', 'phone': '+380670000000'}, {name: 'Second', email: 'second@mail.com', 'role': 'Manager', 'phone': '+380670000000'}, {name: 'Second', email: 'second@mail.com', 'role': 'Manager', 'phone': '+380670000000'}, {name: 'Second', email: 'second@mail.com', 'role': 'Manager', 'phone': '+380670000000'}]">
+                                <h2 slot="empty">No data</h2>
+                                <tb-column name="name" label="Project name"></tb-column>
+                                <tb-column name="email"></tb-column>
+                                <tb-column name="role"></tb-column>
+                                <tb-column name="phone"></tb-column>
+                            </table-builder>
+                        </div>
                     </div>
                 </div><span class="frame__copyright">© 2019 - PkgKit - Proudly powered on <a href="">Awes.IO Platform</a>.</span>
                 <div class="float-icns"><button class="float-icns__icon float-icns__icon_helper" @click="$awesLayoutCrm.showHelpers = ! $awesLayoutCrm.showHelpers">?</button></div>

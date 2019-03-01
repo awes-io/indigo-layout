@@ -1,0 +1,20 @@
+extends includes/layout.pug
+
+block pageVariables
+    - var pageTitle = "Stripe Theme"
+
+block pageHead
+    // there is can be head meta or sctipts
+
+
+block pageContent
+    // pp
+
+    .section
+
+        table-builder(store-data="no-pagination", media-queries="[{'mobile': '(max-width: 600px)'}]", :default="[{name:'First', email:'first@mail.com', 'role': 'Manager', 'phone': '+380670000000'}, {name: 'Second', email: 'second@mail.com', 'role': 'Manager', 'phone': '+380670000000'}, {name: 'Second', email: 'second@mail.com', 'role': 'Manager', 'phone': '+380670000000'}, {name: 'Second', email: 'second@mail.com', 'role': 'Manager', 'phone': '+380670000000'}, {name: 'Second', email: 'second@mail.com', 'role': 'Manager', 'phone': '+380670000000'}]")
+            h2(slot='empty') No data
+            tb-column(name='name', label='Project name')
+            tb-column(name='email')
+            tb-column(name='role')
+            tb-column(name='phone')
