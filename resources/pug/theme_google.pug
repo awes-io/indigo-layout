@@ -16,18 +16,22 @@ block pageHead
             --tc_aside_bg_nav: #ecf1fa;
             --tc_header_bg: #fff;
             --tc_ui_btn_smcolor: #1a73e8;
-            --tc_ui_btn_smcolor_active: #1160c9;
+            --tc_ui_btn_smcolor_active: #1a73e8;
             --tc_header_link: #fff;
             --tc_header_link_active: #fafafa;
             --tc_aside_bg_dark: #1a73e8;
+            --tc_ui_btn_smcolor_text: #fff;
 
         }
 
         :root[data-dark='true'] {
             --tc_header_bg: none;
-            --tc_ui_btn_smcolor: #16a085;
-            --tc_ui_btn_smcolor_active: #1abc9c;
+            --tc_ui_btn_smcolor: #1a73e8;
+            --tc_ui_btn_smcolor_active: #1a73e8;
+            --tc_aside_bg_dark: #1a73e8;
+            --tc_ui_btn_smcolor_text: #fff;
         }
+
 
         .frame .frame__aside {
             box-shadow: none;
@@ -139,6 +143,7 @@ block pageHead
             z-index: 1000;
             height: 58px;
         }
+ 
 
         .frame .frame__aside + .frame__right .frame__header-top {
             width: calc(100% - 260px);
@@ -158,6 +163,9 @@ block pageHead
         .frame .frame__header-line {
             padding-top: 30px;
             padding-bottom: 0;
+        }
+
+        html:not([data-dark='true']) {
             background: #fff;
         }
 
@@ -182,17 +190,24 @@ block pageHead
         }
 
         @media (max-width: 900px) {
+
             .frame .frame__aside-title {
                 min-height: 60px;
                 white-space: normal;
             }
 
-            
-
-
             .frame .frame__header-top {
-                background: #fff;
                 height: auto;
+            }
+
+
+            html:not([data-dark='true']) .frame .frame__header-top {
+                background: #fff;
+            }
+
+            html[data-dark='true'] .frame .frame__header-top {
+                background: none;
+                padding-top: 15px;
             }
 
             .frame .frame__aside-link:hover {
@@ -248,8 +263,12 @@ block pageHead
             }
 
             .frame .frame__userinfo {
-                background: #fff;
                 height: 60px;
+                background: var(--tc_ui_bg)
+            }
+
+            html:not([data-dark='true']) .frame .frame__userinfo {
+                background: #fff;
             }
             
         }
