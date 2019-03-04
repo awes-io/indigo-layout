@@ -23,17 +23,18 @@
     <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/theme-switcher/v1.x.x/js/main.js"></script>
     <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/table-builder/v1.x.x/js/main.js"></script><!-- there is can be head meta or sctipts-->
     <style>:root:not([data-dark='true']) {
-    --tc_page_bg: #e3e8ee;
-    --tc_aside_gradient: linear-gradient(to left, #e3e8ee 0%, #e3e8ee 100%);
-    --tc_aside_gradient_header: linear-gradient(to left, #fff 0%, #fff 100%);
-    --tc_aside_link: #414770;
-    --tc_aside_text: #414770;
-    --tc_aside_bg_nav: #dee2e7;
-    --tc_header_bg: none;
-    --tc_ui_btn_smcolor: #16a085;
-    --tc_ui_btn_smcolor_active: #1abc9c;
-    --tc_header_link: #aab7c4;
-    --tc_header_link_active: #414770;
+    --tc_page_bg: #fff;
+    --tc_aside_gradient: linear-gradient(to left, #fafafa 0%, #fafafa 100%);
+    --tc_aside_gradient_header: linear-gradient(to left, #1a73e8 0%, #1a73e8 100%);
+    --tc_aside_link: #737373;            
+    --tc_aside_text: #737373;
+    --tc_aside_bg_nav: #ecf1fa;
+    --tc_header_bg: #fff;
+    --tc_ui_btn_smcolor: #1a73e8;
+    --tc_ui_btn_smcolor_active: #1160c9;
+    --tc_header_link: #fff;
+    --tc_header_link_active: #fafafa;
+    --tc_aside_bg_dark: #1a73e8;
 
 }
 
@@ -47,6 +48,14 @@
     box-shadow: none;
 }
 
+.frame .frame__header {
+    padding-top: 56px;
+}
+
+.frame .frame__aside-link .icon {
+    transition: none;
+}
+
 .frame .frame__aside-link .icon-angle-bottom:after {
     top: 0.5rem;
     bottom: 0.5rem;
@@ -56,15 +65,19 @@
     width: 35px;
 }
 
+.frame .frame__aside-links {
+    padding-top: 10px;
+}
+
 .frame .frame__aside-link {
-    padding-top: 5px;
-    padding-bottom: 5px;
-    min-height: 35px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    min-height: 40px;
     opacity: 1;
 }
 
 .frame .frame__aside-link:hover {
-    color: #556cd6;
+    color: #3a78e6;
 }
 
 .frame .frame__aside-inlist {
@@ -73,9 +86,23 @@
     padding-bottom: 5px;
 }
 
-.frame .frame__aside-title {
-    min-height: 77px;
+.frame .frame__search-link {
+    color: #1a73e8;
+}
 
+.frame .frame__aside-title {
+    min-height: 58px;
+    height: 58px;
+    color: #fff;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.frame .frame__aside-title a {
+    color: #fff;
 }
 
 
@@ -86,9 +113,6 @@
     padding-right: 20px;
 }
 
-.frame .frame__aside-title {
-    background: none;
-}
 
 .frame .frame__search {
     background-color: var(--tc_ui_bg);
@@ -117,9 +141,22 @@
     display: none;
 }
 
+
 .frame .frame__header-top {
-    padding-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     padding-right: 40px;
+    width: 100%;
+    position: fixed;
+    right: 0;
+    top: 0;
+    background:  #1a73e8;
+    z-index: 1000;
+    height: 58px;
+}
+
+.frame .frame__aside + .frame__right .frame__header-top {
+    width: calc(100% - 260px);
 }
 
 .frame .frame__userinfo-ava {
@@ -136,6 +173,7 @@
 .frame .frame__header-line {
     padding-top: 30px;
     padding-bottom: 0;
+    background: #fff;
 }
 
 .frame .frame__userinfo-link {
@@ -149,6 +187,10 @@
 }
 
 @media (max-width: 1000px) {
+    .frame .frame__aside + .frame__right .frame__header-top {
+        width: calc(100% - 210px);
+    }
+
     .frame .frame__header-top {
         padding-right: 15px;
     }
@@ -157,7 +199,48 @@
 @media (max-width: 900px) {
     .frame .frame__aside-title {
         min-height: 60px;
+        white-space: normal;
     }
+
+    
+
+
+    .frame .frame__header-top {
+        background: #fff;
+        height: auto;
+    }
+
+    .frame .frame__aside-link:hover {
+        color: #fff;
+    }
+
+    :root:not([data-dark='true']) {
+        --tc_header_link: #1160c9;
+        --tc_header_link_active: #1160c9;
+        --tc_aside_text: #fff;
+        --tc_aside_link: #fff;  
+        --tc_aside_gradient: linear-gradient(to left, #1160c9 0%, #1160c9 100%);
+        --tc_aside_gradient_header: linear-gradient(to left, #1160c9 0%, #1160c9 100%);
+    }
+
+    .frame .frame__aside-title {
+        min-height: 1px;
+        height: auto;
+    }
+
+    .frame .frame__header-top {
+        position: static;
+        width: auto;
+    }
+
+    .frame .frame__header {
+        padding-top: 0;
+    }
+
+    .frame .frame__aside + .frame__right .frame__header-top {
+        width: auto;
+    }
+
 
     .frame .frame__userinfo-ava {
         width: 42px;
