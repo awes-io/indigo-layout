@@ -2,6 +2,12 @@
 
 Quick and variable grid setting will help you create a grid for almost any situation.
 
+## Components
+- [Content Wrapper](./content-wrapper.md)
+- [Frame Navigation](./frame-nav.md)
+- **Grid**
+- [Slide Up Down](./slide-up-down.md)
+
 ## First step
 
 To create the grid you need to specify in `_setting.styl` the number of columns and breakpoints, in case the site is 
