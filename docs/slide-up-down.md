@@ -2,7 +2,7 @@
 
 This component is intended for the animated appearance/disappearance of the component content. Below you will see a visual presentation of such component.
 
-![slide-up-down](https://storage.googleapis.com/static.awes.io/docs/slide-up-down.gif)
+![slide-up-down](https://static.awes.io/docs/slide-up-down.gif)
 
 
 ## Example of use
@@ -16,13 +16,13 @@ This component is intended for the animated appearance/disappearance of the comp
 </slide-up-down>
 ```
 
-@vue
+<div class="vue-example">
 <button class="btn" @click="$refs.slide.toggle">Toggle</button>
 <slide-up-down ref="slide">
     <p>Text inside slide-up-down</p>
     <p>One more paragraph</p>
 </slide-up-down>
-@endvue
+</div>
 
 
 ## Input parameters

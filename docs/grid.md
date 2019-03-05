@@ -1,12 +1,13 @@
-
 # Grid layout examples
 
 Quick and variable grid setting will help you create a grid for almost any situation.
 
 ## First step
 
-To create the grid you need to specify in `_setting.styl` the number of columns and breakpoints, in case the site is responsive. For example, I wrote 10 columns and 9 brekpoint, which interact with each other. In the array, you can change the name and resolution, as well as the number of breakpoints, depending on your needs.
-```
+To create the grid you need to specify in `_setting.styl` the number of columns and breakpoints, in case the site is 
+responsive. For example, I wrote 10 columns and 9 breakpoint, which interact with each other. In the array, you can change the name and resolution, as well as the number of breakpoints, depending on your needs.
+
+```stylus
 grid_frames = (1 2 3 4 5 6 7 8 9 10) // Grid columns
 grid_gap = 10 // Grid margin value in px (but wrote withot px)
 grid_default_gap = false // Boolean (true/false)
@@ -17,9 +18,10 @@ This settings will create a large and flexible class chain, which is described i
 
 ### Default grid
 
-In order to create a grid, you need to wrap a **.cell** in a **.grid**. Both the cell and the grid we have many modifiers, which let's gradually disassemble. The example below shows the standard grid without brekpoints and modifiers _(gap 10)_.
+In order to create a grid, you need to wrap a **.cell** in a **.grid**. Both the cell and the grid we have many 
+modifiers, which let's gradually disassemble. The example below shows the standard grid without breakpoints and modifiers _(gap 10)_.
 
-```
+```html
 <div class="grid">
     <div class="cell">.cell</div>
     <div class="cell-1-2">.cell-1-2</div>
@@ -36,7 +38,7 @@ In order to create a grid, you need to wrap a **.cell** in a **.grid**. Both the
 
 If you need to output inline blocks, you can use the class `.cell-inline`
 
-```
+```html
 <div class="grid">
     <div class="cell-inline">.cell-inline</div>
     <div class="cell-inline">.cell-inline</div>
@@ -46,14 +48,15 @@ If you need to output inline blocks, you can use the class `.cell-inline`
 
 ### Responsive grid
 
-If you have registered something in brekpoints, then classes will be added for the grid, which will be brekpoints that depend on max-width.
+If you have registered something in breakpoints, then classes will be added for the grid, which will be breakpoints that depend on max-width.
 
-```
+```html
 grid_bpoint = {dlg: 1300, dmd: 1100, dsm: 1000, tlg: 900, tmd: 800, tsm: 700, mlg: 600, mmd: 500, msm: 400} // Breakpoints
 ```
 
 In breakpoints you can register a class and value, which later can be used in the grid. The grid will create classes that will trigger and override values ​​when the screen width reaches the minimum mark.
-```
+
+```html
 <div class="grid">
     <div class="cell-1-2 cell--dsm">.cell-1-2 .cell--dsm</div>
     <div class="cell-1-2 cell--dsm">.cell-1-2 .cell--dsm</div>
@@ -91,7 +94,8 @@ In breakpoints you can register a class and value, which later can be used in th
 
 
 If you need inverted breakpoints based on min-width, you can add `-i` to the end of the class, then the class will take the value min-width, instead of the standard max-width.
-```
+
+```html
 <div class="grid">
     <div class="cell cell-1-2--dsm-i cell-1-3--dlg-i">.cell .cell-1-2--dsm-i .cell-1-3--dlg-i</div>
     <div class="cell cell-1-2--dsm-i cell-1-3--dlg-i">.cell .cell-1-2--dsm-i .cell-1-3--dlg-i</div>
@@ -110,7 +114,8 @@ If you set `grid_default_gap` to `true`, then each grid will have the specified 
 *   `grid-nogap`: disable padding if `grid_default_gap` is true
 
 See Example:    
-```
+
+```html
 <div class="grid">
     <div class="cell-1-2">.cell-1-2</div>
     <div class="cell-1-2">.cell-1-2</div>
@@ -171,7 +176,7 @@ You can customize the positioning of the grid based on the standard flex propert
 *   `grid-align-default`: align-items normal (Can be used in responsive if u need default value in mobile)
 *   `cell-shrink-{from 0 to 10, 10 as 100%}`: flex-shrink 1 _(.cell-shrink-0, .cell-shrink-1 (flex-shrink 0.1), .cell-shrink-2 (flex-shrink 0.2))_, **aviable in cell**
 
-```
+```html
 <h4>grid-nowrap</h4>
 <div class="grid grid-nowrap">
     <div class="cell">.cell </div>
@@ -242,7 +247,7 @@ You can customize the positioning of the grid based on the standard flex propert
 
 If you need to indent the grid, use the standard classes, an example of which is shown below.
 
-```
+```html
 <div class="grid ">
     <div class="cell-1-2 grid-ml-1-2">.cell-1-2 .grid-ml-1-2</div>
     <div class="cell-1-3 grid-mr-1-3">.cell-1-3 .grid-mr-1-3</div>
@@ -275,7 +280,7 @@ If you need to indent only in the responsive version, this is also not a problem
 
 See example
 
-```
+```html
 <h5>Default responsive (try resize window)</h5>
 <div class="grid">
     <div class="cell cell-1-2--dmd grid-ml-1-2--dmd">.cell .cell-1-2--dmd .grid-ml-1-2--dmd</div>
@@ -293,7 +298,8 @@ If you specify any breakpoints in the array, variables will automatically be cre
 
 *   `maw[index]`: '(max-width {key}px)'
 *   `miw[index]`: '(min-width {key + 1}px)'
-```
+
+```stylus
 @media maw[dsm] // @media (max-width 1000px)
     .example
         display block
