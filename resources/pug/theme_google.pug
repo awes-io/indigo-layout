@@ -1,13 +1,13 @@
 extends includes/layout.pug
 
 block pageVariables
-    - var pageTitle = "Stripe Theme"
+    - var pageTitle = "Google Theme"
 
 block pageHead
     // there is can be head meta or sctipts
 
     style.
-        :root:not([data-dark='true']) {
+        :root:not([data-dark="true"]) {
             --tc_page_bg: #fff;
             --tc_aside_gradient: linear-gradient(to left, #fafafa 0%, #fafafa 100%);
             --tc_aside_gradient_header: linear-gradient(to left, #1a73e8 0%, #1a73e8 100%);
@@ -24,7 +24,7 @@ block pageHead
 
         }
 
-        :root[data-dark='true'] {
+        :root[data-dark="true"] {
             --tc_header_bg: none;
             --tc_ui_btn_smcolor: #1a73e8;
             --tc_ui_btn_smcolor_active: #1a73e8;
@@ -165,7 +165,7 @@ block pageHead
             padding-bottom: 0;
         }
 
-        html:not([data-dark='true']) {
+        html:not([data-dark="true"]) {
             background: #fff;
         }
 
@@ -201,11 +201,11 @@ block pageHead
             }
 
 
-            html:not([data-dark='true']) .frame .frame__header-top {
+            html:not([data-dark="true"]) .frame .frame__header-top {
                 background: #fff;
             }
 
-            html[data-dark='true'] .frame .frame__header-top {
+            html[data-dark="true"] .frame .frame__header-top {
                 background: none;
                 padding-top: 15px;
             }
@@ -214,7 +214,7 @@ block pageHead
                 color: #fff;
             }
 
-            :root:not([data-dark='true']) {
+            :root:not([data-dark="true"]) {
                 --tc_header_link: #1160c9;
                 --tc_header_link_active: #1160c9;
                 --tc_aside_text: #fff;
@@ -267,7 +267,7 @@ block pageHead
                 background: var(--tc_ui_bg)
             }
 
-            html:not([data-dark='true']) .frame .frame__userinfo {
+            html:not([data-dark="true"]) .frame .frame__userinfo {
                 background: #fff;
             }
             
