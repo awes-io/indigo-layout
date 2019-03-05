@@ -168,15 +168,7 @@ a
 .ui-title
   color var(--tc_text)
 
-.header-tabs
-  border-bottom-color var(--tc_border)
-  & &__link, & &__ltlink
-    color var(--tc_link_semi)
-    &.active
-      border-bottom-color var(--tc_ui_hover)
-      color var(--tc_link_semi_active)
-    &:hover
-      color var(--tc_link_semi_active)
+
 
 .form-spoiler
   & &__title
@@ -682,14 +674,14 @@ table
     &:hover, &.active
       color var(--tc_link_semi_active)
     &-tab
-      @media res_desktop--md
+      @media maw[dmd]
         border-left 1px solid var(--tc_border)
         &.active
           background-color var(--tc_border_semi)
   & &__block
     &.active
       & ^[0]__controll-tab
-        @media res_desktop--md
+        @media maw[dmd]
             background-color var(--tc_ui_bg_semi)
             border-bottom 1px solid var(--tc_border)
 
@@ -725,7 +717,7 @@ table
         color var(--tc_link_semi_active)
         &:after
           border-top-color var(--tc_text)
-        @media res_mobile--md
+        @media maw[mmd]
           border-color var(--tc_border)
 
 
@@ -930,10 +922,10 @@ table
     color var(--tc_text_caption)
   td
     border-color var(--tc_border_light)
-    @media res_mobile--md
+    @media maw[mmd]
       border-bottom 0
   tr
-    @media res_mobile--md
+    @media maw[mmd]
       border-color var(--tc_border_light)
 
 .dashboard
@@ -990,7 +982,7 @@ table
       color var(--tc_color_main_l)
     &_white
       color cl_white
-      @media res_mobile--lg
+      @media maw[mlg]
         {lt} &
           color var(--tc_color_main)
         {dt} &
@@ -1001,7 +993,7 @@ table
   & &__sbox
     background-color var(--tc_ui_bg)
   & &__full
-    @media res_mobile--lg
+    @media maw[mlg]
       background-color var(--tc_ui_bg)
 
 

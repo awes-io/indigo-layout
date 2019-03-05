@@ -2,7 +2,7 @@
 
 This component is intended for displaying the side menu as a two-level dropdown list. Below you will see a visual presentation of such component.
 
-![frame-nav](https://storage.googleapis.com/static.awes.io/docs/frame-nav.gif)
+![frame-nav](https://static.awes.io/docs/frame-nav.gif)
 
 ## Example of use
 

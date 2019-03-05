@@ -86,15 +86,15 @@
       width: calc(100% + 10px)
       margin-top: 10px
       margin-right: -10px
-      @media res_tablet--sm
+      @media maw[tsm]
         .btn
           width: calc(50% - 12px)
   &__reset
     .icon-circle-cross
       transform: translateY(2px)
-    @media res_tablet--sm
+    @media maw[tsm]
       width: calc(100% - 10px) !important
-    @media res_tablet--sm-i
+    @media miw[tsm]
       float: right
       min-width: inherit !important
       padding-left: 20px !important
@@ -138,14 +138,14 @@
     
 
 
-@media res_desktop--sm
+@media maw[dsm]
   .filter
     margin-bottom 10px
     & &__right
       padding-right 0
 
 
-@media res_tablet--sm
+@media maw[tsm]
   .hfilter
     .input
       width calc(100% - 10px)
@@ -156,7 +156,7 @@
     & &__left, &__right
       //display none !important
 
-@media res_mobile--lg
+@media maw[mlg]
 
   .filter
     & &__left

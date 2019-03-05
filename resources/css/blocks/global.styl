@@ -78,61 +78,6 @@ textarea
   font-size f_smart
   font-weight 700
 
-vars = {
-  res_desktop--lg: desktop-lg,
-  res_desktop--md: desktop-md,
-  res_desktop--sm: desktop-sm,
-  res_tablet--lg: tablet-lg,
-  res_tablet--md: tablet-md,
-  res_tablet--sm: tablet-sm,
-  res_mobile--lg: mobile-lg,
-  res_mobile--md: mobile-md,
-  res_mobile--sm: mobile-sm
-}
-
-vars_i = {
-  res_desktop--lg-i: desktop-lg,
-  res_desktop--md-i: desktop-md,
-  res_desktop--sm-i: desktop-sm,
-  res_tablet--lg-i: tablet-lg,
-  res_tablet--md-i: tablet-md,
-  res_tablet--sm-i: tablet-sm,
-  res_mobile--lg-i: mobile-lg,
-  res_mobile--md-i: mobile-md,
-  res_mobile--sm-i: mobile-sm
-}
-
-for key, val in vars
-  .g
-    &-res
-      &--{val}
-        display none
-        @media key
-          display block
-        td&,th&
-          @media key
-            display table-cell
-        tr&
-          @media key
-            display table-row
-      &--{val}_n
-        @media key
-          display none
-
-for key, val in vars_i
-  .g
-    &-res
-      &--{val}-i
-        display none
-        @media key
-          display block
-        td&,th&
-          @media key
-            display table-cell
-        tr&
-          @media key
-            display table-row
-
 
 .infbl
   text-align center
@@ -161,7 +106,7 @@ for key, val in vars_i
     line-height 1
 
 
-@media res_mobile--md
+@media maw[mmd]
   .flex-list
     li
       width 50%
@@ -331,7 +276,7 @@ for key, val in vars_i
 .int-table__loader
     display none
 
-@media res_tablet--sm
+@media maw[tsm]
   .float-icns
     bottom 80px
     right 20px

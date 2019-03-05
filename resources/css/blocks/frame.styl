@@ -42,6 +42,8 @@
     background-image var(--tc_aside_gradient)
     box-shadow 0 20px 30px rgba(0,0,0,0.1)
     fixed left 0 top 0
+    &-mhead
+      display none
     & + ^[0]__right
       width calc(100% - 260px)
       margin-left 260px
@@ -85,7 +87,7 @@
     &-usermenu
       z-index: 1505
       margin-left: 14px
-      @media res_tablet--lg-i
+      @media miw[tlg]
         display: none
       .context-menu
         &__toggler
@@ -103,6 +105,7 @@
       position relative
       z-index 1500
       cursor pointer
+      display none
       span
         size 24px 2px
         display block
@@ -437,7 +440,7 @@
       animation-duration .15s
 
 
-@media res_tablet--lg-i
+@media miw[tlg]
   .frame
     & &__usermenu
       .context-menu__overlay
@@ -445,7 +448,7 @@
     & &__overlay
       opacity 0 !important
 
-@media res_desktop--lg
+@media maw[dlg]
   .frame
     & &__inlayout
       flex-wrap wrap
@@ -466,7 +469,7 @@
         position static !important
         margin-bottom 30px
 
-@media res_desktop--sm
+@media maw[dsm]
   .frame
     & &__aside
       width 210px
@@ -499,7 +502,7 @@
       padding-left 20px
       padding-right 20px
 
-@media res_tablet--lg
+@media maw[tlg]
 
   body.js-nav-overflow
     overflow hidden !important
@@ -549,7 +552,8 @@
           &:hover
             .theme-switcher__label
               color var(--tc_aside_link)
-
+      &-open
+        display block
       & + ^[0]__right
         width 100%
         margin-left 0
@@ -643,7 +647,7 @@
 
 
 
-@media res_tablet--sm
+@media maw[tsm]
   .frame
     & &__content
       padding-top 25px
@@ -705,7 +709,7 @@
           &:nth-child(2)
             border-right 0 !important
 
-@media res_mobile--md
+@media maw[mmd]
   .frame
     & &__title-line
       flex-wrap wrap
@@ -715,7 +719,7 @@
       & ^[0]__header-title
         width 100%
 
-@media res_mobile--sm
+@media maw[msm]
   .frame
     & &__content
       padding-left 10px

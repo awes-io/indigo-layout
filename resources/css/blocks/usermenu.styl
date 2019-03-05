@@ -63,10 +63,10 @@
     &-enter,
     &-leave-to
         opacity: 0
-        @media res_tablet--lg
+        @media maw[tlg]
             transform: translateX(100%)
             opacity 0
-        @media res_tablet--lg-i
+        @media miw[tlg]
             transform: scaleY(.75)
     &-enter-active,
     &-leave-active
@@ -75,7 +75,7 @@
     
 
 
-@media res_tablet--lg
+@media maw[tlg]
     .user-menu
         fixed top 0 right 0
         z-index 1000

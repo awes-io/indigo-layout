@@ -143,7 +143,7 @@
                 <div class="frame__inlayout">
                     @hasSection('pagemap')
                     <div class="frame__inlayout-aside">
-                        <page-map content=".frame__inlayout-content"></page-map>
+                        <page-map content=".frame__inlayout-content" :offset="-70"></page-map>
                     </div>
                     @endif
                     <div class="frame__inlayout-content">

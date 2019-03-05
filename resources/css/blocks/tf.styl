@@ -1,5 +1,5 @@
 tf_titles = (h1 h2 h3 h4 h5)
-tf_tags = (p blockquote table ul ol dl core pre 'div[id]')
+tf_tags = (p blockquote table ul ol dl core pre 'div[id]' '.grid')
 tf_margin = 27px
 tf_text_margin = 25px
 
@@ -365,7 +365,7 @@ pre
             margin-bottom 10px
 
 
-@media res_tablet--md
+@media maw[tmd]
     .frame__content
         dl
             dt
@@ -374,7 +374,7 @@ pre
             dd
                 width 100%
 
-@media res_tablet--sm
+@media maw[tsm]
     .tf
         &-pagetitle
             margin-bottom 20px
