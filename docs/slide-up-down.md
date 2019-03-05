@@ -4,6 +4,12 @@ This component is intended for the animated appearance/disappearance of the comp
 
 ![slide-up-down](https://static.awes.io/docs/slide-up-down.gif)
 
+## Components
+- [Content Wrapper](./content-wrapper.md)
+- [Frame Navigation](./frame-nav.md)
+- [Grid](./grid.md)
+- **Slide Up Down**
+
 
 ## Example of use
 

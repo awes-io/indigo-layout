@@ -28,8 +28,8 @@ composer require awes-io/indogo-layout
 ```
 
 ## Components
-- [Content Wrapper](content-wrapper.md)
-- [Frame Navigation](frame-nav.md)
-- [Grid](grid.md)
-- [Slide Up Down](slide-up-down.md)
+- [Content Wrapper](./content-wrapper.md)
+- [Frame Navigation](./frame-nav.md)
+- [Grid](./grid.md)
+- [Slide Up Down](./slide-up-down.md)
 
