@@ -8,7 +8,7 @@
                 <!-- single link -->
                 <a  v-if="! item.children"
                     :href="item.link || ''"
-                    :class="['frame__aside-link', {'frame__aside-link_active': links[index].active }]"
+                    :class="['frame__aside-link', {'frame__aside-link_active': active === index }]"
                 >
                     <i v-if="item.icon" :class="'icon icon-'+item.icon"></i>
                     <span>{{ item.name }}</span>
@@ -19,17 +19,17 @@
                 <div v-else>
                     <a  :href="item.link || ''"
                         :class="['frame__aside-link frame__aside-link_sub',
-                                {'frame__aside-link_active': active === index || isPermanentlyActive[index] }]"
+                                {'frame__aside-link_active': active === index }]"
                         @click="item.link ? null : toggleActive($event, index)"
                     >
                         <i v-if="item.icon" :class="'icon icon-'+item.icon"></i>
                         <span>{{ item.name }}</span>
-                        <i v-if="! isPermanentlyActive[index]"
+                        <i v-if="! expanded"
                            class="icon icon-angle-bottom"
                            @click="toggleActive($event, index)"></i>
                     </a>
 
-                    <slide-up-down :show="active === index || isPermanentlyActive[index]">
+                    <slide-up-down :show="active === index || expanded">
                         <ul class="frame__aside-hidden active">
                             <li class="frame__aside-inlist"
                                 v-for="(child, i) in item.children"
@@ -101,14 +101,16 @@ export default {
     },
 
 
-    computed: {
+    watch: {
 
-        isPermanentlyActive() {
-            return this.links.map( link => {
-                return link.active || // active itself
-                       link.children && this.expanded || // all items expanded
-                       link.children && link.children.some( child => child.active ) // has active children
-            })
+        links: {
+            handler(links) {
+                this.active = links.findIndex( link => {
+                    return link.active ||
+                           link.children && link.children.some( child => child.active )
+                })
+            },
+            immediate: true
         }
     },
 

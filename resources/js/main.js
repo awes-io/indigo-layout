@@ -2,6 +2,7 @@ import store from './modules/store.js'
 import { plugin } from './modules/plugin.js'
 import i18n from './modules/i18n.js'
 import { toastedRegistration } from './modules/notifications.js'
+import highlight from './modules/highlight'
 
 const awesPlugin = {
 
@@ -46,30 +47,7 @@ const awesPlugin = {
                 Vue.use(VueTabs);
             }
         },
-        'highlight': {
-            src: [
-                'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js',
-                'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/atom-one-light.min.css'
-            ]
-        },
-        'highlight_langs': {
-            src: [
-                'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/languages/yaml.min.js',
-                'https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.6.0/dist/highlightjs-line-numbers.min.js'
-            ],
-            deps: ['highlight'],
-            cb() {
-                // console.log( hljs.listLanguages() )
-                AWES.once('core:inited', function() {
-                    hljs.initHighlighting();
-                    document.querySelectorAll('.hljs').forEach(block => {
-                        hljs.lineNumbersBlock(block)
-                        let language = block.className.match(/language-([a-z]*)/);
-                        language[1] && block.parentNode.setAttribute('data-language', language[1])
-                    })
-                })
-            }
-        }
+        ...highlight
     },
 
     install() {
