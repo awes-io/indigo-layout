@@ -22,7 +22,7 @@
     <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/modal/v1.x.x/js/main.js"></script>
     <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/theme-switcher/v1.x.x/js/main.js"></script>
     <script src="https://storage.awes.io/74c99e54e4bbe7ab337ddbb5ec348d02/awes-io/page-map/v1.x.x/js/main.js"></script>
-    <link rel="stylesheet" href="https://storage.awes.io/74c99e54e4bbe7ab337ddbb5ec348d02/awes-io/page-map/v1.x.x/css/main.css?v=2019-02-13_08-49-22"><!-- there is can be head meta or sctipts-->
+    <link rel="stylesheet" href="https://storage.awes.io/74c99e54e4bbe7ab337ddbb5ec348d02/awes-io/page-map/v1.x.x/css/main.css"><!-- there is can be head meta or sctipts-->
 </head>
 
 <body>
@@ -455,7 +455,9 @@
                 <div class="frame__content">
                     <div class="frame__inlayout">
                         <div class="frame__inlayout-aside">
-                            <page-map content=".frame__inlayout-content" :offset="-75"></page-map>
+                            <page-map content=".frame__inlayout-content" :offset="-75" :sticky="{top: 15, bottom: 15}"><template #after>
+                                    <div class="page-map__links"><a href="https://github.com/awes-io/awes-io/issues" target="_blank"><i class="icon icon-git"> </i><span>Report issue</span></a><a href="https://stackoverflow.com/questions/tagged/awes-io" target="_blank"><i class="icon icon-question"> </i><span>Get help</span></a><a href="https://github.com/awes-io/wiki/blob/dev/docs/" target="_blank"><i class="icon icon-pencil2"> </i><span>Edit this page</span></a></div>
+                                </template></page-map>
                         </div>
                         <div class="frame__inlayout-content">
                             <p>Предназначен для отображения скрытого по-умолчанию списка нажатием на кнопку</p>
