@@ -3,7 +3,7 @@ import { plugin } from './modules/plugin.js'
 import i18n from './modules/i18n.js'
 import { toastedRegistration } from './modules/notifications.js'
 import highlight from './modules/highlight'
-import { Wawes } from './modules/waves'
+import { Waves } from './modules/waves'
 
 const awesPlugin = {
 
@@ -54,7 +54,7 @@ const awesPlugin = {
     install(AWES) {
         AWES.lang = i18n
         AWES.once('core:inited', () => {
-            AWES.Wawes = new Wawes()
+            AWES.Waves = new Waves()
         })
     }
 }
