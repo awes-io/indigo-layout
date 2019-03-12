@@ -3,6 +3,7 @@ import { plugin } from './modules/plugin.js'
 import i18n from './modules/i18n.js'
 import { toastedRegistration } from './modules/notifications.js'
 import highlight from './modules/highlight'
+import { Wawes } from './modules/waves'
 
 const awesPlugin = {
 
@@ -50,15 +51,16 @@ const awesPlugin = {
         ...highlight
     },
 
-    install() {
+    install(AWES) {
         AWES.lang = i18n
-        // window.Vue.use(Notifications);
+        AWES.once('core:inited', () => {
+            AWES.Wawes = new Wawes()
+        })
     }
 }
 
 if (window && ('AWES' in window)) {
     AWES.use(awesPlugin)
-
 } else {
     window.__awes_plugins_stack__ = window.__awes_plugins_stack__ || []
     window.__awes_plugins_stack__.push(awesPlugin)

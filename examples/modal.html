@@ -430,22 +430,22 @@
                     <div class="frame__inlayout">
                         <div class="frame__inlayout-content"><button class="btn" onclick="AWES.emit('modal::default.open')">Default modal</button><br><button class="btn" onclick="AWES.emit('modal::fullscreen.open')">Fullscreen modal</button><br><button class="btn" onclick="AWES.emit('modal::modalform.open')">Modal form modal</button><br><br>
                             <modal-window class="modal_formbuilder" name="modalform" title="Modal form" data-awes="checkOpenModal">
-                                <form-builder url="valera" method="PATCH" :default="{active:1, profile_manager:{first_name:'Valera'}}"><template slot-scope="{ fields }">
-                                        <fb-checkbox name="theme_dark" theme="s2" label="Dark theme"></fb-checkbox>
-                                        <fb-input name="email" type="email" label="E-Mail" :disabled="!fields.active"></fb-input>
-                                        <fb-input name="profile_manager.first_name" label="First Name *" :disabled="!fields.active" focus=""></fb-input>
-                                        <fb-input name="profile_manager.last_name" label="Last Name" :disabled="!fields.active"></fb-input>
-                                        <fb-checkbox name="active" theme="s2" label="Active manager"></fb-checkbox>
-                                        <fb-input name="profile_manager.position" label="Position" :disabled="!fields.active"></fb-input>
-                                        <fb-input name="language_id" label="Interface languange" :disabled="!fields.active"></fb-input>
-                                        <fb-multi-block name="phones" label="Add phone" :disabled="!fields.active"><template slot-scope="{ id }">
+                                <form-builder url="valera" method="PATCH" :default="{active:1, profile_manager:{first_name:'Valera'}}"><template slot-scope="fields">
+                                        <fb-checkbox name="theme_dark" label="Dark theme"></fb-checkbox>
+                                        <fb-input name="email" type="email" label="E-Mail" :disabled="!fields['active']"></fb-input>
+                                        <fb-input name="profile_manager.first_name" label="First Name *" :disabled="!fields['active']" focus=""></fb-input>
+                                        <fb-input name="profile_manager.last_name" label="Last Name" :disabled="!fields['active']"></fb-input>
+                                        <fb-checkbox name="active" label="Active manager"></fb-checkbox>
+                                        <fb-input name="profile_manager.position" label="Position" :disabled="!fields['active']"></fb-input>
+                                        <fb-input name="language_id" label="Interface languange" :disabled="!fields['active']"></fb-input>
+                                        <fb-multi-block name="phones" label="Add phone" :disabled="!fields['active']"><template slot-scope="{ id }">
                                                 <fb-input name="phone" label="Phone" :id="id"></fb-input>
                                             </template></fb-multi-block>
-                                        <fb-input name="profile_manager.fax" label="Fax" :disabled="!fields.active"></fb-input>
-                                        <fb-multi-block name="socials" label="Add social network" :disabled="!fields.active"><template slot-scope="{ id }">
+                                        <fb-input name="profile_manager.fax" label="Fax" :disabled="!fields['active']"></fb-input>
+                                        <fb-multi-block name="socials" label="Add social network" :disabled="!fields['active']"><template slot-scope="{ id }">
                                                 <fb-input name="social" label="Social network" :id="id"></fb-input>
                                             </template></fb-multi-block>
-                                        <fb-checkbox name="profile_manager.smtp" label="SMTP settings" :disabled="!fields.active"></fb-checkbox>
+                                        <fb-checkbox name="profile_manager.smtp" label="SMTP settings" :disabled="!fields['active']"></fb-checkbox>
                                         <fb-input name="profile_manager.smtp_host" label="SMTP login" :disabled="!fields.active || !fields.profile_manager.smtp"></fb-input>
                                         <fb-input name="profile_manager.smtp_password" label="SMTP password" :disabled="!fields.active || !fields.profile_manager.smtp"></fb-input>
                                         <fb-input name="profile_manager.mail_from" label="Mail from" :disabled="!fields.active || !fields.profile_manager.smtp"></fb-input>
