@@ -48,7 +48,7 @@
     & &__table
         width 100%
         font-size f_normal
-        cursor pointer
+        // cursor pointer
         th
             font-weight 400
             text-align left
@@ -211,6 +211,8 @@
             font-size f_normal
             cursor pointer
     & &__block
+        &.is-link
+            cursor: pointer
         &:hover
             & ^[0]__drag-icon
                 .icon

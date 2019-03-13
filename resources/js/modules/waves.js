@@ -2,9 +2,10 @@ const WAVE_DURATION = 1000
 
 export class Waves {
 
-    constructor() {
+    constructor(root) {
+        if ( ! root ) return
         this.addElements()
-        this.initObserver()
+        this.initObserver(root)
     }
 
     addElements( container = document ) {
@@ -34,13 +35,13 @@ export class Waves {
         })
     }
 
-    initObserver() {
+    initObserver(root) {
         this._mObserver = new MutationObserver(mutations => {
             clearTimeout(this.__tm)
             this.__tm = setTimeout(this.addElements, 300)
         })
 
-        this._mObserver.observe(document.getElementById('awes-app'), {
+        this._mObserver.observe(root, {
             childList: true,
             subtree: true
         })

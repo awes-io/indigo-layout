@@ -15,14 +15,6 @@
       & + ^[0]__inlayout-content
         width calc(100% - 300px)
         padding-right 40px
-    &-block
-      display block
-      width 300px
-      padding 15px 0px 15px 40px
-      border-left 1px solid var(--tc_border_light)
-      &_fixed
-        fixed top 30px right 40px
-        z-index 750
   & &__mobile-shadow
     display none
   & &__title-line
@@ -38,7 +30,7 @@
     height 100vh
     overflow auto
     flex-shrink 0
-    z-index 990
+    z-index 7
     background-image var(--tc_aside_gradient)
     box-shadow 0 20px 30px rgba(0,0,0,0.1)
     fixed left 0 top 0
@@ -55,27 +47,6 @@
       display none
     &-nav-inwrap .icon-angle-bottom
       color var(--tc_aside_link)
-    &-ava
-      display none
-      size 50px
-      absolute right 0 top 0
-      overflow: hidden
-      z-index 900
-      &:after
-          content ''
-          background-image linear-gradient(to top, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.1) 50%, rgba(255,255,255,0) 100%)
-          absolute left 0 top 0
-          width: 100%
-          height: 200%
-          display block
-          z-index 100
-          transition: transform 150ms ease
-      img, .icon-user
-          size 100%
-          z-index 1
-          font-size 20px
-          absolute left 0 top 0
-          display block
     &-mtitle
       display block
       overflow hidden
@@ -84,26 +55,10 @@
       color var(--tc_aside_text)
       a
         color var(--tc_aside_text)
-    &-usermenu
-      z-index: 1505
-      margin-left: 14px
-      @media miw[tlg]
-        display: none
-      .context-menu
-        &__toggler
-          border-radius: 50%
-          overflow: hidden
-          z-index: 3
-        &__dropdown
-          margin-top: -50px
-          margin-right: -14px
-          &.toggle-context-menu
-            &-enter-active
-              transition: opacity 250ms ease-out 50ms, transform 180ms ease-out 50ms
     &-open
       size 64px
       position relative
-      z-index 1500
+      z-index 1
       cursor pointer
       display none
       span
@@ -324,7 +279,7 @@
       tr(0.3)
       absolute right 40px top -24px
       font-size 19px
-      z-index 750
+      z-index 6
       fl(,c,c)
       box-shadow 0 0 7px rgba(85, 61, 0, 0.15)
       background-color var(--tc_ui_btn_smcolor)
@@ -332,12 +287,6 @@
       &:hover
         background-color var(--tc_ui_btn_smcolor_active)
         color var(--tc_ui_btn_smcolor_text)
-  & &__usermenu
-    min-width: 50px
-    margin-left 15px
-    z-index: 795
-    .context-menu__dropdown
-      box-shadow 0 10px 20px 5px var(--tc_ui_bg_darken)
   & &__userinfo
     fl(,fe,c)
     height 50px
@@ -363,7 +312,6 @@
       position: relative
       size 50px
       overflow: hidden
-      z-index 900
       margin-left 10px
       &:after
           content ''
@@ -372,7 +320,7 @@
           width: 100%
           height: 200%
           display block
-          z-index 100
+          z-index 2
           transition: transform 150ms ease
       img, .icon-user
           size 100%
@@ -434,7 +382,7 @@
     fixed top left
     width 100%
     bottom 0
-    z-index 950
+    z-index 7
     &.animated
       animation-duration .15s
 
@@ -533,7 +481,7 @@
       fixed top 0 left 0
       width 100%
       height 100vh
-      z-index 1050
+      z-index 7
       display none
       &.active
         display block
@@ -580,7 +528,7 @@
         width 270px
         height 100vh
         display flex
-        z-index 1100
+        z-index 7
         justify-content space-between
         flex-direction column
         opacity 0
@@ -616,7 +564,7 @@
         fl(,,c)
         fixed top 0 left 0
         size 100% 64px
-        z-index 900
+        z-index 6
         tr(0.1)
         background-image var(--tc_aside_gradient_header)
         color var(--tc_aside_text)
@@ -676,12 +624,9 @@
         fixed left 0 bottom 7px right 0 
         top auto
         margin auto
-        z-index 901
-        
-
     & &__userinfo
       fixed bottom 0 left 0
-      z-index 900
+      z-index 6
       fl(,,c)
       size 100% 60px
       padding-top 5px
