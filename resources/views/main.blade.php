@@ -21,7 +21,7 @@
                     <div class="frame__aside-mhead g-res--tablet-lg"><a class="frame__aside-close" href="" @click.prevent="$awesLayoutCrm.openNav()"><i class="icon icon-cross"></i></a>
                         <h4 class="frame__aside-mtitle"><span>{!! config('indigo-layout.name') !!}</span></h4>
                     </div>
-                    <frame-nav :links='@json($navs)'>
+                    <frame-nav :links='@json($navs)' @if(config('indigo-layout.nav.expanded')) expanded @endif>
                         <div class="ph">
                             <div class="ph__mnav"><span class="ph__mnav-link"></span><span class="ph__mnav-title"></span></div>
                             <ul class="ph__nav">
