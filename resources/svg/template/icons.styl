@@ -1,7 +1,7 @@
 @font-face
   font-family: "<%= fontName %>"
-  src: url('<%= fontPath %><%= fontName %>.eot')
-  src: url('<%= fontPath %><%= fontName %>.eot?#iefix') format('eot'), url('<%= fontPath %><%= fontName %>.woff') format('woff'), url('<%= fontPath %><%= fontName %>.ttf') format('truetype')
+  src: url('<%= fontPath %><%= fontName %>.eot?v=<%= _.now() %>')
+  src: url('<%= fontPath %><%= fontName %>.eot?v=<%= _.now() %>?#iefix') format('eot'), url('<%= fontPath %><%= fontName %>.woff?v=<%= _.now() %>') format('woff'), url('<%= fontPath %><%= fontName %>.ttf?v=<%= _.now() %>') format('truetype')
   font-weight: 400
   font-style: normal
 
