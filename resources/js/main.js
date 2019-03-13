@@ -53,7 +53,7 @@ const awesPlugin = {
     install(AWES) {
         AWES.lang = i18n
         AWES.once('core:inited', () => {
-            AWES.Waves = new Waves()
+            AWES.Waves = new Waves(AWES._vueRoot.$el)
         })
     }
 }
