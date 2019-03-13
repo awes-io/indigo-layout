@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/main.css">
     <script>
         const AWES_CONFIG = {
-            key: '680a7d07f89b94e7fc83be657a2daa27',
+            key: '5cd207e2c94eb723c3307764a5693def',
             formBuilder: {
                 fbEditor: {
                     content_css: ['/css/editor.css']
@@ -18,11 +18,11 @@
         }
     </script>
     <script src="/js/main.js"></script>
-    <script src="https://storage.awes.io/74c99e54e4bbe7ab337ddbb5ec348d02/awes-io/base-js/v1.x.x/js/main.js"></script>
-    <script src="https://storage.awes.io/74c99e54e4bbe7ab337ddbb5ec348d02/awes-io/context-menu/v0.x.x/js/main.js"></script>
-    <script src="https://storage.awes.io/74c99e54e4bbe7ab337ddbb5ec348d02/awes-io/form-builder/v1.x.x/js/main.js"></script>
-    <script src="https://storage.awes.io/74c99e54e4bbe7ab337ddbb5ec348d02/awes-io/modal/v1.x.x/js/main.js"></script>
-    <script src="https://storage.awes.io/74c99e54e4bbe7ab337ddbb5ec348d02/awes-io/theme-switcher/v1.x.x/js/main.js"></script><!-- there is can be head meta or sctipts-->
+    <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/context-menu/v0.x.x/js/main.js"></script>
+    <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/form-builder/v1.x.x/js/main.js"></script>
+    <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/modal-window/v1.x.x/js/main.js"></script>
+    <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/theme-switcher/v1.x.x/js/main.js"></script>
+    <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/base-js/v1.x.x/js/main.js"></script><!-- there is can be head meta or sctipts-->
 </head>
 
 <body>
@@ -59,7 +59,7 @@
                 <div class="frame__header">
                     <div class="frame__header-top">
                         <form class="frame__search" id="search" v-bind:class="{ active: $awesLayoutCrm.showSearch }" action="js" method="get"> <span class="frame__search-link" v-on:click="$awesLayoutCrm.showSearch = !$awesLayoutCrm.showSearch"><i class="icon icon-search"></i></span>
-                            <div class="frame__search-hidden"><input class="frame__search-input" type="text" placeholder="Search..."><button class="frame__search-btn" type="submit">Search</button><span class="frame__search-close" v-on:click="$awesLayoutCrm.showSearch = !$awesLayoutCrm.showSearch"></span><i class="icon icon-cross"></i></div>
+                            <div class="frame__search-hidden"><input class="frame__search-input" type="text" placeholder="Search..."><button class="frame__search-btn" type="submit">Search</button><span class="frame__search-close" v-on:click="$awesLayoutCrm.showSearch = !$awesLayoutCrm.showSearch"><i class="icon icon-cross"></i></span></div>
                         </form>
                         <div class="frame__userinfo"><a class="frame__userinfo-link" href=""><span class="icon icon-ruppor"><i class="icn-dot"></i></span></a><a class="frame__userinfo-link" href=""><span class="icon icon-hdd"><i class="icn-dot"></i></span></a><button class="frame__userinfo-ava" @click="$awesLayoutCrm.showUserMenu = ! $awesLayoutCrm.showUserMenu"><i class="icon icon-user novatar novatar_box"></i></button></div>
                     </div>
@@ -432,22 +432,22 @@
                     <div class="frame__inlayout">
                         <div class="frame__inlayout-content"><button class="btn" onclick="AWES.emit('modal::default.open')">Default modal</button><br><button class="btn" onclick="AWES.emit('modal::fullscreen.open')">Fullscreen modal</button><br><button class="btn" onclick="AWES.emit('modal::modalform.open')">Modal form modal</button><br><br>
                             <modal-window class="modal_formbuilder" name="modalform" title="Modal form" data-awes="checkOpenModal">
-                                <form-builder url="valera" method="PATCH" :default="{active:1, profile_manager:{first_name:'Valera'}}"><template slot-scope="{ fields }">
-                                        <fb-checkbox name="theme_dark" theme="s2" label="Dark theme"></fb-checkbox>
-                                        <fb-input name="email" type="email" label="E-Mail" :disabled="!fields.active"></fb-input>
-                                        <fb-input name="profile_manager.first_name" label="First Name *" :disabled="!fields.active" focus=""></fb-input>
-                                        <fb-input name="profile_manager.last_name" label="Last Name" :disabled="!fields.active"></fb-input>
-                                        <fb-checkbox name="active" theme="s2" label="Active manager"></fb-checkbox>
-                                        <fb-input name="profile_manager.position" label="Position" :disabled="!fields.active"></fb-input>
-                                        <fb-input name="language_id" label="Interface languange" :disabled="!fields.active"></fb-input>
-                                        <fb-multi-block name="phones" label="Add phone" :disabled="!fields.active"><template slot-scope="{ id }">
+                                <form-builder url="valera" method="PATCH" :default="{active:1, profile_manager:{first_name:'Valera'}}"><template slot-scope="fields">
+                                        <fb-checkbox name="theme_dark" label="Dark theme"></fb-checkbox>
+                                        <fb-input name="email" type="email" label="E-Mail" :disabled="!fields['active']"></fb-input>
+                                        <fb-input name="profile_manager.first_name" label="First Name *" :disabled="!fields['active']" focus=""></fb-input>
+                                        <fb-input name="profile_manager.last_name" label="Last Name" :disabled="!fields['active']"></fb-input>
+                                        <fb-checkbox name="active" label="Active manager"></fb-checkbox>
+                                        <fb-input name="profile_manager.position" label="Position" :disabled="!fields['active']"></fb-input>
+                                        <fb-input name="language_id" label="Interface languange" :disabled="!fields['active']"></fb-input>
+                                        <fb-multi-block name="phones" label="Add phone" :disabled="!fields['active']"><template slot-scope="{ id }">
                                                 <fb-input name="phone" label="Phone" :id="id"></fb-input>
                                             </template></fb-multi-block>
-                                        <fb-input name="profile_manager.fax" label="Fax" :disabled="!fields.active"></fb-input>
-                                        <fb-multi-block name="socials" label="Add social network" :disabled="!fields.active"><template slot-scope="{ id }">
+                                        <fb-input name="profile_manager.fax" label="Fax" :disabled="!fields['active']"></fb-input>
+                                        <fb-multi-block name="socials" label="Add social network" :disabled="!fields['active']"><template slot-scope="{ id }">
                                                 <fb-input name="social" label="Social network" :id="id"></fb-input>
                                             </template></fb-multi-block>
-                                        <fb-checkbox name="profile_manager.smtp" label="SMTP settings" :disabled="!fields.active"></fb-checkbox>
+                                        <fb-checkbox name="profile_manager.smtp" label="SMTP settings" :disabled="!fields['active']"></fb-checkbox>
                                         <fb-input name="profile_manager.smtp_host" label="SMTP login" :disabled="!fields.active || !fields.profile_manager.smtp"></fb-input>
                                         <fb-input name="profile_manager.smtp_password" label="SMTP password" :disabled="!fields.active || !fields.profile_manager.smtp"></fb-input>
                                         <fb-input name="profile_manager.mail_from" label="Mail from" :disabled="!fields.active || !fields.profile_manager.smtp"></fb-input>

@@ -21,7 +21,7 @@
                     <div class="frame__aside-mhead g-res--tablet-lg"><a class="frame__aside-close" href="" @click.prevent="$awesLayoutCrm.openNav()"><i class="icon icon-cross"></i></a>
                         <h4 class="frame__aside-mtitle"><span>{!! config('indigo-layout.name') !!}</span></h4>
                     </div>
-                    <frame-nav :links='@json($navs)'>
+                    <frame-nav :links='@json($navs)' @if(config('indigo-layout.nav.expanded')) expanded @endif>
                         <div class="ph">
                             <div class="ph__mnav"><span class="ph__mnav-link"></span><span class="ph__mnav-title"></span></div>
                             <ul class="ph__nav">
@@ -143,7 +143,15 @@
                 <div class="frame__inlayout">
                     @hasSection('pagemap')
                     <div class="frame__inlayout-aside">
-                        <page-map content=".frame__inlayout-content" :offset="-70"></page-map>
+                        <page-map content=".frame__inlayout-content" :offset="-70" :sticky='{top: 15, bottom: 15}'>
+                            <template #after="#after">
+                                <div class="page-map__links">
+                                    <a href="https://github.com/awes-io/awes-io/issues" target="_blank"><i class="icon icon-git"> </i><span>Report issue</span></a>
+                                    <a href="https://stackoverflow.com/questions/tagged/awes-io" target="_blank"><i class="icon icon-question"> </i><span>Get help</span></a>
+                                    <a href="https://github.com/awes-io/wiki/blob/dev/docs/" target="_blank"><i class="icon icon-pencil2"> </i><span>Edit this page</span></a>
+                                </div>
+                            </template>
+                        </page-map>
                     </div>
                     @endif
                     <div class="frame__inlayout-content">
