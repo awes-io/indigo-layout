@@ -372,7 +372,7 @@ a
   .fc-radio .fc-radio__box.is-checked
     background-color var(--tc_ui_bg)
     color var(--tc_text)
-    z-index 10
+    z-index 2
     position relative
     box-shadow 0 0 5px rgba(0, 0, 0, 0.1)
     border 1px solid cl_grass
@@ -663,12 +663,18 @@ table:not(.int-table__table):not(.hljs-ln)
   & &__caption
     color var(--tc_text_caption)
   & &__status
-    border 1px solid cl_grass
-    color cl_grass
-    &_red
+    border 1px solid var(--tc_border)
+    color var(--tc_text_caption)
+    &_stop
       background-color cl_warn
       color cl_white
       border 1px solid cl_warn
+    &_inproggress
+      border 1px solid cl_grass
+      color cl_grass
+    &_sleep
+      border 1px solid var(--tc_link)
+      color var(--tc_link)
   & &__controll
     color var(--tc_link_semi)
     &:hover, &.active

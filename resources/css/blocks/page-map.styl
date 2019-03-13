@@ -1,6 +1,19 @@
 .page-map
-    top 15px
-    bottom 15px
+    padding-right 15px
+    & &__links 
+        border-top 1px solid var(--tc_border)
+        padding-top 20px
+        padding-bottom 20px
+        fl(,fs,fs)
+        flex-direction column
+        a
+            color var(--tc_link_semi)
+            margin-bottom 7px
+            &:hover
+                color var(--tc_link)
+            .icon
+                margin-right 10px
+                text-decoration none !important
     & &__list
         list-style none
         margin 0
@@ -47,6 +60,9 @@
 @media maw[tlg]
     .page-map
         margin-bottom 20px
+        padding-right 0
+        & &__links
+            padding-bottom 0
         & &__list
             li
                 a
