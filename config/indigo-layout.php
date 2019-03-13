@@ -39,5 +39,9 @@ return [
         'style' => '/static/indigo-layout/css/main.css'
     ],
 
+    'nav' => [
+        'expanded' => true
+    ],
+
     'footer_copyright' => '© 2019 - Proudly powered on <a href="https://www.awes.io" target="_blank">Awes.IO Platform</a>'
 ];
