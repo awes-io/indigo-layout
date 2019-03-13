@@ -1,0 +1,123 @@
+extends includes/layout.pug
+
+block pageVariables
+    - var pageTitle = "Tags"
+    - var removePlus = true
+
+block pageHead
+    // test
+
+block pageContent
+    h3 Invoices
+    .int-table
+        .int-table__header
+            .int-table__count
+                span Eingehende 
+                | $46,782
+            .int-table__count
+                span Ausgehende 
+                | $0
+            .int-table__count
+                span Saldo 
+                | $373372
+        table.int-table__table
+            thead
+                tr
+                    th(style='width: 190px;') Status
+                    th.g-res--mobile-lg-i #
+                    th.g-res--mobile-lg-i Erstellt
+                    th.g-res--desktop-md-i Partner
+                    th.g-res--desktop-md-i Projekt
+                    th.int-table__right Netto
+                    th.g-res--mobile-lg-i Owner
+                    th(style='width:60px;')
+            tbody
+                tr.int-table__block
+                    td
+                        .int-table__status-wrap
+                            span.int-table__status-icon
+                                i.icon.icon-up
+                            span.int-table__status
+                                span offen 
+                                i.icon.icon-circle-clock  
+                                span 27 days
+                    td.g-res--mobile-lg-i 00003-18
+                    td.g-res--mobile-lg-i 11.04.18
+                    td.g-res--desktop-md-i
+                        a(href='') EPC Engineering
+                        span.int-table__caption Amsterdam, DE
+                    td.g-res--desktop-md-i
+                        a(href='') WOKA
+                        span.int-table__caption Certification
+                    td.int-table__right
+                        span.int-table__nowrap $93 364 
+                    td.g-res--mobile-lg-i
+                        a.int-table__ava(href='')
+                            img(src='img/demo/ava.png', alt='')
+                tr.int-table__block
+                    td
+                        .int-table__status-wrap
+                            span.int-table__status-icon
+                                i.icon.icon-up
+                            span.int-table__status.int-table__status_stop
+                                span offen 
+                                i.icon.icon-circle-clock  
+                                span 27 days
+                    td.g-res--mobile-lg-i 00003-18
+                    td.g-res--mobile-lg-i 11.04.18
+                    td.g-res--desktop-md-i
+                        a(href='') EPC Engineering
+                        span.int-table__caption Amsterdam, DE
+                    td.g-res--desktop-md-i
+                        a(href='') WOKA
+                        span.int-table__caption Certification
+                    td.int-table__right
+                        span.int-table__nowrap $93 364 
+                    td.g-res--mobile-lg-i
+                        a.int-table__ava(href='')
+                            img(src='img/demo/ava.png', alt='')
+                tr.int-table__block
+                    td
+                        .int-table__status-wrap
+                            span.int-table__status-icon
+                                i.icon.icon-up
+                            span.int-table__status.int-table__status_sleep
+                                span offen 
+                                i.icon.icon-circle-clock  
+                                span 27 days
+                    td.g-res--mobile-lg-i 00003-18
+                    td.g-res--mobile-lg-i 11.04.18
+                    td.g-res--desktop-md-i
+                        a(href='') EPC Engineering
+                        span.int-table__caption Amsterdam, DE
+                    td.g-res--desktop-md-i
+                        a(href='') WOKA
+                        span.int-table__caption Certification
+                    td.int-table__right
+                        span.int-table__nowrap $93 364 
+                    td.g-res--mobile-lg-i
+                        a.int-table__ava(href='')
+                            img(src='img/demo/ava.png', alt='')
+                tr.int-table__block
+                    td
+                        .int-table__status-wrap
+                            span.int-table__status-icon
+                                i.icon.icon-up
+                            span.int-table__status.int-table__status_inproggress
+                                span offen 
+                                i.icon.icon-circle-clock  
+                                span 27 days
+                    td.g-res--mobile-lg-i 00003-18
+                    td.g-res--mobile-lg-i 11.04.18
+                    td.g-res--desktop-md-i
+                        a(href='') EPC Engineering
+                        span.int-table__caption Amsterdam, DE
+                    td.g-res--desktop-md-i
+                        a(href='') WOKA
+                        span.int-table__caption Certification
+                    td.int-table__right
+                        span.int-table__nowrap $93 364 
+                    td.g-res--mobile-lg-i
+                        a.int-table__ava(href='')
+                            img(src='img/demo/ava.png', alt='')
+                
