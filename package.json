@@ -1,6 +1,6 @@
 {
     "name": "indigo-layout",
-    "version": "1.0.5",
+    "version": "1.0.9",
     "description": "Base CRM layouts",
     "main": "dist/js/main.js",
     "module": "src/js/plugin.js",

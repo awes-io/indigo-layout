@@ -610,7 +610,7 @@ a
   &:hover
     color var(--tc_link)
 
-table
+table:not(.int-table__table):not(.hljs-ln)
   background-color var(--tc_ui_bg)
   th
     background-color var(--tc_ui_bg_darken)
@@ -763,7 +763,7 @@ table
         background-color var(--tc_ui_bg_semi_d)
     circle
       fill var(--tc_text)
-    
+
 
   &.is-opened
     .context-menu__toggler-default
@@ -1139,3 +1139,6 @@ table
 
       &::-moz-progress-bar
         background-color cl_warn
+
+.wave
+  background-color: var(--tc_text_caption)

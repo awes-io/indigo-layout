@@ -13,6 +13,7 @@ export function install() {
     Vue.prototype.$awesLayoutCrm = new Vue(layoutApp)
 
     Vue.component('content-wrapper', contentWrapper)
+    Vue.component('content-placeholder', { functional: true, render(h){ return null }})
     Vue.component('frame-nav', frameNav)
     Vue.component('slide-up-down', slideUpDown)
 }
