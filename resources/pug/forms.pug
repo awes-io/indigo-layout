@@ -16,59 +16,53 @@ block pageContent
 
 
         h4 текст
-        fb-group
-            fb-input(name="awdaw12312312" label="Input field" cell="3" autocomplete="off")
-            fb-select(name="awdawd123qw" :multiple="false" cell="3" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]")
-            fb-select(name="select2" cell="3" label="Yosip ishchet lojku" :multiple="true" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]")
-            fb-phone(name="asd123123asd" label="Phone label" cell="3")
-            fb-input(name="awdaw1231222312" label="Label test long label" cell="3")
-            fb-company-slug(label="Slug default" name="slug221" cell="3" domain="very very long link awescrm.de")
+        fb-input(name="awdaw12312312" label="Input field"  autocomplete="off")
+        fb-select(name="awdawd123qw" :multiple="false"  :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]")
+        fb-select(name="select2"  label="Yosip ishchet lojku" :multiple="true" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]")
+        fb-phone(name="asd123123asd" label="Phone label" )
+        fb-input(name="awdaw1231222312" label="Label test long label" )
+        fb-company-slug(label="Slug default" name="slug221"  domain="very very long link awescrm.de")
 
         <p>Сайт рыбатекст <a href="#re">consectetur adipisicing elit</a>поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях. При создании генератора мы использовали небезизвестный универсальный код речей. Текст генерируется абзацами случайным образом от двух до десяти предложений в абзаце, что позволяет сделать текст более привлекательным и живым для визуально-слухового восприятия.</p>
 
         h4 Switcher
-        fb-group
-            fb-switcher(label="switcher" name="switcher1" cell="2")
-            fb-switcher(label="switcher" disabled name="switcher2" cell="2")
-            fb-switcher.fb-switcher_error(label="switcher" name="switcher3" cell="2")
-            fb-switcher.fb-switcher_ok(label="switcher" name="switcher4" cell="2")
+        fb-switcher(label="switcher" name="switcher1" )
+        fb-switcher(label="switcher" disabled name="switcher2" )
+        fb-switcher.fb-switcher_error(label="switcher" name="switcher3" )
+        fb-switcher.fb-switcher_ok(label="switcher" name="switcher4" )
 
         br
         br
 
         h4 Select
-        fb-group
-            fb-select(name="select1" cell="2" label="Single select" :multiple="false" :select-options="[{name:'one', value: 1}, {name:'one', value: 1},{name:'one', value: 1},{name:'one', value: 1},{name:'one', value: 1},{name:'one', value: 1},{name:'one', value: 1},{name:'one', value: 1},{name:'one', value: 1}, {name:'two', value: 2}]")
-            fb-select(name="select2" cell="2" label="Multiple select" :multiple="true" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]")
-            fb-select(name="select3" class="fb-select_ok" disabled cell="2" label="OK select" :multiple="false" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]")
-            fb-select(name="select4" class="fb-select_error" disabled cell="2" label="Error select" :multiple="true" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]")
+        fb-select(name="select1"  label="Single select" :multiple="false" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]")
+        fb-select(name="select2"  label="Multiple select" :multiple="true" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]")
+        fb-select(name="select3" class="fb-select_ok" disabled  label="OK select" :multiple="false" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]")
+        fb-select(name="select4" class="fb-select_error" disabled  label="Error select" :multiple="true" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]")
 
         br
         br
         h4 Phone input
-        fb-group
-            fb-phone(name="phone1" disabled label="Phone label" cell="2")
-            fb-phone(name="phone2" label="Phone label" cell="2")
-            fb-phone(name="phone3" class="fb-phone_ok" label="Phone ok" cell="2")
-            fb-phone(name="phone4" class="fb-phone_error" label="Phone error" cell="2")
+        fb-phone(name="phone1" disabled label="Phone label" )
+        fb-phone(name="phone2" label="Phone label" )
+        fb-phone(name="phone3" class="fb-phone_ok" label="Phone ok" )
+        fb-phone(name="phone4" class="fb-phone_error" label="Phone error" )
 
         br
         br
         h4 MCE Editor
         fb-editor(name="editor1")
         fb-editor(name="editor2" disabled)
-        fb-group
-            fb-editor(name="editor3" cell="2" class="fb-editor_ok")
-            fb-editor(name="editor4" cell="2" class="fb-editor_error")
+        fb-editor(name="editor3"  class="fb-editor_ok")
+        fb-editor(name="editor4"  class="fb-editor_error")
 
         br
         br
         h4 Textarea
-        fb-group
-            fb-textarea(name="ed1" cell="2" label="Textarea label")
-            fb-textarea(name="ed2" cell="2" label="Textarea disabled" disabled)
-            fb-textarea(name="ed3" cell="2" label="Textarea error" class="fb-textarea_error")
-            fb-textarea(name="ed4" cell="2" label="Textarea ok" class="fb-textarea_ok")
+        fb-textarea(name="ed1"  label="Textarea label")
+        fb-textarea(name="ed2"  label="Textarea disabled" disabled)
+        fb-textarea(name="ed3"  label="Textarea error" class="fb-textarea_error")
+        fb-textarea(name="ed4"  label="Textarea ok" class="fb-textarea_ok")
 
         br
         br
@@ -81,57 +75,51 @@ block pageContent
         br
         br
         h4 Range Slider
-        fb-group
-            fb-slider(name="range1" label="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat iure perspiciatis corporis nesciunt inventore, eius quos maiores sit, ipsa neque quas harum maxime. Sunt a nobis excepturi accusamus assumenda necessitatibus?" cell="2")
-            fb-slider(name="range2" label="Disabled" cell="2" disabled)
-            fb-slider(name="range3" label="Slider error" class="fb-slider_error" cell="2")
-            fb-slider(name="range4" label="Slider Ok" class="fb-slider_ok" cell="2")
+        fb-slider(name="range1" label="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat iure perspiciatis corporis nesciunt inventore, eius quos maiores sit, ipsa neque quas harum maxime. Sunt a nobis excepturi accusamus assumenda necessitatibus?" )
+        fb-slider(name="range2" label="Disabled"  disabled)
+        fb-slider(name="range3" label="Slider error" class="fb-slider_error" )
+        fb-slider(name="range4" label="Slider Ok" class="fb-slider_ok" )
 
         br
         br
         h4 Input example
-        fb-group
-            fb-input(name="input1" label="Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore id minima facilis voluptate vitae magnam rem beatae corporis, explicabo eveniet molestias quibusdam accusantium voluptatum accusamus eius officiis! Amet, fugiat ad?" cell="2" disabled)
-            fb-input(name="input2" label="Default label" cell="2")
-            fb-input(name="input3" class="fb-input_ok" label="Input ok" cell="2")
-            fb-input(name="input4" class="fb-input_error" label="Input error"  cell="2")
+        fb-input(name="input1" label="Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore id minima facilis voluptate vitae magnam rem beatae corporis, explicabo eveniet molestias quibusdam accusantium voluptatum accusamus eius officiis! Amet, fugiat ad?"  disabled)
+        fb-input(name="input2" label="Default label" )
+        fb-input(name="input3" class="fb-input_ok" label="Input ok" )
+        fb-input(name="input4" class="fb-input_error" label="Input error"  )
 
         br
         br
         h4 Checkbox example
-        fb-group
-            fb-checkbox(name="checkbox1" cell="2" label="default checkbox")
-            fb-checkbox(name="checkbox2" cell="2" label="disabled checkbox" disabled)
-            fb-checkbox.fb-checkbox_ok(name="checkbox3" cell="2" label="checkbox ok")
-            fb-checkbox.fb-checkbox_error(name="checkbox4" cell="2" label="checkbox error")
+        fb-checkbox(name="checkbox1"  label="default checkbox")
+        fb-checkbox(name="checkbox2"  label="disabled checkbox" disabled)
+        fb-checkbox.fb-checkbox_ok(name="checkbox3"  label="checkbox ok")
+        fb-checkbox.fb-checkbox_error(name="checkbox4"  label="checkbox error")
 
         br
         br
         h4 Code example
-        fb-group
-            fb-code(name="code1")
-            fb-code(disabled name="code2")
-            fb-code.fb-keycode_ok(name="code3")
-            fb-code.fb-keycode_error(name="code4")
+        fb-code(name="code1")
+        fb-code(disabled name="code2")
+        fb-code.fb-keycode_ok(name="code3")
+        fb-code.fb-keycode_error(name="code4")
 
         br
         br
         h4 Company Slug
         fb-input(label="Company name" name="company1")
-        fb-group
-            fb-company-slug(label="Slug default" name="slug1" input="company1" domain="very very long link awescrm.de")
-            fb-company-slug(label="Slug disabled" disabled name="slug2" input="company1" domain="awescrm.de" cell="3")
-            fb-company-slug.fb-slug_ok(label="Slug ok" name="slug3" input="company1" domain="local.awescrm.de" cell="3")
-            fb-company-slug.fb-slug_error(label="Slug error" name="slug4" input="company1" domain="dev.awescrm.de" cell="3")
+        fb-company-slug(label="Slug default" name="slug1" input="company1" domain="very very long link awescrm.de")
+        fb-company-slug(label="Slug disabled" disabled name="slug2" input="company1" domain="awescrm.de" )
+        fb-company-slug.fb-slug_ok(label="Slug ok" name="slug3" input="company1" domain="local.awescrm.de" )
+        fb-company-slug.fb-slug_error(label="Slug error" name="slug4" input="company1" domain="dev.awescrm.de" )
 
         br
         br
         h4 Radio Group
-        fb-group
-            fb-radio-group(name="radio1" cell="2" label="radio" :items="[{name:'one', value: 1}, {name:'two', value: 2}, {name:'three', value: 3}]")
-            fb-radio-group(name="radio2" cell="2" disabled label="radio disabled" :items="[{name:'one', value: 1}, {name:'two', value: 2}, {name:'three', value: 3}]")
-            fb-radio-group.fc-radio_ok(name="radio1" cell="2" label="radio ok" :items="[{name:'one', value: 1}, {name:'two', value: 2}, {name:'three', value: 3}]")
-            fb-radio-group.fc-radio_error(name="radio2" cell="2" label="radio error" :items="[{name:'one', value: 1}, {name:'two', value: 2}, {name:'three', value: 3}]")
+        fb-radio-group(name="radio1"  label="radio" :items="[{name:'one', value: 1}, {name:'two', value: 2}, {name:'three', value: 3}]")
+        fb-radio-group(name="radio2"  disabled label="radio disabled" :items="[{name:'one', value: 1}, {name:'two', value: 2}, {name:'three', value: 3}]")
+        fb-radio-group.fc-radio_ok(name="radio1"  label="radio ok" :items="[{name:'one', value: 1}, {name:'two', value: 2}, {name:'three', value: 3}]")
+        fb-radio-group.fc-radio_error(name="radio2"  label="radio error" :items="[{name:'one', value: 1}, {name:'two', value: 2}, {name:'three', value: 3}]")
 
 
         br
@@ -139,9 +127,8 @@ block pageContent
         h4 Multiblock
         fb-multi-block(name="multi1")
             template(slot-scope="mb")
-                fb-group
-                    fb-input(name="input22" label="multi-block" :id="mb.id" cell="2")
-                    fb-input(name="input33" label="multi-block" :id="mb.id" cell="2")
+                fb-input(name="input22" label="multi-block" :id="mb.id" )
+                fb-input(name="input33" label="multi-block" :id="mb.id" )
                 fb-textarea(name="text11" label="multi block" :id="mb.id")
         br
         br
