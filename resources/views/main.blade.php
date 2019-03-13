@@ -142,6 +142,7 @@
             <div class="frame__content">
                 <div class="frame__inlayout">
                     @hasSection('pagemap')
+                    @section('pagemap')
                     <div class="frame__inlayout-aside">
                         <page-map content=".frame__inlayout-content" :offset="-70" :sticky='{top: 15, bottom: 15}'>
                             <template #after="#after">
@@ -153,13 +154,14 @@
                             </template>
                         </page-map>
                     </div>
+                    @show
                     @endif
                     <div class="frame__inlayout-content">
                         @yield('content')
                     </div>
-                </div>                
+                </div>
             </div>
- 
+
             @if(config('indigo-layout.footer_copyright'))
                 <span class="frame__copyright">{!! config('indigo-layout.footer_copyright') !!}</span>
             @endif
