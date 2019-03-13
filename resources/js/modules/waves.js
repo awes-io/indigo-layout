@@ -8,7 +8,7 @@ export class Waves {
     }
 
     addElements( container = document ) {
-        let config = Object.assign({selector: 'button:not(.no-wave)'}, AWES_CONFIG.waves)
+        let config = Object.assign({ selector: '.btn, .frame__header-add, .hljs-copy'}, AWES_CONFIG.waves)
 
         this._elements = container.querySelectorAll(config.selector)
         this._elements && Array.from(this._elements).forEach( el => {

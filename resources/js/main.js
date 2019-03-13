@@ -9,21 +9,20 @@ const awesPlugin = {
 
     modules: {
         'vue': {
-            src: 'https://unpkg.com/vue@2.5.21/dist/vue.js',
+            src: 'https://unpkg.com/vue/dist/vue.min.js',
             cb() {
                 Vue.use(plugin)
-                Vue.config.ignoredElements.push('content-wrapper', 'frame-nav', 'modal-window', 'slide-up-down')
             }
         },
         'lodash': {
-            src: 'https://unpkg.com/lodash@4.17.11/lodash.min.js',
+            src: 'https://unpkg.com/lodash/lodash.min.js',
             deps: ['vue'],
             cb() {
                 Vue.prototype.$get = _.get
             }
         },
         'vuex': {
-            src: 'https://unpkg.com/vuex@2.5.0/dist/vuex.min.js',
+            src: 'https://unpkg.com/vuex/dist/vuex.min.js',
             deps: ['vue'],
             cb() {
                 AWES._store = AWES._store || new Vuex.Store(store)
@@ -65,6 +64,3 @@ if (window && ('AWES' in window)) {
     window.__awes_plugins_stack__ = window.__awes_plugins_stack__ || []
     window.__awes_plugins_stack__.push(awesPlugin)
 }
-
-
-

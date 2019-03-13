@@ -4,12 +4,12 @@
         fl()
         position relative
         box-shadow inset 0 -1px 0px 0px var(--tc_border)
-        margin-left -40px
-        margin-right -40px
-        padding-left 40px
-        padding-right 40px
+        // margin-left -40px
+        // margin-right -40px
+        // padding-left 40px
+        // padding-right 40px
         margin-top -27px
-        
+
         &-overflow
             fl()
             width 100%
@@ -41,15 +41,17 @@
                 width calc(100% - 25px)
                 opacity 1
     & &__hidden
-        &-toggler 
-            margin-left 25px
+        &-toggler
+            position: absolute
+            bottom: 0
+            // margin-left 25px
             flex-shrink 0
             .context-menu__toggler
                 white-space nowrap
                 padding 17px 0
                 display block
                 font-size 14px
-                border-bottom 2px solid transparent 
+                border-bottom 2px solid transparent
                 color var(--tc_link_semi)
                 white-space: nowrap
                 position relative
@@ -62,9 +64,19 @@
                     color var(--tc_link_semi_active)
                     &:after
                         border-top-color var(--tc_link_semi_active)
+            &.has-active-item
+                &:after
+                    content: ''
+                    display: block
+                    absolute left 0 bottom 15px
+                    right: 12px
+                    height: 1px
+                    background-image: linear-gradient(to right, var(--tc_link_semi_active) 50%, transparent 50%)
+                    background-size: .5rem 1px
+                    background-repeat: repeat-x
 
-            
-            
+
+
 
 @media res_desktop--sm
     .tab-builder
