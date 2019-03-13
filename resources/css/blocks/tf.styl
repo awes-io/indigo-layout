@@ -30,7 +30,7 @@ body
             content: attr(data-language)
             background-color: var(--tc_ui_bg)
             text-transform: uppercase
-            padding: 20px 30px 15px 30px
+            padding: 20px 90px 15px 30px
             border-radius: 3px
             font-size: 14px
             font-weight: 600
@@ -54,6 +54,23 @@ body
             &-n
                 padding-right: 15px
                 opacity: .4
+
+        &-copy
+            padding: 7px 10px
+            transition background-color 0.3s ease, color 0.3s ease
+            border-radius 2px
+            text-transform uppercase
+            background-color: transparent
+            color var(--tc_btn_tr_text)
+            font-size 14px
+            line-height: 1
+            absolute top 14px right 20px
+
+            &:hover, &:focus
+                background-color var(--tc_ui_bg_darken_s)
+
+            &:active
+                background-color var(--tc_ui_bg_darken_d)
 
 
 h1
@@ -224,11 +241,15 @@ code
 
 
 pre
+    font-family inherit
+    &:before
+        font-family inherit
     code
         padding 30px
         width 100%
         white-space pre
         display block
+        font-family inherit
         {lt} &
             background-color var(--tc_ui_bg) !important
         {dt} &
