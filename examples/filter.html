@@ -7,20 +7,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700&amp;amp;subset=cyrillic" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
-    <script>const AWES_CONFIG = {
-    key: '680a7d07f89b94e7fc83be657a2daa27',
-    formBuilder: {
-        fbEditor: {
-            content_css: ['/css/editor.css']
+    <script>
+        const AWES_CONFIG = {
+            key: '5cd207e2c94eb723c3307764a5693def',
+            formBuilder: {
+                fbEditor: {
+                    content_css: ['/css/editor.css']
+                }
+            }
         }
-    }
-}</script>
+    </script>
     <script src="/js/main.js"></script>
-    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/base-js/v1.x.x/js/main.js"></script>
-    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/context-menu/v0.x.x/js/main.js"></script>
-    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/form-builder/v1.x.x/js/main.js"></script>
-    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/modal/v1.x.x/js/main.js"></script>
-    <script src="https://storage.awes.io/680a7d07f89b94e7fc83be657a2daa27/awes-io/theme-switcher/v1.x.x/js/main.js"></script><!-- there is can be head meta or sctipts-->
+    <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/context-menu/v0.x.x/js/main.js"></script>
+    <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/form-builder/v1.x.x/js/main.js"></script>
+    <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/modal-window/v1.x.x/js/main.js"></script>
+    <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/theme-switcher/v1.x.x/js/main.js"></script>
+    <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/base-js/v1.x.x/js/main.js"></script><!-- there is can be head meta or sctipts-->
 </head>
 
 <body>
@@ -57,7 +59,7 @@
                 <div class="frame__header">
                     <div class="frame__header-top">
                         <form class="frame__search" id="search" v-bind:class="{ active: $awesLayoutCrm.showSearch }" action="js" method="get"> <span class="frame__search-link" v-on:click="$awesLayoutCrm.showSearch = !$awesLayoutCrm.showSearch"><i class="icon icon-search"></i></span>
-                            <div class="frame__search-hidden"><input class="frame__search-input" type="text" placeholder="Search..."><button class="frame__search-btn" type="submit">Search</button><span class="frame__search-close" v-on:click="$awesLayoutCrm.showSearch = !$awesLayoutCrm.showSearch"></span><i class="icon icon-cross"></i></div>
+                            <div class="frame__search-hidden"><input class="frame__search-input" type="text" placeholder="Search..."><button class="frame__search-btn" type="submit">Search</button><span class="frame__search-close" v-on:click="$awesLayoutCrm.showSearch = !$awesLayoutCrm.showSearch"><i class="icon icon-cross"></i></span></div>
                         </form>
                         <div class="frame__userinfo"><a class="frame__userinfo-link" href=""><span class="icon icon-ruppor"><i class="icn-dot"></i></span></a><a class="frame__userinfo-link" href=""><span class="icon icon-hdd"><i class="icn-dot"></i></span></a><button class="frame__userinfo-ava" @click="$awesLayoutCrm.showUserMenu = ! $awesLayoutCrm.showUserMenu"><i class="icon icon-user novatar novatar_box"></i></button></div>
                     </div>
@@ -428,89 +430,29 @@
                 </transition>
                 <div class="frame__content"><button class="frame__header-add"><i class="icon icon-plus"></i></button>
                     <div class="frame__inlayout">
-                        <div class="frame__inlayout-content"><button class="frame__header-add"><i class="icon icon-plus"></i></button>
-                            <div class="filter">
-                                <div class="filter__left">
-                                    <div class="filter__checkbox">
-                                        <div class="filter__checkbox-cell filter__checkbox-cell_active">
-                                            <div class="filter__checkbox-label">Active layer rrc +</div>
-                                        </div>
-                                        <div class="filter__checkbox-cell">
-                                            <div class="filter__checkbox-label">All plus one -</div>
-                                        </div>
-                                    </div>
-                                    <div class="filter__checkbox">
-                                        <div class="filter__checkbox-cell filter__checkbox-cell_active">
-                                            <div class="filter__checkbox-label">Active layer rrc +</div>
-                                        </div>
-                                        <div class="filter__checkbox-cell">
-                                            <div class="filter__checkbox-label">All plus one -</div>
-                                        </div>
-                                    </div>
-                                    <div class="filter__checkbox">
-                                        <div class="filter__checkbox-cell filter__checkbox-cell_active">
-                                            <div class="filter__checkbox-label">Active layer rrc +</div>
-                                        </div>
-                                        <div class="filter__checkbox-cell">
-                                            <div class="filter__checkbox-label">All plus one -</div>
-                                        </div>
-                                    </div>
+                        <div class="frame__inlayout-content">
+                            <div class="filter grid grid-gap">
+                                <!-- left-->
+                                <div class="cell-auto">
+                                    <div class="filter__checkbox"></div>
+                                </div><!-- right-->
+                                <div class="cell-null">
+                                    <context-menu button-class="filter__slink" right=""><template slot="toggler"><span>Sort by</span></template>
+                                        <cm-query :param="{orderBy: ''}">ID ↑</cm-query>
+                                        <cm-query :param="{orderBy: 'id'}">ID ↓</cm-query>
+                                        <cm-query :param="{orderBy: 'name'}">Package name</cm-query>
+                                    </context-menu>
                                 </div>
-                                <div class="filter__right">
-                                    <div class="filter__rlink context-menu is-right-side"><button class="context-menu__toggler filter__slink" aria-haspopup="true"><span>Sort by</span></button>
-                                        <div class="context-menu__dropdown" aria-expanded="false" style="display: none;">
-                                            <ul class="context-menu__list">
-                                                <li class="cm-item"><button class="cm-item__button is-active">ID</button></li>
-                                                <li class="cm-item"><button class="cm-item__button">Email</button></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="filter__rlink"><button class="filter__slink">
-                                            <!-- -->Filter</button></div>
-                                </div>
-                            </div>
-                            <div class="slide-up-down" style="overflow: hidden;">
-                                <form class="form-builder form-builder_filter" action="/" method="post">
-                                    <div class="grid grid_forms">
-                                        <div class="grid__cell">
-                                            <div class="fb-input">
-                                                <div class="v-popover display-block"><span class="trigger" aria-describedby="popover_xtl006uldc" tabindex="-1" style="display: inline-block;"><label class="fb-input__label fb-input__label_field" for="#input-0">Text</label><input class="fb-input__field is-focusable" id="input-0" data-awes="fb-input.text" spellcheck="false" type="text"></span></div>
-                                            </div>
-                                        </div>
-                                        <div class="grid__cell">
-                                            <div class="fb-select"><span class="fb-select__label">Array</span>
-                                                <div class="multiselect fb-select__field" tabindex="-1">
-                                                    <div class="multiselect__select"></div>
-                                                    <div class="multiselect__tags">
-                                                        <div class="multiselect__tags-wrap" style="display: none;"></div><!-- -->
-                                                        <div class="multiselect__spinner" style="display: none;"></div><input class="multiselect__input" name="" type="text" autocomplete="off" placeholder="Pick a value" tabindex="0" style="display: none;"><!-- --><span><span class="multiselect__single">Pick a value</span></span>
-                                                    </div>
-                                                    <div class="multiselect__content-wrapper" style="max-height: 300px; display: none;">
-                                                        <ul class="multiselect__content" style="display: inline-block;">
-                                                            <!-- -->
-                                                            <li class="multiselect__element"><span class="multiselect__option multiselect__option--highlight" data-select="" data-selected="" data-deselect=""><span>Option 1</span></span><!-- -->
-                                                            </li>
-                                                            <li class="multiselect__element"><span class="multiselect__option" data-select="" data-selected="" data-deselect=""><span>Option 2</span></span><!-- -->
-                                                            </li>
-                                                            <li style="display: none;"><span class="multiselect__option">No elements found. Consider changing the search query.</span></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="cell-null"><button class="filter__slink" @click="$refs.filter.toggle()">
+                                        <!-- also can be toggled with `$root.$emit('filters:toggle', 'managers')`--><i class="icon icon-filter" v-if=""><!-- prop `name` of filter--><span class="icn-dot"></span></i> Filter</button></div>
+                                <slide-up-down class="cell-full" ref="filter">
                                     <div>
-                                        <div class="line-btns"><button class="btn btn-send waves-effect waves-button" disabled="disabled" data-loading="Loading..." type="submit" data-awes="modal_button_ok">Apply <span class="g-res--tablet-lg_n">(ctrl+enter)</span></button><!-- --><button class="btn btn_transparent form-builder__reset" type="reset"><i class="icon icon-circle-cross"></i> Reset</button></div>
+                                        <filter-wrapper name="packages">
+                                            <fb-input name="name" label="Package name"></fb-input>
+                                        </filter-wrapper>
                                     </div>
-                                </form>
+                                </slide-up-down>
                             </div>
-                            <div class="tf-centerblock">
-                                <div class="tf-centerblock__cell">
-                                    <div class="tf-infoblock tf-infoblock_center tf-infoblock_smart">
-                                        <p>You do not have projects Want to create the first one?</p>
-                                    </div>
-                                </div>
-                            </div><!-- --><button class="frame__header-add"><i class="icon icon-plus"></i></button><!-- -->
                         </div>
                     </div>
                 </div><span class="frame__copyright">© 2019 - PkgKit - Proudly powered on <a href="">Awes.IO Platform</a>.</span>

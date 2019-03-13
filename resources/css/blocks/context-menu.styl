@@ -8,7 +8,7 @@ context-menu
 .context-menu
   display: inline-flex
   min-height: 1em
-  z-index 200
+  z-index 7
   position: relative
   & &__list
     list-style none
@@ -49,7 +49,7 @@ context-menu
           opacity: 1
   
   &.is-opened
-    z-index 990
+    z-index 10
 
   &.is-opened &__toggler-default
     .icon-dots
@@ -60,7 +60,7 @@ context-menu
     position: absolute
     left: 0
     top: 100%
-    z-index: 2
+    z-index 7
 
   &__overlay
     content: ''

@@ -1,13 +1,13 @@
 .fb-input
     position relative
     margin-bottom 10px
-    z-index 100
+    z-index 1
     width 100%
     & &__eye
         absolute right 15px top 50%
         margin-top -9px
         display block
-        z-index 701
+        z-index 2
         color var(--tc_text_caption)
         &:hover
             color var(--tc_link)
@@ -66,14 +66,14 @@
         & ^[0]__field
             padding-left 35px
     &_focus
-        z-index 500
+        z-index 2
         & ^[0]__color
             opacity 1
     &_plus
         & ^[0]__field
             padding-right 65px
     &_autocomplete
-        z-index 110
+        z-index 2
         & ^[0]__field
             border 1px solid var(--tc_link_dark) !important
     & &__okicon

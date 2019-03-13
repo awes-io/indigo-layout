@@ -23,9 +23,8 @@ body
     font-size f_normal
 
 .mainwrapper
-
     pre[data-language]
-        position: relative
+        position relative
         &:before
             content: attr(data-language)
             background-color: var(--tc_ui_bg)
@@ -34,7 +33,7 @@ body
             border-radius: 3px
             font-size: 14px
             font-weight: 600
-            // margin -30px -30px 30px -30px
+            font-family inherit
             border-bottom 1px solid var(--tc_border)
             display: block
 
@@ -262,6 +261,7 @@ pre
     border 1px solid var(--tc_border)
     padding 30px
     margin-bottom tf_text_margin
+    display inline-block
 
 
 // Help Classes
