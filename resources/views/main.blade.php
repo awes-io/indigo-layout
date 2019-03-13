@@ -143,7 +143,15 @@
                 <div class="frame__inlayout">
                     @hasSection('pagemap')
                     <div class="frame__inlayout-aside">
-                        <page-map content=".frame__inlayout-content" :offset="-70"></page-map>
+                        <page-map content=".frame__inlayout-content" :offset="-70" :sticky='{top: 15, bottom: 15}'>
+                            <template #after="#after">
+                                <div class="page-map__links">
+                                    <a href="https://github.com/awes-io/awes-io/issues" target="_blank"><i class="icon icon-git"> </i><span>Report issue</span></a>
+                                    <a href="https://stackoverflow.com/questions/tagged/awes-io" target="_blank"><i class="icon icon-question"> </i><span>Get help</span></a>
+                                    <a href="https://github.com/awes-io/wiki/blob/dev/docs/" target="_blank"><i class="icon icon-pencil2"> </i><span>Edit this page</span></a>
+                                </div>
+                            </template>
+                        </page-map>
                     </div>
                     @endif
                     <div class="frame__inlayout-content">
