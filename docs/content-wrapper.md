@@ -4,6 +4,11 @@ This component is intended for displaying dynamic templates. The change of data 
 
 Scheme of work: by default, the data used in the template are transferred to the slot for displaying.
 
+## Components
+- **Content Wrapper**
+- [Frame Navigation](./frame-nav.md)
+- [Grid](./grid.md)
+- [Slide Up Down](./slide-up-down.md)
 
 ## Example of use
 
@@ -18,7 +23,7 @@ Scheme of work: by default, the data used in the template are transferred to the
 </content-wrapper>
 ```
 
-@vue
+<div class="vue-example">
 <content-wrapper
     :default="{email:'soberbrunner@example.org', pageTitle: 'This is a content wrapper example'}"
     store-data="content">
@@ -27,7 +32,7 @@ Scheme of work: by default, the data used in the template are transferred to the
         <p>You can look at this email <b>{{ data.email }}</b>, got from data you've passed</p>
     </template>
 </content-wrapper>
-@endvue
+</div>
 
 
 ## Input parameters

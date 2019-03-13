@@ -2,26 +2,27 @@ import store from './modules/store.js'
 import { plugin } from './modules/plugin.js'
 import i18n from './modules/i18n.js'
 import { toastedRegistration } from './modules/notifications.js'
+import highlight from './modules/highlight'
+import { Waves } from './modules/waves'
 
 const awesPlugin = {
 
     modules: {
         'vue': {
-            src: 'https://unpkg.com/vue@2.5.21/dist/vue.js',
+            src: 'https://unpkg.com/vue/dist/vue.min.js',
             cb() {
                 Vue.use(plugin)
-                Vue.config.ignoredElements.push('content-wrapper', 'frame-nav', 'modal-window', 'slide-up-down')
             }
         },
         'lodash': {
-            src: 'https://unpkg.com/lodash@4.17.11/lodash.min.js',
+            src: 'https://unpkg.com/lodash/lodash.min.js',
             deps: ['vue'],
             cb() {
                 Vue.prototype.$get = _.get
             }
         },
         'vuex': {
-            src: 'https://unpkg.com/vuex@2.5.0/dist/vuex.min.js',
+            src: 'https://unpkg.com/vuex/dist/vuex.min.js',
             deps: ['vue'],
             cb() {
                 AWES._store = AWES._store || new Vuex.Store(store)
@@ -46,45 +47,20 @@ const awesPlugin = {
                 Vue.use(VueTabs);
             }
         },
-        'highlight': {
-            src: [
-                'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js',
-                'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/atom-one-light.min.css'
-            ]
-        },
-        'highlight_langs': {
-            src: [
-                'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/languages/yaml.min.js',
-                'https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.6.0/dist/highlightjs-line-numbers.min.js'
-            ],
-            deps: ['highlight'],
-            cb() {
-                // console.log( hljs.listLanguages() )
-                AWES.once('core:inited', function() {
-                    hljs.initHighlighting();
-                    document.querySelectorAll('.hljs').forEach(block => {
-                        hljs.lineNumbersBlock(block)
-                        let language = block.className.match(/language-([a-z]*)/);
-                        language[1] && block.parentNode.setAttribute('data-language', language[1])
-                    })
-                })
-            }
-        }
+        ...highlight
     },
 
-    install() {
+    install(AWES) {
         AWES.lang = i18n
-        // window.Vue.use(Notifications);
+        AWES.once('core:inited', () => {
+            AWES.Waves = new Waves()
+        })
     }
 }
 
 if (window && ('AWES' in window)) {
     AWES.use(awesPlugin)
-
 } else {
     window.__awes_plugins_stack__ = window.__awes_plugins_stack__ || []
     window.__awes_plugins_stack__.push(awesPlugin)
 }
-
-
-
