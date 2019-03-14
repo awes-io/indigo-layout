@@ -14,7 +14,7 @@ This component is intended for the animated appearance/disappearance of the comp
 ## Example of use
 
 ```html
-<button class="btn" @click="$refs.slide.toggle">Toggle</button>
+<button class="btn" @click="$refs.slide.toggle()">Toggle</button>
 
 <slide-up-down ref="slide">
     <p>Text inside slide-up-down</p>
@@ -23,7 +23,7 @@ This component is intended for the animated appearance/disappearance of the comp
 ```
 
 <div class="vue-example">
-<button class="btn" @click="$refs.slide.toggle">Toggle</button>
+<button class="btn" @click="$refs.slide.toggle()">Toggle</button>
 <slide-up-down ref="slide">
     <p>Text inside slide-up-down</p>
     <p>One more paragraph</p>
