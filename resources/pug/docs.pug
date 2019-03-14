@@ -8,7 +8,7 @@ block pageVariables
 
 block pageHead
     script(src="https://storage.awes.io/74c99e54e4bbe7ab337ddbb5ec348d02/awes-io/page-map/v1.x.x/js/main.js")
-    link(rel="stylesheet" href="https://storage.awes.io/74c99e54e4bbe7ab337ddbb5ec348d02/awes-io/page-map/v1.x.x/css/main.css?v=2019-02-13_08-49-22")
+    link(rel="stylesheet" href="https://storage.awes.io/74c99e54e4bbe7ab337ddbb5ec348d02/awes-io/page-map/v1.x.x/css/main.css")
     // there is can be head meta or sctipts
 
 
@@ -102,21 +102,21 @@ block pageContent
             datahere
             datahere */
             datahere
-    h3 Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+    h3 Lorem, ipsum dolor sit amet consectetur adipisicing elit.
     p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere corrupti doloremque non, excepturi veniam repellendus cumque laudantium magnam, delectus est ab voluptates ut saepe asperiores libero nostrum tempore debitis quas?
     p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere corrupti doloremque non, excepturi veniam repellendus cumque laudantium magnam, delectus est ab voluptates ut saepe asperiores libero nostrum tempore debitis quas?
     p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere corrupti doloremque non, excepturi veniam repellendus cumque laudantium magnam, delectus est ab voluptates ut saepe asperiores libero nostrum tempore debitis quas?
     p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere corrupti doloremque non, excepturi veniam repellendus cumque laudantium magnam, delectus est ab voluptates ut saepe asperiores libero nostrum tempore debitis quas?
     p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere corrupti doloremque non, excepturi veniam repellendus cumque laudantium magnam, delectus est ab voluptates ut saepe asperiores libero nostrum tempore debitis quas?
     p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere corrupti doloremque non, excepturi veniam repellendus cumque laudantium magnam, delectus est ab voluptates ut saepe asperiores libero nostrum tempore debitis quas?
-    h3 Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+    h3 Lorem ipsum dolor sit amet consectetur adipisicing elit.
     p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere corrupti doloremque non, excepturi veniam repellendus cumque laudantium magnam, delectus est ab voluptates ut saepe asperiores libero nostrum tempore debitis quas?
     p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere corrupti doloremque non, excepturi veniam repellendus cumque laudantium magnam, delectus est ab voluptates ut saepe asperiores libero nostrum tempore debitis quas?
     p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere corrupti doloremque non, excepturi veniam repellendus cumque laudantium magnam, delectus est ab voluptates ut saepe asperiores libero nostrum tempore debitis quas?
     p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere corrupti doloremque non, excepturi veniam repellendus cumque laudantium magnam, delectus est ab voluptates ut saepe asperiores libero nostrum tempore debitis quas?
     p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere corrupti doloremque non, excepturi veniam repellendus cumque laudantium magnam, delectus est ab voluptates ut saepe asperiores libero nostrum tempore debitis quas?
     p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere corrupti doloremque non, excepturi veniam repellendus cumque laudantium magnam, delectus est ab voluptates ut saepe asperiores libero nostrum tempore debitis quas?
-    h4 Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+    h4 Lorem ipsum dolor sit amet consectetur adipisicing elit.
     p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere corrupti doloremque non, excepturi veniam repellendus cumque laudantium magnam, delectus est ab voluptates ut saepe asperiores libero nostrum tempore debitis quas?
     p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere corrupti doloremque non, excepturi veniam repellendus cumque laudantium magnam, delectus est ab voluptates ut saepe asperiores libero nostrum tempore debitis quas?
     p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere corrupti doloremque non, excepturi veniam repellendus cumque laudantium magnam, delectus est ab voluptates ut saepe asperiores libero nostrum tempore debitis quas?
@@ -629,4 +629,16 @@ block pageContent
 
 
 block pageAside
-    page-map(content=".frame__inlayout-content" :offset="-75")
+    page-map(content=".frame__inlayout-content" :offset="-75" :sticky='{top: 15, bottom: 15}')
+        template(#after)
+            .page-map__links
+                a(href="https://github.com/awes-io/awes-io/issues" target="_blank")
+                    i.icon.icon-git 
+                    span Report issue
+                a(href="https://stackoverflow.com/questions/tagged/awes-io" target="_blank")
+                    i.icon.icon-question 
+                    span Get help
+                a(href="https://github.com/awes-io/wiki/blob/dev/docs/" target="_blank")
+                    i.icon.icon-pencil2 
+                    span Edit this page
+

@@ -23,18 +23,17 @@ body
     font-size f_normal
 
 .mainwrapper
-
     pre[data-language]
-        position: relative
+        position relative
         &:before
             content: attr(data-language)
             background-color: var(--tc_ui_bg)
             text-transform: uppercase
-            padding: 20px 30px 15px 30px
+            padding: 20px 90px 15px 30px
             border-radius: 3px
             font-size: 14px
             font-weight: 600
-            // margin -30px -30px 30px -30px
+            font-family inherit
             border-bottom 1px solid var(--tc_border)
             display: block
 
@@ -54,6 +53,23 @@ body
             &-n
                 padding-right: 15px
                 opacity: .4
+
+        &-copy
+            padding: 7px 10px
+            transition background-color 0.3s ease, color 0.3s ease
+            border-radius 2px
+            text-transform uppercase
+            background-color: transparent
+            color var(--tc_btn_tr_text)
+            font-size 14px
+            line-height: 1
+            absolute top 14px right 20px
+
+            &:hover, &:focus
+                background-color var(--tc_ui_bg_darken_s)
+
+            &:active
+                background-color var(--tc_ui_bg_darken_d)
 
 
 h1
@@ -245,6 +261,7 @@ pre
     border 1px solid var(--tc_border)
     padding 30px
     margin-bottom tf_text_margin
+    display inline-block
 
 
 // Help Classes
