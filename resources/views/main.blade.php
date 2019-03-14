@@ -141,7 +141,7 @@
 
             <div class="frame__content">
                 <div class="frame__inlayout">
-                    @hasSection('pagemap')
+                    @if (!empty($__env->yieldContent('pagemap')))
                     @section('pagemap')
                     <div class="frame__inlayout-aside">
                         <page-map content=".frame__inlayout-content" :offset="-70" :sticky='{top: 15, bottom: 15}'>
