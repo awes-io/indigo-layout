@@ -360,14 +360,16 @@
         },
 
 
-        computed: {
+        watch: {
 
-            isPermanentlyActive() {
-                return this.links.map( link => {
-                    return link.active || // active itself
-                           link.children && this.expanded || // all items expanded
-                           link.children && link.children.some( child => child.active ) // has active children
-                })
+            links: {
+                handler(links) {
+                    this.active = links.findIndex( link => {
+                        return link.active ||
+                               link.children && link.children.some( child => child.active )
+                    });
+                },
+                immediate: true
             }
         },
 
@@ -416,9 +418,7 @@
                           {
                             class: [
                               "frame__aside-link",
-                              {
-                                "frame__aside-link_active": _vm.links[index].active
-                              }
+                              { "frame__aside-link_active": _vm.active === index }
                             ],
                             attrs: { href: item.link || "" }
                           },
@@ -439,9 +439,7 @@
                                 class: [
                                   "frame__aside-link frame__aside-link_sub",
                                   {
-                                    "frame__aside-link_active":
-                                      _vm.active === index ||
-                                      _vm.isPermanentlyActive[index]
+                                    "frame__aside-link_active": _vm.active === index
                                   }
                                 ],
                                 attrs: { href: item.link || "" },
@@ -460,7 +458,7 @@
                                 _vm._v(" "),
                                 _c("span", [_vm._v(_vm._s(item.name))]),
                                 _vm._v(" "),
-                                !_vm.isPermanentlyActive[index]
+                                !_vm.expanded
                                   ? _c("i", {
                                       staticClass: "icon icon-angle-bottom",
                                       on: {
@@ -477,9 +475,7 @@
                               "slide-up-down",
                               {
                                 attrs: {
-                                  show:
-                                    _vm.active === index ||
-                                    _vm.isPermanentlyActive[index]
+                                  show: _vm.active === index || _vm.expanded
                                 }
                               },
                               [
@@ -740,6 +736,7 @@
         Vue.prototype.$awesLayoutCrm = new Vue(layoutApp);
 
         Vue.component('content-wrapper', contentWrapper);
+        Vue.component('content-placeholder', { functional: true, render(h){ return null }});
         Vue.component('frame-nav', frameNav);
         Vue.component('slide-up-down', slideUpDown);
     }
@@ -753,7 +750,9 @@
 
     var i18n = {
         MODAL_BACK: "Go back",
-        MODAL_CLOSE: "Close modal"
+        MODAL_CLOSE: "Close modal",
+        CODE_COPY: "copy",
+        CODE_COPIED_MSG: "Text copied to clipboard"
     };
 
     /*
@@ -797,25 +796,172 @@
         };
     }
 
+    function copy(b) {
+        let d = document;
+        let t = document.createElement('TEXTAREA');
+        t.id = 'copy-text';
+        t.style.height = 0;
+        t.position = 'fixed';
+        d.body.appendChild(t);
+        try {
+            // remove empty lines
+            t.value = b.innerText.split('\n').filter(l => l !== '' && l !== '\t').join('\n');
+            t.select();
+            d.execCommand('copy');
+            return true
+        } catch (e) {
+            return false
+        } finally {
+            d.body.removeChild(t);
+        }
+    }
+
+    var highlight = {
+        'highlight': {
+            src: [
+                'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js',
+                'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/atom-one-light.min.css'
+            ]
+        },
+        'highlight_langs': {
+            src: [
+                'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/languages/yaml.min.js',
+                'https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.6.0/dist/highlightjs-line-numbers.min.js'
+            ],
+            deps: ['highlight'],
+            cb() {
+                // console.log( hljs.listLanguages() )
+                AWES.once('core:inited', function () {
+
+                    // highlight blocks
+                    hljs.initHighlighting();
+
+                    let blocks = document.querySelectorAll('.hljs');
+
+                    blocks && blocks.forEach(block => {
+
+                        let pre = block.parentNode;
+
+                        // add row numbers
+                        hljs.lineNumbersBlock(block);
+
+                        // add language badge
+                        let language = block.className.match(/language-([a-z]*)/);
+                        language && pre.setAttribute('data-language', language[1]);
+
+                        // add copy button
+                        let button = document.createElement('BUTTON');
+                        button.className = 'hljs-copy';
+                        button.innerText = AWES.lang.CODE_COPY;
+                        button.addEventListener('click', function(){
+                            if ( copy(block) ) {
+                                AWES.notify({ message: AWES.lang.CODE_COPIED_MSG });
+                            }
+                        }, false);
+                        pre.insertBefore(button, block);
+                    });
+                });
+            }
+        }
+    };
+
+    const WAVE_DURATION = 1000;
+
+    class Waves {
+
+        constructor(root) {
+            if ( ! root ) return
+            this.addElements();
+            this.initObserver(root);
+        }
+
+        addElements( container = document ) {
+            let config = Object.assign({ selector: '.btn, .frame__header-add, .hljs-copy'}, AWES_CONFIG.waves);
+
+            this._elements = container.querySelectorAll(config.selector);
+            this._elements && Array.from(this._elements).forEach( el => {
+
+                if ( ! el.classList.contains('has-wave') ) {
+                    el.classList.add('has-wave');
+                }
+
+                if ( el.__AWES_WAVE__ ) return
+
+                let wave = el.querySelector('span.wave');
+
+                if ( ! wave ) {
+                    wave = document.createElement('span');
+                    wave.classList.add('wave');
+                    el.appendChild(wave);
+                }
+
+                el.__AWES_WAVE__ = wave;
+                Waves.hideWave(el);
+
+                el.addEventListener('click', Waves.showWave, false);
+            });
+        }
+
+        initObserver(root) {
+            this._mObserver = new MutationObserver(mutations => {
+                clearTimeout(this.__tm);
+                this.__tm = setTimeout(this.addElements, 300);
+            });
+
+            this._mObserver.observe(root, {
+                childList: true,
+                subtree: true
+            });
+        }
+
+        static showWave(ev) {
+            if (ev.target !== ev.currentTarget) return
+            let wave = this.__AWES_WAVE__;
+            if ( this._tm ) {
+                clearTimeout(this._tm);
+                Waves.hideWave(this);
+            }
+            wave.style.cssText = `
+            transition: transform ${WAVE_DURATION}ms ease, opacity ${WAVE_DURATION}ms ease;
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(2);
+            top: ${ev.offsetY}px;
+            left: ${ev.offsetX}px
+        `;
+            this._tm = setTimeout(
+                () => Waves.hideWave(this),
+                WAVE_DURATION
+            );
+        }
+
+        static hideWave(el) {
+            el.__AWES_WAVE__.style.cssText = `
+            transform: translate(-50%, -50%) scale(0);
+            transition: none;
+            opacity: 1;
+        `;
+            delete el._tm;
+        }
+    }
+
     const awesPlugin = {
 
         modules: {
             'vue': {
-                src: 'https://unpkg.com/vue@2.5.21/dist/vue.js',
+                src: 'https://unpkg.com/vue/dist/vue.min.js',
                 cb() {
                     Vue.use(plugin);
-                    Vue.config.ignoredElements.push('content-wrapper', 'frame-nav', 'modal-window', 'slide-up-down');
                 }
             },
             'lodash': {
-                src: 'https://unpkg.com/lodash@4.17.11/lodash.min.js',
+                src: 'https://unpkg.com/lodash/lodash.min.js',
                 deps: ['vue'],
                 cb() {
                     Vue.prototype.$get = _.get;
                 }
             },
             'vuex': {
-                src: 'https://unpkg.com/vuex@2.5.0/dist/vuex.min.js',
+                src: 'https://unpkg.com/vuex/dist/vuex.min.js',
                 deps: ['vue'],
                 cb() {
                     AWES._store = AWES._store || new Vuex.Store(store);
@@ -840,41 +986,19 @@
                     Vue.use(VueTabs);
                 }
             },
-            'highlight': {
-                src: [
-                    'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js',
-                    'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/atom-one-light.min.css'
-                ]
-            },
-            'highlight_langs': {
-                src: [
-                    'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/languages/yaml.min.js',
-                    'https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.6.0/dist/highlightjs-line-numbers.min.js'
-                ],
-                deps: ['highlight'],
-                cb() {
-                    // console.log( hljs.listLanguages() )
-                    AWES.once('core:inited', function() {
-                        hljs.initHighlighting();
-                        document.querySelectorAll('.hljs').forEach(block => {
-                            hljs.lineNumbersBlock(block);
-                            let language = block.className.match(/language-([a-z]*)/);
-                            language[1] && block.parentNode.setAttribute('data-language', language[1]);
-                        });
-                    });
-                }
-            }
+            ...highlight
         },
 
-        install() {
+        install(AWES) {
             AWES.lang = i18n;
-            // window.Vue.use(Notifications);
+            AWES.once('core:inited', () => {
+                AWES.Waves = new Waves(AWES._vueRoot.$el);
+            });
         }
     };
 
     if (window && ('AWES' in window)) {
         AWES.use(awesPlugin);
-
     } else {
         window.__awes_plugins_stack__ = window.__awes_plugins_stack__ || [];
         window.__awes_plugins_stack__.push(awesPlugin);

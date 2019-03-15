@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Typography</title>
+    <title>Stripe Theme</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700&amp;amp;subset=cyrillic" rel="stylesheet">
@@ -24,6 +24,171 @@
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/modal-window/v1.x.x/js/main.js"></script>
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/theme-switcher/v1.x.x/js/main.js"></script>
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/base-js/v1.x.x/js/main.js"></script><!-- there is can be head meta or sctipts-->
+    <style>
+        :root:not([data-dark='true']) {
+            --tc_page_bg: #e3e8ee;
+            --tc_aside_gradient: linear-gradient(to left, #e3e8ee 0%, #e3e8ee 100%);
+            --tc_aside_gradient_header: linear-gradient(to left, #fff 0%, #fff 100%);
+            --tc_aside_link: #414770;
+            --tc_aside_text: #414770;
+            --tc_aside_bg_nav: #dee2e7;
+            --tc_header_bg: none;
+            --tc_ui_btn_smcolor: #16a085;
+            --tc_ui_btn_smcolor_active: #1abc9c;
+            --tc_header_link: #aab7c4;
+            --tc_header_link_active: #414770;
+
+        }
+
+        :root[data-dark='true'] {
+            --tc_header_bg: none;
+            --tc_ui_btn_smcolor: #16a085;
+            --tc_ui_btn_smcolor_active: #1abc9c;
+        }
+
+        .frame .frame__aside {
+            box-shadow: none;
+        }
+
+        .frame .frame__aside-link .icon-angle-bottom:after {
+            top: 0.5rem;
+            bottom: 0.5rem;
+        }
+
+        .frame .frame__aside-link .icon-angle-bottom {
+            width: 35px;
+        }
+
+        .frame .frame__aside-link {
+            padding-top: 5px;
+            padding-bottom: 5px;
+            min-height: 35px;
+            opacity: 1;
+        }
+
+        .frame .frame__aside-link:hover {
+            color: #556cd6;
+        }
+
+        .frame .frame__aside-inlist {
+            min-height: 30px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        .frame .frame__aside-title {
+            min-height: 77px;
+
+        }
+
+
+        .frame .frame__aside-title {
+            text-align: left;
+            justify-content: flex-start;
+            padding-left: 35px;
+            padding-right: 20px;
+        }
+
+        .frame .frame__aside-title {
+            background: none;
+        }
+
+        .frame .frame__search {
+            background-color: var(--tc_ui_bg);
+            padding: 5px 15px;
+            border-radius: 2px;
+            box-shadow: var(--tc_shadow_smr);
+        }
+
+        .frame .frame__search .frame__search-hidden {
+            width: 300px;
+        }
+
+        .frame .frame__search-input {
+            border: 0px;
+        }
+
+        .frame .frame__search-input:focus {
+            border: 0px;
+        }
+
+        .frame__search-link {
+            pointer-events: none;
+        }
+
+        .frame .frame__search-close {
+            display: none;
+        }
+
+        .frame .frame__header-top {
+            padding-top: 20px;
+            padding-right: 40px;
+        }
+
+        .frame .frame__userinfo-ava {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            margin-left: 15px;
+        }
+
+        .frame .frame__userinfo {
+            height: 36px;
+        }
+
+        .frame .frame__header-line {
+            padding-top: 30px;
+            padding-bottom: 0;
+        }
+
+        .frame .frame__userinfo-link {
+            width: 36px;
+            height: 36px;
+            margin-left: 10px;
+        }
+
+        .frame .frame__header-add {
+            top: -35px;
+        }
+
+        @media (max-width: 1000px) {
+            .frame .frame__header-top {
+                padding-right: 15px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .frame .frame__aside-title {
+                min-height: 60px;
+            }
+
+            .frame .frame__userinfo-ava {
+                width: 42px;
+                height: 42px;
+            }
+
+            .frame .frame__aside-title {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .frame .frame__header-line {
+                padding-top: 10px;
+            }
+
+            .frame .frame__header-add {
+                top: auto;
+            }
+
+            .frame .frame__userinfo {
+                background: #fff;
+                height: 60px;
+            }
+
+        }
+    </style>
 </head>
 
 <body>
@@ -66,7 +231,7 @@
                     </div>
                     <div class="frame__header-line">
                         <div class="frame__title-line">
-                            <h1 class="frame__header-title">Typography</h1>
+                            <h1 class="frame__header-title">Stripe Theme</h1>
                         </div>
                     </div>
                 </div>
@@ -432,145 +597,52 @@
                 <div class="frame__content"><button class="frame__header-add"><i class="icon icon-plus"></i></button>
                     <div class="frame__inlayout">
                         <div class="frame__inlayout-content">
-                            <content-placeholder>
-                                <h1>Placeholder test</h1>
-                                <h1>Placeholder test</h1>
-                                <h1>Placeholder test</h1>
-                            </content-placeholder>
-                            <h1>Lorem ipsum dolor sit amet.</h1>
-                            <h2>Lorem ipsum dolor sit amet.</h2>
-                            <h3>Lorem ipsum dolor sit amet.</h3>
-                            <h4>Lorem ipsum dolor sit amet.</h4>
-                            <h5>Lorem ipsum dolor sit amet.</h5><pre><code class="html">The &lt;div class="Valera"&gt; tag &lt;/div&gt;
-</code></pre>
-                            <h1>Lorem ipsum dolor sit amet.</h1>
-                            <p>Lorem ipsum dolor sit amet, <u>consectetur adipisicing elit</u>. Ab expedita, <s>asperiores ipsum itaque amet</s> iure deserunt minima dolorum, aut et assumenda quaerat odit quibusdam molestias saepe cumque veritatis rem doloremque.</p>
-                            <h2>Lorem ipsum dolor sit amet.</h2>
-                            <p>Lorem ipsum <b>dolor sit amet</b>, consectetur <strong>adipisicing elit</strong>. Ab expedita, asperiores ipsum itaque amet iure deserunt minima dolorum, aut et assumenda quaerat odit quibusdam molestias saepe cumque veritatis rem doloremque.</p>
-                            <h3>Lorem ipsum dolor sit amet.</h3>
-                            <p>Lorem ipsum dolor sit amet, <a href="">consectetur adipisicing elit</a>. Ab expedita, asperiores ipsum itaque amet iure deserunt minima dolorum, aut et assumenda quaerat odit quibusdam molestias saepe cumque veritatis rem doloremque. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab expedita, asperiores ipsum itaque amet iure deserunt minima dolorum, aut et assumenda quaerat odit quibusdam molestias saepe cumque veritatis rem doloremque. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab expedita, asperiores ipsum itaque amet iure deserunt minima dolorum, aut et assumenda quaerat odit quibusdam molestias saepe cumque veritatis rem doloremque.</p>
-                            <h4>Lorem ipsum dolor sit amet.</h4>
-                            <p>Lorem ipsum dolor sit amet, <mark>&lt;consectetur adipisicing elit&gt;</mark>. Ab expedita, <mark class="tf-blcode">&lt;consectetur adipisicing elit&gt;</mark>asperiores ipsum itaque amet iure deserunt minima dolorum, aut et assumenda quaerat odit quibusdam molestias saepe cumque veritatis rem doloremque. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab expedita, asperiores ipsum itaque amet iure deserunt minima dolorum, aut et assumenda quaerat odit quibusdam molestias saepe cumque veritatis rem doloremque. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab expedita, asperiores ipsum itaque amet iure deserunt minima dolorum, aut et assumenda quaerat odit quibusdam molestias saepe cumque veritatis rem doloremque.</p>
-                            <h5>Lorem ipsum dolor sit amet.</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab expedita, asperiores ipsum itaque amet iure deserunt minima dolorum, aut et assumenda quaerat odit quibusdam molestias saepe cumque veritatis rem doloremque. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab expedita, asperiores ipsum itaque amet iure deserunt minima dolorum, aut et assumenda quaerat odit quibusdam molestias saepe cumque veritatis rem doloremque. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab expedita, asperiores ipsum itaque amet iure deserunt minima dolorum, aut et assumenda quaerat odit quibusdam molestias saepe cumque veritatis rem doloremque.</p>
-                            <blockquote>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis nisi quisquam reiciendis natus tempore soluta nostrum quaerat, neque atque quos. Libero eveniet, ipsam illo nihil assumenda itaque quos nemo dolorum!</blockquote>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse libero nam culpa voluptate quo accusamus aut in atque dolore, ipsa molestias dolorem corrupti placeat nihil. Officia, necessitatibus. Ipsum, iusto! Temporibus!</p>
-                            <div class="md-table">
-                                <table>
-                                    <tr>
-                                        <th>Thead 1</th>
-                                        <th>Thead 2</th>
-                                        <th>Thead 3</th>
-                                        <th>Thead 4</th>
-                                        <th>Thead 5</th>
-                                    </tr>
-                                    <tr>
-                                        <td>td 1</td>
-                                        <td>td 2</td>
-                                        <td>td 3</td>
-                                        <td>td 4</td>
-                                        <td>td 5</td>
-                                    </tr>
-                                    <tr>
-                                        <td>td 1</td>
-                                        <td>td 2</td>
-                                        <td>td 3</td>
-                                        <td>td 4</td>
-                                        <td>td 5</td>
-                                    </tr>
-                                    <tr>
-                                        <td>td 1</td>
-                                        <td>td 2</td>
-                                        <td>td 3</td>
-                                        <td>td 4</td>
-                                        <td>td 5</td>
-                                    </tr>
-                                    <tr>
-                                        <td>td 1</td>
-                                        <td>td 2</td>
-                                        <td>td 3</td>
-                                        <td>td 4</td>
-                                        <td>td 5</td>
-                                    </tr>
-                                    <tr>
-                                        <td>td 1</td>
-                                        <td>td 2</td>
-                                        <td>td 3</td>
-                                        <td>td 4</td>
-                                        <td>td 5</td>
-                                    </tr>
-                                </table>
+                            <!-- pp-->
+                            <div class="section">
+                                <table-builder store-data="table" media-queries="[{'mobile': '(max-width: 600px)'}]" :default="[{name:'First', email:'first@mail.com', 'role': 'Manager', 'phone': '+380670000000'}, {name: 'Second', email: 'second@mail.com', 'role': 'Manager', 'phone': '+380670000000'}, {name: 'Second', email: 'second@mail.com', 'role': 'Manager', 'phone': '+380670000000'}, {name: 'Second', email: 'second@mail.com', 'role': 'Manager', 'phone': '+380670000000'}, {name: 'Second', email: 'second@mail.com', 'role': 'Manager', 'phone': '+380670000000'}]">
+                                    <h2 slot="empty">No data</h2>
+                                    <tb-column name="name" label="Project name"></tb-column>
+                                    <tb-column name="email"></tb-column>
+                                    <tb-column name="role"></tb-column>
+                                    <tb-column name="phone"></tb-column>
+                                </table-builder>
                             </div>
-                            <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus ipsam nobis libero, at eligendi nihil officia temporibus quisquam quae iusto quasi maxime repellendus accusamus sed quia amet natus, fuga voluptate.</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla illo quasi non, tempore quisquam dolorem. Aliquid commodi laborum neque labore animi illo! Natus veniam accusamus delectus sed maxime numquam sit? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum iste ex repellendus iusto. Itaque, sapiente quod explicabo nesciunt sed accusamus quasi? Voluptate assumenda ullam tenetur atque? Quidem quia officia voluptatibus.</p>
-                            <ul>
-                                <li>lorem</li>
-                                <li>lorem<ul>
-                                        <li>lotem</li>
-                                        <li>lotem</li>
-                                        <li>lotem</li>
-                                        <li>lotem</li>
-                                        <li>lotem</li>
-                                    </ul>
-                                </li>
-                                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur voluptatem nam, aut suscipit explicabo facilis! Explicabo iste accusantium non harum! Repellendus reiciendis aut odit, cumque iusto autem error tempora provident.</li>
-                                <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta eos modi in doloremque at deserunt totam possimus minus illo veniam rem, quod hic quas vitae quo odio alias delectus quaerat.</li>
-                                <li>lorem</li>
-                            </ul>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi sint neque iste molestiae quod adipisci expedita rerum reprehenderit consequuntur cumque ad iure blanditiis deserunt ipsam nemo dolore, voluptatibus vitae dolores. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum officiis aliquid, temporibus rerum deserunt suscipit delectus illum, sequi, omnis deleniti ducimus! Quidem nihil velit veniam distinctio officia delectus amet aliquid!</p>
-                            <ol>
-                                <li>lorem</li>
-                                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi ad doloremque in, quis, aperiam ullam animi nobis quisquam error quas magnam eos accusantium tempore eius expedita, et sequi soluta facilis?</li>
-                                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt alias quo, magni nihil molestiae, odio possimus reprehenderit nam nisi amet sed at nemo dignissimos? Est sint sequi ad ipsum itaque.</li>
-                                <li>lorem</li>
-                                <li>lorem</li>
-                                <li>lorem</li>
-                                <li>lorem<ul>
-                                        <li>lorem</li>
-                                        <li>lorem<ul>
-                                                <li>lotem</li>
-                                                <li>lotem</li>
-                                                <li>lotem</li>
-                                                <li>lotem</li>
-                                                <li>lotem</li>
-                                            </ul>
-                                        </li>
-                                        <li>lorem</li>
-                                        <li>lorem</li>
-                                        <li>lorem</li>
-                                        <li>lorem</li>
-                                    </ul>
-                                </li>
-                                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur voluptatem nam, aut suscipit explicabo facilis! Explicabo iste accusantium non harum! Repellendus reiciendis aut odit, cumque iusto autem error tempora provident.</li>
-                                <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta eos modi in doloremque at deserunt totam possimus minus illo veniam rem, quod hic quas vitae quo odio alias delectus quaerat.</li>
-                                <li>lorem</li>
-                                <li>lorem</li>
-                                <li>lorem</li>
-                                <li>lorem</li>
-                                <li>lorem</li>
-                                <li>lorem</li>
-                                <li>lorem</li>
-                                <li>lorem</li>
-                                <li>lorem</li>
-                                <li>lorem</li>
-                                <li>lorem</li>
-                                <li>lorem</li>
-                                <li>lorem</li>
-                                <li>lorem</li>
-                                <li>lorem</li>
-                            </ol>
-                            <h4>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis, numquam. Cupiditate, deleniti culpa obcaecati consequuntur adipisci maxime nesciunt accusamus at assumenda natus id nam voluptas sunt commodi qui, deserunt magni.</h4>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis aperiam nemo veniam excepturi dolores, possimus voluptatem rerum consequuntur inventore odit eaque cupiditate, incidunt ratione mollitia exercitationem sapiente quae laborum tempora? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error ducimus beatae minima, iure a molestias repellendus distinctio recusandae alias voluptatem, iste consequatur sint expedita corporis cupiditate ad delectus, natus magni! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio expedita a et labore, magnam tempora voluptatibus aliquid blanditiis rerum mollitia odio voluptates dolorem delectus, voluptatem incidunt iusto ab suscipit molestias!</p>
-                            <dl>
-                                <dt>Caption</dt>
-                                <dd>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur repellat incidunt doloribus voluptas similique ipsa at vitae molestiae explicabo quibusdam accusamus voluptates modi beatae dignissimos, pariatur porro iure perferendis error?</dd>
-                                <dt>Caption</dt>
-                                <dd>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur repellat incidunt doloribus voluptas similique ipsa at vitae molestiae explicabo quibusdam accusamus voluptates modi beatae dignissimos, pariatur porro iure perferendis error?</dd>
-                                <dt>Caption</dt>
-                                <dd>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur repellat incidunt doloribus voluptas similique ipsa at vitae molestiae explicabo quibusdam accusamus voluptates modi beatae dignissimos, pariatur porro iure perferendis error?</dd>
-                            </dl>
-                            <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quidem mollitia eaque doloremque! Commodi nemo eaque alias qui dolore, illum labore consequatur, explicabo natus deleniti id cupiditate vel? Doloremque, voluptatem! Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus facere sequi atque tempore, earum, quidem sunt doloremque pariatur dignissimos corrupti deserunt quis laborum fugit harum, omnis laudantium saepe cupiditate accusamus?</h5>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, hic error, reprehenderit dicta eum exercitationem ducimus deserunt voluptatem sit, atque nemo blanditiis. Velit hic facilis eveniet ullam ducimus cumque nam? Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit accusantium nostrum sunt deserunt quia soluta, sequi vitae commodi placeat quibusdam porro ipsa necessitatibus minus quae aliquid facere! Accusamus, quae tempore. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos aperiam molestiae deserunt dolore facere officia optio excepturi maiores nesciunt atque iure unde, vitae, quo nam. Rerum iure nihil corporis ea!</p>
+                            <div class="section">
+                                <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</h2>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A laborum, voluptates dignissimos deleniti, suscipit id et sunt velit explicabo quos veritatis, ullam nobis libero officia eos quod facere dolorum qui.</p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex vel incidunt animi eaque quas impedit dolor inventore! Dicta deserunt nemo illo, asperiores aut molestias ea tempore nulla eum autem ratione?</p><img src="https://picsum.photos/1600/500/?random" alt="">
+                                <ul>
+                                    <li>Lorem ipsum, dolor sit amet <code>consectetur adipisicing elit</code>.</li>
+                                    <li>Lorem ipsum, dolor sit amet <a href="">consectetur adipisicing elit</a>.</li>
+                                    <li>Lorem ipsum, dolor sit amet <b>consectetur adipisicing elit</b>.</li>
+                                    <li>Lorem ipsum, dolor sit amet <em>consectetur adipisicing elit</em>.</li>
+                                    <li>Lorem ipsum, dolor sit amet <kbd>consectetur adipisicing elit</kbd>.</li>
+                                </ul>
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae tempora harum ad quia neque soluta, optio accusantium delectus. Totam vero ipsam ullam quia blanditiis amet aut molestias expedita rem dolor!</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, perspiciatis. Inventore minima quidem dignissimos corporis tenetur, atque ipsa non distinctio mollitia aliquam error placeat quaerat esse, vel culpa possimus laborum.</p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus cupiditate fugiat rerum labore nesciunt ex ratione ut, cum, officia, adipisci dolores. Blanditiis atque illum voluptatum laboriosam reprehenderit non pariatur mollitia!</p>
+                                <ol>
+                                    <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</li>
+                                    <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</li>
+                                    <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</li>
+                                    <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</li>
+                                    <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</li>
+                                </ol>
+                                <blockquote>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi molestias architecto, inventore repudiandae ipsam earum provident consequuntur distinctio, aspernatur harum minima vel quod praesentium, animi atque saepe voluptas voluptate minus.</blockquote>
+                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum accusamus vitae obcaecati. Nam tempora nobis aut, quas voluptates aspernatur inventore eius quibusdam atque, illum dolore numquam harum amet totam enim!</p><pre><code class="language-html">&lt;context-menu&gt;
+    &lt;cm-button&gt;Click me!&lt;/cm-button&gt;
+&lt;/context-menu&gt;</code></pre>
+                            </div>
+                            <div class="section">
+                                <div class="grid">
+                                    <div class="cell-1-2">
+                                        <table-builder store-data="list-slot" media-queries="[{'mobile': '(max-width: 600px)'}]" :default="[{name:'First', email:'first@mail.com', 'role': 'Manager', 'phone': '+380670000000'}, {name: 'Second', email: 'second@mail.com', 'role': 'Manager', 'phone': '+380670000000'}, {name: 'Second', email: 'second@mail.com', 'role': 'Manager', 'phone': '+380670000000'}, {name: 'Second', email: 'second@mail.com', 'role': 'Manager', 'phone': '+380670000000'}, {name: 'Second', email: 'second@mail.com', 'role': 'Manager', 'phone': '+380670000000'}]"><template slot="list" slot-scope="l"></template></table-builder>
+                                    </div>
+                                    <div class="cell-1-2">
+                                        <table-builder store-data="list-slot" media-queries="[{'mobile': '(max-width: 600px)'}]" :default="[{name:'First', email:'first@mail.com', 'role': 'Manager', 'phone': '+380670000000'}, {name: 'Second', email: 'second@mail.com', 'role': 'Manager', 'phone': '+380670000000'}, {name: 'Second', email: 'second@mail.com', 'role': 'Manager', 'phone': '+380670000000'}, {name: 'Second', email: 'second@mail.com', 'role': 'Manager', 'phone': '+380670000000'}, {name: 'Second', email: 'second@mail.com', 'role': 'Manager', 'phone': '+380670000000'}]"><template slot="list" slot-scope="l"></template></table-builder>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div><span class="frame__copyright">© 2019 - PkgKit - Proudly powered on <a href="">Awes.IO Platform</a>.</span>

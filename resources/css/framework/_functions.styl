@@ -87,9 +87,11 @@ fl(ww = 'nowrap', jj = 'flex-start', aa = 'stretch')
 		align-items aa
 
 disabled()
-	pointer-events none
+	cursor not-allowed
 	user-select none
 	opacity 0.75
+	*
+		pointer-events none
 
 formautofill()
 	&:not(:-webkit-autofill)

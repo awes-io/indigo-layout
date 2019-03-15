@@ -1,0 +1,66 @@
+extends includes/layout.pug
+
+block pageVariables
+    - var pageTitle = "Grid Demo Y"
+
+block pageHead
+    // there is can be head meta or sctipts
+
+
+block pageContent
+
+    .filter
+        .filter__wrap
+            // left
+            .filter__left
+                .filter__checkbox
+                    filter-builder(:param="{is_public: ''}", label='All')
+                    filter-builder(:param="{is_public: '1'}", label='Public')
+                    filter-builder(:param="{is_public: '0'}", label='Enterprise')
+            // right
+            .filter__right
+                .filter__rlink
+                    context-menu(button-class='filter__slink', right='')
+                        template(slot='toggler')
+                            span Sort by
+                        cm-query(:param="{orderBy: ''}") ID ↑
+                        cm-query(:param="{orderBy: 'id'}") ID ↓
+                        cm-query(:param="{orderBy: 'name'}") Package name
+                .filter__rlink
+                    button.filter__slink(@click='$refs.filter.toggle()')
+                        // also can be toggled with `$root.$emit('filters:toggle', 'managers')`
+                        i.icon.icon-filter(v-if="")
+                            // prop `name` of filter
+                            span.icn-dot
+                        | Filter
+        slide-up-down(ref='filter')
+            filter-wrapper(name='packages')
+                fb-input(name='name', label='Package name')
+
+
+    .grid
+        - for (var i = 0; i < 9; i++)
+            .cell-1-3
+                .box-block
+                
+                    .grid.grid-nowrap
+                        .cell
+                            h3
+                                a(href="") Form Builder
+                            p Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas suscipit esse quidem. Nihil, non pariatur. Repellat nemo, officia hic exercitationem nobis, impedit soluta modi obcaecati natus numquam delectus et accusamus.
+                        .cell-auto(style="width:70px")
+                            img(src="https://picsum.photos/60/60", alt="")
+                    .grid
+                        .cell-auto
+                            a(href="") vuejs
+                            a(href="") php
+                            a(href="") laravel
+                        .cell-auto
+                            a.icon.icon-star(href="")
+                        .cell-auto
+                            p <b>52k</b> downloads
+                            p updated: <b>12.03.2018</b>
+                        .cell-auto
+                            p 15$
+
+                

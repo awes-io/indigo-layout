@@ -115,15 +115,16 @@
         tr(0.15)
         color var(--tc_text_caption)
     &_active
-        z-index 5
+        z-index 2
         .multiselect__placeholder, .multiselect__input, .multiselect__single
             opacity 1
         & ^[0]__label
             font-size 10px
             top 9px
             height auto
+            z-index 4
     &_opened
-        z-index 5 !important
+        z-index 4 !important
     &_disabled
         disabled()
     &_ok
