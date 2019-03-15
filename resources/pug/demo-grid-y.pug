@@ -40,27 +40,30 @@ block pageContent
 
     .grid
         - for (var i = 0; i < 9; i++)
-            .cell-1-3
-                .box-block
-                
-                    .grid.grid-nowrap
-                        .cell
-                            h3
-                                a(href="") Form Builder
-                            p Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas suscipit esse quidem. Nihil, non pariatur. Repellat nemo, officia hic exercitationem nobis, impedit soluta modi obcaecati natus numquam delectus et accusamus.
-                        .cell-auto(style="width:70px")
-                            img(src="https://picsum.photos/60/60", alt="")
-                    .grid
-                        .cell-auto
-                            a(href="") vuejs
-                            a(href="") php
-                            a(href="") laravel
-                        .cell-auto
-                            a.icon.icon-star(href="")
-                        .cell-auto
-                            p <b>52k</b> downloads
-                            p updated: <b>12.03.2018</b>
-                        .cell-auto
-                            p 15$
+            .cell-1-3.cell-1-2--dxl.cell-1-1--tsm
+                .card.box-post
+                    .grid.grid-justify-between.grid-nowrap.grid-wrap--mmd.text-center--mmd
+                        .cell-4-6.cell-1-1--mmd.order-2--mmd
+                            a.box-post__title.h2(href="") Form Builder
+                            p.m0 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas suscipit esse quidem. Nihil, non pariatur.
+                        .cell-2-6.cell-inline--tsm.cell-1-1--mmd.order-1--mmd
+                            img.tf-circle.tf-shadow(src="https://picsum.photos/130/130", alt="")
+                    .grid.grid-nowrap.grid-gap-x.grid-justify-between
+                        .cell-inline
+                            a.tag(href="") vuejs
+                            a.tag(href="") php
+                            a.tag(href="") laravel
+                            a.tag(href="") laravel
+                            a.tag(href="") laravel
+                        .cell-inline
+                            button.box-post__star
+                                i.icon.icon-star-circle
+                    .grid.grid-gap-x.grid-align-end.grid-justify-between.mt-sm
+                        .cell-inline
+                            p.tf-caption.m0 <b>52k</b> downloads
+                            
+                        .cell-inline
+                            p.tf-caption.m0 updated: <b>12.03.2018</b>
+                            //- span.card__price 15$
 
                 

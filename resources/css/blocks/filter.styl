@@ -154,9 +154,8 @@
   
   .filter
     margin-bottom 0
-    flex-wrap wrap
-    & &__left, &__right
-      //display none !important
+    & &__wrap
+      flex-wrap wrap
 
 @media maw[mlg]
 
@@ -180,6 +179,16 @@
       margin-right 15px
       &:first-child
         margin-left 15px
+    .line-btns
+      fl()
+      margin-left -5px
+      margin-right -5px
+      width calc(100 + 4px)
+      .btn
+        min-width 1px
+        margin-left 5px
+        margin-right 5px
+        flex-grow 1
     
 
   .js-window
@@ -217,3 +226,5 @@
         text-align center
         padding-top 10px
         fl(,c,c) 
+
+  
