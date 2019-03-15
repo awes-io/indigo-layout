@@ -28,10 +28,14 @@ export class Waves {
                 el.appendChild(wave)
             }
 
-            el.__AWES_WAVE__ = wave
+            el.__AWES_WAVE__ = { wave, active: false }
             Waves.hideWave(el)
 
-            el.addEventListener('click', Waves.showWave, false)
+            const EVENTS = ('touchstart' in window) ? ['touchstart', 'click'] : ['click']
+
+            EVENTS.map( e => {
+                el.addEventListener(e, Waves.showWave, false)
+            })
         })
     }
 
@@ -48,8 +52,10 @@ export class Waves {
     }
 
     static showWave(ev) {
-        if (ev.target !== ev.currentTarget) return
-        let wave = this.__AWES_WAVE__
+        if (ev.target !== ev.currentTarget ) return
+        let { wave, active } = this.__AWES_WAVE__
+        if ( active ) return
+        this.__AWES_WAVE__.active = true
         if ( this._tm ) {
             clearTimeout(this._tm)
             Waves.hideWave(this)
@@ -61,14 +67,14 @@ export class Waves {
             top: ${ev.offsetY}px;
             left: ${ev.offsetX}px
         `
-        this._tm = setTimeout(
-            () => Waves.hideWave(this),
-            WAVE_DURATION
-        )
+        this._tm = setTimeout( () => {
+            this.__AWES_WAVE__.active = false
+            Waves.hideWave(this)
+        }, WAVE_DURATION )
     }
 
     static hideWave(el) {
-        el.__AWES_WAVE__.style.cssText = `
+        el.__AWES_WAVE__.wave.style.cssText = `
             transform: translate(-50%, -50%) scale(0);
             transition: none;
             opacity: 1;
