@@ -7,8 +7,8 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700&amp;subset=cyrillic" rel="stylesheet">
     @stack('head')
 
-@isset($src['style']['indigo-layout'])
-    <link rel="stylesheet" href="{{ $src['style']['indigo-layout'] }}">
+@isset($src['css']['indigo-layout'])
+    <link rel="stylesheet" href="{{ $src['css']['indigo-layout'][0] }}">
 @endisset
 
 @if(config('indigo-layout.root_variables'))
@@ -30,22 +30,28 @@
     <!-- config -->
     <script>AWES_CONFIG = @json(config('base-js'))</script>
 
+
     <!-- modules -->
-@isset($src['script'])
-    @foreach($src['script'] as $script)
-        <script type="module" src="{{ $script }}"></script>
+@isset($src['js'])
+    @foreach($src['js'] as $key => $scripts)
+        @foreach($scripts as $script)
+            @if($key !== 'base-js')<script type="module" src="{{ $script }}"></script>@endif
+
+        @endforeach
     @endforeach
 @endisset
 
-@isset($src['script_legacy'])
-    @foreach($src['script_legacy'] as $script_legacy)
-        <script nomodule src="{{ $script_legacy }}"></script>
+@isset($src['legacy'])
+    @foreach($src['legacy'] as $scripts_legacy)
+        @foreach($scripts_legacy as $script_legacy)
+            <script nomodule src="{{ $script_legacy }}"></script>
+        @endforeach
     @endforeach
 @endisset
 
     <!-- core -->
-@isset($src['base'])
-    @foreach($src['base'] as $base)
+@isset($src['js'])
+    @foreach($src['js']['base-js'] as $base)
         <script src="{{ $base }}"></script>
     @endforeach
 @endisset
