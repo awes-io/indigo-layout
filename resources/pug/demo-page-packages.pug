@@ -1,0 +1,69 @@
+extends includes/layout.pug
+
+block pageVariables
+    - var pageTitle = "Grid Demo Y"
+
+block pageHead
+    // there is can be head meta or sctipts
+
+
+block pageContent
+
+    .filter
+        .filter__wrap
+            // left
+            .filter__left
+                .filter__checkbox
+                    filter-builder(:param="{is_public: ''}", label='All')
+                    filter-builder(:param="{is_public: '1'}", label='Public')
+                    filter-builder(:param="{is_public: '0'}", label='Enterprise')
+            // right
+            .filter__right
+                .filter__rlink
+                    context-menu(button-class='filter__slink', right='')
+                        template(slot='toggler')
+                            span Sort by
+                        cm-query(:param="{orderBy: ''}") ID ↑
+                        cm-query(:param="{orderBy: 'id'}") ID ↓
+                        cm-query(:param="{orderBy: 'name'}") Package name
+                .filter__rlink
+                    button.filter__slink(@click='$refs.filter.toggle()')
+                        // also can be toggled with `$root.$emit('filters:toggle', 'managers')`
+                        i.icon.icon-filter(v-if="")
+                            // prop `name` of filter
+                            span.icn-dot
+                        | Filter
+        slide-up-down(ref='filter')
+            filter-wrapper(name='packages')
+                fb-input(name='name', label='Package name')
+
+
+    .grid
+        - for (var i = 0; i < 9; i++)
+            .cell-1-3.cell-1-2--dxl.cell-1-1--tsm
+                .card.box-post
+                    .grid.grid-justify-between.grid-nowrap.grid-wrap--mmd.text-center--mmd
+                        .cell-4-6.cell-1-1--mmd.order-2--mmd
+                            a.box-post__title.h2(href="") Form Builder
+                            p.m0 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas suscipit esse quidem. Nihil, non pariatur.
+                        .cell-2-6.cell-inline--tsm.cell-1-1--mmd.order-1--mmd
+                            img.tf-circle.tf-shadow(src="https://picsum.photos/130/130", alt="")
+                    .grid.grid-nowrap.grid-gap-x.grid-justify-between
+                        .cell-inline
+                            a.tag(href="") vuejs
+                            a.tag(href="") php
+                            a.tag(href="") laravel
+                            a.tag(href="") laravel
+                            a.tag(href="") laravel
+                        .cell-inline
+                            button.box-post__star
+                                i.icon.icon-star-circle
+                    .grid.grid-gap-x.grid-align-end.grid-justify-between.mt-sm
+                        .cell-inline
+                            p.tf-caption.m0 <b>52k</b> downloads
+                            
+                        .cell-inline
+                            p.tf-caption.m0 updated: <b>12.03.2018</b>
+                            //- span.card__price 15$
+
+                

@@ -3,6 +3,14 @@ if framework_class_prefix is defined && framework_class_prefix
 else 
 	framework_class_prefix = ''
 
+if grid_bpoint is defined && grid_bpoint
+	if grid_always_inverted is defined && grid_always_inverted
+		grid_inverted_class = ''
+		grid_default_class = '-i'
+	else
+		grid_inverted_class = '-i'
+		grid_default_class = ''        
+
 font-url(file)
 	return '../fonts/' + file
 
@@ -87,9 +95,11 @@ fl(ww = 'nowrap', jj = 'flex-start', aa = 'stretch')
 		align-items aa
 
 disabled()
-	pointer-events none
+	cursor not-allowed
 	user-select none
 	opacity 0.75
+	*
+		pointer-events none
 
 formautofill()
 	&:not(:-webkit-autofill)

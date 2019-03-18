@@ -7,186 +7,188 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700&amp;amp;subset=cyrillic" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
-    <script>const AWES_CONFIG = {
-    key: '5cd207e2c94eb723c3307764a5693def',
-    formBuilder: {
-        fbEditor: {
-            content_css: ['/css/editor.css']
+    <script>
+        const AWES_CONFIG = {
+            key: '5cd207e2c94eb723c3307764a5693def',
+            formBuilder: {
+                fbEditor: {
+                    content_css: ['/css/editor.css']
+                }
+            }
         }
-    }
-}</script>
+    </script>
     <script src="/js/main.js"></script>
+    <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/filter-wrapper/v1.x.x/js/main.legacy.js"></script>
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/context-menu/v0.x.x/js/main.js"></script>
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/form-builder/v1.x.x/js/main.js"></script>
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/modal-window/v1.x.x/js/main.js"></script>
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/theme-switcher/v1.x.x/js/main.js"></script>
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/base-js/v1.x.x/js/main.js"></script><!-- there is can be head meta or sctipts-->
-    <style>:root:not([data-dark='true']) {
-    --tc_page_bg: #e3e8ee;
-    --tc_aside_gradient: linear-gradient(to left, #e3e8ee 0%, #e3e8ee 100%);
-    --tc_aside_gradient_header: linear-gradient(to left, #fff 0%, #fff 100%);
-    --tc_aside_link: #414770;
-    --tc_aside_text: #414770;
-    --tc_aside_bg_nav: #dee2e7;
-    --tc_header_bg: none;
-    --tc_ui_btn_smcolor: #16a085;
-    --tc_ui_btn_smcolor_active: #1abc9c;
-    --tc_header_link: #aab7c4;
-    --tc_header_link_active: #414770;
+    <style>
+        :root:not([data-dark='true']) {
+            --tc_page_bg: #e3e8ee;
+            --tc_aside_gradient: linear-gradient(to left, #e3e8ee 0%, #e3e8ee 100%);
+            --tc_aside_gradient_header: linear-gradient(to left, #fff 0%, #fff 100%);
+            --tc_aside_link: #414770;
+            --tc_aside_text: #414770;
+            --tc_aside_bg_nav: #dee2e7;
+            --tc_header_bg: none;
+            --tc_ui_btn_smcolor: #16a085;
+            --tc_ui_btn_smcolor_active: #1abc9c;
+            --tc_header_link: #aab7c4;
+            --tc_header_link_active: #414770;
 
-}
+        }
 
-:root[data-dark='true'] {
-    --tc_header_bg: none;
-    --tc_ui_btn_smcolor: #16a085;
-    --tc_ui_btn_smcolor_active: #1abc9c;
-}
+        :root[data-dark='true'] {
+            --tc_header_bg: none;
+            --tc_ui_btn_smcolor: #16a085;
+            --tc_ui_btn_smcolor_active: #1abc9c;
+        }
 
-.frame .frame__aside {
-    box-shadow: none;
-}
+        .frame .frame__aside {
+            box-shadow: none;
+        }
 
-.frame .frame__aside-link .icon-angle-bottom:after {
-    top: 0.5rem;
-    bottom: 0.5rem;
-}
+        .frame .frame__aside-link .icon-angle-bottom:after {
+            top: 0.5rem;
+            bottom: 0.5rem;
+        }
 
-.frame .frame__aside-link .icon-angle-bottom {
-    width: 35px;
-}
+        .frame .frame__aside-link .icon-angle-bottom {
+            width: 35px;
+        }
 
-.frame .frame__aside-link {
-    padding-top: 5px;
-    padding-bottom: 5px;
-    min-height: 35px;
-    opacity: 1;
-}
+        .frame .frame__aside-link {
+            padding-top: 5px;
+            padding-bottom: 5px;
+            min-height: 35px;
+            opacity: 1;
+        }
 
-.frame .frame__aside-link:hover {
-    color: #556cd6;
-}
+        .frame .frame__aside-link:hover {
+            color: #556cd6;
+        }
 
-.frame .frame__aside-inlist {
-    min-height: 30px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
+        .frame .frame__aside-inlist {
+            min-height: 30px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
 
-.frame .frame__aside-title {
-    min-height: 77px;
+        .frame .frame__aside-title {
+            min-height: 77px;
 
-}
-
-
-.frame .frame__aside-title {
-    text-align: left;
-    justify-content: flex-start;
-    padding-left: 35px;
-    padding-right: 20px;
-}
-
-.frame .frame__aside-title {
-    background: none;
-}
-
-.frame .frame__search {
-    background-color: var(--tc_ui_bg);
-    padding: 5px 15px;
-    border-radius: 2px;
-    box-shadow: var(--tc_shadow_smr);
-}
-
-.frame .frame__search .frame__search-hidden {
-    width: 300px;
-}
-
-.frame .frame__search-input {
-    border: 0px;
-}
-
-.frame .frame__search-input:focus {
-    border: 0px;
-}
-
-.frame__search-link {
-    pointer-events: none;
-}
-
-.frame .frame__search-close {
-    display: none;
-}
-
-.frame .frame__header-top {
-    padding-top: 20px;
-    padding-right: 40px;
-}
-
-.frame .frame__userinfo-ava {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    margin-left: 15px;
-}
-
-.frame .frame__userinfo {
-    height: 36px;
-}
-
-.frame .frame__header-line {
-    padding-top: 30px;
-    padding-bottom: 0;
-}
-
-.frame .frame__userinfo-link {
-    width: 36px;
-    height: 36px;
-    margin-left: 10px;
-}
-
-.frame .frame__header-add {
-    top: -35px;
-}
-
-@media (max-width: 1000px) {
-    .frame .frame__header-top {
-        padding-right: 15px;
-    }
-}
-
-@media (max-width: 900px) {
-    .frame .frame__aside-title {
-        min-height: 60px;
-    }
-
-    .frame .frame__userinfo-ava {
-        width: 42px;
-        height: 42px;
-    }
-
-    .frame .frame__aside-title {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-}
-
-@media (max-width: 700px) {
-    .frame .frame__header-line {
-        padding-top: 10px;
-    }
-
-    .frame .frame__header-add {
-        top: auto;
-    }
-
-    .frame .frame__userinfo {
-        background: #fff;
-        height: 60px;
-    }
-    
-}
+        }
 
 
-</style>
+        .frame .frame__aside-title {
+            text-align: left;
+            justify-content: flex-start;
+            padding-left: 35px;
+            padding-right: 20px;
+        }
+
+        .frame .frame__aside-title {
+            background: none;
+        }
+
+        .frame .frame__search {
+            background-color: var(--tc_ui_bg);
+            padding: 5px 15px;
+            border-radius: 2px;
+            box-shadow: var(--tc_shadow_smr);
+        }
+
+        .frame .frame__search .frame__search-hidden {
+            width: 300px;
+        }
+
+        .frame .frame__search-input {
+            border: 0px;
+        }
+
+        .frame .frame__search-input:focus {
+            border: 0px;
+        }
+
+        .frame__search-link {
+            pointer-events: none;
+        }
+
+        .frame .frame__search-close {
+            display: none;
+        }
+
+        .frame .frame__header-top {
+            padding-top: 20px;
+            padding-right: 40px;
+        }
+
+        .frame .frame__userinfo-ava {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            margin-left: 15px;
+        }
+
+        .frame .frame__userinfo {
+            height: 36px;
+        }
+
+        .frame .frame__header-line {
+            padding-top: 30px;
+            padding-bottom: 0;
+        }
+
+        .frame .frame__userinfo-link {
+            width: 36px;
+            height: 36px;
+            margin-left: 10px;
+        }
+
+        .frame .frame__header-add {
+            top: -35px;
+        }
+
+        @media (max-width: 1000px) {
+            .frame .frame__header-top {
+                padding-right: 15px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .frame .frame__aside-title {
+                min-height: 60px;
+            }
+
+            .frame .frame__userinfo-ava {
+                width: 42px;
+                height: 42px;
+            }
+
+            .frame .frame__aside-title {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .frame .frame__header-line {
+                padding-top: 10px;
+            }
+
+            .frame .frame__header-add {
+                top: auto;
+            }
+
+            .frame .frame__userinfo {
+                background: #fff;
+                height: 60px;
+            }
+
+        }
+    </style>
 </head>
 
 <body>
