@@ -23,7 +23,7 @@
         background-color var(--tc_ui_bg)
         border 1px solid var(--tc_border_ins) !important
         min-height 50px !important
-        padding-top 22px !important
+        padding-top 19px !important
         border-radius 2px !important
         padding-left 15px
     & &__single
@@ -35,6 +35,8 @@
         display block !important
         margin 0
         list-style none
+        li
+            margin-bottom 0
         &-wrapper
             background-color var(--tc_ui_bg)
             border 1px solid var(--tc_border_ins)
@@ -79,7 +81,6 @@
             color var(--tc_text) !important
     & &__placeholder
         opacity 0
-        margin-bottom 9px !important
     & &__input, & &__single
         opacity 0
         tr(0.3)
@@ -98,7 +99,6 @@
 // Write our styles
 .fb-select
     position relative
-    margin-bottom 10px
     z-index 1
     & &__label
         font-size f_middle
@@ -115,15 +115,16 @@
         tr(0.15)
         color var(--tc_text_caption)
     &_active
-        z-index 5
+        z-index 2
         .multiselect__placeholder, .multiselect__input, .multiselect__single
             opacity 1
         & ^[0]__label
             font-size 10px
             top 9px
             height auto
+            z-index 4
     &_opened
-        z-index 5 !important
+        z-index 4 !important
     &_disabled
         disabled()
     &_ok

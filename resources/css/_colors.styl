@@ -453,7 +453,7 @@ a
       background-color cl_grass
   &[disabled="disabled"]
     background-color var(--tc_ui_darkbg) !important
-    pointer-events none
+    cursor not-allowed
     opacity 0.5
 
 
@@ -621,75 +621,6 @@ table:not(.int-table__table):not(.hljs-ln)
     &:hover
       background-color var(--tc_ui_bg_semi)
 
-.int-table
-  & &__footer
-    background-color var(--tc_ui_bg_darken)
-  & &__drag-icon
-    .icon
-      color var(--tc_text_caption)
-  & &__flink
-    color var(--tc_link_semi)
-    &:hover
-      color var(--tc_link_semi_active)
-  & &__fcaption
-    color var(--tc_text)
-  & &__header
-    border 1px solid var(--tc_border)
-  & &__count
-    span
-      color var(--tc_text_caption)
-  & &__table
-    background-color var(--tc_ui_bg)
-    th
-      background-color var(--tc_ui_bg_darken)
-      color var(--tc_text_caption)
-    td
-      border-bottom 1px solid var(--tc_border_dark)
-    tr
-      &:hover
-        background-color var(--tc_ui_bg_semi)
-    tr.active:hover
-      background-color transparent
-
-    tbody
-      box-shadow var(--tc_ui_shadow)
-  & &__show
-    color var(--tc_text_caption)
-  & &__status
-    &-icon
-      color var(--tc_text_caption)
-  & &__link, a
-    color var(--tc_link)
-  & &__caption
-    color var(--tc_text_caption)
-  & &__status
-    border 1px solid var(--tc_border)
-    color var(--tc_text_caption)
-    &_stop
-      background-color cl_warn
-      color cl_white
-      border 1px solid cl_warn
-    &_inproggress
-      border 1px solid cl_grass
-      color cl_grass
-    &_sleep
-      border 1px solid var(--tc_link)
-      color var(--tc_link)
-  & &__controll
-    color var(--tc_link_semi)
-    &:hover, &.active
-      color var(--tc_link_semi_active)
-    &-tab
-      @media maw[dmd]
-        border-left 1px solid var(--tc_border)
-        &.active
-          background-color var(--tc_border_semi)
-  & &__block
-    &.active
-      & ^[0]__controll-tab
-        @media maw[dmd]
-            background-color var(--tc_ui_bg_semi)
-            border-bottom 1px solid var(--tc_border)
 
 
 .user-menu
@@ -1003,26 +934,6 @@ table:not(.int-table__table):not(.hljs-ln)
       background-color var(--tc_ui_bg)
 
 
-::-webkit-scrollbar-button
-  background-color var(--tc_border)
-
-::-webkit-scrollbar-track
-  background-color var(--tc_border)
-
-::-webkit-scrollbar-corner
-  background-color cl_red
-
-::-webkit-scrollbar
-  background-color: var(--tc_border)
-
-::-webkit-resizer
-  background-color cl_red
-
-::-webkit-scrollbar-thumb
-  background-color var(--tc_scroll_thumb)
-
-::-webkit-scrollbar-thumb:hover
-  background-color var(--tc_scroll_thumb_active)
 
 .float-icns
     & &__icon

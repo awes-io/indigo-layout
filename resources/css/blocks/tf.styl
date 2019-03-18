@@ -72,25 +72,25 @@ body
                 background-color var(--tc_ui_bg_darken_d)
 
 
-h1
+h1, .h1
     margin-bottom tf_margin
     font-weight 700
     display block
     font-size f_big
 
-h2
+h2, .h2
     font-weight 400
     font-size f_big
 
-h3
+h3, .h3
     font-weight 700
     font-size f_middle
 
-h4
+h4, .h4
     font-weight 400
     font-size f_middle
 
-h5
+h5, .h5
     font-weight 400
     font-size f_medium
 
@@ -161,6 +161,12 @@ table:not(.int-table__table):not(.hljs-ln)
 
 .frame__content, .tf-content
 
+    a
+        &[target="_blank"], &[href^="http://"], &[href^="https://"]
+            icon(openin, 0.75em, after)
+            &:after
+                padding-left 3px
+
     img
         box-shadow var(--tc_shadow_smr)
     ol
@@ -216,9 +222,6 @@ table:not(.int-table__table):not(.hljs-ln)
             width 80%
             margin-bottom tf_text_margin
 
-    img
-        margin-bottom 30px
-
 kbd
     padding 2px 5px 4px 5px
     margin-left 5px
@@ -266,9 +269,27 @@ pre
 
 // Help Classes
 
+.tag, .tags a
+    background-color var(--tc_ui_bg_semi)
+    padding 5px 10px
+    margin-right 5px
+    margin-bottom 5px
+    color var(--tc_link_semi)
+    font-size 0.75rem
+    border-radius 2px
+    display inline-block
+    &:hover
+        text-decoration none
+        background-color var(--tc_ui_bg_semi_v)
+        color var(--tc_link_semi)
+    &:active
+        background-color var(--tc_link_color_bg)
+        color var(--tc_link_color_text)
 
 
 .tf
+    &-circle
+        border-radius 50%
     &-titlenav
         list-style none !important
         margin 0 !important
@@ -340,6 +361,8 @@ pre
         max-width 100%
     &-oneline
         white-space nowrap
+    &-shadow
+        box-shadow var(--tc_ui_shadow)
     &-caption
         font-size 13px
         display block

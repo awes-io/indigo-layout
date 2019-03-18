@@ -23,8 +23,7 @@
             padding 12px 0 0 5px
             display inline-flex
             width auto
-
-
+            
 .number-field
     size 54px 36px
     position relative
@@ -49,6 +48,39 @@
         size 14px
         text-align center
         line-height 1
+
+.grid
+    &_forms
+        width calc(100% + 10px)
+        margin-left -5px
+        margin-right -5px
+        [class^="cell"]
+            padding-left 5px
+            padding-right 5px
+            margin-bottom 10px
+        &^[0]-gap-y
+            margin-left 0
+            margin-right 0
+            width 100%
+            [class^="cell"]
+                margin-bottom 10px
+                padding-left 0
+                padding-right 0
+        &^[0]-gap-x
+            [class^="cell"]
+                margin-bottom 0
+        &^[0]-ungap
+            margin-bottom -10px
+        &^[0]-nogap
+            margin-left 0
+            margin-right 0
+            width 100%
+            [class^="cell"]
+                padding-left 0
+                padding-right 0
+                margin-bottom 0
+
+
 
 .modal-form
     & &__wrap

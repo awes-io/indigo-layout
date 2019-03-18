@@ -1,4 +1,4 @@
-fb-input, fb-select, fb-textarea, fb-uploader, fb-editor, fb-company-slug, fb-multi-block
+fb-input, fb-select, fb-textarea, fb-uploader, fb-editor, fb-company-slug, fb-multi-block, filter-builder
     animation placeholderAnimation 30s infinite linear
 
 form-builder
@@ -67,12 +67,17 @@ fb-input, fb-select, fb-phone, fb-slider, fb-company-slug, fb-multi-block
     display inline-block
     width 100%
     height: 50px
-    margin-bottom 10px
+    border-radius 2px
+
+filter-builder
+    display inline-block
+    min-width 100px
+    margin-right 2px
+    height 32px
     border-radius 2px
 
 fb-textarea, fb-uploader, fb-editor
     height 92px
-    margin-bottom 10px
     display block
     border-radius 2px
 
@@ -82,7 +87,6 @@ fb-uploader
 fb-checkbox
     margin-top 10px
     height 22px
-    margin-bottom 10px
     display block
     position relative
     margin-right 190px
@@ -102,21 +106,13 @@ fb-checkbox
 
 
 {dt}
-    fb-checkbox, fb-textarea, fb-input, fb-select, fb-editor, fb-company-slug
+    fb-checkbox, fb-textarea, fb-input, fb-select, fb-editor, fb-company-slug, filter-builder
         opacity 0.7
 
 
-fb-input, fb-select, fb-multi-block, fb-textarea, fb-editor, fb-checkbox:before, fb-checkbox:after, fb-phone, fb-slider:before, fb-slider:after, fb-uploader, fb-company-slug
+fb-input, fb-select, fb-multi-block, filter-builder, fb-textarea, fb-editor, fb-checkbox:before, fb-checkbox:after, fb-phone, fb-slider:before, fb-slider:after, fb-uploader, fb-company-slug
     background-color var(--tc_ui_bg_darken)
     {dt} &
         phAnimation(--tc_ui_bg_darken, --tc_ui_bg_stn)
     {lt} &
         phAnimation(--tc_ui_bg_darken, --tc_ui_bg_std)
-
-
-@media maw[tlg]
-    fb-group
-        *[cell="2"]
-            width 100% !important
-        *[cell="3"]
-            width 100% !important

@@ -6,15 +6,28 @@
     // Wawe
     --tc_ui_wave alpha(cl_white, .7)
 
+    // Status
+    --tc_status_error cl_warn
+    --tc_status_warning cl_yellow
+    --tc_status_success cl_grass
+    --tc_status_inprogress cl_sky
+    --tc_status_wait cl_asphalt
+
+
     &:not([data-dark="true"])
 
         // Цвета темы
         --tc_color_main cl_violet
         --tc_color_main_l lighten(cl_violet, 15%)
 
+        
+
         // Типография
         --tc_link cl_sky
         --tc_link_dark cl_skydark
+
+        --tc_link_color_bg cl_violet
+        --tc_link_color_text cl_white
 
         --tc_link_black cl_black
         --tc_link_black_active var(--tc_color_main)
@@ -157,6 +170,9 @@
         --tc_link cl_sky
         --tc_link_dark cl_skydark
 
+        --tc_link_color_bg cl_violet
+        --tc_link_color_text cl_white
+
         --tc_link_black cl_white
         --tc_link_black_active var(--tc_color_main)
 
@@ -280,7 +296,7 @@
         --tc_theme_body cl_black
 
         // Scroll
-        --tc_scroll_thumb cl_lgr
+        --tc_scroll_thumb darken(cl_asphalt, 15%)
         --tc_scroll_thumb_active cl_asphalt
 
         --tc_code_bg alpha(cl_rdred, 0.1)

@@ -1,0 +1,31 @@
+// Custom classes
+.{framework_class_prefix}text
+    &-center
+        text-align center
+    &-left
+        text-align left
+    &-right
+        text-align right
+
+
+// Media for classes
+if grid_bpoint is defined && grid_bpoint
+    for index, key in grid_bpoint
+        @media(max-width (key)px)
+            .{framework_class_prefix}text
+                &-center--{index}{grid_default_class}
+                    text-align center
+                &-left--{index}{grid_default_class}
+                    text-align left
+                &-right--{index}{grid_default_class}
+                    text-align right
+            
+    for index, key in invert_hash(grid_bpoint)
+        @media(min-width (key + 1)px)
+            .{framework_class_prefix}text
+                &-center--{index}{grid_inverted_class}
+                    text-align center
+                &-left--{index}{grid_inverted_class}
+                    text-align left
+                &-right--{index}{grid_inverted_class}
+                    text-align right

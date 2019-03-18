@@ -1,21 +1,28 @@
 if grid_frames is defined && grid_frames
+
+    if grid_order is defined && grid_order
+        for irn in 1..grid_order
+            .{framework_class_prefix}order-{irn}
+                order irn
+
     .{framework_class_prefix}grid
         fl(w)
         if (grid_default_gap is defined && grid_default_gap)
             margin-left: -(grid_gap / 2)px
             margin-right: -(grid_gap / 2)px
             width: "calc(100% + %spx)" % grid_gap
-            [class^=\"{framework_class_prefix}cell\"]
+            & > [class^=\"{framework_class_prefix}cell\"]
                 padding-left: (grid_gap / 2)px
                 padding-right: (grid_gap / 2)px
                 margin-bottom: (grid_gap)px
         else
             width 100%
+            
         &-gap
             margin-left: -(grid_gap / 2)px
             margin-right: -(grid_gap / 2)px
             width: "calc(100% + %spx)" % grid_gap
-            [class^=\"{framework_class_prefix}cell\"]
+            & > [class^=\"{framework_class_prefix}cell\"]
                 padding-left: (grid_gap / 2)px
                 padding-right: (grid_gap / 2)px
                 margin-bottom: (grid_gap)px
@@ -23,7 +30,7 @@ if grid_frames is defined && grid_frames
                 margin-left: -(grid_gap / 2)px
                 margin-right: -(grid_gap / 2)px
                 width: "calc(100% + %spx)" % grid_gap
-                [class^=\"{framework_class_prefix}cell\"]
+                & > [class^=\"{framework_class_prefix}cell\"]
                     padding-left: (grid_gap / 2)px
                     padding-right: (grid_gap / 2)px
                     if grid_default_gap is defined && grid_default_gap
@@ -32,7 +39,7 @@ if grid_frames is defined && grid_frames
                 if grid_default_gap is defined && grid_default_gap
                     margin-left 0
                     margin-right 0
-                [class^=\"{framework_class_prefix}cell\"]
+                & > [class^=\"{framework_class_prefix}cell\"]
                     margin-bottom: (grid_gap)px
                     if grid_default_gap is defined && grid_default_gap
                         padding-left 0
@@ -41,12 +48,15 @@ if grid_frames is defined && grid_frames
             width 100%
             margin-left 0
             margin-right 0
-            [class^=\"{framework_class_prefix}cell\"]
+            & > [class^=\"{framework_class_prefix}cell\"]
                 padding 0
                 margin-bottom 0
-
+        &-ungap
+            margin-bottom -(grid_gap)px
         .{framework_class_prefix}cell
             width 100%
+            &[style^="width"]
+                flex-shrink 0
             &-auto
                 width auto
                 flex-grow 1
@@ -126,16 +136,15 @@ if grid_frames is defined && grid_frames
 
 
     if grid_bpoint is defined && grid_bpoint
-
-        if grid_always_inverted is defined && grid_always_inverted
-            grid_inverted_class = ''
-            grid_default_class = '-i'
-        else
-            grid_inverted_class = '-i'
-            grid_default_class = ''        
-
+        
         for index, key in grid_bpoint
             @media(max-width (key)px)
+
+                if grid_order is defined && grid_order
+                    for irn in 1..grid_order
+                        .{framework_class_prefix}order-{irn}--{index}{grid_default_class}
+                            order irn
+
                 .{framework_class_prefix}grid
                     .{framework_class_prefix}cell
                         &--{index}{grid_default_class}
@@ -212,6 +221,12 @@ if grid_frames is defined && grid_frames
 
         for index, key in invert_hash(grid_bpoint)
             @media(min-width (key + 1)px)
+
+                if grid_order is defined && grid_order
+                    for irn in 1..grid_order
+                        .{framework_class_prefix}order-{irn}--{index}{grid_inverted_class}
+                            order irn
+
                 .{framework_class_prefix}grid
                     .{framework_class_prefix}cell
                         &--{index}{grid_inverted_class}
