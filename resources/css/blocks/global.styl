@@ -169,11 +169,18 @@ textarea
       border-radius 0 0 5px 5px
 
 
-// Scroll Bar
+
+
+::-webkit-scrollbar-track
+  background-color var(--tc_border)
+
+::-webkit-scrollbar-corner
+  background-color cl_red
 
 ::-webkit-scrollbar-button
   background-image url('')
   background-repeat no-repeat
+  background-color var(--tc_border)
   size 0px
 
 ::-webkit-scrollbar-thumb
@@ -181,15 +188,20 @@ textarea
   background-position center 
   background-repeat no-repeat 
   cursor pointer
+  background-color var(--tc_scroll_thumb)
   border-radius 10px
+  &:hover
+    background-color var(--tc_scroll_thumb_active)
 
 ::-webkit-resizer 
   background-image url('')
   background-repeat no-repeat
   size 7px 0px
+  background-color cl_red
 
 ::-webkit-scrollbar
   size 10px
+  background-color: var(--tc_border)
 
 
 .float-icns

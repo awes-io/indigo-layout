@@ -12,30 +12,33 @@ block pageHead
 
 block pageContent
 
-    .filter.grid.grid-gap
-        // left
-        .cell-auto
-            .filter__checkbox
-                //- filter-builder(:param="{is_public: ''}", label='All')
-                //- filter-builder(:param="{is_public: '1'}", label='Public')
-                //- filter-builder(:param="{is_public: '0'}", label='Enterprise')
-        // right
-        .cell-null
-            context-menu(button-class='filter__slink', right='')
-                template(slot='toggler')
-                    span Sort by
-                cm-query(:param="{orderBy: ''}") ID ↑
-                cm-query(:param="{orderBy: 'id'}") ID ↓
-                cm-query(:param="{orderBy: 'name'}") Package name
-        .cell-null
-            button.filter__slink(@click='$refs.filter.toggle()')
-                // also can be toggled with `$root.$emit('filters:toggle', 'managers')`
-                i.icon.icon-filter(v-if="")
-                    // prop `name` of filter
-                    span.icn-dot
-                |                 Filter
-    slide-up-down.cell-full(ref='filter')
-        div
+    .filter
+        .filter__wrap
+            // left
+            .filter__left
+                .filter__checkbox
+                    filter-builder(:param="{is_public: ''}", label='All')
+                    filter-builder(:param="{is_public: '1'}", label='Public')
+                    filter-builder(:param="{is_public: '0'}", label='Enterprise')
+            // right
+            .filter__right
+                .filter__rlink
+                    context-menu(button-class='filter__slink', right='')
+                        template(slot='toggler')
+                            span Sort by
+                        cm-query(:param="{orderBy: ''}") ID ↑
+                        cm-query(:param="{orderBy: 'id'}") ID ↓
+                        cm-query(:param="{orderBy: 'name'}") Package name
+                .filter__rlink
+                    button.filter__slink(@click='$refs.filter.toggle()')
+                        // also can be toggled with `$root.$emit('filters:toggle', 'managers')`
+                        i.icon.icon-filter(v-if="")
+                            // prop `name` of filter
+                            span.icn-dot
+                        | Filter
+        slide-up-down(ref='filter')
             filter-wrapper(name='packages')
                 fb-input(name='name', label='Package name')
+
+    
 

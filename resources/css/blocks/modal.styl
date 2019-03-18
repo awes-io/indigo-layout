@@ -80,12 +80,15 @@ modal-form = 700px
     padding 0
     font-weight 300
     absolute right 20px top 20px
-    font-size 50px
     font-weight 300
-    line-height 23px
+    line-height 1
     color var(--tc_link_semi)
+    icon(cross, 24px)
     &:hover
       color var(--tc_link_semi_active)
+    span
+      display none
+      
   &:not(.modal_fullscreen)
     .line-btns
       absolute left 0 bottom 0

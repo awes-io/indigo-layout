@@ -17,7 +17,7 @@ block pageContent
 
         h4 текст
         fb-input(name="awdaw12312312" label="Input field"  autocomplete="off")
-        fb-select(name="awdawd123qw" :multiple="false"  :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]")
+        fb-select(name="awdawd123qw" :multiple="false"  :select-options="[{name:'one', value: 1}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}]")
         fb-select(name="select2"  label="Yosip ishchet lojku" :multiple="true" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]")
         fb-phone(name="asd123123asd" label="Phone label" )
         fb-input(name="awdaw1231222312" label="Label test long label" )
@@ -35,8 +35,9 @@ block pageContent
         br
 
         h4 Select
-        fb-select(name="select1"  label="Single select" :multiple="false" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]")
-        fb-select(name="select2"  label="Multiple select" :multiple="true" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]")
+        fb-select(name="select1"  label="Single select" :multiple="false" :select-options="[]")
+        fb-select(name="select1"  label="Single select" :multiple="false" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}]")
+        fb-select(name="select2"  label="Multiple select" :multiple="true" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}]")
         fb-select(name="select3" class="fb-select_ok" disabled  label="OK select" :multiple="false" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]")
         fb-select(name="select4" class="fb-select_error" disabled  label="Error select" :multiple="true" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]")
 

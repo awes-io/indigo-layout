@@ -1,8 +1,12 @@
+
 .int-table
     width 100%
     font-size f_normal
+    & &__fcaption
+        color var(--tc_text)
     & &__footer
         fl(w,sb,c)
+        background-color var(--tc_ui_bg_darken)
         width 100%
         padding 10px 20px
         &-left
@@ -11,10 +15,14 @@
             padding 10px
     & &__flink
         font-size f_normal
+        color var(--tc_link_semi)
+        &:hover
+            color var(--tc_link_semi_active)
     & &__header
         fl(w,sa,c)
         min-height 80px
         padding 15px 0
+        border 1px solid var(--tc_border)
     & &__clist
         display block
         list-style none
@@ -24,6 +32,8 @@
     & &__count
         font-size f_middle
         padding 0 15px
+        span
+            color var(--tc_text_caption)
     & &__nowrap
         white-space nowrap
     & &__link, a
@@ -36,9 +46,11 @@
     & &__caption
         display block
         margin-bottom 3px
+        color var(--tc_text_caption)
     & &__show
         display none
         font-size 16px
+        color var(--tc_text_caption)
         size 60px
         margin-bottom 0
         &:hover
@@ -48,10 +60,14 @@
     & &__table
         width 100%
         font-size f_normal
-        // cursor pointer
+        background-color var(--tc_ui_bg)
+        tbody
+            box-shadow var(--tc_ui_shadow)
         th
             font-weight 400
             text-align left
+            background-color var(--tc_ui_bg_darken)
+            color var(--tc_text_caption)
             font-size f_normal
             padding 17px 15px
             &^[0]__right
@@ -60,17 +76,22 @@
                 padding-left 30px
         td
             padding 12px 15px
+            border-bottom 1px solid var(--tc_border_dark)
             word-break break-all
             &:first-child
                 padding-left 30px
         tr
             &:hover
-                & ^[0]__controll
+                background-color var(--tc_ui_bg_semi)
+                & ^[0]__control
                     opacity 1
                     pointer-events auto
             &:last-child
                 td
                     border-bottom 0
+            &.active
+                &:hover
+                    background-color transparent
     & &__ava
         size 36px
         border-radius 50%
@@ -78,29 +99,6 @@
         display block
         &:hover
             opacity 0.5
-    & &__status
-        border-radius 12px
-        font-size 9px
-        fl(,c,c)
-        padding 4px 10px
-        text-transform uppercase
-        white-space nowrap
-        min-width 110px
-        &_smart
-            min-width 90px
-        .icon
-            font-size 12px
-            padding-right 5px
-            padding-left 5px
-            margin-top 1px
-        &_one
-            .icon
-                padding-left 0
-        &-icon
-            font-size 12px
-            margin-right 10px
-        &-wrap
-            fl(,,c)
     & &__hidden
         display none
         cursor default
@@ -122,7 +120,7 @@
             margin-right 0
         &:last-child
             margin-right 0
-    & &__controll
+    & &__control
         size 30px
         fl(,c,c)
         position relative
@@ -130,24 +128,22 @@
         opacity 0
         tr(0.3)
         pointer-events none
+        color var(--tc_link_semi)
         &_sr
             opacity 1 !important
             absolute right 0 top 50%
             margin-top -15px
         .icon-dots
             font-size 3px
-        // .overflow-window
-        //     absolute right 0 top 100%
-        //     display none
-        //     text-align left
         &.active
             opacity 1
             pointer-events auto
-            // .overflow-window
-            //     display block
+        &:hover, &.active
+            color var(--tc_link_semi_active)
         &-tab
             text-align center
             width 70px
+            padding 0 
             &.active
                 .icon
                     transform scaleY(-1)
@@ -162,11 +158,6 @@
         position relative
         padding-top 10px
         padding-bottom 5px
-        // .overflow-window
-        //     absolute left -15px top -10px
-        //     width calc(100% + 24px)
-        //     max-width calc(100% + 24px)
-        //     display none
         &-left
             width 65%
             fl(w)
@@ -181,14 +172,11 @@
             margin-right 15px
         & ^[0]__ava
             margin-bottom 10px
-        & ^[0]__controll
+        & ^[0]__control
             absolute right 2px top 50%
             margin-top -15px
             opacity 1 !important
             pointer-events auto !important
-            // &:hover
-            //     .overflow-window
-            //         display none
         &-bl
             margin-bottom 10px
             margin-right 30px
@@ -209,8 +197,8 @@
             display none
             text-align center
             font-size f_normal
+            color var(--tc_text_caption)
             cursor pointer
-    & &__block
         &.is-link
             cursor: pointer
         &:hover
@@ -225,6 +213,7 @@
                     transform scaleY(-1)
 
     .context-menu
+        z-index 3
         &__toggler
             opacity: 0
         &.is-opened
@@ -234,6 +223,8 @@
     &__block:hover
         .context-menu__toggler
             opacity: 1
+    & &__openin
+        width 75px
 
 
 @media maw[dlg]
@@ -251,9 +242,10 @@
                 padding 12px 10px
                 &:first-child
                     padding-left 15px
-        & &__controll
+        & &__control
             &-tab
                 width 40px
+                padding 0
 
 @media maw[dmd]
     .int-table
@@ -261,20 +253,27 @@
             fl(,c,c)
         & .active + &__hidden
             display table-row
-        & &__controll
+        & &__control
             &-tab
                 width 50px
                 flex-shrink 0
                 text-align center
                 padding 0 !important
-                & ^[0]__controll
+                & ^[0]__control
                     display none
                 &_big
                     width 60px
+                border-left 1px solid var(--tc_border)
+                &.active
+                    background-color var(--tc_border_semi)
         & &__block
             &.active
                 td
                     border-bottom 0
+                &.active
+                    & ^[0]__control-tab
+                        background-color var(--tc_ui_bg_semi)
+                        border-bottom 1px solid var(--tc_border)
 
 @media maw[tsm]
     .int-table
@@ -308,7 +307,7 @@
             &-text
                 margin-right 0
                 width 100%
-            & ^[0]__controll
+            & ^[0]__control
                 top auto
                 bottom 18px
             &-bl
