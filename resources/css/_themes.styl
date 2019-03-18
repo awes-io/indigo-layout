@@ -6,6 +6,14 @@
     // Wawe
     --tc_ui_wave alpha(cl_white, .7)
 
+    // Status
+    --tc_status_error cl_warn
+    --tc_status_warning cl_yellow
+    --tc_status_success cl_grass
+    --tc_status_inprogress cl_sky
+    --tc_status_wait cl_asphalt
+
+
     &:not([data-dark="true"])
 
         // Цвета темы
@@ -288,7 +296,7 @@
         --tc_theme_body cl_black
 
         // Scroll
-        --tc_scroll_thumb cl_lgr
+        --tc_scroll_thumb darken(cl_asphalt, 15%)
         --tc_scroll_thumb_active cl_asphalt
 
         --tc_code_bg alpha(cl_rdred, 0.1)

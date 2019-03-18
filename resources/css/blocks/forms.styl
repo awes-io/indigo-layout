@@ -49,6 +49,36 @@
         text-align center
         line-height 1
 
+.grid
+    &_forms
+        margin-left -5px
+        margin-right -5px
+        [class^="cell"]
+            padding-left 5px
+            padding-right 5px
+            margin-bottom 10px
+        &^[0]-gap-y
+            margin-left 0
+            margin-right 0
+            [class^="cell"]
+                margin-bottom 10px
+                padding-left 0
+                padding-right 0
+        &^[0]-gap-x
+            [class^="cell"]
+                margin-bottom 0
+        &^[0]-ungap
+            margin-bottom -10px
+        &^[0]-nogap
+            margin-left 0
+            margin-right 0
+            [class^="cell"]
+                padding-left 0
+                padding-right 0
+                margin-bottom 0
+
+
+
 .modal-form
     & &__wrap
         padding 40px

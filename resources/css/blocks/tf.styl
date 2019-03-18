@@ -161,6 +161,12 @@ table:not(.int-table__table):not(.hljs-ln)
 
 .frame__content, .tf-content
 
+    a
+        &[target="_blank"], &[href^="http://"], &[href^="https://"]
+            icon(openin, 0.75em, after)
+            &:after
+                padding-left 3px
+
     img
         box-shadow var(--tc_shadow_smr)
     ol

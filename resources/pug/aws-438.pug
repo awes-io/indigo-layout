@@ -1,0 +1,127 @@
+extends includes/layout
+
+block pageVariables
+    - var pageTitle = "Показ фильтров"
+
+block pageHead
+    // there is can be head meta or sctipts
+    
+
+block pageContent
+
+    .filter
+        .filter__wrap
+            // left
+            .filter__left
+                .filter__checkbox
+                    filter-builder(:param="{is_public: ''}", label='All')
+                    filter-builder(:param="{is_public: '1'}", label='Public')
+                    filter-builder(:param="{is_public: '0'}", label='Enterprise')
+            // right
+            .filter__right
+                .filter__rlink
+                    context-menu(button-class='filter__slink', right='')
+                        template(slot='toggler')
+                            span Sort by
+                        cm-query(:param="{orderBy: ''}") ID ↑
+                        cm-query(:param="{orderBy: 'id'}") ID ↓
+                        cm-query(:param="{orderBy: 'name'}") Package name
+                .filter__rlink
+                    button.filter__slink(@click='$refs.filter.toggle()')
+                        // also can be toggled with `$root.$emit('filters:toggle', 'managers')`
+                        i.icon.icon-filter(v-if="")
+                            // prop `name` of filter
+                            span.icn-dot
+                        | Filter
+        slide-up-down(ref='filter')
+            filter-wrapper(name='packages')
+                fb-input(name='name', label='Package name')
+
+    .section
+        h2 Statuses
+        p You can remove the icon, but the text should always be in the span, icon must be rendered separately from the span.
+
+        .vue-example
+            .grid.grid-ungap.text-center
+                .cell-auto
+                    span.status.status_error
+                        span error
+                        i.icon.icon-circle-clock
+                        span 27 days
+                .cell-auto
+                    span.status.status_warning
+                        span warning
+                        i.icon.icon-circle-clock
+                        span 27 days
+                .cell-auto
+                    span.status.status_inprogress
+                        span inprogress
+                        i.icon.icon-circle-clock
+                        span 27 days
+                .cell-auto
+                    span.status.status_success
+                        span success
+                        i.icon.icon-circle-clock
+                        span 27 days
+                .cell-auto
+                    span.status
+                        span default
+                        i.icon.icon-circle-clock
+                        span 27 days
+                .cell-auto
+                    span.status.status_wait
+                        span wait
+                        i.icon.icon-circle-clock
+                        span 27 days
+
+    .section
+        h2 External Link
+        p The link must contain the <code>target='_blank'</code> or <code>http://,  https://</code>
+
+        .tf-content
+            p
+                a(href="#" target="_blank") Link
+                | 
+                a(href="http://") Link
+                | 
+                a(href="https://") Link
+
+    .section
+        h2 Cross in modal window
+
+        button.btn(@click="$refs.modal.open()") Open a window
+        
+        modal-window(ref="modal")
+            p Text in the modal window
+            
+
+    .section
+        h2 Select test blinking
+
+        .grid.grid_forms
+            .cell-1-2.cell-1-1--tmd
+                fb-select(name="select1"  label="Single select" :multiple="false" :select-options="[]")
+            .cell-1-2.cell-1-1--tmd
+                fb-select(name="select1"  label="Single select" :multiple="false" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}]")   
+            .cell-1-2.cell-1-1--tmd
+                fb-select(name="select2"  label="Multiple select" :multiple="true" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}]")
+            .cell-1-2.cell-1-1--tmd
+                fb-select(name="select3" class="fb-select_ok" disabled  label="OK select" :multiple="false" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]")
+            .cell-1-2.cell-1-1--tmd
+                fb-select(name="select4" class="fb-select_error" disabled  label="Error select" :multiple="true" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]")
+
+
+    .section
+        h2 Table Builder example
+        table-builder(:default="[{name:'First', email:'first@mail.com'},{name: 'Second', email: 'second@mail.com'}]", store-data='no-pagination')
+            tb-column(name='name')
+            tb-column(name='email', label='Super Email', media="desktop")
+                template(slot-scope='col')
+                    a(:href="'mailto:' + col.data.email") {{ col.data.email }}
+                tb-column(name='no-field', label='')
+                    template(slot-scope='col')
+                        button Kill {{ col.data.name }}
+
+
+
+

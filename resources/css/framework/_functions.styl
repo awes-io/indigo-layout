@@ -60,6 +60,16 @@ placeholder(color)
 	&:-moz-placeholder
 		color color
 
+icon(hasgtag, fz = 14px, aft = 'before')
+	if aft == 'before'
+		&:before
+			@extends .icon, .icon-{hasgtag}::before
+			font-size fz
+	else
+		&:after
+			@extends .icon, .icon-{hasgtag}::before
+			font-size fz
+
 fl(ww = 'nowrap', jj = 'flex-start', aa = 'stretch')
 	display flex
 	// wrap

@@ -17,6 +17,7 @@ if grid_frames is defined && grid_frames
                 margin-bottom: (grid_gap)px
         else
             width 100%
+            
         &-gap
             margin-left: -(grid_gap / 2)px
             margin-right: -(grid_gap / 2)px
@@ -50,7 +51,8 @@ if grid_frames is defined && grid_frames
             [class^=\"{framework_class_prefix}cell\"]
                 padding 0
                 margin-bottom 0
-
+        &-ungap
+            margin-bottom -(grid_gap)px
         .{framework_class_prefix}cell
             width 100%
             &[style^="width"]
