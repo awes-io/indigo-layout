@@ -213,6 +213,7 @@
                     transform scaleY(-1)
 
     .context-menu
+        z-index 3
         &__toggler
             opacity: 0
         &.is-opened
@@ -222,6 +223,8 @@
     &__block:hover
         .context-menu__toggler
             opacity: 1
+    & &__openin
+        width 75px
 
 
 @media maw[dlg]

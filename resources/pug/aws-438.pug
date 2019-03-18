@@ -10,15 +10,20 @@ block pageHead
 block pageContent
 
     .filter
-        .filter__wrap
-            // left
-            .filter__left
-                .filter__checkbox
-                    filter-builder(:param="{is_public: ''}", label='All')
-                    filter-builder(:param="{is_public: '1'}", label='Public')
-                    filter-builder(:param="{is_public: '0'}", label='Enterprise')
-            // right
-            .filter__right
+        .grid.grid-align-center.grid-justify-between.grid-justify-center--mlg
+            .cell-inline.cell-1-1--mlg
+                .grid.grid-ungap
+                    .cell-inline.cell-1-1--mlg
+                        .filter__checkbox
+                            filter-builder(:param="{is_public: ''}", label='All')
+                            filter-builder(:param="{is_public: '1'}", label='Public')
+                            filter-builder(:param="{is_public: '0'}", label='Enterprise')
+                    .cell-inline.cell-1-1--mlg
+                        .filter__checkbox
+                            filter-builder(:param="{is_public: ''}", label='All')
+                            filter-builder(:param="{is_public: '1'}", label='Public')
+                            filter-builder(:param="{is_public: '0'}", label='Enterprise')
+            .cell-inline
                 .filter__rlink
                     context-menu(button-class='filter__slink', right='')
                         template(slot='toggler')
@@ -33,9 +38,44 @@ block pageContent
                             // prop `name` of filter
                             span.icn-dot
                         | Filter
-        slide-up-down(ref='filter')
-            filter-wrapper(name='packages')
-                fb-input(name='name', label='Package name')
+            slide-up-down(ref='filter')
+                filter-wrapper(name='packages')
+                    .grid.grid_forms
+                        .cell
+                            fb-input(name='name', label='Package name')
+
+
+    //- .filter
+    //-     .filter__wrap
+    //-         // left
+    //-         .filter__left
+    //-             .filter__checkbox
+    //-                 filter-builder(:param="{is_public: ''}", label='All')
+    //-                 filter-builder(:param="{is_public: '1'}", label='Public')
+    //-                 filter-builder(:param="{is_public: '0'}", label='Enterprise')
+                    .filter__checkbox
+    //-                 filter-builder(:param="{is_public: ''}", label='All')
+    //-                 filter-builder(:param="{is_public: '1'}", label='Public')
+    //-                 filter-builder(:param="{is_public: '0'}", label='Enterprise')
+    //-         // right
+    //-         .filter__right
+    //-             .filter__rlink
+    //-                 context-menu(button-class='filter__slink', right='')
+    //-                     template(slot='toggler')
+    //-                         span Sort by
+    //-                     cm-query(:param="{orderBy: ''}") ID ↑
+    //-                     cm-query(:param="{orderBy: 'id'}") ID ↓
+    //-                     cm-query(:param="{orderBy: 'name'}") Package name
+    //-             .filter__rlink
+    //-                 button.filter__slink(@click='$refs.filter.toggle()')
+    //-                     // also can be toggled with `$root.$emit('filters:toggle', 'managers')`
+    //-                     i.icon.icon-filter(v-if="")
+    //-                         // prop `name` of filter
+    //-                         span.icn-dot
+    //-                     | Filter
+    //-     slide-up-down(ref='filter')
+    //-         filter-wrapper(name='packages')
+    //-             fb-input(name='name', label='Package name')
 
     .section
         h2 Statuses
@@ -99,10 +139,12 @@ block pageContent
         h2 Select test blinking
 
         .grid.grid_forms
-            .cell-1-2.cell-1-1--tmd
+            .cell-1-3.cell-1-1--tmd
                 fb-select(name="select1"  label="Single select" :multiple="false" :select-options="[]")
-            .cell-1-2.cell-1-1--tmd
-                fb-select(name="select1"  label="Single select" :multiple="false" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}]")   
+            .cell-1-3.cell-1-1--tmd
+                fb-select(name="select1"  label="Single select" :multiple="false" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}]")  
+            .cell-1-3.cell-1-1--tmd
+                fb-input(name="select1" label="Input default" )   
             .cell-1-2.cell-1-1--tmd
                 fb-select(name="select2"  label="Multiple select" :multiple="true" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}]")
             .cell-1-2.cell-1-1--tmd
@@ -118,9 +160,13 @@ block pageContent
             tb-column(name='email', label='Super Email', media="desktop")
                 template(slot-scope='col')
                     a(:href="'mailto:' + col.data.email") {{ col.data.email }}
-                tb-column(name='no-field', label='')
-                    template(slot-scope='col')
-                        button Kill {{ col.data.name }}
+            tb-column(name=' ', label='')
+                template(slot-scope='col')
+                    button Kill {{ col.data.name }}
+            tb-column(name=' ' class="int-table__openin")
+                template(slot-scope='d')
+                    context-menu(right='', boundary='table')
+                        cm-ajax(method='post', :url="'/packages/'+d.data.id+'/refresh'") Republish from git
 
 
 

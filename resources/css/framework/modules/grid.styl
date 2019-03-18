@@ -11,7 +11,7 @@ if grid_frames is defined && grid_frames
             margin-left: -(grid_gap / 2)px
             margin-right: -(grid_gap / 2)px
             width: "calc(100% + %spx)" % grid_gap
-            [class^=\"{framework_class_prefix}cell\"]
+            & > [class^=\"{framework_class_prefix}cell\"]
                 padding-left: (grid_gap / 2)px
                 padding-right: (grid_gap / 2)px
                 margin-bottom: (grid_gap)px
@@ -22,7 +22,7 @@ if grid_frames is defined && grid_frames
             margin-left: -(grid_gap / 2)px
             margin-right: -(grid_gap / 2)px
             width: "calc(100% + %spx)" % grid_gap
-            [class^=\"{framework_class_prefix}cell\"]
+            & > [class^=\"{framework_class_prefix}cell\"]
                 padding-left: (grid_gap / 2)px
                 padding-right: (grid_gap / 2)px
                 margin-bottom: (grid_gap)px
@@ -30,7 +30,7 @@ if grid_frames is defined && grid_frames
                 margin-left: -(grid_gap / 2)px
                 margin-right: -(grid_gap / 2)px
                 width: "calc(100% + %spx)" % grid_gap
-                [class^=\"{framework_class_prefix}cell\"]
+                & > [class^=\"{framework_class_prefix}cell\"]
                     padding-left: (grid_gap / 2)px
                     padding-right: (grid_gap / 2)px
                     if grid_default_gap is defined && grid_default_gap
@@ -39,7 +39,7 @@ if grid_frames is defined && grid_frames
                 if grid_default_gap is defined && grid_default_gap
                     margin-left 0
                     margin-right 0
-                [class^=\"{framework_class_prefix}cell\"]
+                & > [class^=\"{framework_class_prefix}cell\"]
                     margin-bottom: (grid_gap)px
                     if grid_default_gap is defined && grid_default_gap
                         padding-left 0
@@ -48,7 +48,7 @@ if grid_frames is defined && grid_frames
             width 100%
             margin-left 0
             margin-right 0
-            [class^=\"{framework_class_prefix}cell\"]
+            & > [class^=\"{framework_class_prefix}cell\"]
                 padding 0
                 margin-bottom 0
         &-ungap

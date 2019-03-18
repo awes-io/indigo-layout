@@ -1,24 +1,14 @@
 .filter
   width 100%
-  margin-bottom 15px
   position relative
   z-index 1
-  & &__wrap
-    fl(,sb,c)
-    width 100%
-  & &__left
-    fl(w)
-    margin-right 10px
-  & &__right
-    margin-bottom 15px
-    padding-right 20px
-    flex-shrink: 0
-    fl(,fe,c)
+  & + .section
+    margin-top 0
   & &__rlink
-    margin-left 40px
-    margin-bottom 5px
-    &:first-child
-      margin-left 0
+    margin-left 20px
+    display inline-block
+    vertical-align middle
+    line-height 1
   & &__slink
     fl(,,c)
     text(f_small)
@@ -38,8 +28,6 @@
     &:after
       angle()
   & &__checkbox
-    margin-bottom 15px
-    margin-right 20px
     padding-left 1px
     fl()
     text(f_small)
@@ -63,14 +51,8 @@
         &:after
           angle()
           right 10px
-      
-    &-datapicker
-      size 100px 30px
-      font-size f_small
-      border-radius 2px
-      padding 0 25px 0 10px
-      text-align center
-      background-color transparent
+      &:hover
+        text-decoration none
     &-cell
       fl(,c,c)
       margin-left -1px
@@ -80,17 +62,6 @@
       &:last-child
         .filter__checkbox-label
           border-radius 0px 2px 2px 0px
-  &__slide-up-down
-    width: 100%
-  &__form-builder
-    padding: 20px 20px 10px
-    .line-btns
-      width: calc(100% + 10px)
-      margin-top: 10px
-      margin-right: -10px
-      @media maw[tsm]
-        .btn
-          width: calc(50% - 12px)
   &__reset
     .icon-circle-cross
       transform: translateY(2px)
@@ -101,6 +72,14 @@
       min-width: inherit !important
       padding-left: 20px !important
       padding-right: 20px !important
+  .slide-up-down
+    width calc(100% - 20px)
+    margin-left 10px
+    margin-right 10px
+    padding-bottom 20px
+
+
+
 
 .hfilter
   absolute right 0 top 100%
