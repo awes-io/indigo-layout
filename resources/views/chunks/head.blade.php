@@ -28,7 +28,7 @@
 @endif
 
     <!-- config -->
-    <script>AWES_CONFIG = @json(config('base-js'))</script>
+    <script>AWES_CONFIG = @json(config('indigo-layout.frontend'))</script>
 
 
     <!-- modules -->

@@ -2,30 +2,20 @@
 
 return [
 
-    'name' => env('APP_NAME', 'Awes.IO'),
-    'url' => env('APP_URL', 'https://example.com'),
-    'logo' => env('APP_LOGO', 'https://static.awes.io/logo-blue.svg'),
-    'auth_bg_left' => '',
-    'auth_bg_full' => '',
+    //This key pass to vuejs config
+    'frontend' => [
+        'key' =>  env('AWES_CDN_KEY', 'undefined')
+    ],
 
-//    'simple_navs' => [
-//        'btn' => [
-//            'link' =>'https://your-site/',
-//            'text' => 'Main button'
-//        ],
-//        'links' => [
-//            [
-//                'link' =>'https://your-site/',
-//                'text' => 'Link'
-//            ]
-//        ],
-//    ],
-//
-//    'root_variables' => [
-//        '--tc_aside_gradient' => 'linear-gradient(0deg,#0B88EE 0%,#122ACC)'
-//    ],
-//
-//    'custom_styles' => "html p { color: black }",
+    'name' => env('APP_NAME', 'Awes.IO'),
+
+    'url' => env('APP_URL', 'https://example.com'),
+
+    'logo' => env('APP_LOGO', 'https://static.awes.io/logo-blue.svg'),
+
+    'auth_bg_left' => '',
+
+    'auth_bg_full' => '',
 
     'dist' => [
         'js/main.js',
