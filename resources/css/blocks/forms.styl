@@ -110,6 +110,8 @@
     flex-shrink: 0
     text-transform uppercase
     font-size f_smart
+    color var(--tc_btn_text)
+    background-color var(--tc_btn_bg)
     .icon
         margin-right 7px
     &_ib
@@ -121,10 +123,43 @@
         pointer-events: none
         .icon
             animation rotate 1s infinite linear
-    &:hover
+    &:hover, &:focus
         text-decoration none
-
-
+        background-color var(--tc_btn_bg_active)
+        color var(--tc_btn_text)
+    &_white
+        background-color var(--tc_btn_tr_bg)
+        color var(--tc_btn_tr_text)
+        &:hover, &:focus
+            background-color var(--tc_btn_tr_bg_d)
+            color var(--tc_btn_tr_text)
+    &_transparent
+        background-color transparent
+        color var(--tc_btn_tr_text)
+        &:hover, &:focus
+            background-color var(--tc_ui_bg_darken_s)
+    &_sh
+        box-shadow 1px 2px 3px var(--tc_btn_bg_shadow)
+    &_darkred
+        background-color transparent
+        color cl_white
+        &:hover, &:focus
+            color cl_warn
+            background-color transparent
+    &_greylink
+        background-color transparent
+        color var(--tc_link_semi)
+        &:hover, &:focus
+            background-color transparent
+            color var(--tc_link)
+    &.loading-inline
+        &:hover, &:focus
+            background-color cl_grass
+    &[disabled="disabled"]
+        cursor not-allowed
+        opacity 0.5
+    &:active
+        filter brightness(90%)
 
 
 
