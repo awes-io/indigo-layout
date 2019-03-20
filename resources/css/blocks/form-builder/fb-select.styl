@@ -40,6 +40,8 @@
         &-wrapper
             background-color var(--tc_ui_bg)
             border 1px solid var(--tc_border_ins)
+            border-bottom-left-radius 2px
+            border-bottom-right-radius 2px
             border-top 0px !important
             margin-top -1px
     &--above
@@ -49,6 +51,9 @@
         & ^[0]__content-wrapper
             margin-top 0
             margin-bottom -1px
+    & &__spinner
+        background-color var(--tc_ui_bg)
+        height 45px
     & &__input
         background-color var(--tc_ui_bg)
         color var(--tc_text)
