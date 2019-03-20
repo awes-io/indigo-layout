@@ -8,6 +8,14 @@ export class Waves {
         this.initObserver(root)
     }
 
+    get hasTouch() {
+        return window && ('touchstart' in window)
+    }
+
+    get showEvents() {
+        return this.hasTouch ? ['touchstart', 'mousedown'] : ['mousedown']
+    }
+
     addElements( container = document ) {
         let config = Object.assign({ selector: '.btn, .frame__header-add, .hljs-copy'}, AWES_CONFIG.waves)
 
@@ -28,10 +36,10 @@ export class Waves {
                 el.appendChild(wave)
             }
 
-            el.__AWES_WAVE__ = { wave, active: false }
-            Waves.hideWave(el)
+            el.__AWES_WAVE__ = { wave, active: false, eventType: undefined }
+            Waves.resetWave(el)
 
-            const EVENTS = ('touchstart' in window) ? ['touchstart', 'click'] : ['click']
+            const EVENTS = ('touchstart' in window) ? ['touchstart', 'mousedown'] : ['mousedown']
 
             EVENTS.map( e => {
                 el.addEventListener(e, Waves.showWave, false)
@@ -53,27 +61,31 @@ export class Waves {
 
     static showWave(ev) {
         if (ev.target !== ev.currentTarget ) return
-        let { wave, active } = this.__AWES_WAVE__
-        if ( active ) return
-        this.__AWES_WAVE__.active = true
-        if ( this._tm ) {
+        let { wave, active, eventType } = this.__AWES_WAVE__
+        if ( active && eventType === ev.type ) {
             clearTimeout(this._tm)
-            Waves.hideWave(this)
+            Waves.resetWave(this)
+        } else if ( active ) {
+            // second binded event on touch screens
+            return
+        } else {
+            this.__AWES_WAVE__.active = true
+            this.__AWES_WAVE__.eventType = ev.type
         }
         wave.style.cssText = `
             transition: transform ${WAVE_DURATION}ms ease, opacity ${WAVE_DURATION}ms ease;
-            opacity: 0;
+            opacity: 0.5;
             transform: translate(-50%, -50%) scale(2);
             top: ${ev.offsetY}px;
             left: ${ev.offsetX}px
         `
         this._tm = setTimeout( () => {
             this.__AWES_WAVE__.active = false
-            Waves.hideWave(this)
+            Waves.resetWave(this)
         }, WAVE_DURATION )
     }
 
-    static hideWave(el) {
+    static resetWave(el) {
         el.__AWES_WAVE__.wave.style.cssText = `
             transform: translate(-50%, -50%) scale(0);
             transition: none;
