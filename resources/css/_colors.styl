@@ -243,29 +243,7 @@ a
         color var(--tc_link_semi_active)
       &:after
         border-top-color var(--tc_link_semi_active)
-  & &__checkbox
-    &-label
-      border-color var(--tc_border)
-      color var(--tc_link_semi)
-      &:hover
-        color var(--tc_link_semi_active)
-    &-datapicker
-      color var(--tc_link_semi)
-      &:focus
-        color var(--tc_link_semi_active)
-    & ^[0]__checkbox-hInput:checked + .filter__checkbox-label
-      background-color var(--tc_ui_bg)
-      color var(--tc_link_semi_active)
-      .filter__checkbox-datapicker
-        background-color var(--tc_ui_bg)
-    &-cell
-      &_active
-        & ^[0]__checkbox-label
-          background-color var(--tc_ui_bg)
-          color var(--uiElement_active)
-        & ^[0]__checkbox-datapicker
-          background-color var(--tc_ui_bg)
-  &__form-builder
+  & &__form-builder
     background-color var(--tc_ui_bg)
 
 .price-table
@@ -416,36 +394,6 @@ a
 .loading-inline, .loading-block
   &:before
     background-color var(--tc_ui_bg)
-
-
-
-
-
-.pager
-  & &__caption
-    color var(--tc_link_semi)
-  & &__shows
-    &-link
-      color var(--tc_link_semi)
-      &:hover
-        color var(--tc_link_semi_active)
-        &:after
-          border-top-color var(--tc_link_semi_active)
-  & &__link
-    border 1px solid var(--tc_border)
-    color var(--tc_link_semi)
-    &_active
-      background-color var(--tc_ui_bg)
-      color var(--tc_link_semi_active)
-    &:hover
-      color var(--tc_link_semi_active)
-  & &__spacer
-    border 1px solid var(--tc_border)
-    color var(--tc_link_semi)
-  & &__arr-left, & &__arr-right
-    color var(--tc_link_semi)
-    &:hover
-      color var(--tc_link_semi_active)
 
 .actions-overflow
   & &__icon

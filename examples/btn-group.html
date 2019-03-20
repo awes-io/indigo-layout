@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Показ фильтров</title>
+    <title>Btn Group</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700&amp;amp;subset=cyrillic" rel="stylesheet">
@@ -67,7 +67,7 @@
                     </div>
                     <div class="frame__header-line">
                         <div class="frame__title-line">
-                            <h1 class="frame__header-title">Показ фильтров</h1>
+                            <h1 class="frame__header-title">Btn Group</h1>
                         </div>
                     </div>
                 </div>
@@ -433,102 +433,69 @@
                 <div class="frame__content"><button class="frame__header-add"><i class="icon icon-plus"></i></button>
                     <div class="frame__inlayout">
                         <div class="frame__inlayout-content">
-                            <div class="filter">
-                                <div class="grid grid-align-center grid-justify-between grid-justify-center--mlg">
-                                    <div class="cell-inline cell-1-1--mlg">
-                                        <div class="grid grid-ungap">
-                                            <div class="cell-inline cell-1-1--mlg">
-                                                <div class="btn-group"><a class="btn" href="">All</a><a class="btn active" href="">Public</a><a class="btn" href="">Enterprise</a></div>
-                                            </div>
-                                            <div class="cell-inline cell-1-1--mlg">
-                                                <div class="btn-group"><a class="btn" href="">All</a><a class="btn active" href="">Public</a><a class="btn" href="">Enterprise</a></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="cell-inline">
-                                        <div class="filter__rlink">
-                                            <context-menu button-class="filter__slink" right=""><template slot="toggler"><span>Sort by</span></template>
-                                                <cm-query :param="{orderBy: ''}">ID ↑</cm-query>
-                                                <cm-query :param="{orderBy: 'id'}">ID ↓</cm-query>
-                                                <cm-query :param="{orderBy: 'name'}">Package name</cm-query>
-                                            </context-menu>
-                                        </div>
-                                        <div class="filter__rlink"><button class="filter__slink" @click="$refs.filter.toggle()">
-                                                <!-- also can be toggled with `$root.$emit('filters:toggle', 'managers')`--><i class="icon icon-filter" v-if=""><!-- prop `name` of filter--><span class="icn-dot"></span></i>Filter</button></div>
-                                    </div>
-                                    <slide-up-down ref="filter">
-                                        <filter-wrapper name="packages">
-                                            <div class="grid grid_forms">
-                                                <div class="cell">
-                                                    <fb-input name="name" label="Package name"></fb-input>
+                            <div class="section">
+                                <h2>Btn group example</h2>
+                                <div class="btn-group"><a class="btn" href="">Link</a><button class="btn active">button</button><a class="btn" href="">Another</a></div>
+                            </div>
+                            <div class="section">
+                                <h2>Filter example</h2>
+                                <div class="filter">
+                                    <div class="grid grid-align-center grid-justify-between grid-justify-center--mlg">
+                                        <div class="cell-inline cell-1-1--mlg">
+                                            <div class="grid grid-ungap">
+                                                <div class="cell-inline cell-1-1--mlg">
+                                                    <div class="btn-group"><a class="btn" href="">Link</a><button class="btn active">button</button><a class="btn" href="">Another</a></div>
+                                                </div>
+                                                <div class="cell-inline cell-1-1--mlg">
+                                                    <div class="btn-group"><a class="btn" href="">Link</a><button class="btn active">button</button><a class="btn" href="">Another</a></div>
                                                 </div>
                                             </div>
-                                        </filter-wrapper>
-                                    </slide-up-down>
+                                        </div>
+                                        <div class="cell-inline">
+                                            <div class="filter__rlink">
+                                                <context-menu button-class="filter__slink" right=""><template slot="toggler"><span>Sort by</span></template>
+                                                    <cm-query :param="{orderBy: ''}">ID ↑</cm-query>
+                                                    <cm-query :param="{orderBy: 'id'}">ID ↓</cm-query>
+                                                    <cm-query :param="{orderBy: 'name'}">Package name</cm-query>
+                                                </context-menu>
+                                            </div>
+                                            <div class="filter__rlink"><button class="filter__slink" @click="$refs.filter.toggle()">
+                                                    <!-- also can be toggled with `$root.$emit('filters:toggle', 'managers')`--><i class="icon icon-filter" v-if=""><!-- prop `name` of filter--><span class="icn-dot"></span></i>Filter</button></div>
+                                        </div>
+                                        <slide-up-down ref="filter">
+                                            <filter-wrapper name="packages">
+                                                <div class="grid grid_forms">
+                                                    <div class="cell">
+                                                        <fb-input name="name" label="Package name"></fb-input>
+                                                    </div>
+                                                </div>
+                                            </filter-wrapper>
+                                        </slide-up-down>
+                                    </div>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit dignissimos nobis laborum. Temporibus commodi dignissimos asperiores illo perspiciatis labore quas exercitationem nulla quam excepturi, repellendus magnam ad veniam ipsum iusto.</p>
                                 </div>
                             </div>
                             <div class="section">
-                                <h2>Statuses</h2>
-                                <p>You can remove the icon, but the text should always be in the span, icon must be rendered separately from the span.</p>
-                                <div class="vue-example">
-                                    <div class="grid grid-ungap text-center">
-                                        <div class="cell-auto"><span class="status status_error"><span>error</span><i class="icon icon-circle-clock"></i><span>27 days</span></span></div>
-                                        <div class="cell-auto"><span class="status status_warning"><span>warning</span><i class="icon icon-circle-clock"></i><span>27 days</span></span></div>
-                                        <div class="cell-auto"><span class="status status_inprogress"><span>inprogress</span><i class="icon icon-circle-clock"></i><span>27 days</span></span></div>
-                                        <div class="cell-auto"><span class="status status_success"><span>success</span><i class="icon icon-circle-clock"></i><span>27 days</span></span></div>
-                                        <div class="cell-auto"><span class="status"><span>default</span><i class="icon icon-circle-clock"></i><span>27 days</span></span></div>
-                                        <div class="cell-auto"><span class="status status_wait"><span>wait</span><i class="icon icon-circle-clock"></i><span>27 days</span></span></div>
+                                <h2>Pagination example</h2>
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem consequatur dolores magni rem sint saepe nemo dignissimos ullam quas soluta, debitis ratione perferendis minima vel magnam eveniet? Commodi, quam. Obcaecati.</p>
+                                <div class="pager"><span class="pager__caption">Record 1-2 of 15</span>
+                                    <div class="pager__middle">
+                                        <div class="pager__links"><a class="pager__arr-left" href=""><i class="icon icon-arrow-left"></i></a>
+                                            <div class="btn-group"><a class="btn" href="">1</a><a class="btn active" href="">2</a><a class="btn" href="">3</a><a class="btn" href="">4</a><a class="btn" href="">5</a><span class="btn-group__separator">...</span><a class="btn" href="">25</a></div><a class="pager__arr-right" href=""><i class="icon icon-arrow-right"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="pager__shows">
+                                        <div class="context-menu is-top-side"><button class="context-menu__toggler" aria-haspopup="true"><span class="pager__shows-link">1</span></button>
+                                            <div class="context-menu__dropdown" aria-expanded="false" style="display: none;">
+                                                <ul class="context-menu__list">
+                                                    <li class="cm-item"><button class="cm-item__button is-active">10</button></li>
+                                                    <li class="cm-item"><button class="cm-item__button">50</button></li>
+                                                    <li class="cm-item"><button class="cm-item__button">100</button></li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="section">
-                                <h2>External Link</h2>
-                                <p>The link must contain the <code>target='_blank'</code> or <code>http://,  https://</code></p>
-                                <div class="tf-content">
-                                    <p><a href="#" target="_blank">Link</a> <a href="http://">Link</a> <a href="https://">Link</a></p>
-                                </div>
-                            </div>
-                            <div class="section">
-                                <h2>Cross in modal window</h2><button class="btn" @click="$refs.modal.open()">Open a window</button>
-                                <modal-window ref="modal">
-                                    <p>Text in the modal window</p>
-                                </modal-window>
-                            </div>
-                            <div class="section">
-                                <h2>Select test blinking</h2>
-                                <div class="grid grid_forms">
-                                    <div class="cell-1-3 cell-1-1--tmd">
-                                        <fb-select name="select1" label="Single select" :multiple="false" select-options="http://timezero.ru"></fb-select>
-                                    </div>
-                                    <div class="cell-1-3 cell-1-1--tmd">
-                                        <fb-select name="select1" label="Single select" :multiple="false" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}]"> </fb-select>
-                                    </div>
-                                    <div class="cell-1-3 cell-1-1--tmd">
-                                        <fb-input name="select1" label="Input default"> </fb-input>
-                                    </div>
-                                    <div class="cell-1-2 cell-1-1--tmd">
-                                        <fb-select name="select2" label="Multiple select" :multiple="true" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}]"></fb-select>
-                                    </div>
-                                    <div class="cell-1-2 cell-1-1--tmd">
-                                        <fb-select class="fb-select_ok" name="select3" disabled label="OK select" :multiple="false" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]"></fb-select>
-                                    </div>
-                                    <div class="cell-1-2 cell-1-1--tmd">
-                                        <fb-select class="fb-select_error" name="select4" disabled label="Error select" :multiple="true" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]"></fb-select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="section">
-                                <h2>Table Builder example</h2>
-                                <table-builder :default="[{name:'First', email:'first@mail.com'},{name: 'Second', email: 'second@mail.com'}]" store-data="no-pagination">
-                                    <tb-column name="name"></tb-column>
-                                    <tb-column name="email" label="Super Email" media="desktop"><template slot-scope="col"><a :href="'mailto:' + col.data.email">{{ col.data.email }}</a></template></tb-column>
-                                    <tb-column name=" " label=""><template slot-scope="col"><button>Kill {{ col.data.name }}</button></template></tb-column>
-                                    <tb-column class="int-table__openin" name=" "><template slot-scope="d">
-                                            <context-menu right="" boundary="table">
-                                                <cm-ajax method="post" :url="'/packages/'+d.data.id+'/refresh'">Republish from git</cm-ajax>
-                                            </context-menu>
-                                        </template></tb-column>
-                                </table-builder>
                             </div>
                         </div>
                     </div>

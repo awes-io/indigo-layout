@@ -1,0 +1,89 @@
+extends includes/layout
+
+block pageVariables
+    - var pageTitle = "Btn Group"
+
+block pageHead
+    // there is can be head meta or sctipts
+
+block pageContent
+    .section
+        h2 Btn group example
+        .btn-group
+            a.btn(href="") Link
+            button.btn.active button
+            a.btn(href="") Another
+
+    .section
+        h2 Filter example
+
+        .filter
+            .grid.grid-align-center.grid-justify-between.grid-justify-center--mlg
+                .cell-inline.cell-1-1--mlg
+                    .grid.grid-ungap
+                        .cell-inline.cell-1-1--mlg
+                            .btn-group
+                                a.btn(href="") Link
+                                button.btn.active button
+                                a.btn(href="") Another
+                        .cell-inline.cell-1-1--mlg
+                            .btn-group
+                                a.btn(href="") Link
+                                button.btn.active button
+                                a.btn(href="") Another
+                .cell-inline
+                    .filter__rlink
+                        context-menu(button-class='filter__slink', right='')
+                            template(slot='toggler')
+                                span Sort by
+                            cm-query(:param="{orderBy: ''}") ID ↑
+                            cm-query(:param="{orderBy: 'id'}") ID ↓
+                            cm-query(:param="{orderBy: 'name'}") Package name
+                    .filter__rlink
+                        button.filter__slink(@click='$refs.filter.toggle()')
+                            // also can be toggled with `$root.$emit('filters:toggle', 'managers')`
+                            i.icon.icon-filter(v-if="")
+                                // prop `name` of filter
+                                span.icn-dot
+                            | Filter
+                slide-up-down(ref='filter')
+                    filter-wrapper(name='packages')
+                        .grid.grid_forms
+                            .cell
+                                fb-input(name='name', label='Package name')
+
+            p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit dignissimos nobis laborum. Temporibus commodi dignissimos asperiores illo perspiciatis labore quas exercitationem nulla quam excepturi, repellendus magnam ad veniam ipsum iusto.
+
+    .section
+        h2 Pagination example
+
+        p Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem consequatur dolores magni rem sint saepe nemo dignissimos ullam quas soluta, debitis ratione perferendis minima vel magnam eveniet? Commodi, quam. Obcaecati.
+        .pager
+            span.pager__caption Record 1-2 of 15
+            .pager__middle
+                .pager__links
+                    a.pager__arr-left(href='')
+                        i.icon.icon-arrow-left
+                    .btn-group
+                        a.btn(href="") 1
+                        a.btn.active(href="") 2
+                        a.btn(href="") 3
+                        a.btn(href="") 4
+                        a.btn(href="") 5
+                        span.btn-group__separator ...
+                        a.btn(href="") 25
+                    a.pager__arr-right(href='')
+                        i.icon.icon-arrow-right
+            .pager__shows
+                .context-menu.is-top-side
+                    button.context-menu__toggler(aria-haspopup='true')
+                        span.pager__shows-link 1
+                    .context-menu__dropdown(aria-expanded='false', style='display: none;')
+                        ul.context-menu__list
+                            li.cm-item
+                                button.cm-item__button.is-active 10
+                            li.cm-item
+                                button.cm-item__button 50
+                            li.cm-item
+                                button.cm-item__button 100
+
