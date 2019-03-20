@@ -1,5 +1,49 @@
-.m0
-    margin 0
+body .mainwrapper
+    if margin is defined && margin
+        angles = {b: '-bottom',t: '-top', l: '-left', r: '-right', x: (-left -right), y: (-top -bottom), '': ''}
 
-.mt-sm
-    margin-top 5px
+        // margins
+        for cl, tag in angles
+            .{framework_class_prefix}m{cl}
+                for ind in tag
+                    margin{ind} margin[def]
+
+            .{framework_class_prefix}p{cl}
+                for ind in tag
+                    padding{ind} margin[def]
+
+        for cf in margin
+            for cl, tag in angles
+                .{framework_class_prefix}p{cl}-{cf}
+                    for ind in tag
+                        padding{ind} margin[cf]
+
+                .{framework_class_prefix}m{cl}-{cf}
+                    for ind in tag
+                        margin{ind} margin[cf]
+
+
+        if grid_bpoint is defined && grid_bpoint
+            for brd, rcd in grid_bpoint
+                @media(max-width (rcd)px)
+                    for cl, tag in angles
+                        .{framework_class_prefix}m{cl}--{brd}
+                            for ind in tag
+                                margin{ind} margin[def]
+
+                        .{framework_class_prefix}p{cl}--{brd}
+                            for ind in tag
+                                padding{ind} margin[def]
+
+                    for cf in margin
+                        for cl, tag in angles
+                            .{framework_class_prefix}p{cl}-{cf}--{brd}
+                                for ind in tag
+                                    padding{ind} margin[cf]
+
+                            .{framework_class_prefix}m{cl}-{cf}--{brd}
+                                for ind in tag
+                                    margin{ind} margin[cf]
+
+    .m0
+        margin 0
