@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Google Theme</title>
+    <title>Показ фильтров</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700&amp;amp;subset=cyrillic" rel="stylesheet">
@@ -26,273 +26,6 @@
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/theme-switcher/v1.x.x/js/main.js"></script>
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/base-js/v1.x.x/js/main.js"></script>
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/tab-builder/v1.x.x/js/main.js"></script><!-- there is can be head meta or sctipts-->
-    <style>
-        :root:not([data-dark="true"]) {
-            --tc_page_bg: #fff;
-            --tc_aside_gradient: linear-gradient(to left, #fafafa 0%, #fafafa 100%);
-            --tc_aside_gradient_header: linear-gradient(to left, #1a73e8 0%, #1a73e8 100%);
-            --tc_aside_link: #737373;
-            --tc_aside_text: #737373;
-            --tc_aside_bg_nav: #ecf1fa;
-            --tc_header_bg: #fff;
-            --tc_ui_btn_smcolor: #1a73e8;
-            --tc_ui_btn_smcolor_active: #1a73e8;
-            --tc_header_link: #fff;
-            --tc_header_link_active: #fafafa;
-            --tc_aside_bg_dark: #1a73e8;
-            --tc_ui_btn_smcolor_text: #fff;
-
-        }
-
-        :root[data-dark="true"] {
-            --tc_header_bg: none;
-            --tc_ui_btn_smcolor: #1a73e8;
-            --tc_ui_btn_smcolor_active: #1a73e8;
-            --tc_aside_bg_dark: #1a73e8;
-            --tc_ui_btn_smcolor_text: #fff;
-        }
-
-
-        .frame .frame__aside {
-            box-shadow: none;
-        }
-
-        .frame .frame__header {
-            padding-top: 56px;
-        }
-
-        .frame .frame__aside-link .icon {
-            transition: none;
-        }
-
-        .frame .frame__aside-link .icon-angle-bottom:after {
-            top: 0.5rem;
-            bottom: 0.5rem;
-        }
-
-        .frame .frame__aside-link .icon-angle-bottom {
-            width: 35px;
-        }
-
-        .frame .frame__aside-links {
-            padding-top: 10px;
-        }
-
-        .frame .frame__aside-link {
-            padding-top: 10px;
-            padding-bottom: 10px;
-            min-height: 40px;
-            opacity: 1;
-        }
-
-        .frame .frame__aside-link:hover {
-            color: #3a78e6;
-        }
-
-        .frame .frame__aside-inlist {
-            min-height: 30px;
-            padding-top: 5px;
-            padding-bottom: 5px;
-        }
-
-        .frame .frame__search-link {
-            color: #1a73e8;
-        }
-
-        .frame .frame__aside-title {
-            min-height: 58px;
-            height: 58px;
-            color: #fff;
-            padding-top: 10px;
-            padding-bottom: 10px;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            overflow: hidden;
-        }
-
-        .frame .frame__aside-title a {
-            color: #fff;
-        }
-
-
-        .frame .frame__aside-title {
-            text-align: left;
-            justify-content: flex-start;
-            padding-left: 35px;
-            padding-right: 20px;
-        }
-
-
-        .frame .frame__search {
-            background-color: var(--tc_ui_bg);
-            padding: 5px 15px;
-            border-radius: 2px;
-            box-shadow: var(--tc_shadow_smr);
-        }
-
-        .frame .frame__search .frame__search-hidden {
-            width: 300px;
-        }
-
-        .frame .frame__search-input {
-            border: 0px;
-        }
-
-        .frame .frame__search-input:focus {
-            border: 0px;
-        }
-
-        .frame__search-link {
-            pointer-events: none;
-        }
-
-        .frame .frame__search-close {
-            display: none;
-        }
-
-
-        .frame .frame__header-top {
-            padding-top: 10px;
-            padding-bottom: 10px;
-            padding-right: 40px;
-            width: 100%;
-            position: fixed;
-            right: 0;
-            top: 0;
-            background: #1a73e8;
-            z-index: 1000;
-            height: 58px;
-        }
-
-
-        .frame .frame__aside+.frame__right .frame__header-top {
-            width: calc(100% - 260px);
-        }
-
-        .frame .frame__userinfo-ava {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            margin-left: 15px;
-        }
-
-        .frame .frame__userinfo {
-            height: 36px;
-        }
-
-        .frame .frame__header-line {
-            padding-top: 30px;
-            padding-bottom: 0;
-        }
-
-        html:not([data-dark="true"]) {
-            background: #fff;
-        }
-
-        .frame .frame__userinfo-link {
-            width: 36px;
-            height: 36px;
-            margin-left: 10px;
-        }
-
-        .frame .frame__header-add {
-            top: -35px;
-        }
-
-        @media (max-width: 1000px) {
-            .frame .frame__aside+.frame__right .frame__header-top {
-                width: calc(100% - 210px);
-            }
-
-            .frame .frame__header-top {
-                padding-right: 15px;
-            }
-        }
-
-        @media (max-width: 900px) {
-
-            .frame .frame__aside-title {
-                min-height: 60px;
-                white-space: normal;
-            }
-
-            .frame .frame__header-top {
-                height: auto;
-            }
-
-
-            html:not([data-dark="true"]) .frame .frame__header-top {
-                background: #fff;
-            }
-
-            html[data-dark="true"] .frame .frame__header-top {
-                background: none;
-                padding-top: 15px;
-            }
-
-            .frame .frame__aside-link:hover {
-                color: #fff;
-            }
-
-            :root:not([data-dark="true"]) {
-                --tc_header_link: #1160c9;
-                --tc_header_link_active: #1160c9;
-                --tc_aside_text: #fff;
-                --tc_aside_link: #fff;
-                --tc_aside_gradient: linear-gradient(to left, #1160c9 0%, #1160c9 100%);
-                --tc_aside_gradient_header: linear-gradient(to left, #1160c9 0%, #1160c9 100%);
-            }
-
-            .frame .frame__aside-title {
-                min-height: 1px;
-                height: auto;
-            }
-
-            .frame .frame__header-top {
-                position: static;
-                width: auto;
-            }
-
-            .frame .frame__header {
-                padding-top: 0;
-            }
-
-            .frame .frame__aside+.frame__right .frame__header-top {
-                width: auto;
-            }
-
-
-            .frame .frame__userinfo-ava {
-                width: 42px;
-                height: 42px;
-            }
-
-            .frame .frame__aside-title {
-                padding-left: 10px;
-                padding-right: 10px;
-            }
-        }
-
-        @media (max-width: 700px) {
-            .frame .frame__header-line {
-                padding-top: 10px;
-            }
-
-            .frame .frame__header-add {
-                top: auto;
-            }
-
-            .frame .frame__userinfo {
-                height: 60px;
-                background: var(--tc_ui_bg)
-            }
-
-            html:not([data-dark="true"]) .frame .frame__userinfo {
-                background: #fff;
-            }
-
-        }
-    </style>
 </head>
 
 <body>
@@ -335,7 +68,7 @@
                     </div>
                     <div class="frame__header-line">
                         <div class="frame__title-line">
-                            <h1 class="frame__header-title">Google Theme</h1>
+                            <h1 class="frame__header-title">Показ фильтров</h1>
                         </div>
                     </div>
                 </div>
@@ -701,49 +434,60 @@
                 <div class="frame__content"><button class="frame__header-add"><i class="icon icon-plus"></i></button>
                     <div class="frame__inlayout">
                         <div class="frame__inlayout-content">
-                            <!-- pp-->
-                            <div class="section">
-                                <table-builder store-data="table" media-queries="[{'mobile': '(max-width: 600px)'}]" :default="[{name:'First', email:'first@mail.com', 'role': 'Manager', 'phone': '+380670000000'}, {name: 'Second', email: 'second@mail.com', 'role': 'Manager', 'phone': '+380670000000'}, {name: 'Second', email: 'second@mail.com', 'role': 'Manager', 'phone': '+380670000000'}, {name: 'Second', email: 'second@mail.com', 'role': 'Manager', 'phone': '+380670000000'}, {name: 'Second', email: 'second@mail.com', 'role': 'Manager', 'phone': '+380670000000'}]">
-                                    <h2 slot="empty">No data</h2>
-                                    <tb-column name="name" label="Project name"></tb-column>
-                                    <tb-column name="email"></tb-column>
-                                    <tb-column name="role"></tb-column>
-                                    <tb-column name="phone"></tb-column>
-                                </table-builder>
-                            </div>
-                            <div class="section">
-                                <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A laborum, voluptates dignissimos deleniti, suscipit id et sunt velit explicabo quos veritatis, ullam nobis libero officia eos quod facere dolorum qui.</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex vel incidunt animi eaque quas impedit dolor inventore! Dicta deserunt nemo illo, asperiores aut molestias ea tempore nulla eum autem ratione?</p><img src="https://picsum.photos/1600/500/?random" alt="">
-                                <ul>
-                                    <li>Lorem ipsum, dolor sit amet <code>consectetur adipisicing elit</code>.</li>
-                                    <li>Lorem ipsum, dolor sit amet <a href="">consectetur adipisicing elit</a>.</li>
-                                    <li>Lorem ipsum, dolor sit amet <b>consectetur adipisicing elit</b>.</li>
-                                    <li>Lorem ipsum, dolor sit amet <em>consectetur adipisicing elit</em>.</li>
-                                    <li>Lorem ipsum, dolor sit amet <kbd>consectetur adipisicing elit</kbd>.</li>
-                                </ul>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae tempora harum ad quia neque soluta, optio accusantium delectus. Totam vero ipsam ullam quia blanditiis amet aut molestias expedita rem dolor!</p>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, perspiciatis. Inventore minima quidem dignissimos corporis tenetur, atque ipsa non distinctio mollitia aliquam error placeat quaerat esse, vel culpa possimus laborum.</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus cupiditate fugiat rerum labore nesciunt ex ratione ut, cum, officia, adipisci dolores. Blanditiis atque illum voluptatum laboriosam reprehenderit non pariatur mollitia!</p>
-                                <ol>
-                                    <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</li>
-                                    <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</li>
-                                    <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</li>
-                                    <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</li>
-                                    <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</li>
-                                </ol>
-                                <blockquote>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi molestias architecto, inventore repudiandae ipsam earum provident consequuntur distinctio, aspernatur harum minima vel quod praesentium, animi atque saepe voluptas voluptate minus.</blockquote>
-                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum accusamus vitae obcaecati. Nam tempora nobis aut, quas voluptates aspernatur inventore eius quibusdam atque, illum dolore numquam harum amet totam enim!</p><pre><code class="language-html">&lt;context-menu&gt;
-    &lt;cm-button&gt;Click me!&lt;/cm-button&gt;
-&lt;/context-menu&gt;</code></pre>
-                            </div>
-                            <div class="section">
-                                <div class="grid">
-                                    <div class="cell-1-2">
-                                        <table-builder store-data="list-slot" media-queries="[{'mobile': '(max-width: 600px)'}]" :default="[{name:'First', email:'first@mail.com', 'role': 'Manager', 'phone': '+380670000000'}, {name: 'Second', email: 'second@mail.com', 'role': 'Manager', 'phone': '+380670000000'}, {name: 'Second', email: 'second@mail.com', 'role': 'Manager', 'phone': '+380670000000'}, {name: 'Second', email: 'second@mail.com', 'role': 'Manager', 'phone': '+380670000000'}, {name: 'Second', email: 'second@mail.com', 'role': 'Manager', 'phone': '+380670000000'}]"><template slot="list" slot-scope="l"></template></table-builder>
+                            <div class="page-prices">
+                                <div class="page-prices__check">
+                                    <fb-switcher label="Payment for the year, 20% discount"></fb-switcher>
+                                </div>
+                                <div class="price-table price-table_btn-footer">
+                                    <div class="price-table__cell">
+                                        <div class="price-table__head"><b class="price-table__title">free</b><span class="price-table__number">0<small>€</small></span><span class="price-table__caption">only for freelansers</span></div>
+                                        <div class="price-table__spoiler">
+                                            <ul class="price-table__list">
+                                                <li>Сlient Base</li>
+                                                <li>Project Management</li>
+                                                <li>100 MB Cloud Storage*</li>
+                                                <li>Сlient Base</li>
+                                                <li>Project Management</li>
+                                                <li>100 MB Cloud Storage*</li>
+                                            </ul><button class="price-table__moreinfo" title="More info">More info</button>
+                                        </div>
+                                        <div class="price-table__footer"><a class="btn" href="">select plan</a></div>
                                     </div>
-                                    <div class="cell-1-2">
-                                        <table-builder store-data="list-slot" media-queries="[{'mobile': '(max-width: 600px)'}]" :default="[{name:'First', email:'first@mail.com', 'role': 'Manager', 'phone': '+380670000000'}, {name: 'Second', email: 'second@mail.com', 'role': 'Manager', 'phone': '+380670000000'}, {name: 'Second', email: 'second@mail.com', 'role': 'Manager', 'phone': '+380670000000'}, {name: 'Second', email: 'second@mail.com', 'role': 'Manager', 'phone': '+380670000000'}, {name: 'Second', email: 'second@mail.com', 'role': 'Manager', 'phone': '+380670000000'}]"><template slot="list" slot-scope="l"></template></table-builder>
+                                    <div class="price-table__cell active">
+                                        <div class="price-table__head"><b class="price-table__title">standart</b><span class="price-table__number">30<small>€</small></span><span class="price-table__caption">pro user/month</span></div>
+                                        <div class="price-table__spoiler">
+                                            <ul class="price-table__list">
+                                                <li>Сlient Base</li>
+                                                <li>Project Management</li>
+                                                <li>100 MB Cloud Storage*</li>
+                                                <li>DATEV Integration</li>
+                                                <li>Analytics</li>
+                                                <li>Сlient Base</li>
+                                                <li>Project Management</li>
+                                                <li>100 MB Cloud Storage*</li>
+                                                <li>DATEV Integration</li>
+                                                <li>Analytics</li>
+                                            </ul><button class="price-table__moreinfo" title="More info">More info</button>
+                                        </div>
+                                        <div class="price-table__footer"><span class="price-table__caption price-table__caption_dark">Selected before January 5, 2018</span><button class="btn btn_greylink price-table--cancel" title="Cancel">cancel</button></div>
+                                    </div>
+                                    <div class="price-table__cell">
+                                        <div class="price-table__head"><b class="price-table__title">professional</b><span class="price-table__number">50<small>€</small></span><span class="price-table__caption">pro user/month</span></div>
+                                        <div class="price-table__spoiler">
+                                            <ul class="price-table__list">
+                                                <li>Сlient Base</li>
+                                                <li>Project Management</li>
+                                                <li>100 MB Cloud Storage*</li>
+                                                <li>DATEV Integration</li>
+                                                <li>Analytics</li>
+                                                <li>Сlient Base</li>
+                                                <li>Project Management</li>
+                                                <li>100 MB Cloud Storage*</li>
+                                                <li>DATEV Integration</li>
+                                                <li>Analytics</li>
+                                            </ul><button class="price-table__moreinfo" title="More info">More info</button>
+                                        </div>
+                                        <div class="price-table__footer"><a class="btn" href="">select plan</a></div>
                                     </div>
                                 </div>
                             </div>
