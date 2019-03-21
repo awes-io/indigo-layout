@@ -14,6 +14,11 @@ block pageContent
             button.btn.active button
             a.btn(href="") Another
 
+        .btn-group
+            filter-builder(label="Link", :param="{p:1}") 
+            filter-builder(label="button", :param="{p:2}") 
+            filter-builder(label="Another", :param="{p:3}") 
+
     .section
         h2 Filter example
 

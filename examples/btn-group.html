@@ -7,16 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700&amp;amp;subset=cyrillic" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
-    <script>
-        const AWES_CONFIG = {
-            key: '5cd207e2c94eb723c3307764a5693def',
-            formBuilder: {
-                fbEditor: {
-                    content_css: ['/css/editor.css']
-                }
-            }
+    <script>const AWES_CONFIG = {
+    key: '5cd207e2c94eb723c3307764a5693def',
+    formBuilder: {
+        fbEditor: {
+            content_css: ['/css/editor.css']
         }
-    </script>
+    }
+}</script>
     <script src="/js/main.js"></script>
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/filter-wrapper/v1.x.x/js/main.legacy.js"></script>
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/table-builder/v1.x.x/js/main.legacy.js"></script>
@@ -437,6 +435,11 @@
                             <div class="section">
                                 <h2>Btn group example</h2>
                                 <div class="btn-group"><a class="btn" href="">Link</a><button class="btn active">button</button><a class="btn" href="">Another</a></div>
+                                <div class="btn-group">
+                                    <filter-builder label="Link" :param="{p:1}"> </filter-builder>
+                                    <filter-builder label="button" :param="{p:2}"> </filter-builder>
+                                    <filter-builder label="Another" :param="{p:3}"> </filter-builder>
+                                </div>
                             </div>
                             <div class="section">
                                 <h2>Filter example</h2>
