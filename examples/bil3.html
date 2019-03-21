@@ -2,19 +2,21 @@
 <html lang="en">
 
 <head>
-    <title>Slide Up Down</title>
+    <title>Показ фильтров</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700&amp;amp;subset=cyrillic" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
-    <script>const AWES_CONFIG = {
-    key: '5cd207e2c94eb723c3307764a5693def',
-    formBuilder: {
-        fbEditor: {
-            content_css: ['/css/editor.css']
+    <script>
+        const AWES_CONFIG = {
+            key: '5cd207e2c94eb723c3307764a5693def',
+            formBuilder: {
+                fbEditor: {
+                    content_css: ['/css/editor.css']
+                }
+            }
         }
-    }
-}</script>
+    </script>
     <script src="/js/main.js"></script>
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/filter-wrapper/v1.x.x/js/main.legacy.js"></script>
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/table-builder/v1.x.x/js/main.legacy.js"></script>
@@ -66,7 +68,7 @@
                     </div>
                     <div class="frame__header-line">
                         <div class="frame__title-line">
-                            <h1 class="frame__header-title">Slide Up Down</h1>
+                            <h1 class="frame__header-title">Показ фильтров</h1>
                         </div>
                     </div>
                 </div>
@@ -431,14 +433,64 @@
                 </transition>
                 <div class="frame__content"><button class="frame__header-add"><i class="icon icon-plus"></i></button>
                     <div class="frame__inlayout">
-                        <div class="frame__inlayout-content"><a class="btn" href="" @click.prevent="$refs.slide.toggle()" style="max-width:180px">test Slide Up Down</a><br>
-                            <slide-up-down ref="slide">
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere, quae? Accusantium voluptatibus pariatur rem vitae porro, velit vel cupiditate sint! Repudiandae aliquid quidem facilis repellendus dolorem consequuntur veniam maiores eum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium hic nisi, aliquam beatae doloribus expedita non numquam cumque nemo inventore necessitatibus ex, provident pariatur facilis. Temporibus saepe tempora eaque iste. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod dignissimos sapiente vitae excepturi libero suscipit unde praesentium maiores voluptate facere natus, vero iure. Ipsum necessitatibus laudantium quae, fugiat inventore eum?</p>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere, quae? Accusantium voluptatibus pariatur rem vitae porro, velit vel cupiditate sint! Repudiandae aliquid quidem facilis repellendus dolorem consequuntur veniam maiores eum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium hic nisi, aliquam beatae doloribus expedita non numquam cumque nemo inventore necessitatibus ex, provident pariatur facilis. Temporibus saepe tempora eaque iste. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod dignissimos sapiente vitae excepturi libero suscipit unde praesentium maiores voluptate facere natus, vero iure. Ipsum necessitatibus laudantium quae, fugiat inventore eum?</p>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere, quae? Accusantium voluptatibus pariatur rem vitae porro, velit vel cupiditate sint! Repudiandae aliquid quidem facilis repellendus dolorem consequuntur veniam maiores eum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium hic nisi, aliquam beatae doloribus expedita non numquam cumque nemo inventore necessitatibus ex, provident pariatur facilis. Temporibus saepe tempora eaque iste. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod dignissimos sapiente vitae excepturi libero suscipit unde praesentium maiores voluptate facere natus, vero iure. Ipsum necessitatibus laudantium quae, fugiat inventore eum?</p>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere, quae? Accusantium voluptatibus pariatur rem vitae porro, velit vel cupiditate sint! Repudiandae aliquid quidem facilis repellendus dolorem consequuntur veniam maiores eum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium hic nisi, aliquam beatae doloribus expedita non numquam cumque nemo inventore necessitatibus ex, provident pariatur facilis. Temporibus saepe tempora eaque iste. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod dignissimos sapiente vitae excepturi libero suscipit unde praesentium maiores voluptate facere natus, vero iure. Ipsum necessitatibus laudantium quae, fugiat inventore eum?</p>
-                            </slide-up-down>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere, quae? Accusantium voluptatibus pariatur rem vitae porro, velit vel cupiditate sint! Repudiandae aliquid quidem facilis repellendus dolorem consequuntur veniam maiores eum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium hic nisi, aliquam beatae doloribus expedita non numquam cumque nemo inventore necessitatibus ex, provident pariatur facilis. Temporibus saepe tempora eaque iste. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod dignissimos sapiente vitae excepturi libero suscipit unde praesentium maiores voluptate facere natus, vero iure. Ipsum necessitatibus laudantium quae, fugiat inventore eum?</p>
+                        <div class="frame__inlayout-content">
+                            <div class="page-prices">
+                                <div class="page-prices__check">
+                                    <fb-switcher label="Payment for the year, 20% discount"></fb-switcher>
+                                </div>
+                                <div class="price-table price-table_btn-footer">
+                                    <div class="price-table__cell">
+                                        <div class="price-table__head"><b class="price-table__title">free</b><span class="price-table__number">0<small>€</small></span><span class="price-table__caption">only for freelansers</span></div>
+                                        <div class="price-table__spoiler">
+                                            <ul class="price-table__list">
+                                                <li>Сlient Base</li>
+                                                <li>Project Management</li>
+                                                <li>100 MB Cloud Storage*</li>
+                                                <li>Сlient Base</li>
+                                                <li>Project Management</li>
+                                                <li>100 MB Cloud Storage*</li>
+                                            </ul><button class="price-table__moreinfo" title="More info">More info</button>
+                                        </div>
+                                        <div class="price-table__footer"><a class="btn" href="">select plan</a></div>
+                                    </div>
+                                    <div class="price-table__cell active">
+                                        <div class="price-table__head"><b class="price-table__title">standart</b><span class="price-table__number">30<small>€</small></span><span class="price-table__caption">pro user/month</span></div>
+                                        <div class="price-table__spoiler">
+                                            <ul class="price-table__list">
+                                                <li>Сlient Base</li>
+                                                <li>Project Management</li>
+                                                <li>100 MB Cloud Storage*</li>
+                                                <li>DATEV Integration</li>
+                                                <li>Analytics</li>
+                                                <li>Сlient Base</li>
+                                                <li>Project Management</li>
+                                                <li>100 MB Cloud Storage*</li>
+                                                <li>DATEV Integration</li>
+                                                <li>Analytics</li>
+                                            </ul><button class="price-table__moreinfo" title="More info">More info</button>
+                                        </div>
+                                        <div class="price-table__footer"><span class="price-table__caption price-table__caption_dark">Selected before January 5, 2018</span><button class="btn btn_greylink price-table--cancel" title="Cancel">cancel</button></div>
+                                    </div>
+                                    <div class="price-table__cell">
+                                        <div class="price-table__head"><b class="price-table__title">professional</b><span class="price-table__number">50<small>€</small></span><span class="price-table__caption">pro user/month</span></div>
+                                        <div class="price-table__spoiler">
+                                            <ul class="price-table__list">
+                                                <li>Сlient Base</li>
+                                                <li>Project Management</li>
+                                                <li>100 MB Cloud Storage*</li>
+                                                <li>DATEV Integration</li>
+                                                <li>Analytics</li>
+                                                <li>Сlient Base</li>
+                                                <li>Project Management</li>
+                                                <li>100 MB Cloud Storage*</li>
+                                                <li>DATEV Integration</li>
+                                                <li>Analytics</li>
+                                            </ul><button class="price-table__moreinfo" title="More info">More info</button>
+                                        </div>
+                                        <div class="price-table__footer"><a class="btn" href="">select plan</a></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div><span class="frame__copyright">© 2019 - PkgKit - Proudly powered on <a href="">Awes.IO Platform</a>.</span>

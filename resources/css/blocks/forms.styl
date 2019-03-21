@@ -49,6 +49,42 @@
         text-align center
         line-height 1
 
+.btn-group
+    display inline-flex
+    .btn, & &__separator
+        padding-left 1px
+        text(f_small)
+        text-align center
+        min-height 34px
+        border 1px solid
+        border-color var(--tc_border)
+        color var(--tc_link_semi)
+        background-color var(--tc_ui_bg_semi )
+        fl(,c,c)
+        border-radius 0
+        width auto
+        text-transform none
+        min-width 1px
+        padding 5px 10px
+        user-select none
+        margin-left -1px
+        
+    .btn
+        cursor pointer
+        tr(0.3)
+        &:hover, &:active, &:focus
+            text-decoration none
+            color var(--tc_link_semi_active)
+            background-color transparent
+            filter none
+        &:first-child
+            border-radius 2px 0px 0px 2px
+        &:last-child
+            border-radius 0px 2px 2px 0px
+        &.active
+            background-color var(--tc_ui_bg)
+            color var(--tc_link_semi_active)
+
 .grid
     &_forms
         width calc(100% + 10px)
@@ -155,11 +191,9 @@
     &.loading-inline
         &:hover, &:focus
             background-color cl_grass
-    &[disabled="disabled"]
+    &[disabled="disabled"], &:disabled
         cursor not-allowed
         opacity 0.5
-    &:active
-        filter brightness(90%)
 
 
 
@@ -350,6 +384,7 @@
         vertical-align middle
 
 .line-btns
+    padding-top 20px
     .btn
         display inline-block
         margin-right 10px

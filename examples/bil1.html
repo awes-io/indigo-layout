@@ -2,19 +2,21 @@
 <html lang="en">
 
 <head>
-    <title>Slide Up Down</title>
+    <title>Показ фильтров</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700&amp;amp;subset=cyrillic" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
-    <script>const AWES_CONFIG = {
-    key: '5cd207e2c94eb723c3307764a5693def',
-    formBuilder: {
-        fbEditor: {
-            content_css: ['/css/editor.css']
+    <script>
+        const AWES_CONFIG = {
+            key: '5cd207e2c94eb723c3307764a5693def',
+            formBuilder: {
+                fbEditor: {
+                    content_css: ['/css/editor.css']
+                }
+            }
         }
-    }
-}</script>
+    </script>
     <script src="/js/main.js"></script>
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/filter-wrapper/v1.x.x/js/main.legacy.js"></script>
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/table-builder/v1.x.x/js/main.legacy.js"></script>
@@ -66,7 +68,7 @@
                     </div>
                     <div class="frame__header-line">
                         <div class="frame__title-line">
-                            <h1 class="frame__header-title">Slide Up Down</h1>
+                            <h1 class="frame__header-title">Показ фильтров</h1>
                         </div>
                     </div>
                 </div>
@@ -431,14 +433,59 @@
                 </transition>
                 <div class="frame__content"><button class="frame__header-add"><i class="icon icon-plus"></i></button>
                     <div class="frame__inlayout">
-                        <div class="frame__inlayout-content"><a class="btn" href="" @click.prevent="$refs.slide.toggle()" style="max-width:180px">test Slide Up Down</a><br>
-                            <slide-up-down ref="slide">
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere, quae? Accusantium voluptatibus pariatur rem vitae porro, velit vel cupiditate sint! Repudiandae aliquid quidem facilis repellendus dolorem consequuntur veniam maiores eum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium hic nisi, aliquam beatae doloribus expedita non numquam cumque nemo inventore necessitatibus ex, provident pariatur facilis. Temporibus saepe tempora eaque iste. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod dignissimos sapiente vitae excepturi libero suscipit unde praesentium maiores voluptate facere natus, vero iure. Ipsum necessitatibus laudantium quae, fugiat inventore eum?</p>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere, quae? Accusantium voluptatibus pariatur rem vitae porro, velit vel cupiditate sint! Repudiandae aliquid quidem facilis repellendus dolorem consequuntur veniam maiores eum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium hic nisi, aliquam beatae doloribus expedita non numquam cumque nemo inventore necessitatibus ex, provident pariatur facilis. Temporibus saepe tempora eaque iste. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod dignissimos sapiente vitae excepturi libero suscipit unde praesentium maiores voluptate facere natus, vero iure. Ipsum necessitatibus laudantium quae, fugiat inventore eum?</p>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere, quae? Accusantium voluptatibus pariatur rem vitae porro, velit vel cupiditate sint! Repudiandae aliquid quidem facilis repellendus dolorem consequuntur veniam maiores eum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium hic nisi, aliquam beatae doloribus expedita non numquam cumque nemo inventore necessitatibus ex, provident pariatur facilis. Temporibus saepe tempora eaque iste. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod dignissimos sapiente vitae excepturi libero suscipit unde praesentium maiores voluptate facere natus, vero iure. Ipsum necessitatibus laudantium quae, fugiat inventore eum?</p>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere, quae? Accusantium voluptatibus pariatur rem vitae porro, velit vel cupiditate sint! Repudiandae aliquid quidem facilis repellendus dolorem consequuntur veniam maiores eum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium hic nisi, aliquam beatae doloribus expedita non numquam cumque nemo inventore necessitatibus ex, provident pariatur facilis. Temporibus saepe tempora eaque iste. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod dignissimos sapiente vitae excepturi libero suscipit unde praesentium maiores voluptate facere natus, vero iure. Ipsum necessitatibus laudantium quae, fugiat inventore eum?</p>
-                            </slide-up-down>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere, quae? Accusantium voluptatibus pariatur rem vitae porro, velit vel cupiditate sint! Repudiandae aliquid quidem facilis repellendus dolorem consequuntur veniam maiores eum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium hic nisi, aliquam beatae doloribus expedita non numquam cumque nemo inventore necessitatibus ex, provident pariatur facilis. Temporibus saepe tempora eaque iste. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod dignissimos sapiente vitae excepturi libero suscipit unde praesentium maiores voluptate facere natus, vero iure. Ipsum necessitatibus laudantium quae, fugiat inventore eum?</p>
+                        <div class="frame__inlayout-content">
+                            <tab-builder><template slot="tab-toggler" slot-scope="toggler">{{ toggler.item.label }}</template>
+                                <tb-link label="General" url="//google.com"> </tb-link>
+                                <tb-link label="Plans" url="//google.com"> </tb-link>
+                                <tb-link label="Payment Method" url="//google.com"> </tb-link>
+                                <tb-link label="History" url="//google.com"> </tb-link>
+                                <tb-link label="Settings" url="//google.com"> </tb-link>
+                                <tb-link label="General" url="//google.com"> </tb-link>
+                            </tab-builder>
+                            <div class="frame__max">
+                                <form-builder url="http://httpbin.org/post" disabled-dialog btntext="Update">
+                                    <div class="grid grid_forms">
+                                        <div class="cell">
+                                            <h3 class="tf-form-title">Billing information</h3>
+                                            <p class="tf-form-text">This information will be added to your invoice.</p>
+                                        </div>
+                                        <div class="cell-1-2 cell-1-1--tsm">
+                                            <fb-input name="tt1" type="text" label="First name"></fb-input>
+                                        </div>
+                                        <div class="cell-1-2 cell-1-1--tsm">
+                                            <fb-input name="tt2" type="text" label="Last name"></fb-input>
+                                        </div>
+                                        <div class="cell-1-2 cell-1-1--tsm">
+                                            <fb-input name="tt3" type="text" label="Company"></fb-input>
+                                        </div>
+                                        <div class="cell-1-2 cell-1-1--tsm">
+                                            <fb-input name="tt4" type="text" label="Tax/VAT Number"></fb-input>
+                                        </div>
+                                        <div class="cell-1-2 cell-1-1--tsm">
+                                            <fb-input name="tt5" type="text" label="Address"></fb-input>
+                                        </div>
+                                        <div class="cell-1-2 cell-1-1--tsm">
+                                            <fb-input name="tt6" type="text" label="Country"></fb-input>
+                                        </div>
+                                        <div class="cell-1-2 cell-1-1--tsm">
+                                            <fb-input name="tt7" type="text" label="Zip Code"></fb-input>
+                                        </div>
+                                        <div class="cell-1-2 cell-1-1--tsm mb-def">
+                                            <fb-input name="tt8" type="text" label="Phone"></fb-input>
+                                        </div>
+                                        <div class="cell">
+                                            <h3 class="tf-form-title">Notification</h3>
+                                            <p class="tf-form-text">This information will be added to your invoiceThis information will be added to your invoiceThis information will be added to your invoiceThis information will be added to your invoiceThis information will be added to your invoice</p>
+                                        </div>
+                                        <div class="cell mb-sx">
+                                            <fb-input name="tt1" type="email" label="Email"></fb-input>
+                                        </div>
+                                        <div class="cell">
+                                            <fb-switcher label="Send invoices and Notifications" name="switcher3"></fb-switcher>
+                                        </div><!-- TODO: Нужна кнопка cancel, а кнопка send должна называеться update.-->
+                                    </div>
+                                </form-builder>
+                            </div>
                         </div>
                     </div>
                 </div><span class="frame__copyright">© 2019 - PkgKit - Proudly powered on <a href="">Awes.IO Platform</a>.</span>

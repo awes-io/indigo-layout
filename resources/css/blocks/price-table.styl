@@ -1,5 +1,5 @@
 .price-table
-    wrap(930px, 0px)
+    wrap(1000px, 0px)
     fl()
     & &__cell
         width calc(33.333% + 1px)
@@ -16,9 +16,11 @@
             padding-bottom 120px
     & &__list
         text-align left
-        margin-bottom 20px
+        margin 0 0 20px 0
+        list-style none
         li
             padding 10px
+            margin-bottom 0
     .btn
         width auto
         display inline-block
@@ -57,10 +59,9 @@
 
 
 .page-prices
-    max-width 830px
     & &__check
-        text-align center
-        margin-bottom 20px
+        fl(,c,c)
+        margin-bottom 30px
 
 
 @media maw[tmd]

@@ -1,0 +1,87 @@
+extends includes/layout
+
+block pageVariables
+    - var pageTitle = "Показ фильтров"
+
+block pageHead
+    // there is can be head meta or sctipts
+    
+
+block pageContent
+
+
+    .page-prices
+        .page-prices__check
+            fb-switcher(label="Payment for the year, 20% discount")
+
+
+        .price-table.price-table_btn-footer
+
+
+            .price-table__cell
+                .price-table__head
+                    b.price-table__title free
+                    span.price-table__number
+                        | 0
+                        small €
+                    span.price-table__caption only for freelansers
+                .price-table__spoiler
+                    ul.price-table__list
+                        li Сlient Base
+                        li Project Management
+                        li 100 MB Cloud Storage*
+                        li Сlient Base
+                        li Project Management
+                        li 100 MB Cloud Storage*
+                    button.price-table__moreinfo(title='More info') More info
+                .price-table__footer
+                    a.btn(href='') select plan
+
+                    
+            .price-table__cell.active
+                .price-table__head
+                    b.price-table__title standart
+                    span.price-table__number
+                        | 30
+                        small €
+                    span.price-table__caption pro user/month
+                .price-table__spoiler
+                    ul.price-table__list
+                        li Сlient Base
+                        li Project Management
+                        li 100 MB Cloud Storage*
+                        li DATEV Integration
+                        li Analytics
+                        li Сlient Base
+                        li Project Management
+                        li 100 MB Cloud Storage*
+                        li DATEV Integration
+                        li Analytics
+                    button.price-table__moreinfo(title='More info') More info
+                .price-table__footer
+                    span.price-table__caption.price-table__caption_dark Selected before January 5, 2018
+                    button.btn.btn_greylink.price-table--cancel(title='Cancel') cancel
+
+
+            .price-table__cell
+                .price-table__head
+                    b.price-table__title professional
+                    span.price-table__number
+                        | 50
+                        small €
+                    span.price-table__caption pro user/month
+                .price-table__spoiler
+                    ul.price-table__list
+                        li Сlient Base
+                        li Project Management
+                        li 100 MB Cloud Storage*
+                        li DATEV Integration
+                        li Analytics
+                        li Сlient Base
+                        li Project Management
+                        li 100 MB Cloud Storage*
+                        li DATEV Integration
+                        li Analytics
+                    button.price-table__moreinfo(title='More info') More info
+                .price-table__footer
+                    a.btn(href='') select plan

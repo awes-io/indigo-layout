@@ -2,19 +2,21 @@
 <html lang="en">
 
 <head>
-    <title>Slide Up Down</title>
+    <title>Показ фильтров</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700&amp;amp;subset=cyrillic" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
-    <script>const AWES_CONFIG = {
-    key: '5cd207e2c94eb723c3307764a5693def',
-    formBuilder: {
-        fbEditor: {
-            content_css: ['/css/editor.css']
+    <script>
+        const AWES_CONFIG = {
+            key: '5cd207e2c94eb723c3307764a5693def',
+            formBuilder: {
+                fbEditor: {
+                    content_css: ['/css/editor.css']
+                }
+            }
         }
-    }
-}</script>
+    </script>
     <script src="/js/main.js"></script>
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/filter-wrapper/v1.x.x/js/main.legacy.js"></script>
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/table-builder/v1.x.x/js/main.legacy.js"></script>
@@ -66,7 +68,7 @@
                     </div>
                     <div class="frame__header-line">
                         <div class="frame__title-line">
-                            <h1 class="frame__header-title">Slide Up Down</h1>
+                            <h1 class="frame__header-title">Показ фильтров</h1>
                         </div>
                     </div>
                 </div>
@@ -431,14 +433,40 @@
                 </transition>
                 <div class="frame__content"><button class="frame__header-add"><i class="icon icon-plus"></i></button>
                     <div class="frame__inlayout">
-                        <div class="frame__inlayout-content"><a class="btn" href="" @click.prevent="$refs.slide.toggle()" style="max-width:180px">test Slide Up Down</a><br>
-                            <slide-up-down ref="slide">
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere, quae? Accusantium voluptatibus pariatur rem vitae porro, velit vel cupiditate sint! Repudiandae aliquid quidem facilis repellendus dolorem consequuntur veniam maiores eum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium hic nisi, aliquam beatae doloribus expedita non numquam cumque nemo inventore necessitatibus ex, provident pariatur facilis. Temporibus saepe tempora eaque iste. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod dignissimos sapiente vitae excepturi libero suscipit unde praesentium maiores voluptate facere natus, vero iure. Ipsum necessitatibus laudantium quae, fugiat inventore eum?</p>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere, quae? Accusantium voluptatibus pariatur rem vitae porro, velit vel cupiditate sint! Repudiandae aliquid quidem facilis repellendus dolorem consequuntur veniam maiores eum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium hic nisi, aliquam beatae doloribus expedita non numquam cumque nemo inventore necessitatibus ex, provident pariatur facilis. Temporibus saepe tempora eaque iste. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod dignissimos sapiente vitae excepturi libero suscipit unde praesentium maiores voluptate facere natus, vero iure. Ipsum necessitatibus laudantium quae, fugiat inventore eum?</p>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere, quae? Accusantium voluptatibus pariatur rem vitae porro, velit vel cupiditate sint! Repudiandae aliquid quidem facilis repellendus dolorem consequuntur veniam maiores eum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium hic nisi, aliquam beatae doloribus expedita non numquam cumque nemo inventore necessitatibus ex, provident pariatur facilis. Temporibus saepe tempora eaque iste. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod dignissimos sapiente vitae excepturi libero suscipit unde praesentium maiores voluptate facere natus, vero iure. Ipsum necessitatibus laudantium quae, fugiat inventore eum?</p>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere, quae? Accusantium voluptatibus pariatur rem vitae porro, velit vel cupiditate sint! Repudiandae aliquid quidem facilis repellendus dolorem consequuntur veniam maiores eum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium hic nisi, aliquam beatae doloribus expedita non numquam cumque nemo inventore necessitatibus ex, provident pariatur facilis. Temporibus saepe tempora eaque iste. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod dignissimos sapiente vitae excepturi libero suscipit unde praesentium maiores voluptate facere natus, vero iure. Ipsum necessitatibus laudantium quae, fugiat inventore eum?</p>
-                            </slide-up-down>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere, quae? Accusantium voluptatibus pariatur rem vitae porro, velit vel cupiditate sint! Repudiandae aliquid quidem facilis repellendus dolorem consequuntur veniam maiores eum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium hic nisi, aliquam beatae doloribus expedita non numquam cumque nemo inventore necessitatibus ex, provident pariatur facilis. Temporibus saepe tempora eaque iste. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod dignissimos sapiente vitae excepturi libero suscipit unde praesentium maiores voluptate facere natus, vero iure. Ipsum necessitatibus laudantium quae, fugiat inventore eum?</p>
+                        <div class="frame__inlayout-content">
+                            <tab-builder><template slot="tab-toggler" slot-scope="toggler">{{ toggler.item.label }}</template>
+                                <tb-link label="General" url="//google.com"> </tb-link>
+                                <tb-link label="Plans" url="//google.com"> </tb-link>
+                                <tb-link label="Payment Method" url="//google.com"> </tb-link>
+                                <tb-link label="History" url="//google.com"> </tb-link>
+                                <tb-link label="Settings" url="//google.com"> </tb-link>
+                                <tb-link label="General" url="//google.com"> </tb-link>
+                            </tab-builder>
+                            <div class="grid grid_paycard">
+                                <div class="cell-1-2 cell-1-1--mlg mb-big--mlg">
+                                    <h3>Your plan</h3>
+                                    <div class="paycard paycard_white">
+                                        <div class="paycard__wrap">
+                                            <div class="paycard__info">
+                                                <div class="paycard__current"><span class="paycard__current-plan">standart</span><span class="paycard__current-price">30 <small>€</small></span><span class="paycard__current-caption">pro user/month</span></div>
+                                                <p class="paycard__info-text">Until 10 November. You pay for 5 users $500 per month</p>
+                                            </div>
+                                            <div class="paycard__btns"><button class="btn" title="change plan">change plan</button><button class="btn btn_transparent" title="add manager">add manager</button></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-1-2 cell-1-1--mlg">
+                                    <h3>Payment Method</h3>
+                                    <div class="paycard">
+                                        <div class="paycard__wrap"><span class="paycard__logo"><i class="icon icon-visa"></i></span>
+                                            <picture class="paycard__chip"><img src="/dist/img/images/chip.png" alt=""></picture><span class="paycard__number"><span>****</span><span>****</span><span>****</span><span>0008</span></span><span class="paycard__footer"><span class="paycard__name">HOLOD SERGY</span><span class="paycard__time">11/23</span></span></div>
+                                        <div class="paycard__hover">
+                                            <div class="paycard__hover-cell"><button class="btn paycard--btn" title="change data">change data</button></div>
+                                            <div class="paycard__hover-cell"><button class="btn btn_darkred paycard--btn paycard--btn-remove" title="remove">remove</button></div>
+                                        </div><button class="paycard__select active" title="Unselect this card"><span>Selected</span><i class="icon icon-pin"></i></button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div><span class="frame__copyright">© 2019 - PkgKit - Proudly powered on <a href="">Awes.IO Platform</a>.</span>

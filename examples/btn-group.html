@@ -2,19 +2,21 @@
 <html lang="en">
 
 <head>
-    <title>Slide Up Down</title>
+    <title>Btn Group</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700&amp;amp;subset=cyrillic" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
-    <script>const AWES_CONFIG = {
-    key: '5cd207e2c94eb723c3307764a5693def',
-    formBuilder: {
-        fbEditor: {
-            content_css: ['/css/editor.css']
+    <script>
+        const AWES_CONFIG = {
+            key: '5cd207e2c94eb723c3307764a5693def',
+            formBuilder: {
+                fbEditor: {
+                    content_css: ['/css/editor.css']
+                }
+            }
         }
-    }
-}</script>
+    </script>
     <script src="/js/main.js"></script>
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/filter-wrapper/v1.x.x/js/main.legacy.js"></script>
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/table-builder/v1.x.x/js/main.legacy.js"></script>
@@ -66,7 +68,7 @@
                     </div>
                     <div class="frame__header-line">
                         <div class="frame__title-line">
-                            <h1 class="frame__header-title">Slide Up Down</h1>
+                            <h1 class="frame__header-title">Btn Group</h1>
                         </div>
                     </div>
                 </div>
@@ -431,14 +433,71 @@
                 </transition>
                 <div class="frame__content"><button class="frame__header-add"><i class="icon icon-plus"></i></button>
                     <div class="frame__inlayout">
-                        <div class="frame__inlayout-content"><a class="btn" href="" @click.prevent="$refs.slide.toggle()" style="max-width:180px">test Slide Up Down</a><br>
-                            <slide-up-down ref="slide">
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere, quae? Accusantium voluptatibus pariatur rem vitae porro, velit vel cupiditate sint! Repudiandae aliquid quidem facilis repellendus dolorem consequuntur veniam maiores eum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium hic nisi, aliquam beatae doloribus expedita non numquam cumque nemo inventore necessitatibus ex, provident pariatur facilis. Temporibus saepe tempora eaque iste. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod dignissimos sapiente vitae excepturi libero suscipit unde praesentium maiores voluptate facere natus, vero iure. Ipsum necessitatibus laudantium quae, fugiat inventore eum?</p>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere, quae? Accusantium voluptatibus pariatur rem vitae porro, velit vel cupiditate sint! Repudiandae aliquid quidem facilis repellendus dolorem consequuntur veniam maiores eum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium hic nisi, aliquam beatae doloribus expedita non numquam cumque nemo inventore necessitatibus ex, provident pariatur facilis. Temporibus saepe tempora eaque iste. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod dignissimos sapiente vitae excepturi libero suscipit unde praesentium maiores voluptate facere natus, vero iure. Ipsum necessitatibus laudantium quae, fugiat inventore eum?</p>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere, quae? Accusantium voluptatibus pariatur rem vitae porro, velit vel cupiditate sint! Repudiandae aliquid quidem facilis repellendus dolorem consequuntur veniam maiores eum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium hic nisi, aliquam beatae doloribus expedita non numquam cumque nemo inventore necessitatibus ex, provident pariatur facilis. Temporibus saepe tempora eaque iste. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod dignissimos sapiente vitae excepturi libero suscipit unde praesentium maiores voluptate facere natus, vero iure. Ipsum necessitatibus laudantium quae, fugiat inventore eum?</p>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere, quae? Accusantium voluptatibus pariatur rem vitae porro, velit vel cupiditate sint! Repudiandae aliquid quidem facilis repellendus dolorem consequuntur veniam maiores eum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium hic nisi, aliquam beatae doloribus expedita non numquam cumque nemo inventore necessitatibus ex, provident pariatur facilis. Temporibus saepe tempora eaque iste. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod dignissimos sapiente vitae excepturi libero suscipit unde praesentium maiores voluptate facere natus, vero iure. Ipsum necessitatibus laudantium quae, fugiat inventore eum?</p>
-                            </slide-up-down>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere, quae? Accusantium voluptatibus pariatur rem vitae porro, velit vel cupiditate sint! Repudiandae aliquid quidem facilis repellendus dolorem consequuntur veniam maiores eum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium hic nisi, aliquam beatae doloribus expedita non numquam cumque nemo inventore necessitatibus ex, provident pariatur facilis. Temporibus saepe tempora eaque iste. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod dignissimos sapiente vitae excepturi libero suscipit unde praesentium maiores voluptate facere natus, vero iure. Ipsum necessitatibus laudantium quae, fugiat inventore eum?</p>
+                        <div class="frame__inlayout-content">
+                            <div class="section">
+                                <h2>Btn group example</h2>
+                                <div class="btn-group"><a class="btn" href="">Link</a><button class="btn active">button</button><a class="btn" href="">Another</a></div>
+                            </div>
+                            <div class="section">
+                                <h2>Filter example</h2>
+                                <div class="filter">
+                                    <div class="grid grid-align-center grid-justify-between grid-justify-center--mlg">
+                                        <div class="cell-inline cell-1-1--mlg">
+                                            <div class="grid grid-ungap">
+                                                <div class="cell-inline cell-1-1--mlg">
+                                                    <div class="btn-group"><a class="btn" href="">Link</a><button class="btn active">button</button><a class="btn" href="">Another</a></div>
+                                                </div>
+                                                <div class="cell-inline cell-1-1--mlg">
+                                                    <div class="btn-group"><a class="btn" href="">Link</a><button class="btn active">button</button><a class="btn" href="">Another</a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="cell-inline">
+                                            <div class="filter__rlink">
+                                                <context-menu button-class="filter__slink" right=""><template slot="toggler"><span>Sort by</span></template>
+                                                    <cm-query :param="{orderBy: ''}">ID ↑</cm-query>
+                                                    <cm-query :param="{orderBy: 'id'}">ID ↓</cm-query>
+                                                    <cm-query :param="{orderBy: 'name'}">Package name</cm-query>
+                                                </context-menu>
+                                            </div>
+                                            <div class="filter__rlink"><button class="filter__slink" @click="$refs.filter.toggle()">
+                                                    <!-- also can be toggled with `$root.$emit('filters:toggle', 'managers')`--><i class="icon icon-filter" v-if=""><!-- prop `name` of filter--><span class="icn-dot"></span></i>Filter</button></div>
+                                        </div>
+                                        <slide-up-down ref="filter">
+                                            <filter-wrapper name="packages">
+                                                <div class="grid grid_forms">
+                                                    <div class="cell">
+                                                        <fb-input name="name" label="Package name"></fb-input>
+                                                    </div>
+                                                </div>
+                                            </filter-wrapper>
+                                        </slide-up-down>
+                                    </div>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit dignissimos nobis laborum. Temporibus commodi dignissimos asperiores illo perspiciatis labore quas exercitationem nulla quam excepturi, repellendus magnam ad veniam ipsum iusto.</p>
+                                </div>
+                            </div>
+                            <div class="section">
+                                <h2>Pagination example</h2>
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem consequatur dolores magni rem sint saepe nemo dignissimos ullam quas soluta, debitis ratione perferendis minima vel magnam eveniet? Commodi, quam. Obcaecati.</p>
+                                <div class="pager"><span class="pager__caption">Record 1-2 of 15</span>
+                                    <div class="pager__middle">
+                                        <div class="pager__links"><a class="pager__arr-left" href=""><i class="icon icon-arrow-left"></i></a>
+                                            <div class="btn-group"><a class="btn" href="">1</a><a class="btn active" href="">2</a><a class="btn" href="">3</a><a class="btn" href="">4</a><a class="btn" href="">5</a><span class="btn-group__separator">...</span><a class="btn" href="">25</a></div><a class="pager__arr-right" href=""><i class="icon icon-arrow-right"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="pager__shows">
+                                        <div class="context-menu is-top-side"><button class="context-menu__toggler" aria-haspopup="true"><span class="pager__shows-link">1</span></button>
+                                            <div class="context-menu__dropdown" aria-expanded="false" style="display: none;">
+                                                <ul class="context-menu__list">
+                                                    <li class="cm-item"><button class="cm-item__button is-active">10</button></li>
+                                                    <li class="cm-item"><button class="cm-item__button">50</button></li>
+                                                    <li class="cm-item"><button class="cm-item__button">100</button></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div><span class="frame__copyright">© 2019 - PkgKit - Proudly powered on <a href="">Awes.IO Platform</a>.</span>
