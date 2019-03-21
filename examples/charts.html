@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/main.css">
     <script>const AWES_CONFIG = {
     key: '5cd207e2c94eb723c3307764a5693def',
+    dev: true,
     formBuilder: {
         fbEditor: {
             content_css: ['/css/editor.css']
@@ -23,8 +24,9 @@
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/modal-window/v1.0.8/js/main.js"></script>
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/theme-switcher/v1.x.x/js/main.js"></script>
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/tab-builder/v1.x.x/js/main.js"></script>
+    <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/tab-builder/v1.x.x/js/main.js"></script>
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/charts/v1.x.x/js/main.js"></script>
-    <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/base-js/v1.x.x/js/main.js"></script>
+    <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/base-js/v1.3.13/js/main.js"></script>
 </head>
 
 <body>
@@ -436,8 +438,9 @@
                             <filter-builder label="Chart 1" :param="{chart: 0}"></filter-builder>
                             <filter-builder label="Chart 2" :param="{chart: 1}"></filter-builder>
                             <filter-builder label="Chart 3" :param="{chart: 2}"></filter-builder>
-                            <content-wrapper store-data="charts" :default="[{datasets:[{data:[170,180,73,175],backgroundColor:'#45a4dc',borderColor:'#2883f0'}],labels:[1,2,3,4]}, {datasets:[{data:[150,130,73,74],backgroundColor:'#45a4dc',borderColor:'#2883f0'}],labels:[1,2,3,4]}, {datasets:[{data:[200,90,100,260],backgroundColor:'#45a4dc',borderColor:'#2883f0'}],labels:[1,2,3,4]}]"><template slot-scope="chartData">
-                                    <chart-builder style="width:600px; height:400px" :data="chartData[$get($route, 'query.chart', 0)]" :options="{elements:{line:{tension:0},point:{radius:0}},legend:{display:false},scales:{xAxes:[{display:false}],yAxes:[{display:false,ticks:{beginAtZero:true}}]}}"></chart-builder>
+                            <filter-builder label="Error" :param="{chart: '-error'}"></filter-builder>
+                            <content-wrapper store-data="charts" :url="`/json/chart${$get($route, 'query.chart', 0)}.json`"><template slot-scope="chartData">
+                                    <chart-builder style="width:600px; height:400px" :data="chartData" :options="{elements:{line:{tension:0},point:{radius:0}},legend:{display:false},scales:{xAxes:[{display:false}],yAxes:[{display:false,ticks:{beginAtZero:true}}]}}"></chart-builder>
                                 </template></content-wrapper>
                         </div>
                     </div>
