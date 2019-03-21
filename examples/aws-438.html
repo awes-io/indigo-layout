@@ -22,7 +22,8 @@
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/form-builder/v1.x.x/js/main.js"></script>
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/modal-window/v1.0.8/js/main.js"></script>
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/theme-switcher/v1.x.x/js/main.js"></script>
-    <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/base-js/v1.x.x/js/main.js"></script><!-- there is can be head meta or sctipts-->
+    <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/base-js/v1.x.x/js/main.js"></script>
+    <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/tab-builder/v1.x.x/js/main.js"></script><!-- there is can be head meta or sctipts-->
 </head>
 
 <body>
@@ -436,18 +437,10 @@
                                     <div class="cell-inline cell-1-1--mlg">
                                         <div class="grid grid-ungap">
                                             <div class="cell-inline cell-1-1--mlg">
-                                                <div class="filter__checkbox">
-                                                    <filter-builder :param="{is_public: ''}" label="All"></filter-builder>
-                                                    <filter-builder :param="{is_public: '1'}" label="Public"></filter-builder>
-                                                    <filter-builder :param="{is_public: '0'}" label="Enterprise"></filter-builder>
-                                                </div>
+                                                <div class="btn-group"><a class="btn" href="">All</a><a class="btn active" href="">Public</a><a class="btn" href="">Enterprise</a></div>
                                             </div>
                                             <div class="cell-inline cell-1-1--mlg">
-                                                <div class="filter__checkbox">
-                                                    <filter-builder :param="{is_public: ''}" label="All"></filter-builder>
-                                                    <filter-builder :param="{is_public: '1'}" label="Public"></filter-builder>
-                                                    <filter-builder :param="{is_public: '0'}" label="Enterprise"></filter-builder>
-                                                </div>
+                                                <div class="btn-group"><a class="btn" href="">All</a><a class="btn active" href="">Public</a><a class="btn" href="">Enterprise</a></div>
                                             </div>
                                         </div>
                                     </div>
@@ -504,7 +497,7 @@
                                 <h2>Select test blinking</h2>
                                 <div class="grid grid_forms">
                                     <div class="cell-1-3 cell-1-1--tmd">
-                                        <fb-select name="select1" label="Single select" :multiple="false" :select-options="[]"></fb-select>
+                                        <fb-select name="select1" label="Single select" :multiple="false" select-options="http://timezero.ru"></fb-select>
                                     </div>
                                     <div class="cell-1-3 cell-1-1--tmd">
                                         <fb-select name="select1" label="Single select" :multiple="false" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}]"> </fb-select>

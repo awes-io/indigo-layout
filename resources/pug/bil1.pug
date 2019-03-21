@@ -1,0 +1,53 @@
+extends includes/layout
+
+block pageVariables
+    - var pageTitle = "Показ фильтров"
+
+block pageHead
+    // there is can be head meta or sctipts
+    
+
+block pageContent
+
+    tab-builder
+        template(slot='tab-toggler', slot-scope='toggler') {{ toggler.item.label }}
+        tb-link(label='General', url='//google.com') 
+        tb-link(label='Plans', url='//google.com') 
+        tb-link(label='Payment Method', url='//google.com') 
+        tb-link(label='History', url='//google.com') 
+        tb-link(label='Settings', url='//google.com') 
+        tb-link(label='General', url='//google.com') 
+
+
+    .frame__max
+        form-builder(url="http://httpbin.org/post" disabled-dialog btntext="Update")
+            .grid.grid_forms
+                .cell
+                    h3.tf-form-title Billing information
+                    p.tf-form-text This information will be added to your invoice.
+                .cell-1-2.cell-1-1--tsm
+                    fb-input(name='tt1', type='text', label='First name')
+                .cell-1-2.cell-1-1--tsm
+                    fb-input(name='tt2', type='text', label='Last name')
+                .cell-1-2.cell-1-1--tsm
+                    fb-input(name='tt3', type='text', label='Company')
+                .cell-1-2.cell-1-1--tsm
+                    fb-input(name='tt4', type='text', label='Tax/VAT Number')
+                .cell-1-2.cell-1-1--tsm
+                    fb-input(name='tt5', type='text', label='Address')
+                .cell-1-2.cell-1-1--tsm
+                    fb-input(name='tt6', type='text', label='Country')
+                .cell-1-2.cell-1-1--tsm
+                    fb-input(name='tt7', type='text', label='Zip Code')
+                .cell-1-2.cell-1-1--tsm.mb-def
+                    fb-input(name='tt8', type='text', label='Phone')
+                .cell
+                    h3.tf-form-title Notification
+                    p.tf-form-text This information will be added to your invoiceThis information will be added to your invoiceThis information will be added to your invoiceThis information will be added to your invoiceThis information will be added to your invoice
+                .cell.mb-sx
+                    fb-input(name='tt1', type='email', label='Email')
+                .cell
+                    fb-switcher(label="Send invoices and Notifications" name="switcher3" )
+                
+                // TODO: Нужна кнопка cancel, а кнопка send должна называеться update.
+

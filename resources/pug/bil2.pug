@@ -1,0 +1,108 @@
+extends includes/layout
+
+block pageVariables
+    - var pageTitle = "Показ фильтров"
+
+block pageHead
+    // there is can be head meta or sctipts
+    
+
+block pageContent
+
+    tab-builder
+        template(slot='tab-toggler', slot-scope='toggler') {{ toggler.item.label }}
+        tb-link(label='General', url='//google.com') 
+        tb-link(label='Plans', url='//google.com') 
+        tb-link(label='Payment Method', url='//google.com') 
+        tb-link(label='History', url='//google.com') 
+        tb-link(label='Settings', url='//google.com') 
+        tb-link(label='General', url='//google.com') 
+
+
+    .grid.grid_paycard
+        .cell-1-2.cell-1-1--mmd
+            .paycard
+                .paycard__wrap
+                    span.paycard__logo
+                        i.icon.icon-visa
+                    picture.paycard__chip
+                        img(src='/dist/img/images/chip.png', alt='')
+                    span.paycard__number
+                        span ****
+                        span ****
+                        span ****
+                        span 0008
+                    span.paycard__footer
+                        span.paycard__name HOLOD SERGY
+                        span.paycard__time 11/23
+                .paycard__hover
+                    .paycard__hover-cell
+                        button.btn.paycard--btn(title='change data') change data
+                    .paycard__hover-cell
+                        button.btn.btn_darkred.paycard--btn.paycard--btn-remove(title='remove') remove
+                button.paycard__select.active(title='Unselect this card')
+                    span Selected
+                    i.icon.icon-pin
+        .cell-1-2.cell-1-1--mmd
+            .paycard
+                .paycard__wrap
+                    span.paycard__logo
+                        i.icon.icon-visa
+                    picture.paycard__chip
+                        img(src='/dist/img/images/chip.png', alt='')
+                    span.paycard__number
+                        span ****
+                        span ****
+                        span ****
+                        span 0008
+                    span.paycard__footer
+                        span.paycard__name HOLOD SERGY
+                        span.paycard__time 11/23
+                .paycard__hover
+                    .paycard__hover-cell
+                        button.btn.paycard--btn(title='change data') change data
+                    .paycard__hover-cell
+                        button.btn.btn_darkred.paycard--btn.paycard--btn-remove(title='remove') remove
+                button.paycard__select(title='Select this card')
+                    span Select
+                    i.icon.icon-pin
+        .cell-1-2.cell-1-1--mmd
+            .paycard.paycard_red
+                .paycard__wrap
+                    span.paycard__logo
+                        i.icon.icon-mastercard
+                    picture.paycard__chip
+                        img(src='/dist/img/images/chip.png', alt='')
+                    span.paycard__number
+                        span ****
+                        span ****
+                        span ****
+                        span 0008
+                    span.paycard__footer
+                        span.paycard__name HOLODSERGY SERGYSERGYSERGY
+                        span.paycard__time 11/23
+                .paycard__hover
+                    .paycard__hover-cell
+                        button.btn.paycard--btn(title='change data') change data
+                    .paycard__hover-cell
+                        button.btn.btn_darkred.paycard--btn.paycard--btn-remove(title='remove') remove
+                button.paycard__select(title='Select this card')
+                    span Select
+                    i.icon.icon-pin
+        .cell-1-2.cell-1-1--mmd
+            .paycard.paycard_white
+                .paycard__wrap.paycard__wrap_flex
+                    figure.paycard__paylogo
+                        img(src='/dist/img/images/paypal.svg', alt='')
+                        figcaption ux.pro@ya.ru
+                .paycard__hover
+                    .paycard__hover-cell
+                        button.btn.paycard--btn(title='change data') change data
+                    .paycard__hover-cell
+                        button.btn.btn_darkred.paycard--btn.paycard--btn-remove(title='remove') remove
+                button.paycard__select(title='Select this card')
+                    span Select
+                    i.icon.icon-pin
+    button.btn(title='add method') add method
+
+

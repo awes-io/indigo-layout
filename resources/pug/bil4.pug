@@ -1,0 +1,59 @@
+extends includes/layout
+
+block pageVariables
+    - var pageTitle = "Показ фильтров"
+
+block pageHead
+    // there is can be head meta or sctipts
+
+block pageContent
+
+    tab-builder
+        template(slot='tab-toggler', slot-scope='toggler') {{ toggler.item.label }}
+        tb-link(label='General', url='//google.com') 
+        tb-link(label='Plans', url='//google.com') 
+        tb-link(label='Payment Method', url='//google.com') 
+        tb-link(label='History', url='//google.com') 
+        tb-link(label='Settings', url='//google.com') 
+        tb-link(label='General', url='//google.com') 
+
+    .grid.grid_paycard
+        .cell-1-2.cell-1-1--mlg.mb-big--mlg
+            h3 Your plan
+            .paycard.paycard_white
+                .paycard__wrap
+                    .paycard__info
+                        .paycard__current
+                            span.paycard__current-plan standart
+                            span.paycard__current-price
+                                | 30 
+                                small €
+                            span.paycard__current-caption pro user/month
+                        p.paycard__info-text Until 10 November. You pay for 5 users $500 per month
+                    .paycard__btns
+                        button.btn(title='change plan') change plan
+                        button.btn.btn_transparent(title='add manager') add manager
+        .cell-1-2.cell-1-1--mlg
+            h3 Payment Method
+            .paycard
+                .paycard__wrap
+                    span.paycard__logo
+                        i.icon.icon-visa
+                    picture.paycard__chip
+                        img(src='/dist/img/images/chip.png', alt='')
+                    span.paycard__number
+                        span ****
+                        span ****
+                        span ****
+                        span 0008
+                    span.paycard__footer
+                        span.paycard__name HOLOD SERGY
+                        span.paycard__time 11/23
+                .paycard__hover
+                    .paycard__hover-cell
+                        button.btn.paycard--btn(title='change data') change data
+                    .paycard__hover-cell
+                        button.btn.btn_darkred.paycard--btn.paycard--btn-remove(title='remove') remove
+                button.paycard__select.active(title='Unselect this card')
+                    span Selected
+                    i.icon.icon-pin
