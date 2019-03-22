@@ -1,0 +1,20 @@
+{
+  "datasets": [
+    {
+      "backgroundColor": "#45a4dc",
+      "borderColor": "#2883f0",
+      "data": [
+        200,
+        90,
+        100,
+        260
+      ]
+    }
+  ],
+  "labels": [
+    1,
+    2,
+    3,
+    4
+  ]
+}

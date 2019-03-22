@@ -58,7 +58,6 @@ export class Waves {
     initRootObserver(root) {
         this._rootObserver = new MutationObserver(mutations => {
             clearTimeout(this.__tm)
-            console.log(mutations)
             this.__tm = setTimeout(this.addElements, 300)
         })
 
