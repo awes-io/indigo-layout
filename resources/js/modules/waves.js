@@ -13,34 +13,38 @@ export class Waves {
         let config = Object.assign({ selector: '.btn, .frame__header-add, .hljs-copy'}, AWES_CONFIG.waves)
 
         this._elements = container.querySelectorAll(config.selector)
-        this._elements && Array.from(this._elements).forEach( el => {
+        if ( this._elements ) {
+            Array.from(this._elements).forEach( this.addElement, this )
+        }
+    }
 
-            if ( ! el.classList.contains('has-wave') ) {
-                el.classList.add('has-wave')
-            }
+    addElement(el) {
+        // already inited
+        if ( el.__AWES_WAVE__ ) return
 
-            if ( el.__AWES_WAVE__ ) return
+        if ( ! el.classList.contains('has-wave') ) {
+            el.classList.add('has-wave')
+        }
 
-            this._elObserver.observe(el, {
-                attributes: true,
-                attributeFilter:['class']
-            })
-
-            let wave = el.querySelector('span.wave')
-
-            if ( ! wave ) {
-                wave = document.createElement('span')
-                wave.classList.add('wave')
-                el.appendChild(wave)
-            }
-
-            el.__AWES_WAVE__ = { wave, active: false }
-            Waves.resetWave(el)
-
-            el.addEventListener('mousedown', Waves.showWave, false)
-
-            el.addEventListener('mouseup', Waves.hideWave, false)
+        this._elObserver.observe(el, {
+            attributes: true,
+            attributeFilter:['class']
         })
+
+        let wave = el.querySelector('span.wave')
+
+        if ( ! wave ) {
+            wave = document.createElement('span')
+            wave.classList.add('wave')
+            el.appendChild(wave)
+        }
+
+        el.__AWES_WAVE__ = { wave, active: false }
+        Waves.resetWave(el)
+
+        el.addEventListener('mousedown', Waves.showWave, false)
+
+        el.addEventListener('mouseup', Waves.hideWave, false)
     }
 
     initElObserver() {
@@ -57,8 +61,9 @@ export class Waves {
 
     initRootObserver(root) {
         this._rootObserver = new MutationObserver(mutations => {
+            // throttle call for addElements
             clearTimeout(this.__tm)
-            this.__tm = setTimeout(this.addElements, 300)
+            this.__tm = setTimeout(this.addElements.bind(this), 300)
         })
 
         this._rootObserver.observe(root, {

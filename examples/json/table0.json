@@ -18,8 +18,14 @@
         }
     ],
     "meta": {
-
-    },
+        "current_page": 3,
+        "from": 1,
+        "last_page": 12,
+        "path": "https:\/\/local.awes.io\/example-package",
+        "per_page": 15,
+        "to": 12,
+        "total": 12
+},
     "chart": {
         "datasets": [{
             "data": [700, 800, 730, 750, 740, 1000, 1000, 100, 0, 900, 1000, 1100, 600, 200, 700, 300, 800, 200, 600, 550],
