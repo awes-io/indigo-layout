@@ -24,8 +24,7 @@
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/modal-window/v1.0.8/js/main.js"></script>
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/theme-switcher/v1.x.x/js/main.js"></script>
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/tab-builder/v1.x.x/js/main.js"></script>
-    <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/tab-builder/v1.x.x/js/main.js"></script>
-    <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/charts/v1.x.x/js/main.js"></script>
+    <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/charts/v1.0.3/js/main.js"></script>
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/base-js/v1.3.13/js/main.js"></script>
 </head>
 
@@ -435,13 +434,35 @@
                 <div class="frame__content"><button class="frame__header-add"><i class="icon icon-plus"></i></button>
                     <div class="frame__inlayout">
                         <div class="frame__inlayout-content">
-                            <filter-builder label="Chart 1" :param="{chart: 0}"></filter-builder>
-                            <filter-builder label="Chart 2" :param="{chart: 1}"></filter-builder>
-                            <filter-builder label="Chart 3" :param="{chart: 2}"></filter-builder>
-                            <filter-builder label="Error" :param="{chart: '-error'}"></filter-builder>
+                            <div class="filter">
+                                <div class="btn-group">
+                                    <filter-builder label="Chart 1 + Table 1" :param="{chart: 0, table: 0}"></filter-builder>
+                                    <filter-builder label="Chart 2 + Table 1" :param="{chart: 1, table: 0}"></filter-builder>
+                                    <filter-builder label="Chart 3 + Table 2" :param="{chart: 2, table: 1}"></filter-builder>
+                                    <filter-builder label="Error" :param="{chart: '-error'}"></filter-builder>
+                                    <filter-builder label="Empty" :param="{chart: '-empty'}"></filter-builder>
+                                </div>
+                            </div>
+                            <h2>Content-wrapper + chart</h2>
                             <content-wrapper store-data="charts" :url="`/json/chart${$get($route, 'query.chart', 0)}.json`"><template slot-scope="chartData">
                                     <chart-builder style="width:600px; height:400px" :data="chartData" :options="{elements:{line:{tension:0},point:{radius:0}},legend:{display:false},scales:{xAxes:[{display:false}],yAxes:[{display:false,ticks:{beginAtZero:true}}]}}"></chart-builder>
                                 </template></content-wrapper>
+                            <h2>Content-wrapper + table + chart</h2>
+                            <content-wrapper store-data="tableCW" :url="`/json/table${$get($route, 'query.table', 0)}.json`"><template slot-scope="tableData">
+                                    <slide-up-down :show="!!tableData.chart">
+                                        <chart-builder v-if="tableData.chart" style="width:600px; height:400px" :data="tableData.chart" :options="{elements:{line:{tension:0}, point:{radius:0,hoverRadius:5}}, tooltips:{position:'average', mode:'index', intersect:false, cornerRadius:2, xPadding:20, yPadding:20,bodySpacing:10, titleMarginBottom:20, callbacks:{title:function(items,data){return''+data.labels[items[0].index]+'JANUARY2019'}, label:function(item,data){var title=''+data.datasets[item.datasetIndex].label+'€'+data.datasets[item.datasetIndex].data[item.index];return title.length&lt;30?title:title.substr(0,28)+'...'}}}, hover:{mode:'index',intersect:false,}, legend:{position:'bottom', labels:{usePointStyle:true}}}"></chart-builder>
+                                    </slide-up-down>
+                                    <table-builder store-data="table2" :default="tableData.data">
+                                        <tb-column name="name"></tb-column>
+                                        <tb-column name="label"></tb-column>
+                                    </table-builder>
+                                </template></content-wrapper>
+                            <h2>Table-builder + Pagination</h2>
+                            <table-builder store-data="table">
+                                <tb-column name="name"></tb-column>
+                                <tb-column name="label"></tb-column>
+                            </table-builder>
+                            <paginate-builder store-data="table" :url="`/json/table${$get($route, 'query.table', 0)}.json`"></paginate-builder>
                         </div>
                     </div>
                 </div><span class="frame__copyright">© 2019 - PkgKit - Proudly powered on <a href="">Awes.IO Platform</a>.</span>

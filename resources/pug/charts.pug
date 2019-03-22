@@ -4,14 +4,33 @@ block pageVariables
     - var pageTitle = "Charts example"
 
 block modules
-    script(src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/tab-builder/v1.x.x/js/main.js")
-    script(src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/charts/v1.x.x/js/main.js")
+    script(src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/charts/v1.0.3/js/main.js")
 
 block pageContent
-    filter-builder(label="Chart 1" :param="{chart: 0}")
-    filter-builder(label="Chart 2" :param="{chart: 1}")
-    filter-builder(label="Chart 3" :param="{chart: 2}")
-    filter-builder(label="Error" :param="{chart: '-error'}")
+    .filter
+        .btn-group
+            filter-builder(label="Chart 1 + Table 1" :param="{chart: 0, table: 0}")
+            filter-builder(label="Chart 2 + Table 1" :param="{chart: 1, table: 0}")
+            filter-builder(label="Chart 3 + Table 2" :param="{chart: 2, table: 1}")
+            filter-builder(label="Error" :param="{chart: '-error'}")
+            filter-builder(label="Empty" :param="{chart: '-empty'}")
+    
+    h2 Content-wrapper + chart
     content-wrapper(store-data="charts" :url="`/json/chart${$get($route, 'query.chart', 0)}.json`")
         template(slot-scope="chartData")
             chart-builder(style="width:600px; height:400px" :data="chartData", :options="{elements:{line:{tension:0},point:{radius:0}},legend:{display:false},scales:{xAxes:[{display:false}],yAxes:[{display:false,ticks:{beginAtZero:true}}]}}")
+
+    h2 Content-wrapper + table + chart
+    content-wrapper(store-data="tableCW" :url="`/json/table${$get($route, 'query.table', 0)}.json`")
+        template(slot-scope="tableData")
+            slide-up-down(:show="!!tableData.chart")
+                chart-builder(v-if="tableData.chart" style="width:600px; height:400px" :data="tableData.chart", :options="{elements:{line:{tension:0}, point:{radius:0,hoverRadius:5}}, tooltips:{position:'average', mode:'index', intersect:false, cornerRadius:2, xPadding:20, yPadding:20,bodySpacing:10, titleMarginBottom:20, callbacks:{title:function(items,data){return''+data.labels[items[0].index]+'JANUARY2019'}, label:function(item,data){var title=''+data.datasets[item.datasetIndex].label+'€'+data.datasets[item.datasetIndex].data[item.index];return title.length<30?title:title.substr(0,28)+'...'}}}, hover:{mode:'index',intersect:false,}, legend:{position:'bottom', labels:{usePointStyle:true}}}")
+            table-builder(store-data="table2" :default="tableData.data")
+                tb-column(name="name")
+                tb-column(name="label")
+    
+    h2 Table-builder + Pagination
+    table-builder(store-data="table")
+        tb-column(name="name")
+        tb-column(name="label")
+    paginate-builder(store-data="table" :url="`/json/table${$get($route, 'query.table', 0)}.json`")

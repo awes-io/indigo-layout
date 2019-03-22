@@ -4,8 +4,9 @@ export class Waves {
 
     constructor(root) {
         if ( ! root ) return
+        this.initElObserver()
         this.addElements()
-        this.initObserver(root)
+        this.initRootObserver(root)
     }
 
     addElements( container = document ) {
@@ -19,6 +20,11 @@ export class Waves {
             }
 
             if ( el.__AWES_WAVE__ ) return
+
+            this._elObserver.observe(el, {
+                attributes: true,
+                attributeFilter:['class']
+            })
 
             let wave = el.querySelector('span.wave')
 
@@ -37,13 +43,25 @@ export class Waves {
         })
     }
 
-    initObserver(root) {
-        this._mObserver = new MutationObserver(mutations => {
+    initElObserver() {
+        this._elObserver = new MutationObserver(mutations => {
+            mutations.forEach( record => {
+                let el = record.target
+                let cls = el.className
+                if ( ! /has-wave/.test(cls) ) {
+                    el.className = cls ? cls + ' has-wave' : 'has-wave'
+                }
+            });
+        })
+    }
+
+    initRootObserver(root) {
+        this._rootObserver = new MutationObserver(mutations => {
             clearTimeout(this.__tm)
             this.__tm = setTimeout(this.addElements, 300)
         })
 
-        this._mObserver.observe(root, {
+        this._rootObserver.observe(root, {
             childList: true,
             subtree: true
         })

@@ -1,13 +1,13 @@
 <template>
     <component :is="tag">
         <!-- empty -->
-        <slot name="empty" v-if="isEmpty && ! hasError && ! isLoading">empty</slot>
+        <slot name="empty" v-if="isEmpty && ! hasError && ! isLoading">{{ $lang.CONTENT_EMPTY }}</slot>
 
         <!-- loading -->
-        <slot name="loading" v-if="isLoading && ! hasError">loading</slot>
+        <slot name="loading" v-if="isLoading">{{ $lang.CONTENT_LOADING }}</slot>
 
         <!-- error -->
-        <slot name="error" v-if="hasError">error</slot>
+        <slot name="error" v-if="hasError && ! isLoading"><span style="color: red">{{ $lang.CONTENT_ERROR }}</span></slot>
         
         <!-- default -->
         <slot v-bind="content" v-if="! isEmpty && ! isLoading && ! hasError"></slot>
@@ -83,6 +83,14 @@
 
             url() {
                 this.fetchData()
+            },
+
+            hasError(error) {
+                this.$emit('error', error)
+            },
+
+            isLoading(loading) {
+                this.$emit('loading', loading)
             }
         },
 
@@ -94,7 +102,6 @@
                     param: this.loadingName,
                     data: event.detail
                 });
-                this.hasError = false;
             },
 
             fetchData() {
@@ -111,6 +118,7 @@
                 //                     param: this.storeData,
                 //                     data: res.data
                 //                 });
+                //                 this.hasError = false;
                 //             } else {
                 //                 this.hasError = true
                 //             }
@@ -129,6 +137,7 @@
                                 param: this.storeData,
                                 data: res.data
                             });
+                            this.hasError = false;
                         } else {
                             this.hasError = true
                         }
