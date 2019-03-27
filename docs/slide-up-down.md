@@ -9,6 +9,7 @@ This component is intended for the animated appearance/disappearance of the comp
 - [Frame Navigation](./frame-nav.md)
 - [Grid](./grid.md)
 - **Slide Up Down**
+- [Content](./classes.md)
 
 
 ## Example of use
