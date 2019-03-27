@@ -286,6 +286,20 @@ pre
         color var(--tc_link_color_text)
 
 
+.page-map-anchor, .tf-anchor
+    color var(--tc_text)
+    icon(hashtag)
+    position relative
+    &:before
+        font-size 70%
+        width 20px
+        margin-left -25px
+        margin-right 5px
+        text-align right
+        color var(--tc_link)
+    &:hover, &:focus, &:active
+        color var(--tc_text)
+
 .tf
     &-img
         box-shadow var(--tc_shadow_smr)
@@ -408,6 +422,14 @@ pre
             margin-left 5px
             margin-right 5px
             margin-bottom 10px
+
+
+@media maw[dsm]
+    .page-map-anchor, .tf-anchor
+        &:before
+            margin-left 0
+            text-align left
+            width auto
 
 
 @media maw[tmd]
