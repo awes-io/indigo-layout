@@ -8,8 +8,8 @@ This component is intended for the animated appearance/disappearance of the comp
 - [Content Wrapper](./content-wrapper.md)
 - [Frame Navigation](./frame-nav.md)
 - [Grid](./grid.md)
-- **Slide Up Down**
 - [Content](./classes.md)
+- **Slide Up Down**
 
 
 ## Example of use
