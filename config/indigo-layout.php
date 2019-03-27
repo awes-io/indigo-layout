@@ -22,7 +22,7 @@ return [
         'js/main.legacy.js',
         'css/main.css'
     ],
-
+    // TODO: migrate colors to rgba
     'chart_colors' => [
         'light-blue' => '#37b3c4',
         'blue' => '#3f87c7',
