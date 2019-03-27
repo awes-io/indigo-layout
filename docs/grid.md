@@ -6,6 +6,7 @@ Quick and variable grid setting will help you create a grid for almost any situa
 - [Content Wrapper](./content-wrapper.md)
 - [Frame Navigation](./frame-nav.md)
 - **Grid**
+- [Content](./classes.md)
 - [Slide Up Down](./slide-up-down.md)
 
 ## First step
