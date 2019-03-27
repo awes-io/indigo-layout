@@ -8,6 +8,7 @@ Scheme of work: by default, the data used in the template are transferred to the
 - **Content Wrapper**
 - [Frame Navigation](./frame-nav.md)
 - [Grid](./grid.md)
+- [Content](./classes.md)
 - [Slide Up Down](./slide-up-down.md)
 
 ## Example of use
