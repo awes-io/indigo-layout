@@ -33,10 +33,10 @@ block pageContent
     }")
         template(slot-scope='fields')
             fb-input(label='First Name', name='profile_manager.first_name', v-tooltip="{content: 'Enter your first name', placement: 'top'}")
-            fb-input(label='Last Name', name='profile_manager.last_name', v-tooltip="{content: 'Enter your last name', placement: 'top'}")
+            fb-input(label='Last Name', name='profile_manager.last_name', v-tooltip="{content: 'Enter your last name'}")
             fb-input(label='Position', name='profile_manager.position')
             fb-input(label='Email', name='email', type='email', required='')
-            fb-multi-block(name='profile_manager.phones', v-tooltip="{content: 'Press add button to add more phones', placement: 'top', classes: 'vue-tooltip-theme is-info'}")
+            fb-multi-block(name='profile_manager.phones', v-tooltip="{content: 'Press add button to add more phones', placement: 'right', classes: 'theme-error'}")
                 template(v-slot='{id}')
                     fb-phone(label='phone', name='phone', :id='id')
                     fb-input(name='validated', type='hidden', :id='id')
@@ -48,6 +48,3 @@ block pageContent
             h3(:style="{opacity: fields['profile_manager.smtp'] ? 1 : 0.5}") SMTP
             fb-input(label='Host', name='profile_manager.smtp_host', :disabled="!fields['profile_manager.smtp']")
             fb-input(label='Login', name='profile_manager.smtp_login', :disabled="!fields['profile_manager.smtp']")
-            //
-                <fb-input label="Password" name="profile_manager.smtp_password" type="password"
-                :disabled="!fields['profile_manager.smtp']"></fb-input>

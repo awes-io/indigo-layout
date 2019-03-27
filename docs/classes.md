@@ -21,4 +21,4 @@ If you would like to add nice shadow and background for an image, please use `.t
 
 | With shadow | Witout shadow |
 | ------ | ------ |
-| <img src="https://static.awes.io/docs/awes-io.png" class="tf-img" alt="" /> | <img src="https://static.awes.io/docs/awes-io.png" class="tf-img" alt="" /> |
+| <img src="https://static.awes.io/docs/awes-io.png" class="tf-img" alt="" /> | <img src="https://static.awes.io/docs/awes-io.png" alt="" /> |

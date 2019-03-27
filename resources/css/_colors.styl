@@ -412,21 +412,16 @@ a
 
 .tooltip
   background-color var(--tc_tooltip_bg)
-  &:before
-    border-top 4px solid var(--tc_tooltip_bg)
-  &[x-placement="right"]
-    &:before
-      border-top 4px solid transparent
-      border-right 4px solid var(--tc_tooltip_bg)
+  color: var(--tc_tooltip_text)
+  
+  .tooltip-arrow
+    border-color: var(--tc_tooltip_bg)
+  
   &.theme-error
     background-color cl_warn
-    color var(--tc_tooltip_text)
-    &:before
-      border-top-color cl_warn
-    &[x-placement="right"]
-      &:before
-        border-top 4px solid transparent
-        border-right 4px solid cl_warn
+    
+    .tooltip-arrow
+      border-color: cl_warn
 
 .notifications
   .vue-notification

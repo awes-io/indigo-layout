@@ -1,33 +1,86 @@
 .tooltip
-  cursor: pointer;
+  cursor: pointer
+  display: block !important
   font-size f_small
-  border-radius: 2px;
+  border-radius: 2px
   z-index 9 !important
-  margin-bottom: -5px
   max-width 90%
+
   &_modal
     z-index 10 !important
-  .tooltip__text
+
+  .tooltip-inner
     padding: 8px 15px
-    display: inline-block
-  &:before
-    border: 4px solid transparent
-    size 0px
-    display: block
-    absolute left 50% bottom -8px
-    margin-left: -2px
-    content: ''
-  &[x-placement="right"]
-    margin-bottom 0
-    margin-top -3px
-    &:before
-      border-top 4px solid transparent
-      left -8px
-      bottom auto
-      margin-top -4px
-      top 50%
-      margin-left 0px
-      border-right 4px solid rgba(0,0,0,0.9)
+    
+  .tooltip-arrow
+    width: 0
+    height: 0
+    border-style: solid
+    position: absolute
+    margin: 5px
+    z-index: 10
+
+  &[x-placement^="top"]
+    margin-bottom: 5px
+
+    .tooltip-arrow
+      border-width: 5px 5px 0 5px
+      border-left-color: transparent !important
+      border-right-color: transparent !important
+      border-bottom-color: transparent !important
+      bottom: -5px
+      left: calc(50% - 5px)
+      margin-top: 0
+      margin-bottom: 0
+  
+  &[x-placement^="bottom"]
+    margin-top: 5px
+
+    .tooltip-arrow
+      border-width: 0 5px 5px 5px
+      border-left-color: transparent !important
+      border-right-color: transparent !important
+      border-top-color: transparent !important
+      top: -5px
+      left: calc(50% - 5px)
+      margin-top: 0
+      margin-bottom: 0
+
+  &[x-placement^="right"]
+    margin-left: 5px
+
+    .tooltip-arrow
+      border-width: 5px 5px 5px 0
+      border-left-color: transparent !important
+      border-top-color: transparent !important
+      border-bottom-color: transparent !important
+      left: -5px
+      top: calc(50% - 5px)
+      margin-left: 0
+      margin-right: 0
+
+  &[x-placement^="left"]
+    margin-right: 5px
+
+    .tooltip-arrow
+      border-width: 5px 0 5px 5px
+      border-top-color: transparent !important
+      border-right-color: transparent !important
+      border-bottom-color: transparent !important
+      right: -5px
+      top: calc(50% - 5px)
+      margin-left: 0
+      margin-right: 0
+  
+  &[aria-hidden='true']
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .15s, visibility .15s;
+
+  &[aria-hidden='false']
+    visibility: visible;
+    opacity: 1;
+    transition: opacity .15s;
 
 //Fix for vue plugin
 .v-popover.display-block
@@ -35,21 +88,3 @@
     display: block !important
     position relative
     outline none !important
-
-
-
-.tooltip.vue-tooltip-theme
-  border-radius 2px
-  &:before
-    border-top-color: var(--tc_btn_bg, green)
-  .tooltip-inner
-    background: var(--tc_btn_bg, green);
-    color: var(--tc_btn_text, white);
-    padding: 8px 15px
-    border-radius 2px
-  &.is-info 
-    &:before
-      border-top-color: var(--tc_link_dark, blue)
-    .tooltip-inner
-      background: var(--tc_link_dark, blue)
-
