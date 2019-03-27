@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Charts example</title>
+    <title>Показ фильтров</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700&amp;amp;subset=cyrillic" rel="stylesheet">
@@ -24,8 +24,7 @@
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/modal-window/v1.x.x/js/main.js"></script>
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/theme-switcher/v1.x.x/js/main.js"></script>
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/tab-builder/v1.x.x/js/main.js"></script>
-    <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/charts/v1.0.3/js/main.js"></script>
-    <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/base-js/v1.3.15/js/main.js"></script>
+    <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/base-js/v1.3.15/js/main.js"></script><!-- there is can be head meta or sctipts-->
 </head>
 
 <body>
@@ -68,7 +67,7 @@
                     </div>
                     <div class="frame__header-line">
                         <div class="frame__title-line">
-                            <h1 class="frame__header-title">Charts example</h1>
+                            <h1 class="frame__header-title">Показ фильтров</h1>
                         </div>
                     </div>
                 </div>
@@ -434,55 +433,17 @@
                 <div class="frame__content"><button class="frame__header-add"><i class="icon icon-plus"></i></button>
                     <div class="frame__inlayout">
                         <div class="frame__inlayout-content">
-                            <div class="filter">
-                                <div class="btn-group">
-                                    <filter-builder label="Chart 1 + Table 1" :param="{chart: 0, table: 0}"></filter-builder>
-                                    <filter-builder label="Chart 2 + Table 1" :param="{chart: 1, table: 0}"></filter-builder>
-                                    <filter-builder label="Chart 3 + Table 2" :param="{chart: 2, table: 1}"></filter-builder>
-                                    <filter-builder label="Error" :param="{chart: '-error'}"></filter-builder>
-                                    <filter-builder label="Empty" :param="{chart: '-empty'}"></filter-builder>
-                                </div>
-                            </div>
-                            <div class="grid">
-                                <div class="cell-1-3">
-                                    <div class="card">
-                                        <h2>Content-wrapper + chart</h2>
-                                        <content-wrapper store-data="charts" :url="`/json/chart${$get($route, 'query.chart', 0)}.json`"><template slot-scope="chartData">
-                                                <chart-builder style="width:100%" :data="chartData" :options="{elements:{line:{tension:0},point:{radius:0}},legend:{display:false},scales:{xAxes:[{display:false}],yAxes:[{display:false,ticks:{beginAtZero:true}}]}}"></chart-builder>
-                                            </template></content-wrapper>
-                                    </div>
-                                </div>
-                                <div class="cell-1-3">
-                                    <div class="card">
-                                        <h2>Content-wrapper + table + chart</h2>
-                                        <content-wrapper store-data="tableCW" :url="`/json/table${$get($route, 'query.table', 0)}.json`"><template slot-scope="tableData">
-                                                <slide-up-down :show="!!tableData.chart">
-                                                    <chart-builder v-if="tableData.chart" style="width:100%" :data="tableData.chart" :options="{elements:{line:{tension:0}, point:{radius:0,hoverRadius:5}}, tooltips:{position:'average', mode:'index', intersect:false, cornerRadius:2, xPadding:20, yPadding:20,bodySpacing:10, titleMarginBottom:20, callbacks:{title:function(items,data){return''+data.labels[items[0].index]+'JANUARY2019'}, label:function(item,data){var title=''+data.datasets[item.datasetIndex].label+'€'+data.datasets[item.datasetIndex].data[item.index];return title.length&lt;30?title:title.substr(0,28)+'...'}}}, hover:{mode:'index',intersect:false,}, legend:{position:'bottom', labels:{usePointStyle:true}}}"></chart-builder>
-                                                </slide-up-down>
-                                            </template></content-wrapper>
-                                    </div>
-                                </div>
-                                <div class="cell-2-5">
-                                    <div class="card">
-                                        <content-wrapper store-data="tableCW" :url="`/json/table${$get($route, 'query.table', 0)}.json`"><template slot-scope="tableData">
-                                                <table-builder store-data="table2" :default="tableData.data">
-                                                    <tb-column name="name"></tb-column>
-                                                    <tb-column name="label"></tb-column>
-                                                </table-builder>
-                                            </template></content-wrapper>
-                                    </div>
-                                </div>
-                                <div class="cell-3-5">
-                                    <div class="card">
-                                        <h2>Table-builder + Pagination</h2>
-                                        <table-builder store-data="table">
-                                            <tb-column name="name"></tb-column>
-                                            <tb-column name="label"></tb-column>
-                                        </table-builder>
-                                        <paginate-builder store-data="table" :url="`/json/table${$get($route, 'query.table', 0)}.json`"></paginate-builder>
-                                    </div>
-                                </div>
-                            </div>
+                            <p align="center"></p><img src="https://www.awes.io/images/platform/3.svg" width="33%">
+                            <h1 id="What_is_AwesIO"><a class="page-map-anchor" href="#What_is_AwesIO">H1 title preview</a></h1>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi hic rerum distinctio vero vel similique veritatis, libero ipsum amet praesentium ducimus deleniti nulla fuga voluptate maxime maiores corporis recusandae iste!</p>
+                            <h2 id="What_is_AwesIO"><a class="page-map-anchor" href="#What_is_AwesIO">H2 title preview</a></h2>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi hic rerum distinctio vero vel similique veritatis, libero ipsum amet praesentium ducimus deleniti nulla fuga voluptate maxime maiores corporis recusandae iste!</p>
+                            <h3 id="Technologies"><a class="page-map-anchor" href="#Technologies">H3 title preview</a></h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi hic rerum distinctio vero vel similique veritatis, libero ipsum amet praesentium ducimus deleniti nulla fuga voluptate maxime maiores corporis recusandae iste!</p>
+                            <h4 id="Technologies"><a class="page-map-anchor" href="#Technologies">H4 title preview</a></h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi hic rerum distinctio vero vel similique veritatis, libero ipsum amet praesentium ducimus deleniti nulla fuga voluptate maxime maiores corporis recusandae iste!</p>
+                            <h5 id="Technologies"><a class="page-map-anchor" href="#Technologies">H5 title preview</a></h5>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi hic rerum distinctio vero vel similique veritatis, libero ipsum amet praesentium ducimus deleniti nulla fuga voluptate maxime maiores corporis recusandae iste!</p>
                         </div>
                     </div>
                 </div><span class="frame__copyright">© 2019 - PkgKit - Proudly powered on <a href="">Awes.IO Platform</a>.</span>

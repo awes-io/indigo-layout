@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Charts example</title>
+    <title>Показ фильтров</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700&amp;amp;subset=cyrillic" rel="stylesheet">
@@ -24,8 +24,7 @@
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/modal-window/v1.x.x/js/main.js"></script>
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/theme-switcher/v1.x.x/js/main.js"></script>
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/tab-builder/v1.x.x/js/main.js"></script>
-    <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/charts/v1.0.3/js/main.js"></script>
-    <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/base-js/v1.3.15/js/main.js"></script>
+    <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/base-js/v1.3.15/js/main.js"></script><!-- there is can be head meta or sctipts-->
 </head>
 
 <body>
@@ -68,7 +67,7 @@
                     </div>
                     <div class="frame__header-line">
                         <div class="frame__title-line">
-                            <h1 class="frame__header-title">Charts example</h1>
+                            <h1 class="frame__header-title">Показ фильтров</h1>
                         </div>
                     </div>
                 </div>
@@ -434,55 +433,24 @@
                 <div class="frame__content"><button class="frame__header-add"><i class="icon icon-plus"></i></button>
                     <div class="frame__inlayout">
                         <div class="frame__inlayout-content">
-                            <div class="filter">
-                                <div class="btn-group">
-                                    <filter-builder label="Chart 1 + Table 1" :param="{chart: 0, table: 0}"></filter-builder>
-                                    <filter-builder label="Chart 2 + Table 1" :param="{chart: 1, table: 0}"></filter-builder>
-                                    <filter-builder label="Chart 3 + Table 2" :param="{chart: 2, table: 1}"></filter-builder>
-                                    <filter-builder label="Error" :param="{chart: '-error'}"></filter-builder>
-                                    <filter-builder label="Empty" :param="{chart: '-empty'}"></filter-builder>
-                                </div>
-                            </div>
-                            <div class="grid">
-                                <div class="cell-1-3">
-                                    <div class="card">
-                                        <h2>Content-wrapper + chart</h2>
-                                        <content-wrapper store-data="charts" :url="`/json/chart${$get($route, 'query.chart', 0)}.json`"><template slot-scope="chartData">
-                                                <chart-builder style="width:100%" :data="chartData" :options="{elements:{line:{tension:0},point:{radius:0}},legend:{display:false},scales:{xAxes:[{display:false}],yAxes:[{display:false,ticks:{beginAtZero:true}}]}}"></chart-builder>
-                                            </template></content-wrapper>
-                                    </div>
-                                </div>
-                                <div class="cell-1-3">
-                                    <div class="card">
-                                        <h2>Content-wrapper + table + chart</h2>
-                                        <content-wrapper store-data="tableCW" :url="`/json/table${$get($route, 'query.table', 0)}.json`"><template slot-scope="tableData">
-                                                <slide-up-down :show="!!tableData.chart">
-                                                    <chart-builder v-if="tableData.chart" style="width:100%" :data="tableData.chart" :options="{elements:{line:{tension:0}, point:{radius:0,hoverRadius:5}}, tooltips:{position:'average', mode:'index', intersect:false, cornerRadius:2, xPadding:20, yPadding:20,bodySpacing:10, titleMarginBottom:20, callbacks:{title:function(items,data){return''+data.labels[items[0].index]+'JANUARY2019'}, label:function(item,data){var title=''+data.datasets[item.datasetIndex].label+'€'+data.datasets[item.datasetIndex].data[item.index];return title.length&lt;30?title:title.substr(0,28)+'...'}}}, hover:{mode:'index',intersect:false,}, legend:{position:'bottom', labels:{usePointStyle:true}}}"></chart-builder>
-                                                </slide-up-down>
-                                            </template></content-wrapper>
-                                    </div>
-                                </div>
-                                <div class="cell-2-5">
-                                    <div class="card">
-                                        <content-wrapper store-data="tableCW" :url="`/json/table${$get($route, 'query.table', 0)}.json`"><template slot-scope="tableData">
-                                                <table-builder store-data="table2" :default="tableData.data">
-                                                    <tb-column name="name"></tb-column>
-                                                    <tb-column name="label"></tb-column>
-                                                </table-builder>
-                                            </template></content-wrapper>
-                                    </div>
-                                </div>
-                                <div class="cell-3-5">
-                                    <div class="card">
-                                        <h2>Table-builder + Pagination</h2>
-                                        <table-builder store-data="table">
-                                            <tb-column name="name"></tb-column>
-                                            <tb-column name="label"></tb-column>
-                                        </table-builder>
-                                        <paginate-builder store-data="table" :url="`/json/table${$get($route, 'query.table', 0)}.json`"></paginate-builder>
-                                    </div>
-                                </div>
-                            </div>
+                            <form-builder disabled-dialog="" url="/manager" name="manager" :default="{    active: 1,    email:'camylle57@example.com',    id:'ODY%3D',    profile_manager: {    description:'Ea voluptates voluptatibus in consequuntur ut tempora doloremque. Provident excepturi iste saepe illum saepe. Ipsa alias maiores ut quasi rerum fuga. Consequatur nihil dolores quam alias et.',    phones: [    { phone: '1354634', validated: '+7 135 4634' },    { phone: '4456634', validated: '+7 445 6634' },    ],    fax:'9150818698',    first_name:'Clementine',    full_name:'Clementine Farrell',    last_name:'Farrell',    position:'Photographic Restorer',    smtp:1,    smtp_host:'breitenberg.net',    smtp_login:'sydni09',smtp_password:'eyJpdiI6InkyeHZYRVVUakU0OEd3aUtuSjZPU1E9PSIsInZhbHVlIjoiSlUzSE8xcGphTWhyQmVtWFlIeHdIQT09IiwibWFjIjoiMDQxZjUwY2U5ZDAxNDFlZmQ4M2ZkYzg3NmI4YmNiYmM3ZDdkYmM2MDY3ZmQwMGRmNGM3NTY4YjRmYTliNTBhYyJ9'    },    theme_dark:0    }"><template slot-scope="fields">
+                                    <fb-input label="First Name" name="profile_manager.first_name" v-tooltip="{content: 'Enter your first name', placement: 'top'}"></fb-input>
+                                    <fb-input label="Last Name" name="profile_manager.last_name" v-tooltip="{content: 'Enter your last name'}"></fb-input>
+                                    <fb-input label="Position" name="profile_manager.position"></fb-input>
+                                    <fb-input label="Email" name="email" type="email" required=""></fb-input>
+                                    <fb-multi-block name="profile_manager.phones" v-tooltip="{content: 'Press add button to add more phones', placement: 'right', classes: 'theme-error'}"><template v-slot="{id}">
+                                            <fb-phone label="phone" name="phone" :id="id"></fb-phone>
+                                            <fb-input name="validated" type="hidden" :id="id"></fb-input>
+                                        </template></fb-multi-block>
+                                    <fb-radio-group :items="['Manager', 'Client']" name="status"></fb-radio-group>
+                                    <fb-select :select-options="[{name: 'Manager', value: 'm'}, {name: 'Client', value: 'c'}]" name="select"></fb-select>
+                                    <fb-textarea label="Description" name="profile_manager.description"></fb-textarea>
+                                    <fb-checkbox label="Dark theme" name="theme_dark"></fb-checkbox>
+                                    <fb-switcher label="SMTP" name="profile_manager.smtp"></fb-switcher>
+                                    <h3 :style="{opacity: fields['profile_manager.smtp'] ? 1 : 0.5}">SMTP</h3>
+                                    <fb-input label="Host" name="profile_manager.smtp_host" :disabled="!fields['profile_manager.smtp']"></fb-input>
+                                    <fb-input label="Login" name="profile_manager.smtp_login" :disabled="!fields['profile_manager.smtp']"></fb-input>
+                                </template></form-builder>
                         </div>
                     </div>
                 </div><span class="frame__copyright">© 2019 - PkgKit - Proudly powered on <a href="">Awes.IO Platform</a>.</span>

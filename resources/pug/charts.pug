@@ -15,22 +15,33 @@ block pageContent
             filter-builder(label="Error" :param="{chart: '-error'}")
             filter-builder(label="Empty" :param="{chart: '-empty'}")
     
-    h2 Content-wrapper + chart
-    content-wrapper(store-data="charts" :url="`/json/chart${$get($route, 'query.chart', 0)}.json`")
-        template(slot-scope="chartData")
-            chart-builder(style="width:600px; height:400px" :data="chartData", :options="{elements:{line:{tension:0},point:{radius:0}},legend:{display:false},scales:{xAxes:[{display:false}],yAxes:[{display:false,ticks:{beginAtZero:true}}]}}")
+    .grid
+        .cell-1-3
+            .card
+                h2 Content-wrapper + chart
+                content-wrapper(store-data="charts" :url="`/json/chart${$get($route, 'query.chart', 0)}.json`")
+                    template(slot-scope="chartData")
+                        chart-builder(style="width:100%" :data="chartData", :options="{elements:{line:{tension:0},point:{radius:0}},legend:{display:false},scales:{xAxes:[{display:false}],yAxes:[{display:false,ticks:{beginAtZero:true}}]}}")
+        .cell-1-3
+            .card
+                h2 Content-wrapper + table + chart
+                content-wrapper(store-data="tableCW" :url="`/json/table${$get($route, 'query.table', 0)}.json`")
+                    template(slot-scope="tableData")
+                        slide-up-down(:show="!!tableData.chart")
+                            chart-builder(v-if="tableData.chart" style="width:100%" :data="tableData.chart", :options="{elements:{line:{tension:0}, point:{radius:0,hoverRadius:5}}, tooltips:{position:'average', mode:'index', intersect:false, cornerRadius:2, xPadding:20, yPadding:20,bodySpacing:10, titleMarginBottom:20, callbacks:{title:function(items,data){return''+data.labels[items[0].index]+'JANUARY2019'}, label:function(item,data){var title=''+data.datasets[item.datasetIndex].label+'€'+data.datasets[item.datasetIndex].data[item.index];return title.length<30?title:title.substr(0,28)+'...'}}}, hover:{mode:'index',intersect:false,}, legend:{position:'bottom', labels:{usePointStyle:true}}}")
+        
+        .cell-2-5
+            .card
+                content-wrapper(store-data="tableCW" :url="`/json/table${$get($route, 'query.table', 0)}.json`")
+                    template(slot-scope="tableData")
+                        table-builder(store-data="table2" :default="tableData.data")
+                            tb-column(name="name")
+                            tb-column(name="label")
 
-    h2 Content-wrapper + table + chart
-    content-wrapper(store-data="tableCW" :url="`/json/table${$get($route, 'query.table', 0)}.json`")
-        template(slot-scope="tableData")
-            slide-up-down(:show="!!tableData.chart")
-                chart-builder(v-if="tableData.chart" style="width:600px; height:400px" :data="tableData.chart", :options="{elements:{line:{tension:0}, point:{radius:0,hoverRadius:5}}, tooltips:{position:'average', mode:'index', intersect:false, cornerRadius:2, xPadding:20, yPadding:20,bodySpacing:10, titleMarginBottom:20, callbacks:{title:function(items,data){return''+data.labels[items[0].index]+'JANUARY2019'}, label:function(item,data){var title=''+data.datasets[item.datasetIndex].label+'€'+data.datasets[item.datasetIndex].data[item.index];return title.length<30?title:title.substr(0,28)+'...'}}}, hover:{mode:'index',intersect:false,}, legend:{position:'bottom', labels:{usePointStyle:true}}}")
-            table-builder(store-data="table2" :default="tableData.data")
-                tb-column(name="name")
-                tb-column(name="label")
-    
-    h2 Table-builder + Pagination
-    table-builder(store-data="table")
-        tb-column(name="name")
-        tb-column(name="label")
-    paginate-builder(store-data="table" :url="`/json/table${$get($route, 'query.table', 0)}.json`")
+        .cell-3-5
+            .card
+                h2 Table-builder + Pagination
+                table-builder(store-data="table")
+                    tb-column(name="name")
+                    tb-column(name="label")
+                paginate-builder(store-data="table" :url="`/json/table${$get($route, 'query.table', 0)}.json`")

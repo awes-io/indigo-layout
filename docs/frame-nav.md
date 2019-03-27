@@ -8,6 +8,7 @@ This component is intended for displaying the side menu as a two-level dropdown 
 - [Content Wrapper](./content-wrapper.md)
 - **Frame Navigation**
 - [Grid](./grid.md)
+- [Content](./classes.md)
 - [Slide Up Down](./slide-up-down.md)
 
 ## Example of use

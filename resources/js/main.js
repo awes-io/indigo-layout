@@ -44,6 +44,7 @@ const awesPlugin = {
             src: 'https://unpkg.com/v-tooltip/dist/v-tooltip.min.js',
             deps: ['vue'],
             cb() {
+                VTooltip.default.options.defaultClass = 'theme-default';
                 VTooltip.default.options.popover = Object.assign(VTooltip.default.options.popover, {
                     defaultPlacement: 'right',
                     defaultAutoHide: false,
