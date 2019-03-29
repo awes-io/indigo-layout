@@ -4,19 +4,24 @@ namespace AwesIO\IndigoLayout;
 
 use AwesIO\BaseJS\AwesProvider;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Blade;
 
 class IndigoLayoutServiceProvider extends AwesProvider
 {
 
     public function boot()
     {
-        parent::boot();
-
         if (config('indigo-layout.navs')) {
             View::composer('*', function ($view) {
                 $view->with('navs', config('indigo-layout.navs'));
             });
         }
+
+        Blade::component('indigo-layout::components.card.chart', 'cardchart');
+
+        $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', 'indigo-layout');
+
+        parent::boot();
     }
 
     public function getPackageName(): string
