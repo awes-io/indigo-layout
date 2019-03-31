@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Grid Demo Y</title>
+    <title>Показ фильтров</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700&amp;amp;subset=cyrillic" rel="stylesheet">
@@ -26,7 +26,172 @@
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/modal-window/v1.x.x/js/main.js"></script>
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/theme-switcher/v1.x.x/js/main.js"></script>
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/tab-builder/v1.x.x/js/main.js"></script>
-    <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/base-js/v1.3.15/js/main.js"></script><!-- there is can be head meta or sctipts-->
+    <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/base-js/v1.3.15/js/main.js"></script>
+    <style>
+        :root:not([data-dark="true"]) {
+            --tc_page_bg: #e3e8ee;
+            --tc_aside_gradient: linear-gradient(to left, #e3e8ee 0%, #e3e8ee 100%);
+            --tc_aside_gradient_header: linear-gradient(to left, #fff 0%, #fff 100%);
+            --tc_aside_link: #414770;
+            --tc_aside_text: #414770;
+            --tc_aside_bg_nav: #dee2e7;
+            --tc_header_bg: none;
+            --tc_ui_btn_smcolor: #16a085;
+            --tc_ui_btn_smcolor_active: #1abc9c;
+            --tc_header_link: #aab7c4;
+            --tc_header_link_active: #414770;
+
+        }
+
+        :root[data-dark="true"] {
+            --tc_header_bg: none;
+            --tc_ui_btn_smcolor: #16a085;
+            --tc_ui_btn_smcolor_active: #1abc9c;
+        }
+
+        .frame .frame__aside {
+            box-shadow: none;
+        }
+
+        .frame .frame__aside-link .icon-angle-bottom:after {
+            top: 0.5rem;
+            bottom: 0.5rem;
+        }
+
+        .frame .frame__aside-link .icon-angle-bottom {
+            width: 35px;
+        }
+
+        .frame .frame__aside-link {
+            padding-top: 5px;
+            padding-bottom: 5px;
+            min-height: 35px;
+            opacity: 1;
+        }
+
+        .frame .frame__aside-link:hover {
+            color: #556cd6;
+        }
+
+        .frame .frame__aside-inlist {
+            min-height: 30px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        .frame .frame__aside-title {
+            min-height: 77px;
+
+        }
+
+
+        .frame .frame__aside-title {
+            text-align: left;
+            justify-content: flex-start;
+            padding-left: 35px;
+            padding-right: 20px;
+        }
+
+        .frame .frame__aside-title {
+            background: none;
+        }
+
+        .frame .frame__search {
+            background-color: var(--tc_ui_bg);
+            padding: 5px 15px;
+            border-radius: 2px;
+            box-shadow: var(--tc_shadow_smr);
+        }
+
+        .frame .frame__search .frame__search-hidden {
+            width: 300px;
+        }
+
+        .frame .frame__search-input {
+            border: 0px;
+        }
+
+        .frame .frame__search-input:focus {
+            border: 0px;
+        }
+
+        .frame__search-link {
+            pointer-events: none;
+        }
+
+        .frame .frame__search-close {
+            display: none;
+        }
+
+        .frame .frame__header-top {
+            padding-top: 20px;
+            padding-right: 40px;
+        }
+
+        .frame .frame__userinfo-ava {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            margin-left: 15px;
+        }
+
+        .frame .frame__userinfo {
+            height: 36px;
+        }
+
+        .frame .frame__header-line {
+            padding-top: 30px;
+            padding-bottom: 0;
+        }
+
+        .frame .frame__userinfo-link {
+            width: 36px;
+            height: 36px;
+            margin-left: 10px;
+        }
+
+        .frame .frame__header-add {
+            top: -35px;
+        }
+
+        @media (max-width: 1000px) {
+            .frame .frame__header-top {
+                padding-right: 15px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .frame .frame__aside-title {
+                min-height: 60px;
+            }
+
+            .frame .frame__userinfo-ava {
+                width: 42px;
+                height: 42px;
+            }
+
+            .frame .frame__aside-title {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .frame .frame__header-line {
+                padding-top: 10px;
+            }
+
+            .frame .frame__header-add {
+                top: auto;
+            }
+
+            .frame .frame__userinfo {
+                background: #fff;
+                height: 60px;
+            }
+
+        }
+    </style>
 </head>
 
 <body>
@@ -69,7 +234,7 @@
                     </div>
                     <div class="frame__header-line">
                         <div class="frame__title-line">
-                            <h1 class="frame__header-title">Grid Demo Y</h1>
+                            <h1 class="frame__header-title">Показ фильтров</h1>
                         </div>
                     </div>
                 </div>
@@ -435,234 +600,7 @@
                 <div class="frame__content"><button class="frame__header-add"><i class="icon icon-plus"></i></button>
                     <div class="frame__inlayout">
                         <div class="frame__inlayout-content">
-                            <div class="filter">
-                                <div class="filter__wrap">
-                                    <!-- left-->
-                                    <div class="filter__left">
-                                        <div class="filter__checkbox">
-                                            <filter-builder :param="{is_public: ''}" label="All"></filter-builder>
-                                            <filter-builder :param="{is_public: '1'}" label="Public"></filter-builder>
-                                            <filter-builder :param="{is_public: '0'}" label="Enterprise"></filter-builder>
-                                        </div>
-                                    </div><!-- right-->
-                                    <div class="filter__right">
-                                        <div class="filter__rlink">
-                                            <context-menu button-class="filter__slink" right=""><template slot="toggler"><span>Sort by</span></template>
-                                                <cm-query :param="{orderBy: ''}">ID ↑</cm-query>
-                                                <cm-query :param="{orderBy: 'id'}">ID ↓</cm-query>
-                                                <cm-query :param="{orderBy: 'name'}">Package name</cm-query>
-                                            </context-menu>
-                                        </div>
-                                        <div class="filter__rlink"><button class="filter__slink" @click="$refs.filter.toggle()">
-                                                <!-- also can be toggled with `$root.$emit('filters:toggle', 'managers')`--><i class="icon icon-filter" v-if=""><!-- prop `name` of filter--><span class="icn-dot"></span></i>Filter</button></div>
-                                    </div>
-                                </div>
-                                <slide-up-down ref="filter">
-                                    <filter-wrapper name="packages">
-                                        <fb-input name="name" label="Package name"></fb-input>
-                                    </filter-wrapper>
-                                </slide-up-down>
-                            </div>
-                            <div class="grid">
-                                <div class="cell-1-3 cell-1-2--dxl cell-1-1--tsm">
-                                    <div class="card box-post">
-                                        <div class="grid grid-justify-between grid-nowrap grid-wrap--mmd text-center--mmd">
-                                            <div class="cell-4-6 cell-1-1--mmd order-2--mmd"><a class="box-post__title h2" href="">Form Builder</a>
-                                                <p class="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas suscipit esse quidem. Nihil, non pariatur.</p>
-                                            </div>
-                                            <div class="cell-2-6 cell-inline--tsm cell-1-1--mmd order-1--mmd"><img class="tf-circle tf-shadow" src="https://picsum.photos/130/130" alt=""></div>
-                                        </div>
-                                        <div class="grid grid-nowrap grid-gap-x grid-justify-between">
-                                            <div class="cell-inline"><a class="tag" href="">vuejs</a><a class="tag" href="">php</a><a class="tag" href="">laravel</a><a class="tag" href="">laravel</a><a class="tag" href="">laravel</a></div>
-                                            <div class="cell-inline"><button class="box-post__star"><i class="icon icon-star-circle"></i></button></div>
-                                        </div>
-                                        <div class="grid grid-gap-x grid-align-end grid-justify-between mt-sm">
-                                            <div class="cell-inline">
-                                                <p class="tf-caption m0"><b>52k</b> downloads</p>
-                                            </div>
-                                            <div class="cell-inline">
-                                                <p class="tf-caption m0">updated: <b>12.03.2018</b></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cell-1-3 cell-1-2--dxl cell-1-1--tsm">
-                                    <div class="card box-post">
-                                        <div class="grid grid-justify-between grid-nowrap grid-wrap--mmd text-center--mmd">
-                                            <div class="cell-4-6 cell-1-1--mmd order-2--mmd"><a class="box-post__title h2" href="">Form Builder</a>
-                                                <p class="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas suscipit esse quidem. Nihil, non pariatur.</p>
-                                            </div>
-                                            <div class="cell-2-6 cell-inline--tsm cell-1-1--mmd order-1--mmd"><img class="tf-circle tf-shadow" src="https://picsum.photos/130/130" alt=""></div>
-                                        </div>
-                                        <div class="grid grid-nowrap grid-gap-x grid-justify-between">
-                                            <div class="cell-inline"><a class="tag" href="">vuejs</a><a class="tag" href="">php</a><a class="tag" href="">laravel</a><a class="tag" href="">laravel</a><a class="tag" href="">laravel</a></div>
-                                            <div class="cell-inline"><button class="box-post__star"><i class="icon icon-star-circle"></i></button></div>
-                                        </div>
-                                        <div class="grid grid-gap-x grid-align-end grid-justify-between mt-sm">
-                                            <div class="cell-inline">
-                                                <p class="tf-caption m0"><b>52k</b> downloads</p>
-                                            </div>
-                                            <div class="cell-inline">
-                                                <p class="tf-caption m0">updated: <b>12.03.2018</b></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cell-1-3 cell-1-2--dxl cell-1-1--tsm">
-                                    <div class="card box-post">
-                                        <div class="grid grid-justify-between grid-nowrap grid-wrap--mmd text-center--mmd">
-                                            <div class="cell-4-6 cell-1-1--mmd order-2--mmd"><a class="box-post__title h2" href="">Form Builder</a>
-                                                <p class="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas suscipit esse quidem. Nihil, non pariatur.</p>
-                                            </div>
-                                            <div class="cell-2-6 cell-inline--tsm cell-1-1--mmd order-1--mmd"><img class="tf-circle tf-shadow" src="https://picsum.photos/130/130" alt=""></div>
-                                        </div>
-                                        <div class="grid grid-nowrap grid-gap-x grid-justify-between">
-                                            <div class="cell-inline"><a class="tag" href="">vuejs</a><a class="tag" href="">php</a><a class="tag" href="">laravel</a><a class="tag" href="">laravel</a><a class="tag" href="">laravel</a></div>
-                                            <div class="cell-inline"><button class="box-post__star"><i class="icon icon-star-circle"></i></button></div>
-                                        </div>
-                                        <div class="grid grid-gap-x grid-align-end grid-justify-between mt-sm">
-                                            <div class="cell-inline">
-                                                <p class="tf-caption m0"><b>52k</b> downloads</p>
-                                            </div>
-                                            <div class="cell-inline">
-                                                <p class="tf-caption m0">updated: <b>12.03.2018</b></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cell-1-3 cell-1-2--dxl cell-1-1--tsm">
-                                    <div class="card box-post">
-                                        <div class="grid grid-justify-between grid-nowrap grid-wrap--mmd text-center--mmd">
-                                            <div class="cell-4-6 cell-1-1--mmd order-2--mmd"><a class="box-post__title h2" href="">Form Builder</a>
-                                                <p class="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas suscipit esse quidem. Nihil, non pariatur.</p>
-                                            </div>
-                                            <div class="cell-2-6 cell-inline--tsm cell-1-1--mmd order-1--mmd"><img class="tf-circle tf-shadow" src="https://picsum.photos/130/130" alt=""></div>
-                                        </div>
-                                        <div class="grid grid-nowrap grid-gap-x grid-justify-between">
-                                            <div class="cell-inline"><a class="tag" href="">vuejs</a><a class="tag" href="">php</a><a class="tag" href="">laravel</a><a class="tag" href="">laravel</a><a class="tag" href="">laravel</a></div>
-                                            <div class="cell-inline"><button class="box-post__star"><i class="icon icon-star-circle"></i></button></div>
-                                        </div>
-                                        <div class="grid grid-gap-x grid-align-end grid-justify-between mt-sm">
-                                            <div class="cell-inline">
-                                                <p class="tf-caption m0"><b>52k</b> downloads</p>
-                                            </div>
-                                            <div class="cell-inline">
-                                                <p class="tf-caption m0">updated: <b>12.03.2018</b></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cell-1-3 cell-1-2--dxl cell-1-1--tsm">
-                                    <div class="card box-post">
-                                        <div class="grid grid-justify-between grid-nowrap grid-wrap--mmd text-center--mmd">
-                                            <div class="cell-4-6 cell-1-1--mmd order-2--mmd"><a class="box-post__title h2" href="">Form Builder</a>
-                                                <p class="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas suscipit esse quidem. Nihil, non pariatur.</p>
-                                            </div>
-                                            <div class="cell-2-6 cell-inline--tsm cell-1-1--mmd order-1--mmd"><img class="tf-circle tf-shadow" src="https://picsum.photos/130/130" alt=""></div>
-                                        </div>
-                                        <div class="grid grid-nowrap grid-gap-x grid-justify-between">
-                                            <div class="cell-inline"><a class="tag" href="">vuejs</a><a class="tag" href="">php</a><a class="tag" href="">laravel</a><a class="tag" href="">laravel</a><a class="tag" href="">laravel</a></div>
-                                            <div class="cell-inline"><button class="box-post__star"><i class="icon icon-star-circle"></i></button></div>
-                                        </div>
-                                        <div class="grid grid-gap-x grid-align-end grid-justify-between mt-sm">
-                                            <div class="cell-inline">
-                                                <p class="tf-caption m0"><b>52k</b> downloads</p>
-                                            </div>
-                                            <div class="cell-inline">
-                                                <p class="tf-caption m0">updated: <b>12.03.2018</b></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cell-1-3 cell-1-2--dxl cell-1-1--tsm">
-                                    <div class="card box-post">
-                                        <div class="grid grid-justify-between grid-nowrap grid-wrap--mmd text-center--mmd">
-                                            <div class="cell-4-6 cell-1-1--mmd order-2--mmd"><a class="box-post__title h2" href="">Form Builder</a>
-                                                <p class="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas suscipit esse quidem. Nihil, non pariatur.</p>
-                                            </div>
-                                            <div class="cell-2-6 cell-inline--tsm cell-1-1--mmd order-1--mmd"><img class="tf-circle tf-shadow" src="https://picsum.photos/130/130" alt=""></div>
-                                        </div>
-                                        <div class="grid grid-nowrap grid-gap-x grid-justify-between">
-                                            <div class="cell-inline"><a class="tag" href="">vuejs</a><a class="tag" href="">php</a><a class="tag" href="">laravel</a><a class="tag" href="">laravel</a><a class="tag" href="">laravel</a></div>
-                                            <div class="cell-inline"><button class="box-post__star"><i class="icon icon-star-circle"></i></button></div>
-                                        </div>
-                                        <div class="grid grid-gap-x grid-align-end grid-justify-between mt-sm">
-                                            <div class="cell-inline">
-                                                <p class="tf-caption m0"><b>52k</b> downloads</p>
-                                            </div>
-                                            <div class="cell-inline">
-                                                <p class="tf-caption m0">updated: <b>12.03.2018</b></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cell-1-3 cell-1-2--dxl cell-1-1--tsm">
-                                    <div class="card box-post">
-                                        <div class="grid grid-justify-between grid-nowrap grid-wrap--mmd text-center--mmd">
-                                            <div class="cell-4-6 cell-1-1--mmd order-2--mmd"><a class="box-post__title h2" href="">Form Builder</a>
-                                                <p class="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas suscipit esse quidem. Nihil, non pariatur.</p>
-                                            </div>
-                                            <div class="cell-2-6 cell-inline--tsm cell-1-1--mmd order-1--mmd"><img class="tf-circle tf-shadow" src="https://picsum.photos/130/130" alt=""></div>
-                                        </div>
-                                        <div class="grid grid-nowrap grid-gap-x grid-justify-between">
-                                            <div class="cell-inline"><a class="tag" href="">vuejs</a><a class="tag" href="">php</a><a class="tag" href="">laravel</a><a class="tag" href="">laravel</a><a class="tag" href="">laravel</a></div>
-                                            <div class="cell-inline"><button class="box-post__star"><i class="icon icon-star-circle"></i></button></div>
-                                        </div>
-                                        <div class="grid grid-gap-x grid-align-end grid-justify-between mt-sm">
-                                            <div class="cell-inline">
-                                                <p class="tf-caption m0"><b>52k</b> downloads</p>
-                                            </div>
-                                            <div class="cell-inline">
-                                                <p class="tf-caption m0">updated: <b>12.03.2018</b></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cell-1-3 cell-1-2--dxl cell-1-1--tsm">
-                                    <div class="card box-post">
-                                        <div class="grid grid-justify-between grid-nowrap grid-wrap--mmd text-center--mmd">
-                                            <div class="cell-4-6 cell-1-1--mmd order-2--mmd"><a class="box-post__title h2" href="">Form Builder</a>
-                                                <p class="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas suscipit esse quidem. Nihil, non pariatur.</p>
-                                            </div>
-                                            <div class="cell-2-6 cell-inline--tsm cell-1-1--mmd order-1--mmd"><img class="tf-circle tf-shadow" src="https://picsum.photos/130/130" alt=""></div>
-                                        </div>
-                                        <div class="grid grid-nowrap grid-gap-x grid-justify-between">
-                                            <div class="cell-inline"><a class="tag" href="">vuejs</a><a class="tag" href="">php</a><a class="tag" href="">laravel</a><a class="tag" href="">laravel</a><a class="tag" href="">laravel</a></div>
-                                            <div class="cell-inline"><button class="box-post__star"><i class="icon icon-star-circle"></i></button></div>
-                                        </div>
-                                        <div class="grid grid-gap-x grid-align-end grid-justify-between mt-sm">
-                                            <div class="cell-inline">
-                                                <p class="tf-caption m0"><b>52k</b> downloads</p>
-                                            </div>
-                                            <div class="cell-inline">
-                                                <p class="tf-caption m0">updated: <b>12.03.2018</b></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cell-1-3 cell-1-2--dxl cell-1-1--tsm">
-                                    <div class="card box-post">
-                                        <div class="grid grid-justify-between grid-nowrap grid-wrap--mmd text-center--mmd">
-                                            <div class="cell-4-6 cell-1-1--mmd order-2--mmd"><a class="box-post__title h2" href="">Form Builder</a>
-                                                <p class="m-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas suscipit esse quidem. Nihil, non pariatur.</p>
-                                            </div>
-                                            <div class="cell-2-6 cell-inline--tsm cell-1-1--mmd order-1--mmd"><img class="tf-circle tf-shadow" src="https://picsum.photos/130/130" alt=""></div>
-                                        </div>
-                                        <div class="grid grid-nowrap grid-gap-x grid-justify-between">
-                                            <div class="cell-inline"><a class="tag" href="">vuejs</a><a class="tag" href="">php</a><a class="tag" href="">laravel</a><a class="tag" href="">laravel</a><a class="tag" href="">laravel</a></div>
-                                            <div class="cell-inline"><button class="box-post__star"><i class="icon icon-star-circle"></i></button></div>
-                                        </div>
-                                        <div class="grid grid-gap-x grid-align-end grid-justify-between mt-sm">
-                                            <div class="cell-inline">
-                                                <p class="tf-caption m0"><b>52k</b> downloads</p>
-                                            </div>
-                                            <div class="cell-inline">
-                                                <p class="tf-caption m0">updated: <b>12.03.2018</b></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <!-- test-->
                         </div>
                     </div>
                 </div><span class="frame__copyright">© 2019 - PkgKit - Proudly powered on <a href="">Awes.IO Platform</a>.</span>
