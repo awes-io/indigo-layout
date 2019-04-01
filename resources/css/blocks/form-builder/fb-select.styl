@@ -7,11 +7,13 @@
         background-color var(--tc_ui_tag) !important
         font-size f_small
         padding-left 5px !important
-        border-radius 2px !important
+        margin-top 3px !important
+        margin-bottom 2px !important
+        border-radius var(--tc_border_radius) !important
         margin-right 6px !important
         &-icon
             border-left 1px solid var(--tc_ui_bg) !important
-            border-radius 0px 2px 0px 2px !important
+            border-radius 0px var(--tc_border_radius) 0px var(--tc_border_radius) !important
             width 20px !important
             &:after
                 color #ffffff !important
@@ -24,7 +26,7 @@
         border 1px solid var(--tc_border_ins) !important
         min-height 50px !important
         padding-top 19px !important
-        border-radius 2px !important
+        border-radius var(--tc_border_radius) !important
         padding-left 15px
     & &__single
         font-size f_medium !important
@@ -40,8 +42,8 @@
         &-wrapper
             background-color var(--tc_ui_bg)
             border 1px solid var(--tc_border_ins)
-            border-bottom-left-radius 2px
-            border-bottom-right-radius 2px
+            border-bottom-left-radius var(--tc_border_radius)
+            border-bottom-right-radius var(--tc_border_radius)
             border-top 0px !important
             margin-top -1px
     &--above
@@ -94,7 +96,9 @@
         & ^[0]__select
             transition none
             &:before
-                top 60%   
+                top 60%  
+        & ^[0]__tags
+            border-radius var(--tc_border_radius) var(--tc_border_radius) 0px 0px !important
     &--disabled
         background-color transparent !important
         & ^[0]__select

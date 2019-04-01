@@ -1,54 +1,89 @@
 extends includes/layout
 
 block pageVariables
-    - var pageTitle = "Показ фильтров"
+    - var pageTitle = "PkgKit Template"
 
 block pageHead
+    link(href="https://fonts.googleapis.com/css?family=Poppins:400,400i,500,600,700" rel="stylesheet")
     style.
         :root:not([data-dark="true"]) {
-            --tc_page_bg: #e3e8ee;
-            --tc_aside_gradient: linear-gradient(to left, #e3e8ee 0%, #e3e8ee 100%);
-            --tc_aside_gradient_header: linear-gradient(to left, #fff 0%, #fff 100%);
-            --tc_aside_link: #414770;
-            --tc_aside_text: #414770;
-            --tc_aside_bg_nav: #dee2e7;
+            --tc_page_bg: #f9f9fc;
+            --tc_aside_gradient: linear-gradient(to bottom, #242336 0%, #242336 100%);
+            --tc_aside_gradient_header: linear-gradient(to left, #242336 0%, #242336 100%);
+            --tc_aside_link: #fff;
+            --tc_text: #63627d;
+            --tc_titles: #242336;
+            --tc_aside_text: #fff;
+            --tc_aside_bg_nav: #201e33;
             --tc_header_bg: none;
-            --tc_ui_btn_smcolor: #16a085;
-            --tc_ui_btn_smcolor_active: #1abc9c;
             --tc_header_link: #aab7c4;
             --tc_header_link_active: #414770;
-
+            --tc_link: #7b6eea;
+            --tc_link_dark: #5d53ad;
+            --tc_border_ins: #eaeaf1;
+            --tc_border: #eaeaf1;
+            --tc_btn_bg: #7b6eea;
+            --tc_btn_bg_active: #5d53ad;
+            --tc_ui_btn_smcolor: #fd7e40;
+            --tc_ui_btn_smcolor_active: #d37242;
+            --tc_ui_btn_smcolor_text: #fff;
         }
 
         :root[data-dark="true"] {
+            --tc_aside_gradient: linear-gradient(to bottom, #1d1b2c 0%, #1d1b2c 100%);
+            --tc_aside_gradient_header: linear-gradient(to left, #1d1b2c 0%, #1d1b2c 100%);
+            --tc_ui_bg: #312f46;
+            --tc_ui_bg_d: #2a293c;
             --tc_header_bg: none;
-            --tc_ui_btn_smcolor: #16a085;
-            --tc_ui_btn_smcolor_active: #1abc9c;
+            --tc_page_bg: #27263a;
+            --tc_ui_bg_semi: #2b2a3d;
+            --tc_ui_bg_darken: #1d1b2c;
+            --tc_border: #302e4b;
+            --tc_border_ins: #201e33;
+            --tc_btn_bg: #7b6eea;
+            --tc_btn_bg_active: #5d53ad;
+            --tc_ui_btn_smcolor: #fd7e40;
+            --tc_ui_btn_smcolor_active: #d37242;
+            --tc_ui_btn_smcolor_text: #fff;
+            --tc_border_dark: #2a293c;
+            --tc_ui_bg_darken_s: #242333;
+            --tc_link: #6753e4;
+            --tc_link_dark: #907efc;
+            --tc_ui_focus: #6753e4;
         }
 
-        .frame .frame__aside {
-            box-shadow: none;
-        }
 
         .frame .frame__aside-link .icon-angle-bottom:after {
             top: 0.5rem;
             bottom: 0.5rem;
         }
 
+        .dropdown-arrow[data-v-dda77e96] {
+            color: #907efc !important;
+        }
+
         .frame .frame__aside-link .icon-angle-bottom {
-            width: 35px;
+            width: 50px;
+        }
+
+        .btn {
+            text-transform: none;
+            font-size: .9rem;
         }
 
         .frame .frame__aside-link {
-            padding-top: 5px;
-            padding-bottom: 5px;
+            padding-top: 15px;
+            padding-bottom: 15px;
             min-height: 35px;
-            opacity: 1;
+            opacity: 0.7;
         }
 
-        .frame .frame__aside-link:hover {
-            color: #556cd6;
+        .fb-input .fb-input__label, .fb-slug .fb-slug__label, .fb-select .fb-select__label, .fb-textarea .fb-textarea__label, .fb-phone .fb-phone__label {
+            color: #63627d;
         }
+
+
+
 
         .frame .frame__aside-inlist {
             min-height: 30px;
@@ -58,7 +93,6 @@ block pageHead
 
         .frame .frame__aside-title {
             min-height: 77px;
-
         }
 
 
@@ -75,9 +109,12 @@ block pageHead
 
         .frame .frame__search {
             background-color: var(--tc_ui_bg);
-            padding: 5px 15px;
+            padding: 5px 0;
             border-radius: 2px;
-            box-shadow: var(--tc_shadow_smr);
+        }
+
+        .frame .frame__search-link {
+            margin-right: 15px;
         }
 
         .frame .frame__search .frame__search-hidden {
@@ -100,26 +137,27 @@ block pageHead
             display: none;
         }
 
+        .card {
+            border-radius: 10px;
+        }
+
         .frame .frame__header-top {
-            padding-top: 20px;
-            padding-right: 40px;
+            margin-bottom: 20px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            background-color: var(--tc_ui_bg);
+            padding-right: 35px;
         }
 
         .frame .frame__userinfo-ava {
-            width: 36px;
-            height: 36px;
             border-radius: 50%;
-            margin-left: 15px;
+            margin-left: 25px;
         }
 
-        .frame .frame__userinfo {
-            height: 36px;
+        .user-menu {
+            top: 70px;
         }
 
-        .frame .frame__header-line {
-            padding-top: 30px;
-            padding-bottom: 0;
-        }
 
         .frame .frame__userinfo-link {
             width: 36px;
@@ -128,7 +166,7 @@ block pageHead
         }
 
         .frame .frame__header-add {
-            top: -35px;
+            top: -50px;
         }
 
         @media (max-width: 1000px) {
@@ -153,6 +191,12 @@ block pageHead
             }
         }
 
+        @media (max-width: 900px) {
+            .user-menu {
+                top: 0;
+            }
+        }
+
         @media (max-width: 700px) {
             .frame .frame__header-line {
                 padding-top: 10px;
@@ -162,14 +206,144 @@ block pageHead
                 top: auto;
             }
 
+            .frame .frame__header-top {
+                padding: 0;
+                margin: 0;
+            }
+
+            .frame .frame__header-line {
+                padding-top: 20px;
+                padding-bottom: 20px;
+                background-color: var(--tc_ui_bg);
+            }
+
             .frame .frame__userinfo {
                 background: #fff;
                 height: 60px;
             }
 
         }
+
+        @media (max-width: 400px) {
+            .frame .frame__header-line {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+        }
     
 
 block pageContent
     // test
 
+    .section
+        h2 Btn group example
+        .btn-group
+            filter-builder(label="Link", :param="{p:1}") 
+            filter-builder(label="button", :param="{p:2}") 
+            filter-builder(label="Another", :param="{p:3}") 
+
+    .section
+        h2 Form builder example
+
+        form-builder(url="http://httpbin.org/post" disabled-dialog)
+            .grid
+                .cell-1-2.cell-1-1--tsm
+                    fb-input(name="awdaw12312312" label="Input field"  autocomplete="off")
+                .cell-1-2.cell-1-1--tsm
+                    fb-select(name="awdawd123qw" :multiple="false"  :select-options="[{name:'one', value: 1}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}]")
+                .cell-1-2.cell-1-1--tsm
+                    fb-select(name="select2" label="Yosip ishchet lojku" :multiple="true" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]")
+                .cell-1-2.cell-1-1--tsm
+                    fb-phone(name="asd123123asd" label="Phone label" )
+                .cell-1-2.cell-1-1--tsm
+                    fb-input(name="awdaw1231222312" label="Label test long label" )
+                .cell-1-2.cell-1-1--tsm
+                    fb-company-slug(label="Slug default" name="slug221"  domain="very very long link awescrm.de")
+                .cell-1-2.cell-1-1--tsm
+                    fb-editor(name="editor1")
+                .cell-1-2.cell-1-1--tsm
+                    fb-textarea(name="ed1"  label="Textarea label")
+                .cell-1-2.cell-1-1--tsm
+                    fb-uploader(name="files1" url="http://httpbin.org/post" format="docx" size="15")
+                .cell-1-2.cell-1-1--tsm
+                    fb-slider(name="range1" label="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat iure perspiciatis corporis nesciunt inventore, eius quos maiores sit, ipsa neque quas harum maxime. Sunt a nobis excepturi accusamus assumenda necessitatibus?" )
+                .cell-1-2.cell-1-1--tsm
+                    fb-checkbox(name="checkbox1"  label="default checkbox")
+                .cell-1-2.cell-1-1--tsm
+                    fb-code(name="code1")
+                .cell-1-2.cell-1-1--tsm
+                    fb-radio-group(name="radio1"  
+                    :items="[{name:'one', value: 1}, {name:'two', value: 2}, {name:'three', value: 3}]")
+                .cell-1-2.cell-1-1--tsm
+                    fb-multi-block(name="multi1")
+                        template(slot-scope="mb")
+                            fb-input(name="input22" label="multi-block" :id="mb.id" )
+                            fb-input(name="input33" label="multi-block" :id="mb.id" )
+                            fb-textarea(name="text11" label="multi block" :id="mb.id")
+
+    .section
+
+        table-builder(store-data="table", media-queries="[{'mobile': '(max-width: 600px)'}]", :default="[{name:'First', email:'first@mail.com', 'role': 'Manager', 'phone': '+380670000000'}, {name: 'Second', email: 'second@mail.com', 'role': 'Manager', 'phone': '+380670000000'}, {name: 'Second', email: 'second@mail.com', 'role': 'Manager', 'phone': '+380670000000'}, {name: 'Second', email: 'second@mail.com', 'role': 'Manager', 'phone': '+380670000000'}, {name: 'Second', email: 'second@mail.com', 'role': 'Manager', 'phone': '+380670000000'}]")
+            h2(slot='empty') No data
+            tb-column(name='name', label='Project name')
+            tb-column(name='email')
+            tb-column(name='role')
+            tb-column(name='phone')
+
+    .section
+        h2 Card preview
+        .grid
+            -for(var i = 0;i < 4;i++)
+                .cell-1-4.cell-1-2--tsm.cell-1-1--mmd
+                    .card
+                        p Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla hic aliquam fugit quisquam molestias, dolorem quasi minus voluptatem at error tempora, ratione accusamus. Tempora rerum odit deleniti facilis consequatur ut?
+
+    .section
+        .grid
+            .cell-inline
+                a.btn(href="") Buttom main
+            .cell-inline
+                a.btn.btn_second(href="") Button second
+            .cell-inline
+                a.btn.btn_white(href="") Button white
+            .cell-inline
+                a.btn.btn_transparent(href="") Button transparent
+        
+
+
+    .section
+
+        h2 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+        p Lorem ipsum dolor sit amet consectetur adipisicing elit. A laborum, voluptates dignissimos deleniti, suscipit id et sunt velit explicabo quos veritatis, ullam nobis libero officia eos quod facere dolorum qui.
+        p Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex vel incidunt animi eaque quas impedit dolor inventore! Dicta deserunt nemo illo, asperiores aut molestias ea tempore nulla eum autem ratione?
+
+        p
+            img.tf-img(src="https://picsum.photos/1600/500/?random", alt="")
+
+        ul
+            li Lorem ipsum, dolor sit amet <code>consectetur adipisicing elit</code>.
+            li Lorem ipsum, dolor sit amet <a href="">consectetur adipisicing elit</a>.
+            li Lorem ipsum, dolor sit amet <b>consectetur adipisicing elit</b>.
+            li Lorem ipsum, dolor sit amet <em>consectetur adipisicing elit</em>.
+            li Lorem ipsum, dolor sit amet <kbd>consectetur adipisicing elit</kbd>.
+
+        p Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae tempora harum ad quia neque soluta, optio accusantium delectus. Totam vero ipsam ullam quia blanditiis amet aut molestias expedita rem dolor!
+        p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, perspiciatis. Inventore minima quidem dignissimos corporis tenetur, atque ipsa non distinctio mollitia aliquam error placeat quaerat esse, vel culpa possimus laborum.
+        p Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus cupiditate fugiat rerum labore nesciunt ex ratione ut, cum, officia, adipisci dolores. Blanditiis atque illum voluptatum laboriosam reprehenderit non pariatur mollitia!
+
+        ol
+            li Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            li Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            li Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            li Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            li Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+
+        blockquote Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi molestias architecto, inventore repudiandae ipsam earum provident consequuntur distinctio, aspernatur harum minima vel quod praesentium, animi atque saepe voluptas voluptate minus.
+
+        p Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum accusamus vitae obcaecati. Nam tempora nobis aut, quas voluptates aspernatur inventore eius quibusdam atque, illum dolore numquam harum amet totam enim!
+
+        pre
+            code.language-html.
+                &lt;context-menu&gt;
+                    &lt;cm-button&gt;Click me!&lt;/cm-button&gt;
+                &lt;/context-menu&gt;
