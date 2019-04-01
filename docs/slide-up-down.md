@@ -6,6 +6,7 @@ This component is intended for the animated appearance/disappearance of the comp
 
 ## Components
 - [Content Wrapper](./content-wrapper.md)
+- [Navigation Generator](./nav-generator.md)
 - [Frame Navigation](./frame-nav.md)
 - [Grid](./grid.md)
 - [Content](./classes.md)
