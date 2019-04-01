@@ -27,6 +27,238 @@
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/theme-switcher/v1.x.x/js/main.js"></script>
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/tab-builder/v1.x.x/js/main.js"></script>
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/base-js/v1.3.15/js/main.js"></script><!-- there is can be head meta or sctipts-->
+    <style>
+        :root:not([data-dark="true"]) {
+            --tc_page_bg: #f9f9fc;
+            --tc_aside_gradient: linear-gradient(to bottom, #242336 0%, #242336 100%);
+            --tc_aside_gradient_header: linear-gradient(to left, #242336 0%, #242336 100%);
+            --tc_aside_link: #fff;
+            --tc_text: #63627d;
+            --tc_titles: #242336;
+            --tc_aside_text: #fff;
+            --tc_aside_bg_nav: #201e33;
+            --tc_header_bg: none;
+            --tc_header_link: #aab7c4;
+            --tc_header_link_active: #414770;
+            --tc_link: #7b6eea;
+            --tc_link_dark: #5d53ad;
+            --tc_border_ins: #eaeaf1;
+            --tc_border: #eaeaf1;
+            --tc_btn_bg: #7b6eea;
+            --tc_btn_bg_active: #5d53ad;
+            --tc_ui_btn_smcolor: #fd7e40;
+            --tc_ui_btn_smcolor_active: #d37242;
+            --tc_ui_btn_smcolor_text: #fff;
+        }
+
+        :root[data-dark="true"] {
+            --tc_aside_gradient: linear-gradient(to bottom, #1d1b2c 0%, #1d1b2c 100%);
+            --tc_aside_gradient_header: linear-gradient(to left, #1d1b2c 0%, #1d1b2c 100%);
+            --tc_ui_bg: #312f46;
+            --tc_ui_bg_d: #2a293c;
+            --tc_header_bg: none;
+            --tc_page_bg: #27263a;
+            --tc_ui_bg_semi: #2b2a3d;
+            --tc_ui_bg_darken: #1d1b2c;
+            --tc_border: #302e4b;
+            --tc_border_ins: #201e33;
+            --tc_btn_bg: #7b6eea;
+            --tc_btn_bg_active: #5d53ad;
+            --tc_ui_btn_smcolor: #fd7e40;
+            --tc_ui_btn_smcolor_active: #d37242;
+            --tc_ui_btn_smcolor_text: #fff;
+            --tc_border_dark: #2a293c;
+            --tc_ui_bg_darken_s: #242333;
+            --tc_link: #6753e4;
+            --tc_link_dark: #907efc;
+            --tc_ui_focus: #6753e4;
+            --tc_ui_context_menu_bg: #201e33;
+            --tc_border_light: #5d53ad;
+        }
+
+
+        .frame .frame__aside-link .icon-angle-bottom:after {
+            top: 0.5rem;
+            bottom: 0.5rem;
+        }
+
+        .dropdown-arrow[data-v-dda77e96] {
+            color: #907efc !important;
+        }
+
+        .frame .frame__aside-link .icon-angle-bottom {
+            width: 50px;
+        }
+
+        .btn {
+            text-transform: none;
+            font-size: .9rem;
+        }
+
+        .frame .frame__aside-link {
+            padding-top: 15px;
+            padding-bottom: 15px;
+            min-height: 35px;
+            opacity: 0.7;
+        }
+
+        .fb-input .fb-input__label,
+        .fb-slug .fb-slug__label,
+        .fb-select .fb-select__label,
+        .fb-textarea .fb-textarea__label,
+        .fb-phone .fb-phone__label {
+            color: #63627d;
+        }
+
+
+
+
+        .frame .frame__aside-inlist {
+            min-height: 30px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        .frame .frame__aside-title {
+            min-height: 77px;
+        }
+
+
+        .frame .frame__aside-title {
+            text-align: left;
+            justify-content: flex-start;
+            padding-left: 35px;
+            padding-right: 20px;
+        }
+
+        .frame .frame__aside-title {
+            background: none;
+        }
+
+        .frame .frame__search {
+            background-color: var(--tc_ui_bg);
+            padding: 5px 0;
+            border-radius: 2px;
+        }
+
+        .frame .frame__search-link {
+            margin-right: 15px;
+        }
+
+        .frame .frame__search .frame__search-hidden {
+            width: 300px;
+        }
+
+        .frame .frame__search-input {
+            border: 0px;
+        }
+
+        .frame .frame__search-input:focus {
+            border: 0px;
+        }
+
+        .frame__search-link {
+            pointer-events: none;
+        }
+
+        .frame .frame__search-close {
+            display: none;
+        }
+
+        .card {
+            border-radius: 10px;
+        }
+
+        .frame .frame__header-top {
+            margin-bottom: 20px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            background-color: var(--tc_ui_bg);
+            padding-right: 35px;
+        }
+
+        .frame .frame__userinfo-ava {
+            border-radius: 50%;
+            margin-left: 25px;
+        }
+
+        .user-menu {
+            top: 70px;
+        }
+
+
+        .frame .frame__userinfo-link {
+            width: 36px;
+            height: 36px;
+            margin-left: 10px;
+        }
+
+        .frame .frame__header-add {
+            top: -50px;
+        }
+
+        @media (max-width: 1000px) {
+            .frame .frame__header-top {
+                padding-right: 15px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .frame .frame__aside-title {
+                min-height: 60px;
+            }
+
+            .frame .frame__userinfo-ava {
+                width: 42px;
+                height: 42px;
+            }
+
+            .frame .frame__aside-title {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .user-menu {
+                top: 0;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .frame .frame__header-line {
+                padding-top: 10px;
+            }
+
+            .frame .frame__header-add {
+                top: auto;
+            }
+
+            .frame .frame__header-top {
+                padding: 0;
+                margin: 0;
+            }
+
+            .frame .frame__header-line {
+                padding-top: 20px;
+                padding-bottom: 20px;
+                background-color: var(--tc_ui_bg);
+            }
+
+            .frame .frame__userinfo {
+                background: var(--tc_aside_gradient);
+                height: 60px;
+            }
+
+        }
+
+        @media (max-width: 400px) {
+            .frame .frame__header-line {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+        }
+    </style>
 </head>
 
 <body>

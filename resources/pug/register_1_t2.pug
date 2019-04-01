@@ -4,11 +4,14 @@ block pageVariables
     - var pageTitle = "Register"
     - var pageAsideBg = "https://www.spirit-of-metal.com/les%20goupes/L/Lacuna%20Coil/pics/f9c9_2.jpg"
     - var stepNumber = 1
+    
 
 block pageHead
     // there is can be head meta or sctipts
+    include includes/frames/pkgkitstyle
 
 block pageContent
+
     .login-page__form
         form-builder(url='https://www.awescrm.cloud/register', :default="{'email':''}", btntext='Next')
             fb-input(name='email', type='email', label='E-Mail', focus='')
