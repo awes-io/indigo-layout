@@ -16,10 +16,13 @@
         absolute left 0 top 2px
         size 16px
         border-radius 2px
-        border 1px solid var(--tc_border_dark)
         color transparent
         tr(0.25)
         cursor pointer
+        {lt} &
+            border 1px solid var(--tc_border_dark)
+        {dt} &
+            border 1px solid var(--tc_border_light)
     input
         opacity 0
         absolute left 0 top 0

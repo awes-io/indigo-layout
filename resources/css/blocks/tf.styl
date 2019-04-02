@@ -22,6 +22,11 @@ for tag in tf_titles
 body
     font-size f_normal
 
+a
+    color var(--tc_link)
+    &:hover
+        color var(--tc_link_dark)
+
 .mainwrapper
     pre[data-language]
         position relative
@@ -30,12 +35,14 @@ body
             background-color: var(--tc_ui_bg)
             text-transform: uppercase
             padding: 20px 90px 15px 30px
-            border-radius: 3px
+            border-radius: var(--tc_border_radius) var(--tc_border_radius) 0px 0px
             font-size: 14px
             font-weight: 600
             font-family inherit
             border-bottom 1px solid var(--tc_border)
             display: block
+        .hljs-copy
+            border-radius: var(--tc_border_radius) !important
 
     .hljs
         padding 25px 30px
@@ -77,22 +84,31 @@ h1, .h1
     font-weight 700
     display block
     font-size f_big
+    color var(--tc_titles)
 
 h2, .h2
     font-weight 400
     font-size f_big
+    color var(--tc_titles)
+
 
 h3, .h3
     font-weight 700
     font-size f_middle
+    color var(--tc_titles)
+
 
 h4, .h4
     font-weight 400
     font-size f_middle
+    color var(--tc_titles)
+
 
 h5, .h5
     font-weight 400
     font-size f_medium
+    color var(--tc_titles)
+
 
 p
     margin-bottom 20px
@@ -117,6 +133,7 @@ blockquote
     margin-right 0
     margin-top 0
     position relative
+    border-radius var(--tc_border_radius)
     &:before
         absolute right 5px top 5px
         font-size 100px
@@ -226,13 +243,13 @@ kbd
     margin-left 5px
     margin-right 5px
     display inline
-    font-family fontfamily
+    font-family inherit
     color cl_white
     background-color cl_black
 
 
 code
-    font-family fontfamily
+    font-family inherit
     display inline
     padding 2px 4px
     color var(--tc_code_text)
@@ -251,6 +268,7 @@ pre
         white-space pre
         display block
         font-family inherit
+        border-radius 0px 0px var(--tc_border_radius) var(--tc_border_radius)
         {lt} &
             background-color var(--tc_ui_bg) !important
         {dt} &
@@ -303,6 +321,7 @@ pre
 .tf
     &-img
         box-shadow var(--tc_shadow_smr)
+        border-radius var(--tc_border_radius)
     &-circle
         border-radius 50%
     &-titlenav
