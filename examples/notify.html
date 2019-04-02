@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Показ фильтров</title>
+    <title>Notifications example</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700&amp;amp;subset=cyrillic" rel="stylesheet">
@@ -26,7 +26,7 @@
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/theme-switcher/v1.x.x/js/main.js"></script>
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/tab-builder/v1.x.x/js/main.js"></script>
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/awes-notify/v1.x.x/js/main.js"></script>
-    <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/base-js/v1.3.15/js/main.js"></script><!-- there is can be head meta or sctipts-->
+    <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/base-js/v1.3.15/js/main.js"></script>
 </head>
 
 <body>
@@ -71,7 +71,7 @@
                     </div>
                     <div class="frame__header-line">
                         <div class="frame__title-line">
-                            <h1 class="frame__header-title">Показ фильтров</h1>
+                            <h1 class="frame__header-title">Notifications example</h1>
                         </div>
                     </div>
                 </div>
@@ -438,24 +438,13 @@
                     <awes-notify-container class="frame__awes-notify-container" name="frame" stack="false" :config="{theme: 'inline', status: 'warning', timeout: 0}"></awes-notify-container><button class="frame__header-add"><i class="icon icon-plus"></i></button>
                     <div class="frame__inlayout">
                         <div class="frame__inlayout-content">
-                            <form-builder disabled-dialog="" url="/manager" name="manager" :default="{    active: 1,    email:'camylle57@example.com',    id:'ODY%3D',    profile_manager: {    description:'Ea voluptates voluptatibus in consequuntur ut tempora doloremque. Provident excepturi iste saepe illum saepe. Ipsa alias maiores ut quasi rerum fuga. Consequatur nihil dolores quam alias et.',    phones: [    { phone: '1354634', validated: '+7 135 4634' },    { phone: '4456634', validated: '+7 445 6634' },    ],    fax:'9150818698',    first_name:'Clementine',    full_name:'Clementine Farrell',    last_name:'Farrell',    position:'Photographic Restorer',    smtp:1,    smtp_host:'breitenberg.net',    smtp_login:'sydni09',smtp_password:'eyJpdiI6InkyeHZYRVVUakU0OEd3aUtuSjZPU1E9PSIsInZhbHVlIjoiSlUzSE8xcGphTWhyQmVtWFlIeHdIQT09IiwibWFjIjoiMDQxZjUwY2U5ZDAxNDFlZmQ4M2ZkYzg3NmI4YmNiYmM3ZDdkYmM2MDY3ZmQwMGRmNGM3NTY4YjRmYTliNTBhYyJ9'    },    theme_dark:0    }"><template slot-scope="fields">
-                                    <fb-input label="First Name" name="profile_manager.first_name" v-tooltip="{content: 'Enter your first name', placement: 'top'}"></fb-input>
-                                    <fb-input label="Last Name" name="profile_manager.last_name" v-tooltip="{content: 'Enter your last name'}"></fb-input>
-                                    <fb-input label="Position" name="profile_manager.position"></fb-input>
-                                    <fb-input label="Email" name="email" type="email" required=""></fb-input>
-                                    <fb-multi-block name="profile_manager.phones" v-tooltip="{content: 'Press add button to add more phones', placement: 'right', classes: 'theme-error'}"><template v-slot="{id}">
-                                            <fb-phone label="phone" name="phone" :id="id"></fb-phone>
-                                            <fb-input name="validated" type="hidden" :id="id"></fb-input>
-                                        </template></fb-multi-block>
-                                    <fb-radio-group :items="['Manager', 'Client']" name="status"></fb-radio-group>
-                                    <fb-select :select-options="[{name: 'Manager', value: 'm'}, {name: 'Client', value: 'c'}]" name="select"></fb-select>
-                                    <fb-textarea label="Description" name="profile_manager.description"></fb-textarea>
-                                    <fb-checkbox label="Dark theme" name="theme_dark"></fb-checkbox>
-                                    <fb-switcher label="SMTP" name="profile_manager.smtp"></fb-switcher>
-                                    <h3 :style="{opacity: fields['profile_manager.smtp'] ? 1 : 0.5}">SMTP</h3>
-                                    <fb-input label="Host" name="profile_manager.smtp_host" :disabled="!fields['profile_manager.smtp']"></fb-input>
-                                    <fb-input label="Login" name="profile_manager.smtp_login" :disabled="!fields['profile_manager.smtp']"></fb-input>
-                                </template></form-builder>
+                            <h2>Default notify</h2>
+                            <div class="line-btns"><button class="btn" @click="AWES.notify({title: 'Title', message: 'Default message'})">Success</button><button class="btn" @click="AWES.notify({title: 'Title', message: 'Default message', status: 'info'})">Info</button><button class="btn" @click="AWES.notify({title: 'Title', message: 'Default message', status: 'warning'})">Warning</button><button class="btn" @click="AWES.notify({title: 'Title', message: 'Default message', status: 'error'})">Error or Danger</button></div>
+                            <h2>Frame notify<button class="btn" @click="AWES.notify({message: 'There is no German language version of the &lt;u&gt;requirements and services&lt;/u&gt;', container:'frame'})">Frame message</button></h2>
+                            <h2>Header notify<button class="btn" @click="AWES.notify({message: 'To email them ux.pro@ya.ru was sent a letter', status: 'danger', container:'header'})">Header message</button></h2>
+                            <h2>Top notify</h2>
+                            <div class="line-btns"><button class="btn" @click="AWES.notify({title: 'Title', message: 'Default message', container: 'top'})">Success</button><button class="btn" @click="AWES.notify({title: 'Title', message: 'Default message', container: 'top', status: 'info'})">Info</button><button class="btn" @click="AWES.notify({title: 'Title', message: 'Default message', container: 'top', status: 'warning'})">Warning</button><button class="btn" @click="AWES.notify({title: 'Title', message: 'Default message', container: 'top', status: 'error'})">Error or Danger</button></div>
+                            <h2>Button example<button class="btn" @click="AWES.notify({message: 'Item was deleted', container: 'top', theme: 'inline, progress, rounded', status: 'danger', button: { text:'Undo', url: '/notify.html', method: 'get', sended: function() { AWES.notify('Callback example') } }})">With button</button></h2>
                         </div>
                     </div>
                 </div><span class="frame__copyright">© 2019 - PkgKit - Proudly powered on <a href="">Awes.IO Platform</a>.</span>

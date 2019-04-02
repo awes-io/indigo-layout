@@ -7,14 +7,17 @@ html(lang="en")
         block pageHead
     body
         div(class="mainwrapper" id="awes-app")
+            awes-notify-container.position-top-center(name="top" stack="top" :config="{theme: 'inline, rounded'}")
             div(class="frame")
                 transition(enter-active-class="animated fadeIn" leave-active-class="animated fadeOut")
                     .frame__overlay(v-show="$awesLayoutCrm.togglenav || $awesLayoutCrm.showUserMenu" @click="$awesLayoutCrm.overlayClick")
                 if(!asideFalse)
                     include frames/aside
                 .frame__right(class=typeof headLinks === "undefined" ? undefined : "frame__right_nui")
+                    awes-notify-container(name="header" stack="false" :config="{theme:'inline', timeout: 0}")
                     include frames/header
                     div.frame__content
+                        awes-notify-container.frame__awes-notify-container(name="frame" stack="false" :config="{theme: 'inline', status: 'warning', timeout: 0}")
                         if(!removePlus)
                             button.frame__header-add
                                 i.icon.icon-plus
