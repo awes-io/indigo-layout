@@ -30,13 +30,14 @@
     <style>
         :root:not([data-dark="true"]) {
             --tc_page_bg: #f9f9fc;
-            --tc_aside_gradient: linear-gradient(to bottom, #242336 0%, #242336 100%);
-            --tc_aside_gradient_header: linear-gradient(to left, #242336 0%, #242336 100%);
+            --tc_aside_gradient: linear-gradient(to bottom, #7b6eea 0%, #7b6eea 100%);
+            --tc_aside_gradient_header: linear-gradient(to left, #7b6eea 0%, #7b6eea 100%);
             --tc_aside_link: #fff;
             --tc_text: #63627d;
             --tc_titles: #242336;
             --tc_aside_text: #fff;
-            --tc_aside_bg_nav: #201e33;
+            --tc_aside_bg_nav: #6157ba;
+            --tc_aside_bg_dark: #6157ba;
             --tc_header_bg: none;
             --tc_header_link: #aab7c4;
             --tc_header_link_active: #414770;
@@ -52,8 +53,10 @@
         }
 
         :root[data-dark="true"] {
-            --tc_aside_gradient: linear-gradient(to bottom, #1d1b2c 0%, #1d1b2c 100%);
-            --tc_aside_gradient_header: linear-gradient(to left, #1d1b2c 0%, #1d1b2c 100%);
+            --tc_aside_gradient: linear-gradient(to bottom, #27263a 0%, #27263a 100%);
+            --tc_aside_gradient_header: linear-gradient(to left, #27263a 0%, #27263a 100%);
+            --tc_aside_bg_nav: #33314a;
+            --tc_aside_bg_dark: #33314a;
             --tc_ui_bg: #312f46;
             --tc_ui_bg_d: #2a293c;
             --tc_header_bg: none;
@@ -85,6 +88,7 @@
         .dropdown-arrow[data-v-dda77e96] {
             color: #907efc !important;
         }
+
 
         .frame .frame__aside-link .icon-angle-bottom {
             width: 50px;
@@ -120,19 +124,13 @@
         }
 
         .frame .frame__aside-title {
-            min-height: 77px;
+            min-height: 70px;
         }
 
 
         .frame .frame__aside-title {
-            text-align: left;
-            justify-content: flex-start;
-            padding-left: 35px;
-            padding-right: 20px;
-        }
-
-        .frame .frame__aside-title {
-            background: none;
+            padding-left: 15px;
+            padding-right: 15px;
         }
 
         .frame .frame__search {
