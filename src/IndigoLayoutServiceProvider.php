@@ -5,15 +5,21 @@ namespace AwesIO\IndigoLayout;
 use AwesIO\BaseJS\AwesProvider;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Blade;
+use AwesIO\IndigoLayout\Nav\{
+    NavChecker, NavGenerator
+};
 
 class IndigoLayoutServiceProvider extends AwesProvider
 {
 
     public function boot()
     {
-        if (config('indigo-layout.navs')) {
-            View::composer('*', function ($view) {
-                $view->with('navs', config('indigo-layout.navs'));
+        $generator = config('indigo-layout.nav-generator', NavGenerator::class);
+        if ($generator && class_exists($generator)) {
+            $navs = (new $generator)->getNavs();
+            NavChecker::check($navs);
+            View::composer('*', function ($view) use ($navs) {
+                $view->with('navs', $navs);
             });
         }
 
@@ -31,6 +37,6 @@ class IndigoLayoutServiceProvider extends AwesProvider
 
     public function getPath(): string
     {
-       return __DIR__;
+        return __DIR__;
     }
 }

@@ -7,7 +7,7 @@
 ## Install
 
 ```bash
-composer require awes-io/indogo-layout
+composer require awes-io/indigo-layout
 ```
 
 ## Example
@@ -29,6 +29,7 @@ composer require awes-io/indogo-layout
 
 ## Components
 - [Content Wrapper](./content-wrapper.md)
+- [Navigation Generator](./nav-generator.md)
 - [Frame Navigation](./frame-nav.md)
 - [Grid](./grid.md)
 - [Slide Up Down](./slide-up-down.md)

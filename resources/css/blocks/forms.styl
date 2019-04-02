@@ -78,9 +78,9 @@
             background-color transparent
             filter none
         &:first-child
-            border-radius 2px 0px 0px 2px
+            border-radius var(--tc_border_radius) 0px 0px var(--tc_border_radius)
         &:last-child
-            border-radius 0px 2px 2px 0px
+            border-radius 0px var(--tc_border_radius) var(--tc_border_radius) 0px
         &.active
             background-color var(--tc_ui_bg)
             color var(--tc_link_semi_active)
@@ -137,9 +137,12 @@
             text-transform none
 
 .btn
-    fl(,c,c)
+    display inline-flex
+    align-items center
+    justify-content center
+    text-align center
     transition background-color 0.3s ease, color 0.3s ease
-    border-radius 2px
+    border-radius var(--tc_border_radius)
     text-align center
     padding 15px 30px
     min-width 120px
@@ -169,6 +172,12 @@
         &:hover, &:focus
             background-color var(--tc_btn_tr_bg_d)
             color var(--tc_btn_tr_text)
+    &_second
+        color var(--tc_ui_btn_smcolor_text)
+        background-color var(--tc_ui_btn_smcolor)
+        &:hover, &:focus
+            color var(--tc_ui_btn_smcolor_text)
+            background-color var(--tc_ui_btn_smcolor_active)
     &_transparent
         background-color transparent
         color var(--tc_btn_tr_text)
@@ -176,12 +185,6 @@
             background-color var(--tc_ui_bg_darken_s)
     &_sh
         box-shadow 1px 2px 3px var(--tc_btn_bg_shadow)
-    &_darkred
-        background-color transparent
-        color cl_white
-        &:hover, &:focus
-            color cl_warn
-            background-color transparent
     &_greylink
         background-color transparent
         color var(--tc_link_semi)
