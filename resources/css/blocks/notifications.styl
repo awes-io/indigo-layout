@@ -1,25 +1,24 @@
-.toasted
+.awes-notify-container
+  
+  &.is-header
 
-    &-container.bottom-right
-        right: 20px !important
-        bottom: 20px !important
-        max-width: calc(100% - 40px)
-
-    &__content
-        padding: 20px 0 20px 40px
-        font-size 12px
-        width: 280px
-        max-width: 100%
-
-    &__icon
-        display: block
-        absolute left 20px top 20px
-        font-size: 20px
-        text-shadow 1px 2px 5px rgba(8, 70, 0, 0.2)
-
-    &__title
-      font-size 16px
-      font-weight 700
-      margin-bottom: 10px
-      display: block
-      line-height: 1.1
+    .awes-notify
+      padding: 5px 10px
+      
+      &__content
+        justify-content: center
+  
+  &.position-top-center.is-top
+    
+    @media miw[tlg]
+      left: calc(50% + 105px)
+    
+    @media miw[dsm]
+      left: calc(50% + 130px)
+  
+  &.is-frame
+    position: absolute
+    top: 0
+    left: 50%
+    transform: translate(-50%, -50%)
+    max-width: 80%

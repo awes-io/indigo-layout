@@ -1,0 +1,28 @@
+extends includes/layout
+
+block pageVariables
+    - var pageTitle = "Notifications example"
+
+block pageContent
+    h2 Default notify
+    .line-btns
+        button.btn(@click="AWES.notify({title: 'Title', message: 'Default message'})") Success
+        button.btn(@click="AWES.notify({title: 'Title', message: 'Default message', status: 'info'})") Info
+        button.btn(@click="AWES.notify({title: 'Title', message: 'Default message', status: 'warning'})") Warning
+        button.btn(@click="AWES.notify({title: 'Title', message: 'Default message', status: 'error'})") Error or Danger
+
+    h2 Frame notify
+        button.btn(@click="AWES.notify({message: 'There is no German language version of the <u>requirements and services</u>', container:'frame'})") Frame message
+    
+    h2 Header notify
+        button.btn(@click="AWES.notify({message: 'To email them ux.pro@ya.ru was sent a letter', status: 'danger', container:'header'})") Header message
+
+    h2 Top notify
+    .line-btns
+        button.btn(@click="AWES.notify({title: 'Title', message: 'Default message', container: 'top'})") Success
+        button.btn(@click="AWES.notify({title: 'Title', message: 'Default message', container: 'top', status: 'info'})") Info
+        button.btn(@click="AWES.notify({title: 'Title', message: 'Default message', container: 'top', status: 'warning'})") Warning
+        button.btn(@click="AWES.notify({title: 'Title', message: 'Default message', container: 'top', status: 'error'})") Error or Danger
+
+    h2 Button example
+        button.btn(@click="AWES.notify({message: 'Item was deleted', container: 'top', theme: 'inline, progress, rounded', status: 'danger', button: { text:'Undo', url: '/notify.html', method: 'get', sended: function() { AWES.notify('Callback example') } }})") With button
