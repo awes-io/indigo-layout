@@ -4,7 +4,7 @@
 @include('indigo-layout::chunks.head')
 
 <body>
-<div class="mainwrapper" id="awes-app">
+<content-wrapper class="mainwrapper">
     <div class="login-page">
         <div class="login-page__left">
             <div class="login-page__left-wrap">
@@ -33,7 +33,7 @@
             </div>
         </div><span class="login-page__bg" @if(config('indigo-layout.auth_bg_left'))style="background-image: url('{{ config('indigo-layout.auth_bg_left') }}');"@endif><span></span></span>
     </div>
-</div>
+</content-wrapper>
 </body>
 
 </html>

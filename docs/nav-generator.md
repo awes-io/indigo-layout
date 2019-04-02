@@ -1,7 +1,6 @@
 # Navigation generator
 
 ## Components
-- [Content Wrapper](./content-wrapper.md)
 - **Navigation generator**
 - [Frame Navigation](./frame-nav.md)
 - [Grid](./grid.md)

@@ -6,7 +6,7 @@ html(lang="en")
         include frames/metahead
         block pageHead
     body
-        div(class="mainwrapper" id="awes-app")
+        content-wrapper(class="mainwrapper")
             awes-notify-container.position-top-center(name="top" stack="top" :config="{theme: 'inline, rounded'}")
             div(class="frame")
                 transition(enter-active-class="animated fadeIn" leave-active-class="animated fadeOut")

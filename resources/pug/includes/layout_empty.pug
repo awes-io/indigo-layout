@@ -6,7 +6,7 @@ html(lang="en")
         include frames/metahead
         block pageHead
     body
-        div(class="mainwrapper" id="awes-app")
+        content-wrapper(class="mainwrapper")
             div(class="frame")
                 transition(enter-active-class="animated fadeIn" leave-active-class="animated fadeOut")
                     .frame__overlay(v-show="$awesLayoutCrm.togglenav || $awesLayoutCrm.showUserMenu" @click="$awesLayoutCrm.overlayClick")

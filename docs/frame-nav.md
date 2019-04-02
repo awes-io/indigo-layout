@@ -5,7 +5,6 @@ This component is intended for displaying the side menu as a two-level dropdown 
 ![frame-nav](https://static.awes.io/docs/frame-nav.gif)
 
 ## Components
-- [Content Wrapper](./content-wrapper.md)
 - [Navigation Generator](./nav-generator.md)
 - **Frame Navigation**
 - [Grid](./grid.md)

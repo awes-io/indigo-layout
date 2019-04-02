@@ -3,7 +3,6 @@
 The description of CSS/HTML helpers for different each case.
 
 ## Components
-- [Content Wrapper](./content-wrapper.md)
 - [Navigation Generator](./nav-generator.md)
 - [Frame Navigation](./frame-nav.md)
 - [Grid](./grid.md)

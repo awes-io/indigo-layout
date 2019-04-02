@@ -4,7 +4,7 @@
 @include('indigo-layout::chunks.head')
 
 <body>
-<div class="mainwrapper" id="awes-app">
+<content-wrapper class="mainwrapper">
     <div class="frame">
         <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
             <div class="frame__overlay" v-show="$awesLayoutCrm.togglenav || $awesLayoutCrm.showUserMenu" @click="$awesLayoutCrm.overlayClick"></div>
@@ -171,7 +171,7 @@
 
         </div>
     </div>
-</div>
+</content-wrapper>
 </body>
 
 </html>
