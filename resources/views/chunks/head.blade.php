@@ -4,23 +4,23 @@
     <meta name="description" content="@yield('meta_description', '')">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <!-- font -->
-    @isset(config('indigo-layout.font'))
+    @if(config('indigo-layout.font'))
+        <!-- font -->
         <link href="{{ config('indigo-layout.font') }}" rel="stylesheet">
     @endisset
 
     <!-- head block -->
     @stack('head')
 
-    <!-- main indigo css -->
     @isset($src['css']['indigo-layout'])
+        <!-- main indigo css -->
         <link rel="stylesheet" href="{{ $src['css']['indigo-layout'][0] }}">
     @endisset
 
-    <!-- custom styles -->
     @if(config('indigo-layout.custom_styles'))
         <style>
-            {{ config('indigo-layout.custom_styles') }}
+            /* custom styles */
+            {!! trim(preg_replace("/\s+/", " ", str_replace("\n", " ", config('indigo-layout.custom_styles')))) !!}
         </style>
     @endif
 
