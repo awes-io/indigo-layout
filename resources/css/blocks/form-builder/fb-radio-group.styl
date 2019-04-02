@@ -11,11 +11,12 @@
         border 1px solid var(--tc_border)
         border-left none
         color var(--tc_text_caption)
+        overflow hidden
         &:first-child
             border-left 1px solid var(--tc_border)
-            border-radius 3px 0 0 3px
+            border-radius var(--tc_border_radius) 0 0 var(--tc_border_radius)
         &:last-child
-            border-radius 0 3px 3px 0
+            border-radius 0 var(--tc_border_radius) var(--tc_border_radius) 0
     & &__text
         padding 7px
         width 100%

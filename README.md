@@ -1,17 +1,17 @@
 # IndigoLayout
 
-[![Coverage report](http://gitlab.awescode.com/awes-io/indigo-layout/badges/master/coverage.svg)](https://www.awes.io/)
-[![Build status](http://gitlab.awescode.com/awes-io/indigo-layout/badges/master/build.svg)](https://www.awes.io/)
-[![Composer Ready](https://www.awc.wtf/awes-io/indigo-layout/status.svg)](https://www.awes.io/)
-[![Downloads](https://www.awc.wtf/awes-io/indigo-layout/downloads.svg)](https://www.awes.io/)
-[![Last version](https://www.awc.wtf/awes-io/indigo-layout/version.svg)](https://www.awes.io/)
+[![Coverage report](https://git.awescode.com/awes-io/indigo-layout/badges/master/coverage.svg)](https://www.pkgkit.com/)
+[![Build status](https://git.awescode.com/awes-io/indigo-layout/badges/master/build.svg)](https://www.pkgkit.com/)
+[![Composer Ready](https://www.pkgkit.com/awes-io/indigo-layout/status.svg)](https://www.pkgkit.com/)
+[![Downloads](https://www.pkgkit.com/awes-io/indigo-layout/downloads.svg)](https://www.pkgkit.com/)
+[![Last version](https://www.pkgkit.com/awes-io/indigo-layout/version.svg)](https://www.pkgkit.com/)
 
 
 This is where your description should go. Take a look at [contributing.md](contributing.md) to see a to do list.
 
 ## Documentation
 
-[Russian](./docs/index.md)
+[Documentation](https://www.awes.io/documentation/components/indigo-layout)
 
 ## NPM scripts
 
@@ -21,38 +21,18 @@ Production build `npm run build`
 
 ## Installation
 
-Via Composer
+This package can be used in Laravel 5.7 or higher. 
+
+You can install the package via composer:
 
 ``` bash
 $ composer require awes-io/indigo-layout
 ```
 
-The package will automatically register itself.
-
-You can publish the migration with:
-
-```bash
-php artisan vendor:publish --provider="AwesIO\IndigoLayout\Providers\IndigoLayoutServiceProvider" --tag="migrations"
-```
-
-After the migration has been published you can create the table for IndigoLayout by running the migrations:
-
-```bash
-php artisan migrate
-```
-
 You can publish the config file with:
 
 ```bash
-php artisan vendor:publish --provider="AwesIO\IndigoLayout\Providers\IndigoLayoutServiceProvider" --tag="config"
-```
-
-## Testing
-
-You can run the tests with:
-
-```bash
-composer test
+php artisan vendor:publish --provider="AwesIO\IndigoLayout\IndigoLayoutServiceProvider" --tag="config"
 ```
 
 ## Contributing

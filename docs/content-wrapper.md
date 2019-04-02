@@ -7,6 +7,7 @@ Scheme of work: by default, the data used in the template are transferred to the
 ## Components
 - **Content Wrapper**
 - [Frame Navigation](./frame-nav.md)
+- [Navigation Generator](./nav-generator.md)
 - [Grid](./grid.md)
 - [Content](./classes.md)
 - [Slide Up Down](./slide-up-down.md)
