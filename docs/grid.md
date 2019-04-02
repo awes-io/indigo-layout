@@ -3,7 +3,6 @@
 Quick and variable grid setting will help you create a grid for almost any situation.
 
 ## Components
-- [Content Wrapper](./content-wrapper.md)
 - [Navigation Generator](./nav-generator.md)
 - [Frame Navigation](./frame-nav.md)
 - **Grid**

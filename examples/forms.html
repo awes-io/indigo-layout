@@ -30,7 +30,7 @@
 </head>
 
 <body>
-    <div class="mainwrapper" id="awes-app">
+    <content-wrapper class="mainwrapper">
         <awes-notify-container class="position-top-center" name="top" stack="top" :config="{theme: 'inline, rounded'}"></awes-notify-container>
         <div class="frame">
             <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
@@ -528,7 +528,7 @@
                 <div class="float-icns"><button class="float-icns__icon float-icns__icon_helper" @click="$awesLayoutCrm.showHelpers = ! $awesLayoutCrm.showHelpers">?</button></div>
             </div>
         </div>
-    </div>
+    </content-wrapper>
 </body>
 
 </html>
