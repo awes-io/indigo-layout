@@ -48,8 +48,9 @@
         methods: {
 
             slideDown(el, done) {
-                const height = el.offsetHeight
+                const height = this._getHeight(el)
                 const start = new Date().getTime()
+                el.style.overflow = 'hidden'
                 el.style.height = 0
                 el.style.opacity = 0
                 const setHeight = () => {
@@ -62,6 +63,7 @@
                     } else {
                         el.style.height = null
                         el.style.opacity = null
+                        el.style.overflow = null
                         done()
                     }
                 }
@@ -73,7 +75,8 @@
             },
 
             slideUp(el, done) {
-                const height = el.offsetHeight
+                const height = this._getHeight(el)
+                el.style.overflow = 'hidden'
                 const start = new Date().getTime()
                 const setHeight = () => {
                     let time = new Date().getTime() - start
@@ -85,6 +88,7 @@
                     } else {
                         el.style.height = null
                         el.style.opacity = null
+                        el.style.overflow = null
                         done()
                     }
                 }
@@ -95,6 +99,7 @@
                 cancelAnimationFrame(this.__animUp)
                 el.style.height = null
                 el.style.opacity = null
+                el.style.overflow = null
             },
 
             close() {
@@ -110,6 +115,20 @@
             toggle() {
                 this.isOpened = ! this.isOpened
                 this.$emit('update:show', this.isOpened)
+            },
+
+            _getHeight(el) {
+                if ( el.children ) {
+                    let h = 0,
+                        ch = el.children
+                    for (let i = 0; i < ch.length; i++) {
+                        let s = getComputedStyle(ch[i])
+                        h += (ch[i].clientHeight + parseInt(s.marginTop) + parseInt(s.marginBottom) )
+                    }
+                    return h
+                } else {
+                    return el.offsetHeight
+                }
             }
         },
 
@@ -125,9 +144,6 @@
                 }, [
                     h(this.tag, {
                         class: 'slide-up-down',
-                        style: {
-                            overflow: 'hidden'
-                        },
                         directives: [
                             { name: 'show', value: this.isOpened }
                         ]
