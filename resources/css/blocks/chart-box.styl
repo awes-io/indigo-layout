@@ -1,10 +1,10 @@
 .chart-box
     padding 30px
     min-height 260px
+    size 100%
     fl(,sb)
     position relative
     flex-direction: column
-    height 100%
     & &__icon
         font-size 50px
         margin-bottom 17px
@@ -13,6 +13,8 @@
         width 100%
         display block 
         z-index 1
+        height 85%
+        padding-bottom 140px
     & &__wrap, & &__footer-wrap
         width 100%
         position relative
@@ -50,25 +52,6 @@
             text-transform uppercase
             font-size 12px
             line-height 1
-        &-label
-            display block
-            text-transform uppercase
-            font-size 12px
-            margin-bottom 10px
-        &-value
-            display block
-            font-size 24px
-            font-weight 300
-            font-size 30px
-            text-transform uppercase
-            line-height 1
-            width 100%
-        &-more
-            margin-top 19px
-            display inline-block
-            text-transform uppercase
-            font-weight: 700
-            font-size f_smart
         &-chartlist
             max-width 350px
             margin-bottom -10px
@@ -127,8 +110,38 @@
         &:after
             top 50% !important
             margin-top -15px
+    .btn-group
+        border 0
+        position relative
+        z-index 2
+        margin-left -10px
+        margin-right -10px
+        text-align center
+        justify-content center
+        .btn
+            font-size 14px
+            text-transform none
+            padding 0 0 7px 0
+            font-weight 500
+            margin-left 10px
+            margin-right 10px
+            border 0
+            background-color transparent
+            color var(--tc_link_semi)
+            border-bottom 2px solid transparent
+            &:hover, &:focus, &:active
+                background-color transparent !important
+                color var(--tc_link_semi_active)
+            .wave
+                display none !important
+            &.active
+                border-bottom 2px solid var(--tc_link_semi_active)
+                color var(--tc_link_semi_active)
+                background-color transparent !important
 
-
+.chart-wrap
+    size 100%
+    fl()
 
 @media maw[mlg]
     .chart-box
