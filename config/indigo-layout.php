@@ -13,7 +13,7 @@ return [
 
     'logo' => env('APP_LOGO', 'https://static.awes.io/logo-blue.svg'),
 
-    'font' => 'https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700',
+    'fonts' => ['https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700'],
 
     'custom_styles' => '',
 

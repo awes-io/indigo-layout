@@ -10,7 +10,14 @@ class IndigoLayoutServiceProvider extends AwesProvider
 
     public function boot()
     {
+        // Chart components
         Blade::component('indigo-layout::components.card.chart', 'cardchart');
+
+        // Head components
+        Blade::component('indigo-layout::components.head.styles', 'styles');
+        Blade::component('indigo-layout::components.head.fonts', 'fonts');
+        Blade::component('indigo-layout::components.head.scripts', 'scripts');
+        Blade::component('indigo-layout::components.head.theme', 'theme');
 
         $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', 'indigo-layout');
 

@@ -2,7 +2,7 @@
     "name": "awes-io/indigo-layout",
     "description": ":description",
     "type": "library",
-    "license": "GPL-3.0-only",
+    "license": "MIT",
 	"authors": [
 		{
 			"name": "Awescode GmbH",
@@ -51,5 +51,10 @@
                 "AwesIO\\IndigoLayout\\IndigoLayoutServiceProvider"
             ]
         }
-    }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
