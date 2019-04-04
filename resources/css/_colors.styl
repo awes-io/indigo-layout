@@ -691,53 +691,6 @@ table:not(.int-table__table):not(.hljs-ln)
       color var(--tc_link)
 
 
-
-.chart
-  &-icon
-    i
-      border-color var(--tc_ui_bg)
-
-.chart-box
-  box-shadow var(--tc_ui_shadow)
-  background-color var(--tc_ui_bg)
-  color var(--tc_text)
-  & &__icon
-    color var(--tc_text_caption)
-  & &__list
-    a
-      color var(--tc_link_semi)
-      &:hover
-        color var(--tc_link_semi_active)
-      &.active
-        color var(--tc_link_semi_active)
-        border-color var(--tc_link_semi_active)
-  & &__mrlink
-    color var(--tc_link_semi)
-    &:hover
-      color var(--tc_link_semi_active)
-  & &__info
-    &-more
-      color var(--tc_link_semi)
-      &:hover
-        color var(--tc_link_semi_active)
-    &-greycapt
-      color var(--tc_text_caption)
-    &-redcapt
-      color cl_warn
-  &_error
-    & ^[0]__icon
-      color cl_warn
-
-.cl_caption
-  color var(--tc_text_caption)
-
-.cl
-  &_red
-    color cl_warn
-  &_green
-    color cl_grass
-
-
 .justify-list
   color var(--tc_text)
   box-shadow var(--tc_ui_shadow)

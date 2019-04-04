@@ -27,6 +27,14 @@ a
     &:hover
         color var(--tc_link_dark)
 
+.cl
+    &-red
+        color cl_warn
+    &-green
+        color cl_grass
+    &-caption
+        color var(--tc_text_caption)
+
 .mainwrapper
     pre[data-language]
         position relative
@@ -318,7 +326,19 @@ pre
     &:hover, &:focus, &:active
         color var(--tc_text)
 
+.block
+    display block
+
 .tf
+    &-light
+        font-weight 300
+    &-size
+        &-small
+            font-size 12px
+        &-title
+            font-size 30px
+    &-upper
+        text-transform uppercase
     &-img
         box-shadow var(--tc_shadow_smr)
         border-radius var(--tc_border_radius)
