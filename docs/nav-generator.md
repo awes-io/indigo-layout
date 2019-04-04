@@ -10,9 +10,9 @@
 
 ## Default generator
 
-For Indigo Layout you can provide your own navigation generator or use one of ours.
-
-Currently available [config-nav-generator](https://www.awes.io/documentation/components/config-nav-generator)
+For Indigo Layout you can use 
+[awes-io/navigation](https://www.awes.io/documentation/components/navigation) package
+or provide your own navigation generator.
 
 ## Custom generator
 
