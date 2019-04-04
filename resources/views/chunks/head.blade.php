@@ -14,7 +14,7 @@
 
     @isset($src['css']['indigo-layout'])
         <!-- main indigo css -->
-        <link rel="stylesheet" href="{{ $src['css']['indigo-layout'][0] }}">
+        <link rel="stylesheet" href="http://localhost:3002/css/main.css">
     @endisset
 
     @if(config('indigo-layout.custom_styles'))
