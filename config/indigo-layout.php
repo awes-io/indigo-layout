@@ -43,7 +43,5 @@ return [
         'expanded' => true
     ],
 
-    'nav-generator' => \AwesIO\IndigoLayout\Nav\NavGenerator::class,
-
     'footer_copyright' => '© 2019 - Proudly powered on <a href="https://www.awes.io" target="_blank">Awes.IO Platform</a>'
 ];
