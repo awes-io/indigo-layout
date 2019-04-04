@@ -13,8 +13,12 @@
         width 100%
         display block 
         z-index 1
-        height 85%
-        padding-bottom 140px
+        height 70%
+        padding-bottom 100px
+    .tf-hyplink
+        color #fff
+        &:hover
+            color #fff
     & &__wrap, & &__footer-wrap
         width 100%
         position relative
@@ -46,6 +50,7 @@
                     text-decoration none
     & &__info
         display block
+        color #fff
         &-sm
             display block
             margin-bottom 15px
@@ -121,8 +126,9 @@
         .btn
             font-size 14px
             text-transform none
-            padding 0 0 7px 0
+            padding 0 0 5px 0
             font-weight 500
+            border-radius 0
             margin-left 10px
             margin-right 10px
             border 0
@@ -138,6 +144,8 @@
                 border-bottom 2px solid var(--tc_link_semi_active)
                 color var(--tc_link_semi_active)
                 background-color transparent !important
+            &:first-child, &:last-child
+                border-radius 0
 
 .chart-wrap
     size 100%
