@@ -10,22 +10,14 @@
 
 ## Default generator
 
-Default generator gets navs from config `navs` array. Every item have to contain name and link or children.
-Additionally it can contain icon. Read more about nav structure you can in [Frame Navigation](./frame-nav.md)
+For Indigo Layout you can provide your own navigation generator or use one of ours.
 
-### Active link binding
-
-By default link is set as active if a current url contains it.
-
-You can add an `exact` param to the nav item if you want it active only if the current url equal to nav link.
-
-To exclude nav item from active binding add an `'active' => false` param to it. 
+Currently available [config-nav-generator](https://www.awes.io/documentation/components/config-nav-generator)
 
 ## Custom generator
 
 You can create your own nav generator. 
 
-To replace default generator bind your generator class to `nav-generator` in the config file.
+It have to [compose](https://laravel.com/docs/5.7/views#view-composers) `$nav` variable to all views.
 
-Your generator class should implements `AwesIO\IndigoLayout\Nav\NavGeneratorInterface` and have `getNavs()` method that
-returns links array with items described in [Frame Navigation](./frame-nav.md) parameters
+`$nav` have to be links array with items described in [Frame Navigation](./frame-nav.md) parameters
