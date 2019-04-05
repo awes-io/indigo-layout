@@ -58,8 +58,7 @@
                         yAxes: [{
                             ticks: {
                                 display: false
-                            },
-
+                            }
                         }], 
                         xAxes: [{
                             display: false
