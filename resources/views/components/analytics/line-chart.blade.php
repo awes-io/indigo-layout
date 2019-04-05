@@ -25,7 +25,6 @@
 @endif
 
 {{--GET parameters for API--}}
-
 @if (isset($parameters) && is_array($parameters) && count($parameters) > 0)
     @php
         $parametersFormatted = [];
@@ -36,14 +35,6 @@
     @endphp
 @else
     @php $render = false; @endphp
-@endif
-
-@if (!isset($filter_default_name) || (isset($filter_default_name) && empty($filter_default_name)))
-    @php $filter_default_name = 'period'; @endphp
-@endif
-
-@if (!isset($filter_default_value) || (isset($filter_default_value) && empty($filter_default_value)))
-    @php $filter_default_value = 30; @endphp
 @endif
 
 {{-- Render the component --}}
