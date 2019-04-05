@@ -20,7 +20,7 @@
 
 {{-- Colors --}}
 @if (!isset($color) || (isset($color) && empty($color)))
-    @php $color = '*'; @endphp
+    @php $color = '#cccccc'; @endphp
 @endif
 @if(config('indigo-layout.chart_colors'))
     @php
@@ -53,12 +53,8 @@
     @endif
     :url="`{{ $api_url }}?{{ $filter_default_name }}=${$get($route, 'query.{{ $query }}', {{ $filter_default_value }})}`">
     <template slot-scope="chartData">
-        @if (isset($filter))
-            <div class="btn-group">
-                @foreach($filter as $_current_value => $_title)
-                    <filter-builder label="{{ $_title }}" @if($filter_default_value == $_current_value) active @endif :param="{!! "{'$query': '$_current_value'}" !!}"></filter-builder>
-                @endforeach
-            </div>
+        @isset($filter)
+            @filtergroup(['filter' => $filter, 'query' => $query, 'default' => $filter_default_value]) @endfiltergroup
         @endif
         <chart-builder class="card__chart"
                 :data='chartData'

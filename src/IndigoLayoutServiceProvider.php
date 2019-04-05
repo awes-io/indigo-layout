@@ -13,6 +13,12 @@ class IndigoLayoutServiceProvider extends AwesProvider
         // Chart components
         Blade::component('indigo-layout::components.card.chart', 'cardchart');
 
+        // Filter components
+        Blade::component('indigo-layout::components.filter.group', 'filtergroup');
+
+        // Analytics components
+        Blade::component('indigo-layout::components.analytics.line-chart', 'linechart');
+
         // Head components
         Blade::component('indigo-layout::components.head.styles', 'styles');
         Blade::component('indigo-layout::components.head.fonts', 'fonts');
