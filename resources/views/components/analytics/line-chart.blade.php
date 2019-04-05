@@ -56,7 +56,6 @@
         :url="`{{ $api_url . $queryString }}`">
         <template slot-scope="chartData">
             <chart-builder
-                style="background-color: white; border: 1px solid #eee; height: 500px; max-height: 60vh"
                 :data='chartData'
                 :options="{elements: {line: {tension: 0
                     @if ($color != "")
