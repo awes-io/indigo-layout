@@ -3,27 +3,21 @@
 namespace AwesIO\IndigoLayout;
 
 use AwesIO\BaseJS\AwesProvider;
-use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Blade;
-use AwesIO\IndigoLayout\Nav\{
-    NavChecker, NavGenerator
-};
 
 class IndigoLayoutServiceProvider extends AwesProvider
 {
 
     public function boot()
     {
-        $generator = config('indigo-layout.nav-generator', NavGenerator::class);
-        if ($generator && class_exists($generator)) {
-            $navs = (new $generator)->getNavs();
-            NavChecker::check($navs);
-            View::composer('*', function ($view) use ($navs) {
-                $view->with('navs', $navs);
-            });
-        }
-
+        // Chart components
         Blade::component('indigo-layout::components.card.chart', 'cardchart');
+
+        // Head components
+        Blade::component('indigo-layout::components.head.styles', 'styles');
+        Blade::component('indigo-layout::components.head.fonts', 'fonts');
+        Blade::component('indigo-layout::components.head.scripts', 'scripts');
+        Blade::component('indigo-layout::components.head.theme', 'theme');
 
         $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', 'indigo-layout');
 
