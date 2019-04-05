@@ -41,6 +41,7 @@
 @if ($render)
     <content-wrapper
         store-data="{{ str_random(8) }}"
+        class="card card_linechart"
         @if (isset($default_data) && !empty($default_data))
             :default='@json($default_data)'
         @endif
@@ -52,16 +53,56 @@
                     @if ($color != "")
                         , backgroundColor: '{{ $color }}',borderColor: '{{ $color }}'
                     @endif
-                    },  point: {radius: 0}},legend: {position: 'bottom'},tooltips: {position: 'average',mode: 'index',intersect: false,cornerRadius: 2,xPadding: 20,yPadding: 20,bodySpacing: 10,titleMarginBottom: 20},hover: {mode: 'index',intersect: false,},layout: {padding: {left: 5,right: 40,top: 20,bottom: 0}},maintainAspectRatio: false}">
+                    },  point: {radius: 0}}, 
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                display: false
+                            },
+
+                        }], 
+                        xAxes: [{
+                            display: false
+                        }]
+                    }, 
+                    legend: {
+                        position: 'bottom'
+                    },
+                    tooltips: {
+                        position: 'average',
+                        mode: 'index',
+                        intersect: false,
+                        cornerRadius: 2,
+                        xPadding: 20,
+                        yPadding: 20,
+                        bodySpacing: 10, 
+                        titleMarginBottom: 20
+                    },
+                    hover: {
+                        mode: 'index',
+                        intersect: false,
+                    }, 
+                    layout: {
+                        padding: {
+                            left: 0,
+                            right: 0,
+                            top: 0,
+                            bottom: 0
+                        }
+                    },
+                    maintainAspectRatio: false
+                }">
             </chart-builder>
         </template>
         <template slot="loading">
-            <div class="card__wrap card_nodata loading-block" data-loading="{{ __('indigo-layout::common.loading') }}">
-                <i class="icon icon-graph chart-box__icon"></i>
+            <div class="card__wrap cl-caption loading-block" data-loading="{{ __('indigo-layout::common.loading') }}">
+                <div class="card__middle-cell">
+                    <i class="icon icon-graph chart-box__icon"></i>
+                </div>
             </div>
         </template>
         <template slot="error">
-            <div class="card__wrap card_error">
+            <div class="card__wrap cl-red">
                 <div class="card__middle-cell">
                     <i class="icon icon-data-error card__icon cl-red"></i>
                     <div class="card__info">
@@ -71,7 +112,7 @@
             </div>
         </template>
         <template slot="empty">
-            <div class="card__wrap card_nodata">
+            <div class="card__wrap cl-caption">
                 <div class="card__middle-cell">
                     <i class="icon icon-database-error card__icon cl-caption"></i>
                     <div class="card__info">
@@ -82,8 +123,8 @@
         </template>
     </content-wrapper>
 @else
-    <div class="card card_chart">
-        <div class="card__wrap card_error">
+    <div class="card card_linechart">
+        <div class="card__wrap cl-red">
             <div class="card__middle-cell">
                 <i class="icon icon-data-error card__icon cl-red"></i>
                 <div class="card__info">

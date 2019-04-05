@@ -2,28 +2,51 @@
     background-color var(--tc_ui_bg)
     padding 30px
     box-shadow var(--tc_ui_shadow)
+    overflow hidden
+    position relative
+    size 100%
+    &.loading-block
+        &:after
+            top 50% !important
+            margin-top -15px
+    &_linechart
+        size 100%
+        min-height 480px
+        padding 0
+        fl(,sb)
+        .chart
+            width 100%
+            min-height 420px
     &_smart
         padding 20px
     &_noborder
         padding 0
+    & &__wrap
+        position relative
+        z-index 2
+        margin auto
+        width 100%
+        &_bottom
+            margin-bottom 0
+    & &__middle-cell
+        margin auto
+        text-align center
+    & &__icon
+        font-size 50px
+        margin-bottom 17px
+    & &__caption
+        max-width 220px
+        display block
+        margin-left auto
+        margin-right auto
+        line-height 1.5
+        font-size 12px
     &_chart
         min-height 260px
         size 100%
         fl(,sb)
-        overflow hidden
-        position relative
         flex-direction column
         color #fff
-        & ^[0]__caption
-            max-width 220px
-            display block
-            margin-left auto
-            margin-right auto
-            line-height 1.5
-            font-size 12px
-        & ^[0]__icon
-            font-size 50px
-            margin-bottom 17px
         & ^[0]__chart
             absolute left 0 bottom 0
             width 100%
@@ -35,23 +58,6 @@
             color #fff
             &:hover
                 color #fff
-        & ^[0]__wrap
-            position relative
-            z-index 2
-        & ^[0]_error
-            color cl_warn
-        & ^[0]_nodata
-            color var(--tc_text_caption)
-        & ^[0]_nodata, & ^[0]_error
-            fl(w,c,c)
-            size 100%
-        & ^[0]__middle-cell
-            margin auto
-            text-align center
-        &.loading-block
-            &:after
-                top 50% !important
-                margin-top -15px
         .btn-group
             border 0
             position relative
@@ -89,5 +95,17 @@
 @media maw['dmd']
     .card
         padding 20px
+        &_linechart
+            min-height 320px
+            padding 0
+            .chart
+                min-height 320px
+
+@media maw['tmd']
+    .card
+        &_linechart
+            min-height 250px
+            .chart
+                min-height 250px
 
 

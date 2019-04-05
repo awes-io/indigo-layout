@@ -62,7 +62,7 @@
 
         <div class="card__chart" style="background: {{ $color }};"></div>
 
-        <div class="card__wrap">
+        <div class="card__wrap card__wrap_bottom">
             <div class="card__info">
                 <span class="block tf-size-small tf-light tf-upper mb-md">{{ (isset($label)) ? $label : "" }}</span>
                 <span class="block tf-size-small tf-light tf-upper mb-sm">{{ (isset($title)) ? $title : "" }}</span>
@@ -81,7 +81,7 @@
         </div>
     </template>
     <template slot="error">
-        <div class="card__wrap card_error">
+        <div class="card__wrap cl-red">
             <div class="card__middle-cell">
                 <i class="icon icon-data-error card__icon cl-red"></i>
                 <div class="card__info">
@@ -91,7 +91,7 @@
         </div>
     </template>
     <template slot="empty">
-        <div class="card__wrap card_nodata">
+        <div class="card__wrap cl-caption">
             <div class="card__middle-cell">
                 <i class="icon icon-database-error card__icon cl-caption"></i>
                 <div class="card__info">
@@ -103,7 +103,7 @@
 </content-wrapper>
 @else
     <div class="card card_chart">
-        <div class="card__wrap card_error">
+        <div class="card__wrap cl-red">
             <div class="card__middle-cell">
                 <i class="icon icon-data-error card__icon cl-red"></i>
                 <div class="card__info">
