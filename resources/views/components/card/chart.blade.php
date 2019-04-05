@@ -55,11 +55,12 @@
     <template slot-scope="chartData">
         @if (isset($filter))
             <div class="btn-group">
-                @foreach($filter as $_days => $_title)
-                    <filter-builder label="{{ $_title }}" :param="{!! "{'$query': $_days}" !!}"></filter-builder>
+                @foreach($filter as $_current_value => $_title)
+                    <filter-builder label="{{ $_title }}" @if($filter_default_value == $_current_value) active @endif :param="{!! "{'$query': '$_current_value'}" !!}"></filter-builder>
                 @endforeach
             </div>
-        @endif        <chart-builder                class="card__chart"
+        @endif
+        <chart-builder class="card__chart"
                 :data='chartData'
                 :options="{elements: {line: {tension: 0,backgroundColor: '{{ $color }}',borderColor: '{{ $color }}'},point: {radius: 0}},legend: {display: false},layout: {padding: {top: 20}},scales: {xAxes: [{display: false}],yAxes: [{display: false}]},maintainAspectRatio: false}">
         </chart-builder>
