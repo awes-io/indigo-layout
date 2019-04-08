@@ -84,9 +84,7 @@
         <div class="card__wrap cl-red">
             <div class="card__middle-cell">
                 <i class="icon icon-data-error card__icon cl-red"></i>
-                <div class="card__info">
-                    <span class="card__info-redcapt cl-red">{{ __('indigo-layout::common.chart.error.loading') }}</span>
-                </div>
+                <span class="card__caption">{{ __('indigo-layout::common.chart.error.loading') }}</span>
             </div>
         </div>
     </template>
@@ -94,9 +92,7 @@
         <div class="card__wrap cl-caption">
             <div class="card__middle-cell">
                 <i class="icon icon-database-error card__icon cl-caption"></i>
-                <div class="card__info">
-                    <span class="card__info-label">{{ __('indigo-layout::common.chart.no-data') }}</span>
-                </div>
+                <span class="card__caption">{{ __('indigo-layout::common.chart.no-data') }}</span>
             </div>
         </div>
     </template>
@@ -106,9 +102,7 @@
         <div class="card__wrap cl-red">
             <div class="card__middle-cell">
                 <i class="icon icon-data-error card__icon cl-red"></i>
-                <div class="card__info">
-                    <span class="card__caption cl-red">{{ __('indigo-layout::common.chart.error.parameters') }}</span>
-                </div>
+                <span class="card__caption cl-red">{{ __('indigo-layout::common.chart.error.parameters') }}</span>
             </div>
         </div>
     </div>
