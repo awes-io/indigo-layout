@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Icons Preview</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700&amp;amp;subset=cyrillic" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/awes-notify/v1.x.x/css/main.css">
+    <script>
+        const AWES_CONFIG = {
+            key: '5cd207e2c94eb723c3307764a5693def',
+            dev: true,
+            formBuilder: {
+                fbEditor: {
+                    content_css: ['/css/editor.css']
+                }
+            }
+        }
+    </script>
+    <script src="/js/main.js"></script>
+    <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/filter-wrapper/v1.x.x/js/main.js"></script>
+    <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/table-builder/v1.x.x/js/main.js"></script>
+    <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/context-menu/v1.x.x/js/main.js"></script>
+    <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/form-builder/v1.x.x/js/main.js"></script>
+    <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/modal-window/v1.x.x/js/main.js"></script>
+    <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/theme-switcher/v1.x.x/js/main.js"></script>
+    <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/tab-builder/v1.x.x/js/main.js"></script>
+    <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/awes-notify/v1.x.x/js/main.js"></script>
+    <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/base-js/v1.x.x/js/main.js"></script>
+    <style>
+        .demo-icon {
+            border: 1px solid var(--tc_border);
+            text-align: center;
+            background: var(--tc_ui_bg)
+        }
+
+        .demo-icon__icon {
+            padding: 10px;
+            height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--tc_ui_bg_semi);
+
+        }
+
+
+        .demo-icon__info {
+            padding: 15px;
+            font-size: 12px;
+            text-align: left;
+            color: var(--tc_text_caption)
+        }
+
+        .demo-icon__info div+div {
+            margin-top: 7px;
+        }
+    </style>
+</head>
+
+<body>
+    <content-wrapper class="mainwrapper">
+        <awes-notify-container class="position-top-center" name="top" stack="top" :config="{theme: 'inline, rounded'}"></awes-notify-container>
+        <div class="frame">
+            <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
+                <div class="frame__overlay" v-show="$awesLayoutCrm.togglenav || $awesLayoutCrm.showUserMenu" @click="$awesLayoutCrm.overlayClick"></div>
+            </transition>
+            <div class="frame__aside" id="aside">
+                <div class="frame__aside-wrap">
+                    <div class="frame__aside-line"><span class="frame__aside-open g-res--tablet-lg" :class="{ active: $awesLayoutCrm.togglenav }" @click="$awesLayoutCrm.openNav"><span></span></span>
+                        <h2 class="frame__aside-title"><a href="">Your Logo</a></h2>
+                    </div>
+                    <nav class="frame__aside-nav" v-bind:class="{ active: $awesLayoutCrm.togglenav }">
+                        <div class="frame__aside-mhead g-res--tablet-lg"><a class="frame__aside-close" href="" @click.prevent="$awesLayoutCrm.openNav()"><i class="icon icon-cross"></i></a>
+                            <h4 class="frame__aside-mtitle"><a href="">AwesCRM</a></h4>
+                        </div>
+                        <frame-nav :links="[{name:'Dashboard', icon:'speed', link: '/'}, {name:'Phones', icon:'call', link: '/', children: [{name: 'Managers', link: '/'}, {name: 'Suppliers', link: '/'}, {name: 'Clients', link: '/'}]},{name:'Update', icon:'loading', link: '/'}, {name:'Admin', icon:'report', children: [{name:'Options', link: '/'}, {name:'Permissions', link: '/'}]}]">
+                            <div class="ph">
+                                <div class="ph__mnav"><span class="ph__mnav-link"></span><span class="ph__mnav-title"></span></div>
+                                <ul class="ph__nav">
+                                    <li><span class="ph__nav-icon"></span><span class="ph__nav-text"></span></li>
+                                    <li><span class="ph__nav-icon"></span><span class="ph__nav-text"></span></li>
+                                    <li><span class="ph__nav-icon"></span><span class="ph__nav-text"></span></li>
+                                    <li><span class="ph__nav-icon"></span><span class="ph__nav-text"></span></li>
+                                    <li><span class="ph__nav-icon"></span><span class="ph__nav-text"></span></li>
+                                </ul>
+                            </div>
+                        </frame-nav>
+                    </nav>
+                </div>
+            </div>
+            <div class="frame__right">
+                <awes-notify-container name="header" stack="false" :config="{theme:'inline', timeout: 0}"></awes-notify-container>
+                <div class="frame__header">
+                    <div class="frame__header-top">
+                        <form class="frame__search" id="search" v-bind:class="{ active: $awesLayoutCrm.showSearch }" action="js" method="get"> <span class="frame__search-link" v-on:click="$awesLayoutCrm.showSearch = !$awesLayoutCrm.showSearch"><i class="icon icon-search"></i></span>
+                            <div class="frame__search-hidden"><input class="frame__search-input" type="text" placeholder="Search..."><button class="frame__search-btn" type="submit">Search</button><span class="frame__search-close" v-on:click="$awesLayoutCrm.showSearch = !$awesLayoutCrm.showSearch"><i class="icon icon-cross"></i></span></div>
+                        </form>
+                        <div class="frame__userinfo"><a class="frame__userinfo-link" href=""><span class="icon icon-ruppor"><i class="icn-dot"></i></span></a><a class="frame__userinfo-link" href=""><span class="icon icon-hdd"><i class="icn-dot"></i></span></a><button class="frame__userinfo-ava" @click="$awesLayoutCrm.showUserMenu = ! $awesLayoutCrm.showUserMenu"><i class="icon icon-user novatar novatar_box"></i></button></div>
+                    </div>
+                    <div class="frame__header-line">
+                        <div class="frame__title-line">
+                            <h1 class="frame__header-title">Icons Preview</h1>
+                        </div>
+                    </div>
+                </div>
+                <transition name="user-menu">
+                    <div class="user-menu" v-show="$awesLayoutCrm.showUserMenu" style="display: none;">
+                        <ul class="user-menu__list"><button class="user-menu__close" @click="$awesLayoutCrm.showUserMenu = ! $awesLayoutCrm.showUserMenu">&times;</button>
+                            <div class="cm-item">
+                                <div class="cm-item__panel is-secondary"><strong class="user-menu__title">Terry Gerlach</strong><small class="user-menu__desc">Standart until 10 november<br>                5 users $500 per month</small>
+                                        <nav class="user-menu__nav" aria-label="Profile navigation">
+                                            <ul>
+                                                <li><a href="https://company.awescrm.cloud/managers/NQ%3D%3D">Profile</a></li>
+                                                <li class="is-expand"><a href="https://www.awescrm.cloud/logout">Logout</a></li>
+                                            </ul>
+                                        </nav><label class="progress user-menu__progress"><span>519.05 MB</span> of 2.5 GB used<progress max="2500" value="519">519 MB of 2.5 GB used</progress></label></div>
+                            </div>
+                            <div class="cm-item">
+                                <div class="cm-item__panel">
+                                    <theme-switcher></theme-switcher>
+                                </div>
+                            </div>
+                            <div class="cm-item">
+                                <div class="cm-item__panel"><strong class="user-menu__companies" id="companies_list">4 companies</strong>
+                                    <ul class="user-menu__companies-list" aria-labelledby="companies_list">
+                                        <li><a href="">Awesome</a></li>
+                                        <li><a href="">Microsoft</a></li>
+                                        <li><a href="">Apple</a></li>
+                                        <li><a href="">Tesla</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </ul>
+                    </div>
+                </transition>
+                <transition name="user-menu">
+                    <div class="helper" v-show="$awesLayoutCrm.showHelpers" style="display: none;">
+                        <div class="helper__block">
+                            <div class="helper__head"><button class="helper__title helper__title_btn"> <span>Back</span></button><button class="helper__close" @click="$awesLayoutCrm.showHelpers = ! $awesLayoutCrm.showHelpers"><i class="icon icon-cross">  </i></button></div>
+                            <div class="helper__scroll-bl">
+                                <vue-tabs>
+                                    <v-tab title="Hint">
+                                        <div class="helper__stepper">
+                                            <h3 class="helper__stepper-title">Hint for the project section <span class='tf-grey'>2 of 3</span></h3>
+                                            <div class="helper__stepper-navs"><button class="upper-link">previous </button><button class="upper-link">next</button></div>
+                                        </div>
+                                        <div class="helper__content">
+                                            <div class="helper__step tf-content"><img src="img/demo/dmimg.jpg" alt="">
+                                                <p>In the work of the Telegram messenger, there was a global failure. This is evidenced by the statistics of the site Downdetector.</p>
+                                                <p>Messenger works with interruptions in Russia, Belarus, Ukraine, as well as in the EU countries - Germany, France, Italy, Spain, the Netherlands, Austria, Sweden and other countries.</p>
+                                                <p>"If you read this, you are resistance" Roskomnadzor is fighting with Telegram. The whole Internet suffers The failures are also reported by residents of South Africa, Iran, Israel and Kazakhstan.</p>
+                                                <p>Telegram unsuccessfully trying to block in Russia, starting in mid-April. According to the decision of the Tagansky District Court of Moscow, access to the messenger should be limited, since the Telegram management refused to provide the FSB with encryption keys that would allow the siloviki to read the correspondence of users.</p>
+                                            </div>
+                                        </div>
+                                    </v-tab>
+                                    <v-tab title="Asq a question">
+                                        <div class="helper__stepper">
+                                            <h3 class="helper__stepper-title">Chats <span class='tf-grey'>7</span></h3>
+                                            <div class="helper__stepper-navs"><button class="upper-link">create new chat</button></div>
+                                        </div>
+                                        <div class="awes-chat">
+                                            <div class="awes-chat__threads"><button class="awes-chat__thread active"><span class="awes-chat__thread-title"><i class="awes-status awes-status_blue"></i><span>Holod SergOn Monday, June 4, Apple held a ... </span></span><span class="awes-chat__thread-footer"><span class="awes-chat__thread-time">19 minutes ago</span><i class="icn-dot"></i></span></button><button class="awes-chat__thread"><span class="awes-chat__thread-title"><i class="awes-status awes-status_blue"></i><span>Holod SergOn Monday, June 4, Apple held a ... </span></span><span class="awes-chat__thread-footer"><span class="awes-chat__thread-time">19 minutes ago</span><i class="icn-dot"></i></span></button><button class="awes-chat__thread"><span class="awes-chat__thread-title"><i class="awes-status awes-status_blue"></i><span>Holod SergOn Monday, June 4, Apple held a ... </span></span><span class="awes-chat__thread-footer"><span class="awes-chat__thread-time">19 minutes ago</span></span></button><button class="awes-chat__thread"><span class="awes-chat__thread-title"><i class="awes-status awes-status_green"></i><span>Holod SergOn Monday, June 4, Apple held a ... </span></span><span class="awes-chat__thread-footer"><span class="awes-chat__thread-time">19 minutes ago</span></span></button><button class="awes-chat__thread"><span class="awes-chat__thread-title"><i class="awes-status awes-status_green"></i><span>Holod SergOn Monday, June 4, Apple held a ... </span></span><span class="awes-chat__thread-footer"><span class="awes-chat__thread-time">19 minutes ago</span></span></button><button class="awes-chat__thread"><span class="awes-chat__thread-title"><i class="awes-status awes-status_green"></i><span>Holod SergOn Monday, June 4, Apple held a ... </span></span><span class="awes-chat__thread-footer"><span class="awes-chat__thread-time">19 minutes ago</span></span></button><button class="awes-chat__thread"><span class="awes-chat__thread-title"><i class="awes-status awes-status_green"></i><span>Holod SergOn Monday, June 4, Apple held a ... </span></span><span class="awes-chat__thread-footer"><span class="awes-chat__thread-time">19 minutes ago</span></span></button><button class="awes-chat__thread"><span class="awes-chat__thread-title"><i class="awes-status awes-status_green"></i><span>Holod SergOn Monday, June 4, Apple held a ... </span></span><span class="awes-chat__thread-footer"><span class="awes-chat__thread-time">19 minutes ago</span></span></button><button class="awes-chat__thread"><span class="awes-chat__thread-title"><i class="awes-status awes-status_grey"></i><span>Holod SergOn Monday, June 4, Apple held a ... </span></span><span class="awes-chat__thread-footer"><span class="awes-chat__thread-time">19 minutes ago</span></span></button><button class="awes-chat__thread"><span class="awes-chat__thread-title"><i class="awes-status awes-status_grey"></i><span>Holod SergOn Monday, June 4, Apple held a ... </span></span><span class="awes-chat__thread-footer"><span class="awes-chat__thread-time">19 minutes ago</span></span></button>
+                                                <div class="awes-chat__threads-footer"><button class="tf-dottedlink">more tickets</button></div>
+                                            </div>
+                                            <div class="awes-chat__defchat">
+                                                <div class="awes-chat__current-thread"><button class="awes-chat__thread"><span class="awes-chat__thread-title"><i class="awes-status awes-status_blue"></i><span>Holod SergOn Monday, June 4, Apple held a ... </span></span><span class="awes-chat__thread-footer"><span class="awes-chat__thread-time">19 minutes ago</span><i class="icn-dot"></i></span></button></div>
+                                                <div class="awes-chat__window">
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="awes-chat__message">
+                                                        <div class="awes-chat__message-head">
+                                                            <picture class="awes-chat__message-ava"><img src="img/demo/ava.png" alt=""></picture><b class="awes-chat__message-name">Pivovarov Andrey</b><span class="awes-chat__message-time">19 minutes ago</span>
+                                                        </div>
+                                                        <div class="awes-chat__message-block tf-content">
+                                                            <p>On Monday, June 4, Apple held a presentation, opening WWDC 2018 (Worldwide Developers Conference), which brought six thousand developers. Usually it shows new versions of operating systems - iOS, macOS, watchOS and so on - that will come out this fall. However, sometimes new devices are presented at the conference. So, last year, in addition to updated computers, the company showed the iPad Pro 10.5 and HomePod. Lenta.ru watched the event and tells what Apple showed.</p>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- TODO need get scroll and insert it in style (7px = scrollwidth / 2, 13px = scrollwidth)-->
+                                                <div class="awes-chat__actions" id="formactions" style="right: 13px; width: calc(67% - 7px)">
+                                                    <div class="awes-chat__form"><textarea class="awes-chat__form-textarea" placeholder="Message"></textarea>
+                                                        <div class="awes-chat__smiles"><button class="awes-chat__smiles-close">&times;</button><button class="awes-chat__form-btn"><i class="icon icon-smile"></i></button><button class="awes-chat__form-btn"><i class="icon icon-smile"></i></button><button class="awes-chat__form-btn"><i class="icon icon-smile"></i></button><button class="awes-chat__form-btn"><i class="icon icon-smile"></i></button><button class="awes-chat__form-btn"><i class="icon icon-smile"></i></button><button class="awes-chat__form-btn"><i class="icon icon-smile"></i></button><button class="awes-chat__form-btn"><i class="icon icon-smile"></i></button><button class="awes-chat__form-btn"><i class="icon icon-smile"></i></button><button class="awes-chat__form-btn"><i class="icon icon-smile"></i></button><button class="awes-chat__form-btn"><i class="icon icon-smile"></i></button><button class="awes-chat__form-btn"><i class="icon icon-smile"></i></button><button class="awes-chat__form-btn"><i class="icon icon-smile"></i></button><button class="awes-chat__form-btn"><i class="icon icon-smile"></i></button><button class="awes-chat__form-btn"><i class="icon icon-smile"></i></button><button class="awes-chat__form-btn"><i class="icon icon-smile"></i></button><button class="awes-chat__form-btn"><i class="icon icon-smile"></i></button><button class="awes-chat__form-btn"><i class="icon icon-smile"></i></button><button class="awes-chat__form-btn"><i class="icon icon-smile"></i></button><button class="awes-chat__form-btn"><i class="icon icon-smile"></i></button><button class="awes-chat__form-btn"><i class="icon icon-smile"></i></button></div>
+                                                        <div class="awes-chat__form-line">
+                                                            <div class="awes-chat__form-buttons"><button class="awes-chat__form-btn"><i class="icon icon-link"></i></button><button class="awes-chat__form-btn"><i class="icon icon-smile"></i></button></div><button class="awes-chat__form-btn" type="submit"><i class="icon icon-message"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </v-tab>
+                                    <v-tab title="Question answer">
+                                        <div class="helper__stepper">
+                                            <h3 class="helper__stepper-title">Questions and answers <span class='tf-grey'>7</span></h3>
+                                            <div class="helper__stepper-navs"><button class="upper-link">Ask a Question</button></div>
+                                        </div>
+                                        <div class="helper__content">
+                                            <div class="awes-accordion"><button class="awes-accordion__title"> <span>Question 1 Question 1Question 1Question 1Question 1Question 1Question 1Question 1Question 1</span><i></i></button>
+                                                <div class="awes-accordion__content tf-content">
+                                                    <p>In the work of the Telegram messenger, there was a global failure. This is evidenced by the statistics of the site Downdetector. Messenger works with interruptions in Russia, Belarus, Ukraine, as well as in the EU countries - Germany, France, Italy, Spain, the Netherlands, Austria, Sweden and other countries. "If you read this, you are resistance"</p>
+                                                    <p>Roskomnadzor is fighting with Telegram. The whole Internet suffers</p>
+                                                    <p>The failures are also reported by residents of South Africa, Iran, Israel and Kazakhstan.</p>
+                                                    <p>Telegram unsuccessfully trying to block in Russia, starting in mid-April. According to the decision of the Tagansky District Court of Moscow, access to the messenger should be limited, since the Telegram management refused to provide the FSB with encryption keys that would allow the siloviki to read the correspondence of users.</p>
+                                                </div>
+                                            </div>
+                                            <div class="awes-accordion"><button class="awes-accordion__title active"> <span>Question 2</span><i></i></button>
+                                                <div class="awes-accordion__content tf-content">
+                                                    <p>In the work of the Telegram messenger, there was a global failure. This is evidenced by the statistics of the site Downdetector. Messenger works with interruptions in Russia, Belarus, Ukraine, as well as in the EU countries - Germany, France, Italy, Spain, the Netherlands, Austria, Sweden and other countries. "If you read this, you are resistance"</p>
+                                                    <p>Roskomnadzor is fighting with Telegram. The whole Internet suffers</p>
+                                                    <p>The failures are also reported by residents of South Africa, Iran, Israel and Kazakhstan.</p>
+                                                    <p>Telegram unsuccessfully trying to block in Russia, starting in mid-April. According to the decision of the Tagansky District Court of Moscow, access to the messenger should be limited, since the Telegram management refused to provide the FSB with encryption keys that would allow the siloviki to read the correspondence of users.</p>
+                                                </div>
+                                            </div>
+                                            <div class="awes-accordion"><button class="awes-accordion__title"> <span>Question 3</span><i></i></button>
+                                                <div class="awes-accordion__content tf-content">
+                                                    <p>In the work of the Telegram messenger, there was a global failure. This is evidenced by the statistics of the site Downdetector. Messenger works with interruptions in Russia, Belarus, Ukraine, as well as in the EU countries - Germany, France, Italy, Spain, the Netherlands, Austria, Sweden and other countries. "If you read this, you are resistance"</p>
+                                                    <p>Roskomnadzor is fighting with Telegram. The whole Internet suffers</p>
+                                                    <p>The failures are also reported by residents of South Africa, Iran, Israel and Kazakhstan.</p>
+                                                    <p>Telegram unsuccessfully trying to block in Russia, starting in mid-April. According to the decision of the Tagansky District Court of Moscow, access to the messenger should be limited, since the Telegram management refused to provide the FSB with encryption keys that would allow the siloviki to read the correspondence of users.</p>
+                                                </div>
+                                            </div>
+                                            <div class="awes-accordion"><button class="awes-accordion__title"> <span>Question 4</span><i></i></button>
+                                                <div class="awes-accordion__content tf-content">
+                                                    <p>In the work of the Telegram messenger, there was a global failure. This is evidenced by the statistics of the site Downdetector. Messenger works with interruptions in Russia, Belarus, Ukraine, as well as in the EU countries - Germany, France, Italy, Spain, the Netherlands, Austria, Sweden and other countries. "If you read this, you are resistance"</p>
+                                                    <p>Roskomnadzor is fighting with Telegram. The whole Internet suffers</p>
+                                                    <p>The failures are also reported by residents of South Africa, Iran, Israel and Kazakhstan.</p>
+                                                    <p>Telegram unsuccessfully trying to block in Russia, starting in mid-April. According to the decision of the Tagansky District Court of Moscow, access to the messenger should be limited, since the Telegram management refused to provide the FSB with encryption keys that would allow the siloviki to read the correspondence of users.</p>
+                                                </div>
+                                            </div>
+                                            <div class="awes-accordion"> <button class="awes-accordion__title"> <span>Question 5</span><i></i></button>
+                                                <div class="awes-accordion__content tf-content">
+                                                    <p>In the work of the Telegram messenger, there was a global failure. This is evidenced by the statistics of the site Downdetector. Messenger works with interruptions in Russia, Belarus, Ukraine, as well as in the EU countries - Germany, France, Italy, Spain, the Netherlands, Austria, Sweden and other countries. "If you read this, you are resistance"</p>
+                                                    <p>Roskomnadzor is fighting with Telegram. The whole Internet suffers</p>
+                                                    <p>The failures are also reported by residents of South Africa, Iran, Israel and Kazakhstan.</p>
+                                                    <p>Telegram unsuccessfully trying to block in Russia, starting in mid-April. According to the decision of the Tagansky District Court of Moscow, access to the messenger should be limited, since the Telegram management refused to provide the FSB with encryption keys that would allow the siloviki to read the correspondence of users.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </v-tab>
+                                </vue-tabs>
+                            </div>
+                        </div>
+                    </div>
+                </transition>
+                <div class="frame__content">
+                    <awes-notify-container class="frame__awes-notify-container" name="frame" stack="false" :config="{theme: 'inline', status: 'warning', timeout: 0}"></awes-notify-container><button class="frame__header-add"><i class="icon icon-plus"></i></button>
+                    <div class="frame__inlayout">
+                        <div class="frame__inlayout-content">
+                            <h3>HTML:</h3>
+                            <p>An example is how to display an icon:</p><pre class="html"><code>&lt;i class=&quot;icon icon-iconname&quot;&gt;&lt;/i&gt;
+</code></pre>
+                            <H3>Stylus:</H3>
+                            <p>If you need to display an icon inside the styles, then you can use the <code>icon()</code> function, in which you need to specify <code>icon(iconname, fontsize in px, before / after)</code>. The last 2 values ​​are optional.</p><pre class="stylus"><code>.block
+    icon(logo, 14px, before)
+
+.block2
+    icon(logout, 15px, after)
+
+.block3
+    icon(login, 15px)
+
+.block4
+    icon(list)
+</code></pre>
+                            <p>Default icon size is <kbd>1rem</kbd>, default position is <kbd>:before</kbd>. </p>
+                            <p>Each icon generates its own symbol code, which you can use in regular CSS. If you go to the <kbd>resources/svg</kbd> folder, you can see it in the name of the icon. When adding a new icon, you need to manually register it before the name of the icon. For example: <code>uEA12-clipboard.svg</code>, where <code>clipboard</code> is the name of the icon, and <code>uEA12</code> is its character code.</p>
+                            <p>Example of using symol code:</p><pre class="css"><code>.icon {
+    display: inline-block;
+    text-rendering: auto;
+    font: normal normal 400 14px/1 icons;
+    font-size: inherit;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
+.icon-clipboard::before {
+    content: "\ea12";
+}
+</code></pre>
+                            <p>If the <code>.icon</code> class intersects with the classes in your system, you can replace it in <kbd>gulpfile.js</kbd>, which is in the root of the project.</p><pre class="js"><code>gulp.task('build:icons', function(){
+    return gulp.src('./resources/svg/*.svg')
+        .pipe(iconfont({
+            fontName: 'icons',
+            fontHeight: 1000,
+            prependUnicode: true,
+            formats: ['ttf', 'eot', 'woff'],
+            normalize: true,
+            timestamp: runTimestamp
+        }))
+        .on('glyphs', function(glyphs, options) {
+            gulp.src('./resources/svg/template/icons.styl')
+                .pipe( consolidate('lodash', {
+                    glyphs: glyphs,
+                    fontName: options.fontName,
+                    fontPath: '../fonts/', 
+                    className: 'icon'
+                }) )
+                .pipe( gulp.dest('./resources/css/framework/') )
+        })
+    .pipe(gulp.dest('./dist/fonts/'));
+})</code></pre>
+                            <p>You can also edit some parameters in the template file located at: <kbd>/resources/svg/template/icons.styl</kbd>..</p>
+                            <h2>Default system icons:</h2>
+                            <div class="grid">
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-briefcase" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> briefcase</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea0a";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-call" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> call</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea0b";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-card" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> card</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea0c";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-checkbox" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> checkbox</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea0d";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-circle-check" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> circle-check</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea0e";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-circle-clock" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> circle-clock</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea0f";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-angle-bottom" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> angle-bottom</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea01";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-dots" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> dots</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea1a";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-down" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> down</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea1b";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-drag" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> drag</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea1c";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-exel" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> exel</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea1d";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-eye" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> eye</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea1e";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-eye2" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> eye2</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea1f";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-ar-right" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> ar-right</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea02";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-intelligence" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> intelligence</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea2a";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-link" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> link</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea2b";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-loading" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> loading</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea2c";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-logo" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> logo</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea2d";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-logout" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> logout</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea2e";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-mastercard" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> mastercard</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea2f";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-arrow-left" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> arrow-left</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea03";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-ruppor" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> ruppor</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea3a";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-schedule" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> schedule</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea3b";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-search" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> search</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea3c";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-sell" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> sell</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea3d";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-service" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> service</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea3e";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-settings" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> settings</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea3f";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-arrow-right" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> arrow-right</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea04";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-word" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> word</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea4a";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-box-down" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> box-down</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea05";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-box-minus" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> box-minus</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea06";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-box-pause" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> box-pause</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea07";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-box-plus" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> box-plus</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea08";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-box" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> box</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea09";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-circle-cross" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> circle-cross</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea10";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-circle-plus" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> circle-plus</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea11";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-clipboard" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> clipboard</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea12";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-cross" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> cross</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea13";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-data-error" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> data-error</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea14";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-data-time" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> data-time</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea15";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-database-error" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> database-error</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea16";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-database" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> database</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea17";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-dfcheck" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> dfcheck</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea18";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-document" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> document</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea19";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-fb" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> fb</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea20";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-file" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> file</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea21";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-filter" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> filter</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea22";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-flag" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> flag</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea23";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-gift" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> gift</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea24";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-gp" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> gp</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea25";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-graph" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> graph</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea26";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-hdd" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> hdd</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea27";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-head" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> head</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea28";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-in" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> in</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea29";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-message" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> message</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea30";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-money" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> money</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea31";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-nav" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> nav</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea32";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-no-access" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> no-access</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea33";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-openin" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> openin</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea34";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-pin" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> pin</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea35";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-planner" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> planner</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea36";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-plus" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> plus</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea37";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-report" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> report</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea38";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-road" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> road</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea39";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-smile" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> smile</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea40";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-speed" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> speed</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea41";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-stock" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> stock</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea42";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-stop" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> stop</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea43";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-storage" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> storage</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea44";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-timelaps" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> timelaps</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea45";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-twousers" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> twousers</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea46";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-up" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> up</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea47";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-user" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> user</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea48";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-visa" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> visa</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea49";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-git" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> git</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea50";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-pencil2" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> pencil2</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea51";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-question" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> question</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea52";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-star-circle" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> star-circle</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea53";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-hashtag" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> hashtag</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea54";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><span class="frame__copyright">© 2019 - PkgKit - Proudly powered on <a href="">Awes.IO Platform</a>.</span>
+                <div class="float-icns"><button class="float-icns__icon float-icns__icon_helper" @click="$awesLayoutCrm.showHelpers = ! $awesLayoutCrm.showHelpers">?</button></div>
+            </div>
+        </div>
+    </content-wrapper>
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+extends includes/layout.pug
+
+block pageVariables
+    - var pageTitle = "Icons Preview"
+
+block pageHead
+    style.
+        .demo-icon {
+            border: 1px solid var(--tc_border);
+            text-align:center;
+            background: var(--tc_ui_bg)
+        }
+
+        .demo-icon__icon {
+            padding: 10px;
+            height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--tc_ui_bg_semi);
+            
+        }
+
+
+        .demo-icon__info {
+            padding: 15px;
+            font-size: 12px;
+            text-align: left;
+            color: var(--tc_text_caption)
+        }
+
+        .demo-icon__info div + div {
+            margin-top: 7px;
+        }
+
+
+
+
+block pageContent
+    h3 HTML:
+    p An example is how to display an icon:
+    pre.html
+        code.
+            &lt;i class=&quot;icon icon-iconname&quot;&gt;&lt;/i&gt;
+
+    H3 Stylus:
+    p If you need to display an icon inside the styles, then you can use the <code>icon()</code> function, in which you need to specify <code>icon(iconname, fontsize in px, before / after)</code>. The last 2 values ​​are optional.
+    pre.stylus
+        code.
+            .block
+                icon(logo, 14px, before)
+
+            .block2
+                icon(logout, 15px, after)
+            
+            .block3
+                icon(login, 15px)
+            
+            .block4
+                icon(list)
+
+    p Default icon size is <kbd>1rem</kbd>, default position is <kbd>:before</kbd>. 
+    p Each icon generates its own symbol code, which you can use in regular CSS. If you go to the <kbd>resources/svg</kbd> folder, you can see it in the name of the icon. When adding a new icon, you need to manually register it before the name of the icon. For example: <code>uEA12-clipboard.svg</code>, where <code>clipboard</code> is the name of the icon, and <code>uEA12</code> is its character code.
+    p Example of using symol code:
+
+    pre.css
+        code.
+            .icon {
+                display: inline-block;
+                text-rendering: auto;
+                font: normal normal 400 14px/1 icons;
+                font-size: inherit;
+                -moz-osx-font-smoothing: grayscale;
+                -webkit-font-smoothing: antialiased;
+            }
+
+            .icon-clipboard::before {
+                content: "\ea12";
+            }
+
+    p If the <code>.icon</code> class intersects with the classes in your system, you can replace it in <kbd>gulpfile.js</kbd>, which is in the root of the project.
+    pre.js
+        code.
+            gulp.task('build:icons', function(){
+                return gulp.src('./resources/svg/*.svg')
+                    .pipe(iconfont({
+                        fontName: 'icons',
+                        fontHeight: 1000,
+                        prependUnicode: true,
+                        formats: ['ttf', 'eot', 'woff'],
+                        normalize: true,
+                        timestamp: runTimestamp
+                    }))
+                    .on('glyphs', function(glyphs, options) {
+                        gulp.src('./resources/svg/template/icons.styl')
+                            .pipe( consolidate('lodash', {
+                                glyphs: glyphs,
+                                fontName: options.fontName,
+                                fontPath: '../fonts/', 
+                                className: 'icon'
+                            }) )
+                            .pipe( gulp.dest('./resources/css/framework/') )
+                    })
+                .pipe(gulp.dest('./dist/fonts/'));
+            })
+    p You can also edit some parameters in the template file located at: <kbd>/resources/svg/template/icons.styl</kbd>..
+
+    h2 Default system icons:
+    -var iconarr = {uEA0A: 'briefcase', uEA0B: 'call', uEA0C: 'card', uEA0D: 'checkbox', uEA0E: 'circle-check', uEA0F: 'circle-clock', uEA01: 'angle-bottom', uEA1A: 'dots', uEA1B: 'down', uEA1C: 'drag', uEA1D: 'exel', uEA1E: 'eye', uEA1F: 'eye2', uEA02: 'ar-right', uEA2A: 'intelligence', uEA2B: 'link', uEA2C: 'loading', uEA2D: 'logo', uEA2E: 'logout', uEA2F: 'mastercard', uEA03: 'arrow-left', uEA3A: 'ruppor', uEA3B: 'schedule', uEA3C: 'search', uEA3D: 'sell', uEA3E: 'service', uEA3F: 'settings', uEA04: 'arrow-right', uEA4A: 'word', uEA05: 'box-down', uEA06: 'box-minus', uEA07: 'box-pause', uEA08: 'box-plus', uEA09: 'box', uEA10: 'circle-cross', uEA11: 'circle-plus', uEA12: 'clipboard', uEA13: 'cross', uEA14: 'data-error', uEA15: 'data-time', uEA16: 'database-error', uEA17: 'database', uEA18: 'dfcheck', uEA19: 'document', uEA20: 'fb', uEA21: 'file', uEA22: 'filter', uEA23: 'flag', uEA24: 'gift', uEA25: 'gp', uEA26: 'graph', uEA27: 'hdd', uEA28: 'head', uEA29: 'in', uEA30: 'message', uEA31: 'money', uEA32: 'nav', uEA33: 'no-access', uEA34: 'openin', uEA35: 'pin', uEA36: 'planner', uEA37: 'plus', uEA38: 'report', uEA39: 'road', uEA40: 'smile', uEA41: 'speed', uEA42: 'stock', uEA43: 'stop', uEA44: 'storage', uEA45: 'timelaps', uEA46: 'twousers', uEA47: 'up', uEA48: 'user', uEA49: 'visa', uEA50: 'git', uEA51: 'pencil2', uEA52: 'question', uEA53: 'star-circle', uEA54: 'hashtag'}
+
+
+    .grid
+        each val, index in iconarr
+            .cell-inline(style="min-width: 100px;")
+                .demo-icon
+                    .demo-icon__icon
+                        <i class="icon icon-#{val}" style="font-size: 25px;"></i>
+                    .demo-icon__info
+                        div <b>Name:</b> #{val}
+                        div <b>Code:</b> <code>content: "&#92;#{index.replace("uEA", "EA").toLowerCase()}";</code>
+
