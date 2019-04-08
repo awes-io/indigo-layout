@@ -1,49 +1,94 @@
-body .mainwrapper
-    if margin is defined && margin
-        angles = {b: '-bottom',t: '-top', l: '-left', r: '-right', x: (-left -right), y: (-top -bottom), '': ''}
+if margin is defined && margin
 
-        // margins
-        for cl, tag in angles
-            .{framework_class_prefix}m{cl}
+    angles = {b: '-bottom',t: '-top', l: '-left', r: '-right', x: (-left -right), y: (-top -bottom), '': ''}
+
+    // Default Margins
+    for cl, tag in angles
+
+        if(margin[def])
+            .{framework_class_prefix}m{cl}, [class^="cell"].{framework_class_prefix}m{cl}
                 for ind in tag
-                    margin{ind} margin[def]
-
-            .{framework_class_prefix}p{cl}
+                    margin{ind}: margin[def]
+            .{framework_class_prefix}p{cl}, [class^="cell"].{framework_class_prefix}p{cl}
                 for ind in tag
                     padding{ind} margin[def]
 
-        for cf in margin
-            for cl, tag in angles
-                .{framework_class_prefix}p{cl}-{cf}
-                    for ind in tag
-                        padding{ind} margin[cf]
+        .{framework_class_prefix}m{cl}a , [class^="cell"].{framework_class_prefix}m{cl}a
+            for ind in tag
+                margin{ind} auto
+        
 
-                .{framework_class_prefix}m{cl}-{cf}
-                    for ind in tag
-                        margin{ind} margin[cf]
+    // margin from Seetings
+    for cf in margin
+        for cl, tag in angles
+            .{framework_class_prefix}p{cl}-{cf}, [class^="cell"].{framework_class_prefix}p{cl}-{cf}
+                for ind in tag
+                    padding{ind} margin[cf]
 
+            .{framework_class_prefix}m{cl}-{cf}, [class^="cell"].{framework_class_prefix}m{cl}-{cf}
+                for ind in tag
+                    margin{ind} margin[cf]
+            
+            
+    // MediaQueries
+    if grid_bpoint is defined && grid_bpoint
 
-        if grid_bpoint is defined && grid_bpoint
-            for brd, rcd in grid_bpoint
-                @media(max-width (rcd)px)
-                    for cl, tag in angles
-                        .{framework_class_prefix}m{cl}--{brd}
+        // Media Default
+        for brd, rcd in grid_bpoint
+            @media(max-width (rcd)px)
+
+                // Default Margins
+                for cl, tag in angles
+                    if(margin[def])
+                        .{framework_class_prefix}m{cl}--{brd}{grid_default_class}, [class^="cell"].{framework_class_prefix}m{cl}--{brd}{grid_default_class}
                             for ind in tag
                                 margin{ind} margin[def]
-
-                        .{framework_class_prefix}p{cl}--{brd}
+                        .{framework_class_prefix}p{cl}--{brd}{grid_default_class}, [class^="cell"].{framework_class_prefix}p{cl}--{brd}{grid_default_class}
                             for ind in tag
                                 padding{ind} margin[def]
+                    .{framework_class_prefix}m{cl}a--{brd}{grid_default_class}, [class^="cell"].{framework_class_prefix}m{cl}a--{brd}{grid_default_class}
+                        for ind in tag
+                            margin{ind} auto
+                    
 
-                    for cf in margin
-                        for cl, tag in angles
-                            .{framework_class_prefix}p{cl}-{cf}--{brd}
-                                for ind in tag
-                                    padding{ind} margin[cf]
+                // margin from Seetings
+                for cf in margin
+                    for cl, tag in angles
+                        .{framework_class_prefix}p{cl}-{cf}--{brd}{grid_default_class}, [class^="cell"].{framework_class_prefix}p{cl}-{cf}--{brd}{grid_default_class}
+                            for ind in tag
+                                padding{ind} margin[cf]
 
-                            .{framework_class_prefix}m{cl}-{cf}--{brd}
-                                for ind in tag
-                                    margin{ind} margin[cf]
+                        .{framework_class_prefix}m{cl}-{cf}--{brd}{grid_default_class}, [class^="cell"].{framework_class_prefix}m{cl}-{cf}--{brd}{grid_default_class}
+                            for ind in tag
+                                margin{ind} margin[cf]
+                        
+                        
 
-    .m0
-        margin 0
+        // Inverted MediaQueries
+        for  brd, rcd in invert_hash(grid_bpoint)
+            @media(min-width (rcd + 1)px)
+
+                // Default Margins
+                for cl, tag in angles
+                    if(margin[def])
+                        .{framework_class_prefix}m{cl}--{brd}{grid_inverted_class}, [class^="cell"].{framework_class_prefix}m{cl}--{brd}{grid_inverted_class}
+                            for ind in tag
+                                margin{ind} margin[def]
+                        .{framework_class_prefix}p{cl}--{brd}{grid_inverted_class}, [class^="cell"].{framework_class_prefix}p{cl}--{brd}{grid_inverted_class}
+                            for ind in tag
+                                padding{ind} margin[def]
+                    .{framework_class_prefix}m{cl}a--{brd}{grid_inverted_class}, [class^="cell"].{framework_class_prefix}m{cl}a--{brd}{grid_inverted_class}
+                        for ind in tag
+                            margin{ind} auto
+                    
+
+                // margin from Seetings
+                for cf in margin
+                    for cl, tag in angles
+                        .{framework_class_prefix}p{cl}-{cf}--{brd}{grid_inverted_class}, [class^="cell"].{framework_class_prefix}p{cl}-{cf}--{brd}{grid_inverted_class}
+                            for ind in tag
+                                padding{ind} margin[cf]
+
+                        .{framework_class_prefix}m{cl}-{cf}--{brd}{grid_inverted_class}, [class^="cell"].{framework_class_prefix}m{cl}-{cf}--{brd}{grid_inverted_class}
+                            for ind in tag
+                                margin{ind} margin[cf]

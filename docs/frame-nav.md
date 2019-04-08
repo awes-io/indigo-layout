@@ -10,6 +10,7 @@ This component is intended for displaying the side menu as a two-level dropdown 
 - [Grid](./grid.md)
 - [Content](./classes.md)
 - [Slide Up Down](./slide-up-down.md)
+- [Margins and paddings](./margins.md)
 
 ## Example of use
 

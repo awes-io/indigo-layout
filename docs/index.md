@@ -31,5 +31,7 @@ composer require awes-io/indigo-layout
 - [Navigation Generator](./nav-generator.md)
 - [Frame Navigation](./frame-nav.md)
 - [Grid](./grid.md)
+- [Conttant](./classes.md)
 - [Slide Up Down](./slide-up-down.md)
+- [Margins and paddings](./margins.md)
 

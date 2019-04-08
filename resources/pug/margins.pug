@@ -1,0 +1,55 @@
+extends includes/layout
+
+block pageVariables
+    - var pageTitle = "Margin Example"
+
+block pageHead
+    // Modules
+
+block pageContent
+    p If you need to indent, be it margin or padding, you can easily do this using standard system classes. 
+    p In the <kbd>_setting.styl</kbd> there is an array with variables that you can change to suit your needs:
+
+    pre.stylus
+        code.
+            margin  = {def: 30px, big: 50px, md: 20px, sx: 15px, sl: 10px, sm: 5px}
+    
+    p This array generates padding, which is also available with the mediaquery, which is specified in more detail in the <a href="/grid.html" target="_blank">grid</a>.
+    
+    h3 The array will generate the following classes:
+
+    p As default, in the <kbd>m</kbd> or <kbd>p</kbd> class the standard indent will be set, which is specified in the variable <code>def</code>.
+
+    h4 Margins: 
+    ul
+        li <b>.ml</b>: margin-left
+        li <b>.mt</b>: margin-top
+        li <b>.mb</b>: margin-bottom
+        li <b>.mr</b>: margin-right
+        li <b>.mx</b>: margin-right and margin-left
+        li <b>.my</b>: margin-top and margin-margin
+        li <b>.m</b>: margin for all sides
+        li <b>.mla, .mta, .mba, .mra, .mxa, .mya, .ma</b>: margins auto
+    
+    p The remaining variables will be set with a hyphen, as exampe:
+    ul
+        li <b>.ml-big</b>: margin-left 50px
+        li <b>.mt-md</b>: margin-top 20px
+        li <b>.mr-sx</b>: margin-right 15px
+        li ...
+
+    p Indenting breakpoints are also available, as in the grid.
+
+    ul
+        li <b>.ml-md--tmd</b>: @media (max-width: 800px) margin-left 20px
+        li <b>.ml-md--tmd-i</b>: @media (min-width: 801px) margin-left 20px
+
+    h4 Paddings
+    p Everything is the same as in <kbd>margin</kbd>, but the first letter of the class is <code>p</code>. As example:
+    ul
+        li <b>.pl-big</b>: padding-left 50px
+        li <b>.py-big</b>: padding-top and bottom 50px
+        li <b>.px-big</b>: padding-left and right 50px
+        li <b>.pt-md--mmd</b>: @media (max-width: 500px) margin-top 20px
+        li ...
+
