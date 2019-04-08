@@ -20,10 +20,11 @@ class IndigoLayoutServiceProvider extends AwesProvider
         Blade::component('indigo-layout::components.analytics.line-chart', 'linechart');
 
         // Head components
+        Blade::component('indigo-layout::components.head.theme', 'theme');
         Blade::component('indigo-layout::components.head.styles', 'styles');
         Blade::component('indigo-layout::components.head.fonts', 'fonts');
         Blade::component('indigo-layout::components.head.scripts', 'scripts');
-        Blade::component('indigo-layout::components.head.theme', 'theme');
+        Blade::component('indigo-layout::components.head.theme-switcher', 'themeswitcher');
 
         $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', 'indigo-layout');
 
