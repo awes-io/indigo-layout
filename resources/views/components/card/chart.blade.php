@@ -2,12 +2,14 @@
 
 @php $render = true; @endphp
 
-{{-- Transformation component name --}}
-@if (isset($query) && !empty($query))
+{{--GET parameters for API--}}
+@if (isset($parameters) && is_array($parameters) && count($parameters) > 0)
     @php
-        $query = preg_replace("/[^a-zA-Z0-9-]/", " ", $query);
-        $query = trim(preg_replace("/\s+/", " ", $query));
-        $query = str_replace([" "], "_", $query);
+        $parametersFormatted = [];
+        foreach($parameters as $_key => $_value){
+            $parametersFormatted[] = $_key . "=\${\$get(\$route, 'query.$_key', '$_value')}";
+        }
+        $queryString = "?" . implode("&", $parametersFormatted);
     @endphp
 @else
     @php $render = false; @endphp
@@ -20,7 +22,7 @@
 
 {{-- Colors --}}
 @if (!isset($color) || (isset($color) && empty($color)))
-    @php $color = '*'; @endphp
+    @php $color = ''; @endphp
 @endif
 @if(config('indigo-layout.chart_colors'))
     @php
@@ -35,39 +37,32 @@
     @endphp
 @endif
 
-@if (!isset($filter_default_name) || (isset($filter_default_name) && empty($filter_default_name)))
-    @php $filter_default_name = 'period'; @endphp
-@endif
-
-@if (!isset($filter_default_value) || (isset($filter_default_value) && empty($filter_default_value)))
-    @php $filter_default_value = 7; @endphp
-@endif
-
 {{-- Render the component --}}
 @if ($render)
 <content-wrapper
     class="card card_chart"
-    store-data="{{ $query }}"
+    store-data="{{ str_random(8) }}"
     @if (isset($default_data) && !empty($default_data))
         :default='@json($default_data)'
     @endif
-    :url="`{{ $api_url }}?{{ $filter_default_name }}=${$get($route, 'query.{{ $query }}', {{ $filter_default_value }})}`">
+    :url="`{{ $api_url . $queryString }}`">
     <template slot-scope="chartData">
-        @if (isset($filter))
-            <div class="btn-group">
-                @foreach($filter as $_current_value => $_title)
-                    <filter-builder label="{{ $_title }}" @if($filter_default_value == $_current_value) active @endif :param="{!! "{'$query': '$_current_value'}" !!}"></filter-builder>
-                @endforeach
-            </div>
+        {{--Filter configuration--}}
+        @if (isset($filter) && isset($filter_variable) && isset($filter_default))
+            @filtergroup(['filter' => $filter, 'variable' => $filter_variable, 'default' => $filter_default]) @endfiltergroup
         @endif
         <chart-builder class="card__chart"
                 :data='chartData'
-                :options="{elements: {line: {tension: 0,backgroundColor: '{{ $color }}',borderColor: '{{ $color }}'},point: {radius: 0}},legend: {display: false},layout: {padding: {top: 20}},scales: {xAxes: [{display: false}],yAxes: [{display: false}]},maintainAspectRatio: false}">
+                :options="{elements: {line: {tension: 0
+                @if ($color != "")
+                    , backgroundColor: '{{ $color }}',borderColor: '{{ $color }}'
+                @endif
+                },point: {radius: 0}},legend: {display: false},layout: {padding: {top: 20}},scales: {xAxes: [{display: false}],yAxes: [{display: false}]},maintainAspectRatio: false}">
         </chart-builder>
 
         <div class="card__chart" style="background: {{ $color }};"></div>
 
-        <div class="card__wrap">
+        <div class="card__wrap card__wrap_bottom">
             <div class="card__info">
                 <span class="block tf-size-small tf-light tf-upper mb-md">{{ (isset($label)) ? $label : "" }}</span>
                 <span class="block tf-size-small tf-light tf-upper mb-sm">{{ (isset($title)) ? $title : "" }}</span>
@@ -86,34 +81,28 @@
         </div>
     </template>
     <template slot="error">
-        <div class="card__wrap card_error">
+        <div class="card__wrap cl-red">
             <div class="card__middle-cell">
                 <i class="icon icon-data-error card__icon cl-red"></i>
-                <div class="card__info">
-                    <span class="card__info-redcapt cl-red">{{ __('indigo-layout::common.chart.error.loading') }}</span>
-                </div>
+                <span class="card__caption">{{ __('indigo-layout::common.chart.error.loading') }}</span>
             </div>
         </div>
     </template>
     <template slot="empty">
-        <div class="card__wrap card_nodata">
+        <div class="card__wrap cl-caption">
             <div class="card__middle-cell">
                 <i class="icon icon-database-error card__icon cl-caption"></i>
-                <div class="card__info">
-                    <span class="card__info-label">{{ __('indigo-layout::common.chart.no-data') }}</span>
-                </div>
+                <span class="card__caption">{{ __('indigo-layout::common.chart.no-data') }}</span>
             </div>
         </div>
     </template>
 </content-wrapper>
 @else
     <div class="card card_chart">
-        <div class="card__wrap card_error">
+        <div class="card__wrap cl-red">
             <div class="card__middle-cell">
                 <i class="icon icon-data-error card__icon cl-red"></i>
-                <div class="card__info">
-                    <span class="card__caption cl-red">{{ __('indigo-layout::common.chart.error.parameters') }}</span>
-                </div>
+                <span class="card__caption cl-red">{{ __('indigo-layout::common.chart.error.parameters') }}</span>
             </div>
         </div>
     </div>

@@ -166,6 +166,8 @@
     &_white
         background-color var(--tc_btn_tr_bg)
         color var(--tc_btn_tr_text)
+        .wave
+            background-color: var(--tc_ui_wave_dark)
         &:hover, &:focus
             background-color var(--tc_btn_tr_bg_d)
             color var(--tc_btn_tr_text)
@@ -178,8 +180,10 @@
     &_transparent
         background-color transparent
         color var(--tc_btn_tr_text)
+        .wave
+            background-color: var(--tc_ui_wave_dark)
         &:hover, &:focus
-            background-color var(--tc_ui_bg_darken_s)
+            background-color var(--tc_btn_tr_bg_d)
     &_sh
         box-shadow 1px 2px 3px var(--tc_btn_bg_shadow)
     &_greylink

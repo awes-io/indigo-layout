@@ -12,8 +12,23 @@ block pageContent
     p Новые формы
     form-builder(url="http://httpbin.org/post" disabled-dialog)
 
+        h2 Buttons
+            .grid
+                .cell-inline
+                    a.btn(href="") BTN
+                .cell-inline
+                    a.btn.btn_transparent(href="") BTN
+                .cell-inline
+                    a.btn.btn_white(href="") BTN
+                .cell-inline
+                    a.btn.btn_second(href="") BTN
+
+        h2 Ajax Select
+        fb-select(name="select2223123" label="Select option" select-options="http://timezero.ru/")
+        br 
         p All form elements has mod <code>blockname_error</code>, <code>blockname_ok</code>, <code>blockname_disabled</code>
 
+        
 
         h4 текст
         fb-input(name="awdaw12312312" label="Input field"  autocomplete="off")

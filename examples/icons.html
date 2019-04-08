@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Placeholder Test</title>
+    <title>Icons Preview</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700&amp;amp;subset=cyrillic" rel="stylesheet">
@@ -28,7 +28,36 @@
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/theme-switcher/v1.x.x/js/main.js"></script>
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/tab-builder/v1.x.x/js/main.js"></script>
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/awes-notify/v1.x.x/js/main.js"></script>
-    <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/base-js/v1.x.x/js/main.js"></script><!-- there is can be head meta or sctipts-->
+    <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/base-js/v1.x.x/js/main.js"></script>
+    <style>
+        .demo-icon {
+            border: 1px solid var(--tc_border);
+            text-align: center;
+            background: var(--tc_ui_bg)
+        }
+
+        .demo-icon__icon {
+            padding: 10px;
+            height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--tc_ui_bg_semi);
+
+        }
+
+
+        .demo-icon__info {
+            padding: 15px;
+            font-size: 12px;
+            text-align: left;
+            color: var(--tc_text_caption)
+        }
+
+        .demo-icon__info div+div {
+            margin-top: 7px;
+        }
+    </style>
 </head>
 
 <body>
@@ -73,7 +102,7 @@
                     </div>
                     <div class="frame__header-line">
                         <div class="frame__title-line">
-                            <h1 class="frame__header-title">Placeholder Test</h1>
+                            <h1 class="frame__header-title">Icons Preview</h1>
                         </div>
                     </div>
                 </div>
@@ -440,99 +469,774 @@
                     <awes-notify-container class="frame__awes-notify-container" name="frame" stack="false" :config="{theme: 'inline', status: 'warning', timeout: 0}"></awes-notify-container><button class="frame__header-add"><i class="icon icon-plus"></i></button>
                     <div class="frame__inlayout">
                         <div class="frame__inlayout-content">
-                            <p>Новые формы</p>
-                            <form-builder url="http://httpbin.org/post" disabled-dialog>
-                                <h2>Buttons<div class="grid">
-                                        <div class="cell-inline"><a class="btn" href="">BTN</a></div>
-                                        <div class="cell-inline"><a class="btn btn_transparent" href="">BTN</a></div>
-                                        <div class="cell-inline"><a class="btn btn_white" href="">BTN</a></div>
-                                        <div class="cell-inline"><a class="btn btn_second" href="">BTN</a></div>
+                            <h3>HTML:</h3>
+                            <p>An example is how to display an icon:</p><pre class="html"><code>&lt;i class=&quot;icon icon-iconname&quot;&gt;&lt;/i&gt;
+</code></pre>
+                            <H3>Stylus:</H3>
+                            <p>If you need to display an icon inside the styles, then you can use the <code>icon()</code> function, in which you need to specify <code>icon(iconname, fontsize in px, before / after)</code>. The last 2 values ​​are optional.</p><pre class="stylus"><code>.block
+    icon(logo, 14px, before)
+
+.block2
+    icon(logout, 15px, after)
+
+.block3
+    icon(login, 15px)
+
+.block4
+    icon(list)
+</code></pre>
+                            <p>Default icon size is <kbd>1rem</kbd>, default position is <kbd>:before</kbd>. </p>
+                            <p>Each icon generates its own symbol code, which you can use in regular CSS. If you go to the <kbd>resources/svg</kbd> folder, you can see it in the name of the icon. When adding a new icon, you need to manually register it before the name of the icon. For example: <code>uEA12-clipboard.svg</code>, where <code>clipboard</code> is the name of the icon, and <code>uEA12</code> is its character code.</p>
+                            <p>Example of using symol code:</p><pre class="css"><code>.icon {
+    display: inline-block;
+    text-rendering: auto;
+    font: normal normal 400 14px/1 icons;
+    font-size: inherit;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
+.icon-clipboard::before {
+    content: "\ea12";
+}
+</code></pre>
+                            <p>If the <code>.icon</code> class intersects with the classes in your system, you can replace it in <kbd>gulpfile.js</kbd>, which is in the root of the project.</p><pre class="js"><code>gulp.task('build:icons', function(){
+    return gulp.src('./resources/svg/*.svg')
+        .pipe(iconfont({
+            fontName: 'icons',
+            fontHeight: 1000,
+            prependUnicode: true,
+            formats: ['ttf', 'eot', 'woff'],
+            normalize: true,
+            timestamp: runTimestamp
+        }))
+        .on('glyphs', function(glyphs, options) {
+            gulp.src('./resources/svg/template/icons.styl')
+                .pipe( consolidate('lodash', {
+                    glyphs: glyphs,
+                    fontName: options.fontName,
+                    fontPath: '../fonts/', 
+                    className: 'icon'
+                }) )
+                .pipe( gulp.dest('./resources/css/framework/') )
+        })
+    .pipe(gulp.dest('./dist/fonts/'));
+})</code></pre>
+                            <p>You can also edit some parameters in the template file located at: <kbd>/resources/svg/template/icons.styl</kbd>..</p>
+                            <h2>Default system icons:</h2>
+                            <div class="grid">
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-briefcase" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> briefcase</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea0a";</code></div>
+                                        </div>
                                     </div>
-                                </h2>
-                                <h2>Ajax Select</h2>
-                                <fb-select name="select2223123" label="Select option" select-options="http://timezero.ru/"></fb-select><br>
-                                <p>All form elements has mod <code>blockname_error</code>, <code>blockname_ok</code>, <code>blockname_disabled</code></p>
-                                <h4>текст</h4>
-                                <fb-input name="awdaw12312312" label="Input field" autocomplete="off"></fb-input>
-                                <fb-select name="awdawd123qw" :multiple="false" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}]"></fb-select>
-                                <fb-select name="select2" label="Yosip ishchet lojku" :multiple="true" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]"></fb-select>
-                                <fb-phone name="asd123123asd" label="Phone label"></fb-phone>
-                                <fb-input name="awdaw1231222312" label="Label test long label"></fb-input>
-                                <fb-company-slug label="Slug default" name="slug221" domain="very very long link awescrm.de"></fb-company-slug>
-                                <p>Сайт рыбатекст <a href="#re">consectetur adipisicing elit</a>поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях. При создании генератора мы использовали небезизвестный универсальный код речей. Текст генерируется абзацами случайным образом от двух до десяти предложений в абзаце, что позволяет сделать текст более привлекательным и живым для визуально-слухового восприятия.</p>
-                                <h4>Switcher</h4>
-                                <fb-switcher label="switcher" name="switcher1"></fb-switcher>
-                                <fb-switcher label="switcher" disabled name="switcher2"></fb-switcher>
-                                <fb-switcher class="fb-switcher_error" label="switcher" name="switcher3"></fb-switcher>
-                                <fb-switcher class="fb-switcher_ok" label="switcher" name="switcher4"></fb-switcher><br><br>
-                                <h4>Select</h4>
-                                <fb-select name="select1" label="Single select" :multiple="false" :select-options="[]"></fb-select>
-                                <fb-select name="select1" label="Single select" :multiple="false" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}]"></fb-select>
-                                <fb-select name="select2" label="Multiple select" :multiple="true" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}, {name:'two', value: 2}]"></fb-select>
-                                <fb-select class="fb-select_ok" name="select3" disabled label="OK select" :multiple="false" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]"></fb-select>
-                                <fb-select class="fb-select_error" name="select4" disabled label="Error select" :multiple="true" :select-options="[{name:'one', value: 1}, {name:'two', value: 2}]"></fb-select><br><br>
-                                <h4>Phone input</h4>
-                                <fb-phone name="phone1" disabled label="Phone label"></fb-phone>
-                                <fb-phone name="phone2" label="Phone label"></fb-phone>
-                                <fb-phone class="fb-phone_ok" name="phone3" label="Phone ok"></fb-phone>
-                                <fb-phone class="fb-phone_error" name="phone4" label="Phone error"></fb-phone><br><br>
-                                <h4>MCE Editor</h4>
-                                <fb-editor name="editor1"></fb-editor>
-                                <fb-editor name="editor2" disabled></fb-editor>
-                                <fb-editor class="fb-editor_ok" name="editor3"></fb-editor>
-                                <fb-editor class="fb-editor_error" name="editor4"></fb-editor><br><br>
-                                <h4>Textarea</h4>
-                                <fb-textarea name="ed1" label="Textarea label"></fb-textarea>
-                                <fb-textarea name="ed2" label="Textarea disabled" disabled></fb-textarea>
-                                <fb-textarea class="fb-textarea_error" name="ed3" label="Textarea error"></fb-textarea>
-                                <fb-textarea class="fb-textarea_ok" name="ed4" label="Textarea ok"></fb-textarea><br><br>
-                                <h4>Uploader</h4>
-                                <fb-uploader name="files1" url="http://httpbin.org/post" format="docx" size="15"></fb-uploader>
-                                <fb-uploader name="files2" url="http://httpbin.org/post" format="docx" size="15" disabled></fb-uploader>
-                                <fb-uploader class="fb-uploader_ok" name="files3" url="http://httpbin.org/post" format="docx" size="15"></fb-uploader>
-                                <fb-uploader class="fb-uploader_error" name="files4" url="http://httpbin.org/post" format="docx" size="15"></fb-uploader><br><br>
-                                <h4>Range Slider</h4>
-                                <fb-slider name="range1" label="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat iure perspiciatis corporis nesciunt inventore, eius quos maiores sit, ipsa neque quas harum maxime. Sunt a nobis excepturi accusamus assumenda necessitatibus?"></fb-slider>
-                                <fb-slider name="range2" label="Disabled" disabled></fb-slider>
-                                <fb-slider class="fb-slider_error" name="range3" label="Slider error"></fb-slider>
-                                <fb-slider class="fb-slider_ok" name="range4" label="Slider Ok"></fb-slider><br><br>
-                                <h4>Input example</h4>
-                                <fb-input name="input1" label="Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore id minima facilis voluptate vitae magnam rem beatae corporis, explicabo eveniet molestias quibusdam accusantium voluptatum accusamus eius officiis! Amet, fugiat ad?" disabled></fb-input>
-                                <fb-input name="input2" label="Default label"></fb-input>
-                                <fb-input class="fb-input_ok" name="input3" label="Input ok"></fb-input>
-                                <fb-input class="fb-input_error" name="input4" label="Input error"></fb-input><br><br>
-                                <h4>Checkbox example</h4>
-                                <fb-checkbox name="checkbox1" label="default checkbox"></fb-checkbox>
-                                <fb-checkbox name="checkbox2" label="disabled checkbox" disabled></fb-checkbox>
-                                <fb-checkbox class="fb-checkbox_ok" name="checkbox3" label="checkbox ok"></fb-checkbox>
-                                <fb-checkbox class="fb-checkbox_error" name="checkbox4" label="checkbox error"></fb-checkbox><br><br>
-                                <h4>Code example</h4>
-                                <fb-code name="code1"></fb-code>
-                                <fb-code disabled name="code2"></fb-code>
-                                <fb-code class="fb-keycode_ok" name="code3"></fb-code>
-                                <fb-code class="fb-keycode_error" name="code4"></fb-code><br><br>
-                                <h4>Company Slug</h4>
-                                <fb-input label="Company name" name="company1"></fb-input>
-                                <fb-company-slug label="Slug default" name="slug1" input="company1" domain="very very long link awescrm.de"></fb-company-slug>
-                                <fb-company-slug label="Slug disabled" disabled name="slug2" input="company1" domain="awescrm.de"></fb-company-slug>
-                                <fb-company-slug class="fb-slug_ok" label="Slug ok" name="slug3" input="company1" domain="local.awescrm.de"></fb-company-slug>
-                                <fb-company-slug class="fb-slug_error" label="Slug error" name="slug4" input="company1" domain="dev.awescrm.de"></fb-company-slug><br><br>
-                                <h4>Radio Group</h4>
-                                <fb-radio-group name="radio1" label="radio" :items="[{name:'one', value: 1}, {name:'two', value: 2}, {name:'three', value: 3}]"></fb-radio-group>
-                                <fb-radio-group name="radio2" disabled label="radio disabled" :items="[{name:'one', value: 1}, {name:'two', value: 2}, {name:'three', value: 3}]"></fb-radio-group>
-                                <fb-radio-group class="fc-radio_ok" name="radio1" label="radio ok" :items="[{name:'one', value: 1}, {name:'two', value: 2}, {name:'three', value: 3}]"></fb-radio-group>
-                                <fb-radio-group class="fc-radio_error" name="radio2" label="radio error" :items="[{name:'one', value: 1}, {name:'two', value: 2}, {name:'three', value: 3}]"></fb-radio-group><br><br>
-                                <h4>Multiblock</h4>
-                                <fb-multi-block name="multi1"><template slot-scope="mb">
-                                        <fb-input name="input22" label="multi-block" :id="mb.id"></fb-input>
-                                        <fb-input name="input33" label="multi-block" :id="mb.id"></fb-input>
-                                        <fb-textarea name="text11" label="multi block" :id="mb.id"></fb-textarea>
-                                    </template></fb-multi-block><br><br>
-                                <h4>Multiblock disabled</h4>
-                                <fb-multi-block name="multi2" disabled><template slot-scope="mb">
-                                        <fb-input name="input" label="multi-block" :id="mb.id"></fb-input>
-                                    </template></fb-multi-block>
-                            </form-builder>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-call" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> call</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea0b";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-card" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> card</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea0c";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-checkbox" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> checkbox</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea0d";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-circle-check" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> circle-check</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea0e";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-circle-clock" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> circle-clock</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea0f";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-angle-bottom" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> angle-bottom</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea01";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-dots" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> dots</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea1a";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-down" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> down</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea1b";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-drag" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> drag</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea1c";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-exel" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> exel</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea1d";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-eye" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> eye</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea1e";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-eye2" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> eye2</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea1f";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-ar-right" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> ar-right</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea02";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-intelligence" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> intelligence</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea2a";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-link" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> link</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea2b";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-loading" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> loading</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea2c";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-logo" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> logo</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea2d";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-logout" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> logout</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea2e";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-mastercard" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> mastercard</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea2f";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-arrow-left" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> arrow-left</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea03";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-ruppor" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> ruppor</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea3a";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-schedule" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> schedule</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea3b";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-search" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> search</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea3c";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-sell" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> sell</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea3d";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-service" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> service</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea3e";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-settings" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> settings</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea3f";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-arrow-right" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> arrow-right</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea04";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-word" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> word</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea4a";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-box-down" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> box-down</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea05";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-box-minus" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> box-minus</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea06";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-box-pause" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> box-pause</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea07";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-box-plus" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> box-plus</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea08";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-box" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> box</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea09";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-circle-cross" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> circle-cross</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea10";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-circle-plus" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> circle-plus</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea11";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-clipboard" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> clipboard</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea12";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-cross" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> cross</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea13";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-data-error" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> data-error</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea14";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-data-time" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> data-time</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea15";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-database-error" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> database-error</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea16";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-database" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> database</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea17";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-dfcheck" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> dfcheck</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea18";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-document" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> document</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea19";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-fb" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> fb</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea20";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-file" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> file</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea21";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-filter" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> filter</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea22";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-flag" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> flag</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea23";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-gift" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> gift</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea24";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-gp" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> gp</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea25";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-graph" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> graph</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea26";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-hdd" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> hdd</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea27";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-head" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> head</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea28";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-in" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> in</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea29";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-message" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> message</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea30";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-money" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> money</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea31";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-nav" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> nav</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea32";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-no-access" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> no-access</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea33";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-openin" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> openin</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea34";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-pin" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> pin</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea35";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-planner" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> planner</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea36";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-plus" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> plus</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea37";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-report" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> report</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea38";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-road" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> road</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea39";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-smile" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> smile</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea40";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-speed" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> speed</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea41";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-stock" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> stock</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea42";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-stop" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> stop</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea43";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-storage" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> storage</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea44";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-timelaps" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> timelaps</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea45";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-twousers" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> twousers</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea46";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-up" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> up</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea47";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-user" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> user</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea48";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-visa" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> visa</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea49";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-git" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> git</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea50";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-pencil2" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> pencil2</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea51";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-question" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> question</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea52";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-star-circle" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> star-circle</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea53";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cell-inline" style="min-width: 100px;">
+                                    <div class="demo-icon">
+                                        <div class="demo-icon__icon"><i class="icon icon-hashtag" style="font-size: 25px;"></i></div>
+                                        <div class="demo-icon__info">
+                                            <div><b>Name:</b> hashtag</div>
+                                            <div><b>Code:</b> <code>content: "&#92;ea54";</code></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div><span class="frame__copyright">© 2019 - PkgKit - Proudly powered on <a href="">Awes.IO Platform</a>.</span>
