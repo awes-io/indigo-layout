@@ -4,15 +4,19 @@ if margin is defined && margin
 
     // Default Margins
     for cl, tag in angles
-        .{framework_class_prefix}m{cl}, [class^="cell"].{framework_class_prefix}m{cl}
-            for ind in tag
-                margin{ind} margin[def]
+
+        if(margin[def])
+            .{framework_class_prefix}m{cl}, [class^="cell"].{framework_class_prefix}m{cl}
+                for ind in tag
+                    margin{ind}: margin[def]
+            .{framework_class_prefix}p{cl}, [class^="cell"].{framework_class_prefix}p{cl}
+                for ind in tag
+                    padding{ind} margin[def]
+
         .{framework_class_prefix}m{cl}a , [class^="cell"].{framework_class_prefix}m{cl}a
             for ind in tag
                 margin{ind} auto
-        .{framework_class_prefix}p{cl}, [class^="cell"].{framework_class_prefix}p{cl}
-            for ind in tag
-                padding{ind} margin[def]
+        
 
     // margin from Seetings
     for cf in margin
@@ -26,7 +30,6 @@ if margin is defined && margin
                     margin{ind} margin[cf]
             
             
-
     // MediaQueries
     if grid_bpoint is defined && grid_bpoint
 
@@ -36,12 +39,13 @@ if margin is defined && margin
 
                 // Default Margins
                 for cl, tag in angles
-                    .{framework_class_prefix}m{cl}--{brd}{grid_default_class}, [class^="cell"].{framework_class_prefix}m{cl}--{brd}{grid_default_class}
-                        for ind in tag
-                            margin{ind} margin[def]
-                    .{framework_class_prefix}p{cl}--{brd}{grid_default_class}, [class^="cell"].{framework_class_prefix}p{cl}--{brd}{grid_default_class}
-                        for ind in tag
-                            padding{ind} margin[def]
+                    if(margin[def])
+                        .{framework_class_prefix}m{cl}--{brd}{grid_default_class}, [class^="cell"].{framework_class_prefix}m{cl}--{brd}{grid_default_class}
+                            for ind in tag
+                                margin{ind} margin[def]
+                        .{framework_class_prefix}p{cl}--{brd}{grid_default_class}, [class^="cell"].{framework_class_prefix}p{cl}--{brd}{grid_default_class}
+                            for ind in tag
+                                padding{ind} margin[def]
                     .{framework_class_prefix}m{cl}a--{brd}{grid_default_class}, [class^="cell"].{framework_class_prefix}m{cl}a--{brd}{grid_default_class}
                         for ind in tag
                             margin{ind} auto
@@ -66,12 +70,13 @@ if margin is defined && margin
 
                 // Default Margins
                 for cl, tag in angles
-                    .{framework_class_prefix}m{cl}--{brd}{grid_inverted_class}, [class^="cell"].{framework_class_prefix}m{cl}--{brd}{grid_inverted_class}
-                        for ind in tag
-                            margin{ind} margin[def]
-                    .{framework_class_prefix}p{cl}--{brd}{grid_inverted_class}, [class^="cell"].{framework_class_prefix}p{cl}--{brd}{grid_inverted_class}
-                        for ind in tag
-                            padding{ind} margin[def]
+                    if(margin[def])
+                        .{framework_class_prefix}m{cl}--{brd}{grid_inverted_class}, [class^="cell"].{framework_class_prefix}m{cl}--{brd}{grid_inverted_class}
+                            for ind in tag
+                                margin{ind} margin[def]
+                        .{framework_class_prefix}p{cl}--{brd}{grid_inverted_class}, [class^="cell"].{framework_class_prefix}p{cl}--{brd}{grid_inverted_class}
+                            for ind in tag
+                                padding{ind} margin[def]
                     .{framework_class_prefix}m{cl}a--{brd}{grid_inverted_class}, [class^="cell"].{framework_class_prefix}m{cl}a--{brd}{grid_inverted_class}
                         for ind in tag
                             margin{ind} auto
@@ -87,7 +92,3 @@ if margin is defined && margin
                         .{framework_class_prefix}m{cl}-{cf}--{brd}{grid_inverted_class}, [class^="cell"].{framework_class_prefix}m{cl}-{cf}--{brd}{grid_inverted_class}
                             for ind in tag
                                 margin{ind} margin[cf]
-                        
-                        
-    .m0
-        margin 0
