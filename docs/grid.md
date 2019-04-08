@@ -8,6 +8,7 @@ Quick and variable grid setting will help you create a grid for almost any situa
 - **Grid**
 - [Content](./classes.md)
 - [Slide Up Down](./slide-up-down.md)
+- [Margins and paddings](./margins.md)
 
 ## First step
 
