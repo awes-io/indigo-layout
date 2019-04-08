@@ -56,6 +56,13 @@
     & &__spinner
         background-color var(--tc_ui_bg)
         height 45px
+        icon(loading-circle, 1rem)
+        color var(--tc_text)
+        &:before
+            border 0
+            margin-top -7px !important
+        &:after
+            display none
     & &__input
         background-color var(--tc_ui_bg)
         color var(--tc_text)

@@ -4,19 +4,23 @@
     box-shadow var(--tc_ui_shadow)
     overflow hidden
     position relative
-    size 100%
+    width 100%
     &.loading-block
         &:after
             top 50% !important
             margin-top -15px
     &_linechart
-        size 100%
+        width 100px
         min-height 480px
         padding 0
         fl(,sb)
         .chart
             width 100%
             min-height 420px
+    &_table
+        width 100%
+        min-height 480px
+        fl(,sb)
     &_smart
         padding 20px
     &_noborder

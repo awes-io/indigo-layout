@@ -330,17 +330,22 @@ pre
     display block
 
 .tf
+    &-nobreak
+        word-break normal !important
+    &-light
+        font-weight 300
     &-size
         &-small
             font-size 12px
         &-title
             font-size 30px
+    &-upper
+        text-transform uppercase
     &-img
         box-shadow var(--tc_shadow_smr)
         border-radius var(--tc_border_radius)
     &-circle
         border-radius 50%
-
     &-titlenav
         list-style none !important
         margin 0 !important
@@ -369,6 +374,8 @@ pre
         margin-bottom 30px
         span
             padding-right 10px
+    &-strong
+        font-weight 700
     &-centerlink
         text-align center
         &_afterframe
