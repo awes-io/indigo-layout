@@ -9,15 +9,15 @@
     @stack('head')
 
     <!-- styles & fonts -->
-    @fonts() @endfonts
-    @styles(['items' => $src['css']]) @endstyles
-    @theme() @endtheme
+    @fonts
+    @styles(['items' => $src['css']])
+    @theme
 
     <!-- config -->
     <script>AWES_CONFIG = @json(config('indigo-layout.frontend'))</script>
 
     <!-- scripts -->
-    @scripts(['items' => $src['js'], 'nomodule' => false]) @endscripts
-    @scripts(['items' => $src['legacy'], 'nomodule' => true]) @endscripts
-    @scripts(['items' => [$src['js']['base-js']]]) @endscripts
+    @scripts(['items' => $src['js'], 'nomodule' => false])
+    @scripts(['items' => $src['legacy'], 'nomodule' => true])
+    @scripts(['items' => [$src['js']['base-js']]])
 </head>

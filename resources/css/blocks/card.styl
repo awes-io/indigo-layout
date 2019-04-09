@@ -9,14 +9,28 @@
         &:after
             top 50% !important
             margin-top -15px
+
+    // Styles for line chart
     &_linechart
-        width 100px
         min-height 480px
         padding 0
         fl(,sb)
         .chart
             width 100%
             min-height 420px
+            z-index: 2;
+        &__colored-box
+            width: 100%;
+            height: 65px;
+            background: var(--tc_ui_bg_darken)
+            box-shadow: inset 0 15px 5px -15px rgba(0,0,0,.1)
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1;
+
+    // Styles for table
     &_table
         width 100%
         min-height 480px
@@ -45,6 +59,8 @@
         margin-right auto
         line-height 1.5
         font-size 12px
+
+    // Styles for dashboard chart
     &_chart
         min-height 260px
         size 100%

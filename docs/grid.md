@@ -3,12 +3,13 @@
 Quick and variable grid setting will help you create a grid for almost any situation.
 
 ## Components
-- [Navigation Generator](./nav-generator.md)
+- [Blade Components](./components.md)
 - [Frame Navigation](./frame-nav.md)
 - **Grid**
 - [Content](./classes.md)
 - [Slide Up Down](./slide-up-down.md)
 - [Margins and paddings](./margins.md)
+- [Icons](./icons.md)
 
 ## First step
 

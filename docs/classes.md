@@ -3,12 +3,13 @@
 The description of CSS/HTML helpers for different each case.
 
 ## Components
-- [Navigation Generator](./nav-generator.md)
+- [Blade Components](./components.md)
 - [Frame Navigation](./frame-nav.md)
 - [Grid](./grid.md)
 - **Content**
 - [Slide Up Down](./slide-up-down.md)
 - [Margins and paddings](./margins.md)
+- [Icons](./icons.md)
 
 ## Image styles
 
