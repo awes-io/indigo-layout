@@ -102,10 +102,11 @@
       
     &-hidden
       padding-bottom 10px
-      display none
-      background-color var(--tc_aside_bg_nav)
-      &.active
-        display block
+      // display none
+      // &.active
+      //   display block
+      &.has-background
+        background-color var(--tc_aside_bg_nav)
     &-inlist
       fl(,,c)
       min-height 46px
@@ -179,7 +180,8 @@
           width 1px
           background-color currentColor
           opacity .5
-      &_active
+      &_active,
+      &.is-active
         opacity 1
         &:before
           height 100%

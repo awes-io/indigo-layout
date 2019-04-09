@@ -30,7 +30,7 @@
                     </a>
 
                     <slide-up-down :show="active === index || expanded">
-                        <ul class="frame__aside-hidden active">
+                        <ul class="frame__aside-hidden" :class="{'has-background': ! expanded}">
                             <li class="frame__aside-inlist"
                                 v-for="(child, i) in item.children"
                                 :key="i">
@@ -107,7 +107,7 @@ export default {
             handler(links) {
                 this.active = links.findIndex( link => {
                     return link.active ||
-                           link.children && link.children.some( child => child.active )
+                           ! this.expanded && link.children && link.children.some( child => child.active )
                 })
             },
             immediate: true
@@ -126,6 +126,7 @@ export default {
         toggleActive( $event, index ) {
             $event.stopPropagation()
             $event.preventDefault()
+            if ( this.expanded ) return
             if ( this.active === index ) {
                 this.active = null
             } else {
