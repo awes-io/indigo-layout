@@ -1,9 +1,9 @@
-# Margins and paddings default classes 
+# Icons 
 
-Classes of indents that can be used throughout the system.
+List of available icons in the system.
 
 ## Components
-- [Navigation Generator](./nav-generator.md)
+- [Blade Components](./components.md)
 - [Frame Navigation](./frame-nav.md)
 - [Grid](./grid.md)
 - [Content](./classes.md)
@@ -11,75 +11,8 @@ Classes of indents that can be used throughout the system.
 - [Margins and paddings](./margins.md)
 - **Icons**
 
-### HTML:
-An example is how to display an icon:
-```html
-<i class="icon icon-iconname"></i>
-```
+## List of the icons
 
-### Stylus:
-If you need to display an icon inside the styles, then you can use the ```icon()``` function, in which you need to specify ```icon(iconname, fontsize in px, before / after)```. The last 2 values ​​are optional.
-```stylus
-.block
-    icon(logo, 14px, before)
-
-.block2
-    icon(logout, 15px, after)
-
-.block3
-    icon(login, 15px)
-
-.block4
-    icon(list)
-```
-
-Default icon size is ```1rem```, default position is ```:before```. 
-Each icon generates its own symbol code, which you can use in regular CSS. If you go to the ```resources/svg``` folder, you can see it in the name of the icon. When adding a new icon, you need to manually register it before the name of the icon. For example: ```uEA12-clipboard.svg```, where ```clipboard``` is the name of the icon, and ```uEA12``` is its character code.
-Example of using symol code:
-
-```css
-.icon {
-    display: inline-block;
-    text-rendering: auto;
-    font: normal normal 400 14px/1 icons;
-    font-size: inherit;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-}
-
-.icon-clipboard::before {
-    content: "\ea12";
-}
-```
-
-If the ```.icon``` class intersects with the classes in your system, you can replace it in ```gulpfile.js```, which is in the root of the project.
-
-```js
-gulp.task('build:icons', function(){
-    return gulp.src('./resources/svg/*.svg')
-        .pipe(iconfont({
-            fontName: 'icons',
-            fontHeight: 1000,
-            prependUnicode: true,
-            formats: ['ttf', 'eot', 'woff'],
-            normalize: true,
-            timestamp: runTimestamp
-        }))
-        .on('glyphs', function(glyphs, options) {
-            gulp.src('./resources/svg/template/icons.styl')
-                .pipe( consolidate('lodash', {
-                    glyphs: glyphs,
-                    fontName: options.fontName,
-                    fontPath: '../fonts/', 
-                    className: 'icon'
-                }) )
-                .pipe( gulp.dest('./resources/css/framework/') )
-        })
-    .pipe(gulp.dest('./dist/fonts/'));
-})
-```
-
-You can also edit some parameters in the template file located at: ```/resources/svg/template/icons.styl```..
 
 | Code | Preview |
 |------|---------|
@@ -163,3 +96,74 @@ You can also edit some parameters in the template file located at: ```/resources
 | ```<i class="icon icon-star-circle"></i>``` | <i class="icon icon-star-circle"></i> | 
 | ```<i class="icon icon-hashtag"></i>``` | <i class="icon icon-hashtag"></i> |
 | ```<i class="icon icon-loading-circle"></i>``` | <i class="icon icon-loading-circle"></i> | 
+
+
+
+## HTML:
+An example is how to display an icon:
+```html
+<i class="icon icon-iconname"></i>
+```
+
+## Customization
+### Stylus:
+If you need to display an icon inside the styles, you can use the `icon()` function, in which you need to specify `icon(iconname, fontsize in px, before / after)`. The last 2 parameters ​​are optional (Default icon size is ```1rem```, default position is ```:before```).
+```stylus
+.block
+    icon(logo, 14px, before)
+
+.block2
+    icon(logout, 15px, after)
+
+.block3
+    icon(login, 15px)
+
+.block4
+    icon(list)
+```
+
+### Icon's code
+Each icon generates its own symbol code, which you can use in regular CSS. If you go to the ```resources/svg``` folder, you can see it in the name of the icon. When adding a new icon, you need to manually register it before the name of the icon. For example: ```uEA12-clipboard.svg```, where ```clipboard``` is the name of the icon, and ```uEA12``` is its character code.
+Example of using symol code:
+
+```css
+.icon {
+    display: inline-block;
+    text-rendering: auto;
+    font: normal normal 400 14px/1 icons;
+    font-size: inherit;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
+.icon-clipboard::before {
+    content: "\ea12";
+}
+```
+### Gulp task
+If the ```.icon``` class intersects with the classes in your system, you can replace it in ```gulpfile.js```, which is in the root of the project.
+
+```js
+gulp.task('build:icons', function(){
+    return gulp.src('./resources/svg/*.svg')
+        .pipe(iconfont({
+            fontName: 'icons',
+            fontHeight: 1000,
+            prependUnicode: true,
+            formats: ['ttf', 'eot', 'woff'],
+            normalize: true,
+            timestamp: runTimestamp
+        }))
+        .on('glyphs', function(glyphs, options) {
+            gulp.src('./resources/svg/template/icons.styl')
+                .pipe( consolidate('lodash', {
+                    glyphs: glyphs,
+                    fontName: options.fontName,
+                    fontPath: '../fonts/', 
+                    className: 'icon'
+                }) )
+                .pipe( gulp.dest('./resources/css/framework/') )
+        })
+    .pipe(gulp.dest('./dist/fonts/'));
+})
+```

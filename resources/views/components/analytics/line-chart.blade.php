@@ -7,23 +7,6 @@
     @php $render = false; @endphp
 @endif
 
-{{-- Colors --}}
-@if (!isset($color) || (isset($color) && empty($color)))
-    @php $color = ''; @endphp
-@endif
-@if(config('indigo-layout.chart_colors') && $color != '')
-    @php
-        $colorConfig = config('indigo-layout.chart_colors');
-        $color = trim(preg_replace("/\s+/", "", $color));
-
-        if ($color == '*') {
-            $color = array_values($colorConfig)[mt_rand(0, count($colorConfig) - 1)];
-        }elseif (isset($colorConfig[$color])) {
-            $color =  $colorConfig[$color];
-        }
-    @endphp
-@endif
-
 {{--GET parameters for API--}}
 @if (isset($parameters) && is_array($parameters) && count($parameters) > 0)
     @php
@@ -49,23 +32,47 @@
         <template slot-scope="chartData">
             <chart-builder
                 :data='chartData'
-                :options="{elements: {line: {tension: 0
-                    @if ($color != "")
-                        , backgroundColor: '{{ $color }}',borderColor: '{{ $color }}'
-                    @endif
-                    },  point: {radius: 0}}, 
+                :options="{
+                    elements: {
+                        line: {
+                            tension: 0,
+                            backgroundColor: 'transparent'
+                        },
+                        point: {
+                            radius: 0
+                        }
+                    },
                     scales: {
                         yAxes: [{
+                            gridLines: {
+                                drawBorder: false,
+                                display: false
+                            },
                             ticks: {
                                 display: false
-                            }
-                        }], 
+                            },
+                        }],
+
                         xAxes: [{
-                            display: false
-                        }]
-                    }, 
+                            ticks: {
+                                padding: 10,
+                                beginAtZero: true,
+                                autoSkip: true,
+                                maxTicksLimit: 20,
+                                max: 20,
+                                autoSkipPadding: 1,
+                                mirror: true
+                            },
+                            gridLines: {
+                                drawBorder: true,
+                                color: 'rgba(150, 150, 150, 0.1)'
+                            }
+                        }],
+
+                    },
                     legend: {
-                        position: 'bottom'
+                        position: 'bottom',
+                        labels:{usePointStyle:true, padding: 25}
                     },
                     tooltips: {
                         position: 'average',
@@ -86,12 +93,19 @@
                             left: 0,
                             right: 0,
                             top: 0,
-                            bottom: 0
+                            bottom: 15
                         }
+                    },
+                    borderWidth: {
+                        top: 1,
+                        right: 0,
+                        bottom: 0,
+                        left: 0
                     },
                     maintainAspectRatio: false
                 }">
             </chart-builder>
+            <div class="card_linechart__colored-box"></div>
         </template>
         <template slot="loading">
             <div class="card__wrap cl-caption loading-block" data-loading="{{ __('indigo-layout::common.loading') }}">

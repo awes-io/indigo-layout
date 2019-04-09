@@ -28,10 +28,11 @@ composer require awes-io/indigo-layout
 ```
 
 ## Components
-- [Navigation Generator](./nav-generator.md)
+- [Blade Components](./components.md)
 - [Frame Navigation](./frame-nav.md)
 - [Grid](./grid.md)
 - [Conttant](./classes.md)
 - [Slide Up Down](./slide-up-down.md)
 - [Margins and paddings](./margins.md)
+- [Icons](./icons.md)
 
