@@ -10,6 +10,8 @@ This component is intended for the animated appearance/disappearance of the comp
 - [Grid](./grid.md)
 - [Content](./classes.md)
 - **Slide Up Down**
+- [Margins and paddings](./margins.md)
+- [Icons](./icons.md)
 
 
 ## Example of use

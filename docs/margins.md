@@ -9,6 +9,7 @@ Classes of indents that can be used throughout the system.
 - [Content](./classes.md)
 - [Slide Up Down](./slide-up-down.md)
 - **Margins and paddings**
+- [Icons](./icons.md)
 
 
 If you need to indent, be it margin or padding, you can easily do this using standard system classes. 
@@ -48,8 +49,8 @@ Indenting breakpoints are also available, as in the grid.
 
 #### Paddings
 Everything is the same as in ```margin```, but the first letter of the class is ```p```. As example:
-- **.pl-big**: padding-left 50px
-- **.py-big**: padding-top and bottom 50px
-- **.px-big**: padding-left and right 50px
+- **.pl-50**: padding-left 50px
+- **.py-50**: padding-top and bottom 50px
+- **.px-50**: padding-left and right 50px
 - **.pt-20--mmd**: @media (max-width: 500px) padding-top 20px
 - **...**

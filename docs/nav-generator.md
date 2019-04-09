@@ -6,6 +6,8 @@
 - [Grid](./grid.md)
 - [Content](./classes.md)
 - [Slide Up Down](./slide-up-down.md)
+- [Margins and paddings](./margins.md)
+- [Icons](./icons.md)
 
 ## Default generator
 

@@ -9,6 +9,7 @@ The description of CSS/HTML helpers for different each case.
 - **Content**
 - [Slide Up Down](./slide-up-down.md)
 - [Margins and paddings](./margins.md)
+- [Icons](./icons.md)
 
 ## Image styles
 
