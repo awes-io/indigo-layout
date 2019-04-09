@@ -81,7 +81,7 @@ gulp.task('build:icons', function(){
 
 You can also edit some parameters in the template file located at: ```/resources/svg/template/icons.styl```..
 
-| Name | Preview |
+| Code | Preview |
 |------|---------|
 | ```<i class="icon icon-angle-bottom"></i>``` | <i class="icon icon-angle-bottom"></i> |  
 | ```<i class="icon icon-ar-right"></i>``` | <i class="icon icon-ar-right"></i> | 
