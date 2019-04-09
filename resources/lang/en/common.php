@@ -9,5 +9,10 @@ return [
             'parameters' => 'Some required parameters have been omitted. See the documentation.',
         ],
         'no-data' => 'There is not enough data'
+    ],
+    'group' => [
+        'error' => [
+            'parameters' => 'Group Filter: Some required parameters have been omitted.'
+        ]
     ]
 ];

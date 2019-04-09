@@ -1,9 +1,9 @@
-# Margins and paddings default classes 
+# Margins and paddings
 
-Classes of indents that can be used throughout the system.
+Helper classes of indents that can be used throughout the system.
 
 ## Components
-- [Navigation Generator](./nav-generator.md)
+- [Blade Components](./components.md)
 - [Frame Navigation](./frame-nav.md)
 - [Grid](./grid.md)
 - [Content](./classes.md)
@@ -11,7 +11,47 @@ Classes of indents that can be used throughout the system.
 - **Margins and paddings**
 - [Icons](./icons.md)
 
+## Margins
 
+### Availble variables
+- `.ml-{size}`: margin-left: {size}
+- `.mt-{size}`: margin-top: {size}
+- `.mb-{size}`: margin-bottom: {size}
+- `.mr-{size}`: margin-right: {size}
+- `.mx-{size}`: margin-right: {size} and margin-left: {size}
+- `.my-{size}`: margin-top: {size} and margin-margin: {size}
+- `.m-{size}`: margin: {size} for all sides
+- `.mla, .mta, .mba, .mra, .mxa, .mya, .ma`: margins auto
+
+### Available sizes
+- 50px 
+- 30px 
+- 20px 
+- 15px
+- 10px
+- 5px
+- 0
+
+### Examples
+- `<div class="ml-50"></div>` will be `margin-left: 50px`
+- `<div class="m-5"></div>` will be `margin: 0`
+
+### Grid issues
+
+- `.ml-20--tmd`: `@media (max-width: 800px) margin-left 20px`
+- `.ml-20--tmd-i`: `@media (min-width: 801px) margin-left 20px`
+
+## Paddings
+The same system like in margin section.
+
+### Examples
+- `.pl-50` will be `padding-left: 50px`
+- `.px-50` will be `padding-left and right 50px`
+- `.py-50` will be `padding-top and bottom 50px`
+- `.pt-20--mmd`: `@media (max-width: 500px) padding-top 20px`
+- ...
+
+## Customization
 If you need to indent, be it margin or padding, you can easily do this using standard system classes. 
 In the ```_setting.styl``` there is an array with variables that you can change to suit your needs:
 
@@ -26,31 +66,3 @@ This array generates padding, which is also available with the mediaquery, which
 
 As default, in the ```m``` or ```p``` class the standard indent will be set, which is specified in the variable ```def```.
 
-#### Margins: 
-- **.ml**: margin-left
-- **.mt**: margin-top
-- **.mb**: margin-bottom
-- **.mr**: margin-right
-- **.mx**: margin-right and margin-left
-- **.my**: margin-top and margin-margin
-- **.m**: margin for all sides
-- **.mla, .mta, .mba, .mra, .mxa, .mya, .ma**: margins auto
-
-The remaining variables will be set with a hyphen, as exampe:
-- **.ml-50**: margin-left 50px
-- **.mt-20**: margin-top 20px
-- **.mr-15**: margin-right 15px
-- **...**
-
-Indenting breakpoints are also available, as in the grid.
-
-- **.ml-20--tmd**: @media (max-width: 800px) margin-left 20px
-- **.ml-20--tmd-i**: @media (min-width: 801px) margin-left 20px
-
-#### Paddings
-Everything is the same as in ```margin```, but the first letter of the class is ```p```. As example:
-- **.pl-50**: padding-left 50px
-- **.py-50**: padding-top and bottom 50px
-- **.px-50**: padding-left and right 50px
-- **.pt-20--mmd**: @media (max-width: 500px) padding-top 20px
-- **...**

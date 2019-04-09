@@ -5,7 +5,7 @@ This component is intended for the animated appearance/disappearance of the comp
 ![slide-up-down](https://static.awes.io/docs/slide-up-down.gif)
 
 ## Components
-- [Navigation Generator](./nav-generator.md)
+- [Blade Components](./components.md)
 - [Frame Navigation](./frame-nav.md)
 - [Grid](./grid.md)
 - [Content](./classes.md)

@@ -26,17 +26,17 @@ return [
         'js/main.legacy.js',
         'css/main.css'
     ],
-    // TODO: migrate colors to rgba
     'chart_colors' => [
-        'light-blue' => '#37b3c4',
-        'blue' => '#3f87c7',
-        'dark-blue' => '#3f4bb5',
+        'light-blue' => 'rgba(55,179,196,0.6)', // '#37b3c4',
+        'blue' => 'rgba(63,135,199,0.6)', //'#3f87c7',
+        'dark-blue' => 'rgba(63,75,181,0.6)', //'#3f4bb5',
         'violet' => 'rgba(135, 43, 188, 0.6)',
-        'pink' => '#e05d70',
-        'yellow' => '#bf8b2f',
-        'orange' => '#a95425',
-        'red' => '#bc2b4d',
-        'green' => '#13ae45'
+        'pink' => 'rgba(224,93,112,0.6)', //'#e05d70',
+        'yellow' => 'rgba(191,139,47,0.6)', //'#bf8b2f',
+        'orange' => 'rgba(169,84,37,0.6)', //'#a95425',
+        'red' => 'rgba(188,43,77,0.6)', //'#bc2b4d',
+        'green' => 'rgba(19,174,69,0.6)', //'#13ae45',
+        'grey' => 'rgba(204,204,204,0.2)', //'#cccccc'
     ],
 
     'nav' => [
