@@ -49,7 +49,7 @@
     <template slot-scope="chartData">
         {{--Filter configuration--}}
         @if (isset($filter) && isset($filter_variable) && isset($filter_default))
-            @filtergroup(['filter' => $filter, 'variable' => $filter_variable, 'default' => $filter_default]) @endfiltergroup
+            @filtergroup(['filter' => $filter, 'variable' => $filter_variable, 'default' => $filter_default])
         @endif
         <chart-builder class="card__chart"
                 :data='chartData'
