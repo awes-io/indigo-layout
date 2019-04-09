@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ App::getLocale() }}" @themeswitcher() @endthemeswitcher>
+<html lang="{{ App::getLocale() }}" @themeswitcher>
 
 @include('indigo-layout::chunks.head')
 
