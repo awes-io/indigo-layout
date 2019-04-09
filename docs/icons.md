@@ -83,83 +83,83 @@ You can also edit some parameters in the template file located at: ```/resources
 
 | Name | Preview |
 |------|---------|
-| angle-bottom | <i class="icon icon-angle-bottom"></i> |  
-| ar-right | <i class="icon icon-ar-right"></i> | 
-| arrow-left | <i class="icon icon-arrow-left"></i> | 
-| arrow-right | <i class="icon icon-arrow-right"></i> | 
-| box-down | <i class="icon icon-box-down"></i> | 
-| box-minus | <i class="icon icon-box-minus"></i> | 
-| box-pause | <i class="icon icon-box-pause"></i> | 
-| box-plus | <i class="icon icon-box-plus"></i> | 
-| box | <i class="icon icon-box"></i> | 
-| briefcase | <i class="icon icon-briefcase"></i> | 
-| call | <i class="icon icon-call"></i> | 
-| card | <i class="icon icon-card"></i> | 
-| checkbox | <i class="icon icon-checkbox"></i> | 
-| circle-check | <i class="icon icon-circle-check"></i> | 
-| circle-clock | <i class="icon icon-circle-clock"></i> | 
-| circle-cross | <i class="icon icon-circle-cross"></i> | 
-| circle-plus | <i class="icon icon-circle-plus"></i> | 
-| clipboard | <i class="icon icon-clipboard"></i> | 
-| cross | <i class="icon icon-cross"></i> | 
-| data-error | <i class="icon icon-data-error"></i> | 
-| data-time | <i class="icon icon-data-time"></i> | 
-| database-error | <i class="icon icon-database-error"></i> | 
-| database | <i class="icon icon-database"></i> | 
-| dfcheck | <i class="icon icon-dfcheck"></i> | 
-| document | <i class="icon icon-document"></i> | 
-| dots | <i class="icon icon-dots"></i> | 
-| down | <i class="icon icon-down"></i> | 
-| drag | <i class="icon icon-drag"></i> | 
-| exel | <i class="icon icon-exel"></i> | 
-| eye | <i class="icon icon-eye"></i> | 
-| eye2 | <i class="icon icon-eye2"></i> | 
-| fb | <i class="icon icon-fb"></i> | 
-| file | <i class="icon icon-file"></i> | 
-| filter | <i class="icon icon-filter"></i> | 
-| flag | <i class="icon icon-flag"></i> | 
-| gift | <i class="icon icon-gift"></i> | 
-| gp | <i class="icon icon-gp"></i> | 
-| graph | <i class="icon icon-graph"></i> | 
-| hdd | <i class="icon icon-hdd"></i> | 
-| head | <i class="icon icon-head"></i> | 
-| in | <i class="icon icon-in"></i> | 
-| intelligence | <i class="icon icon-intelligence"></i> | 
-| link | <i class="icon icon-link"></i> | 
-| loading | <i class="icon icon-loading"></i> | 
-| logo | <i class="icon icon-logo"></i> | 
-| logout | <i class="icon icon-logout"></i> | 
-| mastercard | <i class="icon icon-mastercard"></i> | 
-| message | <i class="icon icon-message"></i> | 
-| money | <i class="icon icon-money"></i> | 
-| nav | <i class="icon icon-nav"></i> | 
-| no-access | <i class="icon icon-no-access"></i> | 
-| openin | <i class="icon icon-openin"></i> | 
-| pin | <i class="icon icon-pin"></i> | 
-| planner | <i class="icon icon-planner"></i> | 
-| plus | <i class="icon icon-plus"></i> | 
-| report | <i class="icon icon-report"></i> | 
-| road | <i class="icon icon-road"></i> | 
-| ruppor | <i class="icon icon-ruppor"></i> | 
-| schedule | <i class="icon icon-schedule"></i> | 
-| search | <i class="icon icon-search"></i> | 
-| sell | <i class="icon icon-sell"></i> | 
-| service | <i class="icon icon-service"></i> | 
-| settings | <i class="icon icon-settings"></i> | 
-| smile | <i class="icon icon-smile"></i> | 
-| speed | <i class="icon icon-speed"></i> | 
-| stock | <i class="icon icon-stock"></i> | 
-| stop | <i class="icon icon-stop"></i> | 
-| storage | <i class="icon icon-storage"></i> | 
-| timelaps | <i class="icon icon-timelaps"></i> | 
-| twousers | <i class="icon icon-twousers"></i> | 
-| up | <i class="icon icon-up"></i> | 
-| user | <i class="icon icon-user"></i> | 
-| visa | <i class="icon icon-visa"></i> | 
-| word | <i class="icon icon-word"></i> | 
-| git | <i class="icon icon-git"></i> | 
-| pencil2 | <i class="icon icon-pencil2"></i> | 
-| question | <i class="icon icon-question"></i> | 
-| star-circle | <i class="icon icon-star-circle"></i> | 
-| hashtag | <i class="icon icon-hashtag"></i> |
-| loading-circle | <i class="icon icon-loading-circle"></i> | 
+| ```<i class="icon icon-angle-bottom"></i>``` | <i class="icon icon-angle-bottom"></i> |  
+| ```<i class="icon icon-ar-right"></i>``` | <i class="icon icon-ar-right"></i> | 
+| ```<i class="icon icon-arrow-left"></i>``` | <i class="icon icon-arrow-left"></i> | 
+| ```<i class="icon icon-arrow-right"></i>``` | <i class="icon icon-arrow-right"></i> | 
+| ```<i class="icon icon-box-down"></i> ``` | <i class="icon icon-box-down"></i> | 
+| ```<i class="icon icon-box-minus"></i>``` | <i class="icon icon-box-minus"></i> | 
+| ```<i class="icon icon-box-pause"></i>``` | <i class="icon icon-box-pause"></i> | 
+| ```<i class="icon icon-box-plus"></i>``` | <i class="icon icon-box-plus"></i> | 
+| ```<i class="icon icon-box"></i>``` | <i class="icon icon-box"></i> | 
+| ```<i class="icon icon-briefcase"></i>``` | <i class="icon icon-briefcase"></i> | 
+| ```<i class="icon icon-call"></i>``` | <i class="icon icon-call"></i> | 
+| ```<i class="icon icon-card"></i>``` | <i class="icon icon-card"></i> | 
+| ```<i class="icon icon-checkbox"></i>``` | <i class="icon icon-checkbox"></i> | 
+| ```<i class="icon icon-circle-check"></i>``` | <i class="icon icon-circle-check"></i> | 
+| ```<i class="icon icon-circle-clock"></i>``` | <i class="icon icon-circle-clock"></i> | 
+| ```<i class="icon icon-circle-cross"></i>``` | <i class="icon icon-circle-cross"></i> | 
+| ```<i class="icon icon-circle-plus"></i>```| <i class="icon icon-circle-plus"></i> | 
+| ```<i class="icon icon-clipboard"></i>``` | <i class="icon icon-clipboard"></i> | 
+| ```<i class="icon icon-cross"></i>``` | <i class="icon icon-cross"></i> | 
+| ```<i class="icon icon-data-error"></i>``` | <i class="icon icon-data-error"></i> | 
+| ```<i class="icon icon-data-time"></i>``` | <i class="icon icon-data-time"></i> | 
+| ```<i class="icon icon-database-error"></i>``` | <i class="icon icon-database-error"></i> | 
+| ```<i class="icon icon-database"></i>``` | <i class="icon icon-database"></i> | 
+| ```<i class="icon icon-dfcheck"></i>``` | <i class="icon icon-dfcheck"></i> | 
+| ```<i class="icon icon-document"></i>``` | <i class="icon icon-document"></i> | 
+| ```<i class="icon icon-dots"></i>``` | <i class="icon icon-dots"></i> | 
+| ```<i class="icon icon-down"></i>``` | <i class="icon icon-down"></i> | 
+| ```<i class="icon icon-drag"></i>``` | <i class="icon icon-drag"></i> | 
+| ```<i class="icon icon-exel"></i>``` | <i class="icon icon-exel"></i> | 
+| ```<i class="icon icon-eye"></i>``` | <i class="icon icon-eye"></i> | 
+| ```<i class="icon icon-eye2"></i>``` | <i class="icon icon-eye2"></i> | 
+| ```<i class="icon icon-fb"></i>``` | <i class="icon icon-fb"></i> | 
+| ```<i class="icon icon-file"></i>``` | <i class="icon icon-file"></i> | 
+| ```<i class="icon icon-filter"></i>``` | <i class="icon icon-filter"></i> | 
+| ```<i class="icon icon-flag"></i>``` | <i class="icon icon-flag"></i> | 
+| ```<i class="icon icon-gift"></i>``` | <i class="icon icon-gift"></i> | 
+| ```<i class="icon icon-gp"></i>``` | <i class="icon icon-gp"></i> | 
+| ```<i class="icon icon-graph"></i>``` | <i class="icon icon-graph"></i> | 
+| ```<i class="icon icon-hdd"></i>``` | <i class="icon icon-hdd"></i> | 
+| ```<i class="icon icon-head"></i>``` | <i class="icon icon-head"></i> | 
+| ```<i class="icon icon-in"></i>``` | <i class="icon icon-in"></i> | 
+| ```<i class="icon icon-intelligence"></i>``` | <i class="icon icon-intelligence"></i> | 
+| ```<i class="icon icon-link"></i>``` | <i class="icon icon-link"></i> | 
+| ```<i class="icon icon-loading"></i>``` | <i class="icon icon-loading"></i> | 
+| ```<i class="icon icon-logo"></i>``` | <i class="icon icon-logo"></i> | 
+| ```<i class="icon icon-logout"></i>``` | <i class="icon icon-logout"></i> | 
+| ```<i class="icon icon-mastercard"></i>``` | <i class="icon icon-mastercard"></i> | 
+| ```<i class="icon icon-message"></i>``` | <i class="icon icon-message"></i> | 
+| ```<i class="icon icon-money"></i>``` | <i class="icon icon-money"></i> | 
+| ```<i class="icon icon-nav"></i>``` | <i class="icon icon-nav"></i> | 
+| ```<i class="icon icon-no-access"></i>``` | <i class="icon icon-no-access"></i> | 
+| ```<i class="icon icon-openin"></i>``` | <i class="icon icon-openin"></i> | 
+| ```<i class="icon icon-pin"></i>``` | <i class="icon icon-pin"></i> | 
+| ```<i class="icon icon-planner"></i>``` | <i class="icon icon-planner"></i> | 
+| ```<i class="icon icon-plus"></i>```  | <i class="icon icon-plus"></i> | 
+| ```<i class="icon icon-report"></i>``` | <i class="icon icon-report"></i> | 
+| ```<i class="icon icon-road"></i>``` | <i class="icon icon-road"></i> | 
+| ```<i class="icon icon-ruppor"></i>``` | <i class="icon icon-ruppor"></i> | 
+| ```<i class="icon icon-schedule"></i>``` | <i class="icon icon-schedule"></i> | 
+| ```<i class="icon icon-search"></i>``` | <i class="icon icon-search"></i> | 
+| ```<i class="icon icon-sell"></i>``` | <i class="icon icon-sell"></i> | 
+| ```<i class="icon icon-service"></i> ``` | <i class="icon icon-service"></i> | 
+| ```<i class="icon icon-settings"></i>``` | <i class="icon icon-settings"></i> | 
+| ```<i class="icon icon-smile"></i>``` | <i class="icon icon-smile"></i> | 
+| ```<i class="icon icon-speed"></i>``` | <i class="icon icon-speed"></i> | 
+| ```<i class="icon icon-stock"></i>``` | <i class="icon icon-stock"></i> | 
+| ```<i class="icon icon-stop"></i>``` | <i class="icon icon-stop"></i> | 
+| ```<i class="icon icon-storage"></i>``` | <i class="icon icon-storage"></i> | 
+| ```<i class="icon icon-timelaps"></i> ``` | <i class="icon icon-timelaps"></i> | 
+| ```<i class="icon icon-twousers"></i>``` | <i class="icon icon-twousers"></i> | 
+| ```<i class="icon icon-up"></i>``` | <i class="icon icon-up"></i> | 
+| ```<i class="icon icon-user"></i>``` | <i class="icon icon-user"></i> | 
+| ```<i class="icon icon-visa"></i>``` | <i class="icon icon-visa"></i> | 
+| ```<i class="icon icon-word"></i>``` | <i class="icon icon-word"></i> | 
+| ```<i class="icon icon-git"></i>``` | <i class="icon icon-git"></i> | 
+| ```<i class="icon icon-pencil2"></i>``` | <i class="icon icon-pencil2"></i> | 
+| ```<i class="icon icon-question"></i>``` | <i class="icon icon-question"></i> | 
+| ```<i class="icon icon-star-circle"></i>``` | <i class="icon icon-star-circle"></i> | 
+| ```<i class="icon icon-hashtag"></i>``` | <i class="icon icon-hashtag"></i> |
+| ```<i class="icon icon-loading-circle"></i>``` | <i class="icon icon-loading-circle"></i> | 
