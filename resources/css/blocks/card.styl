@@ -60,7 +60,6 @@
         margin-right auto
         line-height 1.5
         font-size 12px
-
     // Styles for dashboard chart
     &_chart
         min-height 260px
@@ -111,6 +110,42 @@
                     background-color transparent !important
                 &:first-child, &:last-child
                     border-radius 0
+    &_ava
+        position relative
+        min-height 200px
+        display flex
+        padding 0
+    & &__ava
+        &-img
+            width 100%
+        &-del
+            absolute right 15px top 15px
+            z-index 3
+            font-size 12px
+            cursor pointer
+            size 30px
+            border-radius 50%
+            fl(,c,c)
+            background-color var(--tc_ui_bg)
+            color var(--tc_text)
+            &:hover
+                background-color cl_warn
+                color #fff
+    & &__hover
+        absolute left 0 top 0
+        size 100%
+        z-index 2
+        fl()
+        background-color var(--tc_ui_bgopacity)
+        tr .25
+        opacity 0
+        &-cell
+            margin auto
+        &:hover
+            opacity 1
+    & &__wraph
+        margin auto
+        width 100%
 
 
 @media maw['dmd']
@@ -121,6 +156,8 @@
             padding 0
             .chart
                 min-height 320px
+        &_ava
+            padding 0
 
 @media maw['tmd']
     .card
@@ -128,5 +165,40 @@
             min-height 250px
             .chart
                 min-height 250px
+
+@media (pointer coarse)
+    .card
+        &_ava
+            background-color transparent
+            box-shadow none
+            display block
+            & ^[0]__wrap
+                background-color var(--tc_ui_bg)
+                box-shadow var(--tc_ui_shadow)
+                margin 0
+                min-height 200px
+                display flex
+            & ^[0]__hover
+                position static
+                opacity 1
+                width 100%
+                display block
+                margin-top 15px
+                background none
+                .btn
+                    background none
+                    text-transform uppercase
+                    color var(--tc_link_semi)
+                    padding 0
+                    font-size 12px
+                    font-weight 500
+                    cursor pointer
+                    min-width 1px
+                    &:hover, &:focus, &:active
+                        color var(--tc_link_semi_active)
+                        background none
+            
+
+
 
 
