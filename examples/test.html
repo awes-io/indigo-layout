@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Margin Example</title>
+    <title>Tags</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700&amp;amp;subset=cyrillic" rel="stylesheet">
@@ -28,7 +28,7 @@
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/theme-switcher/v1.x.x/js/main.js"></script>
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/tab-builder/v1.x.x/js/main.js"></script>
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/awes-notify/v1.x.x/js/main.js"></script>
-    <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/base-js/v1.x.x/js/main.js"></script><!-- Modules-->
+    <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/base-js/v1.x.x/js/main.js"></script><!-- test-->
 </head>
 
 <body>
@@ -73,7 +73,7 @@
                     </div>
                     <div class="frame__header-line">
                         <div class="frame__title-line">
-                            <h1 class="frame__header-title">Margin Example</h1>
+                            <h1 class="frame__header-title">Tags</h1>
                         </div>
                     </div>
                 </div>
@@ -437,47 +437,81 @@
                     </div>
                 </transition>
                 <div class="frame__content">
-                    <awes-notify-container class="frame__awes-notify-container" name="frame" stack="false" :config="{theme: 'inline', status: 'warning', timeout: 0}"></awes-notify-container><button class="frame__header-add"><i class="icon icon-plus"></i></button>
+                    <awes-notify-container class="frame__awes-notify-container" name="frame" stack="false" :config="{theme: 'inline', status: 'warning', timeout: 0}"></awes-notify-container>
                     <div class="frame__inlayout">
                         <div class="frame__inlayout-content">
-                            <p>If you need to indent, be it margin or padding, you can easily do this using standard system classes. </p>
-                            <p>In the <kbd>_setting.styl</kbd> there is an array with variables that you can change to suit your needs:</p><pre class="stylus"><code>margin  = {def: 30px, big: 50px, md: 20px, sx: 15px, sl: 10px, sm: 5px}
-</code></pre>
-                            <p>This array generates padding, which is also available with the mediaquery, which is specified in more detail in the <a href="/grid.html" target="_blank">grid</a>.</p>
-                            <h3>The array will generate the following classes:</h3>
-                            <p>As default, in the <kbd>m</kbd> or <kbd>p</kbd> class the standard indent will be set, which is specified in the variable <code>def</code>.</p>
-                            <h4>Margins: </h4>
-                            <ul>
-                                <li><b>.ml</b>: margin-left</li>
-                                <li><b>.mt</b>: margin-top</li>
-                                <li><b>.mb</b>: margin-bottom</li>
-                                <li><b>.mr</b>: margin-right</li>
-                                <li><b>.mx</b>: margin-right and margin-left</li>
-                                <li><b>.my</b>: margin-top and margin-margin</li>
-                                <li><b>.m</b>: margin for all sides</li>
-                                <li><b>.mla, .mta, .mba, .mra, .mxa, .mya, .ma</b>: margins auto</li>
-                            </ul>
-                            <p>The remaining variables will be set with a hyphen, as exampe:</p>
-                            <ul>
-                                <li><b>.ml-big</b>: margin-left 50px</li>
-                                <li><b>.mt-md</b>: margin-top 20px</li>
-                                <li><b>.mr-sx</b>: margin-right 15px</li>
-                                <li>...</li>
-                            </ul>
-                            <p>Indenting breakpoints are also available, as in the grid.</p>
-                            <ul>
-                                <li><b>.ml-md--tmd</b>: @media (max-width: 800px) margin-left 20px</li>
-                                <li><b>.ml-md--tmd-i</b>: @media (min-width: 801px) margin-left 20px</li>
-                            </ul>
-                            <h4>Paddings</h4>
-                            <p>Everything is the same as in <kbd>margin</kbd>, but the first letter of the class is <code>p</code>. As example:</p>
-                            <ul>
-                                <li><b>.pl-big</b>: padding-left 50px</li>
-                                <li><b>.py-big</b>: padding-top and bottom 50px</li>
-                                <li><b>.px-big</b>: padding-left and right 50px</li>
-                                <li><b>.pt-md--mmd</b>: @media (max-width: 500px) margin-top 20px</li>
-                                <li>...</li>
-                            </ul>
+                            <div class="tab-builder">
+                                <div class="tab-builder__togglers">
+                                    <div class="tab-builder__togglers-overflow"><button class="tab-builder__toggler is-active" style="visibility: visible;">Profile</button><button class="tab-builder__toggler" style="visibility: visible;">Security</button><button class="tab-builder__toggler" style="visibility: visible;">Badges</button></div>
+                                    <div class="tab-builder__hidden-toggler context-menu" style="visibility: hidden;"><button class="context-menu__toggler" aria-haspopup="true"></button>
+                                        <div class="context-menu__dropdown" aria-expanded="false" style="display: none;">
+                                            <ul class="context-menu__list">
+                                                <li class="cm-item is-active" style="display: none;"><button class="cm-item__button">Profile</button></li>
+                                                <li class="cm-item" style="display: none;"><button class="cm-item__button">Security</button></li>
+                                                <li class="cm-item" style="display: none;"><button class="cm-item__button">Badges</button></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-builder__tabs">
+                                    <div>
+                                        <div class="tab-builder__tab">
+                                            <div class="grid">
+                                                <div class="cell cell-6-8--dlg-i cell-5-8--mmd-i">
+                                                    <form class="form-builder" action="https://www.pkgkit.com/settings/update" method="post">
+                                                        <div class="fb-input fb-element fb-input_active">
+                                                            <div class="v-popover display-block"><span class="trigger" aria-describedby="popover_suyj5xc9w4" tabindex="-1" style="display: inline-block;"><label class="fb-input__label fb-input__label_field" for="#input-0">Email</label><input class="fb-input__field is-focusable" id="input-0" data-awes="fb-input.email" type="text"><!-- --><!-- --></span></div>
+                                                        </div>
+                                                        <div class="fb-input fb-element fb-input_active">
+                                                            <div class="v-popover display-block"><span class="trigger" aria-describedby="popover_o2xr888d5d" tabindex="-1" style="display: inline-block;"><label class="fb-input__label fb-input__label_field" for="#input-1">Name</label><input class="fb-input__field is-focusable" id="input-1" data-awes="fb-input.name" type="text"><!-- --><!-- --></span></div>
+                                                        </div>
+                                                        <div>
+                                                            <div class="line-btns"><button class="btn btn-send has-wave" data-loading="Loading..." type="submit" data-awes="modal_button_ok">Update <span class="wave" style="transform: translate(-50%, -50%) scale(0); transition: none 0s ease 0s; opacity: 1;"></span></button><!-- -->
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div class="cell cell-2-8--dlg-i cell-3-8--mmd-i">
+                                                    <!-- -->
+                                                    <!-- -->
+                                                    <!-- -->
+                                                    <!-- -->
+                                                    <div class="paycard paycard_white">
+                                                        <div class="paycard__wrap paycard__wrap_flex"><i class="icon icon-user paycard__noavatar"></i></div>
+                                                        <div class="paycard__hover paycard__hover_nopad">
+                                                            <div class="paycard__hover-cell"><button class="btn paycard--btn has-wave" title="change photo">change photo<span class="wave" style="transform: translate(-50%, -50%) scale(0); transition: none 0s ease 0s; opacity: 1;"></span></button></div>
+                                                        </div>
+                                                    </div><!-- -->
+                                                    <div class="section"><button class="upper-link">Change password</button></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-builder__tab" style="display: none;">
+                                            <div class="section">
+                                                <h2>Two-factor authentication</h2>
+                                                <form class="form-builder" action="https://www.pkgkit.com/twofactor" method="post">
+                                                    <div class="fb-switcher fb-element">
+                                                        <div class="v-popover display-block"><span class="trigger" aria-describedby="popover_riz6gvtun5" tabindex="-1" style="display: inline-block;"><div class="fb-switcher__field-wrap" data-awes="fb-switcher.two_factor"><input class="fb-switcher__field is-focusable" type="range" min="0" max="1" step="1"></div><span class="fb-switcher__label">Two-factor authentication</span><!-- -->
+                                                            <!-- -->
+                                                            <div>
+                                                                <div class="line-btns"><button class="btn btn-send has-wave" disabled="disabled" data-loading="Loading..." type="submit" data-awes="modal_button_ok">Enable <span class="wave" style="transform: translate(-50%, -50%) scale(0); transition: none 0s ease 0s; opacity: 1;"></span></button><!-- -->
+                                                                </div>
+                                                            </div>
+                                                            </span></div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="tab-builder__tab" style="display: none;"><img src="https://www.pkgkit.com/badges/hosted.svg">
+                                            <div class="section">
+                                                <h3>Markdown</h3><pre></pre>
+                                                <h3>HTML</h3><pre></pre>
+                                                <h3>AsciiDoc</h3><pre></pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div><span class="frame__copyright">© 2019 - PkgKit - Proudly powered on <a href="">Awes.IO Platform</a>.</span>
