@@ -1,0 +1,104 @@
+extends includes/layout.pug
+
+block pageVariables
+    - var pageTitle = "Tags"
+    - var removePlus = true
+
+block pageHead
+    // test
+
+
+
+block pageContent
+
+    .tab-builder
+        .tab-builder__togglers
+            .tab-builder__togglers-overflow
+                button.tab-builder__toggler.is-active(style='visibility: visible;')
+                    | Profile
+                button.tab-builder__toggler(style='visibility: visible;')
+                    | Security
+                button.tab-builder__toggler(style='visibility: visible;')
+                    | Badges
+            .tab-builder__hidden-toggler.context-menu(style='visibility: hidden;')
+                button.context-menu__toggler(aria-haspopup='true')
+                .context-menu__dropdown(aria-expanded='false', style='display: none;')
+                    ul.context-menu__list
+                        li.cm-item.is-active(style='display: none;')
+                            button.cm-item__button
+                                | Profile
+                        li.cm-item(style='display: none;')
+                            button.cm-item__button
+                                | Security
+                        li.cm-item(style='display: none;')
+                            button.cm-item__button
+                                | Badges
+        .tab-builder__tabs
+            div
+                .tab-builder__tab
+                    .grid
+                        .cell.cell-6-8--dlg-i.cell-5-8--mmd-i
+                            form.form-builder(action='https://www.pkgkit.com/settings/update', method='post')
+                                .fb-input.fb-element.fb-input_active
+                                    .v-popover.display-block
+                                        span.trigger(aria-describedby='popover_suyj5xc9w4', tabindex='-1', style='display: inline-block;')
+                                            label.fb-input__label.fb-input__label_field(for='#input-0') Email
+                                            input#input-0.fb-input__field.is-focusable(data-awes='fb-input.email', type='text')
+                                            // 
+                                            // 
+                                .fb-input.fb-element.fb-input_active
+                                    .v-popover.display-block
+                                        span.trigger(aria-describedby='popover_o2xr888d5d', tabindex='-1', style='display: inline-block;')
+                                            label.fb-input__label.fb-input__label_field(for='#input-1') Name
+                                            input#input-1.fb-input__field.is-focusable(data-awes='fb-input.name', type='text')
+                                            // 
+                                            // 
+                                div
+                                    .line-btns
+                                        button.btn.btn-send.has-wave(data-loading='Loading...', type='submit', data-awes='modal_button_ok')
+                                            | Update 
+                                            span.wave(style='transform: translate(-50%, -50%) scale(0); transition: none 0s ease 0s; opacity: 1;')
+                                        // 
+                        .cell.cell-2-8--dlg-i.cell-3-8--mmd-i
+                            // 
+                            // 
+                            // 
+                            // 
+                            .paycard.paycard_white
+                                .paycard__wrap.paycard__wrap_flex
+                                    i.icon.icon-user.paycard__noavatar
+                                .paycard__hover.paycard__hover_nopad
+                                    .paycard__hover-cell
+                                        button.btn.paycard--btn.has-wave(title='change photo')
+                                            | change photo
+                                            span.wave(style='transform: translate(-50%, -50%) scale(0); transition: none 0s ease 0s; opacity: 1;')
+                            // 
+                            .section
+                                button.upper-link Change password
+                .tab-builder__tab(style='display: none;')
+                    .section
+                        h2 Two-factor authentication
+                        form.form-builder(action='https://www.pkgkit.com/twofactor', method='post')
+                            .fb-switcher.fb-element
+                                .v-popover.display-block
+                                    span.trigger(aria-describedby='popover_riz6gvtun5', tabindex='-1', style='display: inline-block;')
+                                        .fb-switcher__field-wrap(data-awes='fb-switcher.two_factor')
+                                            input.fb-switcher__field.is-focusable(type='range', min='0', max='1', step='1')
+                                        span.fb-switcher__label Two-factor authentication
+                                        // 
+                                        // 
+                                        div
+                                            .line-btns
+                                                button.btn.btn-send.has-wave(disabled='disabled', data-loading='Loading...', type='submit', data-awes='modal_button_ok')
+                                                    | Enable 
+                                                    span.wave(style='transform: translate(-50%, -50%) scale(0); transition: none 0s ease 0s; opacity: 1;')
+                                                // 
+                .tab-builder__tab(style='display: none;')
+                    img(src='https://www.pkgkit.com/badges/hosted.svg')
+                    .section
+                        h3 Markdown
+                        pre.
+                        h3 HTML
+                        pre.
+                        h3 AsciiDoc
+                        pre.
