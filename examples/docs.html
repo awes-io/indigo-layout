@@ -28,6 +28,7 @@
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/theme-switcher/v1.x.x/js/main.js"></script>
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/tab-builder/v1.x.x/js/main.js"></script>
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/awes-notify/v1.x.x/js/main.js"></script>
+    <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/virtual-tour/v1.x.x/js/main.js"></script>
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/base-js/v1.x.x/js/main.js"></script>
     <script src="https://storage.awes.io/74c99e54e4bbe7ab337ddbb5ec348d02/awes-io/page-map/v1.x.x/js/main.js"></script>
     <link rel="stylesheet" href="https://storage.awes.io/74c99e54e4bbe7ab337ddbb5ec348d02/awes-io/page-map/v1.x.x/css/main.css"><!-- there is can be head meta or sctipts-->
@@ -471,6 +472,7 @@
                                 </template></page-map>
                         </div>
                         <div class="frame__inlayout-content">
+                            <virtual-tour :steps="[{el: '.tip1', position: 'auto', message: 'Possimus corrupti veritatis laboriosam similique hic officiis ducimus, amet magnam suscipit esse culpa'},{el: '.tip2',fade: false,message: 'Test message. Lorem ipsum, dolor sit amet consectetur adipisicing elit.'},{el: '.tip3',message: 'Test message 2'},{position: 'right',message: 'This is a center message!'}]"></virtual-tour>
                             <p>Предназначен для отображения скрытого по-умолчанию списка нажатием на кнопку</p>
                             <div id="minimal-codeup"></div>
                             <h2>Минимальная разметка</h2>
@@ -479,7 +481,7 @@
 &lt;/context-menu&gt;
 
 </code></pre><img src="https://picsum.photos/1600/500/?random" alt="">
-                            <h2>Test Bash</h2><pre><code class="language-bash">#!/bin/bash
+                            <h2 class="tip1">Test Bash</h2><pre><code class="language-bash">#!/bin/bash
 
 ###### CONFIG
 ACCEPTED_HOSTS="/root/.hag_accepted.conf"
@@ -548,7 +550,7 @@ datahere
 datahere */
 datahere</code></pre>
                             <h3>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</h3>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere corrupti doloremque non, excepturi veniam repellendus cumque laudantium magnam, delectus est ab voluptates ut saepe asperiores libero nostrum tempore debitis quas?</p>
+                            <p class="tip2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere corrupti doloremque non, excepturi veniam repellendus cumque laudantium magnam, delectus est ab voluptates ut saepe asperiores libero nostrum tempore debitis quas?</p>
                             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere corrupti doloremque non, excepturi veniam repellendus cumque laudantium magnam, delectus est ab voluptates ut saepe asperiores libero nostrum tempore debitis quas?</p>
                             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere corrupti doloremque non, excepturi veniam repellendus cumque laudantium magnam, delectus est ab voluptates ut saepe asperiores libero nostrum tempore debitis quas?</p>
                             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere corrupti doloremque non, excepturi veniam repellendus cumque laudantium magnam, delectus est ab voluptates ut saepe asperiores libero nostrum tempore debitis quas?</p>
@@ -560,7 +562,7 @@ datahere</code></pre>
                             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere corrupti doloremque non, excepturi veniam repellendus cumque laudantium magnam, delectus est ab voluptates ut saepe asperiores libero nostrum tempore debitis quas?</p>
                             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere corrupti doloremque non, excepturi veniam repellendus cumque laudantium magnam, delectus est ab voluptates ut saepe asperiores libero nostrum tempore debitis quas?</p>
                             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere corrupti doloremque non, excepturi veniam repellendus cumque laudantium magnam, delectus est ab voluptates ut saepe asperiores libero nostrum tempore debitis quas?</p>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere corrupti doloremque non, excepturi veniam repellendus cumque laudantium magnam, delectus est ab voluptates ut saepe asperiores libero nostrum tempore debitis quas?</p>
+                            <p class="tip3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere corrupti doloremque non, excepturi veniam repellendus cumque laudantium magnam, delectus est ab voluptates ut saepe asperiores libero nostrum tempore debitis quas?</p>
                             <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h4>
                             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere corrupti doloremque non, excepturi veniam repellendus cumque laudantium magnam, delectus est ab voluptates ut saepe asperiores libero nostrum tempore debitis quas?</p>
                             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere corrupti doloremque non, excepturi veniam repellendus cumque laudantium magnam, delectus est ab voluptates ut saepe asperiores libero nostrum tempore debitis quas?</p>
