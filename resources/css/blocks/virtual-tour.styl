@@ -1,0 +1,158 @@
+$z-index = 15
+$underlay-padding = 2px
+$pin-size = .75rem
+$pin-triangle-side = $pin-size / 1.732
+
+.virtual-tour
+    absolute left top
+    right: 0
+    bottom: 0
+    z-index: $z-index - 3
+    &__backdrop
+        fixed left 0 top 0 bottom 0 right 0
+        z-index $z-index - 2
+        background-color rgba(0,0,0,0.5)
+        opacity 0
+        transition opacity 300ms ease
+        &.is-visible
+            opacity: 1
+    &__underlay
+        box-sizing: content-box
+        position: absolute
+        z-index: $z-index - 1
+        border-radius: $underlay-padding
+        padding: $underlay-padding
+        transform: translate($underlay-padding * -1, $underlay-padding * -1)
+        background-color var(--tc_ui_bg)
+        box-shadow: 0 0 15px rgba(0,0,0,0.1)
+        opacity: 0
+        transition: opacity 200ms ease, transform 300ms ease-out
+        &.is-visible
+            opacity: 1
+.tooltip-pin
+    z-index: $z-index
+    box-sizing: border-box
+    padding: $pin-size
+    position: absolute
+    width: 350px
+    max-width: 100%
+    opacity: 0
+    transition: opacity 150ms
+    &__inner
+        box-shadow: 0 0 15px rgba(0,0,0,0.1)
+    &__title
+        height: 2rem
+        font-size: 1.25rem
+        line-height: 2rem
+        padding: 10px 15px 0 15px
+        margin: 0
+        white-space: nowrap
+        overflow: hidden
+        text-overflow: ellipsis
+    &__close
+        top: 0.85rem
+    &__message
+        margin: 0
+        font-size 14px
+        line-height 1.5
+        max-height 250px
+        padding 10px 15px 20px 15px
+        flex-grow: 1
+        overflow: auto
+    &__buttons
+        padding 15px
+        border-top 1px solid var(--tc_border_ins)
+        fl()
+        button
+            @extend .tf-hyplink
+            margin-right 20px
+            color var(--tc_link_semi)
+            &:last-child
+                margin-right 0
+            &:hover
+                color var(--tc_link_semi_active)
+    &__button
+        padding: 0
+    &:not(.is-center):after
+        position: absolute
+        content: ''
+        display: block
+        box-sizing: border-box
+        height: .75rem
+        width: .75rem
+        border-top: $pin-size solid var(--tc_ui_bg)
+        border-left: $pin-triangle-side solid transparent
+        border-right: $pin-triangle-side solid transparent
+    &.is-visible
+        opacity: 1
+        transition: opacity 200ms ease-out
+    &.is-left
+        &:after
+            right: 0
+            top: 50%
+            margin-top: -1 * $pin-triangle-side
+            transform: rotate(-90deg)
+    &.is-right
+        &:after
+            left: 0
+            top: 50%
+            margin-top: -1 * $pin-triangle-side
+            transform: rotate(90deg)
+    &.is-top
+        &:after
+            bottom: 0
+            left: 50%
+            margin-left: -1 * $pin-triangle-side
+    &.is-bottom
+        &:after
+            top: 0
+            left: 50%
+            margin-left: -1 * $pin-triangle-side
+            transform: rotate(180deg)
+    &.is-center
+        position: fixed
+        left: 50%
+        top: 50%
+        transform: translate(-50%, -50%)
+    &__inner
+        background-color var(--tc_ui_bg)
+        position: relative
+        transform: scale(.95)
+        transition: transform 150ms
+        ^[0].is-visible &
+            transition: transform 250ms ease-out
+            transform: none
+        ^[0].is-left &
+            transform-origin: right center
+        ^[0].is-right &
+            transform-origin: left center
+        ^[0].is-top &
+            transform-origin: center bottom
+
+        ^[0].is-bottom &
+            transform-origin: center top
+    &__close
+        appearance: none
+        cursor: pointer
+        background-color: transparent
+        padding: 0
+        margin: 0
+        border: none
+        opacity: 0.5
+        position: absolute
+        top: .5rem
+        right: .5rem
+        svg
+            width: .8rem
+            height .8rem
+            path
+                vector-effect: non-scaling-stroke
+                stroke-width: 1.5px
+                stroke: var(--tc_text)
+
+        &:hover, &:focus
+            opacity 1
+
+*.has-tooltip
+    position: relative
+    z-index: $z-index - 1 !important
