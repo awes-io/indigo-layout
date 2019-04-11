@@ -13,6 +13,13 @@ block pageHead
 
 
 block pageContent
+
+
+    virtual-tour(:steps="[{el: '.tip1', position: 'auto', message: 'Possimus corrupti veritatis laboriosam similique hic officiis ducimus, amet magnam suscipit esse culpa'},{el: '.tip2',fade: false,message: 'Test message. Lorem ipsum, dolor sit amet consectetur adipisicing elit.'},{el: '.tip3',message: 'Test message 2'},{position: 'right',message: 'This is a center message!'}]")
+
+
+
+
     p Предназначен для отображения скрытого по-умолчанию списка нажатием на кнопку
 
     #minimal-codeup
@@ -28,7 +35,7 @@ block pageContent
 
     img(src="https://picsum.photos/1600/500/?random", alt="")
 
-    h2 Test Bash
+    h2.tip1 Test Bash
     pre
         code.language-bash.
             #!/bin/bash
@@ -103,7 +110,7 @@ block pageContent
             datahere */
             datahere
     h3 Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-    p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere corrupti doloremque non, excepturi veniam repellendus cumque laudantium magnam, delectus est ab voluptates ut saepe asperiores libero nostrum tempore debitis quas?
+    p.tip2 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere corrupti doloremque non, excepturi veniam repellendus cumque laudantium magnam, delectus est ab voluptates ut saepe asperiores libero nostrum tempore debitis quas?
     p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere corrupti doloremque non, excepturi veniam repellendus cumque laudantium magnam, delectus est ab voluptates ut saepe asperiores libero nostrum tempore debitis quas?
     p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere corrupti doloremque non, excepturi veniam repellendus cumque laudantium magnam, delectus est ab voluptates ut saepe asperiores libero nostrum tempore debitis quas?
     p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere corrupti doloremque non, excepturi veniam repellendus cumque laudantium magnam, delectus est ab voluptates ut saepe asperiores libero nostrum tempore debitis quas?
@@ -115,7 +122,7 @@ block pageContent
     p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere corrupti doloremque non, excepturi veniam repellendus cumque laudantium magnam, delectus est ab voluptates ut saepe asperiores libero nostrum tempore debitis quas?
     p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere corrupti doloremque non, excepturi veniam repellendus cumque laudantium magnam, delectus est ab voluptates ut saepe asperiores libero nostrum tempore debitis quas?
     p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere corrupti doloremque non, excepturi veniam repellendus cumque laudantium magnam, delectus est ab voluptates ut saepe asperiores libero nostrum tempore debitis quas?
-    p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere corrupti doloremque non, excepturi veniam repellendus cumque laudantium magnam, delectus est ab voluptates ut saepe asperiores libero nostrum tempore debitis quas?
+    p.tip3 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere corrupti doloremque non, excepturi veniam repellendus cumque laudantium magnam, delectus est ab voluptates ut saepe asperiores libero nostrum tempore debitis quas?
     h4 Lorem ipsum dolor sit amet consectetur adipisicing elit.
     p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere corrupti doloremque non, excepturi veniam repellendus cumque laudantium magnam, delectus est ab voluptates ut saepe asperiores libero nostrum tempore debitis quas?
     p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere corrupti doloremque non, excepturi veniam repellendus cumque laudantium magnam, delectus est ab voluptates ut saepe asperiores libero nostrum tempore debitis quas?

@@ -112,9 +112,12 @@
                     border-radius 0
     &_ava
         position relative
-        min-height 200px
+        min-height 250px
+        width 100%
         display flex
         padding 0
+        img
+            width 100%
     & &__ava
         &-img
             width 100%
@@ -128,6 +131,7 @@
             fl(,c,c)
             background-color var(--tc_ui_bg)
             color var(--tc_text)
+            tr .25
             &:hover
                 background-color cl_warn
                 color #fff
