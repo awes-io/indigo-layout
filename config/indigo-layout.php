@@ -17,9 +17,9 @@ return [
 
     'custom_styles' => '',
 
-    'auth_bg_left' => '',
+    'auth_bg_left' => 'https://static.awes.io/demo/awes-background.svg',
 
-    'auth_bg_full' => '',
+    'auth_bg_full' => 'https://static.awes.io/demo/awes-background.svg',
 
     'dist' => [
         'js/main.js',
