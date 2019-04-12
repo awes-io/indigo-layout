@@ -1,5 +1,5 @@
 <template>
-    <div class="frame__aside-nav-wrap">
+    <div class="frame__aside-nav-wrap" :class="{'is-expanded': expanded}">
         <ul class="frame__aside-links" v-if="links">
             <li class="frame__aside-li"
                 v-for="(item, index) in links"
@@ -19,7 +19,7 @@
                 <div v-else>
                     <a  :href="item.link || ''"
                         :class="['frame__aside-link frame__aside-link_sub',
-                                {'frame__aside-link_active': active === index }]"
+                                {'is-active': active === index }]"
                         @click="item.link ? null : toggleActive($event, index)"
                     >
                         <i v-if="item.icon" :class="'icon icon-'+item.icon"></i>
@@ -30,12 +30,15 @@
                     </a>
 
                     <slide-up-down :show="active === index || expanded">
-                        <ul class="frame__aside-hidden" :class="{'has-background': ! expanded}">
+                        <ul
+                            class="frame__aside-hidden"
+                            :class="{'has-background': !expanded || active === index }"
+                        >
                             <li class="frame__aside-inlist"
                                 v-for="(child, i) in item.children"
                                 :key="i">
                                 <a  :href="child.link || ''"
-                                    :class="['frame__aside-inlink', {'frame__aside-inlink_active': child.active}]"
+                                    :class="['frame__aside-inlink', {'is-active': child.active}]"
                                 >
                                     <span :class="{'tf-strong': child.active}">{{ child.name }}</span>
                                 </a>
@@ -107,7 +110,7 @@ export default {
             handler(links) {
                 this.active = links.findIndex( link => {
                     return link.active ||
-                           ! this.expanded && link.children && link.children.some( child => child.active )
+                           link.children && link.children.some( child => child.active )
                 })
             },
             immediate: true
