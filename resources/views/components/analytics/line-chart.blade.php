@@ -23,14 +23,14 @@
 {{-- Render the component --}}
 @if ($render)
     <content-wrapper
-        store-data="{{ str_random(8) }}"
-        class="card card_linechart"
+        store-data="{{ 'id' . str_random(8) }}"
         @if (isset($default_data) && !empty($default_data))
             :default='@json($default_data)'
         @endif
         :url="`{{ $api_url . $queryString }}`">
         <template slot-scope="chartData">
-            <chart-builder
+            <div class="card card_linechart">
+                <chart-builder
                 :data='chartData'
                 :options="{
                     elements: {
@@ -105,45 +105,22 @@
                     maintainAspectRatio: false
                 }">
             </chart-builder>
-            <div class="card_linechart__colored-box"></div>
-        </template>
-        <template slot="loading">
-            <div class="card__wrap cl-caption loading-block" data-loading="{{ __('indigo-layout::common.loading') }}">
-                <div class="card__middle-cell">
-                    <i class="icon icon-graph chart-box__icon"></i>
-                </div>
+                <div class="card__colored-box"></div>
             </div>
         </template>
-        <template slot="error">
-            <div class="card__wrap cl-red">
-                <div class="card__middle-cell">
-                    <i class="icon icon-data-error card__icon cl-red"></i>
-                    <div class="card__info">
-                        <span class="card__info-redcapt cl-red">{{ __('indigo-layout::common.chart.error.loading') }}</span>
-                    </div>
-                </div>
-            </div>
-        </template>
-        <template slot="empty">
-            <div class="card__wrap cl-caption">
-                <div class="card__middle-cell">
-                    <i class="icon icon-database-error card__icon cl-caption"></i>
-                    <div class="card__info">
-                        <span class="card__info-label">{{ __('indigo-layout::common.chart.no-data') }}</span>
-                    </div>
-                </div>
-            </div>
-        </template>
+
+        @placeholder(['type' => 'linechart'])
+
+        @loadingCard(['class' => 'card_linechart', 'footer_block' => '<div class="card__colored-box"></div>'])
+        @endloadingCard
+
+        @errorCard(['class' => 'card_linechart'])
+        @enderrorCard
+
+        @emptyCard(['class' => 'card_linechart', 'footer_block' => '<div class="card__colored-box"></div>'])
+        @endemptyCard
     </content-wrapper>
 @else
-    <div class="card card_linechart">
-        <div class="card__wrap cl-red">
-            <div class="card__middle-cell">
-                <i class="icon icon-data-error card__icon cl-red"></i>
-                <div class="card__info">
-                    <span class="card__caption cl-red">{{ __('indigo-layout::common.chart.error.parameters') }}</span>
-                </div>
-            </div>
-        </div>
-    </div>
+    @wrontConfigCard(['class' => 'card_linechart'])
+    @endwrontConfigCard
 @endif

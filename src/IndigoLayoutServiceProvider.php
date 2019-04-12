@@ -12,6 +12,7 @@ class IndigoLayoutServiceProvider extends AwesProvider
     public function boot()
     {
         $this->registerDirectives();
+        $this->registerComponents();
 
         $this->app->resolving(EncryptCookies::class, function ($object) {
             $object->disableFor('theme_dark');
@@ -32,6 +33,23 @@ class IndigoLayoutServiceProvider extends AwesProvider
         return __DIR__;
     }
 
+    protected function registerComponents()
+    {
+        $components = [
+            // Tables
+            'table' => 'table.default',
+            // Card statuses
+            'errorCard' => 'card-chunks.error',
+            'emptyCard' => 'card-chunks.empty',
+            'loadingCard' => 'card-chunks.loading',
+            'wrontConfigCard' => 'card-chunks.wrong-config'
+        ];
+
+        foreach ($components as $key => $value) {
+            Blade::component('indigo-layout::components.'.$value, $key);
+        }
+    }
+
     protected function registerDirectives()
     {
         $directives = [
@@ -47,6 +65,8 @@ class IndigoLayoutServiceProvider extends AwesProvider
             'fonts' => 'head.fonts',
             'scripts' => 'head.scripts',
             'themeswitcher' => 'head.theme-switcher',
+            // Content Placeholder
+            'placeholder' => 'card-chunks.placeholder',
         ];
 
         foreach ($directives as $key => $value) {

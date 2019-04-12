@@ -8,6 +8,7 @@
         "start": "npm run watch",
         "watch": "cross-env NODE_ENV=development BROWSERSLIST_ENV=modern gulp",
         "watch:legacy": "cross-env NODE_ENV=development BROWSERSLIST_ENV=legacy gulp",
+        "watch:css":  "cross-env NODE_ENV=development BROWSERSLIST_ENV=legacy gulp watch-css",
         "build": "npm run build:modern && npm run build:legacy",
         "build:modern": "cross-env NODE_ENV=production cross-env BROWSERSLIST_ENV=modern gulp",
         "build:legacy": "cross-env NODE_ENV=production cross-env BROWSERSLIST_ENV=legacy rollup -c"

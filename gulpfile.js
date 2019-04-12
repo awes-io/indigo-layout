@@ -43,6 +43,22 @@ if ( isDev ) {
   gulp.task('reload', function(done) { browserSync.reload(); done() })
 }
 
+/*
+ * Watch CSS Only
+ */
+
+gulp.task('watch-css',  function() {
+
+    browserSync.init({
+        ui: false,
+        open: false,
+        notify: false,
+        port: 3009,
+        server: ['./examples', './dist']
+    })
+
+    gulp.watch('./resources/css/**/*.styl', gulp.series('build:styles'))
+})
 
 /*
  * JS

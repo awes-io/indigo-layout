@@ -64,4 +64,77 @@ Ready-to-use Blade components and directives.
 |------|------|---------|-------------|
 |`filter`|`array`| |The array to build fast filter for the page. Format: `[value => text]`. Example: `[7 => 'Week', 30 => 'Month']` |
 |`variable`|`string`| |The user-defined variable for query string parameter.|
-|`default`|`array`| `null` |Active element. This value will be used to enable `active` class for the element.|
+|`default`|`string`| `null` |Active element. This value will be used to enable `active` class for the element.|
+
+## Table
+
+### Usage
+```php
+@table([
+    'scope_api_url' => '<!-- link to API -->'
+])
+    <tb-column name="name" label="Name"></tb-column>
+    <tb-column name="created_at" label="Created At" media="desktop"></tb-column> <!-- will be hidden on mobile -->
+@endtable
+```
+### Configuration Options
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+|`scope_api_url`|`string`| | The endpoint to get data for a table. |
+|`name`|`string`| `optional` | Name of the element. if not exist, will be a random string. |
+|`default_data`|`array`| `null` | Array with default data object. |
+|`store_data`|`string`| `optional` | Name of storage in Vue.js. if not exist, will be a random string. |
+|`scroll_to`|`bool`| `true` | Scrool up after click to pagination |
+|`api_url`|`string`| `null` | The endpoint to get data for a table. |
+
+### Slots
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+|`mobile`|`string`| `null` | Customization of mobile responsive slider. |
+|`errorCard`|`string`| `null` | Add a HTML to info block if the Internet connection is broken. |
+|`emptyCard`|`string`| `null` | Add a HTML is the table is empty. |
+
+### Slots Usage
+
+#### Slot `mobile` 
+
+```php
+@table([
+    'scope_api_url' => '<!-- link to API -->'
+])
+    <tb-column name="name" label="Name"></tb-column>
+    <tb-column name="created_at" label="Created At" media="desktop"></tb-column> <!-- will be hidden on mobile -->
+    @slot('mobile')
+        <p>Created At: @{{ m.data.created_at }}</p>
+    @endslot
+@endtable
+```
+
+#### Slot `errorCard` 
+
+```php
+@table([
+    'scope_api_url' => '<!-- link to API -->'
+])
+    <tb-column name="name" label="Name"></tb-column>
+    <tb-column name="created_at" label="Created At" media="desktop"></tb-column> <!-- will be hidden on mobile -->
+    @slot('errorCard')
+        <a href="#" class="btn mt-20">Homepage</a>
+    @endslot
+@endtable
+```
+
+#### Slot `emptyCard` 
+
+```php
+@table([
+    'scope_api_url' => '<!-- link to API -->'
+])
+    <tb-column name="name" label="Name"></tb-column>
+    <tb-column name="created_at" label="Created At" media="desktop"></tb-column> <!-- will be hidden on mobile -->
+    @slot('emptyCard')
+        <a href="#" class="btn mt-20">Create a record</a>
+    @endslot
+@endtable
+```
+

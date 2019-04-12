@@ -23,16 +23,8 @@
                         <h4 class="frame__aside-mtitle"><span>{!! config('indigo-layout.name') !!}</span></h4>
                     </div>
                     <frame-nav :links='@json($navs)' @if(config('indigo-layout.nav.expanded')) expanded @endif>
-                        <div class="ph">
-                            <div class="ph__mnav"><span class="ph__mnav-link"></span><span class="ph__mnav-title"></span></div>
-                            <ul class="ph__nav">
-                                <li><span class="ph__nav-icon"></span><span class="ph__nav-text"></span></li>
-                                <li><span class="ph__nav-icon"></span><span class="ph__nav-text"></span></li>
-                                <li><span class="ph__nav-icon"></span><span class="ph__nav-text"></span></li>
-                                <li><span class="ph__nav-icon"></span><span class="ph__nav-text"></span></li>
-                                <li><span class="ph__nav-icon"></span><span class="ph__nav-text"></span></li>
-                            </ul>
-                        </div>
+                        @placeholder(['type' => 'mnav'])
+                        @placeholder(['type' => 'nav'])
                         @if(!Auth::check())
                             <template slot="difnav">
                                 <ul class="frame__aside-mnav">
