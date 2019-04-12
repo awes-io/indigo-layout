@@ -39,10 +39,10 @@ class IndigoLayoutServiceProvider extends AwesProvider
             // Tables
             'table' => 'table.default',
             // Card statuses
-            'errorCard' => 'card-chunks.error',
-            'emptyCard' => 'card-chunks.empty',
-            'loadingCard' => 'card-chunks.loading',
-            'wrontConfigCard' => 'card-chunks.wrong-config'
+            'errorCard' => 'base.error',
+            'emptyCard' => 'base.empty',
+            'loadingCard' => 'base.loading',
+            'wrontConfigCard' => 'base.wrong-config'
         ];
 
         foreach ($components as $key => $value) {
@@ -54,19 +54,24 @@ class IndigoLayoutServiceProvider extends AwesProvider
     {
         $directives = [
             // Chart
-            'cardchart' => 'card.chart',
+            'chart' => 'chart.default',
+            'cardchartline' => 'chart.card-line',
+            'cardchartdoughnut' => 'chart.card-doughnut',
             // Filter
             'filtergroup' => 'filter.group',
-            // Analytics
-            'linechart' => 'analytics.line-chart',
             // Head
             'theme' => 'head.theme',
             'styles' => 'head.styles',
             'fonts' => 'head.fonts',
             'scripts' => 'head.scripts',
             'themeswitcher' => 'head.theme-switcher',
+            'externalLink' => 'head.external-link',
             // Content Placeholder
-            'placeholder' => 'card-chunks.placeholder',
+            'placeholder' => 'base.placeholder',
+            // Navigation
+            'navSidebar' => 'navigation.sidebar',
+            'navTop' => 'navigation.top',
+            'navUser' => 'navigation.user',
         ];
 
         foreach ($directives as $key => $value) {

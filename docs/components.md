@@ -11,11 +11,11 @@ Ready-to-use Blade components and directives.
 - [Margins and paddings](./margins.md)
 - [Icons](./icons.md)
 
-## Card Chart
+## Card Line Chart 
 
 ### Usage
 ```php
-@cardchart([
+@cardchartline([
     'parameters' => ['query_variable' => 7],
     'api_url' => '<!-- link to API -->'
 ])
@@ -26,6 +26,7 @@ Ready-to-use Blade components and directives.
 |------|------|---------|-------------|
 |`parameters`|`array`| |The user-defined array of query string parameters for filtering. The compiled query will be sent to API endpoint.|
 |`api_url`|`string`| |The endpoint to get data for a chart. The data should be in chart.js format. To prepare the data please use `awes-io/reporter` package.|
+|`name`|`string`| `optional` | Name of the element. if not exist, will be a random string. |
 |`read_more`|`array`| `null` |Read more button. The array has to variables (next 2 lines). |
 |`read_more.name`|`string`| `null` or required if `read_more` is not `null` |Text of the button.|
 |`read_more.url`|`string`| `null` or required if `read_more` is not `null` |URL of the button.|
@@ -37,12 +38,27 @@ Ready-to-use Blade components and directives.
 |`filter_default`|`string`| `null` |Default value for `Group Filter`|
 |`color`|`string`| `grey` |One color from prepared color's list. Available colors: `light-blue`, `blue`, `dark-blue`, `violet`, `pink`, `yellow`, `orange`, `red`, `green`. For random color please use `*`. Change the colors you can at the indigo config.|
 
-
-## Analytics Line Chart
+## Card Doughnut Chart 
 
 ### Usage
 ```php
-@linechart([
+@cardchartdoughnut([
+    'parameters' => ['query_variable' => 7],
+    'api_url' => '<!-- link to API -->'
+])
+```
+
+### Configuration Options
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+|`parameters`|`array`| |The user-defined array of query string parameters for filtering. The compiled query will be sent to API endpoint.|
+|`api_url`|`string`| |The endpoint to get data for a chart. The data should be in chart.js format. To prepare the data please use `awes-io/reporter` package.|
+
+## Default Chart
+
+### Usage
+```php
+@chart([
     'parameters' => ['query_variable' => 7],
     'api_url' => '<!-- link to API -->'
 ])
@@ -52,6 +68,8 @@ Ready-to-use Blade components and directives.
 |------|------|---------|-------------|
 |`parameters`|`array`| |The user-defined array of query string parameters for filtering. The compiled query will be sent to API endpoint.|
 |`api_url`|`string`| |The endpoint to get data for a chart. The data should be in chart.js format. To prepare the data please use `awes-io/reporter` package.|
+|`name`|`string`| `optional` | Name of the element. if not exist, will be a random string. |
+|`type`|`string`| `line` | Type of the chart. Available parameters your can check on chartjs documentation. |
 
 ## Group Filter
 

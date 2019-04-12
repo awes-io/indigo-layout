@@ -16,13 +16,19 @@
                         <li><span class="ph__{{ $type }}-icon"></span><span class="ph__{{ $type }}-text"></span></li>
                     @endfor
                 @break
-                @case('cardchart')
+                @case('chartline')
                     {{--TODO: add correct styles--}}
                     <div style="width:100%;height:260px; background: white; border-color: var(--tc_border_light); border-radius: 2px; box-shadow: var(--tc_ui_shadow);">
                         Placeholder
                     </div>
                 @break
-                @case('linechart')
+                @case('chartdoughnut')
+                    {{--TODO: add correct styles--}}
+                    <div style="width:100%;height:260px; background: white; border-color: var(--tc_border_light); border-radius: 2px; box-shadow: var(--tc_ui_shadow);">
+                        Placeholder
+                    </div>
+                @break
+                @case('chart_default')
                     {{--TODO: add correct styles--}}
                     <div style="width:100%;height:480px; background: white; border-color: var(--tc_border_light); border-radius: 2px; box-shadow: var(--tc_ui_shadow);">
                         Placeholder

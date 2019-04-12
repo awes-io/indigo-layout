@@ -11,7 +11,7 @@
             margin-top -15px
 
     // Styles for line chart
-    &_linechart
+    &_default
         min-height 480px
         padding 0
         width 100%
@@ -58,7 +58,13 @@
         line-height 1.5
         font-size 14px
     // Styles for dashboard chart
-    &_chart
+    &_chartdoughnut
+        min-height 260px
+        size 100%
+        fl(,sb)
+        flex-direction column
+        color #fff
+    &_chartline
         min-height 260px
         size 100%
         fl(,sb)
@@ -152,7 +158,7 @@
 @media maw['dmd']
     .card
         padding 20px
-        &_linechart
+        &_default
             min-height 340px
             padding 0
             .chart
@@ -191,8 +197,3 @@
                     &:hover, &:focus, &:active
                         color var(--tc_link_semi_active)
                         background none
-            
-
-
-
-

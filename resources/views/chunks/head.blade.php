@@ -12,6 +12,7 @@
     @fonts
     @styles(['items' => $src['css']])
     @theme
+    @externalLink
 
     <!-- config -->
     <script>AWES_CONFIG = @json(config('indigo-layout.frontend'))</script>
@@ -20,25 +21,4 @@
     @scripts(['items' => $src['js'], 'nomodule' => false])
     @scripts(['items' => $src['legacy'], 'nomodule' => true])
     @scripts(['items' => [$src['js']['base-js']]])
-
-    {{-- external links styles NEED IMPROVEMENT --}}
-    @php
-        $ignore_domains = ['awes.io', 'github.com']; // config ?
-        $not_domain_rule = ":not([href*='" . implode("']):not([href*='", $ignore_domains) . "'])";
-    @endphp
-
-    <style>
-        a[href^="http"]{!! $not_domain_rule !!}:after,
-        a[href^="//"]{!! $not_domain_rule !!}:after,
-        a.external-link:after {
-            content: " \ea34";
-            font-family: 'icons';
-        }
-        a.no-icon:after {
-            display: none;
-        }
-    </style>
-    {{-- END external links styles NEED IMPROVEMENT --}}
-
-
 </head>

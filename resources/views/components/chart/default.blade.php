@@ -20,28 +20,30 @@
     @php $render = false; @endphp
 @endif
 
+{{-- Check if $name is exist --}}
+@if (!isset($name) || (isset($name) && empty($name)))
+    @php $name = 'name' . str_random(8); @endphp
+@endif
+
+{{-- Check if $chart_type is exist --}}
+@if (!isset($chart_type) || (isset($chart_type) && empty($chart_type)))
+    @php $chart_type = 'line' @endphp
+@endif
+
 {{-- Render the component --}}
 @if ($render)
     <content-wrapper
         store-data="{{ 'id' . str_random(8) }}"
         @if (isset($default_data) && !empty($default_data))
-            :default='@json($default_data)'
+        :default='@json($default_data)'
         @endif
         :url="`{{ $api_url . $queryString }}`">
-        <template slot-scope="chartData">
-            <div class="card card_linechart">
+        <template slot-scope="{{ $name }}">
+            <div class="card card_default">
                 <chart-builder
-                :data='chartData'
-                :options="{
-                    elements: {
-                        line: {
-                            tension: 0,
-                            backgroundColor: 'transparent'
-                        },
-                        point: {
-                            radius: 0
-                        }
-                    },
+                    :data='{{ $name }}'
+                    type="{{ $chart_type }}"
+                    :options="{
                     scales: {
                         yAxes: [{
                             gridLines: {
@@ -81,13 +83,13 @@
                         cornerRadius: 2,
                         xPadding: 20,
                         yPadding: 20,
-                        bodySpacing: 10, 
+                        bodySpacing: 10,
                         titleMarginBottom: 20
                     },
                     hover: {
                         mode: 'index',
                         intersect: false,
-                    }, 
+                    },
                     layout: {
                         padding: {
                             left: 0,
@@ -104,23 +106,23 @@
                     },
                     maintainAspectRatio: false
                 }">
-            </chart-builder>
+                </chart-builder>
                 <div class="card__colored-box"></div>
             </div>
         </template>
 
-        @placeholder(['type' => 'linechart'])
+        @placeholder(['type' => 'chart_default'])
 
-        @loadingCard(['class' => 'card_linechart', 'footer_block' => '<div class="card__colored-box"></div>'])
+        @loadingCard(['class' => 'card_default', 'footer_block' => '<div class="card__colored-box"></div>'])
         @endloadingCard
 
-        @errorCard(['class' => 'card_linechart'])
+        @errorCard(['class' => 'card_default'])
         @enderrorCard
 
-        @emptyCard(['class' => 'card_linechart', 'footer_block' => '<div class="card__colored-box"></div>'])
+        @emptyCard(['class' => 'card_default', 'footer_block' => '<div class="card__colored-box"></div>'])
         @endemptyCard
     </content-wrapper>
 @else
-    @wrontConfigCard(['class' => 'card_linechart'])
+    @wrontConfigCard(['class' => 'card_default'])
     @endwrontConfigCard
 @endif

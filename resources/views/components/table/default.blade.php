@@ -30,7 +30,6 @@
                 row-url="{{ $api_url }}"
             @endif
         >
-
             @placeholder(['type' => 'table'])
 
             {{--General slot--}}

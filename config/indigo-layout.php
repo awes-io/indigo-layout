@@ -11,6 +11,9 @@ return [
 
     'url' => env('APP_URL', 'https://example.com'),
 
+    // Render icon on external link: list of your all domains where will be showed the website
+    'environment_urls' => [env('APP_URL', 'https://example.com')],
+
     'logo' => env('APP_LOGO', 'https://static.awes.io/logo-blue.svg'),
 
     'fonts' => ['https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700'],
