@@ -104,7 +104,7 @@ Ready-to-use Blade components and directives.
 |`store_data`|`string`| `optional` | Name of storage in Vue.js. if not exist, will be a random string. |
 |`scroll_to`|`bool`| `true` | Scrool up after click to pagination |
 |`row_url`|`string`| `optional` | The link by click of row element in the table. |
-|`pagination`|`bool`| `true` | Show the pagination of not. |
+|`pagination`|`bool`| `true` | Will be shown the pagination or not. |
 
 ### Slots
 | Name | Type | Default | Description |
