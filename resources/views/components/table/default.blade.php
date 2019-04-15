@@ -1,9 +1,9 @@
 {{-- component default table --}}
 @php $render = true; @endphp
 
-{{-- Check if $scope_api_url is exist --}}
-@if (!isset($scope_api_url) || (isset($scope_api_url) && empty($scope_api_url)))
-    @php $render = false; @endphp
+{{-- Check if $pagination is exist --}}
+@if (!isset($pagination))
+    @php $pagination = true; @endphp
 @endif
 
 {{-- Check if $name is exist --}}
@@ -26,8 +26,8 @@
     <div :class="{'loading-block': AWES._store.state.{{ $store_data }}_loading}" data-loading="{{ __('indigo-layout::common.loading') }}">
         <table-builder
             store-data="{{ $store_data }}"
-            @isset($api_url)
-                row-url="{{ $api_url }}"
+            @isset($row_url)
+                row-url="{{ $row_url }}"
             @endif
         >
             @placeholder(['type' => 'table'])
@@ -58,16 +58,21 @@
 
         </table-builder>
 
-        {{--Pagination slot--}}
-        <paginate-builder
-            ref="pb.{{ $name }}"
-            url="{{ $scope_api_url }}"
-            store-data="{{ $store_data }}"
-            @if (isset($default_data) && !empty($default_data))
-                :default='@json($default_data)'
-            @endif
-            :scroll-to="{{ $scroll_to }}"
-        ></paginate-builder>
+
+        @if ($pagination)
+            {{--Pagination slot--}}
+            <paginate-builder
+                ref="pb.{{ $name }}"
+                @isset($scope_api_url)
+                    url="{{ $scope_api_url }}"
+                @endisset
+                store-data="{{ $store_data }}"
+                @if (isset($default_data) && !empty($default_data))
+                    :default='@json($default_data)'
+                @endif
+                :scroll-to="{{ $scroll_to }}"
+            ></paginate-builder>
+        @endif
     </div>
 @else
     @wrontConfigCard(['class' => 'card_table'])

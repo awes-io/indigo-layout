@@ -98,12 +98,13 @@ Ready-to-use Blade components and directives.
 ### Configuration Options
 | Name | Type | Default | Description |
 |------|------|---------|-------------|
-|`scope_api_url`|`string`| | The endpoint to get data for a table. |
+|`scope_api_url`|`string`| `optional` | The endpoint to get data for a table. Will ignore if `pagination` is `false`. |
 |`name`|`string`| `optional` | Name of the element. if not exist, will be a random string. |
 |`default_data`|`array`| `null` | Array with default data object. |
 |`store_data`|`string`| `optional` | Name of storage in Vue.js. if not exist, will be a random string. |
 |`scroll_to`|`bool`| `true` | Scrool up after click to pagination |
-|`api_url`|`string`| `null` | The endpoint to get data for a table. |
+|`row_url`|`string`| `optional` | The link by click of row element in the table. |
+|`pagination`|`bool`| `true` | Show the pagination of not. |
 
 ### Slots
 | Name | Type | Default | Description |
