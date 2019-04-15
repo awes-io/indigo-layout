@@ -81,12 +81,11 @@
                                 <div class="cm-item__panel is-secondary">
                                     <strong class="user-menu__title">{{ Auth::user()->name }}</strong>
                                     {{--<small class="user-menu__desc">Standart until 10 november<br>5 users $500 per month</small>--}}
-                                    <nav class="user-menu__nav" aria-label="Profile navigation">
-                                        <ul>
-                                            {{--<li><a href="https://company.awescrm.cloud/managers/NQ%3D%3D">Profile</a></li>--}}
-                                            <li class="is-expand"><a href="{{ route('logout') }}">Logout</a></li>
-                                        </ul>
-                                    </nav>
+                                    @isset($userNavigation)
+                                        <nav class="user-menu__nav" aria-label="Profile navigation">
+                                            @navUser(['navigation' => $userNavigation])
+                                        </nav>
+                                    @endisset
                                     {{--<label class="progress user-menu__progress">--}}
                                     {{--<span>519.05 MB</span> of 2.5 GB used--}}
                                     {{--<progress max="2500" value="519">519 MB of 2.5 GB used</progress>--}}

@@ -4,7 +4,7 @@
             <ul class="header-tabs__list">
                 @foreach($navigation as $item)
                     <li class="header-tabs__block">
-                        <a href="{{ $item['link'] }}" class="header-tabs__link active">{{ $item['name'] }}</a>
+                        <a href="{{ $item['link'] }}" class="header-tabs__link @isset($item['active']) active @endisset">{{ $item['name'] }}</a>
                     </li>
                 @endforeach
             </ul>
