@@ -29,6 +29,12 @@
             @isset($row_url)
                 row-url="{{ $row_url }}"
             @endif
+
+            @if (!$pagination)
+                @if (isset($default_data) && !empty($default_data))
+                    :default='@json($default_data)'
+                @endif
+            @endif
         >
             @placeholder(['type' => 'table'])
 
