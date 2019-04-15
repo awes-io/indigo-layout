@@ -12,25 +12,22 @@
             margin-top -15px
 
     // Styles for line chart
-    &_linechart
+    &_default
         min-height 480px
         padding 0
         width 100%
         fl(,sb)
         .chart
             width 100%
-            min-height 420px
+            min-height 480px
             z-index: 2;
-        &__colored-box
-            width: 100%;
-            height: 65px;
-            background: var(--tc_ui_bg_darken)
-            box-shadow: inset 0 15px 5px -15px rgba(0,0,0,.1)
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            z-index: 1;
+    &__colored-box
+        width 100%
+        height 65px
+        background var(--tc_ui_bg_darken)
+        box-shadow inset 0 15px 5px -15px rgba(0,0,0,.1)
+        absolute right 0 bottom 0
+        z-index 1
 
     // Styles for table
     &_table
@@ -60,9 +57,15 @@
         margin-left auto
         margin-right auto
         line-height 1.5
-        font-size 12px
+        font-size 14px
     // Styles for dashboard chart
-    &_chart
+    &_chartdoughnut
+        min-height 260px
+        size 100%
+        fl(,sb)
+        flex-direction column
+        color #fff
+    &_chartline
         min-height 260px
         size 100%
         fl(,sb)
@@ -156,20 +159,13 @@
 @media maw['dmd']
     .card
         padding 20px
-        &_linechart
-            min-height 320px
+        &_default
+            min-height 340px
             padding 0
             .chart
-                min-height 320px
+                min-height 340px
         &_ava
             padding 0
-
-@media maw['tmd']
-    .card
-        &_linechart
-            min-height 250px
-            .chart
-                min-height 250px
 
 @media (pointer coarse)
     .card
@@ -202,8 +198,3 @@
                     &:hover, &:focus, &:active
                         color var(--tc_link_semi_active)
                         background none
-            
-
-
-
-

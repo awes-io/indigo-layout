@@ -20,28 +20,30 @@
     @php $render = false; @endphp
 @endif
 
+{{-- Check if $name is exist --}}
+@if (!isset($name) || (isset($name) && empty($name)))
+    @php $name = 'name' . str_random(8); @endphp
+@endif
+
+{{-- Check if $chart_type is exist --}}
+@if (!isset($chart_type) || (isset($chart_type) && empty($chart_type)))
+    @php $chart_type = 'line' @endphp
+@endif
+
 {{-- Render the component --}}
 @if ($render)
     <content-wrapper
-        store-data="{{ str_random(8) }}"
-        class="card card_linechart"
+        store-data="{{ 'id' . str_random(8) }}"
         @if (isset($default_data) && !empty($default_data))
-            :default='@json($default_data)'
+        :default='@json($default_data)'
         @endif
         :url="`{{ $api_url . $queryString }}`">
-        <template slot-scope="chartData">
-            <chart-builder
-                :data='chartData'
-                :options="{
-                    elements: {
-                        line: {
-                            tension: 0,
-                            backgroundColor: 'transparent'
-                        },
-                        point: {
-                            radius: 0
-                        }
-                    },
+        <template slot-scope="{{ $name }}">
+            <div class="card card_default">
+                <chart-builder
+                    :data='{{ $name }}'
+                    type="{{ $chart_type }}"
+                    :options="{
                     scales: {
                         yAxes: [{
                             gridLines: {
@@ -81,13 +83,13 @@
                         cornerRadius: 2,
                         xPadding: 20,
                         yPadding: 20,
-                        bodySpacing: 10, 
+                        bodySpacing: 10,
                         titleMarginBottom: 20
                     },
                     hover: {
                         mode: 'index',
                         intersect: false,
-                    }, 
+                    },
                     layout: {
                         padding: {
                             left: 0,
@@ -104,46 +106,23 @@
                     },
                     maintainAspectRatio: false
                 }">
-            </chart-builder>
-            <div class="card_linechart__colored-box"></div>
-        </template>
-        <template slot="loading">
-            <div class="card__wrap cl-caption loading-block" data-loading="{{ __('indigo-layout::common.loading') }}">
-                <div class="card__middle-cell">
-                    <i class="icon icon-graph chart-box__icon"></i>
-                </div>
+                </chart-builder>
+                <div class="card__colored-box"></div>
             </div>
         </template>
-        <template slot="error">
-            <div class="card__wrap cl-red">
-                <div class="card__middle-cell">
-                    <i class="icon icon-data-error card__icon cl-red"></i>
-                    <div class="card__info">
-                        <span class="card__info-redcapt cl-red">{{ __('indigo-layout::common.chart.error.loading') }}</span>
-                    </div>
-                </div>
-            </div>
-        </template>
-        <template slot="empty">
-            <div class="card__wrap cl-caption">
-                <div class="card__middle-cell">
-                    <i class="icon icon-database-error card__icon cl-caption"></i>
-                    <div class="card__info">
-                        <span class="card__info-label">{{ __('indigo-layout::common.chart.no-data') }}</span>
-                    </div>
-                </div>
-            </div>
-        </template>
+
+        @placeholder(['type' => 'chart_default'])
+
+        @loadingCard(['class' => 'card_default', 'footer_block' => '<div class="card__colored-box"></div>'])
+        @endloadingCard
+
+        @errorCard(['class' => 'card_default'])
+        @enderrorCard
+
+        @emptyCard(['class' => 'card_default', 'footer_block' => '<div class="card__colored-box"></div>'])
+        @endemptyCard
     </content-wrapper>
 @else
-    <div class="card card_linechart">
-        <div class="card__wrap cl-red">
-            <div class="card__middle-cell">
-                <i class="icon icon-data-error card__icon cl-red"></i>
-                <div class="card__info">
-                    <span class="card__caption cl-red">{{ __('indigo-layout::common.chart.error.parameters') }}</span>
-                </div>
-            </div>
-        </div>
-    </div>
+    @wrontConfigCard(['class' => 'card_default'])
+    @endwrontConfigCard
 @endif
