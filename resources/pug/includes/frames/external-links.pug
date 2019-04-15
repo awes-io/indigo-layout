@@ -1,0 +1,11 @@
+- var ignoreDomains = ['github.com', 'awes.io', 'localhost']
+- var notDomainRule = ":not([href*='" + ignoreDomains.join("']):not([href*='") + "'])"
+
+style.
+    .frame__content a[href^="http"]#{notDomainRule}:after,
+    .tf-content a[href^="http"]#{notDomainRule}:after,
+    .frame__content a[href^="//"]#{notDomainRule}:after,
+    .tf-content a[href^="//"]#{notDomainRule}:after {
+        content: " \ea34";
+        font-family: 'icons';
+    }

@@ -2,7 +2,7 @@
   cursor: pointer
   display: block !important
   font-size f_small
-  border-radius: 2px
+  border-radius: var(--tc_border_radius)
   z-index 9 !important
   max-width 90%
 
@@ -83,8 +83,7 @@
     transition: opacity .15s;
 
 //Fix for vue plugin
-.v-popover.display-block
-  > span
+.v-popover.display-block > .trigger
     display: block !important
     position relative
     outline none !important

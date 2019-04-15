@@ -36,10 +36,10 @@
         span
             &:first-child
                 & ^[0]__link
-                    border-radius 3px 0px 0px 3px
+                    border-radius var(--tc_border_radius) 0px 0px var(--tc_border_radius)
             &:last-child
                 & ^[0]__link
-                    border-radius 0 3px 3px 0    
+                    border-radius 0 var(--tc_border_radius) var(--tc_border_radius) 0    
     & &__arr-left, & &__arr-right
         size 30px
         fl(,c,c)
