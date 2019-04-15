@@ -12,6 +12,7 @@
     @fonts
     @styles(['items' => $src['css']])
     @theme
+    @externalLink
 
     <!-- config -->
     <script>AWES_CONFIG = @json(config('indigo-layout.frontend'))</script>

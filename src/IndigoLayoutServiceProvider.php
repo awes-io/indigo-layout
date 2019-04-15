@@ -12,6 +12,7 @@ class IndigoLayoutServiceProvider extends AwesProvider
     public function boot()
     {
         $this->registerDirectives();
+        $this->registerComponents();
 
         $this->app->resolving(EncryptCookies::class, function ($object) {
             $object->disableFor('theme_dark');
@@ -32,21 +33,45 @@ class IndigoLayoutServiceProvider extends AwesProvider
         return __DIR__;
     }
 
+    protected function registerComponents()
+    {
+        $components = [
+            // Tables
+            'table' => 'table.default',
+            // Card statuses
+            'errorCard' => 'base.error',
+            'emptyCard' => 'base.empty',
+            'loadingCard' => 'base.loading',
+            'wrontConfigCard' => 'base.wrong-config'
+        ];
+
+        foreach ($components as $key => $value) {
+            Blade::component('indigo-layout::components.'.$value, $key);
+        }
+    }
+
     protected function registerDirectives()
     {
         $directives = [
             // Chart
-            'cardchart' => 'card.chart',
+            'chart' => 'chart.default',
+            'cardchartline' => 'chart.card-line',
+            'cardchartdoughnut' => 'chart.card-doughnut',
             // Filter
             'filtergroup' => 'filter.group',
-            // Analytics
-            'linechart' => 'analytics.line-chart',
             // Head
             'theme' => 'head.theme',
             'styles' => 'head.styles',
             'fonts' => 'head.fonts',
             'scripts' => 'head.scripts',
             'themeswitcher' => 'head.theme-switcher',
+            'externalLink' => 'head.external-link',
+            // Content Placeholder
+            'placeholder' => 'base.placeholder',
+            // Navigation
+            'navSidebar' => 'navigation.sidebar',
+            'navTop' => 'navigation.top',
+            'navUser' => 'navigation.user',
         ];
 
         foreach ($directives as $key => $value) {

@@ -7,7 +7,7 @@
         width calc(100% - 75px)
         padding 8px 15px 3px 10px
         display block
-        border-radius var(--tc_border_radius)
+        border-radius var(--tc_form_border_radius)
         pointer-events none
         z-index 1
         white-space nowrap
@@ -42,7 +42,7 @@
         position static !important
         width 60px
         tr(0.25)
-        border-radius var(--tc_border_radius) 0 0 var(--tc_border_radius)
+        border-radius var(--tc_form_border_radius) 0 0 var(--tc_form_border_radius)
         background-color var(--tc_ui_bg) !important
         border-right 1px solid var(--tc_border_ins)
         &:hover
@@ -54,12 +54,12 @@
     .vue-tel-input
         display flex
         border 1px solid var(--tc_border_ins) !important
-        border-radius var(--tc_border_radius) !important
+        border-radius var(--tc_form_border_radius) !important
         &:focus-within
             box-shadow none !important
             border-color var(--tc_ui_focus) !important
         input
-            border-radius var(--tc_border_radius) !important
+            border-radius var(--tc_form_border_radius) !important
     &_active
         & ^[0]__label
             font-size 10px

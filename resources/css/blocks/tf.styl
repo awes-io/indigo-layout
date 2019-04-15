@@ -72,7 +72,7 @@ a
         &-copy
             padding: 7px 10px
             transition background-color 0.3s ease, color 0.3s ease
-            border-radius 2px
+            border-radius var(--tc_border_radius)
             text-transform uppercase
             background-color: transparent
             color var(--tc_btn_tr_text)
@@ -184,15 +184,7 @@ table:not(.int-table__table):not(.hljs-ln)
     & > :last-child
         margin-bottom 0 !important
 
-// .frame__content, .tf-content
-
-//     a
-//         &[target="_blank"], &[href^="http://"], &[href^="https://"]
-//             icon(openin, 0.75em, after)
-//             &:after
-//                 padding-left 3px
-
-    
+.frame__content, .tf-content
     ol
         line-height 1.5
         margin-bottom tf_text_margin

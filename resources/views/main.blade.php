@@ -10,7 +10,7 @@
         <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
             <div class="frame__overlay" v-show="$awesLayoutCrm.togglenav || $awesLayoutCrm.showUserMenu" @click="$awesLayoutCrm.overlayClick"></div>
         </transition>
-        @isset($navs)
+        @isset($sidebar)
             <div class="frame__aside" id="aside">
                 <div class="frame__aside-line">
                     <span class="frame__aside-open g-res--tablet-lg" :class="{ active: $awesLayoutCrm.togglenav }" @click="$awesLayoutCrm.openNav"><span></span></span>
@@ -22,33 +22,7 @@
                     <div class="frame__aside-mhead g-res--tablet-lg"><a class="frame__aside-close" href="" @click.prevent="$awesLayoutCrm.openNav()"><i class="icon icon-cross"></i></a>
                         <h4 class="frame__aside-mtitle"><span>{!! config('indigo-layout.name') !!}</span></h4>
                     </div>
-                    <frame-nav :links='@json($navs)' @if(config('indigo-layout.nav.expanded')) expanded @endif>
-                        <div class="ph">
-                            <div class="ph__mnav"><span class="ph__mnav-link"></span><span class="ph__mnav-title"></span></div>
-                            <ul class="ph__nav">
-                                <li><span class="ph__nav-icon"></span><span class="ph__nav-text"></span></li>
-                                <li><span class="ph__nav-icon"></span><span class="ph__nav-text"></span></li>
-                                <li><span class="ph__nav-icon"></span><span class="ph__nav-text"></span></li>
-                                <li><span class="ph__nav-icon"></span><span class="ph__nav-text"></span></li>
-                                <li><span class="ph__nav-icon"></span><span class="ph__nav-text"></span></li>
-                            </ul>
-                        </div>
-                        @if(!Auth::check())
-                            <template slot="difnav">
-                                <ul class="frame__aside-mnav">
-                                    @if(config('indigo-layout.simple_navs.links'))
-                                        @foreach(config('indigo-layout.simple_navs.links') as $link)
-                                            <li><a class="frame__aside-link" href="{{ $link['link'] ?? '' }}">{{ $link['text'] ?? '' }}</a></li>
-                                        @endforeach
-                                    @endif
-                                    <li class="frame__aside-link">
-                                        <theme-switcher></theme-switcher>
-                                    </li>
-
-                                </ul>
-                            </template>
-                        @endif
-                    </frame-nav>
+                    @navSidebar(['navigation' => $sidebar])
                 </nav>
             </div>
         @endisset
@@ -107,12 +81,11 @@
                                 <div class="cm-item__panel is-secondary">
                                     <strong class="user-menu__title">{{ Auth::user()->name }}</strong>
                                     {{--<small class="user-menu__desc">Standart until 10 november<br>5 users $500 per month</small>--}}
-                                    <nav class="user-menu__nav" aria-label="Profile navigation">
-                                        <ul>
-                                            {{--<li><a href="https://company.awescrm.cloud/managers/NQ%3D%3D">Profile</a></li>--}}
-                                            <li class="is-expand"><a href="{{ route('logout') }}">Logout</a></li>
-                                        </ul>
-                                    </nav>
+                                    @isset($userNavigation)
+                                        <nav class="user-menu__nav" aria-label="Profile navigation">
+                                            @navUser(['navigation' => $userNavigation])
+                                        </nav>
+                                    @endisset
                                     {{--<label class="progress user-menu__progress">--}}
                                     {{--<span>519.05 MB</span> of 2.5 GB used--}}
                                     {{--<progress max="2500" value="519">519 MB of 2.5 GB used</progress>--}}
@@ -139,9 +112,9 @@
                 </transition>
             @endif
 
-
             <div class="frame__content">
                 <awes-notify-container class="frame__awes-notify-container" name="frame" stack="false" :config="{theme: 'inline', status: 'warning', timeout: 0}"></awes-notify-container>
+                @isset($children_top) @navTop(['navigation' => $children_top]) @endisset
                 <div class="frame__inlayout">
                     @if (!empty($__env->yieldContent('pagemap')))
                     @section('pagemap')
