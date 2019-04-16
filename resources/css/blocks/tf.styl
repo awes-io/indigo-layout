@@ -322,17 +322,11 @@ pre
     display block
 
 .tf
-    &-nobreak
-        word-break normal !important
-    &-light
-        font-weight 300
     &-size
         &-small
             font-size 12px
         &-title
             font-size 30px
-    &-upper
-        text-transform uppercase
     &-img
         box-shadow var(--tc_shadow_smr)
         border-radius var(--tc_border_radius)
@@ -366,8 +360,6 @@ pre
         margin-bottom 30px
         span
             padding-right 10px
-    &-strong
-        font-weight 700
     &-centerlink
         text-align center
         &_afterframe
@@ -390,12 +382,6 @@ pre
             margin-bottom 0
         &-title + p
             margin-top 5px
-    &-left
-        text-align left
-    &-center
-        text-align center
-    &-right
-        text-align right
     &-dottedlink
         font-size f_normal
         border-bottom 1px dashed
@@ -406,14 +392,6 @@ pre
         display block
         margin-bottom 30px
         font-weight 700
-    &-nowrap
-        display block
-        overflow hidden
-        text-overflow: ellipsis
-        white-space: nowrap
-        max-width 100%
-    &-oneline
-        white-space nowrap
     &-shadow
         box-shadow var(--tc_ui_shadow)
     &-caption
@@ -428,38 +406,34 @@ pre
         width 100%
         &_mc
             margin-bottom 7px
-    &-centerblock
-        min-height calc(100vh - 250px)
-        fl()
-        & &__cell
-            margin auto
-            width 100%
-    &-infoblock
-        text-align center
-        width 100%
-        display block
-        &_pd
-            padding-top 20px
-            padding-bottom 20px
-        &_smart
-            max-width 310px
-            margin-left auto
-            margin-right auto
-        &_dashboard
-            padding-top 10px
-            padding-bottom 20px
-        &_center
-            margin auto
-        p
-            display block
-            font-size f_big
-            margin-bottom 30px
-            font-weight 400
-        .btn
-            display inline-block
-            margin-left 5px
-            margin-right 5px
-            margin-bottom 10px
+
+    // TODO: dont know where its using, guess its old code, check this.
+    // &-infoblock
+    //     text-align center
+    //     width 100%
+    //     display block
+    //     &_pd
+    //         padding-top 20px
+    //         padding-bottom 20px
+    //     &_smart
+    //         max-width 310px
+    //         margin-left auto
+    //         margin-right auto
+    //     &_dashboard
+    //         padding-top 10px
+    //         padding-bottom 20px
+    //     &_center
+    //         margin auto
+    //     p
+    //         display block
+    //         font-size f_big
+    //         margin-bottom 30px
+    //         font-weight 400
+    //     .btn
+    //         display inline-block
+    //         margin-left 5px
+    //         margin-right 5px
+    //         margin-bottom 10px
 
 
 @media maw[dsm]
@@ -485,8 +459,9 @@ pre
             margin-bottom 20px
             &_mobile-pleft
                 padding-left 20px
-        &-centerlink
-            &_dashboard
-                margin-bottom 20px
+        // TODO: dont know where its using, guess its old code, check this.
+        // &-centerlink
+        //     &_dashboard
+        //         margin-bottom 20px
 
 
