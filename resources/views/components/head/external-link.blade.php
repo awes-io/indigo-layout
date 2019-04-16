@@ -8,8 +8,9 @@
     a[href^='//']{!! $not_domain_rule !!}:after,
     a.external-link:after {
         content: ' \ea34';
+        margin-left: 0.25em;
         font-family: 'icons';
-        font-size: 0.75em;
+        font-size: 0.65em;
     }
     a.no-icon:after {
         display: none;
