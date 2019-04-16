@@ -36,39 +36,46 @@
         :url="`{{ $api_url . $queryString }}`">
         <template slot-scope="{{ $name }}">
             <div class="card card_chartdoughnut">
-                <chart-builder class="card__chart"
-                               :data='{{ $name }}'
-                               type="doughnut"
-                               :options="{
-                               plugins: {
-                                    labels: {
-                                        render: 'value',
-                                        position: 'outside',
-                                        textMargin: 10
-                                    }
-                                },
-                                legend: {
-                                    position: 'right',
-                                    fontSize: 14,
-                                    labels: {
-                                        usePointStyle: true
-                                    }
-                                },
-                                tooltips: {
-                                    cornerRadius: 2,
-                                    xPadding: 20,
-                                    yPadding: 20,
-                                    bodySpacing: 10,
-                                    callbacks: {
-                                        label: function(item, data) {
-                                            var title = ' ' + data.labels[item.index] + ' ' + data.datasets[0].data[item.index] + '% ' + data.datasets[1].data[item.index]
-                                            return title.length < 30 ? title : title.substr(0,28) + '...'
-                                        }
-                                    }
+                <div class="card__wrap">
+                    <chart-builder class="card__chart"
+                        :data='{{ $name }}'
+                        type="doughnut"
+                        :options="{
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        aspectRatio: 1, 
+                        plugins: {
+                            labels: {
+                                render: 'value',
+                                position: 'inside',
+                                textMargin: 10
+                            }
+                        },
+                        legend: {
+                            position: 'right',
+                            fontSize: 14,
+                            labels: {
+                                usePointStyle: true
+                            }
+                        },
+                        tooltips: {
+                            cornerRadius: 2,
+                            xPadding: 20,
+                            yPadding: 20,
+                            bodySpacing: 10,
+                            callbacks: {
+                                label: function(item, data) {
+                                    var title = ' ' + data.labels[item.index] + ' ' + data.datasets[0].data[item.index] + '% ' + data.datasets[1].data[item.index]
+                                    return title.length < 30 ? title : title.substr(0,28) + '...'
                                 }
+                            }
+                        }
 
-                               }">
-                </chart-builder>
+                        }">
+                        
+
+                    </chart-builder>
+                </div>
             </div>
         </template>
 
