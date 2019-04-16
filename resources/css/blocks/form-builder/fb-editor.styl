@@ -20,12 +20,21 @@
                 border-radius 0 var(--tc_form_border_radius) var(--tc_form_border_radius) 0
     .mce-tinymce.mce-container.mce-panel
         border 0px
+        border-radius var(--tc_form_border_radius)
     .fb-editor__tab
         border 1px solid
     .mce-toolbar-grp
         border 0
+        border-radius var(--tc_form_border_radius) var(--tc_form_border_radius) 0px 0px
     .mce-tinymce
         box-shadow: none
+    .mce-edit-area.mce-container
+        border-radius var(--tc_form_border_radius)
+        iframe
+            border-radius var(--tc_form_border_radius)
+    .CodeMirror-scroll, .CodeMirror
+        border-radius var(--tc_form_border_radius)
+        
     .mce-edit-area
         border 0
     .mce-top-part
@@ -34,6 +43,11 @@
     .mce-flow-layout
         padding 5px
         background-color var(--tc_ui_bg_semi)
+    .mce-container-body
+        border-radius var(--tc_form_border_radius) var(--tc_form_border_radius) 0px 0px
+    .mce-container-body.mce-stack-layout
+        border-radius var(--tc_form_border_radius)
+    
     .mce-btn
         button
             border-radius var(--tc_form_border_radius)
@@ -95,6 +109,7 @@
                 font-weight 700
     & &__tab
         border-color var(--tc_border_ins)
+        border-radius var(--tc_form_border_radius)
     .CodeMirror
         &.cm-s-default
             background-color: var(--tc_ui_bg)
