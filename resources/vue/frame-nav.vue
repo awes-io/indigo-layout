@@ -17,9 +17,11 @@
 
                 <!-- link with children -->
                 <div v-else>
-                    <a  :href="item.link || ''"
+                    <component
+                        :is="expanded && !item.link ? 'span' : 'a'"
+                        :href="expanded && item.link || ''"
                         :class="['frame__aside-link frame__aside-link_sub',
-                                {'is-active': active === index }]"
+                                {'is-active': active === index, 'no-hover': expanded && !item.link }]"
                         @click="item.link ? null : toggleActive($event, index)"
                     >
                         <i v-if="item.icon" :class="'icon icon-'+item.icon"></i>
@@ -27,7 +29,7 @@
                         <i v-if="! expanded"
                            class="icon icon-angle-bottom"
                            @click="toggleActive($event, index)"></i>
-                    </a>
+                    </component>
 
                     <slide-up-down :show="active === index || expanded">
                         <ul

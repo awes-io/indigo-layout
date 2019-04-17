@@ -1,5 +1,5 @@
-.header-notification + .frame
-  min-height calc(100vh - 47px)
+// .header-notification + .frame
+//   min-height calc(100vh - 47px)
 
 .frame
   fl()
@@ -199,7 +199,7 @@
       &_sub
         pointer-events auto !important
         padding-right 50px
-      &:hover
+      &:not(.no-hover):hover
         opacity 1
         text-decoration none
     &-li
@@ -389,6 +389,13 @@
     padding 30px 40px
     position relative
     min-height calc(100vh - 155px)
+    &-nav
+      box-shadow: inset 0 -1px 0 0 var(--tc_border)
+      .tab-nav
+        box-shadow: none
+      &:first-child
+        padding 0 40px
+        margin: -30px -40px 30px
   & &__overlay
     fixed top left
     width 100%
@@ -445,6 +452,11 @@
         min-height 50px
     & &__content
       padding 30px 20px
+      &-nav:first-child
+        padding-left: 20px
+        padding-right: 20px
+        margin-left: -20px
+        margin-right: -20px
     & &__header
       min-height 100px
       &-line
@@ -611,6 +623,9 @@
     & &__content
       padding-top 25px
       padding-bottom 25px
+      &-nav:first-child
+        margin-top: -25px
+        margin-bottom: 25px
     & &__copyright
       padding-bottom 0
     & &__right
@@ -681,6 +696,11 @@
     & &__content
       padding-left 10px
       padding-right 10px
+      &-nav:first-child
+        padding-left: 10px
+        padding-right: 10px
+        margin-left: -10px
+        margin-right: -10px
     & &__copyright
       padding-left 10px
       padding-right 10px
