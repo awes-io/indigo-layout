@@ -40,7 +40,7 @@
                                 <a  :href="child.link || ''"
                                     :class="['frame__aside-inlink', {'is-active': child.active}]"
                                 >
-                                    <span :class="{'tf-strong': child.active}">{{ child.name }}</span>
+                                    <span :class="{'text-strong': child.active}">{{ child.name }}</span>
                                 </a>
                             </li>
                         </ul>
