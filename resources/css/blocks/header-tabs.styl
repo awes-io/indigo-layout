@@ -1,118 +1,118 @@
-.header-tabs
-    fl(w)
-    border-bottom 1px solid
-    margin-left -40px
-    margin-right -40px
-    padding-left 40px
-    padding-right 40px
-    margin-top -30px
-    margin-bottom 30px
-    & &__list
-        fl(w)
-    & &__link
-        padding 15px 0
-        margin-right 25px
-        display block
-        font-size 14px
-        border-bottom 2px solid transparent
-        margin-bottom -1px  
-        &.active
-            pointer-events: none
-    & &__ltlink
-        padding 15px 15px 15px 0
-        display block
-        font-size 14px
-        border-bottom 2px solid transparent
-        margin-bottom -1px !important
-        position relative
-        line-height inherit !important
-        &:after
-            angle()
-    & &__mselect
-        display none
-        position relative
-        &:after
-            angle()
-            right 15px 
-        &.active
-            &:after
-                transform rotate(-90deg)
+// .header-tabs
+//     fl(w)
+//     border-bottom 1px solid
+//     margin-left -40px
+//     margin-right -40px
+//     padding-left 40px
+//     padding-right 40px
+//     margin-top -30px
+//     margin-bottom 30px
+//     & &__list
+//         fl(w)
+//     & &__link
+//         padding 15px 0
+//         margin-right 25px
+//         display block
+//         font-size 14px
+//         border-bottom 2px solid transparent
+//         margin-bottom -1px  
+//         &.active
+//             pointer-events: none
+//     & &__ltlink
+//         padding 15px 15px 15px 0
+//         display block
+//         font-size 14px
+//         border-bottom 2px solid transparent
+//         margin-bottom -1px !important
+//         position relative
+//         line-height inherit !important
+//         &:after
+//             angle()
+//     & &__mselect
+//         display none
+//         position relative
+//         &:after
+//             angle()
+//             right 15px 
+//         &.active
+//             &:after
+//                 transform rotate(-90deg)
 
             
-@media maw[dsm]
-    .header-tabs
-        margin-left -20px
-        margin-right -20px
-        padding-left 20px
-        padding-right 20px
+// @media maw[dsm]
+//     .header-tabs
+//         margin-left -20px
+//         margin-right -20px
+//         padding-left 20px
+//         padding-right 20px
 
-@media maw[tsm]
-    .header-tabs
-        padding-top 15px
-        padding-bottom 5px
-        margin-top -25px
-        & &__link
-            border 0
-            padding 0
-            margin-bottom 10px
-        & &__ltlink
-            border 0
-            padding 0 15px 0 0
-            margin-bottom 10px
-        .context-menu__dropdown
-            top calc(100% + 10px)
+// @media maw[tsm]
+//     .header-tabs
+//         padding-top 15px
+//         padding-bottom 5px
+//         margin-top -25px
+//         & &__link
+//             border 0
+//             padding 0
+//             margin-bottom 10px
+//         & &__ltlink
+//             border 0
+//             padding 0 15px 0 0
+//             margin-bottom 10px
+//         .context-menu__dropdown
+//             top calc(100% + 10px)
 
-@media maw[mmd]
-    .header-tabs
-        padding 0
-        margin-left -20px
-        margin-right -20px
-        & &__list
-            padding-bottom 1px
-        & &__link
-            margin-right 0
-            margin-bottom 15px
-            padding-left 20px
-            padding-right 20px
-            &.active
-                display none
-        & &__mselect
-            display block
-            padding-top 15px
-            padding-bottom 13px
-            padding-left 20px
-            padding-right 20px
-            width 100%
-            text-align left
-        & &__list
-            display block
-        & &__ltlink
-            display none !important
-        .context-menu
-            &__dropdown
-                position static
-                width 100%
-                top auto
-            &__list
-                box-shadow: none
-                background-color transparent 
-        .cm-item
-            margin-bottom 15px
-            &__button
-                padding 0 20px
+// @media maw[mmd]
+//     .header-tabs
+//         padding 0
+//         margin-left -20px
+//         margin-right -20px
+//         & &__list
+//             padding-bottom 1px
+//         & &__link
+//             margin-right 0
+//             margin-bottom 15px
+//             padding-left 20px
+//             padding-right 20px
+//             &.active
+//                 display none
+//         & &__mselect
+//             display block
+//             padding-top 15px
+//             padding-bottom 13px
+//             padding-left 20px
+//             padding-right 20px
+//             width 100%
+//             text-align left
+//         & &__list
+//             display block
+//         & &__ltlink
+//             display none !important
+//         .context-menu
+//             &__dropdown
+//                 position static
+//                 width 100%
+//                 top auto
+//             &__list
+//                 box-shadow: none
+//                 background-color transparent 
+//         .cm-item
+//             margin-bottom 15px
+//             &__button
+//                 padding 0 20px
                 
 
         
-@media maw[msm]
-    .header-tabs
-        margin-left -15px
-        margin-right -15px
-        & &__mselect
-            padding-left 15px
-            padding 15px
-        & &__link
-            padding-left 15px
-            padding-right 15px
-        .cm-item
-            &__button
-                padding 0 15px
+// @media maw[msm]
+//     .header-tabs
+//         margin-left -15px
+//         margin-right -15px
+//         & &__mselect
+//             padding-left 15px
+//             padding 15px
+//         & &__link
+//             padding-left 15px
+//             padding-right 15px
+//         .cm-item
+//             &__button
+//                 padding 0 15px

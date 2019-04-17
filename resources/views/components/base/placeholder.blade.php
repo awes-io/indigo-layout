@@ -1,7 +1,7 @@
 @isset($type)
     {{--Placeholder for table--}}
     <div class="ph">
-        <div class="ph__{{ $type }}">
+        <div class="ph__{{ $type }}@isset($dark){{' ph_dark'}}@endisset">
             @switch($type)
                 @case('table')
                     @for($i = 0; $i < 8; $i++)
@@ -24,6 +24,17 @@
                 @break
                 @case('chart_default')
                     <span></span>
+                @break
+                @case('tab-nav')
+                    @if(isset($items) && $items < 10)
+                        @for($i = 0; $i < $items; $i++)
+                            <span></span>
+                        @endfor
+                    @else
+                        @for($i = 0; $i < 5; $i++)
+                            <span></span>
+                        @endfor
+                    @endif
                 @break
             @endswitch
         </div>

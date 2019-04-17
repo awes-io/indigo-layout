@@ -1,18 +1,25 @@
 .tab-builder
     margin-bottom 25px
-    & &__togglers
-        fl()
-        position relative
-        box-shadow inset 0 -1px 0px 0px var(--tc_border)
-        margin-top -27px
-        &-overflow
-            fl()
-            width 100%
-            overflow hidden
-            flex-grow 1
-    & &__tab
+
+.tab-switcher
+    position: relative // for transition
+    overflow: hidden
+
+    &__tab
         margin-top 25px
-    & &__toggler
+        
+
+.tab-nav
+    fl()
+    position relative
+    box-shadow inset 0 -1px 0px 0px var(--tc_border)
+
+    &__overflow
+        fl()
+        width 100%
+        overflow hidden
+        flex-grow 1
+    &__toggler
         padding 17px 25px 17px 0
         display block
         font-size 14px
@@ -36,107 +43,105 @@
             &:before
                 width calc(100% - 25px)
                 opacity 1
-    & &__hidden
-        &-toggler
-            position: absolute
-            bottom: 0
-            // margin-left 25px
+    &__hidden-toggler
+        position: absolute
+        bottom: 0
+        flex-shrink 0
+        .context-menu__toggler
+            white-space nowrap
+            padding 16px 0
+            display block
+            font-size 14px
+            border-bottom 2px solid transparent
+            color var(--tc_link_semi)
+            white-space: nowrap
+            position relative
+            padding-right 12px
+            &:after
+                angle()
+                margin-top 0px
+                tr(0.25)
+            &:hover
+                color var(--tc_link_semi_active)
+                &:after
+                    border-top-color var(--tc_link_semi_active)
+        &.has-active-item
+            &:after
+                content: ''
+                display: block
+                absolute left 0 bottom 15px
+                right: 12px
+                height: 1px
+                background-image: linear-gradient(to right, var(--tc_link_semi_active) 50%, transparent 50%)
+                background-size: .5rem 1px
+                background-repeat: repeat-x
+
+
+
+// @media res_desktop--sm
+//     .tab-nav
+//         &__togglers
+//             margin-left -20px
+//             margin-right -20px
+//             padding-left 20px
+//             padding-right 20px
+
+@media res_mobile--lg
+    .tab-nav
+        &__togglers
+            flex-wrap wrap
+        &__overflow
+            height 1px
+            width 100%
+            overflow hidden
+        &__toggler
+            width 100%
+            margin-right 0
             flex-shrink 0
+        &__hidden-toggler
+            margin-left 0
+            width 100%
+            display block
             .context-menu__toggler
-                white-space nowrap
-                padding 16px 0
-                display block
-                font-size 14px
-                border-bottom 2px solid transparent
-                color var(--tc_link_semi)
-                white-space: nowrap
-                position relative
-                padding-right 12px
-                &:after
-                    angle()
-                    margin-top 0px
-                    tr(0.25)
-                &:hover
-                    color var(--tc_link_semi_active)
-                    &:after
-                        border-top-color var(--tc_link_semi_active)
-            &.has-active-item
-                &:after
-                    content: ''
-                    display: block
-                    absolute left 0 bottom 15px
-                    right: 12px
-                    height: 1px
-                    background-image: linear-gradient(to right, var(--tc_link_semi_active) 50%, transparent 50%)
-                    background-size: .5rem 1px
-                    background-repeat: repeat-x
-    &_full
-        
-        & ^[0]__togglers
-            padding-left 40px
-            padding-right 40px
-            margin-left -40px
-            margin-right -40px
-
-
-
-
-@media maw[dsm]
-    .tab-builder
-        &_full
-            & ^[0]__togglers
-                margin-left -20px
-                margin-right -20px
-                padding-left 20px
-                padding-right 20px
-
-@media maw[mlg]
-    .tab-builder
-        &:not(^[0]_full)
-            & ^[0]__togglers
-                flex-wrap wrap
-                &-overflow
-                    height 1px
-                    width 100%
-                    overflow hidden
-            & ^[0]__toggler
                 width 100%
-                margin-right 0
-                flex-shrink 0
-            & ^[0]__hidden-toggler
-                margin-left 0
-                width 100%
-                display block
-                .context-menu__toggler
-                    width 100%
-                    padding-top 17px
-                    padding-bottom 17px
-                    color var(--tc_link_semi_active)
-                    &:after
-                        border-top-color var(--tc_link_semi_active)
-                .context-menu__dropdown
-                    box-shadow none
-                    position static
-                    left 0
-                    top 0
-                    background-color transparent
-                .cm-item__button, .cm-item__link
-                    background-color transparent
-                    padding-left 0
-                    padding-right 0
-                    padding-bottom 12px
-                    padding-top 12px
-                .context-menu__list
-                    box-shadow: none
-                    background-color transparent
-                    padding-bottom 10px
+                padding-top 17px
+                padding-bottom 17px
+                color var(--tc_link_semi_active)
+                &:after
+                    border-top-color var(--tc_link_semi_active)
+            .context-menu__dropdown
+                box-shadow none
+                position static
+                left 0
+                top 0
+                background-color transparent
+            .cm-item__button, .cm-item__link
+                background-color transparent
+                padding-left 0
+                padding-right 0
+                padding-bottom 12px
+                padding-top 12px
+            .context-menu__list
+                box-shadow: none
+                background-color transparent
+                padding-bottom 10px
 
+// transition classes
+.tab-transition
 
-@media maw[msm]
-    .tab-builder
-        &_full
-            & ^[0]__togglers
-                margin-left -10px
-                margin-right -10px
-                padding-left 10px
-                padding-right 10px
+    &-enter-active,
+    &-leave-active
+        transition: opacity 200ms ease
+
+    &-leave-to,
+    &-enter
+        opacity: 0
+
+    &-enter-active
+        transition-delay: 100ms
+
+    &-leave-active
+        position: absolute
+        top: 0
+        left: 0
+        right 0

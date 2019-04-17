@@ -8,26 +8,22 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700&amp;amp;subset=cyrillic" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/awes-notify/v1.x.x/css/main.css">
-    <style>
-        .frame__content a[href^="http"]:not([href*='github.com']):not([href*='awes.io']):not([href*='localhost']):after,
-        .tf-content a[href^="http"]:not([href*='github.com']):not([href*='awes.io']):not([href*='localhost']):after,
-        .frame__content a[href^="//"]:not([href*='github.com']):not([href*='awes.io']):not([href*='localhost']):after,
-        .tf-content a[href^="//"]:not([href*='github.com']):not([href*='awes.io']):not([href*='localhost']):after {
-            content: " \ea34";
-            font-family: 'icons';
+    <style>.frame__content a[href^="http"]:not([href*='github.com']):not([href*='awes.io']):not([href*='localhost']):after,
+.tf-content a[href^="http"]:not([href*='github.com']):not([href*='awes.io']):not([href*='localhost']):after,
+.frame__content a[href^="//"]:not([href*='github.com']):not([href*='awes.io']):not([href*='localhost']):after,
+.tf-content a[href^="//"]:not([href*='github.com']):not([href*='awes.io']):not([href*='localhost']):after {
+    content: " \ea34";
+    font-family: 'icons';
+}</style>
+    <script>const AWES_CONFIG = {
+    key: '5cd207e2c94eb723c3307764a5693def',
+    dev: true,
+    formBuilder: {
+        fbEditor: {
+            content_css: ['/css/editor.css']
         }
-    </style>
-    <script>
-        const AWES_CONFIG = {
-            key: '5cd207e2c94eb723c3307764a5693def',
-            dev: true,
-            formBuilder: {
-                fbEditor: {
-                    content_css: ['/css/editor.css']
-                }
-            }
-        }
-    </script>
+    }
+}</script>
     <script src="/js/main.js"></script>
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/filter-wrapper/v1.x.x/js/main.js"></script>
     <script src="https://cdn.pkgkit.com/5cd207e2c94eb723c3307764a5693def/awes-io/table-builder/v1.x.x/js/main.js"></script>
@@ -498,6 +494,37 @@
                                         </table-builder>
                                         <paginate-builder store-data="table" :url="`/json/table${$get($route, 'query.table', 0)}.json`"></paginate-builder>
                                     </div>
+                                </div>
+                                <div class="cell-1-3">
+                                    <content-wrapper class="tf-height-100" :default="{&quot;datasets&quot;:[{&quot;data&quot;:[14,35,42,12,2],&quot;backgroundColor&quot;:[&quot;rgba(55,179,196,0.6)&quot;,&quot;rgba(63,135,199,0.6)&quot;,&quot;rgba(63,75,181,0.6)&quot;,&quot;rgba(135, 43, 188, 0.6)&quot;,&quot;rgba(224,93,112,0.6)&quot;],&quot;label&quot;:&quot;Dataset 1&quot;}],&quot;labels&quot;:[&quot;Red&quot;,&quot;Orange&quot;,&quot;Yellow&quot;,&quot;Green&quot;,&quot;Blue&quot;]}"><template slot-scope="name0NCySr0u">
+                                            <div class="card card_chartdoughnut">
+                                                <chart-builder class="card__chart" :data="name0NCySr0u" type="doughnut" :options="{                        plugins: {                        labels: {                        render: 'value',                        position: 'outside',                        textMargin: 10                        }                        },                        legend: {                        position: 'right',                        fontSize: 14,                        labels: {                        usePointStyle: true                        }                        },                        tooltips: {                        cornerRadius: 2,                        xPadding: 20,                        yPadding: 20,                        bodySpacing: 10                        }                        }"></chart-builder>
+                                            </div>
+                                        </template>
+                                        <div class="ph">
+                                            <div class="ph__chartdoughnut">
+                                                <div style="width:100%;height:260px; background: white; border-color: var(--tc_border_light); border-radius: 2px; box-shadow: var(--tc_ui_shadow);">Placeholder</div>
+                                            </div>
+                                        </div><template slot="loading">
+                                            <div class="card loading-block card_chartdoughnut" data-loading="Loading...">
+                                                <div class="card__wrap cl-caption">
+                                                    <div class="card__middle-cell"></div>
+                                                </div>
+                                            </div>
+                                        </template><template slot="error">
+                                            <div class="card card_chartdoughnut">
+                                                <div class="card__wrap cl-red">
+                                                    <div class="card__middle-cell"><i class="icon icon-data-error card__icon cl-red"></i><span class="card__caption cl-red">Please check your Internet connection</span></div>
+                                                </div>
+                                            </div>
+                                        </template><template slot="empty">
+                                            <div class="card card_chartdoughnut">
+                                                <div class="card__wrap cl-caption">
+                                                    <div class="card__middle-cell"><i class="icon icon-database-error card__icon cl-caption"></i><span class="card__caption">There is not enough data</span></div>
+                                                </div>
+                                            </div>
+                                        </template>
+                                    </content-wrapper>
                                 </div>
                             </div>
                         </div>

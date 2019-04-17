@@ -38,7 +38,7 @@ export default {
                 // highlight blocks
                 hljs.initHighlighting();
 
-                let blocks = document.querySelectorAll('.hljs')
+                let blocks = document.querySelectorAll('pre > code[class^="language"]')
 
                 blocks && blocks.forEach(block => {
 

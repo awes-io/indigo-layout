@@ -41,33 +41,30 @@
                         :data='{{ $name }}'
                         type="doughnut"
                         :options="{
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        aspectRatio: 1, 
-                        plugins: {
-                            labels: {
-                                render: 'value',
-                                position: 'inside',
-                                textMargin: 10
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            aspectRatio: 1, 
+                            plugins: {
+                                labels: {
+                                    render: 'value',
+                                    position: 'inside',
+                                    textMargin: 10
+                                }
+                            },
+                            legend: {
+                                position: 'right',
+                                fontSize: 14,
+                                labels: {
+                                    usePointStyle: true
+                                }
+                            },
+                            tooltips: {
+                                cornerRadius: 2,
+                                xPadding: 20,
+                                yPadding: 20,
+                                bodySpacing: 10
                             }
-                        },
-                        legend: {
-                            position: 'right',
-                            fontSize: 14,
-                            labels: {
-                                usePointStyle: true
-                            }
-                        },
-                        tooltips: {
-                            cornerRadius: 2,
-                            xPadding: 20,
-                            yPadding: 20,
-                            bodySpacing: 10
-                        }
-
                         }">
-                        
-
                     </chart-builder>
                 </div>
             </div>
