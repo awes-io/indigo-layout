@@ -58,13 +58,7 @@
                                     cornerRadius: 2,
                                     xPadding: 20,
                                     yPadding: 20,
-                                    bodySpacing: 10,
-                                    callbacks: {
-                                        label: function(item, data) {
-                                            var title = ' ' + data.labels[item.index] + ' ' + data.datasets[0].data[item.index] + '% ' + data.datasets[1].data[item.index]
-                                            return title.length < 30 ? title : title.substr(0,28) + '...'
-                                        }
-                                    }
+                                    bodySpacing: 10
                                 }
 
                                }">
