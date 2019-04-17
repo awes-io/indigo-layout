@@ -17,22 +17,13 @@
                     @endfor
                 @break
                 @case('chartline')
-                    {{--TODO: add correct styles--}}
-                    <div style="width:100%;height:260px; background: white; border-color: var(--tc_border_light); border-radius: 2px; box-shadow: var(--tc_ui_shadow);">
-                        Placeholder
-                    </div>
+                    <span></span>
                 @break
                 @case('chartdoughnut')
-                    {{--TODO: add correct styles--}}
-                    <div style="width:100%;height:260px; background: white; border-color: var(--tc_border_light); border-radius: 2px; box-shadow: var(--tc_ui_shadow);">
-                        Placeholder
-                    </div>
+                    <span></span>
                 @break
                 @case('chart_default')
-                    {{--TODO: add correct styles--}}
-                    <div style="width:100%;height:480px; background: white; border-color: var(--tc_border_light); border-radius: 2px; box-shadow: var(--tc_ui_shadow);">
-                        Placeholder
-                    </div>
+                    <span></span>
                 @break
             @endswitch
         </div>

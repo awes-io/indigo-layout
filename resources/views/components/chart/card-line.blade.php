@@ -72,9 +72,9 @@
 
                 <div class="card__wrap card__wrap_bottom">
                     <div class="card__info">
-                        <span class="block tf-size-small tf-light tf-upper mb-md">{{ (isset($label)) ? $label : "" }}</span>
-                        <span class="block tf-size-small tf-light tf-upper mb-sm">{{ (isset($title)) ? $title : "" }}</span>
-                        <span class="block tf-size-title tf-light tf-upper">{{ (isset($value)) ? $value : "" }}</span>
+                        <span class="block tf-size-small text-light text-upper mb-md">{{ (isset($label)) ? $label : "" }}</span>
+                        <span class="block tf-size-small text-light text-upper mb-sm">{{ (isset($title)) ? $title : "" }}</span>
+                        <span class="block tf-size-title text-light text-upper">{{ (isset($value)) ? $value : "" }}</span>
                         @if (isset($read_more))
                             <div class="mt-sl">
                                 <a href="{{ isset($read_more['url']) ? $read_more['url'] : "#" }}" class="tf-hyplink">{{ isset($read_more['name']) ? $read_more['name'] : __('indigo-layout::common.read_more') }}</a>

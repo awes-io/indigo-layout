@@ -31,8 +31,8 @@
             <awes-notify-container name="header" stack="false" :config="{theme:'inline', timeout: 0}"></awes-notify-container>
             <div class="frame__header">
                 <div class="frame__header-top">
-                    <form class="frame__search" id="search" v-bind:class="{ active: $awesLayoutCrm.showSearch }" action="js" method="get"> <span class="frame__search-link" v-on:click="$awesLayoutCrm.showSearch = !$awesLayoutCrm.showSearch"><i class="icon icon-search"></i></span>
-                        <div class="frame__search-hidden"><input class="frame__search-input" type="text" placeholder="Search..."><button class="frame__search-btn" type="submit">Search</button><span class="frame__search-close" v-on:click="$awesLayoutCrm.showSearch = !$awesLayoutCrm.showSearch"><i class="icon icon-cross"></i></span></div>
+                    <form class="frame__search" id="search" action="{{ config('indigo-layout.search.url') }}" method="get"> <span class="frame__search-link"><i class="icon icon-search"></i></span>
+                        <div class="frame__search-hidden"><input class="frame__search-input" name="{{ config('indigo-layout.search.name') }}" type="text" placeholder="Search..."><button class="frame__search-btn" type="submit">Search</button><span class="frame__search-close"><i class="icon icon-cross"></i></span></div>
                     </form>
 
                     @if(Auth::check())

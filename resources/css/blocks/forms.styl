@@ -68,7 +68,8 @@
         padding 5px 10px
         user-select none
         margin-left -1px
-        
+        .wave
+            background-color: var(--tc_ui_wave_dark)
     .btn
         cursor pointer
         tr(0.3)
@@ -142,7 +143,7 @@
     justify-content center
     text-align center
     transition background-color 0.3s ease, color 0.3s ease
-    border-radius var(--tc_border_radius)
+    border-radius var(--tc_form_border_radius)
     text-align center
     padding 15px 30px
     min-width 120px
@@ -160,7 +161,7 @@
         .icon
             animation rotate 1s infinite linear
     &:hover, &:focus
-        text-decoration none
+        text-decoration none !important
         background-color var(--tc_btn_bg_active)
         color var(--tc_btn_text)
     &_white

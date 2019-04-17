@@ -57,3 +57,8 @@ Breakpoints are available for text positions.
 - **.text-cap** text-transform capitalize
 - **.text-underline** text-decoration underline
 - **.text-through** text-decoration line-through
+
+### Text help classes:
+- **.text-nobreak** disable automatic letter wrap
+- **.text-nowrap** white-space nowrap with clipping ellipsis
+- **.text-oneline** disable text wrapping
