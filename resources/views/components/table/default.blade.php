@@ -30,16 +30,36 @@
                 row-url="{{ $row_url }}"
             @endif
 
+            @isset($class)
+                list-class="{{ $class }}"
+            @endif
+
+            @isset($row_class)
+                list-row-class="{{ $row_class }}"
+            @endif
+
             @if (!$pagination)
                 @if (isset($default_data) && !empty($default_data))
                     :default='@json($default_data)'
                 @endif
             @endif
         >
-            @placeholder(['type' => 'table'])
+            {{--Placeholder--}}
+            @if(!isset($list))
+                @placeholder(['type' => 'table'])
+            @else
+                @placeholder(['type' => 'list'])
+            @endisset
 
             {{--General slot--}}
             {{ $slot }}
+
+            {{--List slot--}}
+            @isset($list)
+                <template slot="list" slot-scope="l">
+                    {!! $list !!}
+                </template>
+            @endisset
 
             {{--Mobile slot--}}
             @isset($mobile)
