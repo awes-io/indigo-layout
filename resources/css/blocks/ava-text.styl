@@ -13,5 +13,48 @@
         text-align center
         font-size 17px
         margin-right 10px
+        background-color var(--tc_ui_bg_darken)
+        color var(--tc_text_caption)
     span
         display block
+
+    
+
+.avatars-list
+    display inline-flex
+    img
+        border-radius 50%
+        size 36px
+    & > :first-child
+        margin-left 0
+    .icon
+        size 36px 
+        border-radius 50%
+        align-items center
+        justify-content center
+        text-align center
+        font-size 17px
+        background-color var(--tc_ui_bg_darken)
+        color var(--tc_text_caption)
+    & > a, img, button, .icon
+        margin-left -15px
+        display flex
+        size 36px
+        position relative
+        border-radius 50%
+        img
+            margin-left 0
+        .icon
+            margin-left 0
+    & > a, button
+        tr .1
+        &:hover
+            transform scale(1.1)
+    &_border
+        &-ui
+            & > a, img, button, .icon
+                box-shadow: 0px 0px 0px 3px var(--tc_ui_bg)
+        &-page
+            & > a, img, button, .icon
+                box-shadow: 0px 0px 0px 3px var(--tc_page_bg)
+
