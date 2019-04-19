@@ -160,6 +160,25 @@ blockquote
     display block
     overflow auto
 
+.inline-list, .frame__content .inline-list
+    fl(w)
+    li
+        display block
+        margin 0
+    &_nogap
+        margin-bottom 0
+    &_gap
+        margin-bottom 25px
+        li
+            margin-bottom 12px
+            margin-right 12px
+    &_gapx
+        margin-bottom -12px
+        li
+            margin-right 12px
+            margin-bottom 12px
+    
+
 table:not(.int-table__table):not(.hljs-ln)
     width 100%
     border-collapse collapse
