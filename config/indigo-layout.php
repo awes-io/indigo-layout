@@ -4,7 +4,13 @@ return [
 
     //This key pass to vuejs config
     'frontend' => [
-        'key' =>  env('AWES_CDN_KEY', 'undefined')
+        'key' =>  env('AWES_CDN_KEY', 'undefined'),
+        'theme' => [
+            'metaColor' => [
+                'dark' => '#2a2a2a',
+                'light' => '#ffffff',
+            ]
+        ]
     ],
 
     'name' => env('APP_NAME', 'Awes.IO'),
