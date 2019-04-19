@@ -12,9 +12,11 @@
                     <span class="ph__{{ $type }}-link"></span><span class="ph__{{ $type }}-title"></span>
                 @break
                 @case('nav')
-                    @for($i = 0; $i < 6; $i++)
-                        <li><span class="ph__{{ $type }}-icon"></span><span class="ph__{{ $type }}-text"></span></li>
-                    @endfor
+                    <ul>
+                        @for($i = 0; $i < 6; $i++)
+                            <li><span class="ph__{{ $type }}-icon"></span><span class="ph__{{ $type }}-text"></span></li>
+                        @endfor
+                    </ul>
                 @break
                 @case('chartline')
                     <span></span>

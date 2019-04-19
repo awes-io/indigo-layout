@@ -47,6 +47,7 @@
     <content-wrapper
         class="tf-height-100"
         store-data="{{ 'id' . str_random(8) }}"
+        :check-empty="function(data) { return $get(data, 'datasets[0].data', []).length === 0}"
         @if (isset($default_data) && !empty($default_data))
         :default='@json($default_data)'
         @endif

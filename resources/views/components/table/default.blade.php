@@ -68,7 +68,7 @@
         @if ($pagination)
             {{--Pagination slot--}}
             <paginate-builder
-                ref="pb.{{ $name }}"
+                ref="{{ $name }}"
                 @isset($scope_api_url)
                     url="{{ $scope_api_url }}"
                 @endisset
