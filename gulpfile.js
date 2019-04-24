@@ -156,7 +156,7 @@ gulp.task('clean', function(){
     .pipe( clean() )
 })
 
-gulp.task('build', gulp.series('build:js', 'build:img', 'build:icons', 'build:styles', 'build:html') )
+gulp.task('build', gulp.series('build:js', 'build:img', 'build:icons', 'build:styles') )
 
 // start
 defaultTask = ['build']

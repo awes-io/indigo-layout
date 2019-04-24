@@ -36,20 +36,16 @@
                     </form>
 
 
-                    {{-- NEW AVATAR, ICON BLOCK --}}
-                    <div class="parent">
-                        @if(Auth::check())
-                            {{--USER AVATAR--}}
-                            <button class="frame__userinfo-ava" @click="$awesLayoutCrm.showUserMenu = ! $awesLayoutCrm.showUserMenu">
-                                @if(isset($user_avatar))
-                                    <img src="{{ $user_avatar }}" />
-                                @else
-                                    <i class="icon icon-user novatar novatar_box"></i>
-                                @endif
-                            </button>
-                        @endif
-                    </div>
-                    {{-- /NEW AVATAR, ICON BLOCK --}}
+                    @if(Auth::check())
+                        {{--USER AVATAR--}}
+                        <button class="frame__userava" @click="$awesLayoutCrm.showUserMenu = ! $awesLayoutCrm.showUserMenu">
+                            @if(isset($user_avatar))
+                                <img src="{{ $user_avatar }}" />
+                            @else
+                                <i class="icon icon-user novatar novatar_box"></i>
+                            @endif
+                        </button>
+                    @endif
 
                     @if(!Auth::check())
                         <div class="frame__header-rlinks">
@@ -70,13 +66,13 @@
                 <div class="frame__header-line">
                     {{--TODO: H1 & Add button block--}}
                     @isset($h1)
-                        <div class="_todo">
+                        <div class="frame__header-left">
                             <h1 class="frame__header-title">{!! $h1 !!}</h1>
                         </div>
                     @endisset
 
                     @hasSection('create_button')
-                        <div class="frame__header-add">
+                        <div class="frame__header-btn">
                             @yield('create_button', '')
                         </div>
                     @endif
