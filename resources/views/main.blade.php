@@ -5,7 +5,7 @@
 
 <body>
 <content-wrapper class="mainwrapper">
-    <system-notify-container class="position-top-center" name="top" stack="top" :config="{theme: 'inline, rounded'}"></system-notify-container>
+    @notify(['class' => 'position-top-center', 'name' => 'top', 'stack' => 'top', 'config' => "{theme: 'inline, rounded'}"])
     <div class="frame">
         <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
             <div class="frame__overlay" v-show="$awesLayoutCrm.togglenav || $awesLayoutCrm.showUserMenu" @click="$awesLayoutCrm.overlayClick"></div>
@@ -28,7 +28,7 @@
         @endisset
 
         <div class="frame__right @if(!Auth::check()) frame__right_nui @endif">
-            <system-notify-container name="header" stack="false" :config="{theme:'inline', timeout: 0}"></system-notify-container>
+            @notify(['name' => 'header', 'stack' => false, 'config' => "{theme: 'inline', timeout: 0}"])
             <div class="frame__header">
                 <div class="frame__header-top">
                     <form class="frame__search" id="search" action="{{ config('indigo-layout.search.url') }}" method="get"> <span class="frame__search-link"><i class="icon icon-search"></i></span>
@@ -114,7 +114,7 @@
 
             <div class="frame__content">
                 @isset($children_top) @navTop(['navigation' => $children_top]) @endisset
-                <system-notify-container name="frame" stack="false" :config="{theme: 'inline', status: 'warning', timeout: 0}"></system-notify-container>
+                @notify(['name' => 'frame', 'stack' => false, 'config' => "{theme: 'inline', status: 'warning', timeout: 0}"])
                 <div class="frame__inlayout">
                     @if (!empty($__env->yieldContent('pagemap')))
                     @section('pagemap')
