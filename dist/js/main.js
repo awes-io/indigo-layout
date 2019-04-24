@@ -1,7 +1,922 @@
-/**
- * Bundle of AWES indigo-layout
- * Generated: 2019-04-19 13:16:38
- * Version: 1.4.1
- */
+(function () {
+    'use strict';
 
-!function(){"use strict";var e={data:()=>({togglenav:!1,showSearch:!1,showUserMenu:!1,showHelpers:!1,stActive:!1}),methods:{toggleBodyFix(e){document.documentElement.classList[e?"add":"remove"]("body-overflow-hidden")},toggleBodyMobileFix(e){document.documentElement.classList[e?"add":"remove"]("body-overflow-usermenu")},openNav(){1==this.togglenav?(this.togglenav=!1,this.toggleBodyFix(!1)):(this.togglenav=!0,this.toggleBodyFix(!0))},overlayClick(){this.showUserMenu=!1,this.togglenav=!1,this.toggleBodyFix(!1)},notify(e,t="success",i="bottom-right"){this.$notify({group:"bottom-right",type:t,title:t,text:e})}},watch:{showUserMenu(e){this.toggleBodyMobileFix(e)},showHelpers(e){this.toggleBodyMobileFix(e)}}};var t=function(e,t,i,s,n,a,o,l,r,d){"boolean"!=typeof o&&(r=l,l=o,o=!1);var c,h="function"==typeof i?i.options:i;if(e&&e.render&&(h.render=e.render,h.staticRenderFns=e.staticRenderFns,h._compiled=!0,n&&(h.functional=!0)),s&&(h._scopeId=s),a?(c=function(e){(e=e||this.$vnode&&this.$vnode.ssrContext||this.parent&&this.parent.$vnode&&this.parent.$vnode.ssrContext)||"undefined"==typeof __VUE_SSR_CONTEXT__||(e=__VUE_SSR_CONTEXT__),t&&t.call(this,r(e)),e&&e._registeredComponents&&e._registeredComponents.add(a)},h._ssrRegister=c):t&&(c=o?function(){t.call(this,d(this.$root.$options.shadowRoot))}:function(e){t.call(this,l(e))}),c)if(h.functional){var u=h.render;h.render=function(e,t){return c.call(t),u(e,t)}}else{var p=h.beforeCreate;h.beforeCreate=p?[].concat(p,c):[c]}return i};var i=t({render:function(){var e=this,t=e.$createElement,i=e._self._c||t;return i("div",{staticClass:"frame__aside-nav-wrap",class:{"is-expanded":e.expanded}},[e.links?i("ul",{staticClass:"frame__aside-links"},e._l(e.links,function(t,s){return i("li",{key:s,staticClass:"frame__aside-li"},[t.children?i("div",[i(e.expanded&&!t.link?"span":"a",{tag:"component",class:["frame__aside-link frame__aside-link_sub",{"is-active":e.active===s,"no-hover":e.expanded&&!t.link}],attrs:{href:e.expanded&&t.link||""},on:{click:function(i){!t.link&&e.toggleActive(i,s)}}},[t.icon?i("i",{class:"icon icon-"+t.icon}):e._e(),e._v(" "),i("span",[e._v(e._s(t.name))]),e._v(" "),e.expanded?e._e():i("i",{staticClass:"icon icon-angle-bottom",on:{click:function(t){return e.toggleActive(t,s)}}})]),e._v(" "),i("slide-up-down",{attrs:{show:e.active===s||e.expanded}},[i("ul",{staticClass:"frame__aside-hidden",class:{"has-background":!e.expanded||e.active===s}},e._l(t.children,function(t,s){return i("li",{key:s,staticClass:"frame__aside-inlist"},[i("a",{class:["frame__aside-inlink",{"is-active":t.active}],attrs:{href:t.link||""}},[i("span",{class:{"text-strong":t.active}},[e._v(e._s(t.name))])])])}),0)])],1):i("a",{class:["frame__aside-link",{"frame__aside-link_active":e.active===s}],attrs:{href:t.link||""}},[t.icon?i("i",{class:"icon icon-"+t.icon}):e._e(),e._v(" "),i("span",[e._v(e._s(t.name))])])])}),0):e._e(),e._v(" "),e._t("difnav")],2)},staticRenderFns:[]},void 0,{name:"frame-nav",props:{links:{type:Array,validator(e){let t=[];return e.forEach(function e(i){i.name&&i.link||(i.name&&i.children&&Array.isArray(i.children)?i.children.forEach(e):t.push(i))}),!t.length||(console.error("frame-nav: prop `links` must have name and a link or children:"),console.error('<frame-nav :links="[ {name:<String>, link:<String>}, {name:<String>, children:<Array>} ]"/>'),console.error("frame-nav: invalid items - ",t),!1)}},expanded:{type:Boolean,default:!1}},data:()=>({active:null}),watch:{links:{handler(e){this.active=e.findIndex(e=>e.active||e.children&&e.children.some(e=>e.active))},immediate:!0}},methods:{itemActive(e){return this.links[e].active||this.expanded||this.hasActiveChildren[e]},toggleActive(e,t){e.stopPropagation(),e.preventDefault(),this.expanded||(this.active===t?this.active=null:this.active=t)}}},void 0,!1,void 0,void 0,void 0);var s=t({},void 0,{name:"slide-up-down",props:{show:Boolean,tag:{type:String,default:"div"},slideUpDuration:{type:Number,default:250},slideDownDuration:{type:Number,default:300}},data(){return{isOpened:this.show}},watch:{show(e){this.isOpened=e}},methods:{slideDown(e,t){const i=this._getHeight(e),s=(new Date).getTime();e.style.overflow="hidden",e.style.height=0,e.style.opacity=0;const n=()=>{let a=(new Date).getTime()-s;if(a<this.slideDownDuration){let t=function(e,t){return(e=e/t-1)*e*e+1}(a,this.slideDownDuration);e.style.height=`${Math.round(t*i)}px`,e.style.opacity=t.toFixed(1),this.__animDown=requestAnimationFrame(n)}else e.style.height=null,e.style.opacity=null,e.style.overflow=null,t()};this.__animDown=requestAnimationFrame(n)},stopDown(){cancelAnimationFrame(this.__animDown)},slideUp(e,t){const i=this._getHeight(e);e.style.overflow="hidden";const s=(new Date).getTime(),n=()=>{let a=(new Date).getTime()-s;if(a<this.slideUpDuration){let t=1-function(e,t){return(e/=t/2)<1?e*e*e/2:((e-=2)*e*e+2)/2}(a,this.slideUpDuration);e.style.height=`${Math.round(t*i)}px`,e.style.opacity=t.toFixed(1),this.__animUp=requestAnimationFrame(n)}else e.style.height=null,e.style.opacity=null,e.style.overflow=null,t()};this.__animUp=requestAnimationFrame(n)},stopUp(e){cancelAnimationFrame(this.__animUp),e.style.height=null,e.style.opacity=null,e.style.overflow=null},close(){this.isOpened=!1,this.$emit("update:show",!1)},open(){this.isOpened=!0,this.$emit("update:show",!0)},toggle(){this.isOpened=!this.isOpened,this.$emit("update:show",this.isOpened)},_getHeight(e){if(e.children){let t=0,i=e.children;for(let e=0;e<i.length;e++){let s=getComputedStyle(i[e]);t+=i[e].clientHeight+parseInt(s.marginTop)+parseInt(s.marginBottom)}return t}return e.offsetHeight}},render(e){return e("transition",{props:{css:!1},on:{enter:this.slideDown,"enter-cancelled":this.stopDown,leave:this.slideUp,"leave-cancelled":this.stopUp}},[e(this.tag,{class:"slide-up-down",directives:[{name:"show",value:this.isOpened}]},this.$slots.default)])}},void 0,void 0,void 0,void 0,void 0);const n={installed:!1,install:function(){this.installed||(this.installed=!0,Vue.prototype.$awesLayoutCrm=new Vue(e),Vue.component("content-placeholder",{functional:!0,render:e=>null}),Vue.component("frame-nav",i),Vue.component("slide-up-down",s))}};var a={MODAL_BACK:"Go back",MODAL_CLOSE:"Close modal",CODE_COPY:"copy",CODE_COPIED_MSG:"Text copied to clipboard",CONTENT_EMPTY:"No data",CONTENT_ERROR:"Error",CONTENT_LOADING:"Loading..."};const o=1e3;class l{constructor(e){e&&(this.initElObserver(),this.addElements(),this.initRootObserver(e))}addElements(e=document){let t=Object.assign({selector:".btn, .frame__header-add, .hljs-copy"},AWES_CONFIG.waves);this._elements=e.querySelectorAll(t.selector),this._elements&&Array.from(this._elements).forEach(this.addElement,this)}addElement(e){if(e.__AWES_WAVE__)return;e.classList.contains("has-wave")||e.classList.add("has-wave"),this._elObserver.observe(e,{attributes:!0,attributeFilter:["class"]});let t=e.querySelector("span.wave");t||((t=document.createElement("span")).classList.add("wave"),e.appendChild(t)),e.__AWES_WAVE__={wave:t,active:!1},l.resetWave(e),e.addEventListener("mousedown",l.showWave,!1),e.addEventListener("mouseup",l.hideWave,!1)}initElObserver(){this._elObserver=new MutationObserver(e=>{e.forEach(e=>{let t=e.target,i=t.className;/has-wave/.test(i)||(t.className=i?i+" has-wave":"has-wave")})})}initRootObserver(e){this._rootObserver=new MutationObserver(e=>{clearTimeout(this.__tm),this.__tm=setTimeout(this.addElements.bind(this),300)}),this._rootObserver.observe(e,{childList:!0,subtree:!0})}static showWave(e){let{wave:t,active:i}=this.__AWES_WAVE__;i?(clearTimeout(this._tm),l.resetWave(this)):this.__AWES_WAVE__.active=!0,t.style.cssText=`\n            transition: transform ${.6*o}ms ease, opacity ${.6*o}ms ease;\n            opacity: 0.5;\n            transform: translate(-50%, -50%) scale(2);\n            top: ${e.offsetY}px;\n            left: ${e.offsetX}px\n        `}static hideWave(e){this.__AWES_WAVE__.wave.style.opacity="0",this._tm=setTimeout(()=>{this.__AWES_WAVE__.active=!1,l.resetWave(this)},.4*o)}static resetWave(e){e.__AWES_WAVE__.wave.style.cssText="\n            transform: translate(-50%, -50%) scale(0);\n            transition: none;\n            opacity: 1;\n        ",delete e._tm}}const r={name:"indigo-layout",version:"1.4.1",modules:{"vue-shortkey":{src:"https://unpkg.com/vue-shortkey@3",deps:["vue"],cb(){Vue.use(VueShortkey)}},"v-tooltip":{src:"https://unpkg.com/v-tooltip/dist/v-tooltip.min.js",deps:["vue"],cb(){VTooltip.default.options.defaultClass="theme-default",VTooltip.default.options.popover=Object.assign(VTooltip.default.options.popover,{defaultPlacement:"right",defaultAutoHide:!1,defaultTrigger:"manual",defaultPopperOptions:{modifiers:{flip:{behavior:["right","top"]}}}})}},"vue-tabs-component":{src:"https://unpkg.com/vue-nav-tabs/dist/vue-tabs.js",deps:["vue"],cb(){Vue.use(VueTabs)}},...{highlight:{src:["https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js","https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/atom-one-light.min.css"]},highlight_langs:{src:["https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/languages/yaml.min.js","https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.6.0/dist/highlightjs-line-numbers.min.js"],deps:["highlight"],cb(){AWES.once("core:inited",function(){hljs.initHighlighting();let e=document.querySelectorAll('pre > code[class^="language"]');e&&e.forEach(e=>{let t=e.parentNode;hljs.lineNumbersBlock(e);let i=e.className.match(/language-([a-z]*)/);i&&t.setAttribute("data-language",i[1]);let s=document.createElement("BUTTON");s.className="hljs-copy",s.innerText=AWES.lang.CODE_COPY,s.addEventListener("click",function(){(function(e){let t=document,i=document.createElement("TEXTAREA");i.id="copy-text",i.style.height=0,i.position="fixed",t.body.appendChild(i);try{return i.value=e.innerText.split("\n").filter(e=>""!==e&&"\t"!==e).join("\n"),i.select(),t.execCommand("copy"),!0}catch(e){return!1}finally{t.body.removeChild(i)}})(e)&&AWES.notify({message:AWES.lang.CODE_COPIED_MSG})},!1),t.insertBefore(s,e)})})}}}},install(e){Vue.use(n),e.lang=a,e.once("core:inited",()=>{e.Waves=new l(document.body)})}};window&&"AWES"in window?AWES.use(r):(window.__awes_plugins_stack__=window.__awes_plugins_stack__||[],window.__awes_plugins_stack__.push(r))}();
+    var name = "indigo-layout";
+    var version = "1.4.1";
+
+    const BODY_NO_SCROLL_CLASS = 'body-overflow-hidden';
+    const BODY_NO_SCROLL_CLASS_MOBILE = "body-overflow-usermenu";
+
+    var layoutApp = {
+
+        data() {
+            return {
+                togglenav: false,
+                showSearch: false,
+                showUserMenu: false,
+                showHelpers: false,
+                stActive: false
+            }
+        },
+
+        methods: {
+
+            toggleBodyFix(shouldFix) {
+                document.documentElement.classList[shouldFix ? 'add' : 'remove'](BODY_NO_SCROLL_CLASS);
+            },
+
+            toggleBodyMobileFix(shouldFix) {
+                document.documentElement.classList[shouldFix ? 'add' : 'remove'](BODY_NO_SCROLL_CLASS_MOBILE);
+            },
+
+            openNav() {
+                if(this.togglenav == true) {
+                    this.togglenav = false;
+                    this.toggleBodyFix(false);
+                } else {
+                    this.togglenav = true;
+                    this.toggleBodyFix(true);
+                }
+            },
+
+            overlayClick() {
+                this.showUserMenu = false;
+                this.togglenav = false;
+                this.toggleBodyFix(false);
+            },
+
+            notify(text, type = 'success', group = 'bottom-right') {
+                this.$notify({
+                    group: 'bottom-right',
+                    type: type,
+                    title: type,
+                    text: text
+                });
+            }
+        },
+        
+        watch: {
+            showUserMenu( isShown ) {
+                this.toggleBodyMobileFix(isShown);
+            },
+
+            showHelpers( isShown ) {
+                this.toggleBodyMobileFix(isShown);
+            }
+        }
+    };
+
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+
+    var script = {
+
+        name: 'frame-nav',
+
+        props: {
+
+            links: {
+                type: Array,
+                validator(links) {
+
+                    let invalid = [];
+
+                    function isValid( item ) {
+                        if ( item.name && item.link ) return
+                        if ( item.name && item.children && Array.isArray(item.children) ) {
+                            item.children.forEach(isValid);
+                            return
+                        }
+                        invalid.push(item);
+                    }
+
+                    links.forEach(isValid);
+
+                    if ( invalid.length ) {
+                        console.error('frame-nav: prop `links` must have name and a link or children:');
+                        console.error('<frame-nav :links="[ {name:<String>, link:<String>}, {name:<String>, children:<Array>} ]"/>');
+                        console.error('frame-nav: invalid items - ', invalid);
+                        return false
+                    } else {
+                        return true
+                    }
+                }
+            },
+
+            expanded: {
+                type: Boolean,
+                default: false
+            }
+        },
+
+
+        data() {
+            return {
+                active: null
+            }
+        },
+
+
+        watch: {
+
+            links: {
+                handler(links) {
+                    this.active = links.findIndex( link => {
+                        return link.active ||
+                               link.children && link.children.some( child => child.active )
+                    });
+                },
+                immediate: true
+            }
+        },
+
+
+        methods: {
+
+            itemActive(index) {
+                return this.links[index].active ||
+                       this.expanded ||
+                       this.hasActiveChildren[index]
+            },
+
+            toggleActive( $event, index ) {
+                $event.stopPropagation();
+                $event.preventDefault();
+                if ( this.expanded ) return
+                if ( this.active === index ) {
+                    this.active = null;
+                } else {
+                    this.active = index;
+                }
+            }
+        }
+    };
+
+    function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier
+    /* server only */
+    , shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+      if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
+      } // Vue.extend constructor export interop.
+
+
+      var options = typeof script === 'function' ? script.options : script; // render functions
+
+      if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true; // functional template
+
+        if (isFunctionalTemplate) {
+          options.functional = true;
+        }
+      } // scopedId
+
+
+      if (scopeId) {
+        options._scopeId = scopeId;
+      }
+
+      var hook;
+
+      if (moduleIdentifier) {
+        // server build
+        hook = function hook(context) {
+          // 2.3 injection
+          context = context || // cached call
+          this.$vnode && this.$vnode.ssrContext || // stateful
+          this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext; // functional
+          // 2.2 with runInNewContext: true
+
+          if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+            context = __VUE_SSR_CONTEXT__;
+          } // inject component styles
+
+
+          if (style) {
+            style.call(this, createInjectorSSR(context));
+          } // register component module identifier for async chunk inference
+
+
+          if (context && context._registeredComponents) {
+            context._registeredComponents.add(moduleIdentifier);
+          }
+        }; // used by ssr in case component is cached and beforeCreate
+        // never gets called
+
+
+        options._ssrRegister = hook;
+      } else if (style) {
+        hook = shadowMode ? function () {
+          style.call(this, createInjectorShadow(this.$root.$options.shadowRoot));
+        } : function (context) {
+          style.call(this, createInjector(context));
+        };
+      }
+
+      if (hook) {
+        if (options.functional) {
+          // register for functional component in vue file
+          var originalRender = options.render;
+
+          options.render = function renderWithStyleInjection(h, context) {
+            hook.call(context);
+            return originalRender(h, context);
+          };
+        } else {
+          // inject component registration as beforeCreate hook
+          var existing = options.beforeCreate;
+          options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+      }
+
+      return script;
+    }
+
+    var normalizeComponent_1 = normalizeComponent;
+
+    /* script */
+    const __vue_script__ = script;
+
+    /* template */
+    var __vue_render__ = function() {
+      var _vm = this;
+      var _h = _vm.$createElement;
+      var _c = _vm._self._c || _h;
+      return _c(
+        "div",
+        {
+          staticClass: "frame__aside-nav-wrap",
+          class: { "is-expanded": _vm.expanded }
+        },
+        [
+          _vm.links
+            ? _c(
+                "ul",
+                { staticClass: "frame__aside-links" },
+                _vm._l(_vm.links, function(item, index) {
+                  return _c("li", { key: index, staticClass: "frame__aside-li" }, [
+                    !item.children
+                      ? _c(
+                          "a",
+                          {
+                            class: [
+                              "frame__aside-link",
+                              { "frame__aside-link_active": _vm.active === index }
+                            ],
+                            attrs: { href: item.link || "" }
+                          },
+                          [
+                            item.icon
+                              ? _c("i", { class: "icon icon-" + item.icon })
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _c("span", [_vm._v(_vm._s(item.name))])
+                          ]
+                        )
+                      : _c(
+                          "div",
+                          [
+                            _c(
+                              _vm.expanded && !item.link ? "span" : "a",
+                              {
+                                tag: "component",
+                                class: [
+                                  "frame__aside-link frame__aside-link_sub",
+                                  {
+                                    "is-active": _vm.active === index,
+                                    "no-hover": _vm.expanded && !item.link
+                                  }
+                                ],
+                                attrs: { href: (_vm.expanded && item.link) || "" },
+                                on: {
+                                  click: function($event) {
+                                    item.link
+                                      ? null
+                                      : _vm.toggleActive($event, index);
+                                  }
+                                }
+                              },
+                              [
+                                item.icon
+                                  ? _c("i", { class: "icon icon-" + item.icon })
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _c("span", [_vm._v(_vm._s(item.name))]),
+                                _vm._v(" "),
+                                !_vm.expanded
+                                  ? _c("i", {
+                                      staticClass: "icon icon-angle-bottom",
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.toggleActive($event, index)
+                                        }
+                                      }
+                                    })
+                                  : _vm._e()
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "slide-up-down",
+                              {
+                                attrs: {
+                                  show: _vm.active === index || _vm.expanded
+                                }
+                              },
+                              [
+                                _c(
+                                  "ul",
+                                  {
+                                    staticClass: "frame__aside-hidden",
+                                    class: {
+                                      "has-background":
+                                        !_vm.expanded || _vm.active === index
+                                    }
+                                  },
+                                  _vm._l(item.children, function(child, i) {
+                                    return _c(
+                                      "li",
+                                      {
+                                        key: i,
+                                        staticClass: "frame__aside-inlist"
+                                      },
+                                      [
+                                        _c(
+                                          "a",
+                                          {
+                                            class: [
+                                              "frame__aside-inlink",
+                                              { "is-active": child.active }
+                                            ],
+                                            attrs: { href: child.link || "" }
+                                          },
+                                          [
+                                            _c(
+                                              "span",
+                                              {
+                                                class: {
+                                                  "text-strong": child.active
+                                                }
+                                              },
+                                              [_vm._v(_vm._s(child.name))]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  }),
+                                  0
+                                )
+                              ]
+                            )
+                          ],
+                          1
+                        )
+                  ])
+                }),
+                0
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm._t("difnav")
+        ],
+        2
+      )
+    };
+    var __vue_staticRenderFns__ = [];
+    __vue_render__._withStripped = true;
+
+      /* style */
+      const __vue_inject_styles__ = undefined;
+      /* scoped */
+      const __vue_scope_id__ = undefined;
+      /* module identifier */
+      const __vue_module_identifier__ = undefined;
+      /* functional template */
+      const __vue_is_functional_template__ = false;
+      /* style inject */
+      
+      /* style inject SSR */
+      
+
+      
+      var frameNav = normalizeComponent_1(
+        { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
+        __vue_inject_styles__,
+        __vue_script__,
+        __vue_scope_id__,
+        __vue_is_functional_template__,
+        __vue_module_identifier__,
+        undefined,
+        undefined
+      );
+
+    function easeOutCubic(time, duration) {
+        return (time = time / duration - 1) * time * time + 1
+    }
+
+    function easeInOutCubic(time, duration) {
+        if ( (time/=duration/2) < 1 ) return time*time*time/2;
+        return ((time-=2)*time*time + 2) / 2;
+    }
+
+    var script$1 = {
+
+        name: 'slide-up-down',
+
+        props: {
+
+            show: Boolean,
+
+            tag: {
+                type: String,
+                default: 'div'
+            },
+
+            slideUpDuration: {
+                type: Number,
+                default: 250 // milliseconds
+            },
+
+            slideDownDuration: {
+                type: Number,
+                default: 300 // milliseconds
+            }
+        },
+
+        data() {
+            return {
+                isOpened: this.show
+            }
+        },
+
+        watch: {
+
+            show(value) {
+                this.isOpened = value;
+            }
+        },
+
+        methods: {
+
+            slideDown(el, done) {
+                const height = this._getHeight(el);
+                const start = new Date().getTime();
+                el.style.overflow = 'hidden';
+                el.style.height = 0;
+                el.style.opacity = 0;
+                const setHeight = () => {
+                    let time = new Date().getTime() - start;
+                    if ( time < this.slideDownDuration ) {
+                        let fraction = easeOutCubic(time, this.slideDownDuration);
+                        el.style.height = `${Math.round(fraction * height)}px`;
+                        el.style.opacity = fraction.toFixed(1);
+                        this.__animDown = requestAnimationFrame(setHeight);
+                    } else {
+                        el.style.height = null;
+                        el.style.opacity = null;
+                        el.style.overflow = null;
+                        done();
+                    }
+                };
+                this.__animDown = requestAnimationFrame(setHeight);
+            },
+
+            stopDown() {
+                cancelAnimationFrame(this.__animDown);
+            },
+
+            slideUp(el, done) {
+                const height = this._getHeight(el);
+                el.style.overflow = 'hidden';
+                const start = new Date().getTime();
+                const setHeight = () => {
+                    let time = new Date().getTime() - start;
+                    if ( time < this.slideUpDuration ) {
+                        let fraction = 1 - easeInOutCubic(time, this.slideUpDuration);
+                        el.style.height = `${Math.round( fraction * height )}px`;
+                        el.style.opacity = fraction.toFixed(1);
+                        this.__animUp = requestAnimationFrame(setHeight);
+                    } else {
+                        el.style.height = null;
+                        el.style.opacity = null;
+                        el.style.overflow = null;
+                        done();
+                    }
+                };
+                this.__animUp = requestAnimationFrame(setHeight);
+            },
+
+            stopUp(el) {
+                cancelAnimationFrame(this.__animUp);
+                el.style.height = null;
+                el.style.opacity = null;
+                el.style.overflow = null;
+            },
+
+            close() {
+                this.isOpened = false;
+                this.$emit('update:show', false);
+            },
+
+            open() {
+                this.isOpened = true;
+                this.$emit('update:show', true);
+            },
+
+            toggle() {
+                this.isOpened = ! this.isOpened;
+                this.$emit('update:show', this.isOpened);
+            },
+
+            _getHeight(el) {
+                if ( el.children ) {
+                    let h = 0,
+                        ch = el.children;
+                    for (let i = 0; i < ch.length; i++) {
+                        let s = getComputedStyle(ch[i]);
+                        h += (ch[i].clientHeight + parseInt(s.marginTop) + parseInt(s.marginBottom) );
+                    }
+                    return h
+                } else {
+                    return el.offsetHeight
+                }
+            }
+        },
+
+        render(h) {
+            return h('transition', {
+                    props: { css: false },
+                    on: {
+                        enter: this.slideDown,
+                        'enter-cancelled': this.stopDown,
+                        leave: this.slideUp,
+                        'leave-cancelled': this.stopUp
+                    }
+                }, [
+                    h(this.tag, {
+                        class: 'slide-up-down',
+                        directives: [
+                            { name: 'show', value: this.isOpened }
+                        ]
+                    }, this.$slots.default)
+                ])
+        }
+    };
+
+    /* script */
+    const __vue_script__$1 = script$1;
+
+    /* template */
+
+      /* style */
+      const __vue_inject_styles__$1 = undefined;
+      /* scoped */
+      const __vue_scope_id__$1 = undefined;
+      /* module identifier */
+      const __vue_module_identifier__$1 = undefined;
+      /* functional template */
+      const __vue_is_functional_template__$1 = undefined;
+      /* style inject */
+      
+      /* style inject SSR */
+      
+
+      
+      var slideUpDown = normalizeComponent_1(
+        {},
+        __vue_inject_styles__$1,
+        __vue_script__$1,
+        __vue_scope_id__$1,
+        __vue_is_functional_template__$1,
+        __vue_module_identifier__$1,
+        undefined,
+        undefined
+      );
+
+    function install() {
+
+        if ( this.installed ) return
+        this.installed = true;
+
+        Vue.prototype.$awesLayoutCrm = new Vue(layoutApp);
+
+        Vue.component('content-placeholder', { functional: true, render(h){ return null }});
+        Vue.component('frame-nav', frameNav);
+        Vue.component('slide-up-down', slideUpDown);
+    }
+
+    const plugin = {
+
+        installed: false,
+
+        install
+    };
+
+    var i18n = {
+        MODAL_BACK: "Go back",
+        MODAL_CLOSE: "Close modal",
+        CODE_COPY: "copy",
+        CODE_COPIED_MSG: "Text copied to clipboard",
+        CONTENT_EMPTY: "No data",
+        CONTENT_ERROR: "Error",
+        CONTENT_LOADING: "Loading..."
+    };
+
+    function copy(b) {
+        let d = document;
+        let t = document.createElement('TEXTAREA');
+        t.id = 'copy-text';
+        t.style.height = 0;
+        t.position = 'fixed';
+        d.body.appendChild(t);
+        try {
+            // remove empty lines
+            t.value = b.innerText.split('\n').filter(l => l !== '' && l !== '\t').join('\n');
+            t.select();
+            d.execCommand('copy');
+            return true
+        } catch (e) {
+            return false
+        } finally {
+            d.body.removeChild(t);
+        }
+    }
+
+    var highlight = {
+        'highlight': {
+            src: [
+                'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js',
+                'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/atom-one-light.min.css'
+            ]
+        },
+        'highlight_langs': {
+            src: [
+                'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/languages/yaml.min.js',
+                'https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.6.0/dist/highlightjs-line-numbers.min.js'
+            ],
+            deps: ['highlight'],
+            cb() {
+                // console.log( hljs.listLanguages() )
+                AWES.once('core:inited', function () {
+
+                    // highlight blocks
+                    hljs.initHighlighting();
+
+                    let blocks = document.querySelectorAll('pre > code[class^="language"]');
+
+                    blocks && blocks.forEach(block => {
+
+                        let pre = block.parentNode;
+
+                        // add row numbers
+                        hljs.lineNumbersBlock(block);
+
+                        // add language badge
+                        let language = block.className.match(/language-([a-z]*)/);
+                        language && pre.setAttribute('data-language', language[1]);
+
+                        // add copy button
+                        let button = document.createElement('BUTTON');
+                        button.className = 'hljs-copy';
+                        button.innerText = AWES.lang.CODE_COPY;
+                        button.addEventListener('click', function(){
+                            if ( copy(block) ) {
+                                AWES.notify({ message: AWES.lang.CODE_COPIED_MSG });
+                            }
+                        }, false);
+                        pre.insertBefore(button, block);
+                    });
+                });
+            }
+        }
+    };
+
+    const WAVE_DURATION = 1000;
+
+    class Waves {
+
+        constructor(root) {
+            if ( ! root ) return
+            this.initElObserver();
+            this.addElements();
+            this.initRootObserver(root);
+        }
+
+        addElements( container = document ) {
+            let config = Object.assign({ selector: '.btn, .frame__header-add, .hljs-copy'}, AWES_CONFIG.waves);
+
+            this._elements = container.querySelectorAll(config.selector);
+            if ( this._elements ) {
+                Array.from(this._elements).forEach( this.addElement, this );
+            }
+        }
+
+        addElement(el) {
+            // already inited
+            if ( el.__AWES_WAVE__ ) return
+
+            if ( ! el.classList.contains('has-wave') ) {
+                el.classList.add('has-wave');
+            }
+
+            this._elObserver.observe(el, {
+                attributes: true,
+                attributeFilter:['class']
+            });
+
+            let wave = el.querySelector('span.wave');
+
+            if ( ! wave ) {
+                wave = document.createElement('span');
+                wave.classList.add('wave');
+                el.appendChild(wave);
+            }
+
+            el.__AWES_WAVE__ = { wave, active: false };
+            Waves.resetWave(el);
+
+            el.addEventListener('mousedown', Waves.showWave, false);
+
+            el.addEventListener('mouseup', Waves.hideWave, false);
+        }
+
+        initElObserver() {
+            this._elObserver = new MutationObserver(mutations => {
+                mutations.forEach( record => {
+                    let el = record.target;
+                    let cls = el.className;
+                    if ( ! /has-wave/.test(cls) ) {
+                        el.className = cls ? cls + ' has-wave' : 'has-wave';
+                    }
+                });
+            });
+        }
+
+        initRootObserver(root) {
+            this._rootObserver = new MutationObserver(mutations => {
+                // throttle call for addElements
+                clearTimeout(this.__tm);
+                this.__tm = setTimeout(this.addElements.bind(this), 300);
+            });
+
+            this._rootObserver.observe(root, {
+                childList: true,
+                subtree: true
+            });
+        }
+
+        static showWave(ev) {
+            let { wave, active } = this.__AWES_WAVE__;
+            if ( active ) {
+                clearTimeout(this._tm);
+                Waves.resetWave(this);
+            } else {
+                this.__AWES_WAVE__.active = true;
+            }
+            wave.style.cssText = `
+            transition: transform ${WAVE_DURATION * .6}ms ease, opacity ${WAVE_DURATION * .6}ms ease;
+            opacity: 0.5;
+            transform: translate(-50%, -50%) scale(2);
+            top: ${ev.offsetY}px;
+            left: ${ev.offsetX}px
+        `;
+        }
+
+        static hideWave(ev) {
+            this.__AWES_WAVE__.wave.style.opacity = '0';
+            this._tm = setTimeout( () => {
+                this.__AWES_WAVE__.active = false;
+                Waves.resetWave(this);
+            }, WAVE_DURATION * .4 );
+        }
+
+        static resetWave(el) {
+            el.__AWES_WAVE__.wave.style.cssText = `
+            transform: translate(-50%, -50%) scale(0);
+            transition: none;
+            opacity: 1;
+        `;
+            delete el._tm;
+        }
+    }
+
+    const awesPlugin = {
+
+        name, version,
+
+        modules: {
+            'vue-shortkey': {
+                src: 'https://unpkg.com/vue-shortkey@3',
+                deps: ['vue'],
+                cb() {
+                    Vue.use(VueShortkey);
+                }
+            },
+            'v-tooltip': {
+                src: 'https://unpkg.com/v-tooltip/dist/v-tooltip.min.js',
+                deps: ['vue'],
+                cb() {
+                    VTooltip.default.options.defaultClass = 'theme-default';
+                    VTooltip.default.options.popover = Object.assign(VTooltip.default.options.popover, {
+                        defaultPlacement: 'right',
+                        defaultAutoHide: false,
+                        defaultTrigger: 'manual',
+                        defaultPopperOptions: {
+                            modifiers: {
+                                flip: {
+                                    behavior: ['right', 'top']
+                                }
+                            }
+
+                        }
+                    });
+                }
+            },
+            'vue-tabs-component': {
+                src: 'https://unpkg.com/vue-nav-tabs/dist/vue-tabs.js',
+                deps: ['vue'],
+                cb() {
+                    Vue.use(VueTabs);
+                }
+            },
+            ...highlight
+        },
+
+        install(AWES) {
+            Vue.use(plugin);
+            AWES.lang = i18n;
+            AWES.once('core:inited', () => {
+                AWES.Waves = new Waves(document.body);
+            });
+        }
+    };
+
+    if (window && ('AWES' in window)) {
+        AWES.use(awesPlugin);
+    } else {
+        window.__awes_plugins_stack__ = window.__awes_plugins_stack__ || [];
+        window.__awes_plugins_stack__.push(awesPlugin);
+    }
+
+}());

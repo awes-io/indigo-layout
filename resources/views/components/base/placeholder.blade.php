@@ -9,9 +9,11 @@
                     @endfor
                 @break
                 @case('list')
-                    @for($i = 0; $i < 7; $i++)
-                        <i class="ph__{{ $type }}-row"><b class="ph__{{ $type }}-coll"><span></span></b></i>
-                    @endfor
+                    <div class="{{ $class }}">
+                        @for($i = 0; $i < 9; $i++)
+                    <div class="{{ $row_class }}"><i class="ph__{{ $type }}"><span></span></i></div>
+                        @endfor
+                    </div>
                 @break
                 @case('mnav')
                     <span class="ph__{{ $type }}-link"></span><span class="ph__{{ $type }}-title"></span>

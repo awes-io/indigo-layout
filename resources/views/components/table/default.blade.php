@@ -48,7 +48,7 @@
             @if(!isset($list))
                 @placeholder(['type' => 'table'])
             @else
-                @placeholder(['type' => 'list'])
+                @placeholder(['type' => 'list', 'class' => $class, 'row_class' => $row_class])
             @endisset
 
             {{--General slot--}}
