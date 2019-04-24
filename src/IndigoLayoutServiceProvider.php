@@ -57,6 +57,7 @@ class IndigoLayoutServiceProvider extends AwesProvider
             'chart' => 'chart.default',
             'cardchartline' => 'chart.card-line',
             'cardchartdoughnut' => 'chart.card-doughnut',
+            'chartBarLine' => 'chart.bar-line',
             // Filter
             'filtergroup' => 'filter.group',
             // Head

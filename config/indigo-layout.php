@@ -4,6 +4,7 @@ return [
 
     //This key pass to vuejs config
     'frontend' => [
+        'dev' => env('APP_DEBUG', false),
         'key' =>  env('PKGKIT_CDN_KEY', 'undefined'),
         'theme' => [
             'metaColor' => [
