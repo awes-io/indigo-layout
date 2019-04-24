@@ -64,7 +64,6 @@
                     @endif
                 </div>
                 <div class="frame__header-line">
-                    {{--TODO: H1 & Add button block--}}
                     @isset($h1)
                         <div class="frame__header-left">
                             <h1 class="frame__header-title">{!! $h1 !!}</h1>
