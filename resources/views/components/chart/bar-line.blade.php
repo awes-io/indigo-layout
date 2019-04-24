@@ -1,11 +1,15 @@
-{{-- component line chart --}}
+{{-- component bar line chart --}}
 
 @php $render = true; @endphp
 
 {{--GET parameters for API--}}
 @if (isset($parameters) && is_array($parameters) && count($parameters) > 0)
     @php
-        $queryString = "?{" . implode("}&{", $parameters) . '}';
+        $parametersFormatted = [];
+        foreach($parameters as $_key => $_value){
+            $parametersFormatted[] = $_key . "=\${\$get(\$route, 'query.$_key', '$_value')}";
+        }
+        $queryString = "?" . implode("&", $parametersFormatted);
     @endphp
 @else
     @php $queryString = ''; @endphp
@@ -18,7 +22,7 @@
 
 {{-- Check if $chart_type is exist --}}
 @if (!isset($chart_type) || (isset($chart_type) && empty($chart_type)))
-    @php $chart_type = 'line' @endphp
+    @php $chart_type = 'bar' @endphp
 @endif
 
 {{-- Render the component --}}
@@ -29,54 +33,42 @@
             :default='@json($default_data)'
         @endif
         @isset($api_url)
-            :url="$url.urlFromTemplate('{{ $api_url . $queryString }}', $route.query)">
+            :url="`{{ $api_url . $queryString }}`"
         @endisset
+        >
         <template slot-scope="{{ $name }}">
             <div class="card card_default">
-                <chart-builder
-                    :data='{{ $name }}'
-                    type="{{ $chart_type }}"
-                    :options="{
-                    elements: {
+
+                <chart-builder :data='{{ $name }}'
+                               type="{{ $chart_type }}" :options='{
+                               elements: {
                         line: {
                             tension: 0
                         }
                     },
+
                     scales: {
-                        yAxes: [{
-                            gridLines: {
-                                drawBorder: false,
-                                display: false
-                            },
-                            ticks: {
-                                display: false
-                            },
-                        }],
-
                         xAxes: [{
-                            ticks: {
-                                padding: 10,
-                                beginAtZero: true,
-                                autoSkip: true,
-                                maxTicksLimit: 20,
-                                max: 20,
-                                autoSkipPadding: 1,
-                                mirror: true
-                            },
-                            gridLines: {
-                                drawBorder: true,
-                                color: 'rgba(150, 150, 150, 0.1)'
-                            }
+                            stacked: true
                         }],
-
+                        yAxes: [{
+                            stacked: true,
+                            id: "y-axis-1"
+                        }, {
+                            id: "y-axis-2",
+                            display: false
+                        }],
                     },
                     legend: {
-                        position: 'bottom',
-                        labels:{usePointStyle:true, padding: 25}
+                        position: "bottom",
+                        labels: {
+                            usePointStyle: true,
+                            padding: 25
+                        }
                     },
                     tooltips: {
-                        position: 'average',
-                        mode: 'index',
+                        position: "average",
+                        mode: "index",
                         intersect: false,
                         cornerRadius: 2,
                         xPadding: 20,
@@ -85,26 +77,24 @@
                         titleMarginBottom: 20
                     },
                     hover: {
-                        mode: 'index',
+                        mode: "index",
                         intersect: false,
                     },
                     layout: {
                         padding: {
-                            left: 0,
-                            right: 0,
-                            top: 0,
+                            left: 10,
+                            right: 10,
+                            top: 20,
                             bottom: 15
                         }
                     },
-                    borderWidth: {
-                        top: 1,
-                        right: 0,
-                        bottom: 0,
-                        left: 0
+                    plugins: {
+                        labels: false
                     },
                     maintainAspectRatio: false
-                }">
-                </chart-builder>
+                }'
+                ></chart-builder>
+
                 <div class="card__colored-box"></div>
             </div>
         </template>

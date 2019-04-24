@@ -3,7 +3,7 @@
 return [
     'read_more' => 'More',
     'loading' => 'Loading...',
-    'no-internet' => 'Please check your Internet connection',
+    'no-internet' => 'Oops! Something went wrong.',
     'wrong-config' => 'Some required parameters have been omitted. See the documentation.',
     'no-data' => 'There is not enough data'
     
