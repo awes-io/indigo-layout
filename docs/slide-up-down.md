@@ -6,6 +6,7 @@ This component is intended for the animated appearance/disappearance of the comp
 
 ## Components
 - [Blade Components](./components.md)
+- [Code Block](./code-block.md)
 - [Frame Navigation](./frame-nav.md)
 - [Grid](./grid.md)
 - [Content](./classes.md)
