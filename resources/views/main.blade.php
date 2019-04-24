@@ -77,45 +77,46 @@
                         </div>
                     @endif
                 </div>
+                @if(Auth::check())
+                    <transition name="user-menu">
+                        <div class="user-menu" v-show="$awesLayoutCrm.showUserMenu" style="display: none;">
+                            <ul class="user-menu__list"><button class="user-menu__close" @click="$awesLayoutCrm.showUserMenu = ! $awesLayoutCrm.showUserMenu">&times;</button>
+                                <div class="cm-item">
+                                    <div class="cm-item__panel is-secondary">
+                                        <strong class="user-menu__title">{{ Auth::user()->name }}</strong>
+                                        {{--<small class="user-menu__desc">Standart until 10 november<br>5 users $500 per month</small>--}}
+                                        @isset($userNavigation)
+                                            <nav class="user-menu__nav" aria-label="Profile navigation">
+                                                @navUser(['navigation' => $userNavigation])
+                                            </nav>
+                                        @endisset
+                                        {{--<label class="progress user-menu__progress">--}}
+                                        {{--<span>519.05 MB</span> of 2.5 GB used--}}
+                                        {{--<progress max="2500" value="519">519 MB of 2.5 GB used</progress>--}}
+                                        {{--</label>--}}
+                                    </div>
+                                </div>
+                                <div class="cm-item">
+                                    <div class="cm-item__panel">
+                                        <theme-switcher></theme-switcher>
+                                    </div>
+                                </div>
+                                {{--<div class="cm-item">--}}
+                                {{--<div class="cm-item__panel"><strong class="user-menu__companies" id="companies_list">4 companies</strong>--}}
+                                {{--<ul class="user-menu__companies-list" aria-labelledby="companies_list">--}}
+                                {{--<li><a href="">Awesome</a></li>--}}
+                                {{--<li><a href="">Microsoft</a></li>--}}
+                                {{--<li><a href="">Apple</a></li>--}}
+                                {{--<li><a href="">Tesla</a></li>--}}
+                                {{--</ul>--}}
+                                {{--</div>--}}
+                                {{--</div>--}}
+                            </ul>
+                        </div>
+                    </transition>
+                @endif
             </div>
-            @if(Auth::check())
-                <transition name="user-menu">
-                    <div class="user-menu" v-show="$awesLayoutCrm.showUserMenu" style="display: none;">
-                        <ul class="user-menu__list"><button class="user-menu__close" @click="$awesLayoutCrm.showUserMenu = ! $awesLayoutCrm.showUserMenu">&times;</button>
-                            <div class="cm-item">
-                                <div class="cm-item__panel is-secondary">
-                                    <strong class="user-menu__title">{{ Auth::user()->name }}</strong>
-                                    {{--<small class="user-menu__desc">Standart until 10 november<br>5 users $500 per month</small>--}}
-                                    @isset($userNavigation)
-                                        <nav class="user-menu__nav" aria-label="Profile navigation">
-                                            @navUser(['navigation' => $userNavigation])
-                                        </nav>
-                                    @endisset
-                                    {{--<label class="progress user-menu__progress">--}}
-                                    {{--<span>519.05 MB</span> of 2.5 GB used--}}
-                                    {{--<progress max="2500" value="519">519 MB of 2.5 GB used</progress>--}}
-                                    {{--</label>--}}
-                                </div>
-                            </div>
-                            <div class="cm-item">
-                                <div class="cm-item__panel">
-                                    <theme-switcher></theme-switcher>
-                                </div>
-                            </div>
-                            {{--<div class="cm-item">--}}
-                            {{--<div class="cm-item__panel"><strong class="user-menu__companies" id="companies_list">4 companies</strong>--}}
-                            {{--<ul class="user-menu__companies-list" aria-labelledby="companies_list">--}}
-                            {{--<li><a href="">Awesome</a></li>--}}
-                            {{--<li><a href="">Microsoft</a></li>--}}
-                            {{--<li><a href="">Apple</a></li>--}}
-                            {{--<li><a href="">Tesla</a></li>--}}
-                            {{--</ul>--}}
-                            {{--</div>--}}
-                            {{--</div>--}}
-                        </ul>
-                    </div>
-                </transition>
-            @endif
+            
 
             <div class="frame__content">
                 @isset($children_top) @navTop(['navigation' => $children_top]) @endisset
