@@ -4,6 +4,7 @@ Ready-to-use Blade components and directives.
 
 ## Components
 - **Blade Components**
+- [Code Block](./code-block.md)
 - [Frame Navigation](./frame-nav.md)
 - [Grid](./grid.md)
 - [Content](./classes.md)

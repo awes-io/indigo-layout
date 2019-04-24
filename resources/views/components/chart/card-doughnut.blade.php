@@ -5,11 +5,7 @@
 {{--GET parameters for API--}}
 @if (isset($parameters) && is_array($parameters) && count($parameters) > 0)
     @php
-        $parametersFormatted = [];
-        foreach($parameters as $_key => $_value){
-            $parametersFormatted[] = $_key . "=\${\$get(\$route, 'query.$_key', '$_value')}";
-        }
-        $queryString = "?" . implode("&", $parametersFormatted);
+        $queryString = "?{" . implode("}&{", $parameters) . '}';
     @endphp
 @else
     @php $render = false; @endphp
@@ -33,7 +29,7 @@
         @if (isset($default_data) && !empty($default_data))
         :default='@json($default_data)'
         @endif
-        :url="`{{ $api_url . $queryString }}`">
+        :url="$url.urlFromTemplate('{{ $api_url . $queryString }}', $route.query)">
         <template slot-scope="{{ $name }}">
             <div class="card card_chartdoughnut">
                 <div class="card__wrap">

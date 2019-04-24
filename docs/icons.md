@@ -4,6 +4,7 @@ List of available icons in the system.
 
 ## Components
 - [Blade Components](./components.md)
+- [Code Block](./code-block.md)
 - [Frame Navigation](./frame-nav.md)
 - [Grid](./grid.md)
 - [Content](./classes.md)
