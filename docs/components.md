@@ -67,10 +67,28 @@ Ready-to-use Blade components and directives.
 ### Configuration Options
 | Name | Type | Default | Description |
 |------|------|---------|-------------|
-|`parameters`|`array`| |The user-defined array of query string parameters for filtering. The compiled query will be sent to API endpoint.|
-|`api_url`|`string`| |The endpoint to get data for a chart. The data should be in chart.js format. To prepare the data please use `awes-io/reporter` package.|
+|`parameters`|`array`| `optional` |The user-defined array of query string parameters for filtering. The compiled query will be sent to API endpoint.|
+|`api_url`|`string`| `optional` |The endpoint to get data for a chart. The data should be in chart.js format. To prepare the data please use `awes-io/reporter` package.|
 |`name`|`string`| `optional` | Name of the element. if not exist, will be a random string. |
 |`type`|`string`| `line` | Type of the chart. Available parameters your can check on chartjs documentation. |
+|`default_data`|`array`| `null` | Array with default data object. |
+
+## Mixed Bar-Line Chart
+
+### Usage
+```php
+@chartBarLine([
+    '$default_data' => $data
+])
+```
+### Configuration Options
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+|`parameters`|`array`| `optional` |The user-defined array of query string parameters for filtering. The compiled query will be sent to API endpoint.|
+|`api_url`|`string`| `optional` |The endpoint to get data for a chart. The data should be in chart.js format. To prepare the data please use `awes-io/reporter` package.|
+|`name`|`string`| `optional` | Name of the element. if not exist, will be a random string. |
+|`type`|`string`| `line` | Type of the chart. Available parameters your can check on chartjs documentation. |
+|`default_data`|`array`| `null` | Array with default data object. |
 
 ## Group Filter
 
