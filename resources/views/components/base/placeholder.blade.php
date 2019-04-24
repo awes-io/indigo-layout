@@ -9,9 +9,9 @@
                     @endfor
                 @break
                 @case('list')
-                    <div class="grid">
+                    <div class="{{ $class }}">
                         @for($i = 0; $i < 9; $i++)
-                            <div class="cell-1-3 cell-1-2--dxl cell-1-1--tsm"><i class="ph__{{ $type }}"><span></span></i></div>
+                    <div class="{{ $row_class }}"><i class="ph__{{ $type }}"><span></span></i></div>
                         @endfor
                     </div>
                 @break
