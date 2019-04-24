@@ -9,9 +9,11 @@
                     @endfor
                 @break
                 @case('list')
-                    @for($i = 0; $i < 7; $i++)
-                        
-                    @endfor
+                    <div class="grid">
+                        @for($i = 0; $i < 9; $i++)
+                            <div class="cell-1-3 cell-1-2--dxl cell-1-1--tsm"><i class="ph__{{ $type }}"><span></span></i></div>
+                        @endfor
+                    </div>
                 @break
                 @case('mnav')
                     <span class="ph__{{ $type }}-link"></span><span class="ph__{{ $type }}-title"></span>

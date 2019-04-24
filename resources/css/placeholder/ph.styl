@@ -133,7 +133,7 @@
                 margin-bottom 10px
                 &:last-child
                     margin-right 0 
-    & &__list
+    & &__list2
         box-shadow var(--tc_ui_shadow)
         &-row
             padding-left 10px
@@ -164,6 +164,18 @@
             width 100%
             overflow hidden
             min-height 260px
+            display block  
+            background-color var(--tc_ui_bg_semi)
+            {dt} &
+                phAnimation(--tc_ui_bg_semi, --tc_ui_bg_semi_l)
+            {lt} &
+                phAnimation(--tc_ui_bg_semi, --tc_ui_bg_semi_s)
+
+    & &__list
+        span
+            width 100%
+            overflow hidden
+            min-height 210px
             display block  
             background-color var(--tc_ui_bg_semi)
             {dt} &
