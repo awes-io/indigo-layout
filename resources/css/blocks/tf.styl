@@ -160,6 +160,25 @@ blockquote
     display block
     overflow auto
 
+.inline-list, .frame__content .inline-list
+    fl(w)
+    li
+        display block
+        margin 0
+    &_nogap
+        margin-bottom 0
+    &_gap
+        margin-bottom 25px
+        li
+            margin-bottom 12px
+            margin-right 12px
+    &_gapx
+        margin-bottom -12px
+        li
+            margin-right 12px
+            margin-bottom 12px
+    
+
 table:not(.int-table__table):not(.hljs-ln)
     width 100%
     border-collapse collapse
@@ -291,6 +310,7 @@ pre
     padding 5px 10px
     margin-right 5px
     margin-bottom 5px
+    min-width 1px
     color var(--tc_link_semi)
     font-size 0.75rem
     border-radius 2px
@@ -322,6 +342,8 @@ pre
     display block
 
 .tf
+    &-height-100
+        height 100%
     &-size
         &-small
             font-size 12px

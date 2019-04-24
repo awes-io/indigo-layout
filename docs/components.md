@@ -4,6 +4,7 @@ Ready-to-use Blade components and directives.
 
 ## Components
 - **Blade Components**
+- [Code Block](./code-block.md)
 - [Frame Navigation](./frame-nav.md)
 - [Grid](./grid.md)
 - [Content](./classes.md)
@@ -105,11 +106,15 @@ Ready-to-use Blade components and directives.
 |`scroll_to`|`bool`| `true` | Scrool up after click to pagination |
 |`row_url`|`string`| `optional` | The link by click of row element in the table. |
 |`pagination`|`bool`| `true` | Will be shown the pagination or not. |
+|`class`|`string`| `null` | The CSS class for table tag. Use this for formating into list style. |
+|`row_class`|`string`| `null` | The CSS class for row inside of the table. Use this field for formatting into list style. |
+
 
 ### Slots
 | Name | Type | Default | Description |
 |------|------|---------|-------------|
 |`mobile`|`string`| `null` | Customization of mobile responsive slider. |
+|`list`|`string`| `null` | A custom list style item. |
 |`errorCard`|`string`| `null` | Add a HTML to info block if the Internet connection is broken. |
 |`emptyCard`|`string`| `null` | Add a HTML is the table is empty. |
 
@@ -125,6 +130,26 @@ Ready-to-use Blade components and directives.
     <tb-column name="created_at" label="Created At" media="desktop"></tb-column> <!-- will be hidden on mobile -->
     @slot('mobile')
         <p>Created At: @{{ m.data.created_at }}</p>
+    @endslot
+@endtable
+```
+
+#### Slot `list` 
+
+```php
+@table([
+    'default_data' => ['name' => '', 'description' => ''],
+    'class' => 'grid',
+    'row_class' => 'cell-1-3 cell-1-2--dxl cell-1-1--tsm'
+])
+    @slot('list')
+        <div class="card box-post">
+            <div class="grid grid-justify-between grid-nowrap grid-wrap--mmd text-center--mmd">
+                <div class="cell-1-1"><a class="box-post__title h2" :href="#">@{{ l.data.name }}</a>
+                    <p v-if="l.data.description" class="m-0">@{{ l.data.description }}</p>
+                </div>
+            </div>
+        </div>
     @endslot
 @endtable
 ```

@@ -6,6 +6,7 @@ This component is intended for displaying the side menu as a two-level dropdown 
 
 ## Components
 - [Blade Components](./components.md)
+- [Code Block](./code-block.md)
 - **Frame Navigation**
 - [Grid](./grid.md)
 - [Content](./classes.md)

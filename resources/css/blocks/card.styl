@@ -38,6 +38,23 @@
         padding 20px
     &_noborder
         padding 0
+    &_post
+        min-height 210px
+    & &__title
+        display block
+        margin-bottom 0
+        & + ^[0]__text
+            margin-top 20px
+    & &__text
+        margin-bottom 0
+    & &__star
+        display inline-block
+        color var(--tc_ui_btn_smcolor)
+        font-size 30px
+        line-height 1
+        margin-top -3px
+        &:hover
+            color var(--tc_ui_btn_smcolor_active) 
     & &__wrap
         position relative
         z-index 2

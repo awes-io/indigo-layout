@@ -4,6 +4,7 @@ Quick and variable grid setting will help you create a grid for almost any situa
 
 ## Components
 - [Blade Components](./components.md)
+- [Code Block](./code-block.md)
 - [Frame Navigation](./frame-nav.md)
 - **Grid**
 - [Content](./classes.md)

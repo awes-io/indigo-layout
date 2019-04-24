@@ -1,7 +1,7 @@
 import { name, version } from '../../package.json'
 import { plugin } from './modules/plugin.js'
 import i18n from './modules/i18n.js'
-import highlight from './modules/highlight'
+import { replaceCode } from './modules/highlight'
 import { Waves } from './modules/waves'
 
 const awesPlugin = {
@@ -42,13 +42,19 @@ const awesPlugin = {
             cb() {
                 Vue.use(VueTabs);
             }
-        },
-        ...highlight
+        }
     },
 
     install(AWES) {
-        Vue.use(plugin)
+        // set language variables
         AWES.lang = i18n
+
+        // init code highlighting
+        replaceCode()
+        AWES.on('core:popstate', replaceCode)
+        AWES._watchedNames.push('code-block')
+
+        Vue.use(plugin)
         AWES.once('core:inited', () => {
             AWES.Waves = new Waves(document.body)
         })

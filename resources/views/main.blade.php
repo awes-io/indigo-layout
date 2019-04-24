@@ -5,7 +5,7 @@
 
 <body>
 <content-wrapper class="mainwrapper">
-    <system-notify-container class="position-top-center" name="top" stack="top" :config="{theme: 'inline, rounded'}"></system-notify-container>
+    @notify(['class' => 'position-top-center', 'name' => 'top', 'stack' => 'top', 'config' => "{theme: 'inline, rounded'}"])
     <div class="frame">
         <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
             <div class="frame__overlay" v-show="$awesLayoutCrm.togglenav || $awesLayoutCrm.showUserMenu" @click="$awesLayoutCrm.overlayClick"></div>
@@ -28,30 +28,28 @@
         @endisset
 
         <div class="frame__right @if(!Auth::check()) frame__right_nui @endif">
-            <system-notify-container name="header" stack="false" :config="{theme:'inline', timeout: 0}"></system-notify-container>
+            @notify(['name' => 'header', 'stack' => false, 'config' => "{theme: 'inline', timeout: 0}"])
             <div class="frame__header">
                 <div class="frame__header-top">
                     <form class="frame__search" id="search" action="{{ config('indigo-layout.search.url') }}" method="get"> <span class="frame__search-link"><i class="icon icon-search"></i></span>
                         <div class="frame__search-hidden"><input class="frame__search-input" name="{{ config('indigo-layout.search.name') }}" type="text" placeholder="Search..."><button class="frame__search-btn" type="submit">Search</button><span class="frame__search-close"><i class="icon icon-cross"></i></span></div>
                     </form>
 
-                    @if(Auth::check())
-                        <div class="frame__userinfo">
-                            {{--<a class="frame__userinfo-link" href="">--}}
-                            {{--<span class="icon icon-ruppor">--}}
-                            {{--<i class="icn-dot"></i>--}}
-                            {{--</span>--}}
-                            {{--</a>--}}
-                            {{--<a class="frame__userinfo-link" href="">--}}
-                            {{--<span class="icon icon-hdd">--}}
-                            {{--<i class="icn-dot"></i>--}}
-                            {{--</span>--}}
-                            {{--</a>--}}
+
+                    {{-- NEW AVATAR, ICON BLOCK --}}
+                    <div class="parent">
+                        @if(Auth::check())
+                            {{--USER AVATAR--}}
                             <button class="frame__userinfo-ava" @click="$awesLayoutCrm.showUserMenu = ! $awesLayoutCrm.showUserMenu">
-                                <i class="icon icon-user novatar novatar_box"></i>
+                                @if(isset($user_avatar))
+                                    <img src="{{ $user_avatar }}" />
+                                @else
+                                    <i class="icon icon-user novatar novatar_box"></i>
+                                @endif
                             </button>
-                        </div>
-                    @endif
+                        @endif
+                    </div>
+                    {{-- /NEW AVATAR, ICON BLOCK --}}
 
                     @if(!Auth::check())
                         <div class="frame__header-rlinks">
@@ -70,7 +68,18 @@
                     @endif
                 </div>
                 <div class="frame__header-line">
-                    @isset($h1)<h1 class="frame__header-title">{!! $h1 !!}</h1>@endisset
+                    {{--TODO: H1 & Add button block--}}
+                    @isset($h1)
+                        <div class="_todo">
+                            <h1 class="frame__header-title">{!! $h1 !!}</h1>
+                        </div>
+                    @endisset
+
+                    @hasSection('create_button')
+                        <div class="frame__header-add">
+                            @yield('create_button', '')
+                        </div>
+                    @endif
                 </div>
             </div>
             @if(Auth::check())
@@ -114,7 +123,7 @@
 
             <div class="frame__content">
                 @isset($children_top) @navTop(['navigation' => $children_top]) @endisset
-                <system-notify-container name="frame" stack="false" :config="{theme: 'inline', status: 'warning', timeout: 0}"></system-notify-container>
+                @notify(['name' => 'frame', 'stack' => false, 'config' => "{theme: 'inline', status: 'warning', timeout: 0}"])
                 <div class="frame__inlayout">
                     @if (!empty($__env->yieldContent('pagemap')))
                     @section('pagemap')

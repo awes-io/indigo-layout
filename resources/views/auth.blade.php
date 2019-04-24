@@ -5,6 +5,7 @@
 
 <body>
 <content-wrapper class="mainwrapper">
+    @notify(['class' => 'position-top-center', 'name' => 'top-auth', 'stack' => 'top', 'config' => "{theme: 'inline, rounded'}"])
     <div class="login-page">
         <div class="login-page__left">
             <div class="login-page__left-wrap">
