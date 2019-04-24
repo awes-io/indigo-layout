@@ -1,0 +1,48 @@
+extends includes/layout.pug
+
+block pageVariables
+    - var pageTitle = "Placeholder Test"
+
+block pageHead
+    // there is can be head meta or sctipts
+
+block pageContent
+    h2 Badge example
+    a.badge(href="") badge test
+    button.badge badge test
+    span.badge badge test
+
+    .section
+        .card
+            h2 Badge grid
+            .grid.grid_nogap
+                .cell-inline
+                    a.badge(href="") badge test
+                .cell-inline
+                    a.badge(href="") badge test
+                .cell-inline
+                    a.badge(href="") badge test
+                .cell-inline
+                    a.badge(href="") badge test
+    .section
+        .card
+            h2 Badge inline
+            a.badge.badge_inline(href="") badge test
+            a.badge.badge_inline(href="") badge test
+            a.badge.badge_inline(href="") badge test
+            a.badge.badge_inline(href="") badge test
+
+    .section
+        .card
+            h2 Badge in text
+            p 
+                | Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis consectetur 
+                | est eius beatae, quidem 
+                a.badge.badge_intext(href="") badge test
+                | voluptas minus similique eum nisi at culpa, nobis unde voluptate vitae odit vel eos omnis reiciendis?  
+                | voluptas minus similique eum nisi at culpa, nobis unde voluptate vitae odit vel eos omnis reiciendis?  
+                | voluptas minus similique eum nisi at culpa, nobis unde voluptate vitae odit vel eos omnis reiciendis?  
+                | voluptas minus similique eum nisi at culpa, nobis unde voluptate vitae odit vel eos omnis reiciendis?  
+                | voluptas minus similique eum nisi at culpa, nobis unde voluptate vitae odit vel eos omnis reiciendis?  
+                | voluptas minus similique eum nisi at culpa, nobis unde voluptate vitae odit vel eos omnis reiciendis?  
+                | voluptas minus similique eum nisi at culpa, nobis unde voluptate vitae odit vel eos omnis reiciendis?  

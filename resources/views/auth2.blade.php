@@ -5,6 +5,7 @@
 
 <body>
 <content-wrapper class="mainwrapper">
+    @notify(['class' => 'position-top-center', 'name' => 'top-auth2', 'stack' => 'top', 'config' => "{theme: 'inline, rounded'}"])
     <div class="login-page">
         <div class="login-page__full" @if(config('indigo-layout.auth_bg_full'))style="background-image: url('{{ config('indigo-layout.auth_bg_full') }}');"@endif>
             <div class="login-page__swrap">

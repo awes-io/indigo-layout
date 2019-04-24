@@ -39,6 +39,14 @@
             :url="$url.urlFromTemplate('{{ $scope_api_url . '?{' . implode('}&{', $watch_params) . '}' }}', $route.query)"
         @endisset
         ref="{{ $name }}">
+
+        {{--Placeholder--}}
+        @if(!isset($list))
+            @placeholder(['type' => 'table'])
+        @else
+            @placeholder(['type' => 'list', 'class' => $class, 'row_class' => $row_class])
+        @endisset
+
         <template slot-scope="table">
             <table-builder
                 :default="table.data"
@@ -54,13 +62,6 @@
                     list-row-class="{{ $row_class }}"
                 @endif
             >
-                {{--Placeholder--}}
-                @if(!isset($list))
-                    @placeholder(['type' => 'table'])
-                @else
-                    @placeholder(['type' => 'list'])
-                @endisset
-
                 {{--General slot--}}
                 {{ $slot }}
 

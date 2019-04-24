@@ -40,6 +40,11 @@
                     :data='{{ $name }}'
                     type="{{ $chart_type }}"
                     :options="{
+                    elements: {
+                        line: {
+                            tension: 0
+                        }
+                    },
                     scales: {
                         yAxes: [{
                             gridLines: {
