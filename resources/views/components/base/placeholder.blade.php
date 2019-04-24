@@ -10,7 +10,7 @@
                 @break
                 @case('list')
                     @for($i = 0; $i < 7; $i++)
-                        <i class="ph__{{ $type }}-row"><b class="ph__{{ $type }}-coll"><span></span></b></i>
+                        
                     @endfor
                 @break
                 @case('mnav')
