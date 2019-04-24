@@ -1,0 +1,65 @@
+extends includes/layout.pug
+
+block pageVariables
+    - var pageTitle = "Placeholder Test"
+
+block pageHead
+    // there is can be head meta or sctipts
+
+
+
+block pageContent
+    .fc-radio.fb-element.box-checker(box='')
+        .v-popover.display-block
+            .trigger(aria-describedby='popover_o3hulm8cet', style='display: inline-block;')
+                .fc-radio__wrap
+                    label.fc-radio__box.is-checked
+                        input.fc-radio__field.is-focusable.in-focus(type='radio', data-awes='fb-radio-group.type', box='', value='gitlab')
+                        span.is-checked
+                            span.box-checker__title GITLAB
+                            span.box-checker__price.mb-10.mt-5
+                                img(height='40', src='https://static.pkgkit.com/img/git-services/gitlab.svg', alt='')
+                            span.box-checker__caption Cloud / Self-Managed
+                    label.fc-radio__box
+                        input.fc-radio__field.is-focusable.in-focus(type='radio', data-awes='fb-radio-group.type', box='', value='bitbucket')
+                        span
+                            span.box-checker__title BITBUCKET
+                            span.box-checker__price.mb-10.mt-5
+                                img(height='40', src='https://static.pkgkit.com/img/git-services/bitbucket.svg', alt='')
+                            span.box-checker__caption Cloud / Self-Managed
+                    label.fc-radio__box.fc-radio_disabled
+                        input.fc-radio__field.is-focusable.in-focus(type='radio', data-awes='fb-radio-group.type', disabled='disabled', box='', value='github')
+                        span
+                            span.box-checker__title GITHUB
+                            span.box-checker__price.mb-10.mt-5
+                                img(height='40', src='https://static.pkgkit.com/img/git-services/github.svg', alt='')
+                            span.box-checker__caption Cloud / Self-Managed
+
+
+    .card.mt-30
+        .fc-radio.fb-element.box-checker(box='')
+            .v-popover.display-block
+                .trigger(aria-describedby='popover_o3hulm8cet', style='display: inline-block;')
+                    .fc-radio__wrap
+                        label.fc-radio__box.is-checked
+                            input.fc-radio__field.is-focusable.in-focus(type='radio', data-awes='fb-radio-group.type', box='', value='gitlab')
+                            span.is-checked
+                                span.box-checker__title GITLAB
+                                span.box-checker__price.mb-10.mt-5
+                                    img(height='40', src='https://static.pkgkit.com/img/git-services/gitlab.svg', alt='')
+                                span.box-checker__caption Cloud / Self-Managed
+                        label.fc-radio__box
+                            input.fc-radio__field.is-focusable.in-focus(type='radio', data-awes='fb-radio-group.type', box='', value='bitbucket')
+                            span
+                                span.box-checker__title BITBUCKET
+                                span.box-checker__price.mb-10.mt-5
+                                    img(height='40', src='https://static.pkgkit.com/img/git-services/bitbucket.svg', alt='')
+                                span.box-checker__caption Cloud / Self-Managed
+                        label.fc-radio__box.fc-radio_disabled
+                            input.fc-radio__field.is-focusable.in-focus(type='radio', data-awes='fb-radio-group.type', disabled='disabled', box='', value='github')
+                            span
+                                span.box-checker__title GITHUB
+                                span.box-checker__price.mb-10.mt-5
+                                    img(height='40', src='https://static.pkgkit.com/img/git-services/github.svg', alt='')
+                                span.box-checker__caption Cloud / Self-Managed
+
