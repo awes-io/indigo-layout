@@ -24,7 +24,8 @@
     "require": {
         "php": "^7.1.3",
         "illuminate/support": "~5",
-        "awes-io/theme-switcher": "^1.0"
+        "awes-io/theme-switcher": "^1.0",
+        "awes-io/system-notify": "^1.1"
     },
     "require-dev": {
 		"phpunit/phpunit": "~7.0",
