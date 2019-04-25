@@ -5,8 +5,8 @@
 
 <body>
 <content-wrapper class="mainwrapper">
-    @notify(['class' => 'position-top-center', 'name' => 'top', 'stack' => 'top', 'config' => "{theme: 'inline, rounded'}"])
     <div class="frame">
+        @notify(['class' => 'position-top-center', 'name' => 'top', 'stack' => 'top', 'config' => "{theme: 'inline, rounded'}"])
         <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
             <div class="frame__overlay" v-show="$awesLayoutCrm.togglenav || $awesLayoutCrm.showUserMenu" @click="$awesLayoutCrm.overlayClick"></div>
         </transition>
@@ -143,7 +143,11 @@
 
         </div>
     </div>
+    @if (!empty($__env->yieldContent('modals')))
+        <div class="modals">
+            @yield('modals')
+        </div>
+    @endif
 </content-wrapper>
 </body>
-
 </html>
