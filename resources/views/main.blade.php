@@ -5,8 +5,8 @@
 
 <body>
 <content-wrapper class="mainwrapper">
-    @notify(['class' => 'position-top-center', 'name' => 'top', 'stack' => 'top', 'config' => "{theme: 'inline, rounded'}"])
     <div class="frame">
+        @notify(['class' => 'position-top-center', 'name' => 'top', 'stack' => 'top', 'config' => "{theme: 'inline, rounded'}"])
         <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
             <div class="frame__overlay" v-show="$awesLayoutCrm.togglenav || $awesLayoutCrm.showUserMenu" @click="$awesLayoutCrm.overlayClick"></div>
         </transition>
@@ -64,7 +64,6 @@
                     @endif
                 </div>
                 <div class="frame__header-line">
-                    {{--TODO: H1 & Add button block--}}
                     @isset($h1)
                         <div class="frame__header-left">
                             <h1 class="frame__header-title">{!! $h1 !!}</h1>
@@ -123,19 +122,11 @@
                 @notify(['name' => 'frame', 'stack' => false, 'config' => "{theme: 'inline', status: 'warning', timeout: 0}"])
                 <div class="frame__inlayout">
                     @if (!empty($__env->yieldContent('pagemap')))
-                    @section('pagemap')
                         <div class="frame__inlayout-aside">
                             <page-map content=".frame__inlayout-content" :offset="-70" :sticky='{top: 15, bottom: 15}'>
-                                <template #after="#after">
-                                    <div class="page-map__links">
-                                        <a href="https://github.com/awes-io/awes-io/issues" target="_blank"><i class="icon icon-git"> </i><span>Report issue</span></a>
-                                        <a href="https://stackoverflow.com/questions/tagged/awes-io" target="_blank"><i class="icon icon-question"> </i><span>Get help</span></a>
-                                        <a href="https://github.com/awes-io/wiki/blob/dev/docs/" target="_blank"><i class="icon icon-pencil2"> </i><span>Edit this page</span></a>
-                                    </div>
-                                </template>
+                                @yield('pagemap')
                             </page-map>
                         </div>
-                    @show
                     @endif
                     <div class="frame__inlayout-content">
                         @yield('content')
@@ -152,7 +143,11 @@
 
         </div>
     </div>
+    @if (!empty($__env->yieldContent('modals')))
+        <div class="modals">
+            @yield('modals')
+        </div>
+    @endif
 </content-wrapper>
 </body>
-
 </html>

@@ -31,14 +31,14 @@
 
 {{-- Render the component --}}
 @if ($render)
-    <content-wrapper :class="{'loading-block': AWES._store.state.{{ $store_data }}_loading}" data-loading="{{ __('indigo-layout::common.loading') }}" store-data="{{ $store_data }}"
+    <content-wrapper name="{{ $name }}" store-data="{{ $store_data }}"
+        :check-empty="function(test) { return !(test && (test.data && test.data.length || test.length)) }"
         @if (isset($default_data) && !empty($default_data))
             :default='@json($default_data)'
         @endif
         @isset($scope_api_url)
             :url="$url.urlFromTemplate('{{ $scope_api_url . '?{' . implode('}&{', $watch_params) . '}' }}', $route.query)"
-        @endisset
-        ref="{{ $name }}">
+        @endisset>
 
         {{--Placeholder--}}
         @if(!isset($list))
