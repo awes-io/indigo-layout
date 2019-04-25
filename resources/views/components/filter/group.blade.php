@@ -15,7 +15,7 @@
 @if ($render)
     <div class="btn-group">
         @foreach($filter as $_value => $_title)
-            <filter-builder label="{{ $_title }}" :param="{ {{ $variable }}: {{ '"' . ( isset($default) && $default == $_value ? '' :  $_value ) . '"'}} }" @isset($reset) reset="{{ $reset }}" @endisset></filter-builder>
+            <filter-builder label="{{ $_title }}" :param="{ {{ $variable }}: {{ '"' . ( isset($default) && $default === $_value ? '' :  $_value ) . '"'}} }" @isset($reset) reset="{{ $reset }}" @endisset></filter-builder>
         @endforeach
     </div>
 @else
