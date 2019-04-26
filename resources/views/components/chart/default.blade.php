@@ -28,6 +28,7 @@
         @if (isset($default_data) && !empty($default_data))
             :default='@json($default_data)'
         @endif
+        :check-empty="function(data) { return $get(data, 'datasets[0].data', []).length === 0}"
         @isset($api_url)
             :url="$url.urlFromTemplate('{{ $api_url . $queryString }}', $route.query)">
         @endisset
