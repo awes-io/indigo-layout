@@ -1,7 +1,7 @@
 {
     "name": "indigo-layout",
     "version": "1.7.2",
-    "description": "Base CRM layouts",
+    "description": "Basic styles and components set for building user interfaces.",
     "main": "dist/js/main.js",
     "module": "src/js/plugin.js",
     "scripts": {
@@ -15,11 +15,17 @@
     },
     "repository": {
         "type": "git",
-        "url": "git@gitlab.awescode.com:awes-io/indigo-layout.git"
+        "url": "git@github.com:awes-io/indigo-layout.git"
     },
     "keywords": [
+        "vue",
         "layout",
-        "styles"
+        "styles",
+        "admin",
+        "dashboard",
+        "ui",
+        "ui interface",
+        "awes.io"
     ],
     "files": [
         "dist/css/main.css",
