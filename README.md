@@ -1,13 +1,51 @@
-# IndigoLayout
+<p align="center">
+    <a href="https://www.awes.io/?utm_source=github&utm_medium=indigo-layout" target="_blank" rel="noopener noreferrer">
+        <img width="100" src="https://static.awes.io/promo/Logo_sign_color.svg" alt="Awes.io logo">
+    </a>
+</p>
 
-[![Coverage report](https://git.awescode.com/awes-io/indigo-layout/badges/master/coverage.svg)](https://www.pkgkit.com/)
-[![Build status](https://git.awescode.com/awes-io/indigo-layout/badges/master/build.svg)](https://www.pkgkit.com/)
-[![Composer Ready](https://www.pkgkit.com/awes-io/indigo-layout/status.svg)](https://www.pkgkit.com/)
-[![Downloads](https://www.pkgkit.com/awes-io/indigo-layout/downloads.svg)](https://www.pkgkit.com/)
-[![Last version](https://www.pkgkit.com/awes-io/indigo-layout/version.svg)](https://www.pkgkit.com/)
+<h1 align="center">Indigo Layout</h1>
+
+<p align="center">Basic styles and components set for building user interfaces.</p>
 
 
-This is where your description should go. Take a look at [contributing.md](contributing.md) to see a to do list.
+<p align="center">
+    <a href="https://www.awes.io/?utm_source=github&amp;utm_medium=shields">
+        <img src="https://www.pkgkit.com/4GBWO/awes-io/indigo-layout/version.svg" alt="Last version" >
+    </a>
+    <a href="https://www.awes.io/?utm_source=github&amp;utm_medium=shields">
+        <img src="https://www.pkgkit.com/4GBWO/awes-io/indigo-layout/downloads.svg" alt="Downloads" >
+    </a>
+    <a href="https://www.awes.io/?utm_source=github&amp;utm_medium=shields">
+        <img src="https://img.shields.io/github/license/awes-io/indigo-layout.svg" alt="License" />
+    </a>
+    <a href="https://www.awes.io/?utm_source=github&amp;utm_medium=shields">
+        <img src="https://www.pkgkit.com/4GBWO/awes-io/indigo-layout/status.svg" alt="CDN Ready" /> 
+    </a>
+    <a href="https://www.awes.io/?utm_source=github&amp;utm_medium=shields" target="_blank">
+        <img src="https://static.pkgkit.com/badges/vuejs.svg" alt="vue" />
+    </a>
+    <a href="https://www.awes.io/?utm_source=github&amp;utm_medium=shields" target="_blank">
+        <img src="https://static.pkgkit.com/badges/laravel.svg" alt="laravel" />
+    </a>
+    <a href="https://www.awes.io/?utm_source=github&amp;utm_medium=shields">
+        <img src="https://img.shields.io/github/last-commit/awes-io/indigo-layout.svg" alt="Last commit" />
+    </a>
+    <a href="https://github.com/awes-io/awes-io">
+        <img src="https://ga-beacon.appspot.com/UA-134431636-1/awes-io/indigo-layout" alt="Analytics" />
+    </a>
+    <a href="https://www.pkgkit.com/?utm_source=github&amp;utm_medium=shields">
+        <img src="https://www.pkgkit.com/badges/hosted.svg" alt="Hosted by Package Kit" />
+    </a>
+    <a href="https://www.patreon.com/join/awesdotio">
+        <img src="https://static.pkgkit.com/badges/patreon.svg" alt="Patreon" />
+    </a>
+</p>
+
+##
+<p align="center">
+    <img src="https://static.awes.io/github/cover-desktop.gif" alt="indigo layout" />
+</p>
 
 ## Documentation
 
@@ -35,31 +73,14 @@ You can publish the config file with:
 php artisan vendor:publish --provider="AwesIO\IndigoLayout\IndigoLayoutServiceProvider" --tag="config"
 ```
 
-## Contributing
+## Support Us
 
-Please see [contributing.md](contributing.md) for details and a todolist.
-
-## Security
-
-If you discover any security related issues, please email :author_email instead of using the issue tracker.
-
-## Credits
-
-- [:author_name][link-author]
-- [All Contributors][link-contributors]
+<p align="center">
+    <a href="https://www.patreon.com/awesdotio" target="_blank">
+        <img src="https://c5.patreon.com/external/logo/become_a_patron_button.png" alt="Become a Patreon">
+    </a>
+</p>
 
 ## License
 
-GNU General Public License v3.0. Please see the [license file](license.md) for more information.
-
-[ico-version]: https://img.shields.io/packagist/v/awesio/indigolayout.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/awesio/indigolayout.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/awesio/indigolayout/master.svg?style=flat-square
-[ico-styleci]: https://styleci.io/repos/12345678/shield
-
-[link-packagist]: https://packagist.org/packages/awesio/indigolayout
-[link-downloads]: https://packagist.org/packages/awesio/indigolayout
-[link-travis]: https://travis-ci.org/awesio/indigolayout
-[link-styleci]: https://styleci.io/repos/12345678
-[link-author]: https://github.com/awesio
-[link-contributors]: ../../contributors]
+[MIT](http://opensource.org/licenses/MIT)

@@ -17,7 +17,7 @@ Ready-to-use Blade components and directives.
 ### Usage
 ```php
 @cardchartline([
-    'parameters' => ['query_variable' => 7],
+    'parameters' => ['query_variable'],
     'api_url' => '<!-- link to API -->'
 ])
 ```
@@ -44,7 +44,7 @@ Ready-to-use Blade components and directives.
 ### Usage
 ```php
 @cardchartdoughnut([
-    'parameters' => ['query_variable' => 7],
+    'parameters' => ['query_variable'],
     'api_url' => '<!-- link to API -->'
 ])
 ```
@@ -60,7 +60,7 @@ Ready-to-use Blade components and directives.
 ### Usage
 ```php
 @chart([
-    'parameters' => ['query_variable' => 7],
+    'parameters' => ['query_variable'],
     'api_url' => '<!-- link to API -->'
 ])
 ```
@@ -118,6 +118,7 @@ Ready-to-use Blade components and directives.
 | Name | Type | Default | Description |
 |------|------|---------|-------------|
 |`scope_api_url`|`string`| `optional` | The endpoint to get data for a table. Will ignore if `pagination` is `false`. |
+|`scope_api_params`|`array`| `['page', 'limit']` | The user-defined array of query string parameters for filtering. The compiled query will be sent to API endpoint. Provided array will be merged with default ones. |
 |`name`|`string`| `optional` | Name of the element. if not exist, will be a random string. |
 |`default_data`|`array`| `null` | Array with default data object. |
 |`store_data`|`string`| `optional` | Name of storage in Vue.js. if not exist, will be a random string. |
