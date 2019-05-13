@@ -1,6 +1,6 @@
 {
     "name": "indigo-layout",
-    "version": "1.7.2",
+    "version": "1.7.4",
     "description": "Basic styles and components set for building user interfaces.",
     "main": "dist/js/main.js",
     "module": "src/js/plugin.js",
@@ -43,8 +43,8 @@
         "fonts/icons.ttf",
         "fonts/icons.woff"
     ],
-    "author": "AwesCode (https://www.awescode.de/)",
-    "license": "ISC",
+    "author": "Awescode GmbH",
+    "license": "MIT",
     "devDependencies": {
         "@babel/core": "^7.2.2",
         "@babel/preset-env": "^7.2.3",

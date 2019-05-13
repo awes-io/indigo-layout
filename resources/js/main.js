@@ -17,7 +17,7 @@ const awesPlugin = {
             }
         },
         'v-tooltip': {
-            src: 'https://unpkg.com/v-tooltip/dist/v-tooltip.min.js',
+            src: 'https://unpkg.com/v-tooltip@2/dist/v-tooltip.min.js',
             deps: ['vue'],
             cb() {
                 VTooltip.default.options.defaultClass = 'theme-default';
@@ -37,7 +37,7 @@ const awesPlugin = {
             }
         },
         'vue-tabs-component': {
-            src: 'https://unpkg.com/vue-nav-tabs/dist/vue-tabs.js',
+            src: 'https://unpkg.com/vue-nav-tabs@0/dist/vue-tabs.min.js',
             deps: ['vue'],
             cb() {
                 Vue.use(VueTabs);
