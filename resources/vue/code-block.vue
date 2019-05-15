@@ -1,10 +1,10 @@
 <template>
     <pre :data-language="language"><!--
-     --><button class="hljs-copy has-wave" @click="copy($refs.code)"><!--
+     --><button class="hljs-copy has-wave" @click="copy"><!--
          -->{{ $lang.CODE_COPY }}<!--
          --><span class="wave"></span><!--
      --></button><!--
-     --><code v-once :class="`${language} language-${language}`" ref="code"><!--
+     --><code v-pre><!--
          --><slot></slot><!--
      --></code><!--
  --></pre>
@@ -25,9 +25,11 @@ export default {
 
     methods: {
 
-        copy(b) {
-            let d = document
-            let t = d.createElement('TEXTAREA')
+        copy() {
+            let d = document,
+                t = d.createElement('TEXTAREA'),
+                b = this.$el.querySelector('code')
+
             t.id = 'copy-text'
             t.style.height = 0
             t.position = 'fixed'
@@ -43,14 +45,6 @@ export default {
             } finally {
                 d.body.removeChild(t)
             }
-        },
-
-        escapeHTML(html) {
-            return html.replace(/&/g, "&amp;")
-                 .replace(/</g, "&lt;")
-                 .replace(/>/g, "&gt;")
-                 .replace(/"/g, "&quot;")
-                 .replace(/'/g, "&#039;");
         },
 
         loadHighlight(cb) {
@@ -73,10 +67,10 @@ export default {
         },
 
         initHighlight() {
-            let code = this.$refs.code
-            let text = this.escapeHTML(code.innerText)
-            this.$refs.code.innerHTML = hljs.lineNumbersValue(text)
+            let code = this.$el.querySelector('code')
+            code.className = `${this.language}`
             hljs.highlightBlock(code)
+            hljs.lineNumbersBlock(code)
         }
     },
 
