@@ -9,7 +9,7 @@ export function replaceCode() {
 
         let codeBlock = document.createElement('code-block')
         codeBlock.setAttribute('language', language[1])
-        codeBlock.innerText = block.innerText
+        codeBlock.innerHTML = '<template v-pre>' + block.innerHTML + '</template>'
 
         container.replaceChild(codeBlock, pre)
 
