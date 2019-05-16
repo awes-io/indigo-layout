@@ -42,10 +42,13 @@ $pin-triangle-side = $pin-size / 1.732
         box-shadow: 0 0 15px rgba(0,0,0,0.1)
         border-radius var(--tc_border_radius)
     &__title
-        height: 2rem
-        font-size: 1.25rem
-        line-height: 2rem
-        padding: 10px 15px 0 15px
+        color var(--tc_link_semi)
+        height: 2em
+        font-size: .75rem
+        line-height: 2em
+        font-weight normal
+        text-transform uppercase
+        padding: 2px 25px 0 15px
         margin: 0
         white-space: nowrap
         overflow: hidden
@@ -74,6 +77,8 @@ $pin-triangle-side = $pin-size / 1.732
                 color var(--tc_link_semi_active)
     &__button
         padding: 0
+        &.is-skip
+            margin-left auto
     &:not(.is-center):after
         position: absolute
         content: ''
