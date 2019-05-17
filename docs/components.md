@@ -99,9 +99,34 @@ Ready-to-use Blade components and directives.
 ### Configuration Options
 | Name | Type | Default | Description |
 |------|------|---------|-------------|
-|`filter`|`array`| |The array to build fast filter for the page. Format: `[value => text]`. Example: `[7 => 'Week', 30 => 'Month']` |
+|`filter`|`array`| |The array to build quick filter for the page. Format: `[value => label]`. Example: `[7 => 'Week', 30 => 'Month']` |
 |`variable`|`string`| |The user-defined variable for query string parameter.|
 |`default`|`string`| `null` |Active element. This value will be used to enable `active` class for the element.|
+
+## Filter
+
+### Usage
+```php
+@filter([
+    'order_by' => ['name' => 'Name']
+])
+    @slot('quick_filter')
+        @filtergroup(['filter' => ['' => 'All', '1' => 'Public', '0' => 'Private'], 'variable' => 'is_public'])
+    @endslot
+    <fb-input name="name" label="Name"></fb-input>
+@endfilter
+```
+
+### Configuration Options
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+|`order_by`|`array`| |The array to build "Order by" context menu for the page. Format: `[value => label]`. Example: `['updated_at' => 'Updated']` |
+
+### Slots
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+|`slot`|`string`| `null` | Add an HTML to main filter block. You can use all elements of `form-builder` |
+|`quick_filter`|`string`| `null` | Add an HTML to quick filter block. Items are displayed on the left. You can use the `@filtergroup` component |
 
 ## Table
 
