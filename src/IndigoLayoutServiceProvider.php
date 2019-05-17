@@ -38,6 +38,10 @@ class IndigoLayoutServiceProvider extends AwesProvider
         $components = [
             // Tables
             'table' => 'table.default',
+
+            //Filter
+            'filter' => 'filter.default',
+
             // Card statuses
             'errorCard' => 'base.error',
             'emptyCard' => 'base.empty',
