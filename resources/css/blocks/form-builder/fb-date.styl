@@ -1,0 +1,308 @@
+db_breakpoint_w = 640px
+dp_breakpoint_h = 480px
+
+calendar_width = 300px
+time_range_width = 80px
+picker_padding = 10px
+
+calendar_height = 270px
+
+dp-min()
+    @media (min-width db_breakpoint_w) and (min-height dp_breakpoint_h)
+        {block}
+
+dp-max()
+    @media (max-width (db_breakpoint_w - 1px)), (max-height (dp_breakpoint_h - 1px))
+        {block}
+
+.fb-date
+    position relative
+    
+    +dp-min()
+    
+        &.is-range
+            display flex
+    
+    &__picker
+        margin-top 5px
+        padding picker_padding
+        background-color var(--tc_ui_bg)
+        box-shadow var(--tc_ui_context_menu_shadow)
+        absolute top 100% left 0
+        z-index 2
+        opacity 0
+        width calendar_width
+        max-width 100%
+        visibility hidden
+        transition 200ms opacity, 0ms visibility 200ms
+        
+        &.has-time
+            display flex
+            width (calendar_width + time_range_width)
+            padding-right (picker_padding + time_range_width)
+            
+            .dp-cal .dp-cal-footer > .dp-close
+                display block
+        
+        &.is-opened
+            visibility visible
+            opacity 1
+            transition 200ms opacity, 0ms visibility
+
+        +dp-min()
+            ^[0].is-range &
+                width (2 * calendar_width)
+        
+        .dp-wrapper
+            flex-grow 1
+
+
+    &__fb-input
+        display block
+        
+        ^[0].is-range &
+            flex-basis 50%
+
+
+        ^[0].is-range & + &
+            +dp-max()
+                margin-top 10px
+        
+            +dp-min()
+                margin-left 10px
+
+    
+    &__time-range
+        width time_range_width
+        overflow-y auto
+        
+        absolute top picker_padding right picker_padding
+        bottom picker_padding
+        
+        .time-range
+            
+            &__intervals
+                list-style none
+                margin 0
+                padding 0
+                
+                display flex
+                flex-direction column
+                height 100%
+            
+            &__interval
+                min-height (calendar_height / 10)
+                flex-grow 1
+                margin 0
+            
+            &__button
+                display flex
+                size 100%
+                justify-content center
+                align-items center
+                
+                &:hover,
+                &:focus
+                    background-color var(--tc_ui_bg_darken)
+                
+                &.is-current
+                    color var(--tc_btn_text)
+                    background-color var(--tc_btn_bg_active)
+
+
+.dp-cal
+    cal_padding = 5px
+    
+    background-color var(--tc_ui_bg)
+    
+    .dp-cal-header
+        padding cal_padding
+        display flex
+        justify-content center
+        align-items flex-start
+        position relative
+        color var(--tc_text_caption)
+        
+        > button
+            font-size .8rem
+            padding 4px
+        
+        .dp-prev,
+        .dp-next
+            position absolute
+            top cal_padding
+            font-size 0
+            icon('ar-right')
+            
+            &::before
+                font-size .8rem
+        
+        .dp-prev
+            left cal_padding
+            
+        .dp-next
+            right cal_padding
+            
+            &::before
+                transform rotate(180deg)
+            
+        
+
+    .dp-days
+        display flex
+        flex-wrap wrap
+        padding cal_padding
+        padding-bottom 2px // fix height
+        
+        .dp-col-header,
+        .dp-day
+            width (100% / 7)
+            padding cal_padding
+        
+        .dp-col-header
+            color var(--tc_text_caption)
+            text-transform uppercase
+            text-align center
+            font-size .67rem
+
+    .dp-day
+        text-align center
+        height 35px
+        
+        &:not(.dp-selected):not(.dr-selected):not(.dr-in-range):not(.dp-edge-day):hover
+            background-color var(--tc_ui_bg_darken)
+        
+        &.dp-edge-day
+            opacity 0
+            height 0
+            pointer-events none
+        
+        &.dp-day-today
+            position relative
+            
+            &::after
+               content ''
+               display block
+               size 4px
+               border-radius 50%
+               margin-left -2px
+               background-color var(--tc_btn_bg_active)
+               absolute left 50% bottom (cal_padding - 2px)
+        
+        &.dp-selected
+            color var(--tc_btn_text)
+            background-color var(--tc_btn_bg_active)
+        
+            &.dp-day-today::after
+                background-color var(--tc_btn_text)
+    
+    .dp-cal-footer
+        display flex
+        justify-content center
+        
+        > button
+            font-size .67rem
+            text-transform uppercase
+            padding 4px 10px
+            margin 0 5px
+            
+            &:hover,
+            &:focus
+                background-color var(--tc_ui_bg_darken)
+                
+            &.dp-clear,
+            &.dp-close
+                display none
+
+    
+.dp-months
+    display flex
+    flex-wrap wrap
+    height calendar_height
+    
+    .dp-month
+        flex-basis (100% / 3.0001)
+        padding 15px
+        text-transform uppercase
+        font-size f_smart
+        
+        &:hover,
+        &:focus
+            background-color var(--tc_ui_bg_darken)
+        
+        &.dp-current
+            color var(--tc_btn_text)
+            background-color var(--tc_btn_bg)
+
+
+.dp-years
+    height calendar_height
+    overflow-y auto
+    display flex
+    flex-direction column
+    
+    .dp-year
+        display flex
+        flex-grow 1
+        justify-content center
+        align-items center
+        width 100%
+        padding 5px 10px
+        
+        &:hover,
+        &:focus
+            background-color var(--tc_ui_bg_darken)
+        
+        &.dp-current
+            color var(--tc_btn_text)
+            background-color var(--tc_btn_bg)
+
+
+.dr-cals
+    display flex
+    
+    .dr-cal-start,
+    .dr-cal-end
+        flex-basis 50%
+        flex-grow 1
+        
+        .dp-cal-footer
+            display none
+    
+    .dr-cal-end
+        position relative
+        
+        +dp-max()
+            display none
+        
+        &::before
+            content ''
+            display block
+            absolute top -10px bottom -10px
+            width 1px
+            background-color var(--tc_border)
+    
+    +dp-min()
+        .dr-cal-start .dp-cal-header .dp-next,
+        .dr-cal-end .dp-cal-header .dp-prev
+            display none
+    
+    .dp-day
+        
+        &.dr-in-range
+            background-color var(--tc_btn_bg)
+            color var(--tc_btn_text)
+            
+            &.dp-day-today::after
+                background-color var(--tc_btn_text)
+            
+        &.dr-selected
+            color var(--tc_btn_text)
+            background-color var(--tc_btn_bg_active)
+            
+            &.dp-day-today::after
+                background-color var(--tc_btn_text)
+        
+        &.dp-selected:not(.dr-in-range):not(.dr-selected)
+            color inherit
+            background-color inherit
