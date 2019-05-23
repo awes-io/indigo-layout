@@ -152,7 +152,7 @@ gulp.task('build:icons', function(){
  */
 
 gulp.task('clean', function(){
-  return gulp.src('./dist', { read: false, allowEmpty: true })
+  return gulp.src(['./dist', './examples'], { read: false, allowEmpty: true })
     .pipe( clean() )
 })
 
@@ -161,5 +161,8 @@ gulp.task('build', gulp.series('build:js', 'build:img', 'build:icons', 'build:st
 // start
 defaultTask = ['build']
 if ( ! isModern ) defaultTask.unshift('clean')
-if ( isDev ) defaultTask.push('serve')
+if ( isDev ) {
+  //defaultTask = defaultTask.concat(['build:html', 'serve'])
+  defaultTask.push('serve')
+}
 gulp.task('default', gulp.series(defaultTask) )

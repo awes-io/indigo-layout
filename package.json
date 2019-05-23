@@ -1,6 +1,6 @@
 {
     "name": "indigo-layout",
-    "version": "1.7.6",
+    "version": "1.9.0",
     "description": "Basic styles and components set for building user interfaces.",
     "main": "dist/js/main.js",
     "module": "src/js/plugin.js",
