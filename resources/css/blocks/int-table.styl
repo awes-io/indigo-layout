@@ -62,6 +62,7 @@
         font-size f_normal
         background-color var(--tc_ui_bg)
         tbody
+            position relative
             box-shadow var(--tc_ui_shadow)
         th
             font-weight 400
@@ -70,10 +71,21 @@
             color var(--tc_text_caption)
             font-size f_normal
             padding 17px 15px
+            
+            .tb-sort-button
+                padding 17px 15px
+                width calc(100% + 30px)
+                margin -17px -15px
+            
             &^[0]__right
                 text-align right
             &:first-child
                 padding-left 30px
+                
+                .tb-sort-button
+                    padding-left 30px
+                    width calc(100% + 45px)
+                    margin-left -30px
         td
             padding 12px 15px
             border-bottom 1px solid var(--tc_border_dark)
@@ -231,6 +243,23 @@
     & &__openin
         width 75px
 
+.tb-sort-button
+    text-align: left;
+    
+    &:hover,
+    &:focus
+        background-color var(--tc_ui_bg_semi_v)
+        
+    &.is-active
+        background-color var(--tc_ui_bg_semi_s)
+
+    svg
+        margin-left .1em
+        size 14px
+        vertical-align middle
+        
+        path
+            fill currentColor
 
 @media maw[dlg]
     .int-table
@@ -241,8 +270,19 @@
         & &__table
             th
                 padding 15px 10px
+                
+                .tb-sort-button
+                    padding 15px 10px
+                    width calc(100% + 20px)
+                    margin -15px -10px
+                
                 &:first-child
                     padding-left 15px
+                    
+                    .tb-sort-button
+                        padding-left 15px
+                        margin-left -15px
+                        width calc(100% + 25px)
             td
                 padding 12px 10px
                 &:first-child
