@@ -1,312 +1,664 @@
-modal-width = 600px
-modal-form = 700px
+// modal-width = 600px
+// modal-form = 700px
+
+// .modal
+//   position fixed
+//   z-index: 9 !important
+//   top 0
+//   left 0
+//   width 100%
+//   height 100%
+//   overflow auto
+//   display flex
+//   padding 25px
+//   background-color alpha(cl_black, 0.8)
+//   &&_fullscreen
+//     background-color var(--tc_ui_bg)
+//     & ^[0]__dialog
+//       fixed top 0 left 0
+//       width 100%
+//       height 100%
+//       overflow auto
+//     & ^[0]__content
+//       padding 30px 15px
+//       absolute left 0 top 80px right 0 bottom 0
+//       overflow auto
+//     & ^[0]__container
+//       width: 1200px
+//       max-width: 100%
+//       margin: auto
+//     & ^[0]__checker
+//       text-align center
+//       margin-bottom 20px
+//     & ^[0]__header
+//       fixed top 0 left 0
+//       border-bottom 1px solid var(--tc_border)
+//       background-color var(--tc_ui_bg)
+//       width 100%
+//       fl(,c,c)
+//       padding 25px 100px
+//       height 80px
+//     & ^[0]__close
+//       top 50%
+//       right 40px
+//       margin-top -14px
+//     & ^[0]__close-kbd
+//       text-align center
+//       width 100%
+//       font-size 10px
+//       display block
+//       font-family inherit
+//     & ^[0]__back
+//       absolute left 40px top 50%
+//       font-size 18px
+//       display block
+//       margin-top -9px
+//       color var(--tc_link_semi)
+//       &:hover
+//         color var(--tc_link_semi_active)
+//     & ^[0]__title
+//       margin 0
+//   & &__dialog
+//     box-sizing border-box
+//     padding 30px 40px
+//     width modal-width
+//     margin auto
+//     max-width 100%
+//     position relative
+//     background-color var(--tc_ui_bg)
+//   &&_formbuilder
+//     & ^[0]__dialog
+//       padding-bottom 90px
+//   & &__bottom
+//     absolute bottom 0 left 0 right 0
+//     height: 1px
+//   & &__title
+//     text-align center
+//     line-height 1.1
+//     padding-bottom 0 !important
+//     padding-left 30px
+//     padding-right 30px
+//   & &__close
+//     background transparent
+//     padding 0
+//     font-weight 300
+//     absolute right 20px top 20px
+//     font-weight 300
+//     line-height 1
+//     color var(--tc_link_semi)
+//     icon(cross, 24px)
+//     &:hover
+//       color var(--tc_link_semi_active)
+//     span
+//       display none
+      
+// .modal.is-default
+//   .line-btns
+//     // absolute left 0 bottom 0
+//     // background-color var(--tc_ui_bg)
+//     width 100%
+//     margin-top 20px
+//     padding-top 0
+//     position sticky
+//     bottom 0
+//     z-index 2
+//     fl()
+
+//     &__wrap
+//       width 100%
+//       fl()
+//       background-color var(--tc_ui_bg)
+      
+//     .btn
+//       margin 0
+//       flex-grow: 1
+//       text-transform capitalize
+//       flex-basis 50%
+//       border-radius 0
+//       font-size f_medium
+//       padding 20px 5px
+//       min-height 60px
+//       transition background-color 0.3s ease, color 0.3s ease
+//       color var(--tc_btn_text)
+//       background-color var(--tc_btn_bg)
+      
+//       &:hover,
+//       &:focus
+//         background-color var(--tc_btn_bg_active)
+//         color var(--tc_btn_text)
+
+//       // &:nth-child(2)
+//       //   border-top 1px solid var(--tc_border_light)
+        
+//       &[disabled="disabled"]
+//         background-color var(--tc_ui_darkbg) !important
+//         pointer-events none
+//         opacity 0.5
+// .line-btns
+//   .btn
+//     display inline-flex
+//     margin-right 10px
+//     margin-bottom 10px
+//     &:nth-child(2)
+//       background-color var(--tc_ui_bg) !important
+//       color cl_asphalt !important
+//       &:hover, &:focus
+//         color cl_asphalt
+//         {lt} &
+//           background-color var(--tc_ui_bg_d) !important
+//         {dt} &
+//           background-color var(--tc_ui_bg_l) !important
+//   & &__header
+//     width 100%
+//   & &__overwrap
+//     width 100%
+//     fl(w)
+//   &:not(.modal_bottom-visible), &:not(.modal_fullscreen)
+//     .line-btns
+//       &__wrap
+//         fixed bottom 0
+//         max-width: 100%
+//         margin-left auto
+//         margin-right auto
+//         z-index 1 !important
+//   &:not(.modal_fullscreen), &:not(.modal_bottom-visible)
+//     .line-btns
+//       &__wrap
+//         width modal-width
+//   &&_bottom-visible
+//     &:not(.modal_fullscreen)
+//       .line-btns
+//         &__wrap
+//           absolute left 0 bottom 0 right 0
+//           width 100%
+//           max-width 1000px
+//           transform translateX(0px) !important
+//   &_formbuilder
+//     .grid_forms
+//       max-width modal-form
+//       margin-left auto
+//       margin-right auto
+//     .line-btns
+//       max-width modal-form
+//       margin-top 20px
+//       margin-left auto
+//       margin-right auto
+//       .btn
+//         border 0
+
+// .frame
+//   transition: all 500ms cubic-bezier(0.23, 1, 0.32, 1) 300ms
+
+// .modal-body-fixed
+//   overflow: hidden
+  
+//   &.modal-fullscreen
+    
+//     .frame
+//       transition: all 600ms cubic-bezier(0.23, 1, 0.32, 1)
+//       transform: scale(.95)
+//       opacity: 0
+
+
+
+
+// // Media Start
+
+
+// @media maw[tlg]
+//   .body-overflow-usermenu
+//     overflow: hidden
+//     body
+//       overflow hidden
+
+// @media maw[tmd]
+//   .modal
+//     &.modal_fullscreen
+//       & ^[0]__header
+//         padding 20px 60px
+//         height 70px
+//       & ^[0]__close
+//           right 20px
+//           margin-top -8px
+//           &:after
+//             display none
+//       & ^[0]__content
+//         top 70px
+//       & ^[0]__back
+//         left 20px
+//       & ^[0]__title
+//         font-size 20px
+
+// @media maw[tsm]
+
+//   .modal
+//     padding: 0
+//     & &__dialog
+//       margin-top: 0
+//       height 100vh
+//       padding-bottom 25px
+//       overflow auto
+//     &&_formbuilder
+//       &.modal_fullscreen
+//         padding-bottom 25px
+//         height 100vh
+//       &:not(.modal_fullscreen)
+//         & ^[0]__dialog
+//           padding-bottom 25px
+//           height calc(100vh - 60px)
+//     & &__close
+//       top 30px
+//       right 25px
+//     &:not(.modal_fullscreen)
+//       .line-btns
+//         fixed left 0 bottom 0
+//         width 100%
+//         margin 0
+//         z-index 6
+//         // transform translateX(0px) !important
+//     & &__overwrap
+//       position relative
+//       & ^[0]__close
+//         right 5px
+//         top 5px
+
+// @media maw[mmd]
+//   .modal
+//     & &__dialog
+//       padding-left 25px
+//       padding-right 25px
+//     & &__header
+//       margin-left -5px
+//       margin-right -5px
+//     & &__title
+//       text-align left
+//       padding-left 5px
+//       padding-right 5px
+
+
+$gap ?= 16px
+$button-height ?= 40px
+$container-width ?= 1200px
+
+$modal-title-font-size = 24px
+
+$modal-width ?= 600px
+$modal-aside-width ?= 320px
+$modal-aside-width-medium ?= 50vw
+$modal-aside-width-large ?= 75vw
+
+$modal-z-index ?= 100
+$modal-padding ?= $gap $gap 0
+$modal-dialog-padding ?= $gap
+
+$overlay-bg ?= alpha(cl_black, 0.8)
+$bgcolor ?= white
+
+$aside-box-shadow ?= -5px 0 20px rgba(0,0,0,.1)
+
+button-reset()
+    color inherit
+    appearance none
+    cursor pointer
+    padding 0
+    background none
+    border none
+    outline none
+
+
+$breakpoint-tablet = 670px
+
+small()
+    @media (max-width ($breakpoint-tablet - 1px))
+        {block}
+
+large()
+    @media (min-width $breakpoint-tablet)
+        {block}
+
+// prevent content blink
+modal-window
+    display none
+
+body.has-modal-default,
+body.has-modal-fullscreen
+    overflow: hidden
 
 .modal
-  position fixed
-  z-index: 9 !important
-  top 0
-  left 0
-  width 100%
-  height 100%
-  overflow auto
-  display flex
-  padding 25px
-  background-color alpha(cl_black, 0.8)
-  &&_fullscreen
-    background-color var(--tc_ui_bg)
-    & ^[0]__dialog
-      fixed top 0 left 0
-      width 100%
-      height 100%
-      overflow auto
-    & ^[0]__content
-      padding 30px 15px
-      absolute left 0 top 80px right 0 bottom 0
-      overflow auto
-    & ^[0]__container
-      width: 1200px
-      max-width: 100%
-      margin: auto
-    & ^[0]__checker
-      text-align center
-      margin-bottom 20px
-    & ^[0]__header
-      fixed top 0 left 0
-      border-bottom 1px solid var(--tc_border)
-      background-color var(--tc_ui_bg)
-      width 100%
-      fl(,c,c)
-      padding 25px 100px
-      height 80px
-    & ^[0]__close
-      top 50%
-      right 40px
-      margin-top -14px
-    & ^[0]__close-kbd
-      text-align center
-      width 100%
-      font-size 10px
-      display block
-      font-family inherit
-    & ^[0]__back
-      absolute left 40px top 50%
-      font-size 18px
-      display block
-      margin-top -9px
-      color var(--tc_link_semi)
-      &:hover
-        color var(--tc_link_semi_active)
-    & ^[0]__title
-      margin 0
-  & &__dialog
-    box-sizing border-box
-    padding 30px 40px
-    width modal-width
-    margin auto
-    max-width 100%
-    position relative
-    background-color var(--tc_ui_bg)
-  &&_formbuilder
-    & ^[0]__dialog
-      padding-bottom 90px
-  & &__bottom
-    absolute bottom 0 left 0 right 0
-    height: 1px
-  & &__title
-    text-align center
-    line-height 1.1
-    padding-bottom 0 !important
-    padding-left 30px
-    padding-right 30px
-  & &__close
-    background transparent
-    padding 0
-    font-weight 300
-    absolute right 20px top 20px
-    font-weight 300
-    line-height 1
-    color var(--tc_link_semi)
-    icon(cross, 24px)
-    &:hover
-      color var(--tc_link_semi_active)
-    span
-      display none
-      
-  &:not(.modal_fullscreen)
-    .line-btns
-      absolute left 0 bottom 0
-      background-color var(--tc_ui_bg)
-      width 100%
-      fl()
-      &__wrap
-        width 100%
-        fl()
-        background-color var(--tc_ui_bg)
-      .btn
+    z-index $modal-z-index
+    position fixed
+    top 0
+    left 0
+    right 0
+    bottom 0
+    overflow auto
+    background-color var(--ui-overlay-bg, $overlay-bg)
+
+
+    &__dialog
+        box-sizing border-box
+        max-width 100%
+        margin auto
+        background-color var(--tc_ui_bg, $bgcolor)
+
+
+    &__header
+        display flex
+        align-items center
+        padding var(--ui-gap, $gap)
+
+
+    &__content
+        margin 0 auto
+        padding var(--ui-container-padding, $gap)
+        max-width var(--ui-container-width, $container-width)
+
+
+    &__back,
+    &__close
+        button-reset()
+        box-sizing border-box
+        padding $gap / 2
+        flex-shrink 0
+        height $button-height
+        width $button-height
+        line-height $button-height - $gap
+        opacity .5
+        transition 200ms opacity
+        
+        > svg
+            vertical-align middle
+        
+        &:hover
+            opacity 1
+
+
+    &__title
         margin 0
-        flex-grow: 1
-        text-transform capitalize
-        min-width 50%
-        border-radius 0
-        font-size f_medium
-        padding 20px 5px
-        min-height 60px
-        transition background-color 0.3s ease, color 0.3s ease
-        color var(--tc_btn_text)
-        background-color var(--tc_btn_bg)
-        &:hover, &:focus
-          background-color var(--tc_btn_bg_active)
-          color var(--tc_btn_text)
-        &:nth-child(2)
-          border-top 1px solid var(--tc_border_light)
-        &[disabled="disabled"]
-          background-color var(--tc_ui_darkbg) !important
-          pointer-events none
-          opacity 0.5
-  .line-btns
-    .btn
-      display inline-flex
-      margin-right 10px
-      margin-bottom 10px
-      &:nth-child(2)
-        background-color var(--tc_ui_bg) !important
-        color cl_asphalt !important
-        &:hover, &:focus
-          color cl_asphalt
-          {lt} &
-            background-color var(--tc_ui_bg_d) !important
-          {dt} &
-            background-color var(--tc_ui_bg_l) !important
-  & &__header
-    width 100%
-  & &__overwrap
-    width 100%
-    fl(w)
-  &:not(.modal_bottom-visible), &:not(.modal_fullscreen)
-    .line-btns
-      &__wrap
-        fixed bottom 0
-        max-width: 100%
-        margin-left auto
-        margin-right auto
-        z-index 1 !important
-  &:not(.modal_fullscreen), &:not(.modal_bottom-visible)
-    .line-btns
-      &__wrap
-        width modal-width
-  &&_bottom-visible
-    &:not(.modal_fullscreen)
-      .line-btns
-        &__wrap
-          absolute left 0 bottom 0 right 0
-          width 100%
-          max-width 1000px
-          transform translateX(0px) !important
-  &_formbuilder
-    .grid_forms
-      max-width modal-form
-      margin-left auto
-      margin-right auto
-    .line-btns
-      max-width modal-form
-      margin-top 20px
-      margin-left auto
-      margin-right auto
-      .btn
-        border 0
-
-.frame
-  transition: all 500ms cubic-bezier(0.23, 1, 0.32, 1) 300ms
-
-.modal-body-fixed
-  overflow: hidden
-  
-  &.modal-fullscreen
-    
-    .frame
-      transition: all 600ms cubic-bezier(0.23, 1, 0.32, 1)
-      transform: scale(.95)
-      opacity: 0
+        line-height $button-height
+        font-size var(--h2-font-size, $modal-title-font-size)
+        white-space nowrap
+        overflow hidden
+        text-overflow ellipsis
+        flex-grow 1
+        
+        +large()
+            text-align center
 
 
-
-
-// Media Start
-
-
-@media maw[tlg]
-  .body-overflow-usermenu
-    overflow: hidden
-    body
-      overflow hidden
-
-@media maw[tmd]
-  .modal
-    &.modal_fullscreen
-      & ^[0]__header
-        padding 20px 60px
-        height 70px
-      & ^[0]__close
-          right 20px
-          margin-top -8px
-          &:after
-            display none
-      & ^[0]__content
-        top 70px
-      & ^[0]__back
-        left 20px
-      & ^[0]__title
-        font-size 20px
-
-@media maw[tsm]
-
-  .modal
-    padding: 0
-    & &__dialog
-      margin-top: 0
-      height 100vh
-      padding-bottom 25px
-      overflow auto
-    &&_formbuilder
-      &.modal_fullscreen
-        padding-bottom 25px
-        height 100vh
-      &:not(.modal_fullscreen)
+    &.is-default
+        
+        +large()
+            display flex
+            padding 'calc( var(--ui-gap, %s) * 2 )' % $gap
+            padding-bottom 0
+        
         & ^[0]__dialog
-          padding-bottom 25px
-          height calc(100vh - 60px)
-    & &__close
-      top 30px
-      right 25px
-    &:not(.modal_fullscreen)
-      .line-btns
-        fixed left 0 bottom 0
-        width 100%
-        margin 0
-        z-index 6
-        // transform translateX(0px) !important
-    & &__overwrap
-      position relative
-      & ^[0]__close
-        right 5px
-        top 5px
+            padding 'calc( var(--ui-gap, %s) * .5 )' % $gap
+            
+            +small()
+                height 100%
+            
+            +large()
+                width $modal-width
+        
+        & ^[0]__back
+            // for title alignment
+            height 0
+            visibility hidden
+            overflow hidden
+            
+            +small()
+                display none
 
-@media maw[mmd]
-  .modal
-    & &__dialog
-      padding-left 25px
-      padding-right 25px
-    & &__header
-      margin-left -5px
-      margin-right -5px
-    & &__title
-      text-align left
-      padding-left 5px
-      padding-right 5px
+        & ^[0]__header
+            padding-bottom 0
+        
+        // ----------- Indigo layout --------- special form behaviour
+        +small()
+          background-color var(--tc_ui_bg, $bgcolor)
+
+          & ^[0]__dialog,
+          & ^[0]__body,
+          & ^[0]__content,
+          & .form-builder.modal_form,
+          & .form-builder.modal_form .line-btns
+            display flex
+            flex-direction column
+            flex-grow 1
+          
+          & ^[0]__content
+            margin 0
+          
+          & .form-builder.modal_form .line-btns
+            justify-content flex-end
 
 
-/*
- * Transition (mobile)
+    &.is-fullscreen,
+    &[class*="is-aside"]
+        padding 0
+        overflow hidden
+        
+        & ^[0]__dialog
+            display flex
+            flex-direction column
+            width 100%
+            max-width 100%
+            padding 0
+            height 100%
+            overflow hidden
+        
+        & ^[0]__header
+            background-color var(--tc_ui_bg, $bgcolor)
+            border-bottom 1px solid var(--tc_border)
+            
+        & ^[0]__body
+            overflow auto
+
+
+    &.is-fullscreen
+        
+        & ^[0]__title
+            
+            +small()
+                text-align center
+
+
+    &[class*="is-aside"]
+        left auto
+        min-width $modal-aside-width
+        width $modal-aside-width
+        max-width 100vw
+        z-index $modal-z-index - 1
+        box-shadow $aside-box-shadow 
+
+        & ^[0]__back
+            height 0
+            visibility hidden
+            overflow hidden
+            
+            +small()
+                display none
+        
+        &.is-aside-medium
+            width $modal-aside-width-medium
+        
+        &.is-aside-large
+            width $modal-aside-width-large
+            
+/**
+ * Transitions
  */
 
-.modal-fade
-    &-enter-active
-        transition: opacity 150ms ease-out 100ms
-    &-leave-active
-        transition: opacity 90ms ease
-    &-enter
-        opacity: 0
+$modal-t-dur = 250ms
+$ease-out-quart = cubic-bezier(.165, .84, .44, 1)
+
+// default
+.modal-transition-default
+    
+    &-enter,
     &-leave-to
-        opacity: 0
+        opacity 0
+        
+        +large()
+            .modal__dialog
+                opacity 0
+                transform translateY(-2 * $gap)
+    
+    &-enter-active,
+    &-leave-active
+        pointer-events none
+        backface-visibility hidden
+        transform translate3d(0,0,0)
+        
+    
+    &-enter-active
+        transition $modal-t-dur opacity $ease-out-quart
 
-    // additional dialog transition (tablet, desktop)
-    @media miw[tsm]
-        &-enter-active
-            overflow: hidden
-            transition: opacity 300ms ease-out
-        &-leave-active
-            overflow: hidden
-            transition: opacity 200ms ease-out
-        &__translate
-            transition: 200ms transform cubic-bezier(0.215, 0.61, 0.355, 1) 100ms, 100ms opacity 100ms
-        &__scale
-            transition: all 500ms cubic-bezier(0.23, 1, 0.32, 1) 200ms
+        +large()
+            transition $modal-t-dur * 1.5 opacity
+            
+            .modal__dialog
+                transition $modal-t-dur transform ($modal-t-dur * .5) $ease-out-quart, ($modal-t-dur * .5) opacity ($modal-t-dur * .5)
 
-        &-enter
-            .modal-fade__translate
-                opacity: 0
-                transform: translateY(-50px)
-            .modal-fade__scale
-                opacity: 0
-                transform: scale(0.7)
-            
-        &-leave-active
-            .modal-fade__translate
-              transition: 00ms transform cubic-bezier(0.215, 0.61, 0.355, 1), opacity 100ms
-              opacity: 0
-              transform: translateY(-50px)    
-            
-            .modal-fade__scale
-                transition: all 500ms cubic-bezier(0.23, 1, 0.32, 1)
-                opacity: 0
-                transform: scale(0.9)
+    &-leave-active
+        transition $modal-t-dur opacity
+        
+        +large()
+            transition $modal-t-dur opacity ($modal-t-dur * .5)
+
+            .modal__dialog
+                transition $modal-t-dur transform, $modal-t-dur opacity
+
+
+// fullscreen 
+// ------------ default ---------------     
+// .modal-transition-fullscreen
+    
+//     &-enter,
+//     &-leave-to
+//         transform scale(1.1)
+//         opacity 0
+        
+//     &-enter-active
+//         transition $modal-t-dur transform $ease-out-quart, $modal-t-dur opacity $ease-out-quart
+
+//     &-leave-active
+//         transition $modal-t-dur transform, ($modal-t-dur * .67) opacity ($modal-t-dur * .33)
+
+
+// aside
+.modal-transition-aside
+    
+    &-enter,
+    &-leave-to
+        transform translateX(100%)
+        
+    &-enter-active
+        transition $modal-t-dur transform $ease-out-quart
+
+    &-leave-active
+        transition $modal-t-dur transform
+
+
+.modal-transition-aside-medium,
+.modal-transition-aside-large
+    
+    &-enter
+        transform translateX($modal-aside-width)
+        opacity 0
+        
+        +large()
+            transition-duration $modal-t-dur * 2
+        
+    &-leave-to
+        transform translateX(100%)
+        opacity 0
+        
+        +large()
+            transition-duration $modal-t-dur * 1.5
+        
+    &-enter-active
+        transition $modal-t-dur transform $ease-out-quart, ($modal-t-dur *.67) opacity $ease-out-quart
+
+    &-leave-active
+        transition $modal-t-dur transform, ($modal-t-dur *.67) opacity ($modal-t-dur *.33)
+
+
+// ------------- Indigo layout only ------------------
+
+.frame
+  backface-visibility hidden
+  opacity 1
+  transform none
+  transition 150ms transform ease-out, 100ms opacity ease-out
+  
+body.has-modal-fullscreen
+  
+  .frame
+    pointer-events none
+    transform scale(.98)
+    opacity 0
+    transition 170ms transform, 200ms opacity
+
+// fullscreen      
+.modal-transition-fullscreen
+    
+    &-enter,
+    &-leave-to
+      transform translate3d(0,0,0) scale(1.1)
+      opacity 0
+      
+    &-enter-active,
+    &-leave-active
+      backface-visibility hidden
+      pointer-events none
+        
+    &-enter-active
+      transition $modal-t-dur transform 170ms $ease-out-quart, $modal-t-dur opacity 200ms $ease-out-quart
+
+    &-leave-active
+      transition ($modal-t-dur * .5) transform, ($modal-t-dur * .5) opacity
+
+
+.modal.is-default
+  .line-btns
+    display flex
+    width 'calc( var(--ui-gap, %s) * 3 + 100% )' % $gap
+    margin 'calc( var(--ui-gap, %s) * -1.5 )' % $gap
+    margin-top 20px
+    padding-top 0
+    position sticky
+    bottom 0
+    z-index 2
+    
+    &__wrap
+      display flex
+      width 100%
+      background-color var(--tc_ui_bg, $bgcolor)
+      
+    .btn
+      margin 0
+      flex-grow: 1
+      text-transform capitalize
+      flex-basis 50%
+      border-radius 0
+      font-size f_medium
+      padding 20px 5px
+      min-height 60px
+      transition background-color 0.3s ease, color 0.3s ease
+      color var(--tc_btn_text)
+      background-color var(--tc_btn_bg)
+      
+      &:hover,
+      &:focus
+        background-color var(--tc_btn_bg_active)
+        color var(--tc_btn_text)
+
+      // &:nth-child(2)
+      //   border-top 1px solid var(--tc_border_light)
+        
+      &[disabled="disabled"]
+        background-color var(--tc_ui_darkbg) !important
+        pointer-events none
+        opacity 0.5
