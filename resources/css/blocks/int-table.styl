@@ -57,13 +57,26 @@
             text-decoration none !important
     & &__right
         text-align right
+    & &__overflow
+        box-shadow var(--tc_ui_shadow)
+        overflow-x auto
+        max-width 100%
+        background:
+            linear-gradient(90deg, var(--tc_ui_bg) 16px, var(--tc_ui_bg_opaque, rgba(255,255,255,0))),
+            linear-gradient(90deg, var(--tc_ui_bg_opaque, rgba(255,255,255,0)), var(--tc_ui_bg) 16px) 100% 0,
+            radial-gradient(farthest-side at 0 50%, var(--tc_ui_shadow-scroll, rgba(100,110,100,0.5)), rgba(0,0,0,0)),
+            radial-gradient(farthest-side at 100% 50%, var(--tc_ui_shadow-scroll, rgba(100,110,100,0.5)), rgba(0,0,0,0)) 100% 0;
+        background-repeat no-repeat
+        background-color var(--tc_ui_bg)
+        background-size 48px 100%, 48px 100%, 16px 100%, 16px 100%
+        background-attachment local, local, scroll, scroll
     & &__table
         width 100%
         font-size f_normal
-        background-color var(--tc_ui_bg)
+        // background-color var(--tc_ui_bg)
         tbody
             position relative
-            box-shadow var(--tc_ui_shadow)
+            // box-shadow var(--tc_ui_shadow)
         th
             font-weight 400
             text-align left
@@ -89,7 +102,7 @@
         td
             padding 12px 15px
             border-bottom 1px solid var(--tc_border_dark)
-            word-break break-word
+            // word-break break-word
             &:first-child
                 padding-left 30px
         tr
@@ -261,6 +274,11 @@
         path
             fill currentColor
 
+@media (pointer: coarse)
+    .int-table
+        & &__table tr:hover
+            background none
+            
 @media maw[dlg]
     .int-table
 
@@ -325,6 +343,9 @@
         & &__table
             th
                 font-size f_small
+            
+            tr:hover
+                background none
 
 @media maw[mlg]
     .int-table
