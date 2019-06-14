@@ -30,11 +30,27 @@
             box-shadow var(--tc_ui_shadow)
             background-color var(--tc_ui_bg)
             border-color var(--tc_border_light)
+            &:first-child
+                background-color var(--tc_ui_bg_darken)
+                .ph__table-coll
+                    padding 15.5px 17px
+                @media maw[mlg]
+                    display none
             &:last-child
                 border-bottom 0
         &-coll
-            padding 20px
+            padding 17px
             display table-cell
+        &.items-1 // empty table
+            .ph__table-row:first-child
+                display block
+                min-height 260px
+                .ph__table-coll,
+                .ph__table-coll span
+                    display flex
+                    width 100%
+                    height 100%
+                    
         span
             display block
             size 100% 20px 
