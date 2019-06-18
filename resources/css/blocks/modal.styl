@@ -287,7 +287,7 @@ $modal-aside-width ?= 320px
 $modal-aside-width-medium ?= 50vw
 $modal-aside-width-large ?= 75vw
 
-$modal-z-index ?= 100
+$modal-z-index ?= 10
 $modal-padding ?= $gap $gap 0
 $modal-dialog-padding ?= $gap
 
@@ -332,6 +332,7 @@ body.has-modal-fullscreen
     right 0
     bottom 0
     overflow auto
+    overscroll-behavior-y contain
     background-color var(--ui-overlay-bg, $overlay-bg)
 
 
@@ -421,8 +422,7 @@ body.has-modal-fullscreen
           & ^[0]__dialog,
           & ^[0]__body,
           & ^[0]__content,
-          & .form-builder.modal_form,
-          & .form-builder.modal_form .line-btns
+          & .form-builder.modal_form
             display flex
             flex-direction column
             flex-grow 1
@@ -431,7 +431,9 @@ body.has-modal-fullscreen
             margin 0
           
           & .form-builder.modal_form .line-btns
-            justify-content flex-end
+            display flex
+            align-items flex-end
+            flex-grow 1
 
 
     &.is-fullscreen,
@@ -623,6 +625,7 @@ body.has-modal-fullscreen
 
 .modal.is-default
   .line-btns
+    background-color var(--tc_ui_bg)
     display flex
     width 'calc( var(--ui-gap, %s) * 3 + 100% )' % $gap
     margin 'calc( var(--ui-gap, %s) * -1.5 )' % $gap
@@ -646,19 +649,19 @@ body.has-modal-fullscreen
       font-size f_medium
       padding 20px 5px
       min-height 60px
-      transition background-color 0.3s ease, color 0.3s ease
-      color var(--tc_btn_text)
-      background-color var(--tc_btn_bg)
+      // transition background-color 0.3s ease, color 0.3s ease
+      // color var(--tc_btn_text)
+      // background-color var(--tc_btn_bg)
       
-      &:hover,
-      &:focus
-        background-color var(--tc_btn_bg_active)
-        color var(--tc_btn_text)
+      // &:hover,
+      // &:focus
+      //   background-color var(--tc_btn_bg_active)
+      //   color var(--tc_btn_text)
 
-      // &:nth-child(2)
-      //   border-top 1px solid var(--tc_border_light)
+      &:nth-child(2)
+        border-top 1px solid var(--tc_border_light)
         
       &[disabled="disabled"]
         background-color var(--tc_ui_darkbg) !important
         pointer-events none
-        opacity 0.5
+        // opacity 0.5

@@ -37,7 +37,8 @@ if ( isDev ) {
     gulp.watch('./resources/css/**/*.styl', gulp.series('build:styles'))
     gulp.watch('./resources/img/**/*', gulp.series('build:img'))
     gulp.watch(['./resources/js/**/*.js', './resources/vue/**/*.vue'], gulp.series('build:js', 'reload'))
-    gulp.watch('./resources/pug/**/*.pug', gulp.series('build:html', 'reload'))
+    // gulp.watch('./resources/pug/**/*.pug', gulp.series('build:html', 'reload'))
+    gulp.watch('./examples/**/*.html', gulp.series('reload'))
   })
 
   gulp.task('reload', function(done) { browserSync.reload(); done() })
@@ -152,7 +153,7 @@ gulp.task('build:icons', function(){
  */
 
 gulp.task('clean', function(){
-  return gulp.src(['./dist', './examples'], { read: false, allowEmpty: true })
+  return gulp.src(['./dist'/*, './examples'*/], { read: false, allowEmpty: true })
     .pipe( clean() )
 })
 
