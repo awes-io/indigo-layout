@@ -50,7 +50,6 @@
         padding 0 15px
         font-size f_medium
         border-radius var(--tc_form_border_radius)
-        padding-top 14px
         tr(0.25, border-color)
         border 1px solid var(--tc_border_ins)
         color var(--tc_text)
@@ -60,6 +59,8 @@
             border 1px solid var(--tc_ui_focus)
         &_password
             padding-right 50px
+        &.has-label
+            padding-top 14px
     &_color
         padding-right 34px
         & ^[0]__field

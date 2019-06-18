@@ -226,3 +226,36 @@ Ready-to-use Blade components and directives.
 @endtable
 ```
 
+## Search form
+
+Search form is a `&lt;filter-wrapper&gt;` component with additional CSS-class for stylization.
+
+Basic markup
+
+```html
+<filter-wrapper class="is-search" send-text="Search">
+    <fb-input name="query" placeholder="Search"></fb-input>
+</filter-wrapper>
+```
+
+<div class="vue-example">
+<filter-wrapper class="is-search" send-text="Search">
+    <fb-input name="query" placeholder="Search"></fb-input>
+</filter-wrapper>   
+</div>
+
+To create a live submitting form, add an `auto-submit` prop. This will also hide form buttons.
+
+By default all input elements send value with 300ms debounce. This value is controlled on the `&lt;fb-input&gt;` component
+
+```html
+<filter-wrapper class="is-search" send-text="Search" auto-submit>
+    <fb-input name="query" placeholder="Search" :debounce="1000"></fb-input>
+</filter-wrapper>
+```
+
+<div class="vue-example">
+<filter-wrapper class="is-search" send-text="Search" auto-submit>
+    <fb-input name="query" placeholder="Search" :debounce="1000"></fb-input>
+</filter-wrapper>   
+</div>

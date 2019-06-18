@@ -1,10 +1,10 @@
 @isset($type)
     {{--Placeholder for table--}}
     <div class="ph">
-        <div class="ph__{{ $type }}@isset($dark){{' ph_dark'}}@endisset">
+        <div class="ph__{{ $type }}@isset($dark){{' ph_dark'}}@endisset @isset($items){{' items-' . $items}}@endisset">
             @switch($type)
                 @case('table')
-                    @for($i = 0; $i < 8; $i++)
+                    @for($i = 0; $i < $items; $i++)
                         <i class="ph__{{ $type }}-row"><b class="ph__{{ $type }}-coll"><span></span></b></i>
                     @endfor
                 @break

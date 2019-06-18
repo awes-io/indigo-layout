@@ -29,6 +29,22 @@
     @php $scroll_to = 'true' @endphp
 @endif
 
+{{-- Count items length --}}
+@php
+    $placeholder_rows_count = 11; // 10 rows by default + 1 head
+    if ( isset($default_data) && !empty($default_data) ) {
+        $_count = $placeholder_rows_count;
+        if ( is_array($default_data) ) {
+            $_count = count( $default_data );
+        } elseif ( is_object($default_data) && method_exists($default_data, 'all') ) {
+            $_count = count( $default_data->all() );
+        } elseif ( is_object($default_data) && method_exists($default_data, 'count') ) {
+            $_count = $default_data->count();
+        }
+        $placeholder_rows_count = $_count < $placeholder_rows_count ? $_count + 1 /* add head */ : $placeholder_rows_count;
+    }
+@endphp
+
 {{-- Render the component --}}
 @if ($render)
     <content-wrapper name="{{ $name }}" store-data="{{ $store_data }}"
@@ -42,7 +58,7 @@
 
         {{--Placeholder--}}
         @if(!isset($list))
-            @placeholder(['type' => 'table'])
+            @placeholder(['type' => 'table', 'items' => $placeholder_rows_count])
         @else
             @placeholder(['type' => 'list', 'class' => $class, 'row_class' => $row_class])
         @endisset

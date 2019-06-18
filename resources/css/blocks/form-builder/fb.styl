@@ -1,3 +1,41 @@
 .fb-element
     & + .fb-element
         margin-top 10px
+
+.form-builder
+    
+    &.is-search
+        display flex
+        width 300px
+        max-width 100%
+        
+        .fb-input__field
+            padding-right 55px
+        
+        .line-btns
+            padding-top 0
+            margin 0
+            margin-left -50px
+            display flex
+            flex-direction row-reverse
+            position relative
+            z-index 2
+            
+            .btn
+                min-width inherit
+                padding 15px
+            
+            .form-builder__send
+                margin 0
+                margin-left 10px
+                height 50px
+
+            .form-builder__reset
+                margin 1px
+                font-size 0
+                width 48px
+                height 48px
+                
+                .icon
+                    font-size 1rem
+                    margin-right 0
