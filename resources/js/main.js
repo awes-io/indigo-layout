@@ -9,13 +9,6 @@ const awesPlugin = {
     name, version,
 
     modules: {
-        'vue-shortkey': {
-            src: 'https://unpkg.com/vue-shortkey@3',
-            deps: ['vue'],
-            cb() {
-                Vue.use(VueShortkey)
-            }
-        },
         'v-tooltip': {
             src: 'https://unpkg.com/v-tooltip@2/dist/v-tooltip.min.js',
             deps: ['vue'],
@@ -36,13 +29,13 @@ const awesPlugin = {
                 })
             }
         },
-        'vue-tabs-component': {
-            src: 'https://unpkg.com/vue-nav-tabs@0/dist/vue-tabs.min.js',
-            deps: ['vue'],
-            cb() {
-                Vue.use(VueTabs);
-            }
-        }
+        // 'vue-tabs-component': {
+        //     src: 'https://unpkg.com/vue-nav-tabs@0/dist/vue-tabs.min.js',
+        //     deps: ['vue'],
+        //     cb() {
+        //         Vue.use(VueTabs);
+        //     }
+        // }
     },
 
     install(AWES) {
