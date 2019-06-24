@@ -1,0 +1,37 @@
+.time-range
+            
+    ul&__intervals
+        list-style none
+        margin 0
+        padding 0
+        
+        display flex
+        flex-direction column
+        height 100%
+    
+    ul li&__interval
+        min-height (calendar_height / 10)
+        flex-grow 1
+        margin 0
+    
+    &__button
+        display flex
+        size 100%
+        justify-content center
+        align-items center
+        
+        &:hover,
+        &:focus
+            background-color var(--tc_ui_bg_darken)
+        
+        &.is-current
+            color var(--tc_btn_text)
+            background-color var(--tc_btn_bg_active)
+        
+        &.is-disabled
+            cursor default
+            color var(--tc_text_caption)
+            
+            &:hover,
+            &:focus
+                background-color inherit
