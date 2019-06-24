@@ -69,6 +69,10 @@
                 @isset($row_url)
                     row-url="{{ $row_url }}"
                 @endif
+                
+                @isset($row_click)
+                    :row-click="{{ $row_click }}"
+                @endif
 
                 @isset($class)
                     list-class="{{ $class }}"
