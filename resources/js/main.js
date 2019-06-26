@@ -8,36 +8,6 @@ const awesPlugin = {
 
     name, version,
 
-    modules: {
-        'v-tooltip': {
-            src: 'https://unpkg.com/v-tooltip@2/dist/v-tooltip.min.js',
-            deps: ['vue'],
-            cb() {
-                VTooltip.default.options.defaultClass = 'theme-default';
-                VTooltip.default.options.popover = Object.assign(VTooltip.default.options.popover, {
-                    defaultPlacement: 'right',
-                    defaultAutoHide: false,
-                    defaultTrigger: 'manual',
-                    defaultPopperOptions: {
-                        modifiers: {
-                            flip: {
-                                behavior: ['right', 'top']
-                            }
-                        }
-
-                    }
-                })
-            }
-        },
-        // 'vue-tabs-component': {
-        //     src: 'https://unpkg.com/vue-nav-tabs@0/dist/vue-tabs.min.js',
-        //     deps: ['vue'],
-        //     cb() {
-        //         Vue.use(VueTabs);
-        //     }
-        // }
-    },
-
     install(AWES) {
         // set language variables
         AWES.lang = i18n
