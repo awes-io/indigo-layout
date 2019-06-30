@@ -15,6 +15,7 @@
                     </a>
                 @endif
                 <div class="login-page__sbox">
+                    @notify(['name' => 'top-auth2-perm', 'stack' => 'false', 'config' => "{theme: 'inline', timeout: 0}"])
                     @yield('title')
                     <div class="login-page__form">
                         @yield('content')
