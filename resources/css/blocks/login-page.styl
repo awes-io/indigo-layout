@@ -88,7 +88,6 @@
 
     & &__form
         text-align left
-        margin-bottom 30px
         .line-btns
             .btn
                 width 100%
@@ -178,6 +177,45 @@
                 display block
             &:hover
                 opacity 0.75
+    
+    & &__footer
+        margin-top 30px
+    
+    .system-notify-container:not(.has-children) + *
+        margin-top 0
+        transition 240ms margin-top ease-out
+
+.system-notify-container
+    
+    &.is-top-auth,
+    &.is-top-auth2
+        position fixed
+        left 0
+        top 0
+        z-index 6
+
+    &.is-top-auth
+        width 50%
+        
+        .system-notify
+            padding 0 50px
+            justify-content flex-end
+            
+            &.theme-inline .system-notify__content
+                max-width 350px
+                padding-left 10px
+    
+    &.is-top-auth2
+        width 100%
+        
+        .system-notify
+            padding 0 15px
+            justify-content center
+            
+            &.theme-inline .system-notify__content
+                padding-left 10px
+                max-width 460px
+        
 
 @media maw[tmd]
     .login-page
@@ -186,6 +224,12 @@
             justify-content center
         & &__bg
             width 25%
+    
+    .system-notify-container.is-top-auth
+        width 75%
+        
+        .system-notify
+            justify-content center
 
 
 @media maw[mlg]
@@ -211,18 +255,29 @@
             margin-left auto
             margin-right auto
             box-shadow none
-        & &__form
-            margin-bottom 20px
+        & &__footer
+            margin-top 20px
         & &__spacer
             margin-top 15px
             &_rc
                 margin-top 5px
+        
+    .system-notify-container
+        
+        &.is-top-auth
+            width 100%
+        
+        &.is-top-auth2 .system-notify.theme-inline .system-notify__content
+            max-width 360px
 
 
 @media maw[mmd]
     .login-page
         & &__left
             padding 20px
+    
+    .system-notify-container.is-top-auth .system-notify
+        padding 0 20px
 
 @media maw[msm]
     .login-page

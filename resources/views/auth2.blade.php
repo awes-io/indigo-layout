@@ -5,7 +5,7 @@
 
 <body>
 <content-wrapper class="mainwrapper">
-    @notify(['class' => 'position-top-center', 'name' => 'top-auth2', 'stack' => 'top', 'config' => "{theme: 'inline, rounded'}"])
+    @notify(['name' => 'top-auth2', 'stack' => 'false', 'config' => "{theme: 'inline', timeout: 0}"])
     <div class="login-page">
         <div class="login-page__full" @if(config('indigo-layout.auth_bg_full'))style="background-image: url('{{ config('indigo-layout.auth_bg_full') }}');"@endif>
             <div class="login-page__swrap">
@@ -19,9 +19,11 @@
                     <div class="login-page__form">
                         @yield('content')
                     </div>
-                    <div class="tf-centerlink">
+                    @if(View::hasSection('footer'))
+                    <div class="tf-centerlink login-page__footer">
                         @yield('footer')
                     </div>
+                    @endif
                     @if(AwesAuth::isSocialEnabled())
                         <span class="login-page__spacer"><i>or enter with a social network</i></span>
                         <div class="login-page__socials">
