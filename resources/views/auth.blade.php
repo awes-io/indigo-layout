@@ -15,6 +15,7 @@
                             <img src="{{ config('indigo-layout.logo') }}" alt="{{ config('indigo-layout.name') }}" title="{{ config('indigo-layout.name') }}" />
                         </a>
                     @endif
+                    @notify(['name' => 'top-auth-perm', 'stack' => 'false', 'config' => "{theme: 'inline', timeout: 0}"])
                     @yield('title')
                     <div class="login-page__form">
                         @yield('content')
