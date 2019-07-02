@@ -61,6 +61,10 @@ context-menu
     left: 0
     top: 100%
     z-index 7
+    transform-origin: top center
+      
+    &.is-top-side
+      transform-origin: bottom center
 
   &__overlay
     content: ''
@@ -82,35 +86,6 @@ context-menu
       transition: transform 0ms, opacity overlay-transition
 
 
-
-  // Animation classes
-  .toggle-context-menu
-
-    &-enter-active,
-    &-leave-active
-      will-change: transform, opacity
-      pointer-events: none
-      transform: translate3d(0,0,0)
-      transform-origin: top center
-
-    &-enter-active
-      transition: opacity 250ms ease-out, transform 180ms ease-out
-
-    &-leave-active
-      transition: opacity 120ms ease, transform 140ms ease
-
-    &-enter,
-    &-leave-to
-      opacity: 0
-      transform: translateY(-.5em) scaleY(.95)
-
-    &-enter-to,
-    &-leave
-      opacity: 1
-      transform: translateY(0) scaleY(1)
-
-
-
   // Side modifiers
   &.is-right-side
 
@@ -122,16 +97,36 @@ context-menu
 
     .context-menu__dropdown
       top: auto
-      bottom: 100%
+      bottom: 100%  
 
-    .toggle-context-menu
-      &-enter-active,
-      &-leave-active
-        transform-origin: bottom center
 
-      &-enter,
-      &-leave-to
-        transform: translateY(.5em) scaleY(.95)
+// Animation classes
+.toggle-context-menu
+
+  &-enter-active,
+  &-leave-active
+    will-change: transform, opacity
+    pointer-events: none
+    transform: translate3d(0,0,0)
+
+  &-enter-active
+    transition: opacity 250ms ease-out, transform 180ms ease-out
+
+  &-leave-active
+    transition: opacity 120ms ease, transform 140ms ease
+
+  &-enter,
+  &-leave-to
+    opacity: 0
+    transform: translateY(-.5em) scaleY(.95)
+    
+    &.is-top-side
+      transform: translateY(.5em) scaleY(.95)
+
+  &-enter-to,
+  &-leave
+    opacity: 1
+    transform: translateY(0) scaleY(1)    
 
 
 
