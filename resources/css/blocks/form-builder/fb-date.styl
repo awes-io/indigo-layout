@@ -44,6 +44,16 @@ dp-max()
             .dp-cal .dp-cal-footer > .dp-close
                 display block
         
+        &.is-reservation
+            padding 0
+            
+            @media maw[tsm]
+                width 302px
+
+            @media miw[tsm]
+                width 602px
+                    
+        
         &.is-opened
             visibility visible
             opacity 1
@@ -79,6 +89,8 @@ dp-max()
         absolute top picker_padding right picker_padding
         bottom picker_padding
 
+.modal.is-default .fb-date__picker.is-reservation
+    width 302px
 
 .dp-cal
     cal_padding = 5px

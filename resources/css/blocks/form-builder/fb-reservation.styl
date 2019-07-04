@@ -63,8 +63,32 @@
                 display none
 
 
-    &.is-small &__calendar,
-    &.is-small &__time
+    // &.is-small
         
-        &:not(.is-visible)
-            display none
+    //     ^[0]__calendar,
+    //     ^[0]__time
+        
+    //         &:not(.is-visible)
+    //             display none
+        
+    //     ^[0]__hide-time,
+    //     ^[0]__caption-year
+    //         display block
+
+
+.modal.is-default,
+.fb-reservation.is-small
+    
+    .fb-reservation
+    
+        &__calendar,
+        &__time
+            
+            &:not(.is-visible)
+                display none
+        
+        &__hide-time
+            display block
+
+        &__caption-year
+            display inline
