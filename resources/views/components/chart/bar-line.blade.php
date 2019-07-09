@@ -5,11 +5,7 @@
 {{--GET parameters for API--}}
 @if (isset($parameters) && is_array($parameters) && count($parameters) > 0)
     @php
-        $parametersFormatted = [];
-        foreach($parameters as $_key => $_value){
-            $parametersFormatted[] = $_key . "=\${\$get(\$route, 'query.$_key', '$_value')}";
-        }
-        $queryString = "?" . implode("&", $parametersFormatted);
+        $queryString = "?{" . implode("}&{", $parameters) . '}';
     @endphp
 @else
     @php $queryString = ''; @endphp
@@ -34,7 +30,7 @@
         @endif
         :check-empty="function(data) { return $get(data, 'datasets[0].data', []).length === 0}"
         @isset($api_url)
-            :url="`{{ $api_url . $queryString }}`"
+            :url="$url.urlFromTemplate('{{ $api_url . $queryString }}', $route.query)">
         @endisset
         >
         <template slot-scope="{{ $name }}">
