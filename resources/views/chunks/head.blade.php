@@ -15,7 +15,9 @@
     @externalLink
 
     <!-- config -->
-    <script>AWES_CONFIG = @json(config('indigo-layout.frontend'))</script>
+    <script>AWES_CONFIG = @json(array_merge(config('indigo-layout.frontend'), [
+        'lang' => app(\Illuminate\Contracts\Translation\Translator::class)->get('indigo-layout::js')
+    ]))</script>
 
     <!-- scripts -->
     @scripts(['items' => $src['js'], 'nomodule' => false])
