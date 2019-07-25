@@ -10,6 +10,7 @@ This component is intended for displaying the side menu as a two-level dropdown 
 - **Frame Navigation**
 - [Grid](./grid.md)
 - [Content](./classes.md)
+- [Layout configuration](./layout-config.md)
 - [Slide Up Down](./slide-up-down.md)
 - [Margins and paddings](./margins.md)
 - [Icons](./icons.md)
@@ -64,7 +65,7 @@ If there are child items, clicking on the menu item will cause the transition vi
 
 #### The `children` {Array<LinksItem>} parameter
 
-If the `link` parameter is specified, this parameter is optional. If the `link` parameter is not specified, the `children` parameter is required. 
+If the `link` parameter is specified, this parameter is optional. If the `link` parameter is not specified, the `children` parameter is required.
 
 It displays child items (subitems) of the menu item. If there is the `children` parameter, an arrow will appear near the item name, and if you click on it, the list of menu child items will open. If the `link` parameter is not passed, the list of child items will open/close when clicking on the item name.
 

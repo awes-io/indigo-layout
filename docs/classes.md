@@ -1,4 +1,4 @@
-# Content 
+# Content
 
 The description of CSS/HTML helpers for different each case.
 
@@ -8,6 +8,7 @@ The description of CSS/HTML helpers for different each case.
 - [Frame Navigation](./frame-nav.md)
 - [Grid](./grid.md)
 - **Content**
+- [Layout configuration](./layout-config.md)
 - [Slide Up Down](./slide-up-down.md)
 - [Margins and paddings](./margins.md)
 - [Icons](./icons.md)

@@ -14,6 +14,7 @@ The `&lt;code-block&gt;` component renders highlighted code sample with copy but
 - [Frame Navigation](./frame-nav.md)
 - [Grid](./grid.md)
 - [Content](./classes.md)
+- [Layout configuration](./layout-config.md)
 - [Slide Up Down](./slide-up-down.md)
 - [Margins and paddings](./margins.md)
 - [Icons](./icons.md)

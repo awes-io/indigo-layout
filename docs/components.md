@@ -1,6 +1,6 @@
-# Blade components 
+# Blade components
 
-Ready-to-use Blade components and directives. 
+Ready-to-use Blade components and directives.
 
 ## Components
 - **Blade Components**
@@ -8,11 +8,12 @@ Ready-to-use Blade components and directives.
 - [Frame Navigation](./frame-nav.md)
 - [Grid](./grid.md)
 - [Content](./classes.md)
+- [Layout configuration](./layout-config.md)
 - [Slide Up Down](./slide-up-down.md)
 - [Margins and paddings](./margins.md)
 - [Icons](./icons.md)
 
-## Card Line Chart 
+## Card Line Chart
 
 ### Usage
 ```php
@@ -39,7 +40,7 @@ Ready-to-use Blade components and directives.
 |`filter_default`|`string`| `null` |Default value for `Group Filter`|
 |`color`|`string`| `grey` |One color from prepared color's list. Available colors: `light-blue`, `blue`, `dark-blue`, `violet`, `pink`, `yellow`, `orange`, `red`, `green`. For random color please use `*`. Change the colors you can at the indigo config.|
 
-## Card Doughnut Chart 
+## Card Doughnut Chart
 
 ### Usage
 ```php
@@ -164,7 +165,7 @@ Ready-to-use Blade components and directives.
 
 ### Slots Usage
 
-#### Slot `mobile` 
+#### Slot `mobile`
 
 ```php
 @table([
@@ -178,7 +179,7 @@ Ready-to-use Blade components and directives.
 @endtable
 ```
 
-#### Slot `list` 
+#### Slot `list`
 
 ```php
 @table([
@@ -198,7 +199,7 @@ Ready-to-use Blade components and directives.
 @endtable
 ```
 
-#### Slot `errorCard` 
+#### Slot `errorCard`
 
 ```php
 @table([
@@ -212,7 +213,7 @@ Ready-to-use Blade components and directives.
 @endtable
 ```
 
-#### Slot `emptyCard` 
+#### Slot `emptyCard`
 
 ```php
 @table([
@@ -241,7 +242,7 @@ Basic markup
 <div class="vue-example">
 <filter-wrapper class="is-search" send-text="Search">
     <fb-input name="query" placeholder="Search"></fb-input>
-</filter-wrapper>   
+</filter-wrapper>
 </div>
 
 To create a live submitting form, add an `auto-submit` prop. This will also hide form buttons.
@@ -257,5 +258,5 @@ By default all input elements send value with 300ms debounce. This value is cont
 <div class="vue-example">
 <filter-wrapper class="is-search" send-text="Search" auto-submit>
     <fb-input name="query" placeholder="Search" :debounce="1000"></fb-input>
-</filter-wrapper>   
+</filter-wrapper>
 </div>
