@@ -71,15 +71,21 @@
             text-align center
             width 35px
             color var(--tc_text_caption)
-        &-date
+        &-date,
+        &-type
             width 100px
             color var(--tc_text_caption)
         &-size
             width 120px
             color var(--tc_text_caption)
-        &-type
-            width 100px
-            color var(--tc_text_caption)
+        &-status
+            width 120px
+            &.is-loading
+                color var(--tc_status_warning)
+            &.is-uploaded
+                color var(--tc_status_success)
+            &.is-error
+                color var(--tc_status_error)
         &-delete
             text-align right
             width 74px
@@ -171,15 +177,10 @@
                 width calc(100% - 20px)
                 margin-bottom 5px
                 margin-right 20px
-            &-date
-                font-size f_small
-                margin-bottom 10px
-                margin-right 10px
-            &-type
-                font-size f_small
-                margin-bottom 10px
-                margin-right 10px
-            &-size
+            &-date,
+            &-type,
+            &-size,
+            &-status
                 font-size f_small
                 margin-bottom 10px
                 margin-right 10px
