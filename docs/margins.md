@@ -8,6 +8,7 @@ Helper classes of indents that can be used throughout the system.
 - [Frame Navigation](./frame-nav.md)
 - [Grid](./grid.md)
 - [Content](./classes.md)
+- [Layout configuration](./layout-config.md)
 - [Slide Up Down](./slide-up-down.md)
 - **Margins and paddings**
 - [Icons](./icons.md)
@@ -25,9 +26,9 @@ Helper classes of indents that can be used throughout the system.
 - `.mla, .mta, .mba, .mra, .mxa, .mya, .ma`: margins auto
 
 ### Available sizes
-- 50px 
-- 30px 
-- 20px 
+- 50px
+- 30px
+- 20px
 - 15px
 - 10px
 - 5px
@@ -53,14 +54,14 @@ The same system like in margin section.
 - ...
 
 ## Customization
-If you need to indent, be it margin or padding, you can easily do this using standard system classes. 
+If you need to indent, be it margin or padding, you can easily do this using standard system classes.
 In the ```_setting.styl``` there is an array with variables that you can change to suit your needs:
 
 ```stylus
 margin  = {'50': 50px, '20': 20px, def: 30px, '15': 15px, '10': 10px, '5': 5px, '0': 0}
 ```
-The ```def``` parameter requires a standard deviation for the classes, ".mb, .mb, ...", which will be available without the modifiers ```.mb-15, .mt-10, ...```          
-    
+The ```def``` parameter requires a standard deviation for the classes, ".mb, .mb, ...", which will be available without the modifiers ```.mb-15, .mt-10, ...```
+
 This array generates padding, which is also available with the mediaquery, which is specified in more detail in the [grid](grid.md).
 
 ### The array will generate the following classes:

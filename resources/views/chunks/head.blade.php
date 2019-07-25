@@ -15,12 +15,17 @@
     @externalLink
 
     <!-- config -->
-    <script>AWES_CONFIG = @json(array_merge(config('indigo-layout.frontend'), [
+    <script>AWES_CONFIG = @json(array_merge_recursive(config('indigo-layout.frontend'), [
         'lang' => app(\Illuminate\Contracts\Translation\Translator::class)->get('indigo-layout::js')
-    ]))</script>
+    ], (isset($config) ? $config : [])))</script>
 
     <!-- scripts -->
-    @scripts(['items' => $src['js'], 'nomodule' => false])
-    @scripts(['items' => $src['legacy'], 'nomodule' => true])
+    @scripts([
+        'items' => $src['js'],
+        'nomodule' => false,
+        'exclude' => array_merge(['base-js'], (isset($exclude_scripts) ? $exclude_scripts : []))
+    ])
+    {{-- if you need IE11 uncomment next line --}}
+    {{-- @scripts(['items' => $src['legacy'], 'nomodule' => true]) --}}
     @scripts(['items' => [$src['js']['base-js']]])
 </head>

@@ -8,13 +8,14 @@ Quick and variable grid setting will help you create a grid for almost any situa
 - [Frame Navigation](./frame-nav.md)
 - **Grid**
 - [Content](./classes.md)
+- [Layout configuration](./layout-config.md)
 - [Slide Up Down](./slide-up-down.md)
 - [Margins and paddings](./margins.md)
 - [Icons](./icons.md)
 
 ## First step
 
-To create the grid you need to specify in `_setting.styl` the number of columns and breakpoints, in case the site is 
+To create the grid you need to specify in `_setting.styl` the number of columns and breakpoints, in case the site is
 responsive. For example, I wrote 10 columns and 9 breakpoint, which interact with each other. In the array, you can change the name and resolution, as well as the number of breakpoints, depending on your needs.
 
 ```stylus
@@ -28,7 +29,7 @@ This settings will create a large and flexible class chain, which is described i
 
 ### Default grid
 
-In order to create a grid, you need to wrap a **.cell** in a **.grid**. Both the cell and the grid we have many 
+In order to create a grid, you need to wrap a **.cell** in a **.grid**. Both the cell and the grid we have many
 modifiers, which let's gradually disassemble. The example below shows the standard grid without breakpoints and modifiers _(gap 10)_.
 
 ```html
@@ -123,7 +124,7 @@ If you set `grid_default_gap` to `true`, then each grid will have the specified 
 *   `grid-gap-y`: only vertical indent (top, bottom padding)
 *   `grid-nogap`: disable padding if `grid_default_gap` is true
 
-See Example:    
+See Example:
 
 ```html
 <div class="grid">
