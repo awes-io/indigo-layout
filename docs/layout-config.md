@@ -21,7 +21,7 @@ It is possible to add or overwrite properties in `AWES_CONFIG`, used by front-en
 
 ```php
 @php
-    $config = [
+    $awes_custom_config = [
 
         // overwrite languages
         'lang' => [
