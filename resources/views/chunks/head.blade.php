@@ -17,7 +17,7 @@
     <!-- config -->
     <script>AWES_CONFIG = @json(array_merge_recursive(config('indigo-layout.frontend'), [
         'lang' => app(\Illuminate\Contracts\Translation\Translator::class)->get('indigo-layout::js')
-    ], (isset($config) ? $config : [])))</script>
+    ], (isset($awes_custom_config) ? $awes_custom_config : [])))</script>
 
     <!-- scripts -->
     @scripts([
