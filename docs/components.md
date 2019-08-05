@@ -150,6 +150,7 @@ Ready-to-use Blade components and directives.
 |`store_data`|`string`| `optional` | Name of storage in Vue.js. if not exist, will be a random string. |
 |`scroll_to`|`bool`| `true` | Scrool up after click to pagination |
 |`row_url`|`string`| `optional` | The link by click of row element in the table. |
+|`row_click`|`Function`| `optional` | By default, click on a table row redirects to link in 'row_url' prop. You may overwrite this behaviour. |
 |`pagination`|`bool`| `true` | Will be shown the pagination or not. |
 |`class`|`string`| `null` | The CSS class for table tag. Use this for formating into list style. |
 |`row_class`|`string`| `null` | The CSS class for row inside of the table. Use this field for formatting into list style. |
