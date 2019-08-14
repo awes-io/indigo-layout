@@ -3,7 +3,7 @@ dp_breakpoint_h = 480px
 
 calendar_width = 300px
 time_range_width = 80px
-picker_padding = 10px
+picker_padding = 5px
 
 calendar_height = 270px
 
@@ -25,7 +25,9 @@ dp-max()
     
     &__picker
         margin-top 5px
-        padding picker_padding
+        // padding picker_padding
+        border-radius var(--tc_form_border_radius)
+        border 1px solid var(--tc_border_ins)
         background-color var(--tc_ui_bg)
         box-shadow var(--tc_ui_context_menu_shadow)
         absolute top 100% left 0
@@ -38,33 +40,32 @@ dp-max()
         
         &.has-time
             display flex
-            width (calendar_width + time_range_width)
-            padding-right (picker_padding + time_range_width)
-            
-            .dp-cal .dp-cal-footer > .dp-close
-                display block
+            width (calendar_width + time_range_width + 2*calendar_padding)
         
         &.is-reservation
-            padding 0
+            border none
+        
             
             @media maw[tsm]
-                width 302px
+                width (calendar_width + 2px)
 
             @media miw[tsm]
-                width 602px
-                    
+                width (2 * calendar_width + 2px)
         
+        &.is-range
+            display flex
+            
+            +dp-max()
+                .ui-calendar.is-right
+                    display none
+            
+            +dp-min()
+                width (2 * calendar_width + 2px)
+    
         &.is-opened
             visibility visible
             opacity 1
             transition 200ms opacity, 0ms visibility
-
-        +dp-min()
-            ^[0].is-range &
-                width (2 * calendar_width)
-        
-        .dp-wrapper
-            flex-grow 1
 
 
     &__fb-input
